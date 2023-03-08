@@ -1,4 +1,4 @@
-<h1 align="center">Colored-rectangles</h1>
+<h1 align="center">My Portfolio</h1>
 
 
 
