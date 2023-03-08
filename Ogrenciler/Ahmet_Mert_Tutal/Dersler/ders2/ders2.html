@@ -5,8 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Table</title>
-    <style>table,td,th{border: 1px solid black;
-        border-collapse: collapse;}</style>
+    <style>
+      table,
+      td,
+      th {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
   </head>
   <body>
     <h1>Table konu anlatımı</h1>
@@ -41,9 +47,56 @@
     </table>
 
     <!-- iframe -->
-<iframe src="https://getbootstrap.com/docs/5.0/getting-started/introduction/" frameborder="0"></iframe>
-<!-- <iframe width="1519" height="553" src="https://www.youtube.com/embed/2Ay1V9uXI7c" title="Five Finger Death Punch - Wrong Side of Heaven (Official Audio)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
-<video src="./videos/mov_bbb.mp4" controls autoplay ></video>  
-</body>
- 
+    <iframe
+      src="https://getbootstrap.com/docs/5.0/getting-started/introduction/"
+      frameborder="0"
+    ></iframe>
+    <!-- <iframe width="1519" height="553" src="https://www.youtube.com/embed/2Ay1V9uXI7c" title="Five Finger Death Punch - Wrong Side of Heaven (Official Audio)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+    <video
+      onloadstart="this.volume=0.01"
+      src="./videos/y2mate.com - Five Finger Death Punch  Wrong Side of Heaven Official Audio_144p.3gp"
+      controls
+    ></video>
+    <!-- autoplay direkt başlamayı sağlıyor tarayıcı bunu yapmıyorsa sonrasında loop kullanılabilir -->
+    <br /><br /><br />
+    <!-- form -->
+    <div>
+      <form>
+        <div>
+          <label for="name">İsim:</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div>
+          <label for="surName">Soyad</label>
+          <input type="text" name="name" id="Surname" />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" name="mail" id="email" />
+        </div>
+        <div>
+            <label for="password">parola:</label>
+            <input type="password" name="pass" id="password" />
+          </div>
+          <div>
+            <label >Cinsiyet</label><br>
+            <label for="man">erkek</label><input name="sex"id="man" type="radio" >
+            <label for="woman">kadın</label><input name="sex" id="man" type="radio" >
+          </div>
+          <div>
+            <label >Diller</label><br>
+            <label for="js">js</label><input name="dil"id="js" type="checkbox" >
+            <label for="html">Html</label><input name="dil" id="html" type="checkbox" >
+          </div>
+          <!-- radiobuttonda aynı nameye sahipse aynı anda seçtirmez -->
+          
+          <input type="submit">
+          <button type="submit">Gönderr</button>
+      </form>
+      <!-- görselleri vektörel olarak kullanmak çok daha iyi -->
+      <!-- görsellerde de jpeg png yerine web.p kllanmak çok daha iyi -->
+      <!-- performans için chromede lighthouse var -->
+
+    </div>
+  </body>
 </html>
