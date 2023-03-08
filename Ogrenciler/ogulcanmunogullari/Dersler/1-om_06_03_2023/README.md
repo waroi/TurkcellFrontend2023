@@ -11,3 +11,4 @@
     <li><a href="https://www.w3schools.com/html/html_links.asp" target="_blank">a</a></li>
     <li><a href="https://www.w3schools.com/html/html_images.asp" target="_blank"> img</a></li>
 </ul>
+<a href="https://github.com/waroi/TurkcellFrontend2023/tree/main/Ogrenciler/ogulcanmunogullari">Geri Dön</a>
