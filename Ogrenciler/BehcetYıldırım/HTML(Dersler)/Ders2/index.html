@@ -33,7 +33,46 @@
             </tr>
         </tbody>
     </table> -->
-    <video src="" controls autoplay loop muted></video>
-    <audio src="" controls autoplay></audio>
+        <!-- <video src="../../../../Dersler/Ders02-Html-Table/assets/video.mp4" controls autoplay loop muted></video>
+        <audio src="../../../../Dersler/Ders02-Html-Table/assets/video.mp4" controls autoplay></audio> -->
+
+        
+    <form > <!-- div içerisinde form kullanmak yerine form içerisinde div kullanmak daha iyidir. Çünkü tek bir form içerisinde bütün inputları göndermemizi sağlar.-->
+        <div>
+            <label for="name">İsim:</label>
+            <input type="text" id="name">
+        </div><br>
+        <div>
+            <label for="surname">Soyisim:</label>
+            <input type="text" id="surname">
+        </div><br>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+        </div><br>
+        <div>
+            <label for="parola">Parola:</label>
+            <input type="password" id="parola">
+        </div><br>
+        <div>
+            <label>Cinsiyet</label><br>
+            <label for="man">Erkek</label>
+            <input type="radio" name="sex" id="man">
+            <label for="woman">Kadın</label>
+            <input type="radio" name="sex" id="woman">
+        </div><br>
+        <div>
+            <label>Programlama Dilleri</label><br>
+            <label for="python">Python</label>
+            <input type="checkbox" name="langs" id="python">
+            <label for="CSS">CSS</label>
+            <input type="checkbox" name="langs" id="CSS">
+            <label for="C">C</label>
+            <input type="checkbox" name="langs" id="C">
+            <label for="Java">Java</label>
+            <input type="checkbox" name="langs" id="Java">
+        </div><br>
+        <button type="submit">Gönder</button>
+    </form>   
 </body>
 </html>
