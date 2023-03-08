@@ -5,3 +5,7 @@
 <ul>
     <li> <a href="./1-om_06_03_2023"> 1. Gün </a> </li>
 </ul>
+<h3>Ödevler </h3>
+<ul>
+    <li> <a href="./Odevler/1_html_portfolio"> 1. Sadece HTML ile Portfolyo </a> </li>
+</ul>
