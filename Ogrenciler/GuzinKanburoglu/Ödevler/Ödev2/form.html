@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Öneri Form Sayfası</title>
+  </head>
+  <style>
+    img {
+      width: 250px;
+      margin: auto;
+      display: flex;
+    }
+    h1 {
+      width: 250px;
+      margin: auto;
+      display: flex;
+      margin-top: 20px;
+    }
+
+    #img2 {
+      margin-left: 850px;
+    }
+
+    #form {
+      margin: auto;
+      background-color: rgb(231, 72, 107);
+      width: 500px;
+      padding: 10px;
+      box-shadow: 5px 5px rgb(245, 173, 180);
+      border-radius: 5%;
+    }
+    button {
+      cursor: pointer;
+    }
+    #button1 {
+      margin-left: 30%;
+      margin-right: 20px;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+  <body>
+    <div>
+      <img src="../../Resimler/kitap.png" alt="kitap" />
+    </div>
+    <h1>Truva Kitabevi</h1>
+    <br />
+    <div id="form">
+      <form>
+        <h4>Öneri Formu</h4>
+        <label for="isim">İsim: </label>
+        <br />
+        <input type="text" id="isim" />
+        <br /><br />
+        <label for="soyisim">Soyisim: </label>
+        <br />
+        <input type="text" id="soyisim" />
+        <br /><br />
+        <label for="email">Email: </label><br />
+        <input type="email" name="email" />
+        <br /><br />
+        <label>Cinsiyet: </label> <br />
+        <label for="woman">Kadın</label>
+        <input type="radio" name="sex" id="woman" />
+        <label for="man">Erkek</label>
+        <input type="radio" name="sex" id="woman" />
+        <br /><br />
+        <label for="talep">Öneriniz: </label> <br />
+        <textarea name="talep" id="talep" cols="30" rows="7"></textarea><br />
+        <br />
+        <button id="button1">Gönder</button>
+        <button>
+          <a href="./öneri_liste.html" target="_blank">Öneriler</a>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
