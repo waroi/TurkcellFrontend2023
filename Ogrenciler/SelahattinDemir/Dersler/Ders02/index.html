@@ -10,9 +10,9 @@
     <table>
         <thead>
             <tr>
-                <th>Ad</th>
-                <th>Soyad</th>
-                <th>Yaş</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
             </tr>
         </thead>
         <tbody>
@@ -38,5 +38,52 @@
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/pQN-pnXPaVg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+    <video src="./assets/video.mp4" controls autoplay loop muted></video>
+    <audio src="./assets/video.mp4" controls autoplay loop muted></audio>
+
+    <form>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="surname">Surname</label>
+            <input type="text" name="surname" id="surname">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div>
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age">
+        </div>
+        <div>
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender">
+                <option value="man">Man</option>
+                <option value="women">Women</option>
+            </select>
+        </div> 
+        <div>
+            <label>Gender</label> <br>
+            <label for="women">Women</label>
+            <input type="radio" name="gender" id="women">
+            <label for="man">Man</label>
+            <input type="radio" id="man" name="gender">
+        </div> 
+        <div>
+            <label>Programming Languages</label><br>
+            <label for="python">Python</label>
+            <input type="checkbox" name="langs" id="python">
+            <label for="java">Java</label>
+            <input type="checkbox" name="langs" id="java">
+            <label for="csharp">C#</label>
+            <input type="checkbox" name="langs" id="csharp">
+            <label for="javascript">JavaScript</label>
+            <input type="checkbox" name="langs" id="javascript">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>

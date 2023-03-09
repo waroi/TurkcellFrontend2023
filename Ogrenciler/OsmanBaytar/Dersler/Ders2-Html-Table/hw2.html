@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW2</title>
+    <style>
+        body{
+            background-color: yellowgreen;
+        }
+        nav{
+            border: 2px solid red;
+            width: 800px;
+            height: 200px;
+            border-radius: 10px;
+            background-color: yellow;
+            position: relative;
+            left: 555px;
+            font-size: 35px;
+            text-align: center;
+        }
+        div.part{
+            border: 2px solid red;
+            width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            background-color: yellow;
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            font-size: 25px;
+            padding: 10px;
+        }
+        div#left{
+            left: 100px;
+        }
+        div#mid{
+            left: 480px;
+            height: 230px;
+        }
+        div#right{
+            left: 800px;
+        }
+        form{
+            font-size: 20px;
+            text-align: left;
+        }
+        br{
+            width: 300px;
+        }
+        button{
+            background-color: black;
+            color: yellow;
+            width: 150px;
+            height: 40px;
+            border: 3px solid black;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+        label{
+            line-height: 2px;
+        }
+        footer{
+            border: 2px solid red;
+            width: 800px;
+            height: 200px;
+            border-radius: 10px;
+            background-color: yellow;
+            position: relative;
+            left: 555px;
+            font-size: 35px;
+            text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <nav>
+        <p>Lütfen kişisel bilgilerinizi giriniz ve yetenek alanını doldurunuz.</p>
+        <p>Ardından kayıt işlemini tamamlayınız.</p>
+    </nav>
+    <br>
+    <br>
+    <div class="part" id="left">
+        <br>
+        <div>Kişisel Bilgiler</div>
+        <br>
+        <form>
+            <div>
+                <label for="name">İsim</label>
+                <input type="text" id="name" style="float:right">
+            </div>
+            <div>
+                <label for="surname">Soy İsim</label>
+                <input type="text" id="surname" style="float:right">
+            </div>
+            <div>
+                <label for="age">Doğum Tarihi</label>
+                <input type="date" id="age" style="float:right">
+            </div>
+            <br>
+            <div>
+                <label>Cinsiyet</label>
+                <br>
+                <label for="female">Kadın</label>
+                <input type="radio" name="gender" id="female">
+                <label for="male">Erkek</label>
+                <input type="radio" name="gender" id="male">
+            </div>
+        </form>
+    </div>
+    <div class="part" id="mid">
+        <br>
+        <div>Kayıt İşlemi</div>
+        <br>
+        <div>
+            <form>
+                <div>
+                    <label for="username">Kullanıcı Adı</label>
+                    <input type="text" id="username" style="float:right">
+                </div>
+                <div>
+                    <label for="password">Şifre</label>
+                    <input type="password" id="password" style="float:right">
+                </div>
+                <div>
+                    <label for="password_again">Şifre Tekrar</label>
+                    <input type="password" id="password_again" style="float:right">
+                </div>
+            </form>
+            <br>
+            <button type="submit">Kayıt Ol</button>
+        </div>
+    </div>
+    <div class="part" id="right">
+        <br>
+        <div>Yetenek Alanı</div>
+        <br>
+        <form>
+            <label>Proglama Dilleri</label>
+            <br>
+            <label for="python">Python</label>
+            <input type="checkbox" name="langs_pc" id="python">
+            <label for="javascript">Javascipt</label>
+            <input type="checkbox" name="langs_pc" id="javascript">
+            <label for="css">Css</label>
+            <input type="checkbox" name="langs_pc" id="css">
+            <br>
+            <label for="html">Html</label>
+            <input type="checkbox" name="langs_pc" id="html">
+            <label for="java">Java</label>
+            <input type="checkbox" name="langs_pc" id="java">
+        </form>
+        <form>
+            <label>Yabancı Diller</label>
+            <br>
+            <label for="ing">İngilizce</label>
+            <input type="checkbox" name="langs" id="ing">
+            <label for="al">Almanca</label>
+            <input type="checkbox" name="langs" id="al">
+            <label for="rus">Rusça</label>
+            <input type="checkbox" name="langs" id="rus">
+            <br>
+            <label for="isp">İspanyolca</label>
+            <input type="checkbox" name="langs" id="isp">
+            <label for="ita">İtalyanca</label>
+            <input type="checkbox" name="langs" id="ita">
+        </form>
+    </div>
+    <footer>
+        <p>Lütfen bilgilerinizin doğruluğunu kontrol ediniz.</p>
+        <p>Bir sorunla karşılaşmanız durumunda xxx@gmail.com adresinden bize ulaşabilirsiniz.</p>
+    </footer>
+</body>
+</html>
