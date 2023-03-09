@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Suggestion Form</title>
+    <style>
+      form {
+        border: 2px solid #ddd;
+        padding: 20px;
+        border-radius: 10px;
+        width: 400px;
+        margin: auto;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 90%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+        font-size: 16px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      h3 {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .logo {
+        display: block;
+        margin: auto;
+        width: 200px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>
+      <img src="./turkcell.png" alt="logo" class="logo" />
+      Suggestion Form
+    </h3>
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email address"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="Enter your phone number"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="suggestion">Suggestion:</label>
+        <textarea
+          id="suggestion"
+          name="suggestion"
+          placeholder="Enter your suggestion"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </body>
+</html>
