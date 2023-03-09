@@ -9,5 +9,5 @@
 <h3>Ödevler </h3>
 <ul>
     <li> <a href="./Odevler/1_html_portfolio"> 1. Sadece HTML ile Portfolyo </a> </li>
-    <li> <a href="./Odevler/1_html_portfolio"> 2. Table-IFrame-Form İletişim Sayfası </a> </li>
+    <li> <a href="./Odevler/2_html_table_form"> 2. Table-IFrame-Form İletişim Sayfası </a> </li>
 </ul>
