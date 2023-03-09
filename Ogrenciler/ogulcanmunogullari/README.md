@@ -3,7 +3,8 @@
 <h4> Bu sayfa sizin klasörlerin içerisinde daha rahat dolaşması için tasarlanmıştır. </h4>
 <h3>Dersler </h3>
 <ul>
-    <li> <a href="./Dersler/1-om_06_03_2023"> 1. Gün </a> </li>
+    <li> <a href="./Dersler/1_om_06_03_2023"> 1. Gün </a> </li>
+    <li> <a href="./Dersler/2_om_08_03_2023"> 2. Gün </a> </li>
 </ul>
 <h3>Ödevler </h3>
 <ul>
