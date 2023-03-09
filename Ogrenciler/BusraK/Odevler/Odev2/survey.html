@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+	<title>
+		Survey
+	</title>
+	<style>
+		body {
+			background-color: #27187e;
+			font-family: sans-serif;
+			text-align: center;
+		}
+		form {
+			background-color: #90caf9;
+			padding:10px; 
+            width: 600px;
+            margin: 90px auto;
+		}
+		h1{
+			color: aliceblue;
+		}
+	</style>
+</head>
+<body>
+	<h1>Lütfen formu eksiksiz doldurunuz.</h1>
+	<form>
+		<div>
+			<label for="name">
+				İsim
+			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="text"
+				   placeholder="isim giriniz" />
+		</div><br>
+		<div>
+			<label for="email">
+				Email
+			</label>&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="email"
+				   placeholder="email giriniz" />
+		</div><br>
+		<div>
+			<label for="surname">
+				Surname
+			</label>
+			<input type="text"
+				placeholder="soyad giriniz" />
+		</div><br>
+		<div>
+			<label for="time">
+				Tercih ettiğiniz çalisma şekli nedir?
+			</label>
+			<br><br>
+			<select name="time">
+				<option value="uzaktan">uzaktan</option>
+				<option value="hibrit">hibrit</option>
+				<option value="ofis">ofis</option>
+			</select>
+		</div><br>
+		<div>
+			<label>
+				Bizi nereden keşfettiniz?
+			</label>
+            <br>
+			<label for="sosyal">
+				<input type="radio"
+					   name="sosyal">Sosyal Medya</input>
+			</label>
+			<label for="ilan">
+				<input type="radio"
+					name="ilan">İlan</input>
+			</label>
+			<label for="arkadas">
+				<input type="radio"
+					name="arkadas">Arkadaş</input>
+			</label>
+		</div><br>
+        <br>
+		<div>
+			<label for="sonuc">
+				Eklemek istedikleriniz
+			</label><br><br>
+			<textarea name="sonuc"
+				placeholder="eklemek istediklerinizi yaziniz">
+			</textarea>
+		</div><br>
+		<button type="submit">
+			Submit
+		</button>
+	</form>
+</body>
+</html>
