@@ -1,37 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sementic html 5</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html 5 Semantik Etiketler</title>
     <style>
-        header {
-            background-color: blue;
-            width: 100px;
-            height: 100px;
-        }
-        footer {
-            background-color: rgb(255, 0, 136);
-            width: 100px;
-            height: 100px;
-        }
-        nav {
-            background-color: rgb(0, 255, 13);
-            width: 100px;
-            height: 100px;
-        }
-        aside {
-            background-color: rgb(242, 255, 0);
-            width: 100px;
-            height: 100px;
-        }
-        
+      header,
+      footer {
+        height: 100px;
+        background-color: rgb(9, 132, 213);
+        width: 100%;
+      }
+      nav {
+        height: 100px;
+        background-color: rgb(255, 0, 0);
+        width: 100%;
+      }
+      article {
+        width: 70%;
+        height: 500px;
+        background-color: rgb(138, 9, 250);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      aside {
+        width: 30%;
+        height: 500px;
+        background-color: rgb(9, 247, 73);
+      }
+      section {
+        width: 100%;
+        height: 100px;
+        background-color: rgb(255, 136, 16);
+      }
+      .row {
+        display: flex;
+      }
+      * {
+        box-sizing: border-box;
+        text-align: center;
+        color: azure;
+      }
     </style>
-</head>
-<body>
-    <header>header</header>
-    <nav> nav </nav>
-    <footer> footer</footer>
-</body>
+  </head>
+  <body>
+    <header>Header</header>
+    <nav>Nav</nav>
+    <div class="row">
+      <article>
+        Article
+        <section>Section</section>
+      </article>
+      <aside>Aside</aside>
+    </div>
+    <footer>Footer</footer>
+  </body>
 </html>
