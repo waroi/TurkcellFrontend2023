@@ -6,6 +6,15 @@
     list-style: none;
 }
 
+.opening {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    animation: transitionOut 2s forwards;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+   
+}
 
 header {
     display: flex;
@@ -73,6 +82,10 @@ a:hover {
     padding-bottom: 5px;
 }
 
+.container p {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 0.99rem;
+}
 
 main {
     display: flex;
@@ -100,6 +113,10 @@ aside ul li:nth-child(1) {
     margin-top: 2rem;
 }
 
+aside ul li i {
+    font-weight: bold;
+}
+
 aside img {
     width: 300px;
     padding-top: 10px;
@@ -112,8 +129,8 @@ article {
 }
 
 footer {
-    position: fixed;
     display: flex;
+    position: fixed;
     justify-content: space-evenly;
     align-items: center;
     background-color: antiquewhite;
@@ -121,9 +138,23 @@ footer {
     margin: 0 auto;
     bottom: 0;
     padding: 10px;
+    border-top: 5px solid black;
 
 }
 
 footer h5 {
     font-size: larger;
+}
+
+@keyframes transitionOut {
+    from {
+        src: "https://i.gifer.com/origin/e9/e9cd81c935d85d2b984b3cd3cae1a5c8.gif";
+        opacity: 1;
+        z-index: 9999;
+    }
+
+    to {
+        opacity: 0;
+        z-index: -9999;
+    }
 }
