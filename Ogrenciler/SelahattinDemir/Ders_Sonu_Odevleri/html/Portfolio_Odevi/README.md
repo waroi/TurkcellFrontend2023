@@ -8,3 +8,6 @@
 
 This project is a portfolio website made with HTML. I aimed to make a portfolio of my own on this website.
 
+## Website
+
+![alt text](https://github.com/Selahaddin64/TurkcellFrontend2023/blob/add_gif/Ogrenciler/SelahattinDemir/Ders_Sonu_Odevleri/html/Portfolio_Odevi/Gif/1.-Odev.gif)
