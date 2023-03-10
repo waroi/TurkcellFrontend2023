@@ -5,6 +5,7 @@
 <ul>
     <li> <a href="./Dersler/1_om_06_03_2023"> 1. Gün </a> </li>
     <li> <a href="./Dersler/2_om_08_03_2023"> 2. Gün </a> </li>
+    <li> <a href="./Dersler/3_om_10_03_2023"> 3. Gün </a> </li>
 </ul>
 <h3>Ödevler </h3>
 <ul>
