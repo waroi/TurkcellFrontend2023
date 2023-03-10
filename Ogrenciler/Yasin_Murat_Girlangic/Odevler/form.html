@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Başvuru Formu </title>
+
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Kendi Tatilinizi Kendiniz Oluşturun</h2>
+
+    <h4>Kişisel Bilgiler:</h4>
+
+    <form>
+      <div>
+        <label for="area">Tatil Seçenekler:</label>
+        <select name="tatil" id="tatil">
+          <option value="Akdeniz"> Akdeniz Turu</option>
+          <option value="Ege">Ege Turu</option>
+          <option value="Karadeniz">Karadeniz Turu</option>
+        </select>
+      </div>
+
+      <br />
+      <div>
+        <label for="name">İsim: </label>
+        <input type="text" name="name" id="name" placeholder="İsim" />
+      </div>
+
+      <br />
+      <div>
+        <label for="surname">Soyisim: </label>
+        <input type="text" name="surname" id="surname" placeholder="Soyisim" />
+      </div>
+      <br />
+
+      <div>
+        <label for="birthday">Doğum Tarihi:</label>
+        <input type="date" id="birthday" name="birthday" />
+      </div>
+      <br />
+
+      <div>
+        <label for="email">e-posta: </label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="adres@gmail.com"
+        />
+      </div>
+      <br />
+      <div>
+        <label>Cinsiyet:</label> <br />
+        <label for="women">Kadın</label>
+        <input type="radio" name="gender" id="women" />
+        <label for="man">Erkek</label>
+        <input type="radio" name="gender" id="man" />
+      </div>
+
+      <br />
+
+      <div>
+        <label>Medeni Durum:</label> <br />
+        <label for="hal">Evli</label>
+        <input type="radio" name="hal" id="hal" />
+        <label for="hal">Bekar</label>
+        <input type="radio" name="hal" id="hal" />
+        <label for="hal">Boşanmış</label>
+        <input type="radio" name="hal" id="hal" />
+      </div>
+      <br />
+      <div>
+        <label>Kaç Kişisiniz ? :</label> <br />
+        <label for="kisi1">1</label>
+        <input type="checkbox" name="kisi1" id="kisi1" />
+        <label for="kisi2">2</label>
+        <input type="checkbox" name="kisi2" id="kisi2" />
+        <label for="kisi3">3</label>
+        <input type="checkbox" name="kisi3" id="kisi3" />
+        <label for="kisi4">3</label>
+        <input type="checkbox" name="kisi4" id="kisi4" />
+      </div>
+
+      <br />
+      <div>
+        <label for="GirisTarihi">Giriş Tarihi:</label>
+        <input type="date" id="GirisTarihi" name="GirisTarihi" />
+      </div>
+      <div>
+        <br>
+        <label for="cikisTarihi">Giriş Tarihi:</label>
+        <input type="date" id="cikisTarihi" name="cikisTarihi" />
+      </div>
+      <div>
+        <br>
+        <span
+          >Ektra olarak tatilinizde ne tür aktiviteler olmasını talep edersiniz ?</span
+        >
+        <br />
+        <textarea
+          name="metin"
+          id="metin"
+          cols="30"
+          rows="10"
+          placeholder="Bu alana mesajnızı yazınız..."
+        ></textarea>
+        <br />
+          <button type="button">Gönder</button>
+      </div>
+    </form>
+  </body>
+</html>
