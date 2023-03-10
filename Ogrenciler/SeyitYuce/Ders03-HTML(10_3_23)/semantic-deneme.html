@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group Work</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      header {
+        display: flex;
+        background-color: rgb(9, 132, 213);
+        justify-content: space-around;
+      }
+      footer {
+        height: 100px;
+        background-color: rgb(9, 132, 213);
+        width: 100%;
+      }
+      nav {
+        height: 50px;
+        background-color: rgba(255, 0, 0, 0.408);
+        width: 100%;
+      }
+      main {
+        background-color: rgb(16, 0, 245);
+        width: 70%;
+        /* margin-left: 5%; */
+        box-sizing: border-box;
+        height: 600px;
+      }
+      article {
+        width: 70%;
+        height: 500px;
+        background-color: rgb(176, 108, 236);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        position: relative;
+        left: 15%;
+      }
+      aside {
+        width: 30%;
+        height: 600px;
+        background-color: rgba(9, 247, 72, 0.363);
+      }
+      section {
+        width: 100%;
+        height: 100px;
+        background-color: rgb(255, 136, 16);
+      }
+      .row {
+        display: flex;
+      }
+      * {
+        box-sizing: border-box;
+        text-align: center;
+        color: rgb(0, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="./flight.png" alt="" />
+      <h1>Bu Yaz Nasıl Bir Tatil İstersiniz ?</h1>
+    </header>
+    <nav>
+      <a href="#">Ana Sayfa</a>
+      <a href="#">İletişim</a>
+      <a href="#">Sipariş</a>
+      <a href="#">Hakkında</a>
+    </nav>
+    <div class="row">
+      <aside>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d100033.6085403108!2d27.1876096!3d38.4172032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str!4v1678469993611!5m2!1str!2str"
+          width="100%"
+          height="300"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <span>Sonuçları Filtrele</span>
+        <div>
+          <label>Bölge</label>
+          <input type="text" placeholder="Bölge Ara" />
+          <div>
+            <label for="area">Tatil Tur Seçenekler:</label>
+            <select name="tatil" id="tatil">
+              <option value="Akdeniz">Akdeniz Turu</option>
+              <option value="Ege">Ege Turu</option>
+              <option value="Karadeniz">Karadeniz Turu</option>
+            </select>
+            <br />
+            <div>
+              <h3>Tesis</h3>
+              <label for="otel">Otel</label>
+              <input type="radio" name="gender" id="otel" />
+              <label for="kamp">Çadır Kamp</label>
+              <input type="radio" name="gender" id="kamp" />
+              <label for="koy">Tatil Köyü</label>
+              <input type="radio" name="gender" id="koy" />
+            </div>
+            <button>Ara</button>
+          </div>
+        </div>
+      </aside>
+      <main>
+        <h3>Kayıt Bilgileri</h3>
+        <article>
+          <figure>
+            <div>
+              <label for="name">İsim: </label>
+              <input type="text" name="name" id="name" placeholder="İsim" />
+            </div>
+
+            <br />
+            <div>
+              <label for="surname">Soyisim: </label>
+              <input
+                type="text"
+                name="surname"
+                id="surname"
+                placeholder="Soyisim"
+              />
+            </div>
+            <br />
+
+            <div>
+              <label for="birthday">Doğum Tarihi:</label>
+              <input type="date" id="birthday" name="birthday" />
+            </div>
+            <br />
+
+            <div>
+              <label for="email">e-posta: </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="adres@gmail.com"
+              />
+            </div>
+            <br />
+            <div>
+              <label>Cinsiyet:</label> <br />
+              <label for="women">Kadın</label>
+              <input type="radio" name="gender" id="women" />
+              <label for="man">Erkek</label>
+              <input type="radio" name="gender" id="man" />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Medeni Durum:</label> <br />
+              <label for="hal">Evli</label>
+              <input type="radio" name="hal" id="hal" />
+              <label for="hal">Bekar</label>
+              <input type="radio" name="hal" id="hal" />
+            </div>
+            <br />
+            <div>
+              <label>Kaç Kişisiniz ? :</label> <br />
+              <label for="kisi1">1</label>
+              <input type="checkbox" name="kisi1" id="kisi1" />
+              <label for="kisi2">2</label>
+              <input type="checkbox" name="kisi2" id="kisi2" />
+              <label for="kisi3">3</label>
+              <input type="checkbox" name="kisi3" id="kisi3" />
+              <label for="kisi4">4</label>
+              <input type="checkbox" name="kisi4" id="kisi4" />
+            </div>
+
+            <br />
+            <div>
+              <label for="GirisTarihi">Giriş Tarihi:</label>
+              <input type="date" id="GirisTarihi" name="GirisTarihi" />
+            </div>
+            <div>
+              <br />
+              <label for="cikisTarihi">Çıkış Tarihi:</label>
+              <input type="date" id="cikisTarihi" name="cikisTarihi" />
+            </div>
+            <div>
+              <br />
+              <!-- <span
+                >Ektra olarak tatilinizde ne tür aktiviteler olmasını talep
+                edersiniz ?</span -->
+
+              <!-- <br /> -->
+              <!-- <textarea
+                name="metin"
+                id="metin"
+                cols="40"
+                rows="10"
+                placeholder="Bu alana mesajnızı yazınız."
+              ></textarea> -->
+              <br />
+              <a href="./onay.html" target="_blank">
+                <button type="button">Gönder</button>
+              </a>
+            </div>
+          </figure>
+          <!-- <p></p> -->
+        </article>
+      </main>
+    </div>
+    <footer>
+      Jollytur.com sitesinin tüm seyahat hizmetleri Club Jolly Turizm ve Tic.
+      A.Ş. tarafından verilmektedir. Her hakkı saklıdır. ©2023
+      <br />
+      <div>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+      </div>
+    </footer>
+  </body>
+</html>
