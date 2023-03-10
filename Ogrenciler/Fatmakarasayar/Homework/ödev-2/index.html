@@ -12,7 +12,7 @@
       td{
         border: 1px solid black;
         border-collapse: collapse;
-        background-color: rgb(229, 225, 18);
+      
       }
   
     </style>
@@ -23,6 +23,7 @@
     <h2 >İş Başvuru Formu</h2>
 
 
+    <h3>Şirketler:</h3>
 
     <table>
       <thead>
@@ -55,7 +56,22 @@
 
     <h4 >Kişisel Bilgiler:</h4>
 
+   
+
     <form>
+
+
+      <div>
+        <label for="area">Şirket seçiniz:</label>
+        <select name="companyname" id="area">
+        <option value="Turkcell Akademi">Turkcell Akademi</option>
+        <option value="Atmosware">Atmosware</option>
+      </select>
+      
+     
+      </div>
+
+      <br>
       <div>
         <label for="name">İsim: </label>
         <input type="text" name="name" id="name" placeholder="İsim" />
@@ -150,7 +166,7 @@
 
       <br />
       <div>
-        <span>Mesaj Kutusu: </span> <br/>
+        <span>Anlatmaktan gurur duyduğun bir hikayen varsa bizimle paylaşabilir misin?</span> <br/>
         <textarea
           name="metin"
           id="metin"
@@ -159,8 +175,13 @@
           placeholder="Bu alana mesajnızı yazınız..."
           
         ></textarea> <br>
-        <input type="submit" value="Gönder">
+
+        <!-- <input type="submit" value="Gönder"> -->
+        <button>
+          <a href="./basvuru.html" target="_blank">Gönder</a>
+        </button>
         
+        <!-- <button onclick="document.location='./basvuru.html'">Gönder</button> -->
       </div>
 
 
