@@ -16,6 +16,7 @@
       - [Lists](#lists)
       - [Link Tags](#link-tags)
       - [img Tags](#img-tags)
+      - [Example Website](#example-website)
 
 ## Title Tags
 
@@ -73,5 +74,8 @@
     <li>The size of the picture can be adjusted with the 'width' and 'height' properties.</li>
 </ul>
 
+## Example Website
+
+![alt text](https://github.com/Selahaddin64/TurkcellFrontend2023/blob/add_gif/Ogrenciler/SelahattinDemir/Dersler/Ders01/photo/Ders01.gif)
 
 

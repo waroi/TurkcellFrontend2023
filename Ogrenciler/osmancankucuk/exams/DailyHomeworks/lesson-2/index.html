@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam-2 Form-Table</title>
+  </head>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    body {
+      margin: 0 10%;
+    }
+  </style>
+  <body>
+    <div>
+      <form>
+        <ul
+          style="display: flex; list-style-type: none; justify-content: center"
+        >
+          <li style="margin-right: 1em">
+            <h3 style="text-align: center">Survey</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td><label>Bildiginiz programlama dilleri</label></td>
+                  <td>
+                    <label for="javascript">Javascript</label>
+                    <input type="checkbox" name="'langs" id="javascript" />
+                    <label for="node">Node</label>
+                    <input type="checkbox" name="langs" id="node" />
+                    <label for="csharp">C#</label>
+                    <input type="checkbox" name="langs" id="csharp" />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label>En sevdiginiz ana renk</label></td>
+                  <td>
+                    <label for="red">Kirmizi</label>
+                    <input type="radio" name="color" id="red" />
+                    <label for="green">Yesil</label>
+                    <input type="radio" name="color" id="green" />
+                    <label for="green">Mavi</label>
+                    <input type="radio" name="color" id="blue" />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label>Hobileriniz</label></td>
+                  <td>
+                    <label for="travel">Seyahat</label>
+                    <input type="checkbox" name="hobbies" id="travel" />
+                    <label for="music">Muzik</label>
+                    <input type="checkbox" name="color" id="music" />
+                    <label for="sport">Spor</label>
+                    <input type="checkbox" name="color" id="sport" />
+                    <label for="learning">Ogrenme</label>
+                    <input type="checkbox" name="color" id="learning" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label>Yuzuklerin Efendisinde en sevdiginiz irk</label>
+                  </td>
+                  <td>
+                    <label for="elves">Elfler</label>
+                    <input type="radio" name="race" id="elves" />
+                    <label for="mans">Insanlar</label>
+                    <input type="radio" name="race" id="mans" />
+                    <label for="dwarves">Cuceler</label>
+                    <input type="radio" name="race" id="dwarves" />
+                    <label for="ents">Entler</label>
+                    <input type="radio" name="race" id="ents" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label
+                      >Issiz adaya dusseniz yaninina alacaginiz ilk sey</label
+                    >
+                  </td>
+                  <td>
+                    <label for="lighter">Cakmak</label>
+                    <input type="radio" name="island" id="lighter" />
+                    <label for="water">Su</label>
+                    <input type="radio" name="island" id="water" />
+                    <label for="knife">Bicak</label>
+                    <input type="radio" name="island" id="knife" />
+                    <label for="phone">Telefon</label>
+                    <input type="radio" name="island" id="phone" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>
+            <h3 style="text-align: center">Contact Adress</h3>
+            <ul style="list-style-type: none">
+              <li>
+                <label for="name">NAME</label><br />
+                <input type="text" id="name" />
+              </li>
+              <li>
+                <label for="surname">SURNAME</label><br />
+                <input type="text" id="surname" />
+              </li>
+              <li>
+                <label for="email">EMAIL</label><br />
+
+                <input type="email" id="email" />
+              </li>
+              <li>
+                DEGREE <br />
+                <select name="degree" id="degree">
+                  <option value="bachelor">Bachelor</option>
+                  <option value="msc">Msc</option>
+                  <option value="phd">Phd</option>
+                </select>
+              </li>
+              <li>
+                <label for="message">MESSAGE</label><br />
+                <textarea
+                  name="message"
+                  id="message"
+                  cols="30"
+                  rows="10"
+                  placeholder="Your Message"
+                  style="resize: none"
+                ></textarea>
+              </li>
+              <button type="reset">Reset</button>
+              <button type="submit">Submit</button>
+            </ul>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </body>
+</html>
