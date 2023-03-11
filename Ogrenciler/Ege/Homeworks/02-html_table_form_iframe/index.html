@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ege KARA Landing Page</title>
+    <!-- Uncomment to see table borders. -->
+    <!-- <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style> -->
+  </head>
+  <body bgcolor="ghostwhite">
+    <center>
+      <h1>Ege KARA Landing Page</h1>
+
+      <!-- Apply for A Job ! -->
+      <table cellpadding="10">
+        <caption>
+          <h2>Bizimle Çalışın</h2>
+        </caption>
+
+        <tbody>
+          <form>
+            <tr>
+              <!-- Text, Email-->
+              <td>
+                <div>
+                  <label for="name">Adınız:</label>
+                  <input type="text" id="name" />
+                </div>
+                <br />
+                <div>
+                  <label for="surname">Soyadınız:</label>
+                  <input type="text" id="surname" />
+                </div>
+                <br />
+                <div>
+                  <label for="email">E-Posta:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="ornek@email.com"
+                  />
+                </div>
+                <br />
+                <div>
+                  <label for="phone">Numaranız:</label>
+                  <input type="text" id="phone" placeholder="05** *** ** **" />
+                </div>
+              </td>
+              <!-- Date, Radio -->
+              <td>
+                <center>
+                  <div>
+                    <label for="birthdate">Doğum Tarihiniz</label>
+                    <br />
+                    <input type="date" id="birthdate" />
+                  </div>
+                  <br />
+                  <div>
+                    <label>Cinsiyetiniz</label>
+                    <br />
+                    <label for="female">Kadın</label>
+                    <input type="radio" name="gender" id="female" />
+                    <label for="male">Erkek</label>
+                    <input type="radio" name="gender" id="male" />
+                  </div>
+                  <br />
+                  <div>
+                    <label>Medeni Durumunuz</label>
+                    <br />
+                    <label for="married">Evli</label>
+                    <input type="radio" name="marital" id="married" />
+                    <label for="single">Bekar</label>
+                    <input type="radio" name="marital" id="single" />
+                  </div>
+                </center>
+              </td>
+            </tr>
+            <tr>
+              <!-- File, Checkbox, Radio, Select>Option -->
+              <td>
+                <center>
+                  <div>
+                    <label for="cv">CV</label>
+                    <br />
+                    <input type="file" id="cv" />
+                  </div>
+                  <br />
+                  <div>
+                    <label>Programlama Dilleri</label> <br />
+                    <label for="python">Python</label>
+                    <input type="checkbox" name="langs" id="python" />
+                    <label for="javascript">JavaScript</label>
+                    <input type="checkbox" name="langs" id="javascript" />
+                    <label for="csharp">C#</label>
+                    <input type="checkbox" name="langs" id="csharp" />
+                  </div>
+                  <br />
+                  <div>
+                    <label>Alanınız</label>
+                    <br />
+                    <label for="frontend">Front End</label>
+                    <input type="radio" name="langs" id="frontend" />
+                    <label for="backend">Back End</label>
+                    <input type="radio" name="langs" id="backend" />
+                    <label for="gamedev">Game Dev</label>
+                    <input type="radio" name="langs" id="csharp" />
+                  </div>
+                  <br />
+                  <div>
+                    <label for="cities">Çalışmak istediğiniz şehir</label>
+                    <br />
+                    <!-- For multiple choice -->
+                    <!-- <select id="cities" name="cities" size="2" multiple> -->
+                    <select name="cities" id="cities">
+                      <option value="ankara">Ankara</option>
+                      <option value="amasya">Amasya</option>
+                      <option value="aydin">Aydın</option>
+                      <option value="istanbul">İstanbul</option>
+                      <option value="izmir">İzmir</option>
+                    </select>
+                  </div>
+                </center>
+              </td>
+              <!-- Text Area -->
+              <td>
+                <div>
+                  <label for="why">Neden sizinle çalışmalıyız?</label>
+                  <br />
+                  <textarea
+                    id="why"
+                    cols="40"
+                    rows="10"
+                    placeholder="Yanıtınız..."
+                  ></textarea>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <!-- Buttons - Submit, Reset -->
+              <td colspan="2">
+                <center>
+                  <div>
+                    <button type="submit">Gönder</button>
+                    &nbsp;
+                    <button type="reset">Sıfırla</button>
+                  </div>
+                </center>
+              </td>
+            </tr>
+          </form>
+        </tbody>
+      </table>
+      <br />
+      <hr />
+      <!-- Location - iframe -->
+      <div>
+        <h2>Neredeyiz?</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.5540027884176!2d27.83955663137262!3d37.84732575098374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b92b6f41eb1763%3A0x2f907b91000bb16!2zQXlkxLFuIEtlbnQgTWV5ZGFuxLE!5e0!3m2!1str!2str!4v1678412682526!5m2!1str!2str"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <br />
+      <br />
+    </center>
+  </body>
+</html>
