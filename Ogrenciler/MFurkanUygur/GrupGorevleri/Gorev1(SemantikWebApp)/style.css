@@ -40,6 +40,11 @@ header>h1>a>img {
     filter: drop-shadow(24px 14px 4px #ffffff6c);
 }
 
+header>h1>a>img:hover {
+    filter: drop-shadow(24px 14px 4px #f800006c);
+    transition: .3s ease;
+}
+
 nav {
     height: 3em;
     background-color: rgb(0, 0, 0);
@@ -52,7 +57,7 @@ nav {
 nav>ul {
     /* font-weight: 700;
     font-size: 15px; */
-    color: black;
+    color: white;
     display: flex;
     list-style: none;
     gap: 2rem;
@@ -66,8 +71,9 @@ nav>ul>li>a {
     font-weight: bolder;
     /* background-color: aqua; */
 }
-nav>ul>li>a:hover{
-    color:black;
+
+nav>ul>li>a:hover {
+    color: black;
     background-color: white;
     font-weight: bolder;
     border-radius: 25%;
@@ -77,7 +83,7 @@ nav>ul>li>a:hover{
 nav>span>a {
     text-decoration: none;
     padding: 15px;
-    
+
     background: none;
     border: none;
     margin-right: 30px;
@@ -86,12 +92,13 @@ nav>span>a {
     color: white;
 }
 
-nav>span>a:hover{
-    color:black;
+nav>span>a:hover {
+    color: black;
     background-color: white;
     transition: .3s ease;
     border-radius: 25%;
 }
+
 /* Header, Nav Finish */
 
 .row {
@@ -140,6 +147,8 @@ aside {
     width: 75%;   
 } */
 
+
+/* Footer Start */
 footer {
     display: flex;
     width: 100%;
@@ -159,7 +168,6 @@ footer>section:nth-child(2n+1) {
     display: flex;
     height: 30vh;
     padding: 0 1rem 0 0;
-
 }
 
 footer>section:nth-child(1) {
@@ -169,18 +177,21 @@ footer>section:nth-child(1) {
 
 footer>section>ul {
     list-style: none;
-
 }
 
 section>ul>li>p {
     text-align: justify;
 
 }
-
-nav>ul {
+.middle > ul > li{
+    margin: 1.5rem .5rem;
+}
+.middle>ul>li>a {
+    text-decoration: none;
+    color: black;
+}
+.middle>ul>li>a:hover{
+    
     color: white;
 }
-
-.middle>ul>li>i {
-    margin: 1.5rem 0.5rem;
-}
+/* Footer End */
