@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div#box1 {
+        background: aqua;
+        width: 50%; /*yüzde ile verdiğimizde sayfanın oranına göre büyür veya küçülür ve %50 oranında sayfayı kaplar. */
+        height: 100px;
+      }
+      div#box2 {
+        /* bu box2 id'li div, box1 id'li div'in içerisinde olduğu için, box1'e oranla %50 küçülecek.*/
+        width: 50%;
+        height: 50px;
+        background: red;
+      }
+      div#box3 {
+        max-width: 700px; /* max-width demek en fazla çıkabileceği pikseli belirtir. Sayafaya oranla küçülebilir fakat verdiğimiz pikselin ötesinde büyüyemez.*/
+        height: 100px;
+        background: #a7a7a7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+  </body>
+</html>
