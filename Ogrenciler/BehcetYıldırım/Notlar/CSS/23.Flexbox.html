@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 75%;
+            margin: 0 auto;
+            display: flex;
+            /* flex-direction: row; */ /*bu komut oluşturuğumuz box'ları yan yana sıralar. Default'da bu şekilde gelmektedir.
+            column dersek yukarıdan aşağı sıralar.*/
+
+            justify-content: space-around;/*oluşturulan container'ın içinde hangi düzende dizilecelerini belirlemek için kullanırız.*/
+            /* center dersek kutuları container'ın tam ortasına alır*/
+            /* space-between: 1. kutuyu en sola 2. kutuyu en sağa, diğer kutuları da eşit aralıklarla yerleştirir.*/
+            /* space-evenly: bütün boxlar arasında eşit boşluklar bırakarak yerleştirir. */
+
+            flex-wrap: wrap; /* bu özelliği kullanmadığımızda bütün oluşturulan nesneleri tek satıra sığdırmaya çalışır ve yukarıda yazdığımız box-sizing özelliği etkisiz kalır. 
+            bu komut sayesinde tek satıra sığdırmaya çalışmayıp aşağıdan devam eder ve nesnelerin width'leri bozulmaz.*/
+            min-height: 300px; /*min-height verildiğinde en az değeri belirleriz ama büyüyebilir.*/
+            background-color: green;
+        }
+        .box{
+            text-align: center;
+            background-color: #f2f2f2;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Article 1</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="box">
+            <h1>Article 2</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="box">
+            <h1>Article 3</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="box">
+            <h1>Article 4</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="box">
+            <h1>Article 4</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="box">
+            <h1>Article 4</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="box">
+            <h1>Article 4</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+    </div>
+</body>
+</html>

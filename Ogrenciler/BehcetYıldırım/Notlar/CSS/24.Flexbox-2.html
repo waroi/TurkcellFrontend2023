@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 75%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            min-height: 300px; 
+            background-color: black;
+        }
+        .box{
+            text-align: center;
+            background-color: #f2f2f2;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 10px;
+        }
+        .box1{
+            background-color: red;
+        }
+        .box2{
+            background-color: blue;
+            align-self: flex-end;/*align-self yazdığımızda kendi align'nına sahip ola demek. ve yukarıdaki justify-content'e uymaz*/
+        }
+        .box3{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+    
+    </div>
+</body>
+</html>
