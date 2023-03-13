@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Basic Selectors</title>
 
     <style>
-        /* tüm h1'leri seç
+      /* tüm h1'leri seç
         h1{
             color: red;
             background: blue;
@@ -16,79 +16,81 @@
         p{
             color: brown;
         } */
-        /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
-        /* hem h1 hem de p'lere aynı özellikleri vermek için virgül koyarak seçme işlemi yapılabilir. */
-        h1,p{
-            color: red;
-            background: aqua;
-        }
-        /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
-        /* yanlızca id'si logo olanı seçmek istersek (#) kullanırız */
-        #logo{
-            color: purple;
-            background-color: blue ;
-        }
-        /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
-        /* class'a göre seçmek istersek (.) kullanırız */
-        .info{
-            color: pink;
-            background: white;
-        }
-        /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
-        /* iki özelliği de birden sağlayanları seçmek için hiçbir şey koymayız(virgül gibi) */
-        #deneme1.info {
-            color: green;
-            background: wheat;
-        }
-        /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
-        /* sitede verdiğimiz linklerin altındaki çizgileri kaldırmak için kullanırız. Burada bütün linklerinkini kaldırdık. 
+      /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+      /* hem h1 hem de p'lere aynı özellikleri vermek için virgül koyarak seçme işlemi yapılabilir. */
+      h1,
+      p {
+        color: red;
+        background: aqua;
+      }
+      /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+      /* yanlızca id'si logo olanı seçmek istersek (#) kullanırız */
+      #logo {
+        color: purple;
+        background-color: blue;
+      }
+      /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+      /* class'a göre seçmek istersek (.) kullanırız */
+      .info {
+        color: pink;
+        background: white;
+      }
+      /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+      /* iki özelliği de birden sağlayanları seçmek için hiçbir şey koymayız(virgül gibi) */
+      #deneme1.info {
+        color: green;
+        background: wheat;
+      }
+      /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+      /* sitede verdiğimiz linklerin altındaki çizgileri kaldırmak için kullanırız. Burada bütün linklerinkini kaldırdık. 
         a{
             text-decoration: none;
         }*/
-        /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
-        /* sadece ul'in altındaki ve li'nin altındaki a etikelrini seçmek için: parent elementler arasında boşluk bırakarak yazıyoruz */
-        ul li a{
-            text-decoration: none;
-        }
-        .info span {
-            color: black;
-        }
-        /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
-        /* (*) kullanarak bütün hepsini seçeriz  */
-        *{
-            font-size: 15px;
-        }
+      /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+      /* sadece ul'in altındaki ve li'nin altındaki a etikelrini seçmek için: parent elementler arasında boşluk bırakarak yazıyoruz */
+      ul li a {
+        text-decoration: none;
+      }
+      .info span {
+        color: black;
+      }
+      /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+      /* (*) kullanarak bütün hepsini seçeriz  */
+      * {
+        font-size: 20px;
+      }
     </style>
-
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Başlık 1</h1>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <h1>Başlık2</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, sapiente. </p>
-        <h1 id="logo">Logo</h1>
+      <h1>Başlık 1</h1>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <h1>Başlık2</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis,
+        sapiente.
+      </p>
+      <h1 id="logo">Logo</h1>
 
-        <ul>
-            <li>
-                <a href="#">Deneme2</a>
-            </li>
-            <li>
-                <a href="#">Deneme3</a>
-            </li>
-        </ul>
-
-
-
+      <ul>
+        <li>
+          <a href="#">Deneme2</a>
+        </li>
+        <li>
+          <a href="#">Deneme3</a>
+        </li>
+      </ul>
     </header>
-   <h1>
-    <p id="deneme1" class="info"> Lorem ipsum <span>behcet</span> dolor sit amet.</p>
-    <p id="deneme2" class="info">Lorem <span>yıldırım</span> ipsum dolor sit amet.</p>
-    <p class="lead ">Lorem ipsum dolor sit amet.</p>
+    <h1>
+      <p id="deneme1" class="info">
+        Lorem ipsum <span>behcet</span> dolor sit amet.
+      </p>
+      <p id="deneme2" class="info">
+        Lorem <span>yıldırım</span> ipsum dolor sit amet.
+      </p>
+      <p class="lead">Lorem ipsum dolor sit amet.</p>
+    </h1>
 
-   </h1>
-
-   <a href="#">Deneme4</a>
-
-</body>
+    <a href="#">Deneme4</a>
+  </body>
 </html>
