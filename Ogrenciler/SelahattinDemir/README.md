@@ -25,5 +25,9 @@ This file has been created for you to navigate through my folders more easily.
       <td><a href="./Dersler/Ders02"> Ders02 </a></td>
       <td><a href="./Ders_Sonu_Odevleri/Contact_Page_Odevi"> Contact Page Odevi </a></td>
    </tr>
+   <tr>
+      <td><a href="./Dersler/Ders03"> Ders03 </a></td>
+      <td><a href="./Ders_Sonu_Odevleri/html/Team_Odevi"> Team Odevi </a></td>
+   </tr>
   </tbody>
 </table>
