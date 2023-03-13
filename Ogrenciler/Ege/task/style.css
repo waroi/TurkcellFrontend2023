@@ -3,7 +3,6 @@
 }
 
 body {
-    /* background-color: gainsboro; */
     background: #e4d2b7;
     margin: 0;
     padding: 0;
@@ -20,13 +19,16 @@ section {
     height: 100px;
 }
 
-/* Header, Nav Start */
 header {
     background-color: black;
     height: 5rem;
     padding: .5rem;
 }
 
+header>h1>a>img:hover {
+    filter: drop-shadow(24px 14px 4px #f800006c);
+    transition: .3s ease;
+}
 header>h1 {
     margin: 0;
     text-align: center;
@@ -41,6 +43,8 @@ header>h1>a {
 header>h1>a>img{
     filter: drop-shadow(24px 14px 4px #ffffff6c);
 }
+
+
 
 nav {
     height: 3em;
@@ -79,7 +83,28 @@ nav>span>a {
     color: white;
 }
 
-/* Header, Nav Finish */
+nav>span>a:hover {
+    color: black;
+    background-color: white;
+    transition: .3s ease;
+    border-radius: 25%;
+}
+
+
+nav>ul>li>a>i:hover {
+    color: black;
+    background-color: white;
+    font-weight: bolder;
+    border-radius: 25%;
+    transition: .3s ease;
+}
+
+
+
+nav > ul > li > a >img:hover {
+    filter: drop-shadow(24px 5px 4px #f800006c);
+    transition: .3s ease;
+}
 
 .row {
     display: flex;
@@ -187,31 +212,4 @@ footer {
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/84/Parchment.00.jpg");
 }
 
-nav>span>a:hover {
-    color: black;
-    background-color: white;
-    transition: .3s ease;
-    border-radius: 25%;
-}
-
-
-nav>ul>li>a>i:hover {
-    color: black;
-    background-color: white;
-    font-weight: bolder;
-    border-radius: 25%;
-    transition: .3s ease;
-}
-
-
-
-nav > ul > li > a >img:hover {
-    filter: drop-shadow(24px 5px 4px #f800006c);
-    transition: .3s ease;
-}
-
-header>h1>a>img:hover {
-    filter: drop-shadow(24px 14px 4px #f800006c);
-    transition: .3s ease;
-}
 
