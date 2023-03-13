@@ -3,7 +3,8 @@
 }
 
 body {
-    background-color: gainsboro;
+    /* background-color: gainsboro; */
+    background: #e4d2b7;
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
@@ -60,9 +61,10 @@ nav>ul {
     align-items: center
 }
 
-nav>ul>li>a {
+nav>ul>li>a>i{
     text-decoration: none;
     color: white;
+    padding: 15px;
 }
 
 nav>span>a {
@@ -101,10 +103,12 @@ article > h2 {
     text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.6);
 }
 
-article > p {
+article > p,
+article > section {
     text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.6);
 
 }
+
 
 p {
     font-size: 18px;
@@ -163,6 +167,51 @@ nav > ul {
     color: white;
 }
 
-.middle > ul > li > i {
+.middle > ul > li > a > i {
     margin: 1.5rem 0.5rem;
+    text-decoration: none;
+    color: black;
 }
+
+.row > iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+.video {
+    background: #e4d2b7;
+    border: none;
+}
+
+footer {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/84/Parchment.00.jpg");
+}
+
+nav>span>a:hover {
+    color: black;
+    background-color: white;
+    transition: .3s ease;
+    border-radius: 25%;
+}
+
+
+nav>ul>li>a>i:hover {
+    color: black;
+    background-color: white;
+    font-weight: bolder;
+    border-radius: 25%;
+    transition: .3s ease;
+}
+
+
+
+nav > ul > li > a >img:hover {
+    filter: drop-shadow(24px 5px 4px #f800006c);
+    transition: .3s ease;
+}
+
+header>h1>a>img:hover {
+    filter: drop-shadow(24px 14px 4px #f800006c);
+    transition: .3s ease;
+}
+
