@@ -19,11 +19,15 @@ This file has been created for you to navigate through my folders more easily.
   <tbody>
     <tr>
       <td><a href="./Dersler/Ders01"> Ders01 </a></td>
-      <td><a href="./Ders_Sonu_Odevleri/Portfolio_Odevi"> Portfolio Odevi </a></td>
+      <td><a href="./Ders_Sonu_Odevleri/html/Portfolio_Odevi"> Portfolio Odevi </a></td>
    </tr>
    <tr>
       <td><a href="./Dersler/Ders02"> Ders02 </a></td>
-      <td><a href="./Ders_Sonu_Odevleri/Contact_Page_Odevi"> Contact Page Odevi </a></td>
+      <td><a href="./Ders_Sonu_Odevleri/html/Contact_Page_Odevi"> Contact Page Odevi </a></td>
+   </tr>
+   <tr>
+      <td><a href="./Dersler/Ders03"> Ders03 </a></td>
+      <td><a href="./Ders_Sonu_Odevleri/html/Team_Odevi"> Team Odevi </a></td>
    </tr>
   </tbody>
 </table>

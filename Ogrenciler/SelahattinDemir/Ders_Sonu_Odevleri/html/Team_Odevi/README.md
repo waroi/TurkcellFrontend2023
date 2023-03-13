@@ -11,4 +11,4 @@ We made the contact page of a holiday company using semantic HTML and CSS.
 
 ## Website
 
-![alt text](https://github.com/Selahaddin64/TurkcellFrontend2023/blob/add_gif/Ogrenciler/SelahattinDemir/Ders_Sonu_Odevleri/html/Team_Odevi/photos/Team_Work.jpg)
+![alt text](https://github.com/waroi/TurkcellFrontend2023/blob/main/Ogrenciler/SelahattinDemir/Ders_Sonu_Odevleri/html/Team_Odevi/photos/Team_Work.jpg)

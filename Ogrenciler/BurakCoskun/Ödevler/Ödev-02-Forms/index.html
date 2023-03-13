@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>İş Başvuru Formu</title>
+  </head>
+  <body>
+    <h1>İş Başvuru Formu</h1>
+    <form>
+      <table>
+        <tr>
+          <td><label for="name">İsim:</label></td>
+          <td><input type="text" id="name" name="name" required /></td>
+        </tr>
+        <tr>
+          <td><label for="email">E-posta:</label></td>
+          <td><input type="email" id="email" name="email" required /></td>
+        </tr>
+        <tr>
+          <td><label for="phone">Telefon:</label></td>
+          <td><input type="tel" id="phone" name="phone" required /></td>
+        </tr>
+        <tr>
+          <td><label for="address">Adres:</label></td>
+          <td>
+            <textarea id="address" name="address" rows="3" required></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="resume">CV:</label></td>
+          <td>
+            <input
+              type="file"
+              id="resume"
+              name="resume"
+              accept=".pdf,.doc,.docx"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="cover-letter">Ön Yazı:</label></td>
+          <td>
+            <textarea
+              id="cover-letter"
+              name="cover-letter"
+              rows="5"
+              required
+            ></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="position">Başvurulan Pozisyon:</label></td>
+          <td>
+            <select id="position" name="position" required>
+              <option value="">-- Seçiniz --</option>
+              <option value="frontend-developer">Frontend Geliştirici</option>
+              <option value="backend-developer">Backend Geliştirici</option>
+              <option value="full-stack-developer">
+                Full Stack Geliştirici
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Eğitim Durumu:</label></td>
+          <td>
+            <label
+              ><input
+                type="radio"
+                name="education"
+                value="lisans"
+                required
+              />Lisans</label
+            ><br />
+            <label
+              ><input
+                type="radio"
+                name="education"
+                value="yüksek-lisans"
+              />Yüksek Lisans</label
+            ><br />
+            <label
+              ><input
+                type="radio"
+                name="education"
+                value="doktora"
+              />Doktora</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><label>Diller:</label></td>
+          <td>
+            <label
+              ><input
+                type="checkbox"
+                name="languages"
+                value="ingilizce"
+              />İngilizce</label
+            ><br />
+            <label
+              ><input
+                type="checkbox"
+                name="languages"
+                value="fransızca"
+              />Fransızca</label
+            ><br />
+            <label
+              ><input
+                type="checkbox"
+                name="languages"
+                value="almanca"
+              />Almanca</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><label for="comments">Yorumlar:</label></td>
+          <td><textarea id="comments" name="comments" rows="5"></textarea></td>
+        </tr>
+      </table>
+    </form>
+    <button>Gönder</button>
+  </body>
+</html>

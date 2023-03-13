@@ -1,77 +1,101 @@
-<h1 align="center">Ders01 Notu</h1>
+[Turn Back](../../)
+<h1 align="center">Ders02 Notu</h1>
 
 
 
 <h3 align="center">Languages and Tools:</h3>
 <p align="center"><a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> </p>
 
-
 # Introduction to HTML
 
 ## Contents:
  - [Categories](#categories)
-      - [Title Tags](#title-tags)
-      - [Paragraph Tags](#paragraph-tags)
-      - [span and div Tags](#span-and-div-tags)
-      - [Lists](#lists)
-      - [Link Tags](#link-tags)
-      - [img Tags](#img-tags)
+      - [Table Tags](#table-tags)
+      - [Iframe (The Inline Frame) Tag](#iframe-the-inline-frame-tag)
+      - [Video Tag](#video-tag)
+      - [Audio Tag](#audio-tag)
+      - [Example Website](#example-website)
 
-## Title Tags
+## Table Tags
 
-<ul>
-    <li>&#10094;h1&#10095;Title 1&#10094; &#8725; h1&#10095;</li>
-    <li>&#10094;h2&#10095;Title 2&#10094; &#8725; h2&#10095;</li>
-    <li>&#10094;h3&#10095;Title 3&#10094; &#8725; h3&#10095;</li>
-    <li>&#10094;h4&#10095;Title 4&#10094; &#8725; h4&#10095;</li>
-    <li>&#10094;h5&#10095;Title 5&#10094; &#8725; h5&#10095;</li>
-    <li>&#10094;h6&#10095;Title 6&#10094; &#8725; h6&#10095;</li>
-</ul>
+`<table>` tags allows us to create a table. It presents a two-dimensional table of rows and columns. <br>
+`<thead>` tag: Header related tags are written inside this tag.<br>
+The `<tr>` tag represents rows in the table. <br>
+`<th>` (table header cell): This tag is used to specify the header cells of the table. It is usually displayed in a bold and centered manner.
+It is written inside the `<thead>` tag.<br>
+`<tbody>` tag: Description lines are written inside this tag.<br>
+`<td>` table data cell): This tag is used to specify the data cells in the table. It is usually displayed thin and left aligned.
+It is written inside the `<tbody>` tag.<br>
+
+    <table >
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Selahattin</td>
+          <td>Demir</td>
+        </tr>
+      </tbody>
+    </table>
+
+Output of the code:
+
+<table >
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Selahattin</td>
+      <td>Demir</td>
+   </tr>
+  </tbody>
+</table>
 
 <h4><strong>Note&#10071;</strong></h4>
-    <p>&#10147; An h1 tag should be used on a page to identify pages. SEO first looks at the h1 tag on the pages.</p>
+    <p>&#10147; The use of `thead ` and `tbody` tags is not mandatory, but recommended for SEO.</p>
+    <p>&#10147; Before `table` tags, `iframe` tags were used.</p>
+ 
+## Iframe (The Inline Frame) Tag
 
-## Paragraph Tags
+`<iframe>` is an HTML tag that helps us to call and display a different web page inside a web page. <br>
+&#10147; The link of the content you want to add to the src attribute is given.<br>
+&#10147; The width and height attributes set the size of the content.
 
-<p>&#10094;p&#10095;This is a paragraph&#10094; &#8725; p&#10095;</p>
+    <iframe  src="https://getbootstrap.com"  width="280px"  height="157px"  title="React">
+    </iframe>
 
-## span and div Tags
+## Video Tag
 
-<p>&#10094;span&#10095;and &#10094;div&#10095; tags are used to better position the content on the page. The &#10094;span&#10095; tag is an inline tag, while the &#10094;div&#10095; tag is a block tag.</p>
+`<video>` tag: Used to show video on a web page.<br>
+&#10147; The link of the video you want to add to the src attribute is given.<br>
+&#10147; Width and height attributes set the size of the video.<br>
+&#10147; With the controls attribute, video controls such as play, pause, and volume are added.
 
-<p><strong>Inline:</strong> Takes up as much space as the item on the tag.</p>
-<p><strong>Block:</strong> It completely occupies the row it is in.</p>
+    <video  width="280"  height="157"  controls>
+    <source  src="./Assets/and-i-love-her-audio.mp4"  type="video/mp4">
+    </video>
+    
+## Audio Tag
 
-## Lists
+`<audio>` tag: Used to add audio to the web page. It supports many different audio formats eg MP3, OGG etc.<br>
+&#10147; The link of the audio you want to add to the src attribute is given.<br>
+&#10147; Width and height attributes set the size of the audio.<br>
+&#10147; With the controls attribute, audio controls such as play, pause, and volume are added.
 
-<ul>
-    <li>There are two types of lists, ordered (ordered list) and unordered (unordered list).</li>
-    <li>Ordered lists are lists where each item in the list is numbered.</li>
-    <li>Unordered lists are lists that begin with a bullet point (rather than characters that indicate order).</li>
-    <li>The &#10094;ol&#10095; tag is used for an ordered list, and the &#10094;ul&#10095; tag is used for an unordered list.</li>
-    <li>The &#10094;li&#10095; tag is used for each element in the list.</li>
-</ul>
+    <audio  controls>
+    <source  src="./Assets/And I Love Her.mp3"  type="audio/ogg">
+    </audio>
 
-<p>&#10067; I also used lists while writing this topic. &#128517;  You can check it from the edit file.</p>
+## Example Website
 
-## Link Tags
-
-<ul>
-    <li>By linking the pages, the user can be directed to another page. The &#10094;a&#10095; tag is used for this.</li>
-    <li>The &#10094;a&#10095; tag has two attributes, href and target.</li>
-    <li>The href attribute is used to specify the link to be directed to.</li>
-    <li>The target attribute is used to specify the target of the link. If the target attribute is not specified, the link will be opened in the same window. If the target attribute is specified as _blank, the link will be opened in a new window.</li>
-</ul>
-
-## img Tags
-
-<ul>
-    <li>Images can be added to the page using the img tag.</li>
-    <li>The &#10094;img&#10095; tag has two attributes, src and alt.</li>
-    <li>The src attribute specifies the path to the image.</li>
-    <li>The alt attribute specifies an alternate text for the image, if the image cannot be displayed.</li>
-    <li>The size of the picture can be adjusted with the 'width' and 'height' properties.</li>
-</ul>
-
+![alt text](https://github.com/Selahaddin64/TurkcellFrontend2023/blob/add_gif/Ogrenciler/SelahattinDemir/Dersler/Ders02/assets/Ders02.gif)
 
 
