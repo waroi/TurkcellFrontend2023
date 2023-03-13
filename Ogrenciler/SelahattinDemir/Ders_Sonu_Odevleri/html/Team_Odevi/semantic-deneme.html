@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group Work</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <a href="#" target="_blank">
+        <img src="./photos/flight.png" alt="" />
+      </a>
+      <h1 style="text-align: center">Bu Yaz Nasıl Bir Tatil İstersiniz ?</h1>
+    </header>
+    <nav>
+      <a href="#">Ana Sayfa</a>
+      <a href="#">Rezervasyon</a>
+      <a href="#">Hakkında</a>
+      <a href="#">İletişim</a>
+    </nav>
+    <div class="row">
+      <aside>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d100033.6085403108!2d27.1876096!3d38.4172032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str!4v1678469993611!5m2!1str!2str"
+          width="100%"
+          height="350"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <h3>Sonuçları Filtrele</h3>
+        <div>
+          <div>
+            <label>
+              <b> Bölge </b>
+            </label>
+            <br />
+            <input type="text" placeholder="Bölge Ara" />
+          </div>
+          <div>
+            <label for="area">Tatil Tur Seçenekler:</label>
+            <br />
+            <select name="tatil" id="tatil">
+              <option value="Akdeniz">Akdeniz Turu</option>
+              <option value="Ege">Ege Turu</option>
+              <option value="Karadeniz">Karadeniz Turu</option>
+            </select>
+          </div>
+          <div>
+            <label for="area">Tatil Beldeleri:</label>
+            <br />
+            <select name="tatil" id="tatil">
+              <option value="Antalya">Antalya Turu</option>
+              <option value="İzmir">İzmir Turu</option>
+              <option value="Mugla">Muğla Turu</option>
+              <option value="Mugla">Trabzon Turu</option>
+            </select>
+          </div>
+          <div>
+            <span><b> Tesis </b> </span>
+            <br />
+            <label for="otel">Otel</label>
+            <input type="radio" name="gender" id="otel" />
+            <label for="kamp">Çadır Kamp</label>
+            <input type="radio" name="gender" id="kamp" />
+            <label for="koy">Tatil Köyü</label>
+            <input type="radio" name="gender" id="koy" />
+          </div>
+          <div class="btn">
+            <button>Ara</button>
+          </div>
+        </div>
+      </aside>
+      <main background="https://gezicini.com/wp-content/uploads/2020/11/Babadag-fethiye-mugla.jpg">
+        <h3>Kayıt Bilgileri</h3>
+        <form>
+          <div class="info">
+            <label for="name">İsim: </label>
+            <input type="text" name="name" id="name" placeholder="İsim" />
+            <label for="surname">Soyisim: </label>
+            <input
+              type="text"
+              name="surname"
+              id="surname"
+              placeholder="Soyisim"
+            />
+            <label for="birthday">Doğum Tarihi:</label>
+            <input type="date" id="birthday" name="birthday" />
+
+            <label for="email">e-posta: </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="adres@gmail.com"
+            />
+          </div>
+          <label>Cinsiyet:</label>
+          <div class="radio">
+            <label for="women">Kadın</label>
+            <input type="radio" name="gender" id="women" />
+            <label for="man">Erkek</label>
+            <input type="radio" name="gender" id="man" />
+          </div>
+          <label>Medeni Durum:</label>
+          <div class="radio">
+            <label for="hal">Evli</label>
+            <input type="radio" name="hal" id="hal" />
+            <label for="hal">Bekar</label>
+            <input type="radio" name="hal" id="hal" />
+          </div>
+          <label>Kaç Kişisiniz ? </label>
+          <div class="radio">
+            <label for="kisi1">1</label>
+            <input type="radio" name="kisi" id="kisi1" />
+            <label for="kisi2">2</label>
+            <input type="radio" name="kisi" id="kisi2" />
+            <label for="kisi3">3</label>
+            <input type="radio" name="kisi" id="kisi3" />
+            <label for="kisi4">4</label>
+            <input type="radio" name="kisi" id="kisi4" />
+          </div>
+          <div class="info">
+            <label for="GirisTarihi">Giriş Tarihi:</label>
+            <input type="date" id="GirisTarihi" name="GirisTarihi" />
+            <label for="cikisTarihi">Çıkış Tarihi:</label>
+            <input type="date" id="cikisTarihi" name="cikisTarihi" />
+            <a href="./onay.html" target="_blank">
+            </div>
+              <button type="button">Gönder</button>
+          </a>
+        </form>
+      </main>
+    </div>
+    <footer>
+      sys.com sitesinin tüm seyahat hizmetleri SYS Turizm ve Tic.
+      A.Ş. tarafından verilmektedir. Her hakkı saklıdır. ©2023
+      <br />
+      <div class="icons">
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+      </div>
+    </footer>
+  </body>
+</html>
