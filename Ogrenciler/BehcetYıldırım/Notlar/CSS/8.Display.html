@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      a {
+        text-decoration: none;
+      }
+      .box {
+        width: 50%;
+        height: 100px;
+      }
+      .box1 {
+        background: red;
+      }
+      .box2 {
+        background: blue;
+      }
+      #test-link {
+        /* inline-block özelliğini verirsek inline elementlere w-h verebiliriz. fakat yine inline gibi sadece kendi yerini kapsar. */
+        /* kullanım amacı: verdiğimiz alanda nereye tıklarsa tıklasın linke gidebilmesi için. Diğer türlü sadece verdiğimiz yazının sütüne tıklaması gerekiyor. */
+        display: inline-block;
+        background: #a7a7a7;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" id="test-link">Test Link</a>
+
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+  </body>
+</html>

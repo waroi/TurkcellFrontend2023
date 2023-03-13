@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* aşağıdakini burada tanımlayabiliriz.*/
+      }
+      div.box1 {
+        width: 500px;
+        height: 200px; /* burada sadece content alanına değer veriyoruz.*/
+        border: 5px solid black;
+        padding-left: 20px; /*paddingleri de ayrı ayrı yazmak yerine tek satırda hepsini yazabilriz.*/
+        padding-right: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        box-sizing: border-box; /*bir etiketin toplam genişliğine ve yüksekliğine padding ve border'ı dahil etmemizi sağlar.*/
+        /*eğer bu özelliği kullanırsak content kısmına verdiğimiz 500px bütün box'a etki eder ve ona göre burada content kısmını küçültür.
+                                        padding kısmına 20 verdiğimiz için ve 5px border old. için content kısmıdan 50 keser ve 450 width olur. */
+      }
+      div.box2 {
+        width: 500px;
+        height: 200px;
+        border: 5px solid black;
+        padding: 30px;
+        /* (*) style içinde border-box tanımladığımız için box2'ye de etki etti ve iki box'ın width'leri aynı olduğundan aynı genişlikte oldular. */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et, repudiandae.
+    </div>
+    <div class="box2">Lorem ipsum dolor sit amet.</div>
+  </body>
+</html>
