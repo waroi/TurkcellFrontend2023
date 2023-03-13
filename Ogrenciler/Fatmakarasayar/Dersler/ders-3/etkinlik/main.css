@@ -1,14 +1,9 @@
 * {
   box-sizing: border-box;
   text-align: center;
-  
   margin: 0;
   padding: 0;
-  list-style-type: none;
-  
 }
-
-
 
 body {
   background-color: #e9e9e9;
@@ -27,9 +22,9 @@ header {
 
 footer {
   height: 100%;
-  background-color: rgb(9, 132, 213);
+  background-color: #dcdcdc;
   width: 100%;
-  margin-top: 1em;
+  margin-top: 3em;
   padding: 1em 0;
 }
 nav {
@@ -40,7 +35,7 @@ nav {
 article {
   width: 70%;
   height: 100%;
-  background-color: rgb(138, 9, 250);
+  background-color: #ececec;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,27 +43,33 @@ article {
   border-top-left-radius: 1.5em;
   border-bottom-left-radius: 1.5em;
   padding: 2em;
+  border: 1px solid gray;
 }
 aside {
   flex: 1;
-  background-color: rgb(9, 247, 73);
   border-top-right-radius: 3em;
 }
 
 .row {
   display: flex;
   height: 100%;
-
   margin: 12em 6em 0 6em;
 }
 
 a {
   text-decoration: none;
+  color: black;
 }
-
-a:hover {
-  border: 1px solid blue;
+nav ul li a {
   padding: 0.5em;
+  margin: 0 0.5em;
+  border: 1px solid #4b367c;
+  border-bottom: 1px solid white;
+}
+nav ul li a:hover {
+  border: 1px solid #4b367c;
+  background-color: white;
+  color: #4b367c;
   border-radius: 0.5em;
 }
 
@@ -93,7 +94,6 @@ a:hover {
   color: white;
 }
 
-
 .footer-list {
   display: flex;
   justify-content: space-evenly;
@@ -101,23 +101,42 @@ a:hover {
   text-align: center;
 }
 
-.input-style{
+.input-style {
   padding: 0.5em;
   border-radius: 5px;
- 
-
-  
 }
-.form-item{
+.form-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0.5em 0;
-  
 }
 .nav-item {
   color: white;
 }
-.submit-form-item{
+.submit-form-item {
   display: flex;
+}
+.footer-item {
+  border-right: 1px solid black;
+  padding-right: 6em;
+}
+i:hover {
+  color: white;
+  cursor: pointer;
+}
+.form-button {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.5em;
+  width: 100%;
+  background-color: white;
+  color: #4b367c;
+  border: 1px solid white;
+  margin-top: 0.5em;
+}
+.form-button:hover {
+  border: 1px solid #4b367c;
+  background-color: #4b367c;
+  color: white;
 }
