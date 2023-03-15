@@ -1,0 +1,41 @@
+.table {
+  margin: 20px auto;
+  width: 50%;
+  text-align: center;
+  font-size: 18px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 7px;
+}
+
+thead {
+  background-color: green;
+}
+
+th {
+  padding: 10px;
+}
+
+tbody tr:nth-child(even){
+  background-color: gainsboro;
+}
+
+tbody tr:nth-child(odd){
+  background-color: white;
+}
+
+tbody tr:hover{
+  background-color: rgb(128, 128, 126);
+  cursor: pointer;
+  transition: 0.3s;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .table {
+    font-size: 14px;
+  }
+}
