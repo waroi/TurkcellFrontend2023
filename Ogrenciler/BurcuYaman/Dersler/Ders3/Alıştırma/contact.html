@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Ana Sayfa | Burcu Yaman</title>
+    <title>İletişim | Burcu Yaman</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
-      @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300&display=swap');  
-  </style>
+      @import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300&display=swap");
+    </style>
   </head>
   <body>
     <header>
@@ -26,15 +26,43 @@
     </nav>
 
     <div class="row">
-      <article>
-        <h1>Merhaba, ben Burcu! Sayfama Hoşgeldin!</h1>
-        <section><img src="img/profil.jpg">
-        <p>23 yaşındayım ve Bursa'da yaşıyorum. Eskişehir Teknik Üniversitesi Bilgisayar Mühendisliği 4. Sınıf Öğrencisiyim. Hakkımda daha detaylı bilgi edinmek istiyorsan <a href="#">tıkla!</a></p>
-      </section>
-     
-      
+      <aside>
+        <ul>
+          <li><a href="">Youtube</a></li>
+          <li><a href="">Instagram</a></li>
+          <li><a href="">LinkedIn</a></li>
+          <li><a href="">GitHub</a></li>
+        </ul>
+      </aside>
+
+      <article class="iletisim">
+        <form id="contact" action="" method="">
+          <h2>İletişim</h2>
+          <div class="form-control">
+            <input
+              placeholder="Adınız Soyadınız"
+              type="text"
+              required
+              autofocus
+            />
+          </div>
+          <div class="form-control">
+            <input placeholder="E-Posta Adresiniz" type="email" required />
+          </div>
+          <div class="form-control">
+            <input placeholder="Konu" type="text" required />
+          </div>
+          <div class="form-control">
+            <textarea
+              placeholder="Lütfen Mesajınızı Buraya Yazın.."
+              required
+            ></textarea>
+          </div>
+          <div class="form-control">
+            <button name="submit" type="submit" id="submit">GÖNDER</button>
+          </div>
+        </form>
       </article>
-      <aside>Aside</aside>
     </div>
     <footer>Burcu Yaman</footer>
   </body>
