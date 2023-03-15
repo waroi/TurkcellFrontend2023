@@ -1,0 +1,61 @@
+.paragraph{
+    font-size: 25px;
+}
+.titleOne{
+    color: blueviolet;
+}
+/*max genişlik 768'e kadar geçerli olcak | media screen olarakta çalışıyor */
+@media only screen and (max-width: 768px){
+    .paragraph{
+        font-size:14px;
+        color: blue;
+    }
+    .titleOne{
+        color:bisque
+    }
+}
+
+.link{
+    text-decoration: none;
+    font-size: 25px;
+    color: blueviolet;
+}
+/* :hover psuedo classtır */
+.link:visited{
+    color:green;
+}
+.link:hover{
+    color:red;
+}
+.link:active{
+    color: aqua;
+}
+.listItem{
+    list-style-type: none;
+    color: orange;
+    font-size:20px;
+}
+/* .listItem:nth-child(-n+6){
+    color:brown;
+} */
+/* .listItem:nth-child(even){
+    color:red;
+} */
+
+/* Psuedo Element */
+.text1::first-letter{
+    font-size: 30px;
+}
+.text1::first-line{
+    color: orange;
+}
+.text1::after{
+    content: " Bu sonrasına gelen bir yazıdır";
+    color: rgb(239, 13, 51)
+}
+.text1::before{
+    content: " Bu öncesine gelen bir yazıdır";
+    color: rgb(239, 13, 51)
+}
+
+
