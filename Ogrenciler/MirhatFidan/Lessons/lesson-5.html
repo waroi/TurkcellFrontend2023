@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puseodo-css</title>
+  <style>
+    .paragraf{
+      font-size: 20px;
+    }
+    /* mobil görünüm için */
+    @media only screen and(max-wdith: 750px) {  
+        .paragraf{
+          font-size: 14px;
+        }
+        .title{
+          color: blue;
+        }
+      }
+    .link{
+      font-size: 100px;
+      text-decoration: none;
+      color: bisque;
+    }
+    .link:hover{
+      color: rgb(194, 136, 65);
+    }
+    /* ziyaret edilen site */
+    .link:visited{
+      color: green;
+    }
+    /* aktif halde kullanılır basılı tutunca çalışır */
+    :link:active{
+      color: aqua;
+    }
+    .list-item{
+      list-style-type: disc;
+      color: red;
+    }
+    .list-item:last-child{
+      color: green;
+    }
+    .list-item:first-child{
+      color: rgb(163, 59, 130);
+    }
+    /* çift sayılar */
+    .list-item:nth-child(even){
+      color: rgb(77, 29, 159);
+    }
+    /* tek sayılar */
+    .list-item:nth-child(odd){
+      color: rgb(171, 161, 30);
+    }
+    .list-item:nth-child(2n-1){
+      color: rgb(23, 45, 23);
+    }
+    /* pseudo element */
+    .text-1::first-letter{
+      font-size: 30px;
+    }
+    .text-1::first-line{
+      color: orange;
+    }
+    .text-1::after{
+      content: "bu sonrasına gelen bir yazıdır";
+    }
+    .text-1::before{
+      content: "bu öncesine gelen bir yazıdır";
+    }
+  </style>
+</head>
+<body>
+  <p class="paragraf">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, sint explicabo consectetur cum nobis, veritatis magnam nulla sit aliquid officiis, officia ratione. Voluptates numquam, doloribus tempore natus rerum consequatur fugit neque earum recusandae commodi consectetur aspernatur repudiandae nemo, laborum ullam.
+  </p>
+  <h1 class="title">title</h1>
+  <a href="#" class="link"> link decoration</a>
+  <ul>
+    <li class="list-item">DENEME</li> 
+    <li class="list-item">DENEME</li> 
+    <li class="list-item">DENEME</li> 
+    <li class="list-item">DENEME</li> 
+    <li class="list-item">DENEME</li> 
+  </ul>
+  <p class="text-1">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit corrupti nulla magnam ad fuga laudantium atque labore. Nemo blanditiis dignissimos sequi possimus alias error ipsum dolor! Nemo libero velit nostrum provident mollitia obcaecati nam? Blanditiis omnis laudantium beatae dolore maiores!
+  </p>
+</body>
+</html>
