@@ -1,73 +1,75 @@
-* {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: monospace;
 }
-body {
-  background-color: #e9e9e9;
+.wrap {
+  min-height: 100vh;
+  margin: 0 auto;
   background-image: url("https://s1.ticketm.net/dam/a/9c6/a8c4863d-2cef-4d8f-86d6-9ebdd8fe19c6_1674601_TABLET_LANDSCAPE_LARGE_16_9.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
-.wrap {
-  height: 100%;
-  width: 90%;
-  margin: 0 auto;
-  /* background-size: cover; */ /*Resmin tam sayfa olmasi icin ekleyebiliriz */
-}
 .header {
-  padding-top: 2em;
-  padding-left: 1em;
-  padding-right: 1em;
-  height: 7em;
-  border-bottom: 1px solid white;
+  height: 5rem;
+  border: 1px solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   background-color: black;
 }
 
 .header img {
-  padding: 0;
-  width: 100px;
+  width: 140px;
   float: left;
-  margin-left: 500px;
+  margin-left: 35vw;
 }
-button {
+
+.header .headerbutton {
   width: 10%;
-  height: 3rem;
+  height: 50px;
+  position: relative;
+  float: right;
+  margin-top: 15px;
+  margin-right: 15px;
+  background-color: #59008f;
+  color: #fff;
+  text-align: center;
   font-family: monospace;
   border: none;
   cursor: pointer;
   font-size: 20px;
-  border-radius: 5px;
-  background-color: #59008f;
-  color: #fff;
-}
-button:hover {
-  color: #59008f;
-  background-color: #fff;
-}
-
-.header .headerbutton {
-  position: relative;
-  float: right;
 }
 
 .header .headerbutton2 {
+  width: 10%;
+  height: 50px;
   position: relative;
   float: left;
+  margin-top: 15px;
+  margin-left: 15px;
+  background-color: #59008f;
+  color: #fff;
+  text-align: center;
+  font-family: monospace;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 .sidebar {
-  width: 20%;
-  height: 604px;
+  width: 250px;
+  height: 580px;
   float: left;
+  background-color: transparent;
   border-radius: 5px;
   border: 3px solid black;
   position: relative;
   margin: 3rem 0;
   left: 2.5%;
   text-align: center;
-  padding: 4em 1em;
+  padding: 10px;
 }
 
 .sidebar input[type="checkbox"] {
@@ -76,14 +78,21 @@ button:hover {
 }
 
 .sidebar button {
+  width: 6rem;
+  height: 2rem;
+  position: relative;
+  background-color: #59008f;
+  color: #fff;
+  text-align: center;
+  font-family: monospace;
+  border: none;
+  cursor: pointer;
   font-size: larger;
-  width: 6em;
 }
 
-.sidebar p {
+.sidebar label {
   font-size: large;
   font-weight: bolder;
-  margin-top: 2em;
 }
 
 .sidebar input {
@@ -103,18 +112,31 @@ button:hover {
   padding: 10px 0;
 }
 
-.sidebar2 {
-  width: 50%;
-  height: 600px;
+.signup {
   position: relative;
+}
+
+.sidebar2 {
+  width: 500px;
+  height: 600px;
   float: left;
+  background-color: red;
   border-radius: 5px;
   border: 3px solid black;
-  margin: 3rem 25%;
+  position: relative;
+  margin: 3rem 0;
+  left: 5%;
   background-image: url(https://germany.rollingloud.com/wp-content/uploads/2023/02/germany_rl-1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.sidebar2 img {
+  width: 100%;
+  background-size: contain;
+  display: none;
+}
+
 .clear {
   clear: both;
 }
@@ -124,11 +146,9 @@ button:hover {
   background-color: black;
   color: white;
   text-align: center;
-  border-radius: 5px;
 }
 
 footer h1 {
-  margin-top: 20px;
   background: -webkit-linear-gradient(#fb80ad, #fef792);
   background-clip: border-box;
   -webkit-background-clip: text;
@@ -136,68 +156,77 @@ footer h1 {
 }
 
 .content {
-  width: 70%;
-  height: 100%;
+  width: 60rem;
+  height: 600px;
+  /* background-color: rgb(136, 201, 255); */
   border: 3px solid black;
   float: right;
   border-radius: 5px;
   position: relative;
   margin: 3rem 0;
   right: 2.5%;
+  text-align: center;
   font-weight: bolder;
   font-size: 30px;
+  cursor: default;
 }
 
 .content h1 {
-  margin-top: 1em;
-  margin-left: 1em;
+  padding: 4.5%;
+  float: left;
   color: white;
 }
-.box {
-  height: 200px;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
 
-.box-1 {
-  float: left;
-  background-image: url("https://thesource.com/wp-content/uploads/2017/05/P1410124.jpg");
-  background-position-y: -6rem;
-}
-.box-2 {
-  float: right;
-  background-image: url("https://media.pitchfork.com/photos/60c01bd428fd170dc6ddcfea/2:1/w_2560%2Cc_limit/1180750439");
-}
-.box-3 {
-  float: right;
-  background-image: url("https://i.pinimg.com/736x/60/de/5d/60de5d639ff16dcd2cd2b0d76b70d424.jpg");
-  background-position-y: -40rem;
-}
 .box-1:hover h1 {
   background: -webkit-linear-gradient(#6b2f7e, #817aaa);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: ease-in 800ms;
-  cursor: pointer;
+  transition: ease-in 300ms;
 }
 .box-2:hover h1 {
   background: -webkit-linear-gradient(#4f3524, #4f3524);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: ease-in 800ms;
-  cursor: pointer;
+  transition: ease-in 300ms;
 }
-.box-3 :hover h1 {
+.box-3:hover h1 {
   background: -webkit-linear-gradient(#cf1515, #000000);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  transition: ease-in 300ms;
+}
 
-  cursor: pointer;
+.box-1 {
+  float: left;
+  height: 200px;
+  width: 100%;
+  background-image: url("https://thesource.com/wp-content/uploads/2017/05/P1410124.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -6rem;
+  position: relative;
+}
+.box-3 {
+  height: 200px;
+  width: 100%;
+  background-color: yellow;
+  float: right;
+  background-image: url("https://i.pinimg.com/736x/60/de/5d/60de5d639ff16dcd2cd2b0d76b70d424.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -25rem;
+  position: relative;
+}
+.box-2 {
+  height: 200px;
+  width: 100%;
+  background-color: green;
+  float: right;
+  background-image: url("https://media.pitchfork.com/photos/60c01bd428fd170dc6ddcfea/2:1/w_2560%2Cc_limit/1180750439");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
