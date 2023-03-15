@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-
-        .red {
-            width: 200px;
-            height: 200px;
-            background-color: red;
-            position: relative;/*relative özelliği kullandığımız elemnetin bulunduğu yerden sağa sola aşağı kaymasını sağlar*/
-            /*mesela oluşturdğumuz div sol üste sabit. Biz sol üste göre pozisyonunu belirliyoruz.*/
-            top: 20px;
-            left: 20px;
-            z-index: 1; /* normalde body bölümünde red önce geldiği için blue onun üzerine çıkıyordu.*/
-            /*z-index 1 kullanarak red'in her zaman önde olmasını sağladık.*/
-        }
-        .blue {
-            width: 200px;
-            height: 200px;
-            background-color: blue;
-            position: relative;
-            left: 10px;
-            top: 10px;
-            z-index: 0;
-
-        }
-
+      .red {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        position: relative; /*relative özelliği kullandığımız elemnetin bulunduğu yerden sağa sola aşağı kaymasını sağlar*/
+        /*mesela oluşturdğumuz div sol üste sabit. Biz sol üste göre pozisyonunu belirliyoruz.*/
+        top: 20px;
+        left: 20px;
+        z-index: 1; /* normalde body bölümünde red önce geldiği için blue onun üzerine çıkıyordu.*/
+        /*z-index 1 kullanarak red'in her zaman önde olmasını sağladık.*/
+      }
+      .blue {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        position: relative;
+        left: 10px;
+        top: 10px;
+        z-index: 0; /*default değeri*/
+      }
     </style>
-
-</head>
-<body>
+  </head>
+  <body>
     <div class="red"></div>
     <div class="blue"></div>
-</body>
+  </body>
 </html>
