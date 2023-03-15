@@ -1,5 +1,24 @@
       
-      .header,
+     .header{
+
+         flex-direction: column;
+         
+      } 
+      .logo{
+     padding: 10px 200px 10px 30px;
+  
+     
+      }
+
+      .lText{
+        font-size: 26px;
+        padding: 100px 1px 1px 10px;
+        color: rgb(0, 0, 0);
+        font-weight: 900;
+        font-family: monospace;
+    
+      }
+
       .footer {
         height: 112px;
          width: 100%;
@@ -9,9 +28,21 @@
         flex-direction: column;
         justify-content: center;
         color: black;
+        padding-top: 220px;
       }
       body{
-        background-color: quewhite;
+       
+        background-color:#aaff99;
+        background-image:
+        radial-gradient(at 5% 34%, hsla(192,61%,65%,1) 0px, transparent 50%),
+        radial-gradient(at 52% 94%, hsla(287,65%,65%,1) 0px, transparent 50%),
+        radial-gradient(at 75% 0%, hsla(2,91%,76%,1) 0px, transparent 50%),
+        radial-gradient(at 99% 78%, hsla(254,64%,66%,1) 0px, transparent 50%),
+        radial-gradient(at 48% 56%, hsla(246,76%,70%,1) 0px, transparent 50%),
+        radial-gradient(at 94% 96%, hsla(62,74%,78%,1) 0px, transparent 50%),
+        radial-gradient(at 41% 97%, hsla(3,85%,72%,1) 0px, transparent 50%);
+
+
       }
       .article {
         width: 70%;
@@ -19,20 +50,22 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow: scroll;
+      /*  overflow: scroll; */
       }
       .aside {
         width: 30%;
         height: 500px;
-        overflow: scroll;
+       /* overflow: scroll; */
+       background-color: rgb(249, 244, 238);
       }
       .row {
         display: flex;
+  
       }
       * {
         box-sizing: border-box;
         text-align: center;
-        color: azure;
+    
       }
 
       .res{
@@ -40,10 +73,16 @@
         margin: 5px 5px 0 5px;
         border-bottom: 1px solid black;
         background-color: rgb(249, 244, 238);
+        border-radius: 6px;
+        box-shadow: 2px 2px #8888887f;
       }
       .eser img{
-        max-width: 75px;
+        margin: 10px;
+        max-width: 90px;
         max-height: 100px;
+        border-radius: 10px;
+        border: 3px solid rgba(0, 0, 0, 0.382);
+
       }
       .eser h4{
         color: black;
@@ -52,6 +91,9 @@
         margin-left: 5px;
         font-size: 14px;
         color: black;
+        text-align: justify;
+        padding: 30px 30px 30px 30px;
+        
       }
       .icons a {
         margin-top: 10px;
