@@ -5,16 +5,18 @@
   }
 h2 {
   font-size: 20px;
+  color:green
 }
 p {
-  font-size: 12px;
+  font-size: 13px;
+
 }
 
 .container {
   width: 70%;
   height: 400px;
   margin: 0 auto;
-  background-color: gray;
+  background-color: rgb(208, 218, 172);
   align-items: center;
   justify-content: center;
   display: flex;
@@ -24,7 +26,8 @@ p {
 
 .box {
   width: 200px;
-  border: 1px solid black;
+  border: 1px solid rgb(12, 27, 9);
+  text-align: center;
 }
 .box1 {
     order: 1;
@@ -38,17 +41,31 @@ p {
     order: 3;
   }
   
-  @media only screen and(max-width:800px) {
+  /* @media screen and(max-width:800px) {
     .box1 {
-      order: 2;
-    }
-  
-    .box2 {
       order: 3;
     }
   
-    .box3 {
-      order: 1  ;
+    .box2 {
+      order: 2;
     }
-  }
+  
+    .box3 {
+      order: 1;
+    }
+  } */
+
+  @media screen and (max-width: 800px) {
+    .box3 {
+    order: 1;
+    }
+    .box2 {
+    order: 3;
+    }
+    .box1 {
+      order: 2;
+    }
+    }
+
+
   
