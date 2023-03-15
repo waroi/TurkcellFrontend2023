@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outer-box {
+        width: 200px;
+        height: 200px;
+        background-color: #a7a7a7;
+        position: relative; /*relavite ve fixed verebiliriz. Vermemizin sebebi child elemanın absolute özleliğini kullanabilmesi. Eğer vermezsek child eleman yine body'e göre konumlanır.*/ /*Default değeri static'tir.*/
+        margin: 0 auto;
+      }
+      .inner-box {
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+        position: absolute; /*parent'ına göre pozisyon almasını sağlar. Yani aşağıda verdiğimiz pozisyonlar parent'a göre hesaplanır.*/
+        top: 20px;
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer-box">
+      <div class="inner-box"></div>
+    </div>
+  </body>
+</html>

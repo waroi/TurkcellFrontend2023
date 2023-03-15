@@ -1,0 +1,60 @@
+.paragraf {
+    font-size: 24px;
+}
+
+@media only screen and (max-width: 768px) {
+    .paragraf {
+        font-size: 14px;
+    }
+    .title1 {
+        color: red;
+    }
+}
+
+/* Pseudo Classlar  */
+
+.link {
+    font-size: 18px;
+    text-decoration: none;
+    color: orange
+}
+
+.link:hover {
+    color:blue
+}
+
+.link:visited {
+    color: green;
+}
+
+.link:active{
+    color:aqua
+}
+
+.listItem{
+    list-style-type: none;
+    font-size: 18px;
+    color: orange
+}
+/* .listItem:last-child {
+    color:green
+} */
+
+.listItem:nth-child(even){
+    color: red
+}
+
+.listItem:nth-child(odd){
+    color:blue
+}
+
+.text1::first-letter{
+    font-size: 30px;
+}
+.text1::after {
+    content: "Bu sonra"
+}
+
+.text1::before {
+    content: "Bu önce"
+}

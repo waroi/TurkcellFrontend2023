@@ -1,0 +1,97 @@
+.paragraf {
+    font-size: 24px;
+}
+
+.title {
+    color: red
+}
+
+@media only screen and (max-width: 768px) {
+    .paragraf {
+        font-size: 14px;
+    }
+
+    .title {
+        color: aqua;
+    }
+}
+
+.paragraf {
+    font-size: 24px;
+}
+
+.title1 {
+    color: aqua;
+}
+
+@media screen and (max-width: 768px) {
+    .paragraf {
+        font-size: 14px;
+    }
+
+    .title1 {
+        color: red;
+    }
+}
+
+/* Psuedo Classlar */
+.link {
+    font-size: 18px;
+    text-decoration: none;
+    color: rgb(242, 116, 13);
+}
+
+.link:visited {
+    color: rgb(70, 242, 13);
+}
+
+.link:hover {
+    color: rgb(242, 82, 13);
+}
+
+.link:active {
+    color: rgb(13, 242, 242);
+}
+
+.listItem {
+    list-style-type: none;
+    font-size: 18px;
+    color: rgb(242, 116, 13);
+}
+
+.listItem:last-child {
+    color: rgb(93, 242, 13);
+}
+
+/* .listItem:nth-child(even) {
+    color: rgb(242, 13, 13);
+}
+
+.listItem:nth-child(odd) {
+    color: rgb(242, 13, 242);
+} */
+
+/* .listItem:nth-child(2n-1) {
+    color: rgb(242, 13, 13);
+} */
+
+.listItem:nth-child(-n+6) {
+    color: rgb(116, 13, 242);
+}
+
+/* Pseudo Element */
+.text1::first-letter {
+    font-size: 30px;
+}
+
+.text1::first-line {
+    color: orangered;
+}
+
+.text1::after {
+    content: "Bu sonrasına gelen bir yazıdır"
+}
+
+.text1::before {
+    content: "Bu öncesine gelen bir yazıdır"
+}
