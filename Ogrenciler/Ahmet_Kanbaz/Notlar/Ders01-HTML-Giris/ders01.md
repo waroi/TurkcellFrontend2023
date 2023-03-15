@@ -12,4 +12,4 @@ H1 ve H6 arasındaki başlık etiketleridir. H1 etiketi önemlidir ve Google tar
 				Şeklinde kullanılmaktadır.
 
 2. Link Etiketi (a Etiketi)
-	a etiketini bağlantı metinleri oluşturabilmek ve bu bağlantılar ile farklı sayfalara geçiş için kullanılmaktadır. 
+	a etiketini bağlantı metinleri oluşturabilmek ve bu bağlantılar ile farklı sayfalara geçiş için kullanılmaktadır.

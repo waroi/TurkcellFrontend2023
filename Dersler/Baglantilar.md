@@ -9,6 +9,12 @@
 - [Github](https://github.com)
 - [Bizim proje](https://github.com/waroi/TurkcellFrontend2023)
 - [Bir özelliğin hangi tarayıcılarda desteklendiğini gösterir](https://caniuse.com/)
+- [Css Gradiant](https://csshero.org/mesher/)
+- [Css Gradiant, Border Radius, Shadow](https://www.cssmatic.com)
+- [Renkler Dünyası Canva](https://www.canva.com/colors/)
+- [Renkler Dünyası Adobe](https://color.adobe.com/tr/create)
+- [Css Animasyon](https://cubic-bezier.com/#.17,.67,.83,.67)
+- [Css Neumorphism](https://neumorphism.io/#e0e0e0)
 
 ## Extra Kaynaklar
 
