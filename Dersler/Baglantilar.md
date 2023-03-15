@@ -15,6 +15,8 @@
 - [Renkler Dünyası Adobe](https://color.adobe.com/tr/create)
 - [Css Animasyon](https://cubic-bezier.com/#.17,.67,.83,.67)
 - [Css Neumorphism](https://neumorphism.io/#e0e0e0)
+- [fontawesome CDN](https://cdnjs.com/libraries/font-awesome)
+- [Hazır iconlar](https://fontawesome.com/icons)
 
 ## Extra Kaynaklar
 
