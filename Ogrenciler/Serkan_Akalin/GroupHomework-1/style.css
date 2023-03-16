@@ -46,7 +46,12 @@
   padding: 15px;
 }
 
-.nav-menu li:hover {
+.nav-menu li a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.nav-menu li a:hover {
   cursor: pointer;
   color: var(--orange-light);
 }
@@ -164,6 +169,10 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
+.services-image{
+  width: 100;
+}
+
 #story-iframe {
   border-radius: 10px;
   width: 2051px;
@@ -192,47 +201,128 @@
   align-items: center;
 }
 
-#what-we-do h4 {
+.services-title h4 {
   font-size: 28px;
   letter-spacing: 0.5px;
 }
 
-#what-we-do h6 {
+.services-title h6 {
   font-size: 15px;
   font-weight: 600;
   color: var(--orange-light);
   text-transform: uppercase;
 }
 
-.services-row{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+.services-paragraph p {
+  max-width: 600px;
 }
 
-.services-row > div{
-    width: 16vw;
-    height: 35vh;
-    margin: 15px;
+.services-row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.services-row a{
+.services-row > div {
+  width: 16vw;
+  height: 37vh;
+  margin: 10px;
+}
+
+.services-row a {
   text-decoration: none;
-  color: rgb(0, 0, 0)
+  color: rgb(0, 0, 0);
 }
 
+.services-card {
+  padding: 15px;
+}
+
+.services-card:nth-child(even) {
+  box-shadow: 0 25px 25px rgba(36, 39, 44, 0.05);
+  transition: all 0.5s ease;
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.services-card:hover {
+  box-shadow: 0 25px 25px rgba(36, 39, 44, 0.05);
+  transition: all 0.5s ease;
+  border-radius: 30px;
+}
+
+#work-process {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+#work-process * {
+  text-align: center;
+}
+
+.services-paragraph{
+  color: #8492a6;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.services-anchor:hover{
+  color: var(--orange-light);
+  transition: all 0.5s ease;
+}
+
+.underline:hover{
+  text-decoration: underline;
+}
+
+.section-avatar{
+  height: 250px;
+  width: 250px;
+}
+
+.services-row-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.services-row-left{
+  padding: 15px;
+  text-align: left;
+  border-left: 1px dashed rgb(125,125,125);
+}
+
+.services-row-right{
+  padding: 15px;
+  text-align: right;
+}
+
+
+/* 
 .services-row img{
-  display:flex;
+  display:block;
   align-items: flex-start;
   justify-content: flex-start;
-}
+} */
 
 /* Services End */
 
 /* Media query Laptop */
 
-@media screen and (max-width: 1100px) {
+@media screen and (min-width: 1100px) and (max-width: 1450px) {
+  .navbar {
+    padding-right: 190px;
+    padding-left: 90px;
+  }
+  .services-row > div {
+    width: 16vw;
+    height: 40vh;
+    margin: 10px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1100px) {
   .nav-menu * {
     display: none;
   }
@@ -266,8 +356,6 @@
   .navbar {
     padding-right: 90px;
     padding-left: 45px;
-    position: sticky;
-    top: 0;
     display: grid;
     grid-template-columns: 35fr 0.1fr 0.1fr 25fr;
   }
