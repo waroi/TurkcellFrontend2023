@@ -5,6 +5,7 @@
   font-family: "Roboto Slab", "sans-serif";
   --orange-light: #ff5714;
   --orange-dark: #dd5000;
+  --light-gray: rgba(255, 255, 255, 0.5);
 }
 
 .navbar {
@@ -85,7 +86,7 @@
   font-size: 17px;
   letter-spacing: 0.5px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--light-gray);
 }
 
 .button {
@@ -110,12 +111,29 @@
     cursor: pointer;
 }
 
-.story{
-    width: 50%;
+.story-outer{
+    padding: 100px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.story-inner{
     display: flex;
     align-items: center;
 }
 
-.story-wwa{
+#button-buy-now{
+    top: 40px;
+}
 
+.story-wwa{
+    padding-left: 50px;
+}
+
+.story-wwa > h4{
+    color: var(--orange-light)
+}
+
+.story-wwa > p{
+    color: rgba(0,0,0,0.5)
 }
