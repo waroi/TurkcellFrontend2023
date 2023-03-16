@@ -1,0 +1,52 @@
+.paragraph{
+    font-size: 24px;
+}
+@media screen and(max-width:680px) {
+    .paragraph{
+        font-size: 14px;
+    }
+    .title{
+        color: blueviolet;
+    }
+}
+
+/* Pseudo Classlar */
+.link{
+    color: blue;
+}
+.link:visited{
+    color:red;
+}
+
+.listItem{
+    list-style-type: circle;
+}
+.listItem:nth-child(even){
+    color: blue;
+}
+
+.listItem:nth-child(odd){
+    color: darkred;
+}
+
+li:not(:last-child) {
+    background-color: aqua;
+  }
+
+  .listItem:nth-child(-n+6){
+    background-color: coral;
+  }
+
+  /*Pseudo Elementler*/
+
+  .text1::first-letter{
+    font-size: 28px;
+  }
+
+  .text1::first-line{
+    color: orange;
+  }
+
+  .text1::before{
+    content: "Bu öncesine gelen bir yazıdır.";
+  }

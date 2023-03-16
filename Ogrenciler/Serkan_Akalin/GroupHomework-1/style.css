@@ -6,12 +6,15 @@
   --orange-light: #ff5714;
   --orange-dark: #dd5000;
   --light-gray: rgba(255, 255, 255, 0.5);
+  --light-background: #f8f9fc;
 }
 
+/* Navbar component */ 
 .navbar {
-  padding-right: 220px;
-  padding-left: 30px;
+  padding-right: 390px;
+  padding-left: 210px;
   width: 100%;
+  height: 70px;
   position: sticky;
   top: 0;
   background-color: #fff;
@@ -58,16 +61,46 @@
   background-color: var(--orange-dark);
 }
 
+/* Navbar Component Finish */
+
 .intro {
   background-image: url("./images/background.jpg");
   height: 83vh;
 }
+
+/* Dark Background to blur the original background image */
 
 .dark-background {
   color: white;
   height: 83vh;
   background: rgba(22, 28, 45, 0.75);
 }
+
+/* Reusable Button class */
+
+.button {
+    position: relative;
+    padding: 8px 20px;
+    outline: none;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+    border-radius: 6px;
+    color: rgb(255,255,255);
+    background-color: var(--orange-light);
+  }
+  
+  #button-get-started{
+      top: 80px;
+  }
+  
+  .button:hover{
+      background-color: var(--orange-dark);
+      cursor: pointer;
+  }
+
+/* Home Section Start */
 
 .home {
   position: relative;
@@ -89,31 +122,13 @@
   color: var(--light-gray);
 }
 
-.button {
-  position: relative;
-  padding: 8px 20px;
-  outline: none;
-  text-decoration: none;
-  font-size: 18px;
-  letter-spacing: 0.5px;
-  transition: all 0.3s;
-  border-radius: 6px;
-  color: rgb(255,255,255);
-  background-color: var(--orange-light);
-}
+/* Home section End */
 
-#button-get-started{
-    top: 80px;
-}
-
-.button:hover{
-    background-color: var(--orange-dark);
-    cursor: pointer;
-}
+/* Story Start */
 
 .story-outer{
     padding: 100px;
-    width: 80%;
+    width: 68%;
     margin: 0 auto;
 }
 
@@ -136,4 +151,16 @@
 
 .story-wwa > p{
     color: rgba(0,0,0,0.5)
+}
+
+#story-iframe{
+    border-radius: 10px;
+}
+
+/* Story End */
+
+/* Re usable light color background*/
+
+.bg-light{
+    background-color: var(--light-background)
 }
