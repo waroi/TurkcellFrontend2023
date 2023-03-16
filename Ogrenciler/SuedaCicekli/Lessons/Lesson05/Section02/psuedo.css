@@ -1,0 +1,77 @@
+.paragraph{
+    font-size: 25px;
+}
+.titleOne{
+    color: blueviolet;
+}
+/*max genişlik 768'e kadar geçerli olcak | media screen olarakta çalışıyor */
+@media only screen and (max-width: 768px){
+    .paragraph{
+        font-size:14px;
+        color: blue;
+    }
+    .titleOne{
+        color:bisque
+    }
+}
+/* :hover psuedo classtır */
+.link{
+    text-decoration: none;
+    font-size: 25px;
+    color: blueviolet;
+}
+.link:visited{
+    color:rgb(128, 0, 128);
+}
+.link:hover{
+    color:rgb(73, 21, 21);
+}
+.link:active{
+    color: rgb(80, 211, 211);
+}
+.listItem{
+    list-style-type: none;
+    color: orange;
+    font-size:20px;
+}
+/* .listItem:nth-child(-n+6){
+    color:brown;
+} */
+/* .listItem:nth-child(even){
+    color:red;
+} 
+
+.listItem:nth-child(odd){
+  color: rgb(242, 13, 242);
+} */
+
+  /* .listItem:nth-child(2n-1){
+    color: rgb(242, 13, 13);
+  } */
+  
+  /* .listItem:nth-child(-n+6) {
+    color: rgb(116, 13, 242);
+  } */
+  
+  /* Pseudo Element */
+
+  .paragraph::first-letter{
+    font-size: 40px;
+  }
+  .text1::first-letter{
+    font-size: 40px;
+  }
+  
+  .text1::first-line{
+    color: rgb(119, 60, 127);
+  }
+  
+  .text1::after {
+    content: " Bu sonrasına gelen bir yazıdır";
+    color: pink
+  }
+  .text1::before {
+    content: " Bu öncesine gelen bir yazıdır ";
+    color: powderblue;
+
+  }
