@@ -1,0 +1,67 @@
+.paragraf {
+  font-size: 24px;
+}
+
+.title1 {
+  color: aqua;
+}
+@media only screen and (max-width: 768px) {
+  .paragraf {
+    font-size: 14px;
+  }
+  .title1 {
+    color: red;
+  }
+}
+
+.link {
+  text-decoration: none;
+  font-size: 25px;
+  color: tomato;
+}
+
+.link:visited {
+  color: rgb(60, 138, 60);
+}
+.link:hover {
+  color: rgb(126, 42, 53);
+}
+
+.link:active {
+  color: aqua;
+}
+
+.listItem {
+  list-style-type: none;
+  font-size: 20px;
+  color: tomato;
+}
+
+/* .listItem:last-child {
+  color: green;
+}
+.listItem:nth-child(even) {
+  color: pink;
+}
+.listItem:nth-child(odd) {
+  color: darkblue;
+} */
+.listItem:nth-child(-n + 6) {
+  /* n, 2n, 2, 1 gibi numerik verilebilir  */
+  color: darkblue;
+}
+/* psuedo element */
+.text1::first-letter {
+  font-size: 50px;
+}
+
+.text1::first-line {
+  color: tomato;
+}
+
+.text1::after {
+  content: "Bu sonrasına gelen bir yazıdır";
+}
+.text1::before {
+  content: "Bu öncesine gelen bir yazıdır";
+}
