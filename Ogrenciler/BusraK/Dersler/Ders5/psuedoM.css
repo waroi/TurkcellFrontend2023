@@ -12,6 +12,66 @@
     }
 
     .title1{
-        
+        color: darkblue;
     }
 }
+
+/* psuedo classlar */
+
+.link{
+    font-size: 18px;
+    text-decoration: none;
+    color: coral;
+}
+
+.link:visited{
+    color: aquamarine;
+}
+
+.link:hover{
+    color: deepskyblue;
+}
+
+.link:active{
+    color: hotpink;
+}
+
+
+.lissItem{
+    list-style-type:none;
+    font-size:18px;
+    color: indianred;
+}
+
+
+.listItem:last-child{
+    color: aqua;
+}
+
+.listItem:nth-child(even){
+    color: antiquewhite;
+}
+
+.listItem:nth-child(odd){
+    color: beige;
+}
+
+.listItem:nth-child(3n-4){
+    color: black;
+}
+
+
+.text1::first-letter{
+    font-size: 30px;
+  }
+  
+  .text1::first-line{
+    color: orangered;
+  }
+  
+  .text1::after {
+    content: "Bu sonrasına gelen bir yazıdır"
+  }
+  .text1::before {
+    content: "Bu öncesine gelen bir yazıdır"
+  }
