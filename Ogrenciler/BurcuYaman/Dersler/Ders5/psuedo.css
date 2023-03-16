@@ -1,0 +1,74 @@
+.paragraf {
+    font-size: 24px;
+}
+
+.baslik {
+    color: aqua;
+}
+
+@media only screen and (max-width:768px) {
+    .paragraf {
+        font-size: 16px;
+    }
+
+    .baslik {
+        color: blueviolet;
+    }
+}
+
+/* Psuedo classes*/
+
+.link {
+    font-size: 20px;
+    text-decoration: none;
+    color: orangered;
+}
+
+.link:hover {
+    color: rgb(197, 24, 197);
+}
+
+.link:visited {
+    color: green;
+}
+
+.link:active {
+    color: rgb(25, 25, 219);
+}
+
+.listitem {
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(52, 17, 88);
+}
+
+.listitem:nth-child(even) {
+    color: violet;
+}
+
+/* .listitem:nth-child(2n-1){
+    color:violet;
+} */
+
+/* ilk 6 elemanı etkiler
+ .listitem:nth-child(-n+6){
+    color:violet;
+} */
+
+/* Psuedo elements*/
+
+.text1::first-letter {
+    font-size: 50px;
+}
+
+.text1::first-line {
+    color: orangered;
+}
+
+.text1::after {
+    content: "**Sonradan eklenen yazı**";
+}
+
+.text1::before {
+    content: "**Önceden eklenen yazı**";
+}
