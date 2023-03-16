@@ -3,26 +3,35 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: fff;
+}
+
+.serviceSection {
+    /* background-color: #f8f9fc; */
+    /* padding: 100px 0; */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-width: 500px;
 }
 
 .container {
-    width: 100%;
     margin-top: 100px;
-   
+    /* margin: 50px; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.row1 {
-
+.serviceHead {
     display: flex;
     justify-content: center;
     align-items: center;
-
     width: 100%;
-    max-width: 100%;
+    max-width: 100%
 }
 
-.services2 {
+.head {
+    padding: 5px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -30,16 +39,17 @@ body {
     margin-bottom: 1.5rem;
 }
 
-.work {
+*/ .mainTitle {
     color: #ff5714;
     font-family: 'Roboto Slab', serif;
     line-height: 23px;
     font-size: 15px;
     margin: 0;
     margin-bottom: 0.5rem;
+    width: 100%;
 }
 
-.workTitle {
+.title {
     color: #24272c;
     font-family: 'Roboto Slab', serif;
     font-size: 28px;
@@ -49,18 +59,52 @@ body {
     margin-bottom: 1rem;
 }
 
-.workText {
+.text {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 15px;
     max-width: 600px;
     color: #8492a6;
     line-height: 24px;
-    margin: 0 ;
+    margin: 0;
+}
+
+.timeline {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.column1,
+.column2,
+.column3 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.timeline-left,
+.timeline-right {
+    background-color: #8492a6;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.timeImg {
+    width: 200px;
+    height: 200px;
+    background-color: #ff5714;
+}
+
+.timeline-text {
+    text-align: left;
 }
 
 @media screen and (max-width:768px) {
-    .workTitle{
+    .title {
         font-size: 24px;
-    }   
+    }
 }
