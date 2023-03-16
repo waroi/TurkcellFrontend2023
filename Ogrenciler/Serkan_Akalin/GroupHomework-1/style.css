@@ -9,7 +9,7 @@
   --light-background: #f8f9fc;
 }
 
-/* Navbar component */ 
+/* Navbar component */
 .navbar {
   padding-right: 390px;
   padding-left: 210px;
@@ -19,9 +19,10 @@
   top: 0;
   background-color: #fff;
   display: grid;
-  grid-template-columns: 15fr 25fr 5fr;
+  grid-template-columns: 15fr 25fr 5fr 0.1fr;
   font-size: 12px;
   text-transform: uppercase;
+  z-index: 1;
 }
 
 .logo:hover {
@@ -29,6 +30,12 @@
 }
 
 .navbar * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-menu-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,6 +68,10 @@
   background-color: var(--orange-dark);
 }
 
+.nav-menu-icon {
+  visibility: hidden;
+}
+
 /* Navbar Component Finish */
 
 .intro {
@@ -79,26 +90,26 @@
 /* Reusable Button class */
 
 .button {
-    position: relative;
-    padding: 8px 20px;
-    outline: none;
-    text-decoration: none;
-    font-size: 18px;
-    letter-spacing: 0.5px;
-    transition: all 0.3s;
-    border-radius: 6px;
-    color: rgb(255,255,255);
-    background-color: var(--orange-light);
-  }
-  
-  #button-get-started{
-      top: 80px;
-  }
-  
-  .button:hover{
-      background-color: var(--orange-dark);
-      cursor: pointer;
-  }
+  position: relative;
+  padding: 8px 20px;
+  outline: none;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  border-radius: 6px;
+  color: rgb(255, 255, 255);
+  background-color: var(--orange-light);
+}
+
+#button-get-started {
+  top: 80px;
+}
+
+.button:hover {
+  background-color: var(--orange-dark);
+  cursor: pointer;
+}
 
 /* Home Section Start */
 
@@ -126,41 +137,145 @@
 
 /* Story Start */
 
-.story-outer{
-    padding: 100px;
-    width: 68%;
-    margin: 0 auto;
+.story-outer {
+  padding: 100px;
+  width: 68%;
+  margin: 0 auto;
 }
 
-.story-inner{
-    display: flex;
-    align-items: center;
+.story-inner {
+  display: flex;
+  align-items: center;
 }
 
-#button-buy-now{
-    top: 40px;
+#button-buy-now {
+  top: 40px;
 }
 
-.story-wwa{
-    padding-left: 50px;
+.story-wwa {
+  padding-left: 70px;
 }
 
-.story-wwa > h4{
-    color: var(--orange-light)
+.story-wwa > h4 {
+  color: var(--orange-light);
 }
 
-.story-wwa > p{
-    color: rgba(0,0,0,0.5)
+.story-wwa > p {
+  color: rgba(0, 0, 0, 0.5);
 }
 
-#story-iframe{
-    border-radius: 10px;
+#story-iframe {
+  border-radius: 10px;
+  width: 2051px;
+  height: 526px;
 }
 
 /* Story End */
 
 /* Re usable light color background*/
 
-.bg-light{
-    background-color: var(--light-background)
+.bg-light {
+  background-color: var(--light-background);
+}
+
+/* Services Start */
+
+.services-outer {
+  padding: 100px;
+  width: 68%;
+  margin: 0 auto;
+}
+
+#what-we-do {
+  display: grid;
+  grid-template-columns: 50fr 50fr;
+  align-items: center;
+}
+
+#what-we-do h4 {
+  font-size: 28px;
+  letter-spacing: 0.5px;
+}
+
+#what-we-do h6 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--orange-light);
+  text-transform: uppercase;
+}
+
+.services-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.services-row > div{
+    width: 16vw;
+    height: 35vh;
+    margin: 15px;
+}
+
+.services-row a{
+  text-decoration: none;
+  color: rgb(0, 0, 0)
+}
+
+.services-row img{
+  display:flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Services End */
+
+/* Media query Laptop */
+
+@media screen and (max-width: 1100px) {
+  .nav-menu * {
+    display: none;
+  }
+  .navbar-social-menu * {
+    display: none;
+  }
+  .navbar {
+    padding-right: 190px;
+    padding-left: 90px;
+    position: sticky;
+    top: 0;
+    display: grid;
+    grid-template-columns: 35fr 0.1fr 0.1fr 25fr;
+  }
+  .navbar-logo {
+    justify-content: start;
+  }
+  .nav-menu-icon {
+    visibility: visible;
+    justify-content: end;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .nav-menu * {
+    display: none;
+  }
+  .navbar-social-menu * {
+    display: none;
+  }
+  .navbar {
+    padding-right: 90px;
+    padding-left: 45px;
+    position: sticky;
+    top: 0;
+    display: grid;
+    grid-template-columns: 35fr 0.1fr 0.1fr 25fr;
+  }
+  .navbar-logo {
+    justify-content: start;
+  }
+  .nav-menu-icon {
+    visibility: visible;
+    justify-content: end;
+  }
 }
