@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Slab", "sans-serif";
+  --orange-light: #ff5714;
+  --orange-dark: #dd5000;
+  --light-gray: rgba(255, 255, 255, 0.5);
+}
+
+.navbar {
+  padding-right: 220px;
+  padding-left: 30px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 15fr 25fr 5fr;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.navbar * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-menu li {
+  list-style: none;
+  padding: 15px;
+}
+
+.nav-menu li:hover {
+  cursor: pointer;
+  color: var(--orange-light);
+}
+
+.social {
+  list-style: none;
+  width: 30px;
+  height: 30px;
+  background-color: var(--orange-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.social:hover {
+  cursor: pointer;
+  background-color: var(--orange-dark);
+}
+
+.intro {
+  background-image: url("./images/background.jpg");
+  height: 83vh;
+}
+
+.dark-background {
+  color: white;
+  height: 83vh;
+  background: rgba(22, 28, 45, 0.75);
+}
+
+.home {
+  position: relative;
+  width: 50%;
+  top: 26vh;
+  left: 21vw;
+}
+
+.home-title {
+  font-size: 42px;
+}
+
+.home-paragraph {
+  position: relative;
+  top: 40px;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  color: var(--light-gray);
+}
+
+.button {
+  position: relative;
+  padding: 8px 20px;
+  outline: none;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  border-radius: 6px;
+  color: rgb(255,255,255);
+  background-color: var(--orange-light);
+}
+
+#button-get-started{
+    top: 80px;
+}
+
+.button:hover{
+    background-color: var(--orange-dark);
+    cursor: pointer;
+}
+
+.story-outer{
+    padding: 100px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.story-inner{
+    display: flex;
+    align-items: center;
+}
+
+#button-buy-now{
+    top: 40px;
+}
+
+.story-wwa{
+    padding-left: 50px;
+}
+
+.story-wwa > h4{
+    color: var(--orange-light)
+}
+
+.story-wwa > p{
+    color: rgba(0,0,0,0.5)
+}
