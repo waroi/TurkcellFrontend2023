@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-orange {
+    border: 1px solid #ff5714;
+    border-radius: 0.5rem;
+    color: white;
+    background: #ff5714;
+    padding: 0.5rem;
+    width: 10rem;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.heading-small {
+    color: #ff5714;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.heading-large {
+    font-family: 'Roboto Slab', serif;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.paragraph {
+    color: #8492a6;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    padding: 0;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: inherit;
+    align-items: center;
+    height: 80px;
+    padding: 0 100px;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-brand .logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-items ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 10px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    margin-left: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-item a:hover {
+    color: #ff7f50;
+}
+
+.nav-social {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+}
+
+.social-logo {
+    margin-left: 20px;
+}
+
+.social-logo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-logo a:hover {
+    background-color: #ff7f50;
+    color: #fff;
+}
+
+.social-logo a i {
+    font-size: 20px;
+}
+
+.hero {
+    background: url("https://shreethemes.in/upstart/layouts/images/bg/1.jpg");
+    width: 100% !important;
+    padding: 400px 0;
+    background-size: cover;
+    position: relative;
+}
+
+.overlay {
+    display: block;
+    background-color: rgba(22, 28, 45, 0.75);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+}
+
+.title-heading {
+    color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    top: 30%;
+    left: 20%;
+    gap: 20px;
+}
+
+.hero .heading-large {
+    font-size: 42px;
+    letter-spacing: 0.2px;
+}
+
+.paragraph {
+    max-width: 600px;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    padding: 7rem;
+    background: #f8f9fc;
+}
+
+.container {
+    max-width: 1140px;
+
+}
+
+.about .container {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+}
+
+.about-img {
+    max-width: 520px;
+}
+
+.about-img img {
+    width: 30rem;
+    border-radius: 10px;
+}
+
+.about-txt .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.service {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 0;
+    gap: 7rem;
+}
+
+#service1 {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.service1-txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12rem;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.service-card {
+    padding-left: 1rem;
+    width: 30%;
+    aspect-ratio: 1.3;
+    border-radius: 10px;
+}
+
+.service-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.service-card-img {
+    width: 5rem;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    background: rgba(255, 87, 20, 0.1);
+    margin: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-card-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 18px;
+    color: #24272c;
+}
+
+.service-card-txt {
+    color: #8492a6;
+}
+
+.service-card-read-more a {
+    text-decoration: none;
+    color: black;
+}
+
+.service-card-read-more a:hover {
+    color: #ff5714;
+    text-decoration: underline;
+}
+
+.service-card-img i {
+    color: #ff5714;
+}
+
+.service-card:nth-child(even) {
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.05);
+}
+
+.service-card:nth-child(odd):hover {
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.05);
+
+}
+
+#service2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}
+
+.service2-txt {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#service2 .text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.process-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.process-img {
+    width: 250px;
+    aspect-ratio: 1;
+}
+
+.process {
+    display: flex;
+    gap: 5rem;
+}
+
+.process-paragraph {
+    color: #8492a6;
+
+}
+
+
+.service2-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10rem;
+    text-align: right;
+    padding-right: 4rem;
+    box-sizing: content-box;
+    border-right: 2px dashed #8492a63f;
+}
+
+.service2-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}
