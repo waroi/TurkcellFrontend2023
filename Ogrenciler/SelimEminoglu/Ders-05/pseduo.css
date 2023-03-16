@@ -1,0 +1,74 @@
+.paragraf {
+  font-size: 24px;
+}
+
+.title1 {
+  color: aqua;
+}
+
+@media only screen and (max-width: 768px) {
+  .paragraf {
+    font-size: 14px;
+  }
+  .title1 {
+    color: red;
+  }
+}
+/* Pseudo Class */
+.link {
+  font-size: 18px;
+  text-decoration: none;
+  color: rgb(216, 159, 4);
+}
+/* imleç üzerine gelince */
+.link:hover {
+  color: rgb(245, 142, 9);
+}
+/* tıklandıktan sonra */
+.link:visited {
+  color: rgb(214, 10, 10);
+}
+/* aktif olunca(basılı tutmak gibi) */
+.link:active {
+  color: aqua;
+}
+
+.listItem {
+  list-style-type: none;
+  font-size: 18px;
+  color: azure;
+}
+/* son eleman için */
+.listItem:last-child {
+  color: red;
+}
+/* çift sayılar için */
+.listItem:nth-child(even) {
+  color: rgb(59, 12, 148);
+}
+/* tek sayılar için */
+.listItem:nth-child(odd) {
+  color: rgb(9, 158, 34);
+}
+/* Formül verilebilen */
+.listItem:nth-child(2n-1) {
+  color: rgb(63, 9, 9);
+}
+
+/* Pseudo Element */
+/* ilk harfi büyütür */
+.text1::first-letter {
+  font-size: 30px;
+}
+/* ilk satırı etkiler */
+.text1::first-line {
+  color: orange;
+}
+/* metnin sonrasına etki eder */
+.text1::after {
+  content: "Bu sonrasına gelen yazıdır";
+}
+/* metnin öncesine etki eder */
+.text1::before {
+  content: "Bu öncesine etki eder";
+}
