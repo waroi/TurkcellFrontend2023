@@ -12,7 +12,6 @@ body {
 /*--------- NAVBAR --------*/
 nav {
     height: 50px;
-
     position: fixed;
     top: 0;
     right: 0;
@@ -136,7 +135,7 @@ nav {
 /*--------- SECTION 1 --------*/
 .section1 {
     padding: 100px 0;
-width: 100%;
+    width: 100%;
 }
 
 .section1-div {
@@ -214,6 +213,126 @@ width: 100%;
     border-radius: 8px;
 }
 
+
+/*--------- SECTION 2 --------*/
+.section2 {
+    padding: 100px 0px;
+    color: #24272c;
+    text-align: center;
+}
+
+.section2-text {
+    margin: 0px 0px 24px;
+    padding: 0px 0px 8px;
+}
+
+.section2 h4 {
+    color: #ff5714;
+    margin: 0px 0px 8px;
+}
+
+.section2 h1 {
+    font-size: 28px;
+    margin: 0px 0px 16px;
+}
+
+.section2 p {
+    color: #8492a6;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+.section2 a {
+    text-decoration: none;
+}
+
+.section2-images {
+    display: flex;
+    justify-content: center;
+    margin: 0px 12px;
+    padding: 3px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.section2-img {
+    width: 261px;
+    height: 203px;
+    margin: 24px 0px 0px;
+    padding: 8px 12px 0px;
+    border-radius: 6px;
+    position: relative;
+}
+
+.section2-img-sub {
+    background-color: #24272c;
+    border-radius: 6px;
+    position: absolute;
+    background-size: cover;
+    overflow: hidden;
+    height: 203px;
+}
+
+.section2-content {
+    position: absolute;
+    left: 30px;
+    bottom: 20px;
+    opacity: 0;
+}
+
+.section2-content p,
+h6 {
+    color: white;
+    font-size: 15px;
+    margin: 0;
+    text-align: left;
+}
+
+.section2-icon {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-size: 25px;
+    opacity: 0;
+}
+
+.section2-icon a {
+    color: #FF5714;
+}
+
+
+.section2-img img {
+    width: 261px;
+    height: 203px;
+    border-radius: 6px;
+    background-color: #24272c;
+    background-size: cover;
+}
+
+.section2-img img:hover {
+    opacity: 0.5;
+    transition: transform 0.4s ease-in-out;
+    transform: rotate(+6deg) scale(1.1);
+}
+
+.section2-img:hover .section2-content {
+    opacity: 1;
+    transition: transform 0.4s;
+}
+
+.section2-img:hover .section2-icon {
+    opacity: 1;
+    transition: transform 0.4s;
+}
+
+.section2-content h6:hover {
+    color: #FF5714;
+    transition: color 0.4s ease-in-out;
+}
+
+
+
 /*----- FOOTER -----*/
 footer {
     background-color: #212842;
@@ -288,10 +407,11 @@ footer {
         margin-top: 18px;
     }
 
-    .section1-div{
+    .section1-div {
         width: 100%;
         justify-content: space-around;
     }
+
     .video {
         width: 300px;
         height: 350px;
@@ -389,16 +509,17 @@ footer {
         left: 20%;
     }
 
-    .section1-div{
+    .section1-div {
         width: 100%;
         flex-direction: column;
         justify-content: space-between;
-        
+
     }
+
     .video {
         width: 300px;
         height: 350px;
-        
+
     }
 
     .section1-info {
@@ -416,6 +537,6 @@ footer {
 
     footer {
         height: 20vh;
-        
+
     }
 }
