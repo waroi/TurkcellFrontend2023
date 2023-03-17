@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -52,6 +53,7 @@ nav {
     justify-content: center;
     align-items: center;
     font-family: 'Roboto Slab', serif;
+    background: rgba(255, 255, 255, 0.075);
 }
 
 .navbar-container {
@@ -96,7 +98,7 @@ nav {
     font-family: "Roboto Slab", serif;
     font-size: 14px;
     font-weight: 500;
-    color: #fff;
+    color: #8492a6;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -122,7 +124,7 @@ nav {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    color: #fff;
+    color: #8492a6;
     background-color: transparent;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -201,11 +203,28 @@ nav {
 
 .about-img {
     max-width: 520px;
+    position: relative;
 }
 
 .about-img img {
     width: 30rem;
     border-radius: 10px;
+}
+
+.about-icon {
+    background-color: white;
+    text-align: center;
+    width: 5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    color: #ff5714;
+    position: absolute;
+    bottom: 45%;
+    left: 40%;
+}
+
+.about-icon:hover {
+    cursor: pointer;
 }
 
 .about-txt .text {
@@ -423,9 +442,11 @@ nav {
     top: 20px;
 }
 
-.project-card-icon a {
+.project-card-icon .btn-orange {
     color: white;
-    text-decoration: none;
+    width: 2rem;
+    padding: 0.4rem;
+    border-radius: 50%;
 }
 
 .project-card-text h6 {
@@ -824,4 +845,49 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #202942;
+}
+
+.footer .container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.footer-social {
+    list-style-type: none;
+    display: flex;
+    width: 15%;
+    justify-content: space-evenly;
+}
+
+.footer-social-logo {
+    border: 1px solid #283353;
+    border-radius: 5px;
+    width: 2rem;
+    aspect-ratio: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-social a {
+    text-decoration: none;
+    color: #8492a6;
+}
+
+.footer-social-logo:hover {
+    background-color: #ff5714;
+    color: white;
 }
