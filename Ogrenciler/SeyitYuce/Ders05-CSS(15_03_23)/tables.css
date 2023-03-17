@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+  scale: 1.5;
+  margin-top: 50px;
+}
+thead {
+  background-color: rgba(64, 226, 43, 0.664);
+}
+/*horizontal lines*/
+tr {
+  border: 1px solid violet;
+}
+/*vertical lines*/
+th,
+td {
+  border: 1px dashed rgb(0, 0, 0);
+}
+tbody tr:nth-child(even) {
+  background-color: blueviolet;
+  cursor: copy;
+}
+tbody tr:nth-child(even):hover {
+  background-color: rgba(137, 43, 226, 0.521);
+  transform: scale(1.2);
+  transition: all 1s;
+  transition: transform 1s;
+}
+tbody tr:nth-child(odd) {
+  background-color: darkblue;
+  cursor: all-scroll;
+}
+tbody tr:nth-child(odd):hover {
+  font-size: larger;
+  transition: all 1s;
+  background-color: rgba(0, 0, 139, 0.8);
+}
+tbody tr:nth-child(3n + 1) {
+  /* background-color: crimson; */
+  cursor: alias;
+}
+tbody tr:nth-child(3n + 1):hover {
+  /* transform: rotateX(-180deg); */
+  /* transform: rotateY(-180deg); */
+  /* transform: rotateZ(180deg); */
+  transform: scale3d(0.75, 1.5, 1);
+  background-color: crimson;
+}
