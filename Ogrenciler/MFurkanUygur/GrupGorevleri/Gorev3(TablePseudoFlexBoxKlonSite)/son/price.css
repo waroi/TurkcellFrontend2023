@@ -30,7 +30,7 @@
 .card2,
 .card3 {
     box-shadow: 0 0 5px rgb(36 39 44 / 15%);
-
+    width: 29%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -107,7 +107,13 @@
     color: white;
     transition: .3s ease-in-out;
 }
-
+@media screen and (max-width:2560px) {
+    .card1,
+    .card2,
+    .card3 {
+       width: 20%;
+    }
+}
 @media screen and (max-width:320px) {
 
     .card1,
@@ -155,10 +161,6 @@
         width: 100%;
         background-color: rgb(0, 101, 189);
     }
-
-    /* .priceCard {
-
-    } */
 }
 
 @media screen and (max-width:1200px) {}
