@@ -7,6 +7,8 @@
 }
 a {
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 .center {
   text-align: center;
@@ -63,9 +65,7 @@ a {
 li {
   list-style-type: none;
 }
-a {
-  text-decoration: none;
-}
+
 .wrap {
   margin: 0 auto;
   width: 80%;
@@ -91,6 +91,11 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+
+.mainImage {
+  cursor: pointer;
+}
+
 .navItemSectionList {
   display: flex;
   align-items: center;
@@ -333,7 +338,7 @@ a {
   height: 926px;
 }
 
-.iamges {
+.images {
   display: flex;
   flex-direction: column;
 }
@@ -533,13 +538,15 @@ a {
 }
 
 .bg-image {
-  background-image: url("https://shreethemes.in/upstart/layouts/images/bg/cta.png");
   padding: 100px 0;
-  position: relative;
-  background-size: auto;
+  /* position: relative; */
   background-repeat: no-repeat;
-  z-index: 0;
-  background-position: center;
+  /* z-index: 0; */
+  background-position-y: -20em;
+  background: rgba(19, 23, 40, 0.644)
+    url("https://shreethemes.in/upstart/layouts/images/bg/cta.png");
+  background-blend-mode: darken;
+  background-size: auto;
 }
 .bg-overlay {
   background-color: rgba(22, 28, 45, 0.75);
@@ -552,25 +559,14 @@ a {
   height: 380.93px;
   z-index: 0;
 }
-.portfolio-pic-container {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  margin-right: 18px;
-  margin-left: 18px;
-  padding-right: 12px;
-  padding-left: 12px;
-}
+
 .one {
-  margin-right: -12px;
-  margin-left: -12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
-.two {
-  padding-right: 12px;
-  padding-left: 12px;
-}
-.three {
-}
+
 .portfolio-pic-container h4 {
   letter-spacing: 0.5px;
   font-size: 28px;
