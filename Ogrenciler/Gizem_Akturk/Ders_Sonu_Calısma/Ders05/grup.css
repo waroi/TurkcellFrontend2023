@@ -1,0 +1,517 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.portfolio-container {
+    width: 100%;
+    height: 100%;
+    background-color: #f8f9fc;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.portfolio-header {
+    background-color: #f8f9fc;
+    color: black;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.portfolio-header h6 {
+    color: #ff5714;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.portfolio-header p {
+    font-family: 'Roboto Slab', serif;
+    font-size: 15px;
+    line-height: 24px;
+    text-decoration: none solid rgb(132, 146, 166);
+    text-align: center;
+    max-width: 600px;
+    color: #8492a6;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.portfolio-images {
+    width: 85%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+
+}
+
+.portfolio-image {
+    flex-basis: 25%;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.portfolio-image :hover {
+    transform: scale(1.1);
+    /*translateY(-20px); */
+
+    opacity: 0.8;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+.info h1 {
+    font-weight: 500;
+    font-size: 32px;
+    margin: 0 0 20px;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+
+.info p {
+    opacity: 0;
+    transition: all 0.3s ease-out 0.2s;
+}
+
+.info a {
+    color: #fff;
+    background: #ff5714;
+    display: inline-block;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    opacity: 0;
+    position: relative;
+    transition: all 0.3s ease-out 0.4s;
+}
+
+.info a:hover {
+    background: rgb(177, 73, 3);
+}
+
+.portfolio-image:hover .info h1 {
+    opacity: 1;
+}
+
+.portfolio-image:hover .info p {
+    opacity: 1;
+}
+
+.portfolio-image:hover .info a {
+    opacity: 1;
+}
+
+.portfolio-images img {
+    width: 260px;
+    height: 195px;
+
+    max-width: 100%;
+    display: block;
+}
+
+.get-started-container {
+    background-image: url("https://shreethemes.in/upstart/layouts/images/bg/cta.png");
+
+    background-size: cover;
+    background-position: center;
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 380px;
+    box-shadow: inset 0 0 0 200rem rgba(0, 0, 0, 0.5);
+}
+
+.get-started {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.get-started h4 {
+
+    font-size: 36px;
+    color: white;
+
+}
+
+.get-started p {
+
+    color: #8492a6;
+    line-height: 1.5;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 10px;
+    width: 50%;
+
+}
+
+.get-started button {
+    padding: 8px 25px;
+    border-radius: 6px;
+    background-color: #ff5714;
+    border: 1px solid #ff5714;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+
+}
+
+
+.plans-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+}
+
+.plans-header {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Roboto Slab', serif;
+
+}
+
+.plans-header h6 {
+    color: #ff5714;
+    font-weight: 600;
+}
+
+.plans-header p {
+
+
+    font-size: 15px;
+    line-height: 24px;
+    text-decoration: none solid rgb(132, 146, 166);
+    text-align: center;
+    max-width: 600px;
+    color: #8492a6;
+    margin: auto;
+}
+
+.plans {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+    margin: 0 auto;
+
+
+}
+
+.plan {
+    width: 200px;
+    flex-basis: 33%;
+
+    padding: 10px;
+    height: 250px;
+    text-align: left;
+    padding: 20px;
+    margin: 10px;
+    border: black solid 1px;
+
+
+}
+
+.plan-body ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 15px;
+    line-height: 24px;
+    text-decoration: none solid rgb(132, 146, 166);
+    color: #8492a6;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.plan-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.plan-footer button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #ff5714;
+    background-color: rgba(255, 87, 20, 0.1);
+    border: 1px solid rgba(255, 87, 20, 0.1);
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+}
+
+.plan-footer button:hover {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.479);
+    opacity: .5;
+    background-color: #ff5714;
+}
+
+.our-team-container {
+    background-color: #f8f9fc;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+
+}
+
+.our-team-header {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+
+.our-team-header h6 {
+    color: #ff5714;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.our-team-header p {
+    font-family: 'Roboto Slab', serif;
+    font-size: 15px;
+    line-height: 24px;
+    text-decoration: none solid rgb(132, 146, 166);
+    text-align: center;
+    max-width: 600px;
+    color: #8492a6;
+    margin: auto;
+}
+
+.our-team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+    margin: 0 auto;
+
+}
+
+.team-member {
+    width: 100%;
+    flex-basis: 25%;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member-info {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -150px;
+    background-color: #fff;
+    transition: all 0.3s;
+    border-radius: 5px !important;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 2rem !important;
+}
+
+.team-member:hover .team-member-info {
+    bottom: 0;
+}
+
+.team-member-image img {
+    width: 260px;
+    height: 195px;
+    margin: 5px;
+}
+
+.our-teams-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+.projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: auto;
+}
+
+.logos-container {
+    background-color: #f8f9fc;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.logos img {
+    width: 40%;
+    color: #000000;
+}
+
+@media screen and (max-width: 1280px) {
+    .portfolio-images {
+        width: 75%;
+    }
+
+    .portfolio-image img {
+        width: 180px;
+        height: 135px;
+    }
+
+    .our-team-container {
+        height: 100%;
+    }
+
+    .our-team {
+        width: 75%;
+    }
+
+    .team-member-image img {
+        width: 180px;
+        height: 135px;
+    }
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .our-teams-footer {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        row-gap: 10px;
+        width: 100%;
+    }
+
+    .logos div {
+        flex-basis: 50%;
+        text-align: center;
+    }
+
+    .logos-container {
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .logos {
+        width: 75%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .projects {
+        flex-basis: 50%;
+
+    }
+
+    .portfolio-images {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .portfolio-image {
+        flex-basis: 100%;
+
+    }
+
+    .portfolio-container {
+        width: 100%;
+    }
+
+    .plan {
+        flex-basis: 100%;
+    }
+
+    .plans {
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .our-team {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

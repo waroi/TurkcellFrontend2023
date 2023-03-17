@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+  list-style: none;
+  list-style-type: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.w-100 {
+  width: 100%;
+}
+.disp-flex {
+  display: flex;
+}
+.display-none {
+  display: none;
+}
+.burger {
+  display: none;
+}
+.centered {
+  align-items: center;
+  justify-content: center;
+}
+.contain {
+  padding: 0 380px;
+  background-color: #f8f9fc;
+}
+.header {
+  background-image: url(./img/1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.filter {
+  padding: 260px 380px;
+  background-color: rgba(22, 28, 45, 0.75);
+  opacity: 0.9;
+}
+.heading {
+  max-width: 600px;
+}
+.header h4 {
+  font-family: 'Roboto Slab', serif;
+  color: #fefefe;
+  font-size: 50px;
+  letter-spacing: 0.2px;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  opacity: 1;
+}
+.header p {
+  color: #8391a5;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+.button {
+  padding: 12px 20px;
+  margin-top: 1.5rem;
+  border: 1px solid #fe5714;
+  background-color: #fe5714;
+  color: #fff;
+  box-shadow: 0 3px 5px 0 rgb(255 87 20 / 10%);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.section {
+  padding: 100px 0px;
+}
+.main {
+  align-items: center;
+  font-size: 15px;
+  padding-right: calc(1.5rem * 0.5);
+  padding-left: calc(1.5rem * 0.5);
+}
+.video-container {
+  position: absolute;
+  height: 100%;
+  background: none transparent;
+  background-color: #7a818f;
+}
+.video-container iframe {
+  width: 640px;
+  height: 360px;
+}
+.youtube-video {
+  background-image: url(./img/about.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 500px;
+  min-width: 400px;
+  border-radius: 10px;
+}
+.play-icon {
+  background-color: #fefefe;
+  padding: 27px 30px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+.play-icon label i {
+  cursor: pointer;
+  color: #fe5714;
+  font-size: 20px;
+}
+.video-info {
+  max-width: 50%;
+  padding: 12px 0px;
+}
+.video-info h4,
+.who-we-are h4 {
+  color: #fe5714;
+  text-transform: uppercase;
+  font-family: 'Roboto Slab', serif;
+  font-size: 20px;
+}
+.video-info h5,
+.who-we-are h5 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 600;
+  font-size: 28px;
+}
+.video-info p,
+.who-we-are p {
+  color: #8492a6;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.who-we-are {
+  flex-direction: column;
+}
+.who-we-are p {
+  width: 60%;
+  text-align: center;
+  font-size: 18px;
+}
+.who-cards {
+  margin-top: 50px;
+  margin-bottom: 70px;
+  justify-content: space-between;
+}
+.card1 {
+  width: 25%;
+  text-align: center;
+}
+.card1 h5 {
+  font-size: 30px;
+  margin-bottom: 0.5rem;
+}
+.card1 span {
+  color: #8492a6;
+}
+.card-img img {
+  display: flex;
+  width: 25%;
+  min-width: 261px;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 2px 9px 23px -6px rgba(0, 0, 0, 0.75);
+}
+.brands {
+  display: inline-flex;
+  align-items: center;
+}
+.brands img {
+  display: list-item;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 10px;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .contain {
+    padding: 0 50px;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    background-size: auto;
+    width: 100%;
+  }
+  .filter {
+    padding: 50px;
+    max-height: 50%;
+  }
+  .heading {
+    min-width: 200px;
+    max-width: 720px;
+  }
+  .main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .video-info {
+    margin: 0;
+    max-width: 100%;
+  }
+  .who-cards {
+    flex-direction: column;
+  }
+  @media only screen and (max-width: 998px) {
+    .contain {
+      padding: 0 100px;
+    }
+    .navbar {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+      align-items: center;
+      height: 50px;
+      left: 0;
+    }
+    .burger {
+      display: block;
+    }
+    .static-navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .navigations {
+      margin-top: 10px;
+      left: 0;
+      display: none;
+      width: 100%;
+      z-index: 900;
+      background-color: #f8f9fc;
+    }
+    .nav-list ul li {
+      margin: 6px 0;
+      font-size: 15px;
+      padding: 10px 0;
+    }
+    .nav-list ul li a {
+      font-family: 'Roboto Slab', serif;
+      color: #24272c;
+      text-transform: uppercase;
+    }
+    .nav-list ul li:first-child a {
+      color: #fe5714;
+    }
+    .nav-list ul {
+      display: block;
+    }
+    .icon-item a i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: #fe5714;
+      padding: 8px 10px;
+      text-align: center;
+      color: #24272c;
+      margin: 0 1px;
+      color: #f8f9fc;
+    }
+    .header {
+      background-size: cover;
+      width: 100%;
+    }
+    .filter {
+      padding: 100px;
+    }
+    .heading {
+      min-width: 400px;
+      max-width: 720px;
+    }
+    .main {
+      flex-direction: column;
+    }
+    .video-info {
+      margin-left: auto;
+      max-width: 100%;
+    }
+  }
+}
+@media screen and (min-width: 999px) {
+  .navbar {
+    padding: 0 380px;
+    overflow: hidden;
+    align-items: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 6px;
+    justify-content: space-between;
+    font-family: 'Roboto Slab', serif;
+    position: fixed;
+    top: 0;
+    z-index: 900;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .video-info {
+    margin-left: 5rem;
+  }
+  .nav-list ul li {
+    display: list-item;
+    margin: 0 6px;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  .nav-item a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .icon-item a i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 16px;
+    text-align: center;
+    color: #24272c;
+  }
+  .fa-brands {
+    height: 16px;
+    width: 16px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .navbar {
+    padding: 0 100px;
+  }
+  .heading {
+    min-width: 400px;
+  }
+  .who-cards {
+    flex-wrap: wrap;
+  }
+  .card1 {
+    width: 50%;
+  }
+}
