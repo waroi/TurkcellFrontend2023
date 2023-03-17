@@ -30,7 +30,7 @@
 .card2,
 .card3 {
     box-shadow: 0 0 5px rgb(36 39 44 / 15%);
-    width: 25%;
+
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -107,3 +107,58 @@
     color: white;
     transition: .3s ease-in-out;
 }
+
+@media screen and (max-width:320px) {
+
+    .card1,
+    .card2,
+    .card3 {
+        padding: 0 50px;
+
+    }
+
+}
+
+@media screen and (min-width:321px) and (max-width:424px) {
+
+    .card1,
+    .card2,
+    .card3 {
+        padding: 0 80px;
+    }
+}
+
+@media screen and (min-width:425px) and (max-width:480px) {
+
+    .card1,
+    .card2,
+    .card3 {
+        padding: 0 100px;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    .card1,
+    .card2,
+    .card3 {
+        width: 40%;
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (min-width:769px) and(max-width:1024) {
+
+    .card1,
+    .card2,
+    .card3 {
+        width: 100%;
+        background-color: rgb(0, 101, 189);
+    }
+
+    .priceCard {
+        
+    }
+}
+
+@media screen and (max-width:1200px) {}
