@@ -40,6 +40,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
 }
 
 .nav-menu li {
@@ -162,11 +163,11 @@
   padding-left: 70px;
 }
 
-.story-wwa > h4 {
+.story-wwa h4 {
   color: var(--orange-light);
 }
 
-.story-wwa > p {
+.story-wwa p {
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -223,7 +224,7 @@
   flex-wrap: wrap;
 }
 
-.services-row > div {
+.services-row div {
   width: 20vw;
   height: 45vh;
   margin: 10px;
@@ -355,13 +356,12 @@
   flex-direction: column;
   align-items: center;
 }
-.section-title * {
+.section-title {
   position: relative;
-  align-items: center;
   text-align: center;
+  justify-content: center;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
-  /* margin-left: 500px; */
   width: 600px;
 }
 .text-h6{
@@ -393,10 +393,21 @@
   width: 250px;
   border-radius: 10px;
 }
+.portfolio-card:hover{
+  background-color: #24272c;
+
+}
 .img-fluid{
   max-width: 100%;
   height: auto;
   border-radius: 2%;
+}
+.img-fluid:hover{
+  box-shadow: 0 25px 25px rgba(36, 39, 44, 0.05);
+  transition: all 0.5s ease;
+  border-radius: 30px;
+  z-index: 1;
+  transform: translate(10, 0px);
 }
 .section-bg{
   background: url('https://shreethemes.in/upstart/layouts/images/bg/cta.png');
@@ -436,7 +447,6 @@
   flex-wrap: wrap;
   padding-top: 0.5rem;
   margin-top: 1.5rem;
-  margin-left: 200px;
 }
 .pricing-card{
   box-shadow: 0 0 3px rgba(36,39,44,0.15);
@@ -445,6 +455,12 @@
   padding: 1rem 3rem;
   margin: 1rem 1rem;
   width: 350px;
+}
+.pricing-card:hover{
+  box-shadow: 20px 20px 15px #184147;
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+  cursor: pointer;
 }
 .pricing-card-title{
   text-transform: uppercase;
@@ -501,57 +517,59 @@
   margin-top: 1.5rem;
   width: 100%;
 }
+.price-button:hover {
+  background-color: var(--orange-dark);
+  cursor: pointer;
+  color: var(--bs-white);
+}
 .orange-text{
   color: var(--orange-light);
   font-size: 15px;
 }
 .our-team{
-  padding-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 100px 0;
+  position: relative;
   background-color: #f8f9fc;
 }
-
 .our-team-photos-wrap{
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 1200px;
-  margin-top:60px;
+  flex-wrap: wrap;
 }
-
 .our-team-photos {
-  width: 261px;
-  height: 261px;
+  position: relative;
+  padding-top: 0.5rem;
+  margin: 1rem;
+  width: 250px;
   border-radius: 10px;
 }
 
 .our-team-infos-wrap{
   margin-top: 50px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 1200px;
-
+  flex-wrap: wrap;
 }
-
 .our-team-info {
+  position: relative;
   width: 261px;
   height: 67.5px;
   text-align: center;
 }
 
 .our-team-branches{
-  margin-top:50px;
+  padding-top: 3rem;
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 1300px;
-  margin-bottom:100px;
+}
+.our-team-img-container{
+  position: relative;
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
-.img-branches{
+.our-team-img{
   width: 80px;
 }
 
@@ -568,10 +586,16 @@
 }
 
 .blogs{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 100px;
+}
+
+.cards{
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-bottom: 100px;
 }
 
 .card{
@@ -606,6 +630,11 @@
   height: 100%;
 }
 
+.card:nth-child(even) {
+  box-shadow: 0 25px 25px rgba(36, 39, 44, 0.05);
+  transition: all 0.5s ease;
+  height: 400px;
+}
 .card-content-title{
   font-size: 18px;
   font-weight: 600;
@@ -644,18 +673,20 @@
   content: " \2192";
 }
 
-.cards{
-  margin-top: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 1250px;
-  margin-bottom: 100px;
+.contact-us{
+  background-color: #f8f9fc;
+  padding: 100px 0;
 }
 
+.contact-wrap{
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .personel-info-wrap{
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly; 
   margin-bottom: 24px;
 }
@@ -666,6 +697,7 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   border:1px solid rgb(235, 235, 235);
   border-radius: 10px;
   background-color: white;
@@ -715,27 +747,12 @@
   box-shadow: 0 3px 5px 0 rgba(255,87,20,0.1);
 }
 
-.contact-us{
-  background-color: #f8f9fc;
-  padding-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .symbols{
   margin-top:20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 254px;
-}
-
-.contact-wrap{
-  margin-top: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
 
 .icon-size{
