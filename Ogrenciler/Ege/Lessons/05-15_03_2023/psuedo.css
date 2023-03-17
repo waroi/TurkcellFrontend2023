@@ -1,0 +1,83 @@
+.paragraph{
+    font-size: 24px;
+}
+
+.title1{
+    color: burlywood;
+}
+
+@media only screen and  (max-width: 768px){
+    .paragraph{
+        font-size: 14px;
+    }
+    .title1{
+        color:cornflowerblue
+    }
+}
+
+/* Psuedo Class */
+
+.link{
+    font-size: 18px;
+    text-decoration: none;
+    color: gold;
+}
+
+.link:visited{
+    color: chartreuse;
+}
+
+.link:hover{
+    color: rgb(212, 181, 2);
+}
+
+.link:active{
+    color: aqua;
+}
+
+.listItem{
+    list-style-type: none;
+    font-size: 10px;
+    color: orange;
+}
+
+/* .listItem:last-child{
+    color: chartreuse;
+} */
+
+/* .listItem:nth-child(even){
+    color: rebeccapurple;
+} */ 
+
+/* .listItem:nth-child(odd){
+    color: rebeccapurple;
+} */
+
+/* .listItem:nth-child(2n){
+    color: rebeccapurple;
+} */
+
+/* .listItem:nth-child(2n-1){
+    color: rebeccapurple;
+} */
+
+/* .listItem:nth-child(-n+6){
+    color: rebeccapurple;
+} */
+
+/* Psuedo Element */
+.text1::first-letter{ /* <== last-letter */
+    font-size:30px
+}
+
+.text1::first-line{ /* <== last-line */
+    color: rebeccapurple
+}
+
+.text1::after{
+    content: "Bu sonrasına gelen bir yazıdır.";
+}
+
+.text1::before{
+    content: "Bu öncesine gelen bir yazıdır."
+}
