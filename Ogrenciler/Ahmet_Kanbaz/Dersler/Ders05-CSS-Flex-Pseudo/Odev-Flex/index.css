@@ -1,3 +1,7 @@
+/* Header Section */
+
+
+
 /* Creative Minds Section*/
 .creativeSection {
   width: 100%;
@@ -49,11 +53,18 @@
   height: auto;
   display: flex;
   margin: 2%;
+  transition: all .3s ease-in-out;
 }
 
 .card img {
   border-radius: 5px;
   width: 100%;
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 24px 15px;
+  transition: all .5s ease-in-out;
+  transform: scale(1.05);
 }
 
 .card ul {
@@ -130,9 +141,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
   padding: 100px 0;
   font-family: "Roboto Slab", serif;
 }
@@ -140,19 +148,22 @@
 .containerNews {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
 }
 
 .newsTop h6 {
   color: #ff5714;
   font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .newsTop h4 {
   letter-spacing: 0.5px;
   font-size: 28px;
+  text-align: center;
 }
 
 .newsParagraph {
@@ -178,6 +189,12 @@
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
+  transition: all .3s ease-in-out;
+}
+
+.cardNews:hover {
+  box-shadow: rgba(79, 77, 77, 0.25) 0px 24px 15px;
+  transition: all .3s ease-in-out;
 }
 
 .cardNews img {
@@ -401,8 +418,6 @@ textarea:focus{
 .location a:hover {
   color: #778496;
 }
-
-
 
 
 @media screen and (max-width: 992px) {
