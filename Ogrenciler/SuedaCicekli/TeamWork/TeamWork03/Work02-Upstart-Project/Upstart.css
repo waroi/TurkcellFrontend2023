@@ -29,7 +29,7 @@ nav ul a:hover {
   color: #ff5714;
 }
 .navbar-left a img {
-  margin-left: 4rem;
+  margin-left: 0.4rem;
   height: 10%;
 }
 .navbar-right {
@@ -123,6 +123,8 @@ nav ul a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .left-1 {
   display: flex;
@@ -204,7 +206,7 @@ nav ul a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .left-2 {
@@ -286,41 +288,52 @@ nav ul a:hover {
 .container-3 h6 {
   margin-bottom: 8px;
 }
-/*Part4 Timeline */
-.process {
-  padding: 30px;
-}
-.process-section {
-  margin: auto;
+/*Part4 Timeline procces */
+.timeline {
   display: flex;
-  width: 70%;
+  width: 1140px;
+  height: 750px;
+  margin: 0 auto;
+  margin-top: 90px;
+  flex-wrap: wrap;
 }
-.process-section img {
-  width: 300px;
+.timeline img {
+  width: 250px;
+  height: 250px;
 }
-.process-left {
-  float: left;
-  width: 50%;
-  justify-content: center;
-  clear: both;
+.timeline-box-1 {
+  width: 570px;
+  height: 250px;
+  border-right: 2px dashed #dee2e6;
 }
-.process-right {
+.timeline-box-2 {
+  width: 570px;
+  height: 250px;
+}
+.box-left {
   float: right;
-  width: 50%;
-  justify-content: center;
-  clear: both;
+  text-align: right;
+  padding-right: 18px;
 }
-.process h5 {
-  color: #24272c;
+.box-right {
+  padding-left: 18px;
+}
+.timeline h5 {
   font-size: 18px;
+  color: #24272c;
   font-family: "Roboto", sans-serif;
 }
-.process p {
-  color: #8492a6;
+.timeline p {
   font-size: 15px;
+  color: #8492a6;
   font-family: "Roboto", sans-serif;
 }
+
 /*Part5| box images */
+.container-images {
+  width: 1200px;
+  margin: 0 auto;
+}
 .part-5 {
   background-color: #f8f9fc;
 }
@@ -329,11 +342,11 @@ nav ul a:hover {
 }
 .row-2 {
   margin: 60px auto;
-  width: 90%;
+  width: 100%;
 }
 .box-1 {
-  width: 300px;
-  height: 185px;
+  width: 261px;
+  height: 195px;
   background-position-y: center;
   background-position-x: center;
   background-size: 100%;
@@ -342,9 +355,27 @@ nav ul a:hover {
   padding: 8px 12px 0px 12px;
   position: relative;
 }
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 261px;
+  height: 195px;
+  transition: 0.5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+.box-1:hover .overlay {
+  opacity: 1;
+}
 .image-1 {
   background-image: url("https://shreethemes.in/upstart/layouts/images/portfolio/1.jpg");
 }
+
 .image-2 {
   background-image: url("https://shreethemes.in/upstart/layouts/images/portfolio/2.jpg");
 }
@@ -386,7 +417,6 @@ nav ul a:hover {
   left: 5px;
 }
 .image-1:hover::after {
-  content: "Mockup";
   color: white;
   position: absolute;
   bottom: 20px;
