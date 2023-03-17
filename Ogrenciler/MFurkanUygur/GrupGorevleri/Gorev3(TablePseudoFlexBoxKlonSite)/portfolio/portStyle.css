@@ -5,7 +5,7 @@ body {
 
 .portfolioMain {
     background-color: #f8f9fc;
-    padding: 100px 0;
+    /* padding: 100px 0; */
     display: flex;
     justify-content: center;
     width: 100%;
@@ -13,6 +13,7 @@ body {
 }
 
 .container {
+    max-width: 1140px;
     /* background-color: rgb(101, 13, 13); */
     display: flex;
     padding: 0px 50px;
@@ -21,8 +22,8 @@ body {
     margin: 0px 50px;
 }
 
-.subcontainer {
-    /* background-color: rgb(51, 236, 0); */
+.portfolioContainer {
+    max-width: 1140px;
 }
 
 .portfolioHead {
@@ -76,35 +77,202 @@ body {
     margin-top: 1.5rem;
 }
 
-.img1,
-.img2,
-.img3,
-.img4,
-.img5,
-.img6,
-.img7,
-.img8 {
-
-    /* background-color: blueviolet; */
-
-
-}
-
-.portfolioImages>div>div>img {
+.imgContainer>div>img {
     width: 250px;
-    border-radius: 10px;
-    margin: 10px 0;
+    border-radius: 5px;
 
 }
 
-@media screen and (min-width:800px) {
-    .container {
+.imgContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 
-        /* background-color: rgb(128, 35, 35); */
+/* @media screen and (min-width:1024px) and (max-width:1440px) {
+    .container {
+        min-width: 960px;
+    }
+
+    .imgContainer>div>img {
+        width: 250px;
+        margin-bottom: 30px;
     }
 
     .text {
-
         width: 600px;
     }
 }
+
+@media screen and (min-width:1440px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .imgContainer>div>img {
+        width: 250px;
+        margin-bottom: 30px;
+    }
+
+    .text {
+        width: 600px;
+    }
+
+} */
+
+
+.bridge {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    background-image: url(https://shreethemes.in/upstart/layouts/images/bg/cta.png);
+    background-size: auto;
+    background-position: center;
+    background-position-y: center;
+    position: relative;
+    min-width: 500px;
+
+}
+
+.bridgeBackground {
+    background-color: rgba(22, 28, 45, 0.75);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+}
+
+.bridgeContainer {
+    padding: 100px;
+    position: relative;
+    /* max-width: 600px; */
+}
+
+.bridgeTitle {
+    color: white;
+}
+
+.bridgeButton {
+    background-color: #ff5714;
+    margin: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+.priceMainSection {
+    width: 100%;
+    min-width: 500px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.priceContainer {
+    /* width: 100%; */
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.priceBoxes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* background-color: #ff5714; */
+}
+
+.boxes {
+    /* background-color: #8492a6; */
+    box-shadow: 0 0 3px rgb(36 39 44 / 15%);
+    text-align: left;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.priceBox1,
+.priceBox2,
+.priceBox3 {
+    padding-top: 0.5rem;
+    margin-top: 1.5rem;
+    border-radius: 5px;
+    /* background-color: antiquewhite; */
+    padding: 3rem 0.5rem;
+    /*Kutunun içini düzeltiyor*/
+    margin: 20px;
+}
+
+.priceTitle {
+    font-size: 18px;
+    color: #24272c;
+    line-height: 27px;
+    font-family: "Roboto Slab", serif;
+    margin-top: 0;
+    margin-bottom: 0.5rem
+}
+
+.priceSpan {
+    margin-bottom: 1.5rem;
+    font-family: "Roboto Slab", serif;
+    display: flex;
+}
+
+.priceDolar {
+    font-size: 18px;
+    align-self: flex-start;
+    margin-top: 5px;
+
+}
+
+.priceNumber {
+    font-size: 42px;
+    line-height: 63px;
+}
+
+.priceUnit {
+    align-self: flex-end;
+    font-size: 18px;
+}
+
+.priceList>ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: 33px;
+    font-family: "roboto", sans-serif;
+    color: #8492a6;
+
+}
+
+.priceButton {
+    background-color: rgba(255, 87, 20, 0.1);
+    margin: 20px 0;
+    margin-bottom: 10px;
+    padding: 12px 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    color: #ff5714;
+    transition: .3s ease-in-out;
+}
+.priceButton:hover{
+    background-color: #ff5714;
+    color: white;
+    transition: .3s ease-in-out;
+} 
