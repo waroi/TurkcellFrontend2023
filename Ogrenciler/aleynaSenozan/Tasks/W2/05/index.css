@@ -1,3 +1,7 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
 .nav{
   height: 70px;
   width: 100%;
@@ -66,6 +70,10 @@ img{
   font-size: 16px;
   margin-top: 24px;
 }
+.buton:hover{
+  background-color: #bf3507;
+  
+}
 
 .video img{
   width: 444px;
@@ -80,11 +88,45 @@ img{
   display: flex;
   justify-content: center;
   padding-top: 20px;
+  position: relative;
+}
+.playButton{
+  border-radius: 50%;
+    font-size: 57px;
+    position: absolute;
+    bottom: 59%;
+    left: 355px;
+    text-align: center;
+    color: orangered;
+    background-color: white;
+    width: 60px;
+    padding-left: -10px;
+}
+.playButton:hover{
+  color: white;
+  background-color: orangered;
+
 }
 
 .yazı{
   margin-top: 100px;
 }
+ @media screen and (max-width: 768px) {
+  .yazı{
+    
+    margin-left: -105px;
+  }
+  .yazı p{
+    width: 131px;
+  }
+  .video img {
+    width: 218px;
+    height: 355px;
+    border-radius: 10px;
+}
+
+} 
+
 
 .yazı h4{
   color: #f3612f;
@@ -103,13 +145,14 @@ img{
   display: flex;
   justify-content: center;
   gap: 200px;
+  margin: 10px;
 }
 
 .row1{
   display: flex;
   flex-wrap: wrap;
   gap:10px;  
-  margin: 0px 250px;
+  margin: 0px 125px;
 }
 
 .card{
@@ -131,7 +174,7 @@ img{
 }
 
 .kutu ,p,a,h3{
-  margin: 20px;
+  margin: -2px;
 }
 
 .card a{
@@ -158,14 +201,13 @@ img{
 
 }
 
-.portfolio-metin {
-  margin-left: 160px;
-}
+
 
 .portfolio-resim{
   display: flex;
   flex-wrap: wrap;
-  margin : 0px 190px;
+  margin : 0px 65px;
+  justify-content: center;
 }
 
 .portfolio-resim img{
@@ -187,6 +229,176 @@ img{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
+  
+}
+.kısım7 h1{
+  color: white;
+  margin: 0px;
+}
+.kısım7 p{
+  color: white;
+}
+
+.kısım8{
+  
+  margin-top: 50px;
+  text-align: center;
+}
+.plans{
+  margin-bottom: 51px;
+}
+
+.plans h4{
+  color: #f3612f;
+
+}
+
+.plans h2{
+  font-size: 30px;
+  }
+.plans p{
+color: #8492a6;
+}
+.plans-card{
+display: flex;
+justify-content: center;
+gap: 10px;
+}
+.p-card{
+  border-radius: 10px;
+    width: 367px;
+    height: 325px;
+    padding-top: 26px;
+    margin-left: 21px;
+    margin-bottom: 50px;
+    border: 1px solid grey;
+
+  
+}
+.p-card:hover{
+  transform: scale(1.1);
+  z-index: 2;
+  box-shadow: rgba(36, 39, 44, 0.15) 3px 15px 22px
+}
+.p-card ul{
+  list-style-type: none;
+  text-align: left;
+  padding-left: 15px;
+  color: grey;
+}
+.p-card li,a{
+  margin-bottom: 12px;
+}
+.buton8{
+  width: 285px;
+  height: 37px;
+  background-color: #ffccd5;
+  border-radius: 7px;
+  color: #ff5714;
+  font-size: 16px;
+  margin-top: 55px;
+}
+
+.buton8:hover{
+  color: white;
+  background-color: #ff5714;
+}
+.kısım9{
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  margin-top: 50px;
+  text-align: center;
+  background-color: #f8f9fc;
+
 }
 
 
+.resim9 img {
+  width: 220px;
+  height: 231px;
+  margin: 9px;
+  border-radius: 10px;
+  background-color: #f8f9fc;
+}
+
+.k9m{
+  margin-top: 82px;
+}
+.rakamlar{
+  margin-left: 294px;
+  display: flex;
+  gap: 162px;
+  margin-top: 26px;
+}
+.rakamlar p{
+  margin-top: 0px;
+  color: #8492a6;
+  margin-left: 2px;
+}
+.logolar img{
+  width: 87px;
+  height: 54px;
+  margin: 10px 65px;
+}
+.blogs{
+  background-color: white;
+  margin-top: 100px;
+}
+.blogs h4,p,h1{
+  text-align: center;
+
+}
+.blogs h4{
+  color: #ed450d;
+}
+.blogs p {
+  color: #8492a6;
+  margin-bottom: 15px;
+}
+.blog-cards{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.blogCard{
+    border: 1px solid black;
+    width: 350px;
+    height: 410px;
+    border-radius: 10px;
+}
+.blogCard img{
+  width: 350px;
+  height: 250px;
+  margin: 0px;
+  border-radius: 10px;
+}
+.blogCard h3{
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 14px;
+  
+}
+.blogCard p{
+  margin-left: 37px;
+  text-align: left;
+
+}
+.blogCard h5{
+  margin-top: 14px;
+  color:black;
+  margin-left: 39px;
+  font-size: 16px;
+}
+.blogCard h5:hover{
+  color: #ed450d;
+}
+.blogCard h3:hover{
+  color: #ed450d;
+}
+.kısım10{
+ background-color: #f8f9fc;
+ height: 700px;
+ padding-top: 50px;
+}
