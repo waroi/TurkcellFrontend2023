@@ -1,0 +1,976 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth
+}
+
+div.navigator{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    position: fixed;
+    background-color: white;
+    z-index: 10;
+}
+div.upstart{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    width: 25%;
+    justify-content: flex-end;
+}
+div.upstart:hover{
+    cursor: pointer;
+}
+li.social:hover{
+    cursor: pointer;
+}
+div.nav-mid{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    justify-content: flex-end;
+    margin-right: 15px;
+}
+div.navbar-social-menu{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    width: 25%;
+    justify-content: flex-start;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+li.nav-mid-li{
+    list-style-type: none;
+    padding-right: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: #24272c;
+}
+li.nav-mid-li:hover{
+    color: #ff5714;
+    cursor: pointer;
+}
+
+a.nav-link:link{
+    color: #24272c;
+}
+a.nav-link:focus{
+    color: #ff5714;
+}
+
+
+ul.nav-social-ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;   
+}
+li.social{
+    list-style: none;
+    width: 25px;
+    height: 25px;
+    background-color: #ff5714;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 5px;
+    color: white;
+}
+
+div.first-part{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/bg/1.jpg");
+    width: 100%;
+    height: 750px;
+    background-size: cover;   
+}
+div.first-part-bgOpacity{
+    width: 100%;
+    height: 750px;
+    background-color: #161c2dbf;
+    opacity: 0.9;
+}
+div.first-part-inside{
+    width: 550px;
+    height: 250px;
+    margin-left: 350px;
+    padding-top: 250px;
+}
+
+h4.first-part-h4{
+    font-size: 42px;
+    color: white;
+}
+span.first-part-span{
+    text-decoration: underline yellow;
+}
+p.first-part-p{
+    font-size: 17px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+
+button.first {
+    border: none;
+    color: #fff;
+    background-color: #ff5714;
+    border-radius: 5px;
+    background-size: 100% auto;
+    font-size: 15px;
+    padding: 0.6em 1.5em;
+    font-family: "Roboto",sans-serif;
+   }
+   
+button.first:hover {
+    background-size: 200% auto;
+    background-color: #f84600;
+    cursor: pointer;
+}
+
+
+div.second-part{
+    width: 100%;
+    height: 700px;
+    background-color: #f8f9fc;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+div.second-part-first{
+    width: 450px;
+    height: 526px;
+    background-image: url("https://shreethemes.in/upstart/layouts/images/about.jpg");
+    background-size: cover;
+    border-radius: 10px;
+}
+div.second-part-second{
+    width: 600px;
+    height: 250px;
+}
+
+h6.second-part-second-h6{
+    color: #ff5714;
+    font-size: 15px;
+    font-style: "Roboto Slab",sans-serif;
+    letter-spacing: 0.5;
+}
+
+h4.second-part-second-h4{
+    font-size: 28px;
+    font-style: "Roboto Slab",sans-serif;
+    color: #24272c;
+    letter-spacing: 0.5;
+    font-weight: 600;
+}
+
+p.second-part-second-p{
+    font-size: 18px;
+    color: #8492a6;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+
+.play-btn {
+    height: 78px;
+    width: 78px;
+    font-size: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff5714;
+    background-color: white;
+    margin-left: 186px;
+    margin-top: 224px;
+    z-index: 10;
+}    
+
+div.third-part{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+div.third-part-first{
+    width: 400px;
+}
+
+div.third-part-second{
+    width: 500px;
+}
+
+div.fourth-part{
+    width: 70%;
+    height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+div.fourth-part-divs{
+    width: 300px;
+    height: 275px;
+    padding: 5px;
+    margin: 25px;
+    border-radius: 30px;
+}
+div.fourth-part-divs:nth-child(even){
+    box-shadow: 0 25px 25px rgba(36,39,44,0.05);
+}
+div.fourth-part-divs:nth-child(odd):hover{
+    box-shadow: 0 25px 25px rgba(36,39,44,0.05);
+}
+div.fourth-part-icon{
+    width: 85px;
+    height: 85px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: rgba(255,87,20,0.1)
+}
+
+div.fourth-part-inside-div{
+    font-size: 18px;
+    font-weight: 600;
+    color: #24272c;
+    font-style: "Roboto Slab",sans-serif;
+    margin-left: 20px;
+}
+div.fourth-part-inside-div:hover{
+    color: #ff5714;
+    cursor: pointer;
+}
+
+p.fourth-part-inside-p{
+    color: #8492a6;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 16px 0;
+    margin-left: 20px;
+}
+
+div.fourth-part-inside-footer{
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.5;
+    margin-left: 20px;
+}
+
+div.fourth-part-inside-footer:hover{
+    color: #ff5714;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+div.fifth-part-first{
+    text-align: center;
+    width: 35%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+div.fifth-part-second-divs{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+div.fifth-part-second-divs-leftImage{
+    padding-left: 150px;
+}
+div.fifth-part-second-divs-rightImage{
+    padding-right: 185px;
+}
+
+img.fifth-part-image{
+    width: 250px;
+    height: 250px;
+}
+img.fifth-part-image-left{
+    margin: auto;
+}
+
+
+div.fifth-part-second-divs-rightLetter{
+    width: 570px;
+    height: 250px;
+    border-left: 2px dashed #dee2e6;
+    padding-left: 24px;
+    margin-left: 150px;
+}
+div.fifth-part-second-divs-leftLetter{
+    width: 570px;
+    height: 250px;
+    border-right: 2px dashed #dee2e6;
+    padding-right: 24px;
+    margin-right: 150px;
+}
+
+h5.fifth-part-second-divs-h5{
+    font-size: 18px;
+    font-family: "Roboto",sans-serif;
+}
+
+p.fifth-part-second-divs-p{
+    font-size: 15px;
+    color: #8492a6;
+    text-align: left;
+    line-height: 1.6;
+}
+
+div.sixth-part{
+    padding-top: 50px;
+    background-color: #f8f9fc;  
+    padding-bottom: 100px; 
+}
+
+div.sixth-part-second{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 1140px;
+    height: 455.5px;
+    margin: auto;
+}
+
+div.sixth-part-divs{
+    width: 261px;
+    height: 195.75px;
+    border-radius: 5px;
+}
+
+div.sixth-part-divs-icon{
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+    color: white;
+    width: 40px;
+    height: 40px;
+    background-color: #ff5714;
+    border-radius: 50%;
+    opacity: 0.8;
+    padding-left: 12px;
+    padding-top: 12px;  
+}
+div.sixth-part-divs-icon:hover{
+    background-color: #f84600;
+    cursor: pointer;
+}
+
+div.sixth-part-divs-div{
+    padding-top: 130px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    color: white;
+    font-weight: 900;
+}
+.sixth-part-divs-div-p:hover{
+    color: #f84600;
+    cursor: pointer;
+}
+
+p.sixth-part-divs-p{
+    padding-left: 15px;
+    color: white;
+}
+
+div#sixth-part-divs1{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/portfolio/1.jpg");
+    background-size: cover;
+}
+
+div#sixth-part-divs2{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/portfolio/2.jpg");
+    background-size: cover;
+}
+
+div#sixth-part-divs3{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/portfolio/3.jpg");
+    background-size: cover;
+}
+
+div#sixth-part-divs4{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/portfolio/4.jpg");
+    background-size: cover;
+}
+
+div#sixth-part-divs5{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/portfolio/5.jpg");
+    background-size: cover;
+}
+
+div#sixth-part-divs6{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/portfolio/6.jpg");
+    background-size: cover;
+}
+
+div#sixth-part-divs7{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/portfolio/7.jpg");
+    background-size: cover;
+}
+
+div#sixth-part-divs8{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/portfolio/8.jpg");
+    background-size: cover;
+}
+
+div.seventh-part{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/bg/cta.png");
+    background-position-y: center;
+    width: 100%;
+    height: 380px;
+    margin: auto;  
+    z-index: 1;
+}
+div.seventh-part-forbg{
+    background-color: #161c2dbf;
+    height: 380px;
+    z-index: 2;
+}
+
+div.seventh-part-inside{ 
+    height: 180px;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    z-index: 10;
+}
+
+h4.seventh-part-h4{
+    font-size: 28px;
+    color: white;
+    z-index: 10;
+
+}
+
+p.seventh-part-p{
+    font-family: "Roboto",sans-serif;
+    font-size: 15px;
+    color: #ffffff80;
+    width: 600px;
+    height: 48px;
+    margin: auto;
+    z-index: 10;
+}
+
+div.eighth-part{
+    text-align: center;
+    width: 1116px;
+    height: 650px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+div.eighth-part-first{
+    margin-bottom: 60px;
+}
+
+div.eighth-part-second{
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+div.eighth-part-second-divs{
+    width: 356px;
+    height: 370px;
+    box-shadow: 0 0 3px rgba(36,39,44,0.15);
+    border-radius: 5px;
+    font-family: "Roboto",sans-serif;
+}
+
+h5.eighth-part-second-divs-h5{
+    font-size: 18px;
+    text-align: left;
+    padding-left: 22px;
+    padding-top: 40px;
+}
+
+div.eighth-part-second-divs-spans{
+    text-align: left;
+    padding-left: 22px;
+    padding-bottom: 24px;
+}
+    
+
+
+span.eighth-part-second-divs-span1{
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+span.eighth-part-second-divs-span2{
+    font-size: 42px !important;
+    font-family: "Roboto Slab",serif;
+    line-height: 1.5;
+    font-weight: 600 !important;
+}
+
+span.eighth-part-second-divs-span3{
+    font-size: 18px !important;
+    font-family: "Roboto Slab",serif;
+    line-height: 1.5;
+    font-weight: 600 !important;
+}
+
+ul.eighth-part-second-divs-ul{
+    display: flex;
+    
+    flex-direction: column;
+    list-style-type: none;
+}
+
+li.eighth-part-second-divs-li{
+    width: 308px;
+    height: 28.5px;
+    margin: auto;
+    text-align: left;
+    color: #8492a6 !important;
+}
+
+i.fa-check-circle-o{
+    padding-right: 10px;
+    color: #8492a6 !important;
+}
+
+button.second{
+    border: none;
+    color: #ff5714;
+    background-color: rgba(255,87,20,0.1);
+    border-radius: 5px;
+    background-size: 100% auto;
+    font-size: 15px;
+    padding: 0.6em 1.5em;
+    font-family: "Roboto",sans-serif;
+    width: 308px;
+    height: 42px;
+    margin-top: 24px;
+}
+
+button.second:hover{
+    background-color: #f84600;
+    color: white;
+    cursor: pointer;
+}
+
+div.eighth-part-second-divs:hover{
+    box-shadow: 0 0 3px rgba(36,39,44,0.35)
+}
+
+div.nineth-part{
+    background-color: #f8f9fc;
+    text-align: center;
+    padding-top: 50px;
+}
+
+div.nineth-part-first{
+    width: 600px;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+div.nineth-part-second-first{
+    height: 293px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+div.nineth-part-second-first-divs{
+    height: 261px;
+    width: 261px;
+    border-radius: 5px;
+}
+div#nineth-part-second-first-divs1{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/client/01.jpg");
+    background-size: cover;
+}
+div#nineth-part-second-first-divs2{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/client/02.jpg");
+    background-size: cover;
+}
+div#nineth-part-second-first-divs3{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/client/08.jpg");
+    background-size: cover;
+}
+div#nineth-part-second-first-divs4{
+    background-image: url("https://shreethemes.in/upstart/layouts/images/client/03.jpg");
+    background-size: cover;
+}
+ul.nav-social-ul-partNine{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    height: 100px;
+    align-items: flex-end ;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+li.social-partNine:hover{
+    background-color: #f84600;
+    cursor: pointer;
+}
+div.nineth-part-second-first-divs-div{
+    width: 229px;
+    height: 85.5px;
+    border-radius: 5px;
+    background-color: white;
+    margin: auto;
+    margin-top: 35px;
+}
+
+h4.nineth-part-second-first-divs-div-h4{
+    font-size: 18px;
+    font-weight: 600;
+    color: #24272c;
+    padding-top: 20px;
+}
+h4.nineth-part-second-first-divs-div-h4:hover{
+    color: #ff5714;
+    cursor: pointer;
+}
+
+p.nineth-part-second-first-divs-div-p{
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    color: #8492a6;
+}
+
+div.nineth-part-second-second{
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+div.nineth-part-second-second-divs{
+    height: 75.5px;
+    width: 261px;
+}
+
+h3.nineth-part-second-second-divs-h3{
+    font-size: 30px;
+    font-weight: 600;
+    font-family: "Roboto Slab",serif;
+    margin-top: 10px;
+}
+
+p.nineth-part-second-second-divs-p{
+    font-size: 15px;
+    font-family: "Roboto",sans-serif;
+    color: #8492a6;
+    padding-top: 3.5px;
+}
+
+div.nineth-part-second-third{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 100px;
+}
+
+ul.nineth-part-second-third-ul{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 120px;
+}
+
+.socialss{
+    color: #ADB5BD;
+    list-style: none;
+    width: 75px;
+    height: 25px;
+}
+
+div.tenth-parth{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+div.tenth-part-first{
+    text-align: center;
+    width: 600px;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+div.tenth-part-second{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+div.tenth-part-second-divs{
+    width: 356px;
+    height: 427px;
+    border-radius: 5px;
+    box-shadow: 0 25px 25px rgba(36,39,44,0.05);
+}
+
+img.tenth-part-second-divs-img{
+    width: 356px;
+    height: 222.5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+h5.tenth-part-second-divs-h5{
+    font-size: 18px;
+    color: #24272c;
+    font-family: "Roboto Slab",serif;
+    font-weight: 600px;
+    line-height: 1.5;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 35px;
+}
+h5.tenth-part-second-divs-h5:hover{
+    color: #ff5714;
+    cursor: pointer;
+}
+
+p.tenth-part-second-divs-p{
+    color: #8492a6;
+    font-size: 15px;
+    margin-top: 15px;
+    margin-left: 25px;
+    font-family: "Roboto",sans-serif;
+    margin-right: 30px;
+}
+
+div.tenth-part-inside-footer{
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 30px;
+}
+
+div.eleventh-part{
+    background-color: #f8f9fc;
+    padding-bottom: 50px;
+}
+
+div.eleventh-part-first{
+    text-align: center;
+    width: 600px;
+    margin: auto;
+    margin-top: 80px;
+    padding-top: 100px;
+}
+
+div.eleventh-part-second{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+div.eleventh-part-second-first{
+    width: 736px;
+    height: 377px;
+    box-shadow: 0 0 3px rgba(36,39,44,0.15);
+    border-radius: 5px;
+    background-color: white;
+}
+
+div.eleventh-part-form-first{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    gap: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+input.eleventh-part-form-first{
+    width: 100%;
+    margin: auto;
+    height: 26px;
+    padding: 22px 14px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+
+textarea{
+    width: 100%;
+    margin: auto;
+    padding: 22px 14px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    resize: vertical; 
+}
+
+button.eleventh-part{
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+div.eleventh-part-second-second{
+    height: 377px;
+    width: 356px;
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+div.eleventh-part-second-second-divs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-left: 50px;
+    gap: 25px;  
+}
+
+div.eleventh-part-second-second-divs-first{
+    font-size: 24px;
+    width: 30px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+div.eleventh-part-second-second-divs-second{
+    margin: 15px 0;
+}
+
+h5.eleventh-part-second-second-divs-second-h5{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Roboto Slab",serif;
+    color: #24272c;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+p.eleventh-part-second-second-divs-second-p{
+    color: #8492a6;
+    font-family: "Roboto",sans-serif;
+    font-size: 15px;
+    text-align: left;
+}
+
+.container{
+    background-color: #202942;
+    height: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-items: center;
+    margin:auto;  
+}
+
+.socials {
+    height: 32px;
+    width: 32px;
+    color: #ADB5BD;
+    list-style: none;
+    width: 25px;
+    height: 25px;
+    background-color: rgba(96, 96, 96, 0);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin: 1px;
+    flex-direction: column;
+    border: 1px solid #adb5bd1c;
+}
+
+p{
+    color:#ADB5BD;
+    font-size: 15px;
+}
+
+.link{
+    font-size: 15px;
+    text-decoration: none;
+    color:#ADB5BD;
+}
+  
+.link:visited{
+    color:#ADB5BD;
+    text-decoration: none;
+}
+ 
+.link:active{
+    color:#ADB5BD;
+}
+
+.top { 
+    position: fixed;
+    bottom: 20px;      
+    margin-right:10px; 
+    width: 36px;
+    height: 36px; 
+    text-decoration: none;
+    padding-top: 5px;
+    font-family: sans-serif;
+    color: #fff;
+    background: #ff5714;
+    border-radius: 50%;
+    white-space: nowrap;
+    text-align: center;
+    right: 0;
+    margin-right: 30px;
+}
+
+li.footer-social:hover{
+    background-color: #ff5714;
+    color: white;
+    cursor: pointer;
+}
