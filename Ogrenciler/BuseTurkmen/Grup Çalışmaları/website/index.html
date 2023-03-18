@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="website.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,22 +20,20 @@
     />
     <title>Document</title>
   </head>
-
   <body>
-
     <nav id="navbar" class="navbar">
       <div class="navbar-container burger">
         <a href="#" class="navbar-brand">
           <span>
             <img
-              src="https://shreethemes.in/upstart/layouts/images/logo-light.png"
+              src="https://shreethemes.in/upstart/layouts/images/logo-dark.png"
               alt="logo"
               class="logo"
             />
           </span>
         </a>
         <div class="burger-icon">
-          <i class="burger-icon"></i>
+          <i class="fa-solid fa-bars fa-xl"></i>
         </div>
       </div>
       <div class="navbar-container standard">
@@ -48,47 +46,47 @@
             />
           </span>
         </a>
-      </div>
-        <div class="nav-item">
-          <ul>
-            <li class="nav-item">
-              <a href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#service">Services</a>
-            </li>
-            <li class="nav-item">
-              <a href="#project">Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a href="#price">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a href="#team">Team</a>
-            </li>
-            <li class="nav-item">
-              <a href="#log">Blogs</a>
-            </li>
-            <li class="nav-item">
-              <a href="#contact">Contact Us</a>
-            </li>
-          </ul>
+        <div>
+          <div class="nav-items">
+            <ul>
+              <li class="nav-item">
+                <a href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#service">Services</a>
+              </li>
+              <li class="nav-item">
+                <a href="#project">Portfolio</a>
+              </li>
+              <li class="nav-item">
+                <a href="#price">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a href="#team">Team</a>
+              </li>
+              <li class="nav-item">
+                <a href="#blog">Blogs</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact">Contact Us</a>
+              </li>
+            </ul>
 
             <ul class="nav-social">
               <li class="social-logo">
                 <a href="#">
-                   <i class="fab fa-facebook-f"></i>
+                  <i class="fab fa-facebook-f"></i>
                 </a>
               </li>
               <li class="social-logo">
                 <a href="#">
-                   <i class="fab fa-instagram"></i>
+                  <i class="fab fa-instagram"></i>
                 </a>
               </li>
               <li class="social-logo">
-                 <a href="#">
+                <a href="#">
                   <i class="fab fa-linkedin"></i>
-                 </a>
+                </a>
               </li>
             </ul>
           </div>
@@ -97,6 +95,7 @@
     </nav>
 
     <section class="hero" id="home">
+      <!-- <div class="overlay"> -->
       <div class="title-heading">
         <h4 class="heading-large">
           Providing Brilliant Ideas <br />
@@ -108,6 +107,7 @@
         </p>
         <a href=""><button class="btn-orange">Get Started</button></a>
       </div>
+      <!-- </div> -->
     </section>
 
     <section id="about" class="about">
@@ -139,7 +139,6 @@
         </div>
       </div>
     </section>
-    
     <section id="service" class="service">
       <div class="container" id="service1">
         <div class="service1-txt">
@@ -329,12 +328,13 @@
             <div class="project-card-text">
               <h6>Mockup Collection</h6>
               <p>Mockup</p>
-              <div class="project-card-icon">
-                <button class="btn-orange">
-                  <i class="fa-solid fa-camera"></i>
-                </button>
-              </div>
             </div>
+            <div class="project-card-icon">
+              <button class="btn-orange">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+          </div>
           <div class="project-card">
             <img src="assets/portfolio/2.jpg" alt="po2" />
             <div class="project-card-text">
@@ -342,7 +342,9 @@
               <p>Mockup</p>
             </div>
             <div class="project-card-icon">
-              <a href="#"><i class="fa-solid fa-camera"></i></a>
+              <button class="btn-orange">
+                <i class="fa-solid fa-camera"></i>
+              </button>
             </div>
           </div>
           <div class="project-card">
@@ -350,12 +352,13 @@
             <div class="project-card-text">
               <h6>Abstract Images</h6>
               <p>Abstract</p>
-              <div class="project-card-icon">
-                <button class="btn-orange">
-                  <i class="fa-solid fa-camera"></i>
-                </button>
-              </div>
             </div>
+            <div class="project-card-icon">
+              <button class="btn-orange">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+          </div>
           <div class="project-card">
             <img src="assets/portfolio/4.jpg" alt="po4" />
             <div class="project-card-text">
@@ -391,6 +394,7 @@
                 <i class="fa-solid fa-camera"></i>
               </button>
             </div>
+          </div>
           <div class="project-card">
             <img src="assets/portfolio/7.jpg" alt="po7" />
             <div class="project-card-text">
@@ -418,7 +422,6 @@
         </div>
       </div>
     </section>
-            
 
     <section class="cta" id="cta">
       <div class="cta-text">
@@ -763,7 +766,7 @@
         <div class="contact-content">
           <div class="contact-form">
             <form>
-              <div>
+              <div class="contact-form-first">
                 <input name="name" id="name" placeholder="Name:" type="text" />
                 <input
                   name="email"
@@ -859,6 +862,5 @@
         </ul>
       </div>
     </footer>
-
   </body>
 </html>
