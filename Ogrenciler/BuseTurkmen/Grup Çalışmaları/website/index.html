@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="website.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,80 +20,94 @@
     />
     <title>Document</title>
   </head>
-
   <body>
-
     <nav id="navbar" class="navbar">
-      <div class="navbar-container">
+      <div class="navbar-container burger">
         <a href="#" class="navbar-brand">
           <span>
             <img
-              src="https://shreethemes.in/upstart/layouts/images/logo-light.png"
+              src="https://shreethemes.in/upstart/layouts/images/logo-dark.png"
               alt="logo"
               class="logo"
             />
           </span>
         </a>
-        <div class="nav-items">
-          <ul>
-            <li class="nav-item">
-              <a href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a href="#">Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a href="#">Team</a>
-            </li>
-            <li class="nav-item">
-              <a href="#">Blogs</a>
-            </li>
-            <li class="nav-item">
-              <a href="#">Contact Us</a>
-            </li>
-          </ul>
+        <div class="burger-icon">
+          <i class="fa-solid fa-bars fa-xl"></i>
+        </div>
+      </div>
+      <div class="navbar-container standard">
+        <a href="#" class="navbar-brand">
+          <span>
+            <img
+              src="https://shreethemes.in/upstart/layouts/images/logo-dark.png"
+              alt="logo"
+              class="logo"
+            />
+          </span>
+        </a>
+        <div>
+          <div class="nav-items">
+            <ul>
+              <li class="nav-item">
+                <a href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#service">Services</a>
+              </li>
+              <li class="nav-item">
+                <a href="#project">Portfolio</a>
+              </li>
+              <li class="nav-item">
+                <a href="#price">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a href="#team">Team</a>
+              </li>
+              <li class="nav-item">
+                <a href="#blog">Blogs</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact">Contact Us</a>
+              </li>
+            </ul>
 
-          <ul class="nav-social">
-            <li class="social-logo">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li class="social-logo">
-              <a href="#">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </li>
-            <li class="social-logo">
-              <a href="#">
-                <i class="fab fa-linkedin"></i>
-              </a>
-            </li>
-          </ul>
+            <ul class="nav-social">
+              <li class="social-logo">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="social-logo">
+                <a href="#">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+              <li class="social-logo">
+                <a href="#">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
 
     <section class="hero" id="home">
-      <div class="overlay">
-        <div class="title-heading">
-          <h4 class="heading-large">
-            Providing Brilliant Ideas <br />
-            For Your Business
-          </h4>
-          <p class="paragraph">
-            Launch your campaign and benefit from our expertise on designing and
-            managing conversion centered bootstrap v5 html page.
-          </p>
-          <a href=""><button class="btn-orange">Get Started</button></a>
-        </div>
+      <!-- <div class="overlay"> -->
+      <div class="title-heading">
+        <h4 class="heading-large">
+          Providing Brilliant Ideas <br />
+          For Your Business
+        </h4>
+        <p class="paragraph">
+          Launch your campaign and benefit from our expertise on designing and
+          managing conversion centered bootstrap v5 html page.
+        </p>
+        <a href=""><button class="btn-orange">Get Started</button></a>
       </div>
+      <!-- </div> -->
     </section>
 
     <section id="about" class="about">
@@ -103,6 +117,9 @@
             src="https://shreethemes.in/upstart/layouts/images/about.jpg"
             alt=""
           />
+          <button class="about-icon">
+            <i class="fa-regular fa-circle-play fa-2xl"></i>
+          </button>
         </div>
         <div class="about-txt">
           <div class="text">
@@ -122,7 +139,6 @@
         </div>
       </div>
     </section>
-    
     <section id="service" class="service">
       <div class="container" id="service1">
         <div class="service1-txt">
@@ -314,7 +330,9 @@
               <p>Mockup</p>
             </div>
             <div class="project-card-icon">
-              <a href="#"><i class="fa-solid fa-camera"></i></a>
+              <button class="btn-orange">
+                <i class="fa-solid fa-camera"></i>
+              </button>
             </div>
           </div>
           <div class="project-card">
@@ -324,7 +342,9 @@
               <p>Mockup</p>
             </div>
             <div class="project-card-icon">
-              <a href="#"><i class="fa-solid fa-camera"></i></a>
+              <button class="btn-orange">
+                <i class="fa-solid fa-camera"></i>
+              </button>
             </div>
           </div>
           <div class="project-card">
@@ -334,7 +354,9 @@
               <p>Abstract</p>
             </div>
             <div class="project-card-icon">
-              <a href="#"><i class="fa-solid fa-camera"></i></a>
+              <button class="btn-orange">
+                <i class="fa-solid fa-camera"></i>
+              </button>
             </div>
           </div>
           <div class="project-card">
@@ -344,7 +366,9 @@
               <p>Books</p>
             </div>
             <div class="project-card-icon">
-              <a href="#"><i class="fa-solid fa-camera"></i></a>
+              <button class="btn-orange">
+                <i class="fa-solid fa-camera"></i>
+              </button>
             </div>
           </div>
           <div class="project-card">
@@ -354,7 +378,9 @@
               <p>V-card</p>
             </div>
             <div class="project-card-icon">
-              <a href="#"><i class="fa-solid fa-camera"></i></a>
+              <button class="btn-orange">
+                <i class="fa-solid fa-camera"></i>
+              </button>
             </div>
           </div>
           <div class="project-card">
@@ -364,7 +390,9 @@
               <p>Mockup</p>
             </div>
             <div class="project-card-icon">
-              <a href="#"><i class="fa-solid fa-camera"></i></a>
+              <button class="btn-orange">
+                <i class="fa-solid fa-camera"></i>
+              </button>
             </div>
           </div>
           <div class="project-card">
@@ -374,7 +402,9 @@
               <p>Cups</p>
             </div>
             <div class="project-card-icon">
-              <a href="#"><i class="fa-solid fa-camera"></i></a>
+              <button class="btn-orange">
+                <i class="fa-solid fa-camera"></i>
+              </button>
             </div>
           </div>
           <div class="project-card">
@@ -384,7 +414,9 @@
               <p>Article</p>
             </div>
             <div class="project-card-icon">
-              <a href="#"><i class="fa-solid fa-camera"></i></a>
+              <button class="btn-orange">
+                <i class="fa-solid fa-camera"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -734,7 +766,7 @@
         <div class="contact-content">
           <div class="contact-form">
             <form>
-              <div>
+              <div class="contact-form-first">
                 <input name="name" id="name" placeholder="Name:" type="text" />
                 <input
                   name="email"
@@ -830,6 +862,5 @@
         </ul>
       </div>
     </footer>
-
   </body>
 </html>
