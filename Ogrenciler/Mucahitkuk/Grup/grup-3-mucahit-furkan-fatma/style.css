@@ -429,7 +429,15 @@ h1 {
   color: #8492a6;
 }
 
-.timeline-cross {
+:has(#dropbtncheckbox:checked) :is(.dropdown-content) {
+  top: 4.8em;
+  height: 400px;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* .timeline-cross {
   display: flex;
   position: absolute;
   background: transparent;
@@ -438,9 +446,9 @@ h1 {
   border-top: none;
   border-bottom: none;
   border-left: 2px dashed #8492a6;
-}
+} */
 
-.timeline-point {
+/* .timeline-point {
   position: absolute;
   top: 0;
   left: -0.5rem;
@@ -474,7 +482,7 @@ h1 {
   height: 15px;
   background: #e04203;
   border-radius: 50%;
-}
+} */
 
 .dropdown {
   display: none;
@@ -504,7 +512,7 @@ h1 {
   position: absolute;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 10;
+  z-index: 100000;
   position: absolute;
   top: 100%;
   left: 0;
@@ -627,7 +635,7 @@ h1 {
 }
 
 @media screen and (min-width: 350px) and (max-width: 767px) {
-  * {
+  html {
     overflow-x: hidden;
   }
 
