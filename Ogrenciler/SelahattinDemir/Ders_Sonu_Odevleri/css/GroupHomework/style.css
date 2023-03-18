@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto Slab", "sans-serif";
+  transition: all 0.5s ease;
   --orange-light: #ff5714;
   --orange-dark: #dd5000;
   --light-gray: rgba(255, 255, 255, 0.5);
@@ -356,6 +357,7 @@
   width: 600px;
   margin: 0 auto;
 }
+
 .text-h6{
   font-weight: 600;
   color:var(--orange-light);
@@ -383,22 +385,62 @@
   margin: 1rem;
   width: 250px;
   border-radius: 10px;
+  overflow: hidden;
 }
-.portfolio-card:hover{
+.portfolio-card:hover .portfolio-overlay{
+  opacity: 0.6;
+}
+.portfolio-card:hover .img-fluid{
+  transform: rotate(2deg, 2deg);
+  -webkit-transform: rotate(2deg);
+  scale: 1.09;
+}
+.portfolio-card:hover .portfolio-icon{
+  right: 20px;
+}
+.portfolio-card:hover .portfolio-content{
+  bottom: 20px;
+}
+.portfolio-content:hover .portfolio-name{
+  color: var(--orange-light);
+}
+.portfolio-overlay{
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
   background-color: #24272c;
-
 }
+.portfolio-content{
+  position: absolute;
+  bottom: -50px;
+  left: 20px;
+  z-index: 1;
+}
+.portfolio-name{
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--bs-white);
+}
+.portfolio-paragraph{
+  line-height: 1.6;
+  color: var(--bs-white);
+}
+.portfolio-icon{
+  position: absolute;
+  top: 20px;
+  right: -50px;
+  z-index: 2;
+  color: var(--bs-white);
+}
+
 .img-fluid{
   max-width: 100%;
   height: auto;
   border-radius: 2%;
-}
-.img-fluid:hover{
-  box-shadow: 0 25px 25px rgba(36, 39, 44, 0.05);
-  transition: all 0.5s ease;
-  border-radius: 30px;
-  z-index: 1;
-  transform: translate(10, 0px);
 }
 .section-bg{
   background: url('https://shreethemes.in/upstart/layouts/images/bg/cta.png');
@@ -533,8 +575,52 @@
   width: 250px;
   height: 250px;
   border-radius: 10px;
+  overflow: hidden;
 }
-
+.our-team-photos:hover > .our-team-icons{
+  right: 10px;
+}
+.our-team-photos:hover > img{
+  scale: 1.1;
+}
+.our-team-photos:hover > .our-team-text{
+  bottom: 15px;
+}
+.our-team-text:hover > .our-team-name{
+  color: var(--orange-light);
+  cursor: pointer;
+}
+.our-team-text{
+  background-color: var(--bs-white);
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -150px;
+  padding: 1rem;
+  margin: 0.5rem;
+  text-align: center;
+  border-radius: 5px;
+}
+.our-team-name{
+  color: #24272c;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.our-team-description{
+  color: #8492a6;
+  line-height: 1.6;
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 0.25rem;
+}
+.our-team-icons{
+  position: absolute;
+  top: 16px;
+  right: -50px;
+  color: var(--bs-white);
+}
 .our-team-infos-wrap{
   margin-top: 50px;
   display: flex;
