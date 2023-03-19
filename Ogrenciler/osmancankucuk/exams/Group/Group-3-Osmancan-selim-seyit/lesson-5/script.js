@@ -1,8 +1,29 @@
 let nav = document.querySelector(".navBar");
 let mainImage = document.querySelector(".mainImage");
-console.log(mainImage.src);
 let sectionItem = document.querySelectorAll(".sectionItems");
 let icons = document.querySelectorAll(".iconBackground i");
+let secondSectionItem = document.querySelector(".secondSectionItems");
+
+window.onload = function () {};
+
+window.onresize = function (event) {
+  if (event.target.innerWidth < 1050) {
+    nav.style.backgroundColor = "white";
+    mainImage.src =
+      "https://shreethemes.in/upstart/layouts/images/logo-dark.png";
+  } else {
+    nav.style.backgroundColor = null;
+    mainImage.src =
+      "https://shreethemes.in/upstart/layouts/images/logo-light.png";
+    secondSectionItem.style.display = "none";
+  }
+};
+
+function popup() {
+  return secondSectionItem.style.display === "none"
+    ? (secondSectionItem.style.display = "block")
+    : (secondSectionItem.style.display = "none");
+}
 
 window.onscroll = function () {
   if (window.scrollY >= 20) {

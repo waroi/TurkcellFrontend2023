@@ -4,11 +4,11 @@
 }
 
 .priceCard {
-    padding: 40px 0;
+    padding: 40px 0  0 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
 }
 
 .cardTitle {
@@ -20,9 +20,11 @@
     color: #24272c;
     line-height: 27px;
     font-family: "Roboto Slab", serif;
-    margin-top: 0;
+    margin-top: 50px;
     margin-bottom: 0.5rem;
     text-align: left;
+    margin-left: 20px;
+
 }
 
 
@@ -30,12 +32,13 @@
 .card2,
 .card3 {
     box-shadow: 0 0 5px rgb(36 39 44 / 15%);
-    width: 29%;
     border-radius: 10px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    padding: 15px;
     transition: .3s ease-in-out;
+    padding: 0px 10px 35px 10px;
+
 }
 
 .card1:hover,
@@ -49,13 +52,15 @@
 .cardContent {
     display: flex;
     flex-direction: column;
-    padding: 40px 10px;
+    /* margin: 20px 10px; */
+ 
 }
 
 .priceSpan {
     margin-bottom: 1.5rem;
     font-family: "Roboto Slab", serif;
     display: flex;
+    margin-left: 20px;
 }
 
 .priceDolar {
@@ -77,7 +82,7 @@
 
 .priceList>ul {
     list-style: none;
-    margin: 0;
+    margin: 0 20px;
     padding: 0;
     font-size: 15px;
     line-height: 33px;
@@ -86,11 +91,17 @@
 
 }
 
+.buttonDiv {
+    display: flex;
+    margin-top: 15px;
+
+}
+
 .priceButton {
     background-color: rgba(255, 87, 20, 0.1);
     margin: 20px 0;
     margin-bottom: 10px;
-    padding: 12px 5px;
+    padding: 12px 10px;
     border: none;
     border-radius: 6px;
     font-size: 16px;
@@ -107,39 +118,46 @@
     color: white;
     transition: .3s ease-in-out;
 }
-@media screen and (max-width:2560px) {
-    .card1,
-    .card2,
-    .card3 {
-       width: 20%;
-    }
-}
-@media screen and (max-width:320px) {
+
+@media screen and (max-width:3000px) {
 
     .card1,
     .card2,
     .card3 {
-        padding: 0 50px;
-
+        width: 30%;
     }
 
-}
-
-@media screen and (min-width:321px) and (max-width:424px) {
-
-    .card1,
-    .card2,
-    .card3 {
-        padding: 0 80px;
+    .priceButton {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
-@media screen and (min-width:425px) and (max-width:480px) {
+@media screen and (max-width:1440px) {}
+
+@media screen and (max-width:1024px) {
 
     .card1,
     .card2,
     .card3 {
-        padding: 0 100px;
+        width: 28%;
+    }
+
+    .priceCard {
+        justify-content: center;
+        gap: 25px
+    }
+
+}
+
+@media screen and (max-width:991px) {
+
+    .card1,
+    .card2,
+    .card3 {
+        width: 33%;
+        justify-content: space-between;
     }
 }
 
@@ -149,18 +167,14 @@
     .card2,
     .card3 {
         width: 40%;
-        justify-content: flex-start;
     }
 }
 
-@media screen and (min-width:769px) and(max-width:1024) {
+@media screen and (max-width:425px) {
 
     .card1,
     .card2,
     .card3 {
-        width: 100%;
-        background-color: rgb(0, 101, 189);
+        width: 90%;
     }
 }
-
-@media screen and (max-width:1200px) {}
