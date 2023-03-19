@@ -112,10 +112,15 @@
   color: #ff6b31;
 }
 .header {
-  background: url(./img/1.jpg) center center / cover;
-  height: 500px;
-  padding: 10em 5em;
+  background: url(./assets/img/1.jpg) center center / cover;
+  height: 50vh;
+  height: 50dvh;
+  padding-top: 5em;
+  padding-left: 2em;
   position: relative;
+}
+.header * {
+  font-family: 'Roboto Slab', serif;
 }
 .header::before {
   content: '';
@@ -124,16 +129,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #0000003c;
+  background-color: rgba(22, 28, 45, 0.655);
   z-index: 50;
 }
+
 .header-hero {
   position: absolute;
   display: flex;
   gap: 3em;
   flex-direction: column;
   z-index: 100;
-  max-width: 550px;
+  max-width: 350px;
 }
 .header-hero h1 {
   font-size: 34px;
@@ -145,10 +151,10 @@
 }
 .header-hero button {
   display: inline-block;
-  width: 150px;
+  width: 120px;
   border-radius: 5px;
   border: none;
-  padding: 0.5em 0.5em;
+  padding: 0.7em 0;
   color: #ffffff;
   background-color: var(--primary-button-color);
   cursor: pointer;
@@ -159,7 +165,7 @@
 
 /* Who We Are */
 .who-we-are {
-  padding: 5em 5em;
+  padding: 5em 0;
   position: relative;
   background: #f8f9fc;
 }
@@ -173,6 +179,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .figure img {
   width: 100%;
@@ -247,7 +255,7 @@ iframe {
 }
 /* Our Team */
 .our-team {
-  padding: 2em;
+  padding: 2em 0;
   background-color: #f8f9fc;
 }
 .our-team .info {

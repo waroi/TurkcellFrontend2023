@@ -3,7 +3,18 @@ h2,
 h3 {
   font-family: 'Roboto Slab', serif;
 }
+body {
+  scroll-behavior: smooth;
+}
 @media screen and (min-width: 600px) {
+  .footer {
+    flex-direction: row;
+    padding: 1.5em 0;
+    gap: 0;
+  }
+  .header {
+    padding-left: 1em;
+  }
   .process-container {
     flex-direction: row;
     flex-wrap: wrap;
@@ -153,6 +164,16 @@ h3 {
     width: 47%;
   }
   /* Ömer */
+  .header {
+    height: 80vh;
+    height: 80dvh;
+  }
+  .header-hero {
+    max-width: 600px;
+  }
+  .header-hero h1 {
+    font-size: 42px;
+  }
   .who-we-are {
     padding: 5em 0;
   }
@@ -238,15 +259,16 @@ h3 {
   }
 }
 @media screen and (min-width: 1000px) {
-  .aytug {
-    display: block;
-  }
   body {
     overflow-x: hidden;
   }
   .container {
     max-width: 1000px;
     margin: 0 auto;
+  }
+  .header {
+    height: 100vh;
+    height: 100dvh;
   }
   /* What We Do */
   .card {
