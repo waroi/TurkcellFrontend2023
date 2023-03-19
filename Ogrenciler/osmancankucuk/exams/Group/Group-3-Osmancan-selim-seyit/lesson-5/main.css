@@ -56,7 +56,7 @@ a {
   border: none;
   font-size: 16px;
   white-space: nowrap;
-  width: 23%;
+  width: 9em;
 }
 .button:hover {
   background-color: rgb(224, 64, 0);
@@ -134,9 +134,7 @@ li {
   cursor: pointer;
 }
 .mainSection {
-  height: 600px;
-  display: flex;
-  align-items: center;
+  padding-top: 15em;
 }
 .sectionTitle {
   font-size: 42px;
@@ -164,34 +162,58 @@ li {
   align-items: center;
   height: 100%;
 }
+.sectionStoryContent {
+  display: flex;
+}
+
 .sectionFrame {
-  height: 30em;
-  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: url("https://shreethemes.in/upstart/layouts/images/about.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  border-radius: 5px;
+  height: 35em;
+  width: 30em;
+  border-radius: 10px;
+
+  /* background-size: cover;
+  background-position: center; */
+
+  /* border-radius: 5px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 .flex {
   display: flex;
 }
 .sectionStory2 {
   padding: 0 3em;
-  width: 60%;
+  width: 40em;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .sectionServices {
   background-color: white;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   padding: 3em 0;
   margin-bottom: 3em;
 }
-
+.sectionServicesContent {
+  width: 100%;
+}
+.storyImage {
+  /* height: 35em; */
+  /* margin: 0 1em; */
+  display: flex;
+  align-items: center;
+}
 .storyImage i {
   height: 60px;
   width: 60px;
@@ -201,6 +223,9 @@ li {
   align-items: center;
   border-radius: 50%;
   color: rgb(255, 87, 20);
+}
+.mainSectionContent {
+  width: 35em;
 }
 .contactSide {
   background-color: #f8f9fc;
@@ -254,6 +279,7 @@ li {
   background-color: rgb(32, 41, 66);
 }
 .footerDesign {
+  display: flex;
   justify-content: space-between;
   width: 100%;
 }
@@ -276,6 +302,11 @@ li {
 }
 .blogSide {
   padding: 5em 0;
+}
+.blogCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5em;
 }
 .blogItem {
   width: 31%;
@@ -826,11 +857,132 @@ li {
   .navBar {
     background-color: white;
   }
+  /* .sectionStoryContent {
+    display: block;
+  } */
+  .mainImage {
+    content: url("https://shreethemes.in/upstart/layouts/images/logo-dark.png");
+  }
 
   .navItemSectionList {
     display: none;
   }
   .popup {
     display: block;
+  }
+  .sectionFrame {
+    width: 25em;
+    height: 25em;
+  }
+  .contact-1 {
+    text-align: center;
+    padding: 0 10%;
+    margin-bottom: 4em;
+  }
+  .blogItem {
+    width: 50%;
+    height: 100%;
+    border: 1px ridge #d3d3d3;
+    border-radius: 5px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .sectionStoryContent {
+    display: block;
+  }
+  .navBar {
+    background-color: white;
+  }
+  .sectionFrame {
+    width: 100%;
+    height: 37em;
+  }
+  .wrap {
+    width: 75%;
+  }
+  .mainImage {
+    content: url("https://shreethemes.in/upstart/layouts/images/logo-dark.png");
+  }
+  .sectionStory2 {
+    margin-bottom: -2em;
+    padding: 1em 0 0;
+    width: 100%;
+  }
+  .mainSectionContent h1 {
+    font-size: 34px;
+  }
+  .mainSectionContent span {
+    font-size: 34px;
+  }
+  .footerDesign {
+    display: block;
+    text-align: center;
+  }
+  .footerDesign li {
+    margin-bottom: 2em;
+  }
+  .footerDesign ul {
+    /* display: block; */
+    margin-top: 3em;
+
+    margin-bottom: -3em;
+
+    justify-content: center;
+  }
+  .contact-1 {
+    text-align: center;
+    padding: 0 5%;
+    margin-bottom: 4em;
+  }
+  .contact-2 {
+    display: block;
+    border-radius: 5px;
+  }
+  .contactForm {
+    width: 100%;
+    padding: 1.5em;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: inset 0 0 1px gray;
+  }
+  .formInformation {
+    margin-left: 0;
+  }
+  .formInformation li {
+    margin-bottom: 2em;
+  }
+  .formInformation ul {
+    margin-bottom: -2em;
+  }
+}
+@media screen and (max-width: 630px) {
+  .navBar {
+    color: white;
+  }
+  .sectionStoryContent {
+    display: block;
+  }
+  .mainImage {
+    content: url("https://shreethemes.in/upstart/layouts/images/logo-dark.png");
+  }
+  .sectionFrame {
+    width: 100%;
+  }
+
+  .navItemSectionList {
+    display: none;
+  }
+  .popup {
+    display: block;
+  }
+  .wrap {
+    width: 94%;
+  }
+  .mainSectionContent {
+    width: 100%;
+  }
+
+  .navBar {
+    padding: 0 3%;
   }
 }
