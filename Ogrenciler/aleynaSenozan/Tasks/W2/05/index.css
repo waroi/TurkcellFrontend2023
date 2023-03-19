@@ -2,6 +2,21 @@
   margin: 0px;
   padding: 0px;
 }
+section{
+  width: 100%;
+}
+@media screen and (max-width: 768px){
+  section{
+    width: 80%;
+  }
+}
+@media screen and (max-width: 425px){
+  section{
+    width: 60%;
+  }
+}
+  
+
 .nav{
   height: 70px;
   width: 100%;
@@ -203,6 +218,7 @@ img{
 
 .kısım6{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 200px;
   margin-top: 50px;
@@ -343,6 +359,7 @@ gap: 10px;
 .rakamlar{
   margin-left: 294px;
   display: flex;
+  flex-wrap: wrap;
   gap: 162px;
   margin-top: 26px;
 }
@@ -377,13 +394,13 @@ gap: 10px;
   gap: 20px;
 }
 .blogCard{
-    border: 1px solid black;
-    width: 350px;
+    border: 1px solid rgb(221, 217, 217);
+    width: 400px;
     height: 410px;
     border-radius: 10px;
 }
 .blogCard img{
-  width: 350px;
+  width: 400px;
   height: 250px;
   margin: 0px;
   border-radius: 10px;
@@ -507,6 +524,49 @@ input:focus {
 input{
   outline: none;
 }
+footer {
+  background-color: #212842;
+  height: 100px;
+  width: 100%;
+}
+.footer-bar {
+  height: 100%;
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  color: #A0B4BC;
+  font-weight: 500;
+  
+}
+
+.footer-sosyal {
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+}
+
+.footer-sosyal a {
+  color: #A0B4BC;
+  display: block;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.footer-sosyal div{
+  border: 1px solid #24272c;
+  border-radius: 5px;
+  height: 28px;
+  width: 28px;
+}
+
+.footer-sosyal a:hover {
+  color: #FF5714;
+  transition: 0.2s;
+}
+
+
 
 
 
