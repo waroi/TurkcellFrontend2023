@@ -15,7 +15,7 @@
     margin-top: 50px;
 }
 
-.images {
+.teamImages {
     background-color: teal;
     padding: 30px 0;
     display: flex;
@@ -24,7 +24,7 @@
     flex-wrap: wrap;
 }
 
-.images>img {
+.teamImages>img {
     width: 260px;
     margin: 12px;
     border-radius: 5px;
@@ -49,56 +49,98 @@
     font-family: "roboto", sans-serif;
     color: #8492a6;
 }
-.teamLogo{
+
+.teamLogo {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     margin: 30px 0;
     padding: 50px 0;
-    
+
 }
-.teamLogo>img{  
+
+.teamLogo>img {
     width: 15%;
     height: 25px;
 }
+
 @media screen and (max-width:2560px) {
-    .images>img {
+    .teamImages>img {
         width: 260px;
     }
 }
 
 @media screen and (max-width:1440px) {
-    .images>img {
+    .teamImages>img {
         width: 260px;
     }
 }
 
-@media screen and (max-width:1024px) {
-    .images>img {
+@media screen and (max-width:1140px) {
+    .teamImages>img {
         width: 215px;
     }
 }
 
-@media screen and (max-width:768px) {
-    .images>img {
-        width: 340px;
+@media screen and (max-width:991px) {
+    .teamImages>img {
+        width: 330px;
+    }
+
+    .teamStatistic {
+        width: 73%;
+        margin: auto;
+        /*Padding eklenecek*/
+    }
+
+    .teamStatistic>div,
+    .teamLogo {
+        justify-content: space-evenly;
+        margin: auto;
+    }
+    .teamLogo>img {
+        width: 10%;
+        padding: 20px 15px;
     }
 }
 
-@media screen and (max-width:425px) {
-    .images>img {
+@media screen and (max-width:767px) {
+    .teamImages>img {
+        width: 500px;
+    }
+
+    .teamStatistic>div,
+    .teamLogo>img {
+        justify-content: space-evenly;
+        width: 50%;
+    }
+
+    .teamLogo>img {
+        width: 33%;
+        padding: 20px 15px;
+    }
+}
+
+@media screen and (max-width:535px) {
+    .teamImages>img {
         width: 400px;
     }
 }
 
-@media screen and (max-width:375px) {
-    .images>img {
+@media screen and (max-width:425px) {
+    .teamImages>img {
         width: 350px;
     }
 }
 
-@media screen and (max-width:320px) {
-    .images>img {
+@media screen and (max-width:375px) {
+    .teamImages>img {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .teamImages>img {
         width: 300px;
     }
 }
