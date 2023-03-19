@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <nav>
-    <div class="nav-container">
+  <nav class="navbar" id="navback">
+    <div class="nav-container container">
      <div class="logo"><a href="">
-      <img src="/img/logo-light.png" alt="logo">
+      <img src="img/logo-light.png" alt="logo">
      </a>
     </div>
      <div class="nav-links">
@@ -34,24 +34,33 @@
         </ul>
       </div>
      </div>
-     <div class="mobile-nav">
-      <div class="mobile-logo">
-        <a href="#"><img src="./img/logo-dark.png" alt="" /></a>
+     <label for="menu-toggle" class="menu-toggle">
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
       </div>
-      <div class="mobile-nav-items">
-        <a href="#"><i class="fa fa-bars fa-xl"></i></a>
-      </div>
-    </div>
+    </label>
+    <input type="checkbox" id="menu-toggle" class="hamburgerCheckBox" />
     </div>
   </nav>
   <section class="nav-section">
    
     
-  <div class="slider">
-    <div class="slider-container">
-      <h4>Providing Brilliant Ideas
+  <div class="slider" id="slider">
+    <div class="slider-container container">
+      <h4 >Providing Brilliant Ideas
         <br>
-        For Your Startups
+        
+        <h4 class="slider-h4">For Your  <span class="wrapper" >
+          <ul class="text">
+            <li><span>Business</span></li>
+            <li><span>Startups</span></li>
+            <li><span>Digital Agency</span></li>
+            <li><span>Marketing</span></li>
+          </ul>
+        </span></h4>
+       
       </h4>
       <p class="slider-p">
         Launch your campaign and benefit from our expertise on designing and managing conversion centered bootstrap v5 html page.
@@ -63,7 +72,7 @@
   </section>
 
   <section class="companyStory">
-      <div class="companyStory-container">
+      <div class="companyStory-container container">
         <div class="video">
           <div class="play-icon">
             <a
@@ -75,17 +84,17 @@
             </a>
           </div>
         </div>
-          <!-- <iframe width="450" height="526" src="https://www.youtube.com/embed/yba7hPeTSjk" title="Landrick Saas and Software Landing Page Template" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div> -->
+          
         <div id="whoWeAre" class="whoWeAre">
           <div class="whoWeAre-container"><h6>WHO WE ARE ?</h6>
         <h4>Our Company Story</h4>
         <p>Start working with Upstart that can provide everything you need to generate awareness, drive traffic, connect. Dummy text is text that is used in the publishing industry or by web designers to occupy the space which will later be filled with 'real' content. This is required when, for example, the final text is not yet available. Dummy texts have been in use by typesetters since the 16th century.</p>
-        <button>Buy Now</button></div></div>
+        <button>Buy Now <i class="fa-regular fa-greater-than"></i></button></div></div>
       
   </section>
 
   <section class="main">
-    <div class="main-container">
+    <div class="main-container container">
       <div class="main-title">
         <div id="main-titleContent" class="main-titleContent"><h6>WHAT WE DO ?</h6>
         <h4>Perfect Solution For Your <br>
@@ -102,7 +111,7 @@
         <div class="card">
           
             <div class="main-icon">
-              <img src="./img/icon1.png" alt="">
+              <img src="img/icon1.png" alt="">
               
            
           </div>
@@ -115,7 +124,7 @@
         <div class="card">
           <div class="card-img">
             <div class="main-icon">
-              <img src="./img/icon2.png" alt="">
+              <img src="img/icon2.png" alt="">
               
             </div>
           </div>
@@ -128,7 +137,7 @@
         <div class="card">
           <div class="card-img">
             <div class="main-icon">
-              <img src="./img/icon3.png" alt="">
+              <img src="img/icon3.png" alt="">
              
             </div>
           </div>
@@ -141,7 +150,7 @@
         <div class="card">
           <div class="card-img">
             <div class="main-icon">
-             <img src="./img/icon4.png" alt="">
+             <img src="img/icon4.png" alt="">
              
             </div>
           </div>
@@ -154,7 +163,7 @@
         <div class="card">
           <div class="card-img">
             <div class="main-icon">
-              <img src="./img/icon5.png" alt="">
+              <img src="img/icon5.png" alt="">
              
             </div>
           </div>
@@ -167,7 +176,7 @@
         <div class="card">
           <div class="card-img">
             <div class="main-icon">
-              <img src="./img/icon6.png" alt="">
+              <img src="img/icon6.png" alt="">
              
             </div>
           </div>
@@ -186,46 +195,57 @@
           <p>Launch your campaign and benefit from our expertise on designing and managing conversion centered bootstrap v5 html page.</p>
         </div>
         <div class="workProcess-main">
+          <div class="card-wrap">
           
           <div class="strategy">
-            <div class="strategy-img">
-<img width="250"  src="https://shreethemes.in/upstart/layouts/images/svg/design-thinking.svg" alt="">
+            <div class="strategy-img img-end strateg-left">
+<img width="250" class="strategy-svg"  src="https://shreethemes.in/upstart/layouts/images/svg/design-thinking.svg" alt="">
           </div>
-          <div>
+          <div class="timeLine">
+            <div class="dot-border"><div class="timeLine-dot"></div></div>
+          </div>
+          <div class="strategy-content strategy-right">
             <h6>Strategy</h6>
             <p>The generated injected humour, or non-characteristic words etc. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
           </div>
         </div>
         
-        <div class="strategy">
-         
-        <div class="development-h6">
+        <div class="strategy strategy-reverse">
+          <div class="strategy-img  strategy-right">
+            <img width="250" class="strategy-svg"  src="https://shreethemes.in/upstart/layouts/images/svg/design-thinking.svg" alt="">
+                    </div>
+          <div class="timeLine">
+            <div class="dot-border"><div class="timeLine-dot"></div></div>
+            </div>
+
+        <div class="strategy-content strategy-left">
           <h6 >Development</h6>
           <p>The generated injected humour, or non-characteristic words etc. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
         </div>
-        <div class="strategy-img">
-          <img width="250"  src="https://shreethemes.in/upstart/layouts/images/svg/design-thinking.svg" alt="">
-                  </div>
+       
       </div>
       <div class="strategy">
-        <div class="strategy-img">
-<img width="250"  src="https://shreethemes.in/upstart/layouts/images/svg/design-thinking.svg" alt="">
+        <div class="strategy-img  img-end strategy-left">
+<img width="250" class="strategy-svg"  src="https://shreethemes.in/upstart/layouts/images/svg/design-thinking.svg" alt="">
       </div>
-      <div>
-        <h6>Launch</h6>
+      <div class="timeLine">
+        <div class="dot-border"><div class="timeLine-dot"></div></div>
+        </div>
+      <div class="strategy-content strategy-right">
+        <h6 >Launch</h6>
         <p>The generated injected humour, or non-characteristic words etc. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
       </div>
     </div>
           
         </div>
-
+      </div>
       </div>
     </div>
   </section>
 <!-- dashed -->
  <!-- Potfolio  -->
  <div class="portfolio">
-  <div class="portfolio-container">
+  <div class="portfolio-container container">
   <div class="portfolio-header">
 
       <h6>PORTFOLIO</h6>
@@ -289,9 +309,9 @@
   </div>
 </div>
 </div>
-
-<div class="get-started-container">
-  <div class="get-started">
+<div class="get-started">
+<div class="get-started-container container">
+  <div class="get-started-body">
 
       <h4>Ready to start your next web project now?</h4>
       <p>Launch your campaign and benefit from our expertise on designing and managing conversion centered
@@ -300,8 +320,9 @@
 
   </div>
 </div>
+</div>
 <div class="plans-main">
-<div class="plans-container ">
+<div class="plans-container  container">
   <div class="plans-header">
       <h6> PLANS</h6>
       <h4>Pricing Plans</h4>
@@ -370,7 +391,7 @@
 </div>
 </div>
 <div class="our-team">
-<div class="our-team-container">
+<div class="our-team-container container">
   <div class="our-team-header">
       <h6>OUR TEAM</h6>
       <h4>Creative Minds</h4>
@@ -451,7 +472,7 @@
 </div>
 <!-- blogs -->
 <section class="blogs">
-  <div class="blogs-container">
+  <div class="blogs-container container">
     <div class="blogs-Title">
       <h6>BLOGS</h6>
       <h4>Latest News</h4>
@@ -461,7 +482,7 @@
     <div class="blogs-cards">
       <div class="blogsCard-body">
         <div class="blogs-content">  <div class="blogsCard-image">
-          <img src="/img/2.1.jpg" alt="">
+          <img src="img/2.1.jpg" alt="">
         </div>
         <div class="blogsCard-info">
           <a href="">Building Your Corporate Identity from Upstart</a>
@@ -476,7 +497,7 @@
         <div class="blogsCard-body">
           <div class="blogs-content">  
             <div class="blogsCard-image">
-            <img src="/img/2.1.jpg" alt="">
+            <img src="img/2.1.jpg" alt="">
           </div>
           <div class="blogsCard-info">
             <a href="">The Dark Side of Overnight Success</a>
@@ -490,7 +511,7 @@
 
           <div class="blogsCard-body">
             <div class="blogs-content">  <div class="blogsCard-image">
-              <img src="/img/2.1.jpg" alt="">
+              <img src="img/2.1.jpg" alt="">
             </div>
             <div class="blogsCard-info">
               <a href="">The Right Hand of Business IT World</a>
@@ -512,7 +533,7 @@
 </section>
 <!-- form -->
 <section class="contact">
-  <div class="contact-container">
+  <div class="contact-container container">
     <div class="contactTop">
       <h6>CONTACT US</h6>
       <h4>Get In Touch !</h4>
@@ -526,8 +547,9 @@
     <div class="contactMain">
       <div class="message">
         <form>
-          <div class="nameEmail">
-            <input type="text" placeholder="Name:">
+          <div  class="nameEmail">
+          <div class="top-input">
+            <input  type="text" placeholder="Name:">
             <input type="email" placeholder="Email:">
           </div>
           
@@ -540,7 +562,7 @@
           <div class="formButton">
             <button type="submit">Send Message</button>
           </div>
-          
+        </div>
         </form>
       </div>
       <div class="form-aside">
@@ -576,9 +598,9 @@
 </div>
 </section>
   <footer class="footer">
-    <div class="footer-container">
+    <div class="footer-container container">
       <div class="footer-logo">
-        <a href="#"><img src="./img/logo-light.png" alt="footer-logo" /></a>
+        <a href="#"><img src="img/logo-light.png" alt="footer-logo" /></a>
       </div>
       <div>© 2023 Upstart. Design with ❤️ by Shreethemes.</div>
       <div class="footer-social">
@@ -597,6 +619,10 @@
       </div>
     </div>
   </footer>
+  <div class="back-button">
+    <a href="#slider"><i class="fa-solid fa-angle-up"></i></a>
+    
+  </div>
   <script src="https://kit.fontawesome.com/cbd8d1bc35.js" crossorigin="anonymous"></script>
 </body>
 </html>
