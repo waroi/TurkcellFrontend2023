@@ -1,0 +1,130 @@
+.blogMain {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 100px;
+}
+
+.blogTitle {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 10px;
+    
+}
+
+.blogCard {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    padding-bottom: 50px;
+}
+
+.cardNews {
+    box-shadow: 0 0 3px rgba(36, 39, 44, 0.15);
+    border-radius: 5px;
+    width: 31%;
+    margin: auto;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cardNews img {
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+}
+
+.cardNewsInfo {
+    padding: 1.5rem;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    /* width: 80%; */
+}
+
+.cardNewsInfo>a {
+    font-size: 18px;
+    text-decoration: none;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #24272c;
+}
+
+/* renk üzerine gelince değşiyor */
+.readMore>a:hover,
+.cardNewsInfo>a:hover {
+    color: #FF572A;
+}
+
+.cardNewsInfo>p {
+    color: #8492a6;
+    font-size: 15px;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.readMore {
+    margin-top: 1rem;
+    color: #8492a6;
+    font-family: "roboto",sans-serif;
+    font-size: 15px;
+}
+
+.readMore>a {
+    color: #24272c;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+/* @media screen and (max-width:3000px) {
+
+    
+}
+
+@media screen and (max-width:1440px) {} */
+
+@media screen and (max-width:1200px) {
+    .cardNews{
+        margin: 10px;
+        width: 26%;
+    }
+    .cardNews {
+        width: 10%;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .cardNews{
+        margin: 12px;
+        min-width: 30%;
+    }
+}
+@media screen and (max-width:991px) {
+    .cardNews{
+        margin: 12px;
+        width: 35%;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .cardNews{
+        margin-bottom: 20px;
+        width: 68%;
+    }
+    
+}
+
+
+@media screen and (max-width:700px) {
+    .cardNews{
+        margin-bottom: 20px;
+        width: 90%;
+    }
+  
+}
+

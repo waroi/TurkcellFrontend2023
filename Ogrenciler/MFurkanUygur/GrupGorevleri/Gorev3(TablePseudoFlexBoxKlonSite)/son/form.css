@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding-top: 100px;
 }
 
 .formTitle {
@@ -18,19 +19,16 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     gap: 20px;
 }
 
 .formLeft {
     width: 65%;
-    background-color: mediumseagreen;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-
-
 }
 
 .form-control {
@@ -50,13 +48,11 @@
     /* font-weight: ; */
     line-height: 1.5;
     color: #212529;
-
-
 }
 
 .nameEmail {
     width: 95%;
-    padding: 0 0px 10px 15px;
+    padding: 0 0px 0px 15px;
     margin: 0;
     display: flex;
     gap: 20px;
@@ -65,13 +61,12 @@
 .nameEmail>input,
 .form-control>input,
 .form-control>textarea {
-    padding: 10px;
+    /* padding: 10px; */
     width: 92%;
 }
 
 .form-control>input,
 .form-control>textarea {
-
     padding: 10px;
     margin: 0px 15px;
 }
@@ -85,18 +80,24 @@
     width: 30%;
     padding: 40px 0 0 0px;
 }
-.contactInfo>div{
+
+.contactInfo>div {
     margin: 20px;
 }
-.infoFlex{
+
+.infoFlex {
+    width: 70%;
     display: flex;
     align-items: center;
+    /* margin: 0 20px 100px 10px; */
+    padding: 5px 0;
+}
+
+.infoFlex>i {
+    margin: 0 20px 0 10px;
 
 }
-.infoFlex>i{
-    margin: 0 30px 0 0 ;
 
-}
 .phone,
 .email,
 .location {
@@ -115,7 +116,91 @@
     font-family: 'Roboto Slab', serif;
     font-size: 15px;
     /* line-height: 42px; */
-    letter-spacing: 0.5px;
+    /* letter-spacing: 0.5px; */
     margin: 0;
     text-decoration: none;
+}
+
+@media screen and (max-width:3000px) {
+    .formLeft {
+        /* width: 56%; */
+        /* justify-content: center; */
+    }
+
+    .formRight {
+        width: 30%;
+    }
+
+    .infoFlex {
+        width: 85%;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:1199px) {
+    .formLeft {
+        width: 56%;
+        /* justify-content: center; */
+    }
+
+    .formRight {
+        width: 30%;
+    }
+
+}
+
+@media screen and (max-width:992px) {
+    .formLeft {
+        width: 40%;
+        /* justify-content: center; */
+    }
+
+    .formRight {
+        width: 35%;
+    }
+
+    .form-control {
+        width: 90%;
+        padding: 0.375rem 0.5rem;
+        margin: 10px 0;
+    }
+
+    .form-control>input,
+    .form-control>textarea {
+        padding: 10px;
+        margin: 10px 15px;
+        width: 87%;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .contactForm {
+        flex-direction: column;
+    }
+    .formLeft {
+        width: 73%;
+        margin: auto;
+    }
+
+    .formRight {
+        width: 73%;
+        margin: auto;
+    }
+    .nameEmail{
+        display: block;
+    }
+    
+}
+
+@media screen and (max-width:575px) {
+    .formLeft {
+        width: auto;
+        margin: auto;
+    }
+
+    .formRight {
+        width: auto;
+        margin: auto;
+    }
 }
