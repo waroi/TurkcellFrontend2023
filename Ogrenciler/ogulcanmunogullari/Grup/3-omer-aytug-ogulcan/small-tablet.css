@@ -1,0 +1,100 @@
+@import url(./color.css);
+h2,
+h3 {
+  font-family: 'Roboto Slab', serif;
+}
+@media screen and (min-width: 600px) {
+  .footer {
+    flex-direction: row;
+    padding: 1.5em 0;
+    gap: 0;
+  }
+  .header {
+    padding-left: 1em;
+  }
+  .process-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  :is(.process-1, .process-2, .process-3, .process-4, .process-5, .process-6) {
+    width: 49%;
+  }
+  .process-1 {
+    order: 1;
+    border: 0;
+  }
+  .process-2 {
+    order: 2;
+    border: 1;
+  }
+  .process-3 {
+    order: 4;
+  }
+  .process-4 {
+    order: 3;
+    border: 0;
+    text-align: right;
+    padding-right: 30px;
+  }
+  .process-5 {
+    order: 5;
+    border: 0;
+  }
+  .process-6 {
+    order: 6;
+  }
+  :is(.process-1, .process-3, .process-5)::after {
+    content: '';
+    background: none !important;
+    border: none !important;
+  }
+  :is(.process-1, .process-3, .process-5)::before {
+    content: '';
+    background: none !important;
+    border: none !important;
+  }
+  :is(.process-2, .process-6)::before {
+    position: absolute;
+    content: '.';
+    font-weight: bolder;
+    z-index: 100;
+    background: var(--primary-bg-color);
+    top: 0px;
+    left: -16px;
+    padding: 3.2px 9.6px;
+    border: 2px dashed #dee2e6;
+    border-radius: 50%;
+  }
+  :is(.process-2, .process-6)::after {
+    position: absolute;
+    content: '.';
+    color: var(--primary-button-color);
+    font-size: 65px;
+    font-weight: bolder;
+    z-index: 100;
+    top: -41px;
+    left: -10px;
+  }
+  :is(.process-4)::before {
+    position: absolute;
+    content: '.';
+    font-weight: bolder;
+    z-index: 100;
+    background: var(--primary-bg-color);
+    top: 21px;
+    right: -16px;
+    padding: 3.2px 9.6px;
+    border: 2px dashed #dee2e6;
+    border-radius: 50%;
+  }
+  :is(.process-4)::after {
+    position: absolute;
+    content: '.';
+    color: var(--primary-button-color);
+    font-size: 65px;
+    font-weight: bolder;
+    z-index: 100;
+    top: -20px;
+    right: -10.5px;
+  }
+}
