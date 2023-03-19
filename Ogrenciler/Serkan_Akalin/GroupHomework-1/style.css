@@ -73,6 +73,18 @@ div.nav-menu-icon {
   display: none;
 }
 
+.nav-hidden-menu{
+  display: none;
+}
+
+.navbar-checkbox{
+  display: none;
+}
+.navbar-checkbox:checked + label > div {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Navbar Component Finish */
 
 .intro {
@@ -316,6 +328,43 @@ div.nav-menu-icon {
 .services-row-text {
   max-width: 500px;
 }
+
+/* .services-sub-row-image:before {
+  left: -18px;
+}
+.services-sub-row-image:before,
+.services-sub-row-image .duration-right:before {
+  border: 2px dashed #dee2e6;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+}
+.services-sub-row-image:after,
+.services-sub-row-image:before,
+.services-sub-row-image .services-sub-row-image {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  z-index: 1;
+}
+.services-sub-row-image:after {
+  left: -7px;
+}
+
+.services-sub-row-image:after {
+  top: 11px;
+  width: 100px;
+  height: 100px;
+  background-color: #ff5714;
+}
+.services-sub-row-image:after,
+.services-sub-row-image:before {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  z-index: 1;
+} */
 
 /* Services End */
 
@@ -606,11 +655,10 @@ div.nav-menu-icon {
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 .our-team-info {
   position: relative;
-  width: 261px;
   height: 67.5px;
   text-align: center;
 }
@@ -914,6 +962,13 @@ div.nav-menu-icon {
   .nav-menu * {
     display: none;
   }
+  .nav-hidden-menu{
+    position: absolute;
+    top: 50px;
+    background-color: var(--light-background);
+    padding: 25px;
+  }
+
   .navbar-social-menu * {
     display: none;
   }
