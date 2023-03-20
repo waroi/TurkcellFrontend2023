@@ -82,6 +82,7 @@ li {
   width: 100%;
   position: fixed;
   transition-duration: 500ms;
+  z-index: 2;
 }
 .navItems {
   padding: 1.25em 0;
@@ -198,15 +199,135 @@ li {
   flex-direction: column;
   justify-content: center;
 }
-.sectionServices {
-  background-color: white;
-  /* display: flex; */
-  align-items: center;
-  padding: 3em 0;
-  margin-bottom: 3em;
+.services-container {
+  margin-right: 6px;
+  margin-left: 6px;
+  padding-right: 12px;
+  padding-left: 12px;
 }
-.sectionServicesContent {
+.services-top-section {
+  display: flex;
   width: 100%;
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+  /* margin-right: -12px;
+  margin-left: -12px; */
+}
+.services-top-left {
+  width: 50%;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-align: left;
+}
+
+.services-top-left h6 {
+  color: #ff5714;
+  font-weight: 600;
+  text-transform: uppercase !important;
+  font-size: 15px !important;
+}
+.services-top-left h4 {
+  letter-spacing: 0.5px;
+  font-size: 28px;
+  font-family: "Roboto Slab", serif;
+  line-height: 1.5;
+  font-weight: 600 !important;
+}
+.services-top-right {
+  width: 50%;
+  padding-left: 12px;
+  padding-right: 12px;
+  line-height: 1.6;
+  color: #8492a6 !important;
+  max-width: 600px;
+  font-size: 15px;
+  font-weight: 400;
+  flex: 0 0 auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.services-btns-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.service-btn-outer-con {
+  margin-top: 24px;
+  padding-top: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  flex: 1 0 calc(33.33% - 10px);
+  background-color: #fff;
+  margin-right: 10px;
+  border-radius: 15px;
+  z-index: 1;
+}
+.service-btn-outer-con:hover {
+  box-shadow: 2px 2px 28px 7px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 2px 2px 28px 7px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 2px 2px 28px 7px rgba(0, 0, 0, 0.05);
+}
+.service-btn-outer-con:nth-child(even) {
+  /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.112); */
+  box-shadow: 2px 2px 28px 7px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 2px 2px 28px 7px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 2px 2px 28px 7px rgba(0, 0, 0, 0.05);
+}
+.service-btn-inner-con {
+  padding: 1.5em;
+  /* margin: 10px; */
+}
+.service-icon {
+  color: #ff5714;
+  background-color: #ff57141a;
+  text-align: center;
+  vertical-align: center;
+  width: 85px;
+  height: 85px;
+  /* position: relative; */
+}
+.service-icon i {
+  position: absolute;
+  font-size: 28px;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+.service-btn-info {
+  margin-top: 24px;
+  padding-top: 8px;
+}
+.service-btn-info h4 {
+  color: #24272c;
+  font-size: 18px;
+  transition: color 0.5s;
+}
+.service-btn-info h4:hover {
+  color: #ff5714;
+}
+.service-btn-info p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  color: #8492a6;
+  line-height: 1.6;
+}
+.read-more {
+  width: fit-content;
+  margin-top: 24px;
+  padding-top: 8px;
+  background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.5s;
+}
+.read-more:hover {
+  /* border-bottom: 1px solid black; */
+  background-size: 100% 2px;
+}
+.read-more i {
+  color: black;
+  font-size: smaller;
 }
 .storyImage {
   /* height: 35em; */
@@ -339,6 +460,7 @@ li {
 .workProcess {
   display: flex;
   justify-content: center;
+  width: 100%;
   margin-bottom: -6em;
 }
 
@@ -346,6 +468,11 @@ li {
   display: flex;
   text-align: center;
   flex-direction: column;
+}
+
+.workParagrafText {
+  font-size: 0.95em;
+  width: 100%;
 }
 
 .flexGrayText {
@@ -367,45 +494,147 @@ li {
   display: flex;
   width: 960px;
   height: 926px;
-}
-
-.images {
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
 .rows {
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  width: 960px;
+  position: relative;
+  width: 80%;
   height: 100%;
+}
+
+.rows::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: -1px;
+  top: 0px;
+  width: 1px;
+  height: 100%;
+  margin: auto;
+  border-right: 2px dashed #dee2e6;
 }
 
 .rowRule {
   display: flex;
   flex-direction: row;
-  width: 960px;
   height: 320px;
+}
+
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+.firstRowİmage {
+  position: relative;
+}
+
+.firstRowİmage::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  border: 2px dashed #dee2e6;
+  top: 0;
+  right: -49px;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+}
+
+.firstRowİmage::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  right: -41px;
+  top: 9px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff5714;
 }
 
 .secondRowİmage {
   width: 50%;
   text-align: left;
+  position: relative;
+  margin-left: 0.625em;
+}
+
+.secondRowİmage::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  border: 2px dashed #dee2e6;
+  top: 0;
+  left: -48px;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+}
+
+.secondRowİmage::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  left: -39px;
+  top: 9px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff5714;
+}
+
+.thirdRowİmage {
+  position: relative;
+}
+
+.thirdRowİmage::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  border: 2px dashed #dee2e6;
+  top: 0;
+  right: -50px;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+}
+
+.thirdRowİmage::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  right: -41px;
+  top: 9px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff5714;
 }
 
 .secondRowText {
   width: 50%;
   text-align: right;
+  margin-right: 3.75em;
 }
 
 .rowİmage {
   width: 50%;
   text-align: right;
+  margin-right: 0.625em;
 }
 
 .rowText {
   width: 50%;
   text-align: left;
+  margin-left: 3.75em;
 }
 /* Selim Eminoğlu--Portfolyo */
 
@@ -418,7 +647,7 @@ li {
 }
 
 .portText {
-  margin-top: 200px;
+  margin-top: 12.5em;
 }
 
 .tableİmages {
@@ -427,13 +656,22 @@ li {
   width: 100%;
 }
 
+tr {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+td {
+  margin: 0.5em;
+}
+
 .portfolyoTable {
-  height: 400px;
-  width: 946px;
+  height: 24em;
+  width: 59.125em;
 }
 
 .portİmgTable {
-  border-radius: 10px;
+  border-radius: 0.625em;
 }
 
 /* Selim Eminoğlu--What We Do Table */
@@ -575,30 +813,19 @@ li {
   /* z-index: 0; */
   background-position-y: -20em;
   background: rgba(19, 23, 40, 0.644)
-    url("https://shreethemes.in/upstart/layouts/images/bg/cta.png");
+    url("https://shreethemes.in/upstart/layouts/images/bg/cta.png") center;
   background-blend-mode: darken;
   background-size: auto;
 }
-.bg-overlay {
-  background-color: rgba(22, 28, 45, 0.75);
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 380.93px;
-  z-index: 0;
-}
 
-.one {
+.bg-image-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
 
-.portfolio-pic-container h4 {
+.bg-image-text h4 {
   letter-spacing: 0.5px;
   font-size: 28px;
   color: white;
@@ -608,7 +835,7 @@ li {
   font-weight: 600;
   text-align: center;
 }
-.portfolio-pic-container p {
+.bg-image-text p {
   max-width: 600px;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.6;
@@ -618,6 +845,8 @@ li {
   margin-left: auto;
   margin-bottom: 0;
 }
+/*bg-image start*/
+
 .portfolio-pic-btn {
   padding-top: 0.5rem;
   margin-top: 1.5rem;
@@ -659,7 +888,7 @@ li {
   margin-left: -12px;
   margin-right: -12px;
   /* display: flex; */
-  /* justify-content: center !important; */
+  /* justify-content: center; */
   /* align-items: center; */
   text-align: center;
   /* flex-wrap: wrap; */
@@ -683,33 +912,33 @@ li {
 }
 .pricing-header-inner-con h4 {
   letter-spacing: 0.5px;
-  font-size: 28px !important;
-  margin-bottom: 1rem !important;
+  font-size: 28px;
+  margin-bottom: 1rem;
   font-family: "Roboto Slab", serif;
   line-height: 1.5;
-  font-weight: 600 !important;
-  text-align: center !important;
+  font-weight: 600;
+  text-align: center;
 }
 .pricing-header-inner-con p {
-  color: #8492a6 !important;
+  color: #8492a6;
   max-width: 600px;
-  margin-right: auto !important;
-  margin-left: auto !important;
+  margin-right: auto;
+  margin-left: auto;
   line-height: 1.6;
 }
 .pricing-plans {
   display: flex;
-  /* flex-direction: row; */
   flex-wrap: wrap;
   margin-left: -12px;
   margin-right: -12px;
 }
 .pricing-plan-outer-con {
   /* border: 1px solid black; */
-  padding-top: 0.5rem !important;
-  margin-top: 1.5rem !important;
-  flex: 0 0 auto;
-  width: 33.33333333%;
+  padding-top: 0.5rem;
+  margin-top: 1.5rem;
+  flex: 0 0 100%;
+  /* flex: 0 0 calc(100% / 3); */
+  /* width: 33.33333333%; */
   padding-right: 12px;
   padding-left: 12px;
 }
@@ -991,3 +1220,207 @@ li {
     border-radius: 5px;
   }
 }
+/* Responsive--Selim Eminoğlu */
+
+@media (max-width: 980px) {
+  .workParagrafText {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    font-size: 0.95em;
+  }
+  .workSecondPar {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    font-size: 0.95em;
+    margin-left: 5.7em;
+  }
+  .workProcess {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: -6em;
+  }
+}
+
+@media (max-width: 950px) {
+  .tableİmages {
+    width: 52%;
+  }
+  tr {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* .flex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  } */
+  .whatText {
+    display: flex;
+    width: 100%;
+  }
+  .responWhatWeDo {
+    width: 100%;
+  }
+  .services-btns-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .service-btn-outer-con {
+    width: 100%;
+  }
+  .service-btn-inner-con {
+    width: 100%;
+  }
+  .workParagrafText {
+    display: flex;
+    flex-wrap: wrap;
+    width: 49%;
+    font-size: 0.95em;
+  }
+  .workSecondPar {
+    display: flex;
+    flex-wrap: wrap;
+    width: 49%;
+    font-size: 0.95em;
+    margin-left: 15em;
+  }
+  .workProcess {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: -6em;
+  }
+  .services-container {
+    max-width: 540px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .services-top-section {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    justify-content: center;
+  }
+  .services-top-left {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .services-top-right {
+    width: 100%;
+    text-align: left;
+  }
+  .services-btns-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bg-image {
+    padding: 130px 0;
+  }
+  .bg-image-text {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    gap: 0;
+  }
+  .bg-image-text h4 {
+    font-size: 24px;
+  }
+  .bg-image-text p {
+    font-size: 15px;
+    margin-bottom: 1rem;
+  }
+  .pricing-plans {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .pricing-plan-outer-con {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .workParagrafText {
+    display: flex;
+    flex-wrap: wrap;
+    width: 49%;
+    font-size: 0.95em;
+  }
+  .workSecondPar {
+    display: flex;
+    flex-wrap: wrap;
+    width: 49%;
+    font-size: 0.95em;
+    margin-left: 15em;
+  }
+  .workProcess {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: -6em;
+  }
+  .grayText {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 768px) {
+  /*services section start*/
+  .services-btns-container {
+    display: flex;
+  }
+  .service-btn-outer-con {
+    flex: 1 0 calc(50% - 10px);
+  }
+  /*services section end*/
+
+  /*pricing section start*/
+
+  .pricing-plan-outer-con {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+  /*pricing section end*/
+}
+@media screen and (min-width: 992px) {
+  .navBar {
+    background-color: white;
+  }
+
+  .navItemSectionList {
+    display: none;
+  }
+  .popup {
+    display: block;
+  }
+
+  /*services section start*/
+  .services-btns-container {
+    display: flex;
+  }
+  .service-btn-outer-con {
+    flex: 1 0 calc(33% - 10px);
+  }
+  /*services section end*/
+
+  /*pricing section start*/
+  .pricing-plan-outer-con {
+    flex: 0 0 auto;
+    width: 33.33%;
+  }
+  /*pricing section end*/
+}
+/* Responsive--Selim Eminoğlu--End */
