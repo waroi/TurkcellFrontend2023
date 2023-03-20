@@ -82,6 +82,7 @@ li {
   width: 100%;
   position: fixed;
   transition-duration: 500ms;
+  z-index: 2;
 }
 .navItems {
   padding: 1.25em 0;
@@ -339,6 +340,7 @@ li {
 .workProcess {
   display: flex;
   justify-content: center;
+  width: 100%;
   margin-bottom: -6em;
 }
 
@@ -346,6 +348,11 @@ li {
   display: flex;
   text-align: center;
   flex-direction: column;
+}
+
+.workParagrafText {
+  font-size: 0.95em;
+  width: 100%;
 }
 
 .flexGrayText {
@@ -367,45 +374,147 @@ li {
   display: flex;
   width: 960px;
   height: 926px;
-}
-
-.images {
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
 .rows {
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  width: 960px;
+  position: relative;
+  width: 80%;
   height: 100%;
+}
+
+.rows::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: -1px;
+  top: 0px;
+  width: 1px;
+  height: 100%;
+  margin: auto;
+  border-right: 2px dashed #dee2e6;
 }
 
 .rowRule {
   display: flex;
   flex-direction: row;
-  width: 960px;
   height: 320px;
+}
+
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+.firstRowİmage {
+  position: relative;
+}
+
+.firstRowİmage::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  border: 2px dashed #dee2e6;
+  top: 0;
+  right: -49px;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+}
+
+.firstRowİmage::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  right: -41px;
+  top: 9px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff5714;
 }
 
 .secondRowİmage {
   width: 50%;
   text-align: left;
+  position: relative;
+  margin-left: 0.625em;
+}
+
+.secondRowİmage::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  border: 2px dashed #dee2e6;
+  top: 0;
+  left: -48px;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+}
+
+.secondRowİmage::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  left: -39px;
+  top: 9px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff5714;
+}
+
+.thirdRowİmage {
+  position: relative;
+}
+
+.thirdRowİmage::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  border: 2px dashed #dee2e6;
+  top: 0;
+  right: -50px;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+}
+
+.thirdRowİmage::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  right: -41px;
+  top: 9px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff5714;
 }
 
 .secondRowText {
   width: 50%;
   text-align: right;
+  margin-right: 3.75em;
 }
 
 .rowİmage {
   width: 50%;
   text-align: right;
+  margin-right: 0.625em;
 }
 
 .rowText {
   width: 50%;
   text-align: left;
+  margin-left: 3.75em;
 }
 /* Selim Eminoğlu--Portfolyo */
 
@@ -418,7 +527,7 @@ li {
 }
 
 .portText {
-  margin-top: 200px;
+  margin-top: 12.5em;
 }
 
 .tableİmages {
@@ -427,13 +536,22 @@ li {
   width: 100%;
 }
 
+tr {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+td {
+  margin: 0.5em;
+}
+
 .portfolyoTable {
-  height: 400px;
-  width: 946px;
+  height: 24em;
+  width: 59.125em;
 }
 
 .portİmgTable {
-  border-radius: 10px;
+  border-radius: 0.625em;
 }
 
 /* Selim Eminoğlu--What We Do Table */
@@ -991,3 +1109,108 @@ li {
     border-radius: 5px;
   }
 }
+/* Responsive--Selim Eminoğlu */
+
+@media (max-width: 980px) {
+  .workParagrafText {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    font-size: 0.95em;
+  }
+  .workSecondPar {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    font-size: 0.95em;
+    margin-left: 5.7em;
+  }
+  .workProcess {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: -6em;
+  }
+}
+
+@media (max-width: 950px) {
+  .tableİmages {
+    width: 52%;
+  }
+  tr {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .flex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .whatText {
+    display: flex;
+    width: 100%;
+  }
+  .responWhatWeDo {
+    width: 100%;
+  }
+  .services-btns-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .service-btn-outer-con {
+    width: 100%;
+  }
+  .service-btn-inner-con {
+    width: 100%;
+  }
+  .workParagrafText {
+    display: flex;
+    flex-wrap: wrap;
+    width: 49%;
+    font-size: 0.95em;
+  }
+  .workSecondPar {
+    display: flex;
+    flex-wrap: wrap;
+    width: 49%;
+    font-size: 0.95em;
+    margin-left: 15em;
+  }
+  .workProcess {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: -6em;
+  }
+}
+
+@media (max-width: 576px) {
+  .workParagrafText {
+    display: flex;
+    flex-wrap: wrap;
+    width: 49%;
+    font-size: 0.95em;
+  }
+  .workSecondPar {
+    display: flex;
+    flex-wrap: wrap;
+    width: 49%;
+    font-size: 0.95em;
+    margin-left: 15em;
+  }
+  .workProcess {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: -6em;
+  }
+  .grayText {
+    width: 75%;
+  }
+}
+/* Responsive--Selim Eminoğlu--End */
