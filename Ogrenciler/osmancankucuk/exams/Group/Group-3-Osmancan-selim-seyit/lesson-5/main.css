@@ -305,18 +305,17 @@ li {
 }
 .blogCard {
   display: flex;
-  justify-content: space-between;
-  gap: 1.5em;
+
+  flex-wrap: wrap;
+
+  gap: 1em;
 }
 .blogItem {
-  width: 31%;
-  height: 100%;
+  width: 31.8%;
   border: 1px ridge #d3d3d3;
   border-radius: 5px;
 }
-.blogImage {
-  height: 50%;
-}
+
 .teamSide {
   background-color: #f8f9fc;
 }
@@ -880,7 +879,7 @@ li {
     margin-bottom: 4em;
   }
   .blogItem {
-    width: 50%;
+    width: 48%;
     height: 100%;
     border: 1px ridge #d3d3d3;
     border-radius: 5px;
@@ -955,7 +954,7 @@ li {
     margin-bottom: -2em;
   }
 }
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 650px) {
   .navBar {
     color: white;
   }
@@ -984,5 +983,11 @@ li {
 
   .navBar {
     padding: 0 3%;
+  }
+  .blogItem {
+    width: 100%;
+    height: 100%;
+    border: 1px ridge #d3d3d3;
+    border-radius: 5px;
   }
 }
