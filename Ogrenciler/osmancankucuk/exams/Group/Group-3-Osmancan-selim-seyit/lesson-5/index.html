@@ -24,6 +24,7 @@
   <body>
     <div class="mainPic">
       <header>
+        
         <nav class="navBar">
           <div class="navItems">
             <ul class="navItemList">
@@ -34,7 +35,10 @@
                   alt="upstart"
                 />
               </li>
-              <li>
+              <li >
+                <button class="popup" onclick="popup()">
+                  <i  class="fa-solid fa-bars"></i>
+                </button>
                 <ul class="navItemSectionList">
                   <li class="navList">
                     <a class="roboto-slab sectionItems white" href="">HOME</a>
@@ -91,12 +95,66 @@
               </li>
             </ul>
           </div>
+          <ul class="secondSectionItems" >
+            <li  class="secondList" >
+              <a class="secondItemTags" href="">HOME</a>
+            </li>
+            <li class="secondList">
+              <a class="secondItemTags " href="">STORY</a>
+            </li>
+            <li class="secondList">
+              <a class="secondItemTags" href=""
+                >SERVICES</a
+              >
+            </li>
+            <li class="secondList">
+              <a class="secondItemTags " href=""
+                >PORTFOLIO</a
+              >
+            </li>
+            <li class="secondList">
+              <a class="secondItemTags " href=""
+                >PRICING</a
+              >
+            </li>
+            <li class="secondList">
+              <a class="secondItemTags" href="">TEAM</a>
+            </li>
+            <li class="secondList">
+              <a class="secondItemTags" href="">BLOGS</a>
+            </li>
+            <li class="secondList">
+              <a class="secondItemTags" href=""
+                >CONTACT US</a
+              >
+            </li>
+            <li class="secondList">
+              <ul class="iconList">
+                <li>
+                  <a href="" class="iconBackground2"
+                    ><i class="fa-brands fa-facebook-f"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="" class="iconBackground2"
+                    ><i class="fa-brands fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="" class="iconBackground2" href="">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          
         </nav>
       </header>
       <!-- OsmanCanKucuk -->
       <div class="wrap">
         <section class="mainSection">
-          <div style="width: 53%">
+          <div class="mainSectionContent">
             <h1 class="roboto-slab sectionTitle white">
               Providing Brilliant Ideas
             </h1>
@@ -115,7 +173,8 @@
       <!-- OsmanCanKucuk -->
     </div>
     <div class="sectionStory">
-      <div class="wrap flex">
+      <div class="wrap">
+      <div class="sectionStoryContent">
         <div class="sectionFrame">
           <a
             class="storyImage"
@@ -124,14 +183,14 @@
             ><i class="fa-solid fa-play"></i>
           </a>
         </div>
-        <div class="flex sectionStory2">
+        <div class="sectionStory2">
           <span
-            style="font-size: 15px; line-height: 23px"
+            style="font-size:15px; line-height: 23px"
             class="roboto-slab color"
             >WHO WE ARE ?</span
           >
           <span
-            style="font-size: 28px; line-height: 42px; margin: 0.5em 0"
+            style="font-size: 28px; line-height: 42px;"
             class="roboto-slab"
             >Our Company Story</span
           >
@@ -147,15 +206,17 @@
         </div>
       </div>
     </div>
+    </div>
+    </div>
     <!-- OsmanCanKucuk -->
     <div class="sectionServices">
       <div class="wrap">
         <div class="flex">
-          <div style="width: 50%">
-            <span
+          <div class="responWhatWeDo">
+            <h6
               style="font-size: 15px; line-height: 23px"
               class="roboto-slab color"
-              >WHAT WE DO ?</span
+              >WHAT WE DO ?</h6
             >
             <p style="font-size: 28px; line-height: 42px" class="roboto-slab">
               Perfect Solution For Your
@@ -165,8 +226,7 @@
             </p>
           </div>
           <div
-            class="flex"
-            style="align-items: center; justify-content: flex-end; width: 50%"
+            class="whatText"
           >
             <p style="color: #8492a6; font-size: 15px">
               Launch your campaign and benefit from our expertise on designing
@@ -174,236 +234,258 @@
             </p>
           </div>
         </div>
-        <!-- Selim Eminoğlu -->
-        <div class="cardDiv">
-          <table class="cardTable">
-            <tbody>
-              <tr>
-                <td>
-                  <img src="./images/card1.PNG" class="cardİmage" alt="card" />
-                  <h5
-                    style="font-size: 18px; line-height: 42px"
-                    class="roboto-slab"
-                  >
+        <div class="services-btns-container">
+          <div class="service-btn-outer-con">
+            <div class="service-btn-inner-con">
+              <div class="service-icon">
+                <img src="./images/card1.PNG" alt="images">
+              </div>
+              <div class="service-btn-info">
+                <a  href="">
+                  <h5 style="font-size: 18px; line-height: 42px" class="roboto-slab">
                     Grow Your Business
                   </h5>
-                  <p class="cardText" style="color: #8492a6; font-size: 15px">
-                    The phrasal sequence of the is now so that many campaign and
-                    benefit
-                  </p>
-                  <a href="#" class="readMore"
+                </a>
+                <p>
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
+                <div class="read-more">
+                  <a href=""
                     >Read More
-                    <img src="./images/rightArrow.png" />
+                    <i class="fa-solid fa-arrow-right"></i>
                   </a>
-                </td>
-                <td>
-                  <img src="./images/card2.PNG" class="cardİmage" alt="card" />
-                  <h5
-                    style="font-size: 18px; line-height: 42px"
-                    class="roboto-slab"
-                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="service-btn-outer-con">
+            <div class="service-btn-inner-con">
+              <div class="service-icon">
+                <img src="./images/card2.PNG" alt="images"/>
+              </div>
+              <div class="service-btn-info">
+                <a href="">
+                  <h5 style="font-size: 18px; line-height: 42px" class="roboto-slab">
                     Drive More Sales
                   </h5>
-                  <p class="cardText" style="color: #8492a6; font-size: 15px">
-                    The phrasal sequence of the is now so that many campaign and
-                    benefit
-                  </p>
-                  <a href="#" class="readMore"
-                    >Read More
-                    <img src="./images/rightArrow.png" />
-                  </a>
-                </td>
-                <td>
-                  <img src="./images/card3.PNG" class="cardİmage" alt="card" />
-                  <h5
-                    style="font-size: 18px; line-height: 42px"
-                    class="roboto-slab"
-                  >
+                </a>
+                <p>
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
+              </div>
+              <div class="read-more">
+                <a href=""
+                  >Read More
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="service-btn-outer-con">
+            <div class="service-btn-inner-con">
+              <div class="service-icon">
+                <img src="./images/card3.PNG" alt="images"/>
+              </div>
+              <div class="service-btn-info">
+                <a href="">
+                  <h5 style="font-size: 18px; line-height: 42px" class="roboto-slab">
                     Handled By Expert
                   </h5>
-                  <p class="cardText" style="color: #8492a6; font-size: 15px">
-                    The phrasal sequence of the is now so that many campaign and
-                    benefit
-                  </p>
-                  <a href="#" class="readMore"
-                    >Read More
-                    <img src="./images/rightArrow.png" />
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="./images/card4.PNG" class="cardİmage" alt="card" />
-                  <h5
-                    style="font-size: 18px; line-height: 42px"
-                    class="roboto-slab"
-                  >
+                </a>
+                <p>
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
+              </div>
+              <div class="read-more">
+                <a href=""
+                  >Read More
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="service-btn-outer-con">
+            <div class="service-btn-inner-con">
+              <div class="service-icon">
+                <img src="./images/card4.PNG" alt="images"/>
+              </div>
+              <div class="service-btn-info">
+                <a href="">
+                  <h5 style="font-size: 18px; line-height: 42px" class="roboto-slab">
                     Discussion For İdea
                   </h5>
-                  <p class="cardText" style="color: #8492a6; font-size: 15px">
-                    The phrasal sequence of the is now so that many campaign and
-                    benefit
-                  </p>
-                  <a href="#" class="readMore"
-                    >Read More
-                    <img src="./images/rightArrow.png" />
-                  </a>
-                </td>
-                <td>
-                  <img src="./images/card5.PNG" class="cardİmage" alt="card" />
-                  <h5
-                    style="font-size: 18px; line-height: 42px"
-                    class="roboto-slab"
-                  >
+                </a>
+                <p>
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
+              </div>
+              <div class="read-more">
+                <a href=""
+                  >Read More
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="service-btn-outer-con">
+            <div class="service-btn-inner-con">
+              <div class="service-icon">
+                <img src="./images/card5.PNG" alt="images" />
+              </div>
+              <div class="service-btn-info">
+                <a href="">
+                  <h5 style="font-size: 18px; line-height: 42px" class="roboto-slab">
                     İncrease Conversion
                   </h5>
-                  <p class="cardText" style="color: #8492a6; font-size: 15px">
-                    The phrasal sequence of the is now so that many campaign and
-                    benefit
-                  </p>
-                  <a href="#" class="readMore"
-                    >Read More
-                    <img src="./images/rightArrow.png" />
-                  </a>
-                </td>
-                <td>
-                  <img src="./images/card6.PNG" class="cardİmage" alt="card" />
-                  <h5
-                    style="font-size: 18px; line-height: 42px"
-                    class="roboto-slab"
-                  >
+                </a>
+                <p>
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
+              </div>
+              <div class="read-more">
+                <a href=""
+                  >Read More
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="service-btn-outer-con">
+            <div class="service-btn-inner-con">
+              <div class="service-icon">
+                <img src="./images/card6.PNG" alt="images"/>
+              </div>
+              <div class="service-btn-info">
+                <a href="">
+                  <h5 style="font-size: 18px; line-height: 42px" class="roboto-slab">
                     Sales Growth İdea
                   </h5>
-                  <p class="cardText" style="color: #8492a6; font-size: 15px">
-                    The phrasal sequence of the is now so that many campaign and
-                    benefit
-                  </p>
-                  <a href="#" class="readMore"
-                    >Read More
-                    <img src="./images/rightArrow.png" />
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <!-- Selim Eminoğlu -->
-    <section>
-      <div class="workProcess">
-        <div class="workText">
-          <span
-            style="font-size: 15px; line-height: 23px; height: 30px"
-            class="roboto-slab color"
-            >WORK PROCESS</span
-          >
-          <p style="font-size: 28px; line-height: 42px" class="roboto-slab">
-            Digital System For Our Business
-          </p>
-          <div class="flexGrayText">
-            <p class="grayText">
-              Launch your campaign and benefit from our expertise on designing
-              and managing conversion centered bootstrap v5 html page.
-            </p>
-          </div>
-          <div class="listShape">
-            <div class="rows">
-              <div class="firstRow rowRule">
-                <div class="firstRowİmage rowİmage">
-                  <img
-                    src="./images/design-thinking.svg"
-                    alt="images"
-                    width="250"
-                    height="250"
-                  />
-                </div>
-                <div class="images">
-                  <div class="firstİmage">
-                    <img src="./images/med_line_start_eksik.PNG" alt="line" />
-                  </div>
-                </div>
-                <div class="firstRowText rowText">
-                  <h5
-                    style="font-size: 18px; line-height: 42px"
-                    class="roboto-slab"
-                  >
-                    Strategy
-                  </h5>
-                  <p style="color: #8492a6; font-size: 15px">
-                    The generated injected humour, or non-characteristic words
-                    etc. Cum sociis natoque penatibus et magnis dis parturient
-                    montes, nascetur ridiculus mus. Donec quam felis,
-                  </p>
-                </div>
+                </a>
+                <p>
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
               </div>
-              <div class="secondRow rowRule">
-                <div class="secondRowText">
-                  <h5
-                    style="font-size: 18px; line-height: 42px"
-                    class="roboto-slab"
-                  >
-                    Development
-                  </h5>
-                  <p style="color: #8492a6; font-size: 15px">
-                    The generated injected humour, or non-characteristic words
-                    etc. Cum sociis natoque penatibus et magnis dis parturient
-                    montes, nascetur ridiculus mus. Donec quam felis,
-                  </p>
-                </div>
-                <div class="secondİmage">
-                  <img src="./images/med_line_2.PNG" alt="line" />
-                </div>
-                <div class="secondRowİmage">
-                  <img
-                    src="./images/coding.svg"
-                    alt="images"
-                    width="250"
-                    height="250"
-                  />
-                </div>
-              </div>
-              <div class="thirdRow rowRule">
-                <div class="thirdRowİmage rowİmage">
-                  <img
-                    src="./images/office-desk.svg"
-                    alt="images"
-                    width="250"
-                    height="250"
-                  />
-                </div>
-                <div class="images">
-                  <div class="firstİmage">
-                    <img src="./images/med_line_3.PNG" alt="line" />
-                  </div>
-                </div>
-                <div class="thirdRowText rowText">
-                  <h5
-                    style="font-size: 18px; line-height: 42px"
-                    class="roboto-slab"
-                  >
-                    Launch
-                  </h5>
-                  <p style="color: #8492a6; font-size: 15px">
-                    The generated injected humour, or non-characteristic words
-                    etc. Cum sociis natoque penatibus et magnis dis parturient
-                    montes, nascetur ridiculus mus. Donec quam felis,
-                  </p>
-                </div>
+              <div class="read-more">
+                <a href=""
+                  >Read More
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <!-- Selim Eminoğlu -->
+    <section>
+      <div class="wrap">
+        <div class="workProcess">
+          <div class="workText">
+            <span
+              style="font-size: 0.95em; line-height: 1.475em; height: 1.875em"
+              class="roboto-slab color"
+              >WORK PROCESS</span
+            >
+            <p style="font-size: 1.75em; line-height: 2.625em" class="roboto-slab">
+              Digital System For Our Business
+            </p>
+            <div class="flexGrayText">
+              <p class="grayText">
+                Launch your campaign and benefit from our expertise on designing
+                and managing conversion centered bootstrap v5 html page.
+              </p>
+            </div>
+            <div class="listShape">
+              <div class="rows">
+                <div class="firstRow rowRule">
+                  <div class="firstRowİmage rowİmage">
+                    <img
+                      src="./images/design-thinking.svg"
+                      alt="images"
+                      width="250"
+                      height="250"
+                    />
+                  </div>
+                  <div class="firstRowText rowText">
+                    <h5
+                      style="font-size: 18px; line-height: 42px"
+                      class="roboto-slab"
+                    >
+                      Strategy
+                    </h5>
+                    <p class="workParagrafText" style="color: #8492a6">
+                      The generated injected humour, or non-characteristic words
+                      etc. Cum sociis natoque penatibus et magnis dis parturient
+                      montes, nascetur ridiculus mus. Donec quam felis,
+                    </p>
+                  </div>
+                </div>
+                <div class="secondRow rowRule">
+                  <div class="secondRowText">
+                    <h5
+                      style="font-size: 18px; line-height: 42px"
+                      class="roboto-slab"
+                    >
+                      Development
+                    </h5>
+                    <p class="workParagrafText workSecondPar" style="color: #8492a6;">
+                      The generated injected humour, or non-characteristic words
+                      etc. Cum sociis natoque penatibus et magnis dis parturient
+                      montes, nascetur ridiculus mus. Donec quam felis,
+                    </p>
+                  </div>
+                  <div class="secondRowİmage">
+                    <img
+                      src="./images/coding.svg"
+                      alt="images"
+                      width="250"
+                      height="250"
+                    />
+                  </div>
+                </div>
+                <div class="thirdRow rowRule">
+                  <div class="thirdRowİmage rowİmage">
+                    <img
+                      src="./images/office-desk.svg"
+                      alt="images"
+                      width="250"
+                      height="250"
+                    />
+                  </div>
+                  <div class="thirdRowText rowText">
+                    <h5
+                      style="font-size: 18px; line-height: 42px"
+                      class="roboto-slab"
+                    >
+                      Launch
+                    </h5>
+                    <p class="workParagrafText" style="color: #8492a6">
+                      The generated injected humour, or non-characteristic words
+                      etc. Cum sociis natoque penatibus et magnis dis parturient
+                      montes, nascetur ridiculus mus. Donec quam felis,
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
     </section>
     <section class="portfolyo">
       <div class="workText portText">
         <span
-          style="font-size: 15px; line-height: 23px; height: 30px"
+          style="font-size: 0.9375em; line-height: 1.4375em; height: 1.875em"
           class="roboto-slab color"
           >PORTFOLIO</span
         >
-        <p style="font-size: 28px; line-height: 42px" class="roboto-slab">
+        <p style="font-size: 1.75em; line-height: 2.625em" class="roboto-slab">
           Our Works & Projects
         </p>
         <div class="flexGrayText">
@@ -498,20 +580,14 @@
     </section>
     <!-- OsmanCanKucuk -->
     <div class="bg-image">
-      <div class="bg-overlay"></div>
-      <div class="portfolio-pic-container">
-        <div class="one">
-          <div class="two">
-            <div class="three">
-              <h4>Ready to start your next web project now?</h4>
-              <p>
+      <div class="center" style="width: 40%;margin: 0 auto;">
+        <div class="one">      
+              <h4 class="roboto-slab" style="font-size: 28px;line-height: 42px;color: white;">Ready to start your next web project now?</h4>
+              <p class="roboto-slab" style="font-size: 15px;line-height: 24px;color: rgba(255,255,255, 0.5);">
                 Launch your campaign and benefit from our expertise on designing
                 and managing conversion centered bootstrap v5 html page.
               </p>
-              <div class="portfolio-pic-btn">
-                <button>Get Started</button>
-              </div>
-            </div>
+              <button class="button" style="color:white">Get Started</button>
           </div>
         </div>
       </div>
@@ -519,16 +595,18 @@
     <div>
       <section id="price">
         <div class="pricing-container">
-          <div class="pricing-header">
-            <div class="pricing-header-outer-con">
-              <div class="pricing-header-inner-con">
-                <h6>PLANS</h6>
-                <h4>Pricing Plans</h4>
-                <p>
-                  Launch your campaign and benefit from our expertise on
-                  designing and managing conversion centered bootstrap v5 html
-                  page.
-                </p>
+          <div class="wrap">
+            <div class="pricing-header">
+              <div class="pricing-header-outer-con">
+                <div class="pricing-header-inner-con">
+                  <h6>PLANS</h6>
+                  <h4>Pricing Plans</h4>
+                  <p>
+                    Launch your campaign and benefit from our expertise on
+                    designing and managing conversion centered bootstrap v5 html
+                    page.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -787,8 +865,8 @@
             managing conversion centered bootstrap v5 html page.
           </p>
         </div>
-        <div class="blogCard">
-          <ul class="flex" style="justify-content: space-between">
+        <div >
+          <ul class="blogCard">
             <li class="blogItem">
               <div class="blogImage">
                 <img
@@ -816,11 +894,12 @@
                 >
               </div>
             </li>
+            
             <li class="blogItem">
               <div class="blogImage">
                 <img
                   style="width: 100%"
-                  src="https://shreethemes.in/upstart/layouts/images/blog/1.jpg"
+                  src="https://shreethemes.in/upstart/layouts/images/blog/2.jpg"
                   alt=""
                 />
               </div>
@@ -847,7 +926,7 @@
               <div class="blogImage">
                 <img
                   style="width: 100%"
-                  src="https://shreethemes.in/upstart/layouts/images/blog/1.jpg"
+                  src="https://shreethemes.in/upstart/layouts/images/blog/3.jpg"
                   alt=""
                 />
               </div>
@@ -870,7 +949,9 @@
                 >
               </div>
             </li>
+           
           </ul>
+          
         </div>
       </div>
     </section>
@@ -922,9 +1003,7 @@
                   placeholder="Message :"
                 ></textarea>
               </div>
-              <button style="width: 25%; color: white" class="button">
-                Send Message
-              </button>
+              <button  class="button white">Send Message</button>
             </form>
           </div>
           <div class="formInformation">
@@ -984,7 +1063,7 @@
     <!-- OsmanCanKucuk -->
     <footer class="footer">
       <div class="wrap padding-y-2">
-        <ul class="flex footerDesign">
+        <ul class="footerDesign">
           <li>
             <img
               src="https://shreethemes.in/upstart/layouts/images/logo-light.png"

@@ -98,6 +98,9 @@ div.first-part{
     width: 100%;
     height: 750px;
     background-size: cover;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 div.first-part-bgOpacity{
     width: 100%;
@@ -106,9 +109,9 @@ div.first-part-bgOpacity{
     opacity: 0.9;
 }
 div.first-part-inside{
-    width: 550px;
-    height: 250px;
-    margin-left: 350px;
+    max-width: 550px;
+    height: auto;
+    margin: auto;
     padding-top: 250px;
 }
 
@@ -146,13 +149,15 @@ button.first:hover {
 
 div.second-part{
     width: 100%;
-    height: 700px;
+    height: auto;
     background-color: #f8f9fc;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 div.second-part-first{
     width: 450px;
@@ -186,6 +191,8 @@ p.second-part-second-p{
     color: #8492a6;
     line-height: 1.5;
     letter-spacing: 0.2px;
+    max-width: 600px;
+    margin: auto;
 }
 
 .play-btn {
@@ -205,13 +212,14 @@ p.second-part-second-p{
 
 div.third-part{
     width: 100%;
-    height: 250px;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 100px;
+    padding-top: 100px;
 }
 
 div.third-part-first{
@@ -224,7 +232,7 @@ div.third-part-second{
 
 div.fourth-part{
     width: 70%;
-    height: 700px;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -362,15 +370,18 @@ div.sixth-part-second{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 1140px;
-    height: 455.5px;
+    width: auto;
+    height: auto;
     margin: auto;
+    max-width: 1140px;
 }
 
 div.sixth-part-divs{
     width: 261px;
     height: 195.75px;
     border-radius: 5px;
+    margin: auto;
+    margin-top: 50px;
 }
 
 div.sixth-part-divs-icon{
@@ -489,8 +500,8 @@ p.seventh-part-p{
 
 div.eighth-part{
     text-align: center;
-    width: 1116px;
-    height: 650px;
+    width: auto;
+    height: auto;
     margin: auto;
     margin-top: 100px;
 }
@@ -510,6 +521,11 @@ div.eighth-part-second-divs{
     box-shadow: 0 0 3px rgba(36,39,44,0.15);
     border-radius: 5px;
     font-family: "Roboto",sans-serif;
+}
+
+div.eighth-part-second-divs:hover{
+    transform: translateY(-10px);
+    transition: 0.5s;
 }
 
 h5.eighth-part-second-divs-h5{
@@ -598,18 +614,27 @@ div.nineth-part{
 }
 
 div.nineth-part-first{
-    width: 600px;
+    width: auto;
     margin: auto;
     margin-bottom: 50px;
+    padding-top: 50px;
+}
+div.nineth-part-second{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 div.nineth-part-second-first{
-    height: 293px;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 30px;
+    margin-bottom: 50px;
 }
 
 div.nineth-part-second-first-divs{
@@ -675,12 +700,14 @@ p.nineth-part-second-first-divs-div-p{
 }
 
 div.nineth-part-second-second{
-    height: 120px;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
     gap: 30px;
+    margin-bottom: 50px;
 }
 
 div.nineth-part-second-second-divs{
@@ -737,7 +764,7 @@ div.tenth-parth{
 
 div.tenth-part-first{
     text-align: center;
-    width: 600px;
+    width: auto;
     margin: auto;
     margin-top: 80px;
     margin-bottom: 50px;
@@ -800,7 +827,7 @@ div.eleventh-part{
 
 div.eleventh-part-first{
     text-align: center;
-    width: 600px;
+    width: auto;
     margin: auto;
     margin-top: 80px;
     padding-top: 100px;
@@ -819,6 +846,7 @@ div.eleventh-part-second-first{
     box-shadow: 0 0 3px rgba(36,39,44,0.15);
     border-radius: 5px;
     background-color: white;
+    margin-top: 50px;
 }
 
 div.eleventh-part-form-first{
@@ -839,6 +867,15 @@ input.eleventh-part-form-first{
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid #dee2e6;
+}
+
+input.eleventh-part-form-first:focus{
+    border: 1px solid #ff5714;
+    outline: none;
+}
+textarea:focus{
+    border: 1px solid #ff5714;
+    outline: none;
 }
 
 textarea{

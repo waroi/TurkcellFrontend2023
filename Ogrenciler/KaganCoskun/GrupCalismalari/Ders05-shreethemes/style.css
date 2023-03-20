@@ -50,7 +50,7 @@ section {
 /* Copyright KMI  */
 
 header {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255);
   position: fixed;
   width: 100%;
   height: 70px;
@@ -105,6 +105,10 @@ nav {
 }
 .socialMedia > a:hover {
   background-color: #e04000 !important;
+}
+
+.hamburgerCheckBox {
+  display: none;
 }
 
 .landingBg {
@@ -831,6 +835,9 @@ footer {
     margin: auto;
     padding: 0 30px;
   }
+  .btnPrimary {
+    padding: 10px 0;
+  }
 
   .row {
     margin-top: 50px;
@@ -842,6 +849,13 @@ footer {
   }
   .links {
     display: none;
+    align-items: start;
+    transition: transform 0.5s ease 0s;
+  }
+
+  .linkItem {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .line {
@@ -858,17 +872,36 @@ footer {
     gap: 3px;
     flex-direction: column;
     cursor: pointer;
+    z-index: 999999999999999;
   }
 
-  .hamburger:active .line:nth-child(1) {
+  .hamburgerCheckBox {
+    position: absolute;
+    opacity: 0;
+  }
+
+  #menu-toggle:checked ~ .links {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    background-color: white;
+    justify-content: start;
+    flex-direction: column;
+    padding: 50px;
+    transition: 1s;
+  }
+
+  #menu-toggle:active .hamburger > .line:nth-child(1) {
     transform: rotate(45deg) translateX(5px);
     transition: transform 0.5s;
   }
-  .hamburger:active .line:nth-child(2) {
+  #menu-toggle:active .line:nth-child(2) {
     display: none;
     transition: transform 0.5s;
   }
-  .hamburger:active .line:nth-child(3) {
+  #menu-toggle:active .line:nth-child(3) {
     transform: rotate(-45deg) translateX(5px);
     transition: transform 0.5s;
   }
@@ -901,6 +934,10 @@ footer {
     gap: 25px;
   }
   .wpDesc {
+    width: 100%;
+  }
+  #getStarted {
+    max-height: none !important;
     width: 100%;
   }
 }
@@ -953,4 +990,5 @@ footer {
     gap: 20px;
     text-align: center;
   }
+  /* KMI */
 }

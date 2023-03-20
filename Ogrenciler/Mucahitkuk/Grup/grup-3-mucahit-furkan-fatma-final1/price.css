@@ -1,0 +1,177 @@
+/*Price Section*/
+.priceMain {
+    padding: 100px 0;
+}
+
+.priceCard {
+    padding: 40px 0  0 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cardTitle {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 18px;
+    color: #24272c;
+    line-height: 27px;
+    margin-top: 50px;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    margin-left: 20px;
+
+}
+
+
+.card1,
+.card2,
+.card3 {
+    box-shadow: 0 0 5px rgb(36 39 44 / 15%);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition: .3s ease-in-out;
+    padding: 0px 10px 35px 10px;
+
+}
+
+.card1:hover,
+.card2:hover,
+.card3:hover {
+    box-shadow: 0px 0px 15px 1px rgba(85, 89, 94, 0.15);
+    transition: .3s ease-in-out;
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    /* margin: 20px 10px; */
+ 
+}
+
+.priceSpan {
+    margin-bottom: 1.5rem;
+    display: flex;
+    margin-left: 20px;
+}
+
+.priceDolar {
+    font-size: 18px;
+    align-self: flex-start;
+    margin-top: 5px;
+
+}
+
+.priceNumber {
+    font-size: 42px;
+    line-height: 63px;
+}
+
+.priceUnit {
+    align-self: flex-end;
+    font-size: 18px;
+}
+
+.priceList>ul {
+    list-style: none;
+    margin: 0 20px;
+    padding: 0;
+    font-size: 15px;
+    line-height: 33px;
+    color: #8492a6;
+
+}
+
+.buttonDiv {
+    display: flex;
+    margin-top: 15px;
+
+}
+
+.priceButton {
+    background-color: rgba(255, 87, 20, 0.1);
+    margin: 20px 0;
+    margin-bottom: 10px;
+    padding: 12px 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    color: #ff5714;
+    transition: .3s ease-in-out;
+}
+
+.priceButton:hover {
+    background-color: #ff5714;
+    color: white;
+    transition: .3s ease-in-out;
+}
+
+@media screen and (max-width:3000px) {
+
+    .card1,
+    .card2,
+    .card3 {
+        width: 30%;
+    }
+
+    .priceButton {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width:1440px) {}
+
+@media screen and (max-width:1024px) {
+
+    .card1,
+    .card2,
+    .card3 {
+        width: 28%;
+    }
+
+    .priceCard {
+        justify-content: center;
+        gap: 25px
+    }
+
+}
+
+@media screen and (max-width:991px) {
+
+    .card1,
+    .card2,
+    .card3 {
+        width: 33%;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    .card1,
+    .card2,
+    .card3 {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width:425px) {
+
+    .card1,
+    .card2,
+    .card3 {
+        width: 90%;
+    }
+}

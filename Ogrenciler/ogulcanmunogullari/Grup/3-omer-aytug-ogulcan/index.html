@@ -6,35 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grup 3</title>
-  <link rel="stylesheet" href="./structure-ogulcan.css" />
-  <link rel="stylesheet" href="./style-ogulcan.css" />
-  <!-- <link rel="stylesheet" href="./structure-omer.css" /> -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" href="./style-omer.css" />
-  <link rel="stylesheet" href="./media-q.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Aytuğ -->
-  <link rel="stylesheet" href="style-aytug.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400&display=swap"
     rel="stylesheet" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Media Queries -->
+  <link rel="stylesheet" href="./small-tablet.css" media="(min-width: 600px)" />
+  <link rel="stylesheet" href="./tablet.css" media="(min-width: 767px)" />
+  <link rel="stylesheet" href="./small-pc.css" media="(min-width: 1000px)" />
+  <link rel="stylesheet" href="./pc.css" media="(min-width: 1200px)" />
 </head>
 
-<body>
-  <!-- Ömer Başlangıç -->
-  <!-- navbar start -->
+<body id="bas">
   <div class="nav-mobile">
     <div class="container">
       <div class="nav-mobile-container">
         <div class="logo1">
-          <img src="./img/logo-dark.png" alt="" />
+          <img src="./assets/logo-dark.png" alt="" />
         </div>
         <div class="burger1">
           <label for="open"><i class="fa-solid fa-bars"></i></label>
@@ -59,11 +55,9 @@
             <li class="toggle-menu-item">
               <a href="#">Pricing</a>
             </li>
-
             <li class="toggle-menu-item">
               <a href="#">Team</a>
             </li>
-
             <li class="toggle-menu-item">
               <a href="#">Blogs</a>
             </li>
@@ -72,11 +66,9 @@
             </li>
           </ul>
           <div class="socials">
-
             <a href="#">
               <i class="fa-brands fa-facebook-f"></i>
             </a>
-
             <a href="#">
               <i class="fa-brands fa-instagram"></i>
             </a>
@@ -91,7 +83,7 @@
   <div class="nav-pc">
     <div class="container">
       <div class="logo1">
-        <img src="./img/logo-dark.png" alt="" />
+        <img src="./assets/logo-dark.png" alt="" />
       </div>
       <div class="pc-menu">
         <ul class="pc-menu-items-container">
@@ -110,10 +102,8 @@
           <li class="pc-menu-item">
             <a href="#">Pricing</a>
           </li>
-          </li>
           <li class="pc-menu-item">
             <a href="#">Team</a>
-          </li>
           </li>
           <li class="pc-menu-item">
             <a href="#">Blogs</a>
@@ -123,11 +113,9 @@
           </li>
         </ul>
         <div class="socials">
-
           <a href="#">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-
           <a href="#">
             <i class="fa-brands fa-instagram"></i>
           </a>
@@ -139,7 +127,7 @@
     </div>
   </div>
   <header class="header">
-    <div class="container">
+    <div class=" container">
       <div class="header-hero">
         <h1>Providing Brilliant Ideas
           For Your Digital Agency</h1>
@@ -150,11 +138,16 @@
       </div>
     </div>
   </header>
+  <div class="bas">
+    <a href="#bas"><span class="material-symbols-outlined">
+        line_start_arrow_notch
+      </span></a>
+  </div>
   <section class="who-we-are">
     <div class="container">
       <div class="who-we-are-container">
         <div class="figure">
-          <img src="./img/about.jpg" alt="">
+          <img src="https://shreethemes.in/upstart/layouts/images/about.jpg" alt="" loading="lazy">
           <label for="play-open" class="play-open-label">
             <i class="fa-solid fa-play"></i>
           </label>
@@ -164,7 +157,8 @@
           <h3>WHO WE ARE?</h3>
           <h2>Our Company Story</h2>
           <p>Start working with Upstart that can provide everything you need to generate awareness, drive traffic,
-            connect. Dummy text is text that is used in the publishing industry or by web designers to occupy the space
+            connect. Dummy text is text that is used in the publishing industry or by web designers to occupy the
+            space
             which will later be filled with 'real' content. This is required when, for example, the final text is not
             yet available. Dummy texts have been in use by typesetters since the 16th century.</p>
           <button class="button">Buy Now</button>
@@ -181,9 +175,6 @@
       </label>
     </section>
   </section>
-
-  <!-- Ömer Bitiş -->
-  <!-- Oğulcan Başlangıç -->
   <section class="what-we-do">
     <div class="container">
       <div class="information-container">
@@ -199,79 +190,74 @@
       <div class="card-container">
         <div class="card c-1">
           <div class="image-container">
-            <img src="./assets/image-1.png" alt="" />
+            <img src="./assets/image-1.png" loading="lazy" alt="" />
           </div>
           <h3>Grow Your Business</h3>
           <p>
             The phrasal sequence of the is now so that many campaign and
             benefit
           </p>
-          <a href="#">Read More
-            <span class="material-symbols-outlined"> arrow_forward </span></a>
+          <a href="#">Read More<span class="fa-solid fa-arrow-right">
+            </span></a>
         </div>
         <div class="card c-2">
           <div class="image-container">
-            <img src="./assets/image-2.png" alt="" />
+            <img src="./assets/image-2.png" loading="lazy" alt="" />
           </div>
           <h3>Drive More Sales</h3>
           <p>
             The phrasal sequence of the is now so that many campaign and
             benefit
           </p>
-          <a href="#">Read More<span class="material-symbols-outlined">
-              arrow_forward
+          <a href="#">Read More<span class="fa-solid fa-arrow-right">
             </span></a>
         </div>
         <div class="card c-3">
           <div class="image-container">
-            <img src="./assets/image-3.png" alt="" />
+            <img src="./assets/image-3.png" loading="lazy" alt="" />
           </div>
           <h3>Handled By Expert</h3>
           <p>
             The phrasal sequence of the is now so that many campaign and
             benefit
           </p>
-          <a href="#">Read More<span class="material-symbols-outlined">
-              arrow_forward
+          <a href="#">Read More<span class="fa-solid fa-arrow-right">
             </span></a>
         </div>
         <div class="card c-4">
           <div class="image-container">
-            <img src="./assets/image-4.png" alt="" />
+            <img src="./assets/image-4.png" loading="lazy" alt="" />
           </div>
           <h3>Discussion For Idea</h3>
           <p>
             The phrasal sequence of the is now so that many campaign and
             benefit
           </p>
-          <a href="#">Read More<span class="material-symbols-outlined">
-              arrow_forward
+          <a href="#">Read More<span class="fa-solid fa-arrow-right">
             </span></a>
         </div>
         <div class="card c-5">
           <div class="image-container">
-            <img src="./assets/image-5.png" alt="" />
+            <img src="./assets/image-5.png" loading="lazy" alt="" />
           </div>
           <h3>Increase Conversion</h3>
           <p>
             The phrasal sequence of the is now so that many campaign and
             benefit
           </p>
-          <a href="#">Read More<span class="material-symbols-outlined">
-              arrow_forward
+          <a href="#">Read More<span class="fa-solid fa-arrow-right">
             </span></a>
         </div>
         <div class="card c-6">
           <div class="image-container">
-            <img src="./assets/image-6.png" alt="" />
+            <img src="./assets/image-6.png" loading="lazy" alt="" />
           </div>
           <h3>Sales Growth Idea</h3>
           <p>
             The phrasal sequence of the is now so that many campaign and
             benefit
           </p>
-          <a href="#">Read More<span class="material-symbols-outlined">
-              arrow_forward
+          <a href="#">Read More<span class="fa-solid fa-arrow-right">
             </span></a>
         </div>
       </div>
@@ -289,7 +275,7 @@
       </div>
       <div class="process-container">
         <div class="process-1 padding-l-30">
-          <img src="https://shreethemes.in/upstart/layouts/images/svg/design-thinking.svg" alt="1" />
+          <img src="https://shreethemes.in/upstart/layouts/images/svg/design-thinking.svg" loading="lazy" alt="1" />
         </div>
         <div class="process-2 padding-l-30">
           <h3>Strategy</h3>
@@ -300,7 +286,7 @@
           </p>
         </div>
         <div class="process-3 padding-l-30">
-          <img src="https://shreethemes.in/upstart/layouts/images/svg/coding.svg" alt="2" />
+          <img src="https://shreethemes.in/upstart/layouts/images/svg/coding.svg" loading="lazy" alt="2" />
         </div>
         <div class="process-4 padding-l-30">
           <h3>Development</h3>
@@ -311,7 +297,7 @@
           </p>
         </div>
         <div class="process-5 padding-l-30">
-          <img src="https://shreethemes.in/upstart/layouts/images/svg/office-desk.svg" alt="3" />
+          <img src="https://shreethemes.in/upstart/layouts/images/svg/office-desk.svg" loading="lazy" alt="3" />
         </div>
         <div class="process-6 padding-l-30">
           <h3>Launch</h3>
@@ -336,28 +322,29 @@
       </div>
       <div class="image-container">
         <div class="image">
-          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/1.jpg" alt="1" />
+          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/1.jpg" loading="lazy" alt="1" />
         </div>
         <div class="image">
-          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/2.jpg" alt="2" />
+          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/2.jpg" loading="lazy" alt="2" />
         </div>
         <div class="image">
-          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/3.jpg" alt="3" />
+          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/3.jpg" loading="lazy" loading="lazy"
+            alt="3" />
         </div>
         <div class="image">
-          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/4.jpg" alt="4" />
+          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/4.jpg" loading="lazy" alt="4" />
         </div>
         <div class="image">
-          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/5.jpg" alt="5" />
+          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/5.jpg" loading="lazy" alt="5" />
         </div>
         <div class="image">
-          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/6.jpg" alt="6" />
+          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/6.jpg" loading="lazy" alt="6" />
         </div>
         <div class="image">
-          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/7.jpg" alt="7" />
+          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/7.jpg" loading="lazy" alt="7" />
         </div>
         <div class="image">
-          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/8.jpg" alt="8" />
+          <img src="https://shreethemes.in/upstart/layouts/images/portfolio/8.jpg" loading="lazy" alt="8" />
         </div>
       </div>
     </div>
@@ -454,29 +441,32 @@
       </div>
     </div>
   </section>
-  <!-- Oğulcan Bitiş -->
-  <!-- Ömer Section Başlangıç -->
   <section class="our-team">
     <div class="container">
       <div class="our-team-container">
         <div class="info">
           <h3>OUR TEAM</h3>
           <h2>Creative Minds</h2>
-          <p>Launch your campaign and benefit from our expertise on designing and managing conversion centered bootstrap
+          <p>Launch your campaign and benefit from our expertise on designing and managing conversion centered
+            bootstrap
             v5 html page</p>
         </div>
         <div class="our-team-images-container">
           <div class="o-image">
-            <img class="o-image-1" src="./img/01.jpg" alt="">
+            <img class="o-image-1" src="https://shreethemes.in/upstart/layouts/images/client/01.jpg" loading="lazy"
+              alt="">
           </div>
           <div class="o-image">
-            <img class="o-image-2" src="./img/02.jpg" alt="">
+            <img class="o-image-2" src="https://shreethemes.in/upstart/layouts/images/client/02.jpg" loading="lazy"
+              alt="">
           </div>
           <div class="o-image">
-            <img class="o-image-3" src="./img/03.jpg" alt="">
+            <img class="o-image-3" src="https://shreethemes.in/upstart/layouts/images/client/03.jpg" loading="lazy"
+              alt="">
           </div>
           <div class="o-image">
-            <img class="o-image-4" src="./img/08.jpg" alt="">
+            <img class="o-image-4" src="https://shreethemes.in/upstart/layouts/images/client/08.jpg" loading="lazy"
+              alt="">
           </div>
         </div>
         <div class="our-team-project-container">
@@ -500,197 +490,161 @@
           </div>
           <div class="our-team-logos">
             <div>
-              <img src="./img/amazon.svg" alt="">
+              <img src="https://shreethemes.in/upstart/layouts/images/client/amazon.svg" loading="lazy" alt="">
             </div>
             <div>
-              <img src="./img/google.svg" alt="">
+              <img src="https://shreethemes.in/upstart/layouts/images/client/google.svg" loading="lazy" alt="">
             </div>
             <div>
-              <img src="./img/lenovo.svg" alt="">
+              <img src="https://shreethemes.in/upstart/layouts/images/client/lenovo.svg" loading="lazy" alt="">
             </div>
             <div>
-              <img src="./img/paypal.svg" alt="">
+              <img src="https://shreethemes.in/upstart/layouts/images/client/paypal.svg" loading="lazy" alt="">
             </div>
             <div>
-              <img src="./img/shopify.svg" alt="">
+              <img src="https://shreethemes.in/upstart/layouts/images/client/shopify.svg" loading="lazy" alt="">
             </div>
             <div>
-              <img src="./img/spotify.svg" alt="">
+              <img src="https://shreethemes.in/upstart/layouts/images/client/spotify.svg" loading="lazy" alt="">
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- Our Team End-->
-  <!-- Ömer Section Bitiş -->
-  <!-- Aytuğ Başlangıç -->
-  <div class="aytug">
-    <div class="section_blog">
-      <div class="container1">
-        <div class="row">
-          <div class="col">
-            <div class="section_title">
-              <h6 class="text_primary text_center">BLOGS</h6>
-              <h4 class="title text_center">Latest News</h4>
-              <p class="blog_description text_center">
-                Launch your campaign and benefit from our expertise on designing and managing conversion centered
-                bootstrap v5 html page.
-              </p>
-            </div>
-          </div>
+  <div class="blogs">
+    <div class="container">
+      <div class="blogs-container">
+        <div class="blogs-information">
+          <h3 class="blogs-information-h3">BLOGS</h3>
+          <h2 class="blogs-information-h2">Latest News</h2>
+          <p class="blogs-information-p">
+            Launch your campaign and benefit from our expertise on designing and managing conversion centered
+            bootstrap v5 html page.
+          </p>
         </div>
-        <div class="row">
-          <div class="blog_coloumn">
-            <div class="blog_news_card">
-              <img class="blog_image" src="assets/1.jpg" alt="" />
-              <div class="blog_news_card_body">
-                <a class="blog_news_card_title" href="#">Building Your Corporate Identity from Upstart</a>
-                <p class="blog_news_card_description">
-                  The most well-known dummy text is the 'Lorem Ipsum', in the 16th century.
-                </p>
-                <div class="blog_read_more">
-                  <a class="blog_read_more_link" href="#">
-                    Read More
-                    <i class="fa-solid fa-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
+        <div class="blogs-cards-container">
+          <div class="blogs-card">
+            <img class="blogs-card-image" src="https://shreethemes.in/upstart/layouts/images/blog/1.jpg" loading="lazy"
+              alt="1">
+            <div class="blogs-card-body">
+              <h3 class="blogs-card-h"><a href="#">Building Your Corporate Identity from Upstart</a></h3>
+              <p class="blogs-card-p">
+                The most well-known dummy text is the 'Lorem Ipsum', in the 16th century.
+              </p>
+              <a class="blogs-card-a">
+                Read More
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
-          <div class="blog_coloumn">
-            <div class="blog_news_card">
-              <img src="assets/2.jpg" class="blog_image" alt="" />
-              <div class="blog_news_card_body">
-                <a href="#" class="blog_news_card_title">The Dark Side of Overnight Success</a>
-                <p class="blog_news_card_description">
-                  The most well-known dummy text is the 'Lorem Ipsum', in the 16th century.
-                </p>
-                <div class="blog_read_more">
-                  <a class="blog_read_more_link" href="#">
-                    Read More
-                    <i class="fa-solid fa-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
+          <div class="blogs-card">
+            <img class="blogs-card-image" src="https://shreethemes.in/upstart/layouts/images/blog/2.jpg" loading="lazy"
+              alt="2">
+            <div class="blogs-card-body">
+              <h3 class="blogs-card-h"><a href="#">The Dark Side of Overnight Success</a></h3>
+              <p class="blogs-card-p">
+                The most well-known dummy text is the 'Lorem Ipsum', in the 16th century.
+              </p>
+              <a class="blogs-card-a">
+                Read More
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
-          <div class="blog_coloumn">
-            <div class="blog_news_card">
-              <img src="assets/3.jpg" class="blog_image" alt="" />
-              <div class="blog_news_card_body">
-                <a href="#" class="blog_news_card_title">The Right Hand of Business IT World</a>
-                <p class="blog_news_card_description">
-                  The most well-known dummy text is the 'Lorem Ipsum', in the 16th century.
-                </p>
-                <div class="blog_read_more">
-                  <a class="blog_read_more_link" href="#">
-                    Read More
-                    <i class="fa-solid fa-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
+          <div class="blogs-card">
+            <img class="blogs-card-image" src="https://shreethemes.in/upstart/layouts/images/blog/3.jpg" loading="lazy"
+              alt="3">
+            <div class="blogs-card-body">
+              <h3 class="blogs-card-h"><a href="#">The Right Hand of Business IT World</a></h3>
+              <p class="blogs-card-p">
+                The most well-known dummy text is the 'Lorem Ipsum', in the 16th century.
+              </p>
+              <a class="blogs-card-a">
+                Read More
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Contact-Us Part -->
-    <div class="section_contact_us">
-      <div class="container1">
-        <div class="row">
-          <div class="col">
-            <div class="section_title">
-              <h6 class="text_primary text_center">CONTACT US</h6>
-              <h4 class="title text_center">Get In Touch !</h4>
-              <p class="blog_description text_center">
-                Launch your campaign and benefit from our expertise on designing and managing conversion centered
-                bootstrap v5 html page.
-              </p>
-            </div>
-          </div>
+  </div>
+  <div class="contact-us">
+    <div class="container">
+      <div class="contact-container">
+        <div class="contact-information">
+          <h3 class="contact-information-h3">CONTACT US</h3>
+          <h2 class="contact-information-h2">Get In Touch !</h2>
+          <p class="contact-information-p">
+            Launch your campaign and benefit from our expertise on designing and managing conversion centered
+            bootstrap v5 html page.
+          </p>
         </div>
-        <div class="row">
-          <div class="mail_column">
-            <form class="contact_form" action="post">
-              <div class="mail_name_email">
-                <div class="mail_name">
-                  <input class="input_name" type="text" name="name" placeholder="Name :" />
-                </div>
-              </div>
-              <div class="mail_name_email">
-                <div class="mail_name">
-                  <input class="input_name" type="email" name="email" placeholder="Email :" />
-                </div>
-              </div>
-              <div class="mail_subject">
-                <input class="input_subject" type="text" name="subject" placeholder="Subject :" />
-              </div>
-              <div class="mail_message">
-                <textarea class="input_message" name="message" id="message" cols="100" rows="5"
-                  placeholder="Message :"></textarea>
-              </div>
-              <div class="send_btn">
-                <button class="btn_send_message" type="submit" id="submit" name="send">Send Message</button>
-              </div>
-            </form>
-          </div>
-          <div class="contact_column">
-            <div class="contact_component">
+        <div class="form-container">
+          <form>
+            <div class="mail-name-container">
+              <input type="text" placeholder="Name:">
+              <input type="mail" placeholder="Email:">
+            </div>
+            <input type="text" placeholder="Subject:">
+            <textarea rows="4" placeholder="Message:"></textarea>
+            <input class="form-button" type="submit" value="Send Message">
+          </form>
+          <div class="form-information">
+            <div class="form-information-elements">
               <i class="fa-solid fa-phone icon"></i>
-              <div class="contact_informations">
+              <div class="x">
                 <h5>Phone</h5>
-                <a href="tel:+152534-468-854" class="text_muted">+152 534-468-854</a>
+                <p>+152 534-468-854</p>
               </div>
             </div>
-            <div class="contact_component">
+            <div class="form-information-elements">
               <i class="fa-regular fa-envelope icon"></i>
-
-              <div class="contact_informations">
+              <div class="x">
                 <h5>Email</h5>
-                <a href="mailto:contact@example.com" class="text_muted">contact@example.com</a>
+                <p>contact@example.com</p>
               </div>
             </div>
-            <div class="contact_component">
+            <div class="form-information-elements">
               <i class="fa-solid fa-location-dot icon"></i>
-              <div class="contact_informations">
-                <h5>Location</h5>
-                <p class="location_p text_muted">C/54 Northwest Freeway, Suite 558, Houston, USA 485</p>
+              <div class="x">
+                <h5>
+                  Location</h5>
+                <p>C/54 Northwest Freeway, Suite 558, Houston, USA 485
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Footer Part -->
-    <div class="footer">
-      <div class="footer_container">
-        <div class="fooer_logo">
-          <a href="https://shreethemes.in/upstart/layouts/index.html#">
-            <img src="https://shreethemes.in/upstart/layouts/images/logo-light.png" alt="" />
-          </a>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="footer">
+        <div class="footer-logo">
+          <img src="./assets/logo-light.png" alt="">
         </div>
-        <div class="footer_description">© 2023 Upstart. Design with &#10084;&#65039; by Shreethemes.</div>
-        <div class="footer_social_media">
-          <a class="social_media_link" href="https://shreethemes.in/upstart/layouts/index.html">
+        <p>© 2023 Upstart. Design with &#10084;&#65039; by Shreethemes.</p>
+        <div class="footer-socials">
+          <a href="https://shreethemes.in/upstart/layouts/index.html">
             <i class="fa-brands fa-facebook"></i>
           </a>
-          <a class="social_media_link" href="https://shreethemes.in/upstart/layouts/index.html">
+          <a href="https://shreethemes.in/upstart/layouts/index.html">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a class="social_media_link" href="https://shreethemes.in/upstart/layouts/index.html">
+          <a href="https://shreethemes.in/upstart/layouts/index.html">
             <i class="fa-brands fa-twitter"></i>
           </a>
-          <a class="social_media_link" href="https://shreethemes.in/upstart/layouts/index.html">
+          <a href="https://shreethemes.in/upstart/layouts/index.html">
             <i class="fa-brands fa-linkedin-in"></i>
           </a>
         </div>
       </div>
     </div>
+  </footer>
   </div>
-  <!-- Aytuğ Bitiş -->
 </body>
 
 </html>

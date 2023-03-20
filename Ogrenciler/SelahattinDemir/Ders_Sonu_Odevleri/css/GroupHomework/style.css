@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto Slab", "sans-serif";
+  transition: all 0.5s ease;
   --orange-light: #ff5714;
   --orange-dark: #dd5000;
   --light-gray: rgba(255, 255, 255, 0.5);
@@ -12,15 +13,11 @@
 
 /* Navbar component */
 .navbar {
-  padding-right: 390px;
-  padding-left: 210px;
-  width: 100%;
   height: 70px;
   position: sticky;
   top: 0;
   background-color: #fff;
-  display: grid;
-  grid-template-columns: 15fr 25fr 5fr 0.1fr;
+  display: flex;
   font-size: 12px;
   text-transform: uppercase;
   z-index: 1;
@@ -32,15 +29,12 @@
 
 .navbar * {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .nav-menu-icon {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
+  justify-content: flex-end;
 }
 
 .nav-menu li {
@@ -83,14 +77,14 @@
 
 .intro {
   background-image: url("./images/background.jpg");
-  height: 83vh;
+  min-height: 83vh;
 }
 
 /* Dark Background to blur the original background image */
 
 .dark-background {
   color: white;
-  height: 83vh;
+  min-height: 83vh;
   background: rgba(22, 28, 45, 0.75);
 }
 
@@ -163,11 +157,11 @@
   padding-left: 70px;
 }
 
-.story-wwa h4 {
+.story-wwa > h4 {
   color: var(--orange-light);
 }
 
-.story-wwa p {
+.story-wwa > p {
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -224,7 +218,7 @@
   flex-wrap: wrap;
 }
 
-.services-row div {
+.services-row > div {
   width: 20vw;
   height: 45vh;
   margin: 10px;
@@ -351,10 +345,8 @@
   position: relative;
 }
 .container{
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .section-title {
   position: relative;
@@ -363,7 +355,9 @@
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
   width: 600px;
+  margin: 0 auto;
 }
+
 .text-h6{
   font-weight: 600;
   color:var(--orange-light);
@@ -384,7 +378,6 @@
 .portfolio-card-container{
   display: flex;
   flex-wrap: wrap;
-  margin-left: 100px;
 }
 .portfolio-card{
   position: relative;
@@ -392,22 +385,62 @@
   margin: 1rem;
   width: 250px;
   border-radius: 10px;
+  overflow: hidden;
 }
-.portfolio-card:hover{
+.portfolio-card:hover .portfolio-overlay{
+  opacity: 0.6;
+}
+.portfolio-card:hover .img-fluid{
+  transform: rotate(2deg, 2deg);
+  -webkit-transform: rotate(2deg);
+  scale: 1.09;
+}
+.portfolio-card:hover .portfolio-icon{
+  right: 20px;
+}
+.portfolio-card:hover .portfolio-content{
+  bottom: 20px;
+}
+.portfolio-content:hover .portfolio-name{
+  color: var(--orange-light);
+}
+.portfolio-overlay{
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
   background-color: #24272c;
-
 }
+.portfolio-content{
+  position: absolute;
+  bottom: -50px;
+  left: 20px;
+  z-index: 1;
+}
+.portfolio-name{
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--bs-white);
+}
+.portfolio-paragraph{
+  line-height: 1.6;
+  color: var(--bs-white);
+}
+.portfolio-icon{
+  position: absolute;
+  top: 20px;
+  right: -50px;
+  z-index: 2;
+  color: var(--bs-white);
+}
+
 .img-fluid{
   max-width: 100%;
   height: auto;
   border-radius: 2%;
-}
-.img-fluid:hover{
-  box-shadow: 0 25px 25px rgba(36, 39, 44, 0.05);
-  transition: all 0.5s ease;
-  border-radius: 30px;
-  z-index: 1;
-  transform: translate(10, 0px);
 }
 .section-bg{
   background: url('https://shreethemes.in/upstart/layouts/images/bg/cta.png');
@@ -534,19 +567,65 @@
 .our-team-photos-wrap{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .our-team-photos {
   position: relative;
   padding-top: 0.5rem;
-  margin: 1rem;
   width: 250px;
+  height: 250px;
   border-radius: 10px;
+  overflow: hidden;
 }
-
+.our-team-photos:hover > .our-team-icons{
+  right: 10px;
+}
+.our-team-photos:hover > img{
+  scale: 1.1;
+}
+.our-team-photos:hover > .our-team-text{
+  bottom: 15px;
+}
+.our-team-text:hover > .our-team-name{
+  color: var(--orange-light);
+  cursor: pointer;
+}
+.our-team-text{
+  background-color: var(--bs-white);
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -150px;
+  padding: 1rem;
+  margin: 0.5rem;
+  text-align: center;
+  border-radius: 5px;
+}
+.our-team-name{
+  color: #24272c;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.our-team-description{
+  color: #8492a6;
+  line-height: 1.6;
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 0.25rem;
+}
+.our-team-icons{
+  position: absolute;
+  top: 16px;
+  right: -50px;
+  color: var(--bs-white);
+}
 .our-team-infos-wrap{
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .our-team-info {
   position: relative;
@@ -876,6 +955,50 @@
     visibility: visible;
     justify-content: end;
   }
+  .story-outer {
+    padding: 100px;
+    width: 82%;
+    margin: 0 auto;
+  }
+
+  #story-iframe {
+    border-radius: 10px;
+    width: 1651px;
+    height: 526px;
+  }
+
+  .services-outer {
+    padding: 80px;
+    width: 82%;
+    margin: 0 auto;
+  }
+  
+  .services-title h4 {
+    font-size: 24px;
+    letter-spacing: 0.37px;
+  }
+  
+  .services-title h6 {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .services-paragraph p {
+    max-width: 600px;
+  }
+  
+  .services-row > div {
+    width: 18vw;
+    margin: 8px;
+  }
+  
+  .services-card {
+    padding: 15px;
+  }
+
+  .services-paragraph{
+    font-size: 11px;
+  }
 }
 
 @media screen and (max-width: 769px) {
@@ -897,5 +1020,53 @@
   .nav-menu-icon {
     visibility: visible;
     justify-content: end;
+  }
+  .story-outer {
+    padding: 5px;
+    width: 88%;
+    margin: 0 auto;
+  }
+
+  #story-iframe {
+    border-radius: 10px;
+    width: 651px;
+    height: 326px;
+  }
+
+  .services-outer {
+    padding: 80px;
+    width: 82%;
+    margin: 0 auto;
+  }
+  
+  .services-title h4 {
+    font-size: 24px;
+    letter-spacing: 0.37px;
+  }
+  
+  .services-title h6 {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .services-paragraph p {
+    max-width: 600px;
+  }
+  
+  .services-row > div {
+    width: 18vw;
+    margin: 8px;
+  }
+  
+  .services-card {
+    padding: 15px;
+  }
+
+  .services-paragraph{
+    font-size: 11px;
+  }
+
+  #button-buy-now {
+    top: 20px;
   }
 }

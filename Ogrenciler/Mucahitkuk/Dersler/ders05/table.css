@@ -1,0 +1,55 @@
+body{
+  width: 100%;
+  justify-content: center;
+  background: linear-gradient(to right, rgb(223, 204, 204), 
+  rgb(123, 168, 189));
+
+  
+}
+
+h1 {
+  text-align: center;
+}
+
+table, td, th{
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 600px;
+  text-align: center;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+th {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: orangered;
+  cursor: default;
+}
+
+tr:nth-child(even){
+  background-color: grey;
+  transition: ease-in-out 200ms;
+}
+
+
+th:first-child {
+  background-color: orange;
+}
+
+tbody td:first-child{
+
+  width: 10%;
+  cursor: default;
+}
+
+tbody tr td:not(:nth-child(1)):hover{
+  background-color: red;
+  transition: ease-in-out 200ms;
+  cursor: pointer;
+}
+
+tbody tr td:not(:nth-child(1)):hover{
+  background-color: green;
+  transition: ease-in-out 200ms;
+  cursor: pointer;
+}
