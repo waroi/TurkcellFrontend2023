@@ -1,220 +1,708 @@
-.nav{
-    height: 70px;
-    width: 100%;
-    display:flex;
-    font-size: 20px;
-    margin-bottom: 10px; 
-  }
-  
-  .menu ul{
-    list-style-type: none;
-    display:flex;
-    justify-content: center;
-    gap:38px; 
-  }
-  
-  .menu ul li:hover{
-    color: #f3612f;
-  }
-  
-  img{
-    width: 95px;
-    height: 25px;
-    margin: 30px 114px;
-  }
-  
-  .iconBox{
-    background-color: #f3612f;
-    border:1px solid #f3612f;
-    border-radius: 50%;
-    font-size: 23px;
-    padding: 4px 10px;
-    width: 17px;
-    margin-top: -14px;
-    margin-right: -30px;
-  }
-  
-  .iconBox:hover{
-    color: #87351c;
-  }
-  
-  .menu{
-    margin-top: 23px;
-    width: 100%;
-  }
-  
-  .main{
-    height: 600px;
-    width: 100%;
-    background-image: url("https://shreethemes.in/upstart/layouts/images/bg/1.jpg");
-    background-position-y: bottom;
-   
-  }
-  
-  .metin{
-    padding-top: 115px;
-    padding-left: 120px;
-    color: white;
-  }
-  
-  .buton{
-    width: 125px;
-    height: 50px;
-    background-color: #f3612f;
-    border-radius: 7px;
-    color:white;
-    font-size: 16px;
-    margin-top: 24px;
-  }
-  
-  .video img{
-    width: 444px;
-    height: 393px;
-    border-radius: 10px;
-  }
-  
-  .kısım2{
-    width: 100%;
-    height: 600px;
-    background-color: #f8f9fc;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-  }
-  
-  .yazı{
-    margin-top: 100px;
-  }
-  
-  .yazı h4{
-    color: #f3612f;
-  }
-  
-  .yazı h3{
-    font-size: 25px;
-  }
-  
-  .yazı p{
-    width: 500px;
-  }
-  
-  
-  .kısım3{
-    display: flex;
-    justify-content: center;
-    gap: 200px;
-  }
-  
-  .row1{
-    display: flex;
-    flex-wrap: wrap;
-    gap:10px;  
-    margin: 0px 250px;
-  }
-  
-  .card{
-    width: 325px;
-    height: 310px;
-    border-radius: 15px;
-  }
-  
-  .golge{
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  }
-  
-  .kutu{
-    width: 100px;
-    height: 100px;
-    margin: 20px;
-    background: rgba(255,87,20,0.1);
-    border-radius: 15px;
-  }
-  
-  .kutu ,p,a,h3{
-    margin: 20px;
-  }
-  
-  .card a{
-    text-decoration: none;
-    color: black;
-  }
-  
-  .card a:hover{
-    color: #f3612f;
-  }
-  
-  .kısım6{
-    display: flex;
-    justify-content: center;
-    gap: 200px;
-    margin-top: 50px;
-    text-align: center;
-    background-color: #f8f9fc;
-  
-  }
-  
-  .portfolio-metin h4{
-    color: #f3612f;
-  
-  }
-  
-  .portfolio-metin {
-    margin-left: 160px;
-  }
-  
-  .portfolio-resim{
-    display: flex;
-    flex-wrap: wrap;
-    margin : 0px 190px;
-  }
-  
-  .portfolio-resim img{
-    width: 250px;
-    height: 250px;
-    margin: 15px;
-    border-radius: 10px;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Slab", "sans-serif";
+  transition: all 0.5s ease;
+  --orange-light: #ff5714;
+  --orange-dark: #dd5000;
+  --light-gray: rgba(255, 255, 255, 0.5);
+  --light-background: #f8f9fc;
+  --bs-white: rgba(255, 255, 255);
+}
 
-  .kısım7{
-    background-image: url("https://shreethemes.in/upstart/layouts/images/bg/cta.png");
-    background-position-y:center;
-    width: 100%;
-    height: 400px;
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .row2{
-    display: flex;
-    flex-wrap: wrap;
-    gap:30px;  
-    margin: 0px 250px;
-  }
-  .kart{
-    display: flex;
-    justify-content: center;
-    width: 350px;
-    height: 400px;
-    background-color: #87351c;
-    margin-top: 15px;
-    
-  }
-  .ust{
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .ust h4{
-    color:#f3612f
-  }
-  .ust p{
-    font-size: 20px;
-  }
-  .liste{
-    
-  }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bg-light {
+  background-color: var(--light-background);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* Reusable Button class */
+
+.button {
+  position: relative;
+  padding: 8px 20px;
+  outline: none;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  border-radius: 6px;
+  color: rgb(255, 255, 255);
+  background-color: #ff5714;
+}
+
+.button:hover {
+  background-color: #dd5000;
+  cursor: pointer;
+}
+
+/* Navbar component */
+.navbar {
+  height: 70px;
+  position: sticky;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.navbar > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link a {
+  text-decoration: none;
+  padding: 15px;
+  color: rgb(0, 0, 0);
+}
+
+.nav-link li a:hover {
+  cursor: pointer;
+  color: #ff5714;
+}
+
+.social {
+  list-style: none;
+  width: 30px;
+  height: 30px;
+  background-color: #ff5714;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.social:hover {
+  cursor: pointer;
+  background-color: #dd5000;
+}
+
+/* Navbar Component Finish */
+
+/* Home Section Start */
+
+.background {
+  background-image: url("https://shreethemes.in/upstart/layouts/images/bg/1.jpg");
+  background-position-y: center;
+  box-shadow: inset 0 0 0 200rem rgba(22, 28, 45, 0.75);
+  min-height: 83vh;
+  margin: 0 auto;
+}
+
+.home {
+  padding: 0 10rem;
+}
+
+
+.home-title {
+  font-size: 42px;
+  text-align: left;
+  margin-bottom: 15px;
+  color: rgb(255, 255, 255);
+  padding-top: 5rem;
+}
+
+.home-paragraph {
+  position: relative;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  color: var(--light-gray);
+  text-align: left;
+  margin-bottom: 35px;
+}
+
+/* Home section End */
+/* Story Start */
+
+.story {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#button-buy-now {
+  top: 40px;
+}
+
+.story-who-we-are {
+  padding: 70px;
+  max-width: 600px;
+}
+
+.story-who-we-are > h4 {
+  color: #ff5714;
+}
+
+.story-who-we-are > p {
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 1rem;
+}
+
+.story-image {
+  border-radius: 10px;
+  width: 400px;
+  height: 440px;
+}
+
+/* Story End */
+/* Services Start */
+
+.services-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 16px;
+  padding-top: 5rem;
+}
+
+.services-title h4 {
+  font-size: 28px;
+  letter-spacing: 0.5px;
+}
+
+.services-title h6 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ff5714;
+  text-transform: uppercase;
+}
+
+.services-paragraph p {
+  max-width: 600px;
+}
+
+.services-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-row a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.services-card {
+  margin: 10px;
+  padding: 15px;
+  height: auto;
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  flex-direction: column;
+}
+
+.services-card:nth-child(even) {
+  box-shadow: 0 25px 25px rgba(36, 39, 44, 0.05);
+  transition: all 0.5s ease;
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.services-card:hover {
+  box-shadow: 0 25px 25px rgba(36, 39, 44, 0.05);
+  transition: all 0.5s ease;
+  border-radius: 30px;
+}
+.services-image {
+  height: 80px;
+  width: 80px;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+}
+
+.services-bottom {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 500px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-paragraph {
+  color: #8492a6;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.services-anchor:hover {
+  color: #ff5714;
+}
+
+.underline:hover {
+  text-decoration: underline;
+}
+
+.section-img {
+  height: 250px;
+  width: 250px;
+}
+
+.services-row-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 25px;
+}
+
+.services-sub-row-image {
+  width: 480px;
+}
+
+.services-sub-row-text {
+  width: 480px;
+}
+
+.services-sub-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.services-sub-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.services-sub-row:nth-child(odd) > *:first-child {
+  text-align: right;
+}
+
+.services-sub-row:nth-child(odd) > *:first-child,
+.services-sub-row:nth-child(even) > *:last-child {
+  border-right: 1px dashed rgb(125, 125, 125);
+}
+
+.services-row-text {
+  max-width: 500px;
+}
+
+/* Services End */
+.row1{
+  display: flex;
+  flex-wrap: wrap;
+  gap:10px;  
+  margin: 0px 125px;
+}
+
+.card{
+  width: 325px;
+  height: 310px;
+  border-radius: 15px;
+}
+
+.golge{
+  box-shadow: rgb(38, 57, 77) 3px 6px 29px -10px;
+}
+
+.kutu{
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  background: rgba(255,87,20,0.1);
+  border-radius: 15px;
+}
+
+.kutu ,p,a,h3{
+  margin: -2px;
+}
+
+.card a{
+  text-decoration: none;
+  color: black;
+  padding-left: 10px;
+}
+
+.card a:hover{
+  color: #f3612f;
+}
+.card p{
+  text-align: left;
+  padding-left: 10px;
+}
+.card h3{
+  padding-left: 10px;
+}
+
+
+.kısım6{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 200px;
+  margin-top: 50px;
+  text-align: center;
+  background-color: #f8f9fc;
+
+}
+
+.portfolio-metin h4{
+  color: #f3612f;
+  margin-top: 67px;
+  margin-bottom: 60px;
+
+}
+
+
+
+.portfolio-resim{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 56px;
+}
+
+.portfolio-resim img{
+  width: 18%;
+  height: auto;
+  margin: 15px;
+  border-radius: 10px;
+}
+
+
+
+.kısım7{
+  background-image: url("https://shreethemes.in/upstart/layouts/images/bg/cta.png");
+  background-position-y:center;
+  width: 100%;
+  height: 400px;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: inset 0 0 0 200rem rgba(22, 28, 45, 0.75)
   
+}
+.kısım7 h1{
+  color: white;
+  margin: 0px;
+}
+.kısım7 p{
+  color: white;
+}
+
+.kısım8{
+  
+  margin-top: 50px;
+  text-align: center;
+}
+.plans{
+  margin-bottom: 51px;
+}
+
+.plans h4{
+  color: #f3612f;
+
+}
+
+.plans h2{
+  font-size: 30px;
+  margin-bottom: 25px;
+  }
+.plans p{
+color: #8492a6;
+}
+.plans-card{
+display: flex;
+justify-content: center;
+gap: 10px;
+}
+.p-card{
+  border-radius: 10px;
+    width: 367px;
+    height: 325px;
+    padding-top: 26px;
+    margin-left: 21px;
+    margin-bottom: 50px;
+    border: 1px solid grey;
+
+  
+}
+.p-card:hover{
+  transform: scale(1.1);
+  z-index: 2;
+  box-shadow: rgba(36, 39, 44, 0.15) 3px 15px 22px
+}
+.p-card ul{
+  list-style-type: none;
+  text-align: left;
+  padding-left: 15px;
+  color: grey;
+}
+.p-card li,a{
+  margin-bottom: 12px;
+}
+.buton8{
+  width: 285px;
+  height: 37px;
+  background-color: #ffccd5;
+  border-radius: 7px;
+  color: #ff5714;
+  font-size: 16px;
+  margin-top: 55px;
+}
+
+.buton8:hover{
+  color: white;
+  background-color: #ff5714;
+}
+.kısım9{
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  margin-top: 50px;
+  text-align: center;
+  background-color: #f8f9fc;
+
+}
+
+
+.resim9 img {
+  width: 220px;
+  height: 231px;
+  margin: 9px;
+  border-radius: 10px;
+  background-color: #f8f9fc;
+}
+
+.k9m{
+  margin-top: 82px;
+}
+.rakamlar{
+  margin-left: 294px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 162px;
+  margin-top: 26px;
+}
+.rakamlar p{
+  margin-top: 0px;
+  color: #8492a6;
+  margin-left: 2px;
+}
+.logolar img{
+  width: 87px;
+  height: 54px;
+  margin: 10px 60px;
+}
+.blogs{
+  background-color: white;
+  margin-top: 100px;
+}
+.blogs h4,p,h1{
+  text-align: center;
+
+}
+.blogs h4{
+  color: #ed450d;
+}
+.blogs p {
+  color: #8492a6;
+  margin-bottom: 15px;
+}
+.blog-cards{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.blogCard{
+    border: 1px solid rgb(221, 217, 217);
+    width: 400px;
+    height: 410px;
+    border-radius: 10px;
+}
+.blogCard img{
+  width: 400px;
+  height: 250px;
+  margin: 0px;
+  border-radius: 10px;
+}
+.blogCard h3{
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 14px;
+  
+}
+.blogCard p{
+  margin-left: 37px;
+  text-align: left;
+
+}
+.blogCard h5{
+  margin-top: 14px;
+  color:black;
+  margin-left: 39px;
+  font-size: 16px;
+}
+.blogCard h5:hover{
+  color: #ed450d;
+}
+.blogCard h3:hover{
+  color: #ed450d;
+}
+.kısım10{
+ background-color: #f8f9fc;
+ height: 700px;
+ padding-top: 50px;
+}
+
+.form{
+  width: 700px;
+  height: 350px;
+  background-color: #ffffff;
+}
+
+.contact{
+  height: 350px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: -30px;
+
+}
+
+.contact p{
+  text-align:left;
+}
+
+.contact h3{
+  margin-bottom: 10px;
+}
+
+
+.contact-info{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap:2rem;
+  
+}
+
+
+.icon{
+
+  margin-top: 10px;
+  margin-left: 28px;
+}
+
+.iletisim{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.t1{
+  width: 300px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.t2{
+  width: 636px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.t3{
+  width: 636px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.buton9{
+  width: 150px;
+  height: 40px;
+  background-color: #ed450d;
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 15px;
+  margin-left: 10px;
+  border-color:#ed450d;
+}
+.buton9:hover{
+  background-color: #bf3507;
+}
+
+input:focus {
+  border: 3px solid #ed450d;
+}
+
+input{
+  outline: none;
+}
+footer {
+  background-color: #212842;
+  height: 100px;
+  width: 100%;
+}
+.footer-bar {
+  height: 100%;
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  color: #A0B4BC;
+  font-weight: 500;
+  
+}
+
+.footer-sosyal {
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+}
+
+.footer-sosyal a {
+  color: #A0B4BC;
+  display: block;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.footer-sosyal div{
+  border: 1px solid #24272c;
+  border-radius: 5px;
+  height: 28px;
+  width: 28px;
+}
+
+.footer-sosyal a:hover {
+  color: #FF5714;
+  transition: 0.2s;
+}

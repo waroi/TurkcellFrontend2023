@@ -114,6 +114,7 @@ nav {
     display: flex;
     margin-left: auto;
     align-items: center;
+    list-style-type: none;
 }
 
 .social-logo {
@@ -143,14 +144,6 @@ nav {
 }
 
 .hero {
-    /* background: url("https://shreethemes.in/upstart/layouts/images/bg/1.jpg");
-    width: 100% !important;
-    padding: 400px 0;
-    background-size: cover;
-    position: relative; */
-}
-
-.hero {
     background-image: linear-gradient(rgba(22, 28, 45, 0.75),
             rgba(22, 28, 45, 0.75)),
         url("https://shreethemes.in/upstart/layouts/images/bg/1.jpg");
@@ -159,19 +152,6 @@ nav {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-/* .overlay {
-    display: block;
-    background-color: rgba(22, 28, 45, 0.75);
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.9;
-} */
 
 .title-heading {
     color: white;
@@ -213,7 +193,6 @@ nav {
     display: flex;
     gap: 5rem;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .about-txt {
@@ -228,6 +207,7 @@ nav {
 .about-img img {
     width: 100%;
     border-radius: 10px;
+    min-width: 300px;
 }
 
 .about-icon {
@@ -240,8 +220,9 @@ nav {
     position: absolute;
     top: 50%;
     left: 50%;
-    display: grid;
-    place-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transform: translate(-50%, -50%);
 }
 
@@ -463,8 +444,8 @@ nav {
     overflow: hidden;
     border-radius: 10px;
     background-color: rgb(22, 28, 45);
-    /* min-width: 200px;
-    max-width: 300px; */
+    box-sizing: content-box;
+
 }
 
 .project-card:hover .project-card-text {
@@ -473,12 +454,15 @@ nav {
 
 .project-card img {
     width: 100%;
+    scale: 1.05;
 }
 
+
 .project-card:hover img {
-    scale: 1.1;
+    scale: 1.15;
     transform: rotate(2deg);
     opacity: 0.5;
+
 }
 
 .project-card-text {
@@ -916,6 +900,12 @@ nav {
     padding: 0.5rem;
 }
 
+.contact-form input:focus {
+    outline: 2px solid #ff5714;
+    transition: all 0s;
+
+}
+
 #subject {
     width: 100%;
 }
@@ -924,13 +914,22 @@ nav {
     padding: 0.5rem;
     font-size: 14px;
     resize: vertical;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+}
+
+#msg:focus {
+    outline: 2px solid #ff5714;
+    transition: all 0s;
 }
 
 .contact-content {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     gap: 4rem;
+
 }
 
 .contact-info {
@@ -964,9 +963,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     background-color: #202942;
-
 }
 
 .footer .container {
@@ -1023,6 +1020,52 @@ nav {
     gap: 1rem;
 }
 
+.burger-icon {
+    position: relative;
+}
+
+.burger-menu-box {
+    position: absolute;
+    max-width: 1140px;
+    width: 100%;
+    left: 0;
+    background: white;
+    display: none;
+}
+
+.burger-menu-nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style-type: none;
+    gap: 1rem;
+}
+
+
+
+#burger-nav-container {
+    position: relative;
+}
+
+#burger-menu-switch {
+    display: none;
+}
+
+#burger-menu-bar:hover {
+    cursor: pointer;
+}
+
+#burger-menu-switch:checked~.burger-menu-box {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    transition: all 0.4s;
+    top: 80px;
+}
+
+
+
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 1025px) {
@@ -1033,7 +1076,12 @@ nav {
     .burger {
         display: flex;
         background-color: white;
-        justify-content: space-around;
+        justify-content: space-between;
+        width: 90%;
+    }
+
+    .project-card {
+        width: 45%;
     }
 
     .about .container {
@@ -1084,6 +1132,10 @@ nav {
     .contact-info {
         width: 30%;
     }
+
+    .nav-social {
+        margin-left: 0;
+    }
 }
 
 @media screen and (max-width: 750px) {
@@ -1091,6 +1143,14 @@ nav {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+    }
+
+    .about-txt {
+        text-align: left;
+    }
+
+    .project-card {
+        width: 90%;
     }
 
     .service-card {
@@ -1117,11 +1177,15 @@ nav {
     }
 
     .team-member {
-        width: 55%;
+        width: 90%;
     }
 
     .team-stats {
         gap: 2rem;
+    }
+
+    .blog-cards {
+        flex-direction: column;
     }
 
     .blog-card {
@@ -1140,7 +1204,9 @@ nav {
     .contact-info {
         margin-left: 6%;
         align-self: flex-start;
+        width: 90%;
     }
+
 }
 
 @media screen and (max-width: 600px) {
