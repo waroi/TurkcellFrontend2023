@@ -18,8 +18,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Document</title>
+    <title>Upstart Clone</title>
   </head>
+
   <body>
     <nav id="navbar" class="navbar">
       <div class="navbar-container burger">
@@ -32,8 +33,58 @@
             />
           </span>
         </a>
-        <div class="burger-icon">
-          <i class="fa-solid fa-bars fa-xl"></i>
+        <input
+          class="burger-menu-switch"
+          name="burger-menu-switch"
+          id="burger-menu-switch"
+          type="checkbox"
+        />
+        <label
+          for="burger-menu-switch"
+          class="fa-solid fa-bars fa-xl"
+          id="burger-menu-bar"
+        ></label>
+        <div class="burger-menu-box">
+          <ul class="burger-menu-nav-items">
+            <li class="nav-item">
+              <a href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#service">Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="#project">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a href="#price">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a href="#team">Team</a>
+            </li>
+            <li class="nav-item">
+              <a href="#blog">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact">Contact Us</a>
+            </li>
+          </ul>
+          <ul class="nav-social">
+            <li class="social-logo">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="social-logo">
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li class="social-logo">
+              <a href="#">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="navbar-container standard">
@@ -95,7 +146,6 @@
     </nav>
 
     <section class="hero" id="home">
-      <!-- <div class="overlay"> -->
       <div class="title-heading">
         <h4 class="heading-large">
           Providing Brilliant Ideas <br />
@@ -107,7 +157,6 @@
         </p>
         <a href=""><button class="btn-orange">Get Started</button></a>
       </div>
-      <!-- </div> -->
     </section>
 
     <section id="about" class="about">
@@ -139,6 +188,7 @@
         </div>
       </div>
     </section>
+
     <section id="service" class="service">
       <div class="container" id="service1">
         <div class="service1-txt">
@@ -159,10 +209,12 @@
         <div class="service-cards">
           <div class="service-card">
             <div class="service-card-img">
-              <i class="fa-solid fa-circle-nodes"></i>
+              <i class="fa-solid fa-circle-nodes fa-xl"></i>
             </div>
             <div class="service-card-info">
-              <h5 class="service-card-title">Grow Your Business</h5>
+              <a href="#">
+                <h5 class="service-card-title">Grow Your Business</h5>
+              </a>
               <p class="service-card-txt">
                 The phrasal sequence of the is now so that many campaign and
                 benefit
@@ -174,10 +226,12 @@
           </div>
           <div class="service-card">
             <div class="service-card-img">
-              <i class="fa-solid fa-microchip"></i>
+              <i class="fa-solid fa-microchip fa-xl"></i>
             </div>
             <div class="service-card-info">
-              <h5 class="service-card-title">Drive More Sales</h5>
+              <a href="#"
+                ><h5 class="service-card-title">Drive More Sales</h5></a
+              >
               <p class="service-card-txt">
                 The phrasal sequence of the is now so that many campaign and
                 benefit
@@ -189,10 +243,12 @@
           </div>
           <div class="service-card">
             <div class="service-card-img">
-              <i class="fa-solid fa-fire"></i>
+              <i class="fa-solid fa-fire fa-xl"></i>
             </div>
             <div class="service-card-info">
-              <h5 class="service-card-title">Handled by Expert</h5>
+              <a href=""
+                ><h5 class="service-card-title">Handled by Expert</h5></a
+              >
               <p class="service-card-txt">
                 The phrasal sequence of the is now so that many campaign and
                 benefit
@@ -204,10 +260,12 @@
           </div>
           <div class="service-card">
             <div class="service-card-img">
-              <i class="fa-solid fa-fan"></i>
+              <i class="fa-solid fa-fan fa-xl"></i>
             </div>
             <div class="service-card-info">
-              <h5 class="service-card-title">Discussion For Idea</h5>
+              <a href="#"
+                ><h5 class="service-card-title">Discussion For Idea</h5></a
+              >
               <p class="service-card-txt">
                 The phrasal sequence of the is now so that many campaign and
                 benefit
@@ -219,10 +277,12 @@
           </div>
           <div class="service-card">
             <div class="service-card-img">
-              <i class="fa-solid fa-basket-shopping"></i>
+              <i class="fa-solid fa-basket-shopping fa-xl"></i>
             </div>
             <div class="service-card-info">
-              <h5 class="service-card-title">Increase Conversion</h5>
+              <a href="#"
+                ><h5 class="service-card-title">Increase Conversion</h5></a
+              >
               <p class="service-card-txt">
                 The phrasal sequence of the is now so that many campaign and
                 benefit
@@ -234,10 +294,12 @@
           </div>
           <div class="service-card">
             <div class="service-card-img">
-              <i class="fa-solid fa-arrow-up-right-dots"></i>
+              <i class="fa-solid fa-arrow-up-right-dots fa-xl"></i>
             </div>
             <div class="service-card-info">
-              <h5 class="service-card-title">Sales Growth Idea</h5>
+              <a href="#"
+                ><h5 class="service-card-title">Sales Growth Idea</h5></a
+              >
               <p class="service-card-txt">
                 The phrasal sequence of the is now so that many campaign and
                 benefit
@@ -283,6 +345,7 @@
               alt="desk"
             />
           </div>
+          <div class="stretch"></div>
           <div class="service2-right">
             <div class="text">
               <h5 class="process-title">Strategy</h5>
@@ -326,7 +389,9 @@
           <div class="project-card">
             <img src="assets/portfolio/1.jpg" alt="po1" />
             <div class="project-card-text">
-              <h6>Mockup Collection</h6>
+              <a href="">
+                <h6>Mockup Collection</h6>
+              </a>
               <p>Mockup</p>
             </div>
             <div class="project-card-icon">
@@ -338,7 +403,9 @@
           <div class="project-card">
             <img src="assets/portfolio/2.jpg" alt="po2" />
             <div class="project-card-text">
-              <h6>Mockup Collection</h6>
+              <a href="">
+                <h6>Mockup Collection</h6>
+              </a>
               <p>Mockup</p>
             </div>
             <div class="project-card-icon">
@@ -350,7 +417,9 @@
           <div class="project-card">
             <img src="assets/portfolio/3.jpg" alt="po3" />
             <div class="project-card-text">
-              <h6>Abstract Images</h6>
+              <a href="">
+                <h6>Abstract images</h6>
+              </a>
               <p>Abstract</p>
             </div>
             <div class="project-card-icon">
@@ -362,7 +431,9 @@
           <div class="project-card">
             <img src="assets/portfolio/4.jpg" alt="po4" />
             <div class="project-card-text">
-              <h6>Yellow bg with Books</h6>
+              <a href="">
+                <h6>Yellow bg with Books</h6>
+              </a>
               <p>Books</p>
             </div>
             <div class="project-card-icon">
@@ -374,7 +445,9 @@
           <div class="project-card">
             <img src="assets/portfolio/5.jpg" alt="po5" />
             <div class="project-card-text">
-              <h6>Company V-card</h6>
+              <a href="">
+                <h6>Company V-card</h6>
+              </a>
               <p>V-card</p>
             </div>
             <div class="project-card-icon">
@@ -386,7 +459,9 @@
           <div class="project-card">
             <img src="assets/portfolio/6.jpg" alt="po6" />
             <div class="project-card-text">
-              <h6>Mockup box with paints</h6>
+              <a href="">
+                <h6>Mockup box with paints</h6>
+              </a>
               <p>Mockup</p>
             </div>
             <div class="project-card-icon">
@@ -398,7 +473,9 @@
           <div class="project-card">
             <img src="assets/portfolio/7.jpg" alt="po7" />
             <div class="project-card-text">
-              <h6>Coffee cup</h6>
+              <a href="">
+                <h6>Coffee cup</h6>
+              </a>
               <p>Cups</p>
             </div>
             <div class="project-card-icon">
@@ -410,7 +487,9 @@
           <div class="project-card">
             <img src="assets/portfolio/8.jpg" alt="po8" />
             <div class="project-card-text">
-              <h6>Pen and article</h6>
+              <a href="">
+                <h6>Pen and article</h6>
+              </a>
               <p>Article</p>
             </div>
             <div class="project-card-icon">
@@ -556,7 +635,7 @@
           <div class="team-member">
             <img src="assets/team-card/01.jpg" alt="t1" />
             <div class="member-text">
-              <h5 class="heading-large">Calvin Corlo</h5>
+              <h5 class="heading-large"><a href="#">Calvin Carlo</a></h5>
               <p class="paragraph">Designer</p>
             </div>
             <ul class="member-icons">
@@ -578,9 +657,9 @@
             </ul>
           </div>
           <div class="team-member">
-            <img src="assets/team-card/01.jpg" alt="t1" />
+            <img src="assets/team-card/02.jpg" alt="t2" />
             <div class="member-text">
-              <h5 class="heading-large">Calvin Corlo</h5>
+              <h5 class="heading-large"><a href="#">Aliana Rosy</a></h5>
               <p class="paragraph">Designer</p>
             </div>
             <ul class="member-icons">
@@ -602,9 +681,9 @@
             </ul>
           </div>
           <div class="team-member">
-            <img src="assets/team-card/01.jpg" alt="t1" />
+            <img src="assets/team-card/08.jpg" alt="t8" />
             <div class="member-text">
-              <h5 class="heading-large">Calvin Corlo</h5>
+              <h5 class="heading-large"><a href="#">Michael Carlo</a></h5>
               <p class="paragraph">Designer</p>
             </div>
             <ul class="member-icons">
@@ -626,9 +705,9 @@
             </ul>
           </div>
           <div class="team-member">
-            <img src="assets/team-card/01.jpg" alt="t1" />
+            <img src="assets/team-card/03.jpg" alt="t3" />
             <div class="member-text">
-              <h5 class="heading-large">Calvin Corlo</h5>
+              <h5 class="heading-large"><a href="#">Sofia Razaq</a></h5>
               <p class="paragraph">Designer</p>
             </div>
             <ul class="member-icons">
@@ -656,16 +735,16 @@
             <p class="paragraph">Projects</p>
           </div>
           <div class="stat">
-            <h3 class="heading-large">40+</h3>
-            <p class="paragraph">Projects</p>
+            <h3 class="heading-large">200+</h3>
+            <p class="paragraph">Clients</p>
           </div>
           <div class="stat">
-            <h3 class="heading-large">40+</h3>
-            <p class="paragraph">Projects</p>
+            <h3 class="heading-large">457K</h3>
+            <p class="paragraph">Members</p>
           </div>
           <div class="stat">
-            <h3 class="heading-large">40+</h3>
-            <p class="paragraph">Projects</p>
+            <h3 class="heading-large">150+</h3>
+            <p class="paragraph">Employees</p>
           </div>
         </div>
         <div class="team-companies">
@@ -833,7 +912,7 @@
           <a href=""><img src="assets/logo-light.png" alt="" /></a>
         </div>
 
-        <p class="paragraph">
+        <p class="paragraph footer-p">
           © 2023 Upstart. Design with
           <i style="color: red" class="fa-solid fa-heart"></i> by Shreethemes.
         </p>
