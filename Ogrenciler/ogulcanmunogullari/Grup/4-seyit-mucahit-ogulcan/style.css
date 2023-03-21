@@ -1,7 +1,7 @@
 /* Genel Başlangıç*/
-@import url("./color.css");
-@import url("./reset.css");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap");
+@import url('./color.css');
+@import url('./reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap');
 
 /* 
 -pc-
@@ -25,13 +25,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 p,
 a,
 button,
 li {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Genel bitiş*/
@@ -336,7 +336,50 @@ li {
 /* Oğulcan Başlangıç  */
 
 /* Slider Test */
+@keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
 
+@keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}
 .client-testimonial {
   scrollbar-color: transparent transparent;
   scrollbar-width: 0px;
@@ -402,12 +445,13 @@ p {
 
 .carousel {
   position: relative;
-  padding-top: 170%;
+  padding-top: 160%;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
   width: 100%;
   border-radius: 1em;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.057);
+  scroll-behavior: smooth;
 }
 
 .carousel__viewport {
@@ -434,10 +478,18 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  overflow: hidden;
+  height: 100%;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
+  animation-name: tonext, snap;
+  animation-timing-function: ease;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+.carousel__slide:last-child .carousel__snapper {
+  animation-name: tostart, snap;
 }
 .carousel-img-container {
   display: flex;
@@ -446,6 +498,8 @@ p {
   overflow: hidden;
   height: 500px;
   border-radius: 1em 1em 0 0;
+  scroll-behavior: smooth;
+  transition: all;
 }
 .carousel-img-container > img {
   transform: scale(1.2);
@@ -479,35 +533,6 @@ p {
   padding: 0.5em 1.5em;
   border: none;
   border-radius: 5px;
-}
-
-.carousel__navigation {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  top: 100%;
-  text-align: center;
-}
-
-.carousel__navigation-list,
-.carousel__navigation-item {
-  display: inline-block;
-}
-
-.carousel__navigation-button {
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: var(--dark-blue2);
-  background-clip: content-box;
-  border: 0.25rem solid transparent;
-  border-radius: 50%;
-  font-size: 0;
-  transition: transform 0.1s;
-}
-.carousel__navigation-button:hover {
-  background-color: var(--blue1);
 }
 
 /* Slider Test */
@@ -592,7 +617,7 @@ p {
   white-space: nowrap;
   align-items: center;
   font-size: 1rem;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   line-height: 1.4;
   margin-top: 0;
