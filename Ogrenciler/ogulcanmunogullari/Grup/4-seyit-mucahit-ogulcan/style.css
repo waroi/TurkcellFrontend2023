@@ -134,10 +134,10 @@ li {
   top: 4em;
   left: 0;
   right: 0;
-  padding: 10px;
+  padding: 10px 0;
 }
 
-.dropdown-content > a {
+.dropdown-content > .container > a {
   float: none;
   color: var(--white-text);
   font-size: 13px;
@@ -149,7 +149,10 @@ li {
   text-transform: uppercase;
 }
 
-.dropdown:hover .dropdown-content {
+:has(.dropdown:hover) .dropdown-content {
+  display: block;
+}
+.dropdown-content:hover {
   display: block;
 }
 /* Responsive de ters iş yapıyordun onu düzelttim ;)  */
