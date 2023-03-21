@@ -1,86 +1,205 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Outfit";
-    --main-yellow: #ffb91f;
-    --main-black: #202020;
-    --current-price: #233F92;
-    --original-price: #868686;
-    --star-color: #ffd200;
-    transition: all 0.3s ease;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Outfit";
+  --main-yellow: #ffb91f;
+  --main-black: #202020;
+  --current-price: #233f92;
+  --original-price: #868686;
+  --star-color: #ffd200;
+  /* transition: all 0.1s ease; */
 }
 
-.categories{
-    background-color: var(--main-yellow);
-    width: 100vw;
-    height: 35vh;
-    display: flex;
-    justify-content: center;
+.categories {
+  background-color: var(--main-yellow);
+  height: 35vh;
+  display: flex;
+  justify-content: center;
 }
 
-.categories-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 45px;
+.categories-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
 }
 
-.categories-title{
-    font-size:  30px;
-    font-weight: 900;
+.categories-title {
+  font-size: 30px;
+  font-weight: 900;
 }
 
-.categories-text{
-    font-size: 17px;
-    margin-top: 10px; 
+.categories-text {
+  font-size: 17px;
+  margin-top: 10px;
 }
 
-.categories-buttons{
-    display: flex;
+.categories-buttons {
+  display: flex;
 }
 
-.categories-button{
-    border-radius: 50%;
-    background-color: #ffb97f;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.categories-button {
+  border-radius: 50%;
+  background-color: #ffb97f;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.categories-button:hover{
-    background-color: var(--star-color);
-    cursor: pointer;
+.categories-button:hover {
+  background-color: var(--star-color);
+  cursor: pointer;
 }
 
-.categories-image-container{
-    width: 160px;    
-    height: 160px;
-    overflow: hidden;
-    border-radius: 15px;
+.categories-image-container {
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 15px;
 }
 
-.categories-image-container > img{
-    width: 160px;    
-    height: 160px;
+.categories-image-container > img {
+  width: 160px;
+  height: 160px;
 }
 
-.categories-row-images{
-    display: flex;
-    gap: 20px;
+.categories-row-images {
+  display: flex;
+  gap: 20px;
 }
 
-.categories-image-card:hover{
-    color: white;
+.categories-image-card:hover {
+  color: white;
 }
 
-.categories-image:hover{
-    transform: scale(1.25);
-    cursor: pointer;
+.categories-image:hover {
+  transform: scale(1.25);
+  cursor: pointer;
 }
 
-.categories-image-card > p{
-    text-align: center;
+.categories-image-card > p {
+  text-align: center;
+}
+
+.best-sellers-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.best-sellers-title {
+  font-size: 36px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.best-sellers-title:hover {
+  cursor: pointer;
+}
+
+.best-sellers-title > *:hover {
+  color: var(--main-yellow);
+}
+
+.best-sellers-card {
+  border: 1px solid rgba(235, 235, 235, 1);
+  border-radius: 2px;
+  max-width: 320px;
+  padding: 10px;
+}
+
+.card-hidden-hover-effects {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  visibility: hidden;
+}
+
+.card-hidden-hover-effects>span{
+  display: flex;
+  gap: 25px;
+}
+
+.best-sellers-card-hidden-logo-description {
+  visibility: hidden;
+}
+
+.best-sellers-card-hidden-logo {
+  height: 20px;
+  margin-bottom: 10px;
+  width: 20px;
+}
+
+.best-sellers-card-hidden-logo:hover + .best-sellers-card-hidden-logo-description {
+  visibility: visible;
+}
+
+.best-sellers-card:hover > .card-hidden-hover-effects {
+  visibility: visible;
+}
+
+.best-sellers-card-hidden-logo:hover{
+  cursor: pointer;
+}
+
+.best-sellers-card-hidden-logo:hover + .best-sellers-card-hidden-logo-description {
+  cursor: pointer;
+  background-color: var(--main-yellow);
+}
+
+.star {
+  font-size: x-large;
+  width: 50px;
+  display: inline-block;
+  color: gray;
+}
+.star:last-child {
+  margin-right: 0;
+}
+.star:before {
+  content: "\2605";
+}
+.star.on {
+  color: gold;
+}
+.star.half:after {
+  content: "\2605";
+  color: gold;
+  position: absolute;
+  margin-left: -20px;
+  width: 10px;
+  overflow: hidden;
+}
+.best-sellers-image {
+  width: 300px;
+  height: 300px;
+}
+.add-to-cart-button {
+  display: none;
+  width: 100%;
+  height: 40px;
+  background-color: var(--main-black);
+  color: var(--main-yellow);
+  border-radius: 30px;
+  margin-top: 15px;
+  position: relative;
+}
+
+.best-sellers-card:hover .add-to-cart-button {
+  display: block;
+}
+
+.add-to-cart-button:hover {
+  background-color: var(--main-yellow);
+  color: var(--main-black);
+  cursor: pointer;
 }

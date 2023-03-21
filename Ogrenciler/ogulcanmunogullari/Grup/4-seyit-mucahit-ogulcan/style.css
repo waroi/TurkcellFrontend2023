@@ -155,16 +155,242 @@ li {
 .dropdown-content:hover {
   display: block;
 }
-/* Responsive de ters iş yapıyordun onu düzelttim ;)  */
+
 .dropdown {
   display: block;
 }
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.what-we-do {
+  padding-top: 100px;
+  background-color: var(--dark-bg1);
+}
+
+.what-we-do-container h1 {
+  font-size: 40px;
+}
+
+.rowcontainer {
+  align-items: center;
+  justify-content: center;
+}
+.crownp {
+  font-size: 3rem;
+  padding: 0;
+  color: white;
+}
+
+.videocontainer {
+  border-radius: 50px;
+  box-shadow: 0 0 0 0 #0076a3;
+  position: relative;
+  text-align: center;
+}
+
+.column {
+  flex-direction: column;
+  text-align: center;
+}
+
+.column > h1 {
+  color: white;
+}
+
+.column1 {
+  flex-direction: column;
+  text-align: center;
+}
+
+.dp-none {
+  display: none;
+}
+
+.watchvideo {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  background-color: #0076a3;
+  top: 50%;
+  transform: translate(-50%, -50%) !important;
+  left: 50%;
+  border-radius: 50%;
+  animation: pulse-animation 2s infinite;
+}
+
+.watchvideo > i {
+  text-decoration: none;
+  font-size: 2rem;
+  position: relative;
+  top: 15px;
+  color: white;
+}
+
+/* Services */
+
+.app-services {
+  background-color: var(--dark-bg2);
+  padding-top: 250px;
+  z-index: 10;
+}
+
+.app-services h6 {
+  color: var(--blue1);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.app-services h1 {
+  font-size: 40px;
+}
+
+.rowcontainer2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.servicecol {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.servicebox {
+  padding: 20px;
+  border-radius: 20px;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.servicebox:hover {
+  transition: all 0.3s;
+  background-color: var(--dark-bg1);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.057);
+}
+
+.service-content h5 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: white;
+  margin-top: 10px;
+}
+
+.serviceicon {
+  background-image: url(https://themesdesign.in/styza/layout/images/service/bomb.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.serviceicon p {
+  font-size: 2.2rem;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(32, 140, 241, 0.788);
+  }
+  100% {
+    box-shadow: 0 0 0 30px rgba(36, 194, 255, 0);
+  }
+}
+
+/* Apptech */
+
+.apptech-features {
+  background-color: var(--dark-bg1);
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+}
+
+.apptech-features h6 {
+  color: var(--blue1);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.apptech-features h1 {
+  font-size: 40px;
+}
+
+.apptech-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style: none;
+  max-width: 33%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.apptech-button1 {
+  background: linear-gradient(
+    var(--gradient-start),
+    var(--gradient-end)
+  );;
+  border: 1px solid #0076a3;
+  color: white;
+  width: 10rem;
+  padding: 10px;
+  border-radius: 3px;
+}
+
 
 /* Mücahit Bitiş  */
 /* Oğulcan Başlangıç  */
 
 /* Slider Test */
+@keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
 
+@keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}
 .client-testimonial {
   scrollbar-color: transparent transparent;
   scrollbar-width: 0px;
@@ -230,12 +456,13 @@ p {
 
 .carousel {
   position: relative;
-  padding-top: 150%;
+  padding-top: 160%;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
   width: 100%;
   border-radius: 1em;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.057);
+  scroll-behavior: smooth;
 }
 
 .carousel__viewport {
@@ -262,10 +489,18 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  overflow: hidden;
+  height: 100%;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
+  animation-name: tonext, snap;
+  animation-timing-function: ease;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+.carousel__slide:last-child .carousel__snapper {
+  animation-name: tostart, snap;
 }
 .carousel-img-container {
   display: flex;
@@ -274,6 +509,7 @@ p {
   overflow: hidden;
   height: 500px;
   border-radius: 1em 1em 0 0;
+  z-index: 999;
 }
 .carousel-img-container > img {
   transform: scale(1.2);
@@ -285,6 +521,7 @@ p {
   display: flex;
   gap: 1em;
   align-items: center;
+  z-index: 999;
 }
 .carousel-persons-container > img {
   border-radius: 50%;
@@ -309,38 +546,149 @@ p {
   border-radius: 5px;
 }
 
-.carousel__navigation {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  top: 100%;
-  text-align: center;
-}
-
-.carousel__navigation-list,
-.carousel__navigation-item {
-  display: inline-block;
-}
-
-.carousel__navigation-button {
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: var(--dark-blue2);
-  background-clip: content-box;
-  border: 0.25rem solid transparent;
-  border-radius: 50%;
-  font-size: 0;
-  transition: transform 0.1s;
-}
-.carousel__navigation-button:hover {
-  background-color: var(--blue1);
-}
-
 /* Slider Test */
 
 /* Oğulcan Bitiş  */
 /* Seyit Başlangıç  */
+/*our-team başlangıç*/
+.our-team {
+  background-color: var(--dark-bg2);
+  /* background-color: aqua; */
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.our-team-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+}
+.our-team-header h6 {
+  color: var(--blue1);
+  font-weight: 700;
+  line-height: 1.4;
+  font-size: 1rem;
+}
+.our-team-header h2 {
+  color: var(--white-text);
+  font-size: 40px;
+}
+.our-team-header p {
+  color: var(--text);
+}
+
+.our-team-imgs {
+  display: flex;
+  flex-direction: column;
+}
+.our-team-member {
+  display: flex;
+  padding-top: 0.5rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  justify-content: flex-end;
+}
+.our-team-img {
+  order: 1;
+}
+.our-team-img img {
+  border-radius: 10px;
+}
+.our-team-icons {
+  margin-top: 0.5rem;
+  display: flex;
+}
+.our-team-icon {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+.our-team-icons i {
+  color: #838485;
+  font-size: 20px;
+  line-height: 1.5;
+}
+.our-team-member-name {
+  /* color: white; */
+  transform: rotate(270deg);
+  display: flex;
+  /* justify-content: left; */
+  /* order: 0; */
+  /* z-index: 2; */
+  align-items: center;
+  /* position: relative; */
+  /* top: 40%; */
+  /* left: -30px; */
+  width: 50px;
+}
+.our-team-member-name h6 {
+  color: white;
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.our-team-member-name h6 span {
+  color: #838485;
+}
+
+/*our-team bitiş*/
+/*build-your-ideal başlangıç*/
+.build-your-ideal {
+  background: #343f4b;
+}
+/*build-your-ideal bitiş*/
+/*contact-us başlangıç*/
+
+.contact-us {
+  background-color: var(--dark-bg2);
+}
+
+/*contact-us bitiş*/
+
+/*footer başlangıç*/
+.footer {
+  /* background-color: var(--dark-bg1); */
+  background-color: #343f4b;
+}
+.footer-icons p {
+  color: var(--text);
+}
+.footer-icons-social i {
+  color: var(--white-text);
+}
+.footer-product h5,
+.footer-policies h5,
+.footer-subscribe h5 {
+  color: var(--white-text);
+}
+.footer-product a,
+.footer-policies a {
+  color: var(--text);
+  text-decoration: none;
+}
+.footer-input {
+  width: 100%;
+}
+.footer-input input {
+  height: 30px;
+  display: inline-block;
+  width: 66%;
+}
+.footer-input a {
+  background-color: var(--blue1);
+  display: inline-block;
+  height: 30px;
+  text-decoration: none;
+  margin-left: -4px;
+  padding: 3px;
+}
+/*footer başlangıç*/
 
 /* Seyit Bitiş  */
