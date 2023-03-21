@@ -13,7 +13,7 @@ html {
 
 body {
   overflow-x: hidden !important;
-  background-color: #183b56;
+  background-color: #343f4b;
 }
 
 a {
@@ -32,7 +32,7 @@ li {
 }
 
 section {
-  padding: 100px 0;
+  min-height: 200px;
   position: relative;
 }
 
@@ -48,16 +48,15 @@ section {
 }
 
 .bg-light {
-  background-color: #f8f9fc;
+  background-color: #303841;
 }
 
 .row {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 100px;
   gap: 20px;
+  color: #fff;
 }
 
 .btn {
@@ -70,6 +69,44 @@ section {
   border-radius: 0.25rem;
   letter-spacing: 0.5px;
   transition: all 0.5s;
+}
+
+.titleWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subTitle {
+  color: #0076a3;
+  font-weight: 700;
+  line-height: 1.4;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.text-muted {
+  color: rgba(255, 255, 255, 0.3);
+  max-width: 650px;
+  font-size: 0.93rem;
+  line-height: 25px;
+  text-align: center;
+  margin-top: 0;
 }
 
 header {
@@ -129,4 +166,177 @@ nav {
   overflow: hidden;
   position: relative;
   color: #183b56;
+}
+
+.backgroun-line .line-circle {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.03);
+  border-radius: 50px;
+  left: 20%;
+  top: 50%;
+  transform: translateX(-50%);
+}
+
+.backgroun-line::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  left: 20%;
+  top: 0;
+  z-index: -1;
+}
+
+.social-media {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 8%;
+  bottom: 20%;
+  color: #fff;
+}
+
+.social-media > a {
+  transition: transform 0.5s ease;
+}
+
+.social-media > a:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s ease;
+}
+
+.backgroun-line2 .line-circle {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.03);
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 50px;
+  right: 15%;
+  top: 20%;
+  transform: translateX(50%);
+}
+
+.backgroun-line2::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  right: 15%;
+  top: 0;
+  z-index: -1;
+}
+
+.heroWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.heroWrap > img {
+  width: 30px;
+  height: auto;
+}
+
+.heroWrap > h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.mockupWrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  z-index: 99;
+  align-items: center;
+  margin-bottom: -20%;
+  flex-wrap: wrap;
+}
+
+.mockupWrap > div {
+  position: relative;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.phone-odd {
+  max-height: 495px;
+}
+
+.phone-even {
+  max-height: 771px;
+}
+
+.playButton {
+  position: absolute;
+  left: 136px;
+  top: 50%;
+
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  z-index: 999;
+  background-color: #0076a3;
+}
+
+.pt-250 {
+  padding-top: 250px;
+}
+.pt-200 {
+  padding-top: 200px;
+}
+.py-50 {
+  padding: 50px 0;
+}
+
+.service-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 20px;
+  transition: 0.3s ease;
+  max-width: 29%;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  margin-bottom: 100px;
+}
+.service-box:hover {
+  background-color: #343f4b;
+  transition: 0.3s ease;
+}
+
+.service-icon {
+  background-image: url(https://themesdesign.in/styza/layout/images/service/bomb.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1.5rem;
+  height: 45px; /* Düzelt */
+}
+
+.service-content {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.service-title {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
