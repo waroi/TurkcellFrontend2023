@@ -1,8 +1,9 @@
+@import url('./color.css');
 .whats-your-price {
-  background-color: var(--dark-bg2);
+  background-color: var(--dark-bg1);
   /* background-color: aqua; */
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding-top: 4em;
+  padding-bottom: 4em;
 }
 .whats-your-price-header {
   display: flex;
@@ -23,4 +24,123 @@
 }
 .whats-your-price-header p {
   color: var(--text);
+}
+.wyp-cards-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 3em;
+  margin-top: 2em;
+}
+.wyp-card {
+  overflow: hidden;
+  border-radius: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.072);
+}
+.wyp-card-header-1 {
+  background: var(--blue3);
+  padding: 1.5em;
+}
+.wyp-card-header {
+  background: var(--dark-blue2);
+  padding: 1.5em;
+  position: relative;
+}
+.wyp-card-header-1 > p {
+  padding: 0;
+}
+.wyp-card-header > p {
+  padding: 0;
+}
+.wyp-card-recipe {
+  background: var(--blue1);
+  color: var(--white-text);
+  font-family: 'Roboto', sans-serif;
+  padding: 0.2em 0.5em;
+  border-radius: 0.2em;
+  border: none;
+}
+.wyp-card-header-s {
+  padding-top: 4em;
+}
+.wyp-card-price {
+  margin: 0.5em 0;
+  color: var(--white-text);
+  font-family: 'Roboto', sans-serif;
+  gap: 2px;
+  display: flex;
+  align-items: start;
+}
+.wyp-card-price > .dollar {
+  margin-top: 10px;
+  font-size: 22px;
+}
+.wyp-card-price > .number {
+  font-weight: bolder;
+  font-size: 40px;
+}
+.wyp-card-price > .month {
+  align-self: center;
+  font-size: 16px;
+}
+
+.wyp-card-line {
+  height: 0.35em;
+  background: var(--white-text);
+}
+.wyp-card-body {
+  padding: 1.5em;
+}
+.wyp-card-body > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.wyp-card-body > ul > li {
+  color: var(--white-text);
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+.wyp-card-body > ul > li > .g {
+  color: var(--green);
+}
+.wyp-card-body > ul > li > .r {
+  color: var(--red);
+}
+.wyp-card-header-top {
+  background: var(--blue1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+.wyp-card-header-top > p {
+  text-align: center;
+  color: var(--white-text);
+  padding: 0.5em;
+}
+.wyp-card-button-1 {
+  margin-top: 2em;
+  padding: 0.5em 1.5em;
+  font-size: 13px;
+  color: var(--blue1);
+  border: 1px solid var(--blue1);
+  background: none;
+  border-radius: 5px;
+}
+.wyp-card-button {
+  display: flex;
+  align-items: center;
+  margin-top: 2em;
+  padding: 0.5em 1.5em;
+  font-size: 13px;
+  color: var(--white-text);
+  border: 1px solid var(--blue1);
+  background: var(--blue1);
+  border-radius: 5px;
+}
+.wyp-card-button > .b {
+  font-size: 1em;
+  padding-right: 0.7em;
 }
