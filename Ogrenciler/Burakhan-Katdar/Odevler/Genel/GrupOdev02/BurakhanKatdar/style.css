@@ -64,6 +64,8 @@ nav {
 
 /* ⁡⁣⁣⁢----- SECTION1 -----⁡ */
 
+
+
 .section1{
     height: 500px;
     background-color: red;
@@ -71,13 +73,121 @@ nav {
 
 /* ⁡⁣⁣⁢----- FOOTER -----⁡ */
 
+.bg-arrow{
+    background-color: #343F4B;
+    width: 100%;
+}
+.bg-arrow img{
+    width: 100%;
+    height: 100%;
+}
+
+.footer-section {
+    background-color: #343F4B;
+    padding: 100px 0;
+}
+
+.footer-section-content {
+    width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #888E97;
+}
+
+
+
+.fs-col{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 180px;
+}
+.fs-col img{
+    width: 120px;
+    
+}
+
+
+.fs-social-icons{
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    font-size: 25px;
+    margin-top: 20px;
+   
+}
+
+.fs-social-icons a {
+    color: white;
+}
+
+.col1{
+    width: 33%;
+    
+}
+.col1 p{
+    line-height: 1.5em;
+}
+
+.col2 h2{
+    color: white;
+}
+
+.col2 li{
+    list-style: none;
+    list-style-position:inside;
+    display: flex;
+
+}
+
+.col2 a{
+    text-decoration: none;
+    margin-top: 20px;
+    color: #888E97;
+}
+
+.col4{
+    width: 33%;
+}
+
+.col4 h2{
+    color: white;
+}
+
+.col4 input{
+    width: 60%;
+    padding: 20px;
+    margin: 0;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 16px;
+}
+
+.col4 button{
+    margin: 0;
+    padding: 20px 20px;
+    background-color: #0176A2;
+    border: none;
+    color:white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+/* ⁡⁣⁣⁢----- MINI FOOTER -----⁡ */
+
 footer {
     height: 80px;
-    background-color: #353F4A;
+    background-color: #303940;
     color: #888E97;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    font-weight: 500;
 }
 /* ⁡⁢⁢⁡⁢⁣⁣---- MEDIA QUERIES ----⁡⁢⁣⁡⁡⁡ */
 
@@ -91,9 +201,11 @@ footer {
 @media only screen and (max-width: 1200px){
     .navbar{
         width: 90%;
-       
-        
     }
+    .footer-section-content{
+        width: 100%;
+    }
+    
 }
 
 @media only screen and (max-width: 996px){
@@ -117,5 +229,25 @@ footer {
         font-size: 20px;
     }
 
-    
+    .footer-section-content{
+        flex-direction: column;
+        width: 100%;
+       justify-content: space-around;
+        height: 100vh;
+        padding: 0;
+    }
+
+    .fs-col{
+        width: 80%;
+        height: 200px;
+    }
+    .col4 input{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .col4 input{
+        width: 65%;
+    }
 }
