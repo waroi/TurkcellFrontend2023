@@ -131,3 +131,61 @@ nav {
   position: relative;
   color: #183b56;
 }
+
+#section1 {
+  height: 500px;
+}
+
+.backgroun-line .line-circle {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.03);
+  border-radius: 50px;
+  left: 20%;
+  top: 50%;
+  transform: translateX(-50%);
+}
+
+.backgroun-line::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  left: 20%;
+  top: 0;
+  z-index: -1;
+}
+
+.social-media {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 8%;
+  bottom: 20%;
+  color: #fff;
+}
+
+.backgroun-line2 .line-circle {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.03);
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 50px;
+  right: 15%;
+  top: 20%;
+  transform: translateX(50%);
+}
+
+.backgroun-line2::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  right: 15%;
+  top: 0;
+  z-index: -1;
+}
