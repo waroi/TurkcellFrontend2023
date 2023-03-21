@@ -74,6 +74,13 @@
   }
   .carousel__snapper {
     flex-direction: row;
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+  .carousel__slide:last-child .carousel__snapper {
+    animation-name: tostart, snap;
   }
   .carousel-img-container {
     height: 280px;
