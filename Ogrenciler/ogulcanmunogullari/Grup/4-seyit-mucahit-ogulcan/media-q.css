@@ -7,6 +7,10 @@
     /* background: red; */
   }
   /* Mücahit */
+  .what-we-do-container {
+    height: 800px;
+  }
+
   .button1 {
     display: block;
   }
@@ -16,7 +20,37 @@
   .dropdown {
     display: none;
   }
+
+  .column1 {
+    width: 25%;
+  }
+  .column2 {
+    width: 33%;
+  }
+
+  .rowcontainer {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .servicecol {
+    width: 33%;
+  }
   /* Oğulcan */
+  .client-testimonial-container {
+    flex-direction: row;
+  }
+  .client-testimonial-info {
+    width: 45%;
+  }
+  .carousel {
+    width: 55%;
+  }
+  .client-testimonial {
+    padding: 6em 0 6em 0;
+  }
   .client-testimonial-container {
     flex-direction: row;
   }
@@ -25,6 +59,22 @@
   }
   .carousel {
     width: 70%;
+    padding-top: 27%;
+    box-shadow: none;
+  }
+  .carousel__snapper {
+    flex-direction: row;
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+  .carousel__slide:last-child .carousel__snapper {
+    animation-name: tostart, snap;
+  }
+  .carousel-img-container {
+    height: 280px;
+    border-radius: 1em 0 0 1em;
   }
   /* Seyit */
 }
