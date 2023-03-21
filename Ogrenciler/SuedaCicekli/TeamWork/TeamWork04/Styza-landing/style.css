@@ -1,0 +1,630 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #343f4b;
+}
+
+.text1 {
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  color: #0076a3;
+  margin: 0;
+}
+
+.text2 {
+  font-family: "poppins", sans-serif;
+  font-size: 40px;
+  line-height: 56px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.text3 {
+  font-family: "roboto", sans-serif;
+  /*text farkı, punto küçüldükçe çok farkediyor*/
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.3);
+  /* color: #ffffff80; */
+  line-height: 25px;
+  padding: 9px 0;
+  margin: 20px 0 16px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.text10 {
+  font-family: "poppins", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  color: #ffffff;
+  margin: 5px 0;
+}
+
+/*featureSpecs*/
+.text20 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-top: 20px;
+  line-height: 28px;
+}
+
+/*NAVBAR*/
+nav {
+  background-color: #343f4b;
+  display: flex;
+  justify-content: center;
+}
+
+/* .display{
+    display: flex;
+    
+} */
+.container {
+  width: 100%;
+  /* background-color: yellow; */
+  max-width: 1140px;
+}
+
+.navbar {
+  /*Geçici responsive */
+  flex-wrap: wrap;
+  width: 100%;
+  /* background-color: teal; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar > a {
+  display: flex;
+  align-items: center;
+  /*Logonun konumunu kesinleştirdim */
+  padding: 0px 12px;
+}
+
+.navbar a img {
+  height: 28px;
+}
+
+.navbarLink {
+  /*Geçici responsive */
+  flex-wrap: wrap;
+  display: flex;
+  list-style: none;
+}
+
+.navbarLink > li {
+  /* margin: 0 20px; */
+  padding: 10px 25px;
+}
+
+.navbarLink > li > a {
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 25px;
+  font-weight: 700;
+  font-family: "roboto", sans-serif;
+  color: #ffffff80;
+}
+
+.navbarLink > li > a:hover {
+  color: white;
+}
+
+.navbarButton {
+  background-image: linear-gradient(
+    to right,
+    #314755 0%,
+    #26a0da 51%,
+    #314755 100%
+  );
+  /*button margin değerleri ile oynandı*/
+  margin: 20px 15px 20px 35px;
+  padding: 12px 30px;
+  text-align: center;
+  color: #183b56;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+nav .navbar-toggler {
+  margin: 20px 20px 20px 0;
+  cursor: pointer;
+}
+
+nav .navbar-toggler .bar {
+  width: 20px;
+  height: 1.5px;
+  margin-bottom: 4px;
+  background: #ffffff;
+  border-radius: 10%;
+  transition: 0.4s;
+}
+
+input {
+  display: none;
+}
+
+input:checked ~ nav .navbarLink {
+  transform: translateY(0);
+  z-index: 1;
+}
+
+input:checked ~ nav .navbar-toggler {
+  margin-top: 15px;
+}
+
+/*HOME SECTION*/
+.homeSection {
+  display: flex;
+  justify-content: center;
+}
+
+.homeTitle {
+  padding: 65px 30px;
+  /* padding-top: 50px; */
+  margin: 0 auto;
+  max-width: 736px;
+  text-align: center;
+}
+
+.homeTitle > i {
+  color: white;
+}
+
+.homeBigTitle {
+  margin: 5px 0 10px;
+  font-size: 48px;
+  color: white;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.homeBigText {
+  font-size: 16px;
+  max-width: 700px;
+}
+
+/*SERVICE SECTION*/
+.serviceSection {
+  background-color: #303841;
+  display: flex;
+  justify-content: center;
+  padding-top: 250px;
+}
+
+.serviceTitle {
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.serviceCard {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.cardContent {
+  text-align: center;
+  margin: 10px;
+  border-radius: 20px;
+  transition: 0.3s ease-out;
+  padding: 0 20px 10px 20px;
+}
+
+.cardContent:nth-child(2) {
+  box-shadow: 0px 1px 1px 3px #2f373f;
+}
+
+.cardContent:hover {
+  transition: 0.3s ease-out;
+  background-color: #343f4b;
+  box-shadow: 0px 1px 5px 0px #303841;
+}
+
+.cardIcon {
+  background-image: url("https://themesdesign.in/styza/layout/images/service/bomb.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 10px;
+}
+
+.cardIcon > i {
+  /*icon konumlandırması*/
+  padding: 60px 40px 40px 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: #0076a3;
+}
+
+.cardText {
+  margin-top: 10px;
+}
+
+.cardText > a {
+  text-decoration: none;
+}
+.phone-mockup {
+  z-index: 1;
+  margin-bottom: -20%;
+}
+.mockup-container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1.5rem, -0.75rem, -0, 75rem, 0;
+}
+@media screen and (min-width: 450px) {
+  .image-1 {
+    flex: 0 0 auto;
+    width: 25%;
+    padding: 0, 0.75rem;
+    max-width: 100%;
+  }
+  .image-2 {
+    flex: 0 0 auto;
+    width: 33%;
+    padding: 0, 0.75rem;
+    max-width: 100%;
+  }
+}
+.phone {
+  max-width: 100%;
+  height: auto;
+}
+.video-container {
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 #0076a3;
+  margin-top: 1.5rem;
+}
+.watch-video {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+/*FEATURE SECTIONS*/
+.featureSection {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.featureTitle {
+  padding: 50px 0;
+  text-align: center;
+}
+
+/****Feature Buttons****/
+.featureButton {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 50px 0;
+}
+
+.featureBtn {
+  border: 1px solid #0076a3;
+  color: #fff;
+  padding: 13px 30px;
+  margin: 0px 20px;
+  font-size: 16px;
+  font-family: "roboto", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.featureBtn:nth-child(1) {
+  background: linear-gradient(#2e8da5 0%, #114d64 100%);
+  border: none;
+}
+
+.featureBtn {
+  border: 1px solid #ffffff80;
+  background-color: #343f4b;
+}
+
+/****Feature Elements****/
+.featureElements {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/*Icon arka plan dairesi*/
+.featureIcon {
+  background-color: #314755;
+  color: #0076a3;
+  padding: 25px 15px;
+  border-radius: 50%;
+}
+
+.elementSpace {
+  margin: 50px 20px;
+}
+
+.elementLeft {
+  margin: 50px 0px;
+  text-align: right;
+  /* flex-direction: row-reverse; */
+}
+
+.elementRight {
+  margin: 50px 0px;
+}
+
+.elementMiddle {
+  /* background-color: #26a0da; */
+  /* display: flex; */
+  /* justify-content: center; */
+  width: 40%;
+}
+
+.elementMiddle > img {
+  width: 100%;
+  /* margin: 0 !important; */
+}
+
+/*Start Client Testimonial*/
+.client {
+  display: flex;
+  justify-content: center;
+  background-color: #303841;
+}
+.client-left {
+  width: 33%;
+  margin: 50px 0px;
+}
+.client-right {
+  width: 66%;
+  margin: 50px 0px;
+}
+.text28 {
+  font-size: 28px;
+  font-family: "poppins", sans-serif;
+  margin: 0 0 8px;
+  color: white;
+}
+/*slider*/
+.client {
+  display: flex;
+  justify-content: center;
+  background-color: #303841;
+}
+.client-left {
+  width: 33%;
+  margin: 50px 0px;
+}
+.client-right {
+  width: 66%;
+  background-color: pink;
+  margin: 50px 0px;
+}
+
+.CSSgal {
+  position: relative;
+  overflow: hidden;
+  height: 100%; /* Or set a fixed height */
+}
+
+/* SLIDER */
+
+.CSSgal .slider {
+  height: 100%;
+  white-space: nowrap;
+  font-size: 0;
+  transition: 0.8s;
+}
+
+/* SLIDES */
+
+.CSSgal .slider > * {
+  font-size: 1rem;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  height: 100%;
+  width: 100%;
+  background: none 50% no-repeat;
+  background-size: cover;
+}
+
+/* PREV/NEXT, CONTAINERS & ANCHORS */
+
+.CSSgal .prevNext {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  width: 100%;
+  height: 0;
+}
+
+.CSSgal .prevNext > div + div {
+  visibility: hidden; /* Hide all but first P/N container */
+}
+
+.CSSgal .prevNext a {
+  background: #fff;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  line-height: 60px; /* If you want to place numbers */
+  text-align: center;
+  opacity: 0.7;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+}
+.CSSgal .prevNext a:hover {
+  opacity: 1;
+}
+.CSSgal .prevNext a + a {
+  left: auto;
+  right: 0;
+}
+
+/* NAVIGATION */
+
+.CSSgal .bullets {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+}
+.CSSgal .bullets > a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
+  text-align: center;
+  background: rgba(255, 255, 255, 1);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.CSSgal .bullets > a + a {
+  background: rgba(255, 255, 255, 0.5); /* Dim all but first */
+}
+.CSSgal .bullets > a:hover {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* NAVIGATION BUTTONS */
+/* ALL: */
+.CSSgal > s:target ~ .bullets > * {
+  background: rgba(255, 255, 255, 0.5);
+}
+/* ACTIVE */
+#s1:target ~ .bullets > *:nth-child(1) {
+  background: rgba(255, 255, 255, 1);
+}
+#s2:target ~ .bullets > *:nth-child(2) {
+  background: rgba(255, 255, 255, 1);
+}
+#s3:target ~ .bullets > *:nth-child(3) {
+  background: rgba(255, 255, 255, 1);
+}
+#s4:target ~ .bullets > *:nth-child(4) {
+  background: rgba(255, 255, 255, 1);
+}
+/* More slides? Add here more rules */
+
+/* PREV/NEXT CONTAINERS VISIBILITY */
+/* ALL: */
+.CSSgal > s:target ~ .prevNext > * {
+  visibility: hidden;
+}
+/* ACTIVE: */
+#s1:target ~ .prevNext > *:nth-child(1) {
+  visibility: visible;
+}
+#s2:target ~ .prevNext > *:nth-child(2) {
+  visibility: visible;
+}
+#s3:target ~ .prevNext > *:nth-child(3) {
+  visibility: visible;
+}
+#s4:target ~ .prevNext > *:nth-child(4) {
+  visibility: visible;
+}
+/* More slides? Add here more rules */
+
+/* SLIDER ANIMATION POSITIONS */
+
+#s1:target ~ .slider {
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+}
+#s2:target ~ .slider {
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+}
+#s3:target ~ .slider {
+  transform: translateX(-200%);
+  -webkit-transform: translateX(-200%);
+}
+#s4:target ~ .slider {
+  transform: translateX(-300%);
+  -webkit-transform: translateX(-300%);
+}
+/* More slides? Add here more rules */
+
+/* YOU'RE THE DESIGNER! 
+   ____________________
+   All above was mainly to get it working :)
+   CSSgal CUSTOM STYLES / OVERRIDES HERE: */
+
+.CSSgal {
+  color: #fff;
+  text-align: center;
+}
+.CSSgal .slider h2 {
+  margin-top: 40vh;
+  font-weight: 200;
+  letter-spacing: -0.06em;
+  word-spacing: 0.2em;
+  font-size: 3em;
+}
+.CSSgal a {
+  border-radius: 50%;
+  margin: 0 3px;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+}
+/*End Client Testimonial*/
+
+@media (max-width: 450px) {
+  .navbarButton {
+    display: none;
+    position: absolute;
+    top: 400px;
+    z-index: 2;
+  }
+
+  .navbar {
+    align-items: center;
+    position: fixed;
+    background-color: #343f4b;
+  }
+
+  nav .navbarLink {
+    display: flex;
+    flex-direction: column;
+    background-color: #343f4b;
+    position: absolute;
+    width: 100%;
+    height: 350px;
+    margin: 30px 0;
+    top: 17px;
+    transform: translateY(-100%);
+    z-index: -1;
+    transition: 1s;
+    left: -20px;
+  }
+
+  nav .navbar-toggler {
+    display: grid !important;
+  }
+
+  /*Service section responsivity*/
+  .serviceCard {
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+  }
+
+  .featureButton {
+    /* display: flex;
+        justify-content: center;
+        margin: 0 0 50px 0; */
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
