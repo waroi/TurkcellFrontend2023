@@ -125,6 +125,33 @@ nav {
     cursor: pointer;
 }
 
+nav .navbar-toggler {
+    margin: 20px 20px 20px 0;
+    cursor: pointer;
+}
+
+nav .navbar-toggler .bar {
+    width: 20px;
+    height: 1.5px;
+    margin-bottom: 4px;
+    background: #ffffff;
+    border-radius: 10%;
+    transition: 0.4s;
+}
+
+input {
+    display: none;
+}
+
+input:checked~nav .navbarLink {
+    transform: translateY(0);
+    z-index: 1;
+}
+
+input:checked~nav .navbar-toggler {
+    margin-top: 15px;
+}
+
 /*HOME SECTION*/
 .homeSection {
     display: flex;
@@ -161,6 +188,7 @@ nav {
     background-color: #303841;
     display: flex;
     justify-content: center;
+    padding-top: 100px;
 }
 
 .serviceTitle {
@@ -270,14 +298,17 @@ nav {
     padding: 25px 15px;
     border-radius: 50%;
 }
-.elementSpace{
-    margin:50px 20px
+
+.elementSpace {
+    margin: 50px 20px
 }
+
 .elementLeft {
     margin: 50px 0px;
     text-align: right;
     /* flex-direction: row-reverse; */
 }
+
 .elementRight {
     margin: 50px 0px;
 }
@@ -291,11 +322,40 @@ nav {
 
 .elementMiddle>img {
     width: 100%;
-    margin: 0 !important;
+    /* margin: 0 !important; */
 }
 
 
 @media screen and (max-width:450px) {
+    .navbarButton {
+        display: none;
+        position: absolute;
+        top: 400px;
+        z-index: 2;
+    }
+
+    .navbar {
+        align-items: center;
+        position: fixed;
+        background-color: #343f4b;
+    }
+
+    nav .navbarLink {
+        display: grid;
+        background-color: #343f4b;
+        position: absolute;
+        width: 100%;
+        height: 400px;
+        top: 17px;
+        transform: translateY(-100%);
+        z-index: -1;
+        transition: 1s;
+        left: -20px;
+    }
+
+    nav .navbar-toggler {
+        display: grid !important;
+    }
 
     /*Service section responsivity*/
     .serviceCard {
@@ -303,6 +363,7 @@ nav {
         flex-wrap: wrap;
         margin-bottom: 70px;
     }
+
     .featureButton {
         /* display: flex;
         justify-content: center;
