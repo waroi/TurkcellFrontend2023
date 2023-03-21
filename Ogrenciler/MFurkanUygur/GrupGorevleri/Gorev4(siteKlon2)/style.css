@@ -3,16 +3,45 @@ body {
     margin: 0;
     background-color: #343f4b;
 }
-.text1{}
-.text2{}
-.text3{
-    font-family: "roboto",sans-serif;
-    /*text farkı, punto küçüldükçe çok farkediyor*/
+
+.text1 {
+    font-family: "poppins", sans-serif;
     font-size: 16px;
-    color: #ffffff80;
-    line-height: 1.5rem;
-    margin: 20px 0 16px;
+    line-height: 22px;
+    color: #0076a3;
+    margin: 0;
 }
+
+.text2 {
+    font-family: "poppins", sans-serif;
+    font-size: 40px;
+    line-height: 56px;
+    color: #ffffff;
+    margin: 0;
+
+}
+
+.text3 {
+    font-family: "roboto", sans-serif;
+    /*text farkı, punto küçüldükçe çok farkediyor*/
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.3);
+    /* color: #ffffff80; */
+    line-height: 25px;
+    padding: 9px 0;
+    margin: 20px 0 16px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.text10 {
+    font-family: "poppins", sans-serif;
+    font-size: 20px;
+    line-height: 28px;
+    color: #ffffff;
+    margin: 5px 0;
+}
+
 /*NAVBAR*/
 nav {
     background-color: #343f4b;
@@ -68,17 +97,18 @@ nav {
     font-size: 13px;
     line-height: 25px;
     font-weight: 700;
-    font-family: "roboto",sans-serif;
+    font-family: "roboto", sans-serif;
     color: #ffffff80;
 }
-.navbarLink>li>a:hover{
+
+.navbarLink>li>a:hover {
     color: white;
 }
 
 .navbarButton {
     background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
     /*button margin değerleri ile oynandı*/
-    margin:20px 15px 20px 35px;
+    margin: 20px 15px 20px 35px;
     padding: 12px 30px;
     text-align: center;
     color: #183b56;
@@ -88,24 +118,104 @@ nav {
 }
 
 /*HOME SECTION*/
-.homeSection{
+.homeSection {
     display: flex;
     justify-content: center;
 }
-.homeTitle{
-    padding: 55px 5px ;
+
+.homeTitle {
+    padding: 55px 5px;
     /* padding-top: 50px; */
     margin: 0 auto;
     max-width: 736px;
     text-align: center;
 }
-.homeTitle>i{
+
+.homeTitle>i {
     color: white;
 }
-.homeBigTitle{
+
+.homeBigTitle {
     margin: 5px 0 10px;
     font-size: 48px;
     color: white;
     font-weight: bold;
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
+}
+
+.homeBigText {
+    font-size: 16px;
+    max-width: 700px;
+}
+
+/*SERVICE SECTION*/
+.serviceSection {
+    background-color: #303841;
+    display: flex;
+    justify-content: center;
+}
+
+.serviceTitle {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.serviceCard {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
+
+.cardContent {
+    text-align: center;
+    margin: 10px;
+    border-radius: 20px;
+    transition: .3s ease-out;
+    padding: 0 20px 10px 20px;
+}
+
+.cardContent:nth-child(2) {
+    box-shadow: 0px 1px 1px 3px #2f373f;
+}
+
+.cardContent:hover {
+    transition: .3s ease-out;
+    background-color: #343f4b;
+    box-shadow: 0px 1px 5px 0px #303841;
+}
+
+.cardIcon {
+    background-image: url("https://themesdesign.in/styza/layout/images/service/bomb.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 10px;
+}
+
+.cardIcon>i {
+    /*icon konumlandırması*/
+    padding: 60px 40px 40px 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: #0076a3;
+
+}
+.cardText{
+    margin-top: 10px ;
+}
+.cardText>a {
+    text-decoration: none;
+}
+
+
+
+
+@media screen and (max-width:450px) {
+
+    /*Service section responsivity*/
+    .serviceCard{
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-bottom: 70px;
+    }
+    
 }
