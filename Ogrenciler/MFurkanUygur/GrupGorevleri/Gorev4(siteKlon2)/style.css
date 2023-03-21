@@ -44,6 +44,14 @@ body {
   margin: 5px 0;
 }
 
+/*featureSpecs*/
+.text20 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 20px;
+    line-height: 28px;
+}
+
 /*NAVBAR*/
 nav {
   background-color: #343f4b;
@@ -205,11 +213,13 @@ nav {
   background-size: contain;
   color: #0076a3;
 }
+
 .cardText {
-  margin-top: 10px;
+    margin-top: 10px;
 }
-.cardText > a {
-  text-decoration: none;
+
+.cardText>a {
+    text-decoration: none;
 }
 .phone-mockup {
   z-index: 1;
@@ -251,13 +261,98 @@ nav {
   transform: translate(-50%, -50%);
   left: 50%;
 }
+/*FEATURE SECTIONS*/
+.featureSection {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.featureTitle {
+    padding: 50px 0;
+    text-align: center;
+}
+
+/****Feature Buttons****/
+.featureButton {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 50px 0;
+}
+
+.featureBtn {
+    border: 1px solid #0076a3;
+    color: #fff;
+    padding: 13px 30px;
+    margin: 0px 20px;
+    font-size: 16px;
+    font-family: "roboto", sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.featureBtn:nth-child(1) {
+    background: linear-gradient(#2e8da5 0%, #114d64 100%);
+    border: none;
+}
+
+.featureBtn {
+    border: 1px solid #ffffff80;
+    background-color: #343f4b;
+}
+
+/****Feature Elements****/
+.featureElements {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/*Icon arka plan dairesi*/
+.featureIcon {
+    background-color: #314755;
+    color: #0076a3;
+    padding: 25px 15px;
+    border-radius: 50%;
+}
+.elementSpace{
+    margin:50px 20px
+}
+.elementLeft {
+    margin: 50px 0px;
+    text-align: right;
+    /* flex-direction: row-reverse; */
+}
+.elementRight {
+    margin: 50px 0px;
+}
+
+.elementMiddle {
+    /* background-color: #26a0da; */
+    /* display: flex; */
+    /* justify-content: center; */
+    width: 40%;
+}
+
+.elementMiddle>img {
+    width: 100%;
+    margin: 0 !important;
+}
 
 
-@media screen and (max-width: 450px) {
-  /*Service section responsivity*/
-  .serviceCard {
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-bottom: 70px;
-  }
+@media screen and (max-width:450px) {
+
+    /*Service section responsivity*/
+    .serviceCard {
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-bottom: 70px;
+    }
+    .featureButton {
+        /* display: flex;
+        justify-content: center;
+        margin: 0 0 50px 0; */
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
 }
