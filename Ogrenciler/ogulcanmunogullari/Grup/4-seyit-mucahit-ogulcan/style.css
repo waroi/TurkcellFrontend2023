@@ -1,5 +1,4 @@
 /* Genel Başlangıç*/
-
 @import url('./color.css');
 @import url('./reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap');
@@ -10,8 +9,13 @@
   width: 1140px;
   margin: 0 auto;
 } */
+html {
+  overflow-x: hidden;
+}
 .container {
   width: 100%;
+  padding: 0 1em;
+  /* position: relative; */
 }
 
 h1,
@@ -32,30 +36,26 @@ li {
 /* Genel bitiş*/
 
 /* Mücahit Başlangıç  */
-
-
-
-
+.header {
+  background-color: var(--dark-bg2) !important;
+}
 .navbar {
-  background-color: #303841 !important;
   transition: all 0.5s ease;
-  position: fixed;
+  position: sticky;
   display: flex;
+  top: 0;
   right: 0;
   left: 0;
   z-index: 1030;
-  align-items:center;
-  justify-content: center;
+  align-items: center;
   justify-content: space-between;
-  flex-basis: auto;
-  padding: 15px;
+  padding: 1em 0;
 }
 
 .navbarimg {
   width: 100px;
   justify-self: flex-start;
 }
-
 
 .navbar ul {
   display: flex;
@@ -65,13 +65,13 @@ li {
 }
 
 .button1 {
- width: 100px;
- padding: 12px 30px;
- border-radius: 5px;
- border: none;
- font-size: 13px;
- font-weight: 700;
-
+  width: 100px;
+  padding: 12px 30px;
+  border-radius: 5px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  display: none;
 }
 
 .button2 {
@@ -81,14 +81,18 @@ li {
   border: none;
   font-size: 13px;
   font-weight: 700;
-  background: linear-gradient(to right, #46a5bd, #116a8d);
+  background: linear-gradient(
+    to right,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
 }
 
 .nav-link {
   position: relative;
   transition: ease-in-out 300ms;
   text-decoration: none;
-  color: white;
+  color: var(--white-text);
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
@@ -97,44 +101,42 @@ li {
 .nav-item {
   list-style: none;
   word-spacing: 45px;
-}
-
-.dropdown {
   display: none;
 }
 
 .dropbtn {
   width: 100%;
+  cursor: pointer;
 }
 
 .dropdown .dropbtn {
-  
   font-size: 13px;
   border: none;
   outline: none;
-  color: black;
+  color: var(--blue-text);
   padding: 14px 16px;
   background-color: inherit;
   position: relative;
-  left: 40%;
+  left: 30%;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #303841;
+  background-color: var(--dark-bg2);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 100000;
   position: absolute;
-  top: 100%;
+  /* topta hata vardı */
+  top: 4em;
   left: 0;
-  width: 100%;
+  right: 0;
   padding: 10px;
 }
 
-.dropdown-content a {
+.dropdown-content > a {
   float: none;
-  color: white;
+  color: var(--white-text);
   font-size: 13px;
   font-weight: 600;
   padding: 12px 16px;
@@ -144,32 +146,218 @@ li {
   text-transform: uppercase;
 }
 
-
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
-
-
-/* Responsive */
-
-@media screen and (max-width: 992px) {
-  .button1 {
-    display: none;
-  }
-  .nav-item {
-    display: none;
-  }
-  .dropdown {
-    display: block;
-  }
+/* Responsive de ters iş yapıyordun onu düzelttim ;)  */
+.dropdown {
+  display: block;
 }
-
-
-
 
 /* Mücahit Bitiş  */
 /* Oğulcan Başlangıç  */
+
+/* Slider Test */
+
+@keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}
+
+.client-testimonial {
+  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-width: 0px;
+  -ms-overflow-style: none;
+  padding-top: 5em;
+  background-color: var(--dark-bg2);
+}
+
+.client-testimonial *::-webkit-scrollbar {
+  width: 0;
+}
+
+.client-testimonial *::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.client-testimonial *::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+.client-testimonial > ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.client-testimonial-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.client-testimonial-info {
+  width: 100%;
+}
+.client-testimonial-info > h3,
+p {
+  color: var(--text);
+  font-size: 15px;
+  padding: 1em 0;
+}
+.client-testimonial-info > h3 {
+  font-size: 16px;
+  padding: 0.5em 0;
+}
+.client-testimonial-info > h2 {
+  color: var(--white-text);
+}
+.client-testimonial-info > button {
+  color: var(--white-text);
+  background: linear-gradient(
+    to right,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  padding: 0.5em 2em;
+  margin-bottom: 1em;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.carousel {
+  position: relative;
+  padding-top: 100%;
+  filter: drop-shadow(0 0 10px #0003);
+  perspective: 100px;
+  width: 100%;
+}
+
+.carousel__viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  background-color: #f99;
+}
+.carousel__slide:nth-child(even) {
+  background-color: var(--blue1);
+}
+
+.carousel__snapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+@media (hover: hover) {
+  .carousel__snapper {
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  .carousel__slide:last-child .carousel__snapper {
+    animation-name: tostart, snap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__snapper {
+    animation-name: none;
+  }
+}
+
+.carousel:hover .carousel__snapper,
+.carousel:focus-within .carousel__snapper {
+  animation-name: none;
+}
+
+.carousel__navigation {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.carousel__navigation-list,
+.carousel__navigation-item {
+  display: inline-block;
+}
+
+.carousel__navigation-button {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--dark-blue2);
+  background-clip: content-box;
+  border: 0.25rem solid transparent;
+  border-radius: 50%;
+  font-size: 0;
+  transition: transform 0.1s;
+}
+.carousel__navigation-button:visited {
+  background-color: var(--blue1);
+}
+
+/* Slider Test */
 
 /* Oğulcan Bitiş  */
 /* Seyit Başlangıç  */
