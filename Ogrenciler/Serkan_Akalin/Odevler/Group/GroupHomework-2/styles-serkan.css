@@ -8,12 +8,11 @@
   --current-price: #233f92;
   --original-price: #868686;
   --star-color: #ffd200;
-  transition: all 0.3s ease;
+  /* transition: all 0.1s ease; */
 }
 
 .categories {
   background-color: var(--main-yellow);
-  width: 100vw;
   height: 35vh;
   display: flex;
   justify-content: center;
@@ -85,36 +84,76 @@
   text-align: center;
 }
 
-.best-sellers-container{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1300px;
-    margin: 0 auto;
+.best-sellers-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
-.best-sellers-title{
-    font-size: 36px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+.best-sellers-title {
+  font-size: 36px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.best-sellers-title:hover{
-    cursor: pointer;
+.best-sellers-title:hover {
+  cursor: pointer;
 }
 
-.best-sellers-title > *:hover{
-    color: var(--main-yellow);
+.best-sellers-title > *:hover {
+  color: var(--main-yellow);
 }
 
-.best-sellers-card{
-    border: 1px solid rgba(235,235,235,1) ;
-    border-radius: 2px;
-    max-width: 320px;
-    padding: 10px;
+.best-sellers-card {
+  border: 1px solid rgba(235, 235, 235, 1);
+  border-radius: 2px;
+  max-width: 320px;
+  padding: 10px;
+}
+
+.card-hidden-hover-effects {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  visibility: hidden;
+}
+
+.card-hidden-hover-effects>span{
+  display: flex;
+  gap: 25px;
+}
+
+.best-sellers-card-hidden-logo-description {
+  visibility: hidden;
+}
+
+.best-sellers-card-hidden-logo {
+  height: 20px;
+  margin-bottom: 10px;
+  width: 20px;
+}
+
+.best-sellers-card-hidden-logo:hover + .best-sellers-card-hidden-logo-description {
+  visibility: visible;
+}
+
+.best-sellers-card:hover > .card-hidden-hover-effects {
+  visibility: visible;
+}
+
+.best-sellers-card-hidden-logo:hover{
+  cursor: pointer;
+}
+
+.best-sellers-card-hidden-logo:hover + .best-sellers-card-hidden-logo-description {
+  cursor: pointer;
+  background-color: var(--main-yellow);
 }
 
 .star {
@@ -143,4 +182,24 @@
 .best-sellers-image {
   width: 300px;
   height: 300px;
+}
+.add-to-cart-button {
+  display: none;
+  width: 100%;
+  height: 40px;
+  background-color: var(--main-black);
+  color: var(--main-yellow);
+  border-radius: 30px;
+  margin-top: 15px;
+  position: relative;
+}
+
+.best-sellers-card:hover .add-to-cart-button {
+  display: block;
+}
+
+.add-to-cart-button:hover {
+  background-color: var(--main-yellow);
+  color: var(--main-black);
+  cursor: pointer;
 }
