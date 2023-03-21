@@ -22,7 +22,14 @@
 }
 
 
-.apptech-content h5 {
+.apptech-content2 h5 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: white;
+  margin-top: 10px;
+}
+
+.apptech-content1 h5 {
   font-weight: 600;
   font-size: 1.25rem;
   color: white;
@@ -38,25 +45,51 @@
     text-align: center;
 }
 
+.rowcontainer1 {
+  display: block;
+  margin: 10px;
+}
 
+.column1 {
+  text-align: left;
+}
 
 /* responsive */
 @media screen and (min-width: 1200px) {
-  .apptech-column{
-    position: relative;
+  .column1 {
+    flex-direction: column;
+    display: flex;
+    text-align: center;
   }
-  
-  .apptech-row {
+  .rowcontainer1 {
+    display: flex;
     align-items: center;
-    display: flex;
     flex-wrap: wrap;
-  }
-  
-  .apptech-content {
-    display: flex;
-    flex-direction: row;
+    position: relative;
     justify-content: center;
-    width: 33%;
+    margin: 0 auto;
+  }
+
+  .apptech-content1 {
+    display: flex;
+    flex-direction: column;
+    align-items: self-end;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .apptech-image-cl {
+    width: 360px;
+  }
+
+  .apptech-content2 {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: center;
+    width: 100%;
+    text-align: left;
   }
 }
+
 
