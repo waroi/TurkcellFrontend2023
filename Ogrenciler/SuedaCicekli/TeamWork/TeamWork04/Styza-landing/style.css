@@ -1,0 +1,165 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #343f4b;
+}
+.text1 {
+}
+.text2 {
+}
+.text3 {
+  font-family: "roboto", sans-serif;
+  /*text farkı, punto küçüldükçe çok farkediyor*/
+  font-size: 16px;
+  color: #ffffff80;
+  line-height: 1.5rem;
+  margin: 20px 0 16px;
+}
+/*NAVBAR*/
+nav {
+  background-color: #343f4b;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 100%;
+  /* background-color: yellow; */
+  max-width: 1140px;
+}
+.navbar {
+  /*Geçici responsive */
+  flex-wrap: wrap;
+  width: 100%;
+  /* background-color: teal; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar > a {
+  display: flex;
+  align-items: center;
+  /*Logonun konumunu kesinleştirdim */
+  padding: 0px 12px;
+}
+
+.navbar a img {
+  height: 28px;
+}
+
+.navbarLink {
+  /*Geçici responsive */
+  flex-wrap: wrap;
+  display: flex;
+  list-style: none;
+}
+
+.navbarLink > li {
+  /* margin: 0 20px; */
+  padding: 10px 25px;
+}
+
+.navbarLink > li > a {
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 25px;
+  font-weight: 700;
+  font-family: "roboto", sans-serif;
+  color: #ffffff80;
+}
+.navbarLink > li > a:hover {
+  color: white;
+}
+
+.navbarButton {
+  background-image: linear-gradient(
+    to right,
+    #314755 0%,
+    #26a0da 51%,
+    #314755 100%
+  );
+  /*button margin değerleri ile oynandı*/
+  margin: 20px 15px 20px 35px;
+  padding: 12px 30px;
+  text-align: center;
+  color: #183b56;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* Start Hamburger Navbar*/
+@media (max-width: 450px) {
+  .navbarButton {
+    display: none;
+    position: absolute;
+    top: 400px;
+    z-index: 2;
+  }
+  .navbar {
+    align-items: center;
+    position: fixed;
+    background-color: #343f4b;
+  }
+
+  nav .navbarLink {
+    display: grid;
+    background-color: #343f4b;
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    top: 17px;
+    transform: translateY(-100%);
+    z-index: -1;
+    transition: 1s;
+    left: -20px;
+  }
+  nav .navbar-toggler {
+    display: grid !important;
+  }
+}
+nav .navbar-toggler {
+  margin: 20px 20px 20px 0;
+  cursor: pointer;
+}
+nav .navbar-toggler .bar {
+  width: 20px;
+  height: 1.5px;
+  margin-bottom: 4px;
+  background: #ffffff;
+  border-radius: 10%;
+  transition: 0.4s;
+}
+input {
+  display: none;
+}
+input:checked ~ nav .navbarLink {
+  transform: translateY(0);
+  z-index: 1;
+}
+input:checked ~ nav .navbar-toggler {
+  margin-top: 15px;
+}
+
+/* END Hamburger Navbar -sueda */
+
+/*HOME SECTION*/
+.homeSection {
+  display: flex;
+  justify-content: center;
+}
+.homeTitle {
+  padding: 55px 5px;
+  /* padding-top: 50px; */
+  margin: 0 auto;
+  max-width: 736px;
+  text-align: center;
+}
+.homeTitle > i {
+  color: white;
+}
+.homeBigTitle {
+  margin: 5px 0 10px;
+  font-size: 48px;
+  color: white;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
