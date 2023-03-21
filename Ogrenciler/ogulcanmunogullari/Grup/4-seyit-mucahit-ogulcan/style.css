@@ -9,9 +9,13 @@
   width: 1140px;
   margin: 0 auto;
 } */
+html {
+  overflow-x: hidden;
+}
 .container {
   width: 100%;
   padding: 0 1em;
+  /* position: relative; */
 }
 
 h1,
@@ -32,20 +36,20 @@ li {
 /* Genel bitiş*/
 
 /* Mücahit Başlangıç  */
-
-.navbar {
+.header {
   background-color: var(--dark-bg2) !important;
+}
+.navbar {
   transition: all 0.5s ease;
-  position: fixed;
+  position: sticky;
   display: flex;
+  top: 0;
   right: 0;
   left: 0;
   z-index: 1030;
   align-items: center;
-  justify-content: center;
   justify-content: space-between;
-  flex-basis: auto;
-  padding: 15px;
+  padding: 1em 0;
 }
 
 .navbarimg {
@@ -113,7 +117,7 @@ li {
   padding: 14px 16px;
   background-color: inherit;
   position: relative;
-  left: 40%;
+  left: 30%;
 }
 
 .dropdown-content {
@@ -126,11 +130,11 @@ li {
   /* topta hata vardı */
   top: 4em;
   left: 0;
-  width: 100%;
+  right: 0;
   padding: 10px;
 }
 
-.dropdown-content a {
+.dropdown-content > a {
   float: none;
   color: var(--white-text);
   font-size: 13px;
@@ -264,7 +268,7 @@ p {
 
 .carousel {
   position: relative;
-  padding-top: 75%;
+  padding-top: 100%;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
   width: 100%;
