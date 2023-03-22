@@ -72,12 +72,10 @@ The width can be set as a specific size (in px, pt, cm, em, etc) or by using one
 
 #### Result:
 
-'''
-<div style="border:5px solid;padding:8px;margin-top:8px;margin-bottom:16px">5px border-width</div>
-<div style="border:medium solid;padding:8px;margin-top:8px;margin-bottom:16px">medium border-width</div>
-<div style="border:2px dotted;padding:8px;margin-top:8px;margin-bottom:16px">2px border-width</div>
-<div style="border:thick dotted;padding:8px;margin-top:8px;margin-bottom:8px">thick border-width</div>
-'''
+<div style="border:5px solid;padding:8px;margin-top:8px;margin-bottom:16px;">5px border-width</div>
+<div style="border:medium solid;padding:8px;margin-top:8px;margin-bottom:16px;">medium border-width</div>
+<div style="border:2px dotted;padding:8px;margin-top:8px;margin-bottom:16px;">2px border-width</div>
+<div style="border:thick dotted;padding:8px;margin-top:8px;margin-bottom:8px;">thick border-width</div>
 
 ## CSS Border Color
 
