@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <header>
+      <section class="deal">
+        <div class="container flex-row">
+          <div class="deal-left">FREE DELIVERY on all orders</div>
+          <div class="deal-middle">
+            <strong class="golden-deal">
+              <i class="fa-solid fa-bolt-lightning"></i>
+              <span>FLASH SALE:</span></strong
+            >
+            60% OFF CAR BATTERIES | USE CODE "BATT60"
+          </div>
+          <div class="deal-right">
+            <ul class="deal-nav flex-row">
+              <li class="top-nav-element">
+                <a class="white-to-gold-txt" href="#">Help</a>
+              </li>
+              <li class="top-nav-element">
+                <a class="white-to-gold-txt" href="#">About Us</a>
+              </li>
+              <li class="top-nav-element">
+                <a class="white-to-gold-txt" href="#">Contact Us</a>
+              </li>
+              <li class="top-nav-element">
+                <a class="white-to-gold-txt" href="#">Blog</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="deal-mobile">
+        <div class="container flex-row">
+          <strong class="golden-deal">
+            <i class="fa-solid fa-bolt-lightning"></i>
+            <span>FLASH SALE:</span></strong
+          >
+          60% OFF CAR BATTERIES | USE CODE "BATT60"
+        </div>
+      </section>
+
+      <section class="header-main">
+        <div class="container flex-row">
+          <div class="header-left">
+            <div class="logo-wrap">
+              <img src="assets/logo.png" alt="logo" />
+            </div>
+          </div>
+          <div class="header-middle">
+            <div class="search-bar-wrap">
+              <div class="search-by-category flex-row">
+                <div class="category-filter">
+                  <select name="category-filter" id="category-select-main">
+                    <option value="a">All Categories</option>
+                    <option value="b">b</option>
+                    <option value="c">c</option>
+                    <option value="d">d</option>
+                  </select>
+                </div>
+                <div class="search-bar">
+                  <input
+                    type="text"
+                    class="search"
+                    placeholder="Search for products"
+                  />
+                </div>
+                <span class="search-icon gold-to-dark">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="header-right flex-row">
+            <div class="language-currency flex-row">
+              <div class="lang-wrap">
+                <select name="lang" id="lang">
+                  <option value="English">English</option>
+                  <option value="Français">Français</option>
+                  <option value="Deutsch">Deutsch</option>
+                </select>
+              </div>
+              <div class="curr-wrap">
+                <select name="curr" id="curr">
+                  <option value="usd">USD</option>
+                  <option value="eur">EUR</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="user flex-row">
+              <div class="account">
+                <i class="fa-regular fa-user"></i>
+              </div>
+              <div class="wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </div>
+              <div class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+              <div class="burger-menu">
+                <i class="fa-solid fa-bars"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="search-bar-mobile">
+        <div class="container">
+          <div class="header-middle-mobile">
+            <div class="search-bar-wrap">
+              <div class="search-by-category flex-row">
+                <div class="category-filter">
+                  <select name="category-filter" id="category-select-main">
+                    <option value="a">All Categories</option>
+                    <option value="b">b</option>
+                    <option value="c">c</option>
+                    <option value="d">d</option>
+                  </select>
+                </div>
+                <div class="search-bar">
+                  <input
+                    type="text"
+                    class="search"
+                    placeholder="Search for products"
+                  />
+                </div>
+                <span class="search-icon gold-to-dark">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="header-menu">
+        <div class="container flex-row">
+          <div class="menu flex-row">
+            <ul class="menu-list flex-row">
+              <li class="menu-list-item">
+                <span class="menu-label">Home</span>
+                <i class="fa-solid fa-angle-down"></i>
+              </li>
+              <li class="menu-list-item">
+                <span class="menu-label">Pages</span>
+                <i class="fa-solid fa-angle-down"></i>
+              </li>
+              <li class="menu-list-item">
+                <span class="menu-label">Service Parts</span>
+                <i class="fa-solid fa-angle-down"></i>
+              </li>
+              <li class="menu-list-item">
+                <span class="menu-label">Brake</span>
+                <i class="fa-solid fa-angle-down"></i>
+              </li>
+              <li class="menu-list-item">
+                <span class="menu-label">Car Batteries</span>
+                <i class="fa-solid fa-angle-down"></i>
+              </li>
+              <li class="menu-list-item">
+                <span class="menu-label">Tools & Garage</span>
+                <i class="fa-solid fa-angle-down"></i>
+              </li>
+            </ul>
+          </div>
+          <div class="banner flex-row">
+            <i class="fa-solid fa-headphones"></i>
+            <div class="banner-txt">
+              <div class="small-banner-txt">Call us 24/7</div>
+              <a href="tel+0892298228" class="large-banner-txt"
+                >+08 9229 8228</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <section class="hero">
+      <div class="container flex-row">
+        <form class="search-by-vehicle flex-column">
+          <h2>SEARCH BY VEHICLE</h2>
+          <select name="make" id="make">
+            <option value="">Select Make</option>
+            <option value="">Mercerdess</option>
+            <option value="">Toyota</option>
+          </select>
+          <select name="model" id="model">
+            <option value="">Select Model</option>
+            <option value="">488 GX</option>
+            <option value="">745 XD</option>
+          </select>
+          <select name="year" id="year">
+            <option value="">Select Year</option>
+            <option value="">2022</option>
+            <option value="">2021</option>
+          </select>
+          <select name="engine" id="engine">
+            <option value="">Select Engine</option>
+            <option value="">1.1</option>
+            <option value="">1.2</option>
+          </select>
+
+          <input type="submit" value="GO" class="btn gold-to-dark" />
+        </form>
+
+        <div class="hero-txt">
+          <span class="small-hero-txt">EXTRA %25</span><br />
+          <span class="large-hero-txt">Check and Maintain</span>
+          <p class="hero-p">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Exercitationem possimus culpa iste aliquid quae, odit nulla?
+          </p>
+          <button class="btn white-to-gold">SHOP NOW</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories-img-wrap">
+      <div class="container flex-row">
+        <div class="categories-header flex-column">
+          <div class="categories-header-titles">
+            <div class="categories-large-txt">Categories</div>
+            <div class="categories-small-txt">MARCH FAVORITES</div>
+          </div>
+          <div class="categories-arrows-container">
+            <i class="fa-solid fa-arrow-left-long"></i>
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </div>
+        </div>
+
+        <div class="categories-cards flex-row">
+          <div class="categories-card">
+            <div class="categories-card-img">
+              <img src="assets/tires-310x310.jpg" alt="" />
+            </div>
+            <div class="categories-card-txt">Wheels & Tires</div>
+          </div>
+          <div class="categories-card">
+            <div class="categories-card-img">
+              <img src="assets/interior-310x310.jpg" alt="" />
+            </div>
+            <div class="categories-card-txt">Interiors</div>
+          </div>
+          <div class="categories-card">
+            <div class="categories-card-img">
+              <img src="assets/entertainment-310x310.jpg" alt="" />
+            </div>
+            <div class="categories-card-txt">Entertainments</div>
+          </div>
+          <div class="categories-card">
+            <div class="categories-card-img">
+              <img src="assets/oils-310x310.jpg" alt="" />
+            </div>
+            <div class="categories-card-txt">Fluids & Chemicals</div>
+          </div>
+          <div class="categories-card">
+            <div class="categories-card-img">
+              <img src="assets/exteriors-310x310.jpg" alt="" />
+            </div>
+            <div class="categories-card-txt">Exteriors</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories-img-wrap-mobile">
+      <div class="container flex-row">
+        <div class="categories-header">
+          <div class="categories-header-titles">
+            <div class="categories-large-txt">Categories</div>
+            <div class="categories-small-txt">MARCH FAVORITES</div>
+          </div>
+        </div>
+        <div class="categories-cards flex-row">
+          <div class="categories-card">
+            <div class="categories-card-img">
+              <img src="assets/tires-310x310.jpg" alt="" />
+            </div>
+            <div class="categories-card-txt">Wheels & Tires</div>
+          </div>
+          <div class="categories-card">
+            <div class="categories-card-img">
+              <img src="assets/interior-310x310.jpg" alt="" />
+            </div>
+            <div class="categories-card-txt">Interiors</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="best-pop">
+      <div class="container">
+        <div class="best-pop-cards">
+          <div class="best-cards flex-row">
+            <div class="best-pop-card flex-column">
+              <div class="best-pop-card-img">
+                <img src="assets/28-480x480.jpg" alt="" />
+                <span class="discount">-47%</span>
+                <span class="best-pop-card-actions flex-column">
+                  <span
+                    class="best-pop-quick-view fa-solid fa-magnifying-glass"
+                  >
+                  </span>
+                  <span
+                    class="best-pop-add-wishlist fa-regular fa-heart"
+                  ></span>
+                  <span class="best-pop-compare fa-solid fa-rotate"></span>
+                </span>
+              </div>
+              <div class="best-pop-card-info">
+                <div class="best-pop-card-title">Valvoline Oil Stocklists</div>
+                <div class="best-pop-card-stars">*****</div>
+                <div class="best-pop-card-prices flex-row">
+                  <div class="best-pop-card-discounted-price">$106.58</div>
+                  <div class="best-pop-card-full-price">$202.87</div>
+                </div>
+              </div>
+              <div class="best-pop-buy">
+                <button class="btn dark-to-gold">Add to card</button>
+              </div>
+            </div>
+            <div class="best-pop-card flex-column">
+              <div class="best-pop-card-img">
+                <img src="assets/06-480x480.jpg" alt="" />
+                <span class="discount">-47%</span>
+                <span class="best-pop-card-actions flex-column">
+                  <span
+                    class="best-pop-quick-view fa-solid fa-magnifying-glass"
+                  >
+                  </span>
+                  <span
+                    class="best-pop-add-wishlist fa-regular fa-heart"
+                  ></span>
+                  <span class="best-pop-compare fa-solid fa-rotate"></span>
+                </span>
+              </div>
+              <div class="best-pop-card-info">
+                <div class="best-pop-card-title">Valvoline Oil Stocklists</div>
+                <div class="best-pop-card-stars">*****</div>
+                <div class="best-pop-card-prices flex-row">
+                  <div class="best-pop-card-discounted-price">$106.58</div>
+                  <div class="best-pop-card-full-price">$202.87</div>
+                </div>
+              </div>
+              <div class="best-pop-buy">
+                <button class="btn dark-to-gold">Add to card</button>
+              </div>
+            </div>
+            <div class="best-pop-card flex-column">
+              <div class="best-pop-card-img">
+                <img src="assets/11-480x480.jpg" alt="" />
+                <span class="sold-out">SOLD OUT</span>
+                <span class="best-pop-card-actions flex-column">
+                  <span
+                    class="best-pop-quick-view fa-solid fa-magnifying-glass"
+                  >
+                  </span>
+                  <span
+                    class="best-pop-add-wishlist fa-regular fa-heart"
+                  ></span>
+                  <span class="best-pop-compare fa-solid fa-rotate"></span>
+                </span>
+              </div>
+              <div class="best-pop-card-info">
+                <div class="best-pop-card-title">Valvoline Oil Stocklists</div>
+                <div class="best-pop-card-stars">*****</div>
+                <div class="best-pop-card-prices flex-row">
+                  <div class="best-pop-card-discounted-price">$106.58</div>
+                  <div class="best-pop-card-full-price">$202.87</div>
+                </div>
+              </div>
+              <div class="best-pop-buy">
+                <button class="btn dark-to-gold">Add to card</button>
+              </div>
+            </div>
+            <div class="best-pop-card flex-column">
+              <div class="best-pop-card-img">
+                <img src="assets/20-480x480.jpg" alt="" />
+                <span class="discount">-47%</span>
+                <span class="best-pop-card-actions flex-column">
+                  <span
+                    class="best-pop-quick-view fa-solid fa-magnifying-glass"
+                  >
+                  </span>
+                  <span
+                    class="best-pop-add-wishlist fa-regular fa-heart"
+                  ></span>
+                  <span class="best-pop-compare fa-solid fa-rotate"></span>
+                </span>
+              </div>
+              <div class="best-pop-card-info">
+                <div class="best-pop-card-title">Valvoline Oil Stocklists</div>
+                <div class="best-pop-card-stars">*****</div>
+                <div class="best-pop-card-prices flex-row">
+                  <div class="best-pop-card-discounted-price">$106.58</div>
+                  <div class="best-pop-card-full-price">$202.87</div>
+                </div>
+              </div>
+              <div class="best-pop-buy">
+                <button class="btn dark-to-gold">Add to card</button>
+              </div>
+            </div>
+            <div class="best-pop-card flex-column">
+              <div class="best-pop-card-img">
+                <img src="assets/10-480x480.jpg" alt="" />
+                <span class="discount">-47%</span>
+                <span class="best-pop-card-actions flex-column">
+                  <span
+                    class="best-pop-quick-view fa-solid fa-magnifying-glass"
+                  >
+                  </span>
+                  <span
+                    class="best-pop-add-wishlist fa-regular fa-heart"
+                  ></span>
+                  <span class="best-pop-compare fa-solid fa-rotate"></span>
+                </span>
+              </div>
+              <div class="best-pop-card-info">
+                <div class="best-pop-card-title">Valvoline Oil Stocklists</div>
+                <div class="best-pop-card-stars">*****</div>
+                <div class="best-pop-card-prices flex-row">
+                  <div class="best-pop-card-discounted-price">$106.58</div>
+                  <div class="best-pop-card-full-price">$202.87</div>
+                </div>
+              </div>
+              <div class="best-pop-buy">
+                <button class="btn dark-to-gold">Add to card</button>
+              </div>
+            </div>
+            <div class="best-pop-card flex-column">
+              <div class="best-pop-card-img">
+                <img src="assets/02-480x480.jpg" alt="" />
+                <span class="discount">-47%</span>
+                <span class="best-pop-card-actions flex-column">
+                  <span
+                    class="best-pop-quick-view fa-solid fa-magnifying-glass"
+                  >
+                  </span>
+                  <span
+                    class="best-pop-add-wishlist fa-regular fa-heart"
+                  ></span>
+                  <span class="best-pop-compare fa-solid fa-rotate"></span>
+                </span>
+              </div>
+              <div class="best-pop-card-info">
+                <div class="best-pop-card-title">Valvoline Oil Stocklists</div>
+                <div class="best-pop-card-stars">*****</div>
+                <div class="best-pop-card-prices flex-row">
+                  <div class="best-pop-card-discounted-price">$106.58</div>
+                  <div class="best-pop-card-full-price">$202.87</div>
+                </div>
+              </div>
+              <div class="best-pop-buy">
+                <button class="btn dark-to-gold">Add to card</button>
+              </div>
+            </div>
+            <div class="best-pop-card flex-column">
+              <div class="best-pop-card-img">
+                <img src="assets/23-480x480.jpg" alt="" />
+                <span class="discount">-47%</span>
+                <span class="best-pop-card-actions flex-column">
+                  <span
+                    class="best-pop-quick-view fa-solid fa-magnifying-glass"
+                  >
+                  </span>
+                  <span
+                    class="best-pop-add-wishlist fa-regular fa-heart"
+                  ></span>
+                  <span class="best-pop-compare fa-solid fa-rotate"></span>
+                </span>
+              </div>
+              <div class="best-pop-card-info">
+                <div class="best-pop-card-title">Valvoline Oil Stocklists</div>
+                <div class="best-pop-card-stars">*****</div>
+                <div class="best-pop-card-prices flex-row">
+                  <div class="best-pop-card-discounted-price">$106.58</div>
+                  <div class="best-pop-card-full-price">$202.87</div>
+                </div>
+              </div>
+              <div class="best-pop-buy">
+                <button class="btn dark-to-gold">Add to card</button>
+              </div>
+            </div>
+            <div class="best-pop-card flex-column">
+              <div class="best-pop-card-img">
+                <img src="assets/05-480x480.jpg" alt="" />
+                <span class="discount">-47%</span>
+                <span class="hot">HOT</span>
+                <span class="best-pop-card-actions flex-column">
+                  <span
+                    class="best-pop-quick-view fa-solid fa-magnifying-glass"
+                  >
+                  </span>
+                  <span
+                    class="best-pop-add-wishlist fa-regular fa-heart"
+                  ></span>
+                  <span class="best-pop-compare fa-solid fa-rotate"></span>
+                </span>
+              </div>
+              <div class="best-pop-card-info">
+                <div class="best-pop-card-title">Valvoline Oil Stocklists</div>
+                <div class="best-pop-card-stars">*****</div>
+                <div class="best-pop-card-prices flex-row">
+                  <div class="best-pop-card-discounted-price">$106.58</div>
+                  <div class="best-pop-card-full-price">$202.87</div>
+                </div>
+              </div>
+              <div class="best-pop-buy">
+                <button class="btn dark-to-gold">Add to card</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ege-banner flex-row">
+      <div class="ege-banner1">
+        <a class="ege-banner-link" href="#">
+          <div class="ege-banner1-img">
+            <div class="ege-banner-content flex-column">
+              <div class="ege-banner-txt">
+                <span class="ege-banner-large-txt"
+                  >Car & Truck <br />
+                  Exhaust Pipes</span
+                >
+                <br />
+                <span class="ege-banner-small-txt"
+                  >Exhaust Pipe - Now
+                  <span class="golden-txt">15%</span> Savings.</span
+                >
+              </div>
+              <button class="btn gold-to-white">Shop Now</button>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="ege-banner2">
+        <a class="ege-banner-link" href="#">
+          <div class="ege-banner2-img">
+            <div class="ege-banner-content flex-column">
+              <div class="ege-banner-txt">
+                <span class="ege-banner-large-txt"
+                  >Brakes and Rotors <br />
+                  for Sale</span
+                >
+                <br />
+                <span class="ege-banner-small-txt"
+                  >Take an Extra <span class="golden-txt">5%</span> Off Every
+                  Monday.</span
+                >
+              </div>
+              <button class="btn gold-to-white">Shop Now</button>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </body>
+</html>
