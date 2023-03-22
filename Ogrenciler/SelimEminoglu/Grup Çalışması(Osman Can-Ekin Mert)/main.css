@@ -1,0 +1,431 @@
+/*********************** Please use [camelCase] ****************************/
+
+/* font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.pointer {
+  cursor: pointer;
+}
+body {
+  padding-top: 60px;
+}
+.colorWhite {
+  color: white;
+}
+ul {
+  list-style-type: none;
+}
+.roboto-400 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+.roboto-600 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  /* Roboto doesn`t provide semibold(600) font size anymore.500 is same  */
+}
+.roboto-700 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+.poppins-600 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+.poppins-700 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+.colorBlue {
+  background-color: #1b7596;
+}
+.paragraphBlue {
+  color: #1b7596;
+}
+.textColorWhite {
+  color: white;
+}
+.textColorBlue {
+  color: #0076a3;
+}
+.textColorGray {
+  color: rgba(255, 255, 255, 0.3);
+}
+.lightGray {
+  background-color: #343f4b; /* Arkaplan ve birkac yerde */
+}
+.darkGray {
+  background-color: #303841; /* Arkaplan ve birkac yerde */
+}
+.margin-y-05 {
+  margin: 0.5em 0;
+}
+.margin-y-1 {
+  margin: 1em 0;
+}
+.wrap {
+  margin: 0 auto;
+  width: 75%;
+}
+.button {
+  background-image: linear-gradient(to right, #4495b5, #095471);
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  line-height: 19px;
+}
+.flex {
+  display: flex;
+}
+.textCenter {
+  text-align: center;
+}
+.alignCenter {
+  align-items: center;
+}
+/* Osman Can Kucuk */
+
+/************************* Navbar-Home ***************************/
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #343f4b;
+  z-index: 1;
+  transition: 500ms;
+}
+.mainPage {
+  height: 740px;
+}
+.navItem {
+  padding: 0 1.5em;
+  font-size: 12px;
+  line-height: 20px;
+}
+.navItem:hover {
+  color: white;
+}
+.navButton {
+  color: #3b434c;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 0.75em 2em;
+  cursor: pointer;
+}
+.navContainer {
+  padding: 1em 0;
+  display: flex;
+  justify-content: space-between;
+}
+.navList {
+  display: flex;
+}
+.homeSection {
+  padding-top: 3em;
+}
+.popupIcon {
+  display: none;
+}
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  gap: 1em;
+  margin-bottom: 5em;
+}
+.wrapPhone {
+  margin: 0 auto;
+  width: 80%;
+}
+.homeIcons {
+  position: absolute;
+  top: 22em;
+  left: 4.5em;
+}
+.homeListItem {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  color: rgba(184, 177, 177, 0.6);
+}
+.phoneSection {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-top: -2em;
+}
+.homePhone1 {
+  width: 216px;
+  height: 410px;
+  margin-top: 7em;
+}
+.homePhone2 {
+  width: 296px;
+  height: 650px;
+  margin-top: -1.5em;
+}
+/****************** SERVICES ***********************/
+.servicesSection {
+  padding: 3em 0 6em 0;
+}
+.servicesContent {
+  padding-top: 7em;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+.servicesList {
+  margin-top: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.serviceListItem {
+  border-radius: 10px;
+  padding: 1em;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.serviceListItem:hover {
+  background-color: #343f4b;
+}
+.serviceBombItem {
+  background-image: url("https://themesdesign.in/styza/layout/images/service/bomb.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2.5em;
+}
+/*************************** FOOTER ***********************/
+.footerListSection {
+  padding: 4em 0 6em 0;
+}
+.footerFlex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: space-between;
+}
+.footerItemsFontSize {
+  font-size: 15px !important;
+  line-height: 24px !important;
+}
+
+.exteriorElement {
+  flex-basis: 30%;
+}
+.footerInput {
+  padding: 1.5em 1em;
+  width: 70%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+  margin-right: -4px;
+}
+.footerButton {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  padding: 1.5em 2em;
+}
+.footerIconsFlex {
+  display: flex;
+  gap: 1em;
+}
+.footerIcons {
+  padding: 0.75em;
+  border: 1px dashed rgba(0, 118, 163, 0.15);
+}
+.footerBottom {
+  text-align: center;
+  padding: 1.5em 0;
+}
+
+/* Selim Eminoğlu--Features */
+
+.featuresSection {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.appTechText {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.featuresText {
+  flex-flow: column wrap;
+}
+
+.featureForText {
+  font-size: 40px;
+  line-height: 56px;
+  margin-top: 0px;
+  margin-bottom: 0.5rem;
+}
+
+.featureParagraf {
+  font-size: 15px;
+  line-height: 25px;
+  text-align: center;
+  width: 55%;
+  max-width: 650px;
+  margin-top: 0px;
+}
+
+.featureButtons {
+  justify-content: center;
+  margin-top: 3rem;
+  padding-top: 1rem;
+}
+
+.featureButtonList {
+  flex-flow: row wrap;
+}
+
+.topButton {
+  border: 1px solid #0076a3;
+  background: linear-gradient(#2e8da5 0%, #114d64 100%);
+  color: #fff;
+  margin: 0 20px;
+  padding: 10px 30px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 0.25rem;
+}
+
+.topButton:hover {
+  cursor: pointer;
+}
+
+.smartButton {
+  margin: 0 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: 0 0;
+  padding: 10px 30px;
+  color: #fff;
+  border-radius: 0.25rem;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.smartButton:hover {
+  cursor: pointer;
+}
+
+.featureThirdSection {
+  border: 3px solid black;
+  margin: 1.5rem 12px;
+}
+
+.firstColumn {
+  height: 100%;
+  margin: 24px 0 0;
+  padding: 8px 12px 0;
+}
+
+.thirdColumn {
+  height: 100%;
+  margin: 24px 0 0;
+  padding: 8px 12px 0;
+}
+
+.firsFirstCard {
+  margin-top: 1.5rem;
+}
+
+.firsHeadline {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.firsFirstText {
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.firstİcon {
+  background-color: rgba(0, 118, 163, 0.1);
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.material-symbols-outlined {
+  display: inline-block;
+  font: normal normal normal "Material Design Icons";
+  font-size: inherit;
+  text-rendering: auto;
+  line-height: auto;
+}
+
+@media screen and (max-width: 960px) {
+  .homeIcons {
+    display: none;
+  }
+
+  .phoneSection {
+    display: block;
+    margin-top: -7em;
+  }
+  .wrapPhone {
+    margin: 0 auto;
+    width: 95%;
+  }
+  .homePhone1 {
+    width: 100%;
+    height: 700px;
+    margin-top: 3em;
+  }
+  .homePhone2 {
+    width: 100%;
+    margin-bottom: -4em;
+    height: 994px;
+  }
+  .mainPage {
+    height: 100%;
+  }
+  .sectionContent h1 {
+    font-size: 36px !important;
+    line-height: 43px;
+  }
+  .navListSectionItem {
+    display: none;
+  }
+  .navButtonItem {
+    display: none;
+  }
+  .popupIcon {
+    display: block;
+    color: white;
+  }
+  .servicesContent {
+    width: 100%;
+  }
+  .wrap {
+    width: 90%;
+  }
+  .serviceListItem {
+    width: 100%;
+  }
+  .footerFlex {
+    display: block;
+    width: 100%;
+  }
+  .exteriorElement {
+    margin-bottom: 1.5em;
+  }
+  .insideElement {
+    margin-bottom: 1.5em;
+  }
+}
