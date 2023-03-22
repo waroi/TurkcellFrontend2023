@@ -390,9 +390,19 @@ input:checked ~ nav .navbar-toggler {
   color: #ffffff;
 }
 .buttonW {
+  background-image: linear-gradient(
+    to right,
+    #314755 0%,
+    #26a0da 51%,
+    #314755 100%
+  );
+  border: none;
+  padding: 12px 30px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
   color: white;
   font-weight: bold;
-  margin-left: 0;
 }
 .caricature {
   position: relative;
@@ -580,5 +590,26 @@ input:checked ~ nav .navbar-toggler {
   .elementMiddle {
     width: 100%;
     margin: 0;
+  }
+  .clientElement {
+    flex-direction: column;
+  }
+  .sliderIn {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  .client-left {
+    width: 80%;
+    margin-left: 0px;
+  }
+
+  .buttonW {
+    display: block !important;
+  }
+  .CSSgal {
+    flex-direction: column;
+  }
+  .avatarCard {
+    width: 100%;
   }
 }

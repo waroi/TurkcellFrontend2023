@@ -101,6 +101,15 @@
     margin: 0 auto;
 }
 
+.header-main {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: white;
+    z-index: 2;
+
+}
+
 .deal {
     border: 1px solid rgb(35, 63, 146);
     font-size: 15px;
@@ -212,9 +221,37 @@
 
 }
 
+.hover-box {
+    display: none;
+    width: 100vw;
+}
+
+.hover-content-wrap {
+    margin: 0 auto;
+    margin-left: -331px;
+    width: 100vw;
+    list-style-type: none;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    background: white;
+    height: 20rem;
+
+}
+
 .menu-list-item:hover * {
     color: rgb(255, 185, 31);
     cursor: pointer;
+}
+
+.menu-list-item {
+    position: relative;
+}
+
+.menu-list-item:hover .hover-box {
+    display: block;
+    position: absolute;
 }
 
 .banner {
@@ -609,13 +646,32 @@
 
 }
 
-.header-main {
-    position: fixed;
-    width: 100%;
-    background: white;
-    z-index: 2;
 
+
+.hover-content-element {
+    font-size: 24px;
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg,
+            #231557 0%,
+            #44107a 29%,
+            #ff1361 67%,
+            #fff800 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 5s linear infinite;
 }
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
 
 /* Media Queries */
 
