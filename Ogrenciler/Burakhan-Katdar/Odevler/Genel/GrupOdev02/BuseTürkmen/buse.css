@@ -12,7 +12,7 @@ features{
 }
 
 .features-conteiner{
-    width: 1100px;
+    max-width: 1100px;
 }
 
 .app h2{
@@ -26,7 +26,9 @@ features{
 }
 
 .app p{
-    color: rgba(255, 255, 255, .3);c
+    color: rgba(255, 255, 255, .3);
+    font-size: 15px;
+    font-family: "roboto", sans-serif;
 }
 
 .app{
@@ -44,15 +46,12 @@ features{
     flex-direction: column
 }
 
-ul.features-buttons {
-    list-style-type: none;
-    padding-left: 0;
-    }
-
-ul.features-buttons {
+.featureBtn {
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    margin-left: 440px;
+    margin-bottom: 80px;
+    gap: 50px;
+    margin-right: 80px;
 }
 
 li {
@@ -80,9 +79,14 @@ button.top-btn {;
 .apptab-content{
     width: 1100px;
     display: flex;
-    height: 100px;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 70px;
+}
+
+::before {
+    color: #0076a3;
+    background-color: rgba(0,118,163,.1) !important;
 }
 
 h4, h5, h6 {
@@ -91,16 +95,24 @@ h4, h5, h6 {
     line-height: 1.4;
 }
 
-.h5, h5 {
+.h5 {
     font-size: 1.25rem;
+    font-family: "poppins", sans-serif;
 }
 
 .tab-content p {
     color: rgba(255, 255, 255, .3);
+    font-size: 14px;
+    font-family: "roboto", sans-serif;
 }
 
 .left-content>h5{
     color: white
+}
+
+.right-content {
+    text-align: left;
+    margin-left: 0px;
 }
 
 .img-content {
@@ -109,6 +121,10 @@ h4, h5, h6 {
 
 img.imgphone {
     width: 100%;
+}
+
+img.phone-feat {
+    width: 350px;
 }
 
 .left-content {
@@ -124,24 +140,33 @@ img.phone-feat2 {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 200px;
+    margin-left: 80px;
+    margin-bottom: 100px;
 }
 
 .features2-content {
-    margin-top: 750px;
     width: 1100px;
     padding: 30px;
     display: flex;
     flex-direction: row;
+    align-items: center
 }
-
 
 .align-items-center {
     align-items: center!important;
 }
 
-.follow{
-    display: flex;
-    flex-direction: row;
+button.follow {
+    background: linear-gradient(80deg, #46a5bd 0%, #116a8d 100%);
+    border: none !important;
+    color: #fff !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100px;
+    height: 35px;
 }
 
 .buildapp-content {
@@ -191,8 +216,117 @@ button.followbtn {
     padding-right: 15px;
 }
 
-
-
 .Client {
     width: 200px;
 }
+
+.title.text-center {
+    width: 1100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center !important;
+}
+
+h6.title1 {
+    color: #0076a3;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+h2.title2 {
+    color: white;
+    margin-top: 0;
+    margin: bottom 0;
+}
+
+p.text-pravity {
+    color: rgba(255, 255, 255, .3);
+}
+
+.cantainer {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h3.title.Testimonial {
+    color: white;
+    font-size: 28px;
+    font-family: poppins, sans-serif;
+    margin: 0px 0px 8px;
+    color: white;
+}
+
+p.Testimonial {
+    color: rgba(255, 255, 255, .3);
+    font-family: "roboto", sans-serif;
+    font-size: 15px;
+    line-height: 25px;
+    padding: 9px 0;
+    margin: 20px 0 16px;
+    max-width: 500px;
+    margin: auto;
+}
+
+
+h5.title.Testimonial {
+    color: white;
+    margin-left: 0;
+}
+
+h1, h2, h3 {
+    font-family: "Poppins",sans-serif;
+    font-weight: 700 !important;
+    line-height: 1.4;
+}
+
+.price-text-center {
+    align-items: center!important;
+}
+
+.basic {
+    padding-top: 0.5rem !important;
+    margin-top: 1.5rem !important;
+}
+
+.basic.box {
+    border-radius: 10px;
+}
+
+.basic.box.up {
+    background-color: #183b56;
+    padding: 1.5rem !important;
+}
+
+.minibox.basic {
+    background-color: #0076a3 !important;
+}
+
+p.basic2 {
+    color: rgba(255,255,255,.3) !important;
+}
+
+.basic.down.box {
+    padding: 1.5rem !important;
+}
+
+ul.basic-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.text-success {
+    color: #1d9b7b;
+    font-size: 20px;
+}
+
+.text-danger {
+    color: #da3746;
+}
+
+.section.pricing{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
