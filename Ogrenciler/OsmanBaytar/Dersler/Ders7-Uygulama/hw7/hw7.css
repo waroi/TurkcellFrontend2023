@@ -222,6 +222,12 @@ div.nav-third{
     align-items: center;
 }
 
+@media screen and (max-width:767px) {
+    div.nav-third{
+        display: none;
+    }
+}
+
 div.nav-third-inside{
     display: flex;
     flex-direction: row;
@@ -265,6 +271,7 @@ div.nav-third-inside-second{
     width: auto;
     max-width: 280px;
     padding: 12px 40px;
+    padding-bottom: 9px;
 }
 
 i.fa-headphones{
@@ -293,6 +300,15 @@ div.nav-third-inside-second-second-second{
 
 div.nav-third-inside-second-second-second:hover{
     cursor: pointer;
+}
+
+@media screen and (max-width:1279px) {
+    div.nav-second-third{
+        display: none;
+    }
+    div.nav-third-inside-second{
+        display: none;
+    }
 }
 
 div.nav-subpart-home{
@@ -331,13 +347,15 @@ div.nav-subpart-home-inside-divs-p{
 }
 
 div.nav-subpart-pages{
-    z-index: 1;
+    display: none;
+    z-index: 2;
     box-shadow: 0px -3px 10px 0px rgba(0, 0, 0, 0.15);
     cursor: pointer;
 }
 
 div.nav-subpart-pages-inside{
     max-width: 1284px;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -382,4 +400,296 @@ li.nav-subpart-pages-inside-divs-div-ul-li{
 
 li.nav-subpart-pages-inside-divs-div-ul-li:hover{
     color: var(--e-global-color-primary)    ;
+}
+
+div.nav-subpart-serviceparts{
+    display: none;
+    z-index: 3;
+    box-shadow: 0px -3px 10px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+div.nav-subpart-serviceparts-inside{
+    max-width: 1284px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 48px;
+    padding-bottom: 30px;
+}
+
+div.nav-subpart-serviceparts-inside-divs{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: auto;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+div.nav-subpart-serviceparts-inside-divs-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+/* div.nav-subpart-serviceparts-inside-divs-div-divs{
+    border: 1px solid black;
+} */
+
+img.nav-subpart-serviceparts-inside-divs-div-divs-img{
+    width: auto;
+    height: auto;
+    /* border-radius: 15px; */
+}
+
+p.nav-subpart-serviceparts-inside-divs-div-divs-p{
+    text-align: center;
+    padding-top: 10px;
+}
+
+div.nav-subpart-carbatteries-inside-divs{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+div.nav-subpart-carbatteries-inside-divs-img{
+    min-height: 220px;
+    border-radius: 2px;
+    transition: transform 500ms;
+    height: auto;
+    width: 100%;
+    max-width: 625px;
+    border: none;
+    background-image: url("https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/mega-banner.jpg");
+    background-size: cover;
+}
+
+div.nav-subpart-carbatteries-inside-divs-img:hover{
+    transform: scale(1.12)
+}
+
+div.nav-subpart-carbatteries-inside-divs-img-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 400px;
+}
+
+h2.nav-subpart-carbatteries-inside-divs-img-div-h2{
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+div.nav-subpart-carbatteries-inside-divs-img-div-div{
+    color: #fff;
+    margin-bottom: 23px;
+    line-height: 1.2;
+}
+
+span.nav-subpart-carbatteries-inside-divs-img-div-div-span{
+    color: var(--e-global-color-primary);
+}
+
+p.nav-subpart-carbatteries-inside-divs-img-div-p{
+    color: var(--e-global-color-primary);
+}
+
+div.nav-subpart-carbatteries-inside-divs-img:hover p.nav-subpart-carbatteries-inside-divs-img-div-p{
+    color: #FFF;
+}
+
+div#nav-subpart-brake{
+    z-index: 4;
+}
+
+div#nav-subpart-carbatteries{
+    z-index: 5;
+}
+
+div.first-part{
+    width: 100%;
+    height: 100%;
+    background-image: url("https://c1.wallpaperflare.com/preview/127/109/269/mercedes-benz-mercedes-wheels-rims.jpg");
+    background-size: cover; 
+    opacity: 0.9;
+}
+
+div.first-part-inside{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    margin: auto;
+    gap: 120px;
+    padding: 142px 0;
+}
+
+div.first-part-inside-first{
+    background-color: rgba(255,255,255,1);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    line-height: 20px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 38px 32px 40px;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+}
+
+form.first-part-inside-first-form{
+    display: flex;
+    flex-direction: column;
+}
+
+h2.first-part-inside-first-h2{
+    text-align: left;
+    line-height: 25px;
+    letter-spacing: 0px;
+    font-weight: 700;
+    margin-bottom: 38px;
+    font-size: 24px;
+}
+
+select.first-part-inside-first-form-select{
+    text-align: left;
+    line-height: 25px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    border-color: rgb(203, 203, 203);
+    border-style: solid;
+    border-width: 1px;
+    padding: 12px 30px 12px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    color: rgba(132,132,132,1);
+    background-color: rgba(255,255,255,1);
+}
+
+option.first-part-inside-first-form-select-option{
+    text-align: left;
+    line-height: 25px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    padding: 5px 8px;
+}
+
+input.first-part-inside-first-form-input{
+    text-align: left;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font-weight: 600;
+    border-color: rgb(255, 185, 31);
+    border-style: solid;
+    border-width: 1px;
+    padding: 11px 19px;
+    border-radius: 42px;
+    margin-top: 24px;
+    background: rgba(255,185,31,1);
+    color: rgba(32,32,32,1);
+    width: 115px;
+    text-align: center;
+    transition: 350ms ease 0s;
+    margin: auto;
+    margin-top: 25px;
+}
+
+input.first-part-inside-first-form-input:hover{
+    color: rgba(255,185,31,1);
+    background: rgba(32,32,32,1);
+    border-color: rgba(32,32,32,1);
+    cursor: pointer;
+}
+
+div.first-part-inside-second{
+    text-align: left;
+    line-height: 0px;
+    white-space: normal;
+    max-width: 714px;
+    width: auto;
+    height: auto;
+}
+
+div.first-part-inside-second:hover{
+    cursor: default;
+}
+
+div.first-part-inside-second-first{
+    font-family: "Outfit";
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    text-align: left;
+    line-height: 23px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 17px;
+    opacity: 1;
+    margin-bottom: 10px;
+}
+
+div.first-part-inside-second-second{
+    font-family: "Outfit";
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    text-align: left;
+    line-height: 77px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 68px;
+    opacity: 1;
+    
+}
+
+div.first-part-inside-second-third{
+    font-family: "Outfit";
+    color: rgb(255, 255, 255);
+    white-space: wrap;
+    text-align: left;
+    line-height: 23px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-size: 17px;
+    opacity: 1;
+    margin: 20px 0;
+    max-width: 518px;
+}
+
+div.first-part-inside-second-fourth{
+    background-color: rgb(255, 255, 255);
+    font-family: "Outfit";
+    color: rgb(32, 32, 32);
+    white-space: nowrap;
+    text-align: center;
+    line-height: 14px;
+    letter-spacing: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 17px 39px;
+    border-radius: 40px;
+    border-width: 0px;
+    width: 100%;
+    max-width: 150px;
+    margin: 40px 0;
+}
+
+div.first-part-inside-second-fourth:hover{
+    background-color: var(--e-global-color-primary);
+    cursor: pointer;
 }
