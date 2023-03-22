@@ -1,4 +1,5 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -7,7 +8,6 @@
   font-size: 16px;
   font-family: "Roboto", sans-serif;
 }
-
 html {
   scroll-behavior: smooth;
 }
@@ -27,6 +27,7 @@ li {
 }
 
 .container {
+  position: relative;
   max-width: 1140px;
   margin: auto;
   padding: 0 50px;
@@ -151,7 +152,7 @@ nav {
   align-items: center;
 }
 
-.linkItem>a {
+.linkItem > a {
   color: rgba(255, 255, 255, 0.5);
   padding: 28px 25px;
   font-size: 0.8rem;
@@ -200,11 +201,11 @@ nav {
   color: #fff;
 }
 
-.social-media>a {
+.social-media > a {
   transition: transform 0.5s ease;
 }
 
-.social-media>a:hover {
+.social-media > a:hover {
   transform: scale(1.2);
   transition: transform 0.5s ease;
 }
@@ -239,12 +240,12 @@ nav {
   margin-top: 100px;
 }
 
-.heroWrap>img {
+.heroWrap > img {
   width: 30px;
   height: auto;
 }
 
-.heroWrap>h2 {
+.heroWrap > h2 {
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
@@ -264,7 +265,7 @@ nav {
   flex-wrap: wrap;
 }
 
-.mockupWrap>div {
+.mockupWrap > div {
   position: relative;
 }
 
@@ -285,24 +286,20 @@ nav {
   position: absolute;
   left: 136px;
   top: 50%;
+
   width: 72px;
   height: 72px;
   border-radius: 50%;
   z-index: 999;
   background-color: #0076a3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .pt-250 {
   padding-top: 250px;
 }
-
 .pt-200 {
   padding-top: 200px;
 }
-
 .py-50 {
   padding: 50px 0;
 }
@@ -318,7 +315,6 @@ nav {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   margin-bottom: 100px;
 }
-
 .service-box:hover {
   background-color: #343f4b;
   transition: 0.3s ease;
@@ -329,15 +325,7 @@ nav {
   background-repeat: no-repeat;
   background-position: center;
   padding: 1.5rem;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.service-icon> i{
-  padding-top: 1rem;
-  color: #0076a3
+  height: 45px; /* Düzelt */
 }
 
 .service-content {
@@ -403,8 +391,7 @@ nav {
   gap: 5px;
   align-items: end;
 }
-
-.features-image>img {
+.features-image > img {
   max-height: 771px;
 }
 
@@ -415,7 +402,6 @@ nav {
 .text-align-end {
   text-align: end;
 }
-
 .text-align-start {
   text-align: start;
 }
@@ -430,6 +416,134 @@ nav {
   color: #0076a3;
   border-radius: 50%;
 }
-.playButton> i{
+
+.cta {
+  background-image: url(assets/cta-bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 120px 0;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #343f4b;
+  transform: matrix(1, -0.05, 0, 1, 0, 0);
+  z-index: 1;
+}
+
+.cta::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #303841;
+  -ms-transform: matrix(1, -0.05, 0, 1, 0, 0);
+  -webkit-transform: matrix(1, -0.05, 0, 1, 0, 0);
+  transform: matrix(1, -0.05, 0, 1, 0, 0);
+}
+
+.bg-overlay-gradient {
+  background: linear-gradient(80deg, #377d8f 0%, #0a4157 100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+.cta .titleWrap {
+  flex: 0 0 auto;
+  width: 50%;
+  text-align: start;
+  gap: 2rem;
+}
+
+.cta .titleWrap p {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: start;
+}
+
+.cta .titleWrap h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 3.5rem;
+  line-height: 1.2;
+}
+
+.cta-image {
+  flex: 0 0 auto;
+  width: 50%;
+  position: relative;
+}
+
+.cta-phone-image {
+  position: absolute;
+  z-index: 999;
+  top: -50%;
+}
+.store-logos {
+  align-self: self-start;
+}
+
+.team {
+  position: relative;
+  padding: 120px 0;
+}
+
+.team-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+}
+
+.team-card {
+  display: flex;
+  position: relative;
+  padding-top: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: row;
+  transform: rotate(270deg);
+  width: 100%;
+}
+
+.team-info > * {
+  display: flex;
+}
+
+.team-info h6 {
   color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  line-height: 1.4;
+  font-size: 1rem;
+}
+
+.team-icons {
+  display: flex;
+}
+
+.social-icon {
+  margin: 0 0.5rem;
+}
+
+.team-image img {
+  border-radius: 10px;
+}
+
+.pricing {
+  padding: 120px 0;
 }

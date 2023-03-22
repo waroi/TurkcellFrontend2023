@@ -163,10 +163,26 @@ input:checked ~ nav .navbar-toggler {
   display: flex;
   justify-content: center;
 }
+.socialIcons {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 8%;
+  bottom: 20%;
+  color: #fff;
+}
+
+.socialIcons > a {
+  transition: transform 0.5s ease;
+}
+
+.socialIcons > a:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s ease;
+}
 
 .homeTitle {
   padding: 65px 30px;
-  /* padding-top: 50px; */
   margin: 0 auto;
   max-width: 736px;
   text-align: center;
@@ -259,143 +275,6 @@ input:checked ~ nav .navbar-toggler {
   flex-wrap: wrap;
   margin: -1.5rem, -0.75rem, -0, 75rem, 0;
 }
-/*Client*/
-
-.client {
-  display: flex;
-  justify-content: center;
-  background-color: #303841;
-}
-.clientElement {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.client-left {
-  width: 33%;
-  margin: 50px 50px;
-  justify-content: center;
-}
-.client-right {
-  width: 66%;
-  margin: 50px 0px;
-}
-.text28 {
-  font-size: 28px;
-  font-family: "poppins", sans-serif;
-  margin: 0 0 8px;
-  color: white;
-}
-.cli-title {
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  color: #ffffff4d;
-}
-.sliderPhoto {
-  width: 230px;
-}
-.sliderIn {
-  display: flex;
-  padding-left: 20px;
-}
-.CSSgal {
-  position: relative;
-  overflow: hidden;
-  color: #fff;
-  text-align: center;
-  height: 100%; /* Or set a fixed height */
-}
-
-.CSSgal .slider {
-  height: 100%;
-  white-space: nowrap;
-  font-size: 0;
-  transition: 0.8s;
-}
-/* SLIDES */
-
-.CSSgal .slider > * {
-  display: inline-flex;
-  white-space: normal;
-}
-.CSSgal .bullets > a {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  line-height: 30px;
-  text-decoration: none;
-  text-align: center;
-  background: rgba(255, 255, 255, 1);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.CSSgal > s:target ~ .bullets > * {
-  background: #2b4656;
-}
-#s1:target ~ .bullets > *:nth-child(1) {
-  background: #0076a3;
-}
-#s2:target ~ .bullets > *:nth-child(2) {
-  background: #0076a3;
-}
-#s3:target ~ .bullets > *:nth-child(3) {
-  background: #0076a3;
-}
-#s4:target ~ .bullets > *:nth-child(4) {
-  background: #0076a3;
-}
-.CSSgal > s:target ~ .prevNext > * {
-  visibility: hidden;
-}
-
-#s1:target ~ .slider {
-  transform: translateX(0%);
-  -webkit-transform: translateX(0%);
-}
-#s2:target ~ .slider {
-  transform: translateX(-100%);
-  -webkit-transform: translateX(-100%);
-}
-#s3:target ~ .slider {
-  transform: translateX(-200%);
-  -webkit-transform: translateX(-200%);
-}
-/*Avatar Card*/
-.avatarCard {
-  display: block;
-  text-align: initial;
-  width: 60%;
-}
-.avatarProfil,
-.profilContent {
-  margin: 50px 50px;
-}
-.avatar {
-  border-radius: 50%;
-}
-.profilDate {
-  margin-left: 10px;
-  font-size: 14px;
-  color: #ffffff80;
-  font-family: "Roboto" sans-serif;
-}
-.avatarProfil {
-  display: flex;
-}
-.profilTitle {
-  font-size: 20px;
-  color: #ffffff;
-}
-.buttonW {
-  color: white;
-  font-weight: bold;
-  margin-left: 0 !important;
-}
-
-/*End Client Testimonial*/
-
 @media screen and (min-width: 450px) {
   .image-1 {
     flex: 0 0 auto;
@@ -421,9 +300,14 @@ input:checked ~ nav .navbar-toggler {
 }
 .watch-video {
   position: absolute;
-  top: 50%;
+  width: 72px;
+  height: 72px;
+  top: 90%;
   transform: translate(-50%, -50%);
   left: 50%;
+  border-radius: 50%;
+  z-index: 999;
+  background-color: #0076a3;
 }
 /*FEATURE SECTIONS*/
 .featureSection {
