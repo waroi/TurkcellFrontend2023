@@ -402,11 +402,21 @@ ul {
   padding-bottom: 120px;
 }
 
+.whatLeftPart {
+  width: 70%;
+  padding: 0 12px;
+}
+
+.slideArea {
+  height: auto;
+  padding: 0 12px;
+}
+
 .whatTheyParagraf {
   font-size: 15px;
   line-height: 25px;
   text-align: left;
-  width: 33%;
+  width: 100%;
   max-width: 650px;
   margin-top: 0px;
 }
@@ -423,10 +433,79 @@ ul {
   font-size: 13px;
   line-height: 20px;
   margin: 24px 0 0;
-  padding: 12px 30px;
-  width: 30%;
+  padding: 12px 15px;
+  width: 80%;
   justify-content: center;
   border-radius: 0.5rem;
+}
+
+.sliderİmage {
+  padding: 0.5rem;
+  width: 60%;
+}
+
+.sliderProfile {
+  padding: 0.5rem;
+  flex-direction: column;
+}
+
+.grayMiniText {
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0.5rem;
+}
+
+.proText {
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.profileHeadline {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.profilePhoto {
+  border-radius: 50%;
+  height: 100%;
+}
+
+.profTextAndİmage {
+  height: 25%;
+}
+
+.profileParagraf {
+  margin-top: 0.5rem;
+  height: 50%;
+}
+
+.profileParagGray {
+  margin-top: 0.5rem;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.buttonAndİmage {
+  justify-content: space-between;
+}
+
+.profileButton {
+  background: linear-gradient(80deg, #46a5bd 0%, #116a8d 100%);
+  border: none;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 10px 0 0;
+  padding: 8px 10px;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.girlİmage {
+  width: 100px;
+  height: 100px;
+  text-align: right;
 }
 
 /* What they think Sonu */
@@ -437,7 +516,7 @@ ul {
 }
 
 .plans {
-  flex-direction: row;
+  flex-flow: row nowrap;
   justify-content: space-between;
   gap: 10px;
 }
@@ -451,6 +530,7 @@ ul {
   padding: 24px;
   background-color: #183b56;
   border-radius: 0.5rem;
+  box-shadow: 0.5px 1px black;
 }
 
 .firstPlanBottom {
@@ -526,6 +606,7 @@ ul {
   padding: 24px;
   background-color: rgba(0, 118, 163, 0.2);
   border-radius: 0.5rem;
+  box-shadow: 0.5px 1px black;
 }
 
 .border3px {
@@ -581,6 +662,20 @@ ul {
   padding-top: 120px;
   padding-bottom: 120px;
 }
+
+.imageGallery {
+  margin-top: 3rem;
+  padding-top: 0.5rem;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.galleryİtem {
+  width: 147.2px;
+  height: 273.3px;
+  border-radius: 20px;
+}
+
 /* Application Sonu */
 
 @media screen and (max-width: 960px) {
@@ -641,5 +736,59 @@ ul {
   }
   .insideElement {
     margin-bottom: 1.5em;
+  }
+  /* Responsive--Selim Eminoğlu */
+  .featureThirdSection {
+    flex-direction: column;
+  }
+  .firsFirstCard {
+    text-align: left;
+  }
+  .firstİcon {
+    margin-left: 0px;
+  }
+  .whatTheyFlex {
+    flex-direction: column;
+  }
+  .whatButton {
+    width: 50%;
+  }
+  .sliderİmage {
+    width: 40%;
+  }
+  .sliderProfile {
+    width: 40%;
+  }
+  .plans {
+    flex-direction: column;
+  }
+}
+/* Responsive--Selim Eminoğlu--Samsung Galaxy S20 Ultra*/
+@media screen and (max-width: 412px) {
+  .featureForText {
+    text-align: center;
+  }
+  .featureButtonList {
+    justify-content: center;
+  }
+  .whatLeftPart {
+    width: 100%;
+  }
+  .sliderArea {
+    flex-direction: column;
+  }
+  .sliderİmage {
+    width: auto;
+  }
+  .sliderProfile {
+    width: auto;
+  }
+  .imageGallery {
+    flex-direction: column;
+    gap: 100px;
+  }
+  .galleryİtem {
+    width: 100%;
+    height: auto;
   }
 }
