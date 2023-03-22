@@ -80,6 +80,7 @@ section {
   color: #fff !important;
   display: flex;
   gap: 5px;
+  margin-top: 1rem;
   align-items: center;
 }
 
@@ -582,8 +583,151 @@ nav {
   padding: 120px 0;
 }
 
+.testimonial-bg-image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
 .testimonial .titleWrap {
-  width: 33%;
+  width: 45%;
+  align-items: self-start;
+  text-align: start;
+}
+.testimonial .titleWrap h3 {
+  font-size: 1.75rem;
+}
+
+.testimonial .titleWrap p {
+  text-align: start;
+}
+
+.testimonial-content {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.testimonial-content h5 {
+  font-size: 1.5rem;
+}
+
+.testimonial-content p {
+  text-align: start;
+}
+
+.content-text {
+  width: 80%;
+}
+
+.content-title {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.testimonial-card .row {
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.testimonial-image img {
+  height: 350px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.avatar img {
+  border-radius: 50%;
+}
+
+.price-item {
+  border-radius: 10px;
+  transition: all 0.5s;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.active {
+  background-color: #183b56 !important;
+}
+
+.price-topbar {
+  background-color: #0076a3;
+  border-top-right-radius: 10px;
+  text-align: center;
+  border-top-left-radius: 10px;
+  padding: 0.5rem 0 !important;
+}
+
+.price-item > * {
+  padding: 1.5rem;
+}
+
+.price-up-box {
+  background-color: rgba(0, 118, 163, 0.2);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom: 3px solid #fff;
+}
+
+.price-up-box p {
+  text-align: start;
+}
+
+.price-down-list {
+  margin-bottom: 1rem;
+}
+
+.price-down-list li {
+  margin-bottom: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.price-btn {
+  margin-top: 2rem;
+  border: 1px solid #0076a3;
+  color: #fff;
+  background-color: #0076a3;
+}
+
+.price-active-btn {
+  margin-top: 2rem;
+  border: 1px solid #0076a3;
+  color: #0076a3;
+}
+
+.price-active-btn img {
+  display: inline;
+  margin-right: 1rem;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #0076a3;
+  font-size: 0.87rem;
+  padding: 0.35rem 0.65rem;
+  line-height: 1;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.price-tag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dollar {
+  align-self: flex-start;
+  font-size: 1.37rem;
+}
+
+.month {
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 1020px) {
@@ -668,6 +812,18 @@ nav {
     flex-wrap: wrap;
   }
 
+  .team-card {
+    justify-content: flex-end;
+  }
+
+  .team-detail {
+    width: 80%;
+  }
+
+  .team-info {
+    left: -41px;
+  }
+
   .screenshots > * {
     display: none;
   }
@@ -697,5 +853,52 @@ nav {
 
   #service .row {
     flex-wrap: wrap;
+  }
+
+  .testimonial .row {
+    flex-wrap: wrap;
+  }
+
+  .testimonial .titleWrap {
+    width: 100%;
+  }
+
+  .testimonial-image img {
+    height: auto;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 0;
+  }
+
+  .testimonial-content {
+    width: 100%;
+  }
+
+  .content-text {
+    width: 100%;
+  }
+
+  .testimonial-content h5 {
+    font-size: 1.25rem;
+  }
+
+  .testimonial-bg-image {
+    right: 10px;
+  }
+
+  .testimonial-bg-image img {
+    width: 80%;
+  }
+
+  .pricing .row {
+    flex-wrap: wrap;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .social-media {
+    display: none;
   }
 }
