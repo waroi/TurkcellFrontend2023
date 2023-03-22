@@ -163,33 +163,30 @@ input:checked ~ nav .navbar-toggler {
   display: flex;
   justify-content: center;
 }
-@media screen and (min-width:450px) {.socialIcons {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  left: 8%;
-  bottom: 20%;
-  color: #fff;
-}
+@media screen and (min-width: 450px) {
+  .socialIcons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 8%;
+    bottom: 20%;
+    color: #fff;
+  }
 
-.socialIcons > a {
-  transition: transform 0.5s ease;
-}
+  .socialIcons > a {
+    transition: transform 0.5s ease;
+  }
 
-.socialIcons > a:hover {
-  transform: scale(1.2);
-  transition: transform 0.5s ease;
+  .socialIcons > a:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+  }
 }
-
-  
+@media screen and (max-width: 450px) {
+  .socialIcons {
+    display: none;
+  }
 }
-@media screen and (max-width:450px){
-  .socialIcons{
-  display: none;
-}
-}
-
-
 
 .homeTitle {
   padding: 65px 30px;
@@ -461,4 +458,48 @@ input:checked ~ nav .navbar-toggler {
     width: 100%;
     margin: 0;
   }
+}
+.freamPhone {
+  display: flex;
+  z-index: 9;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  position: absolute;
+  margin-top: -20px;
+}
+.freame {
+  max-width: 230px;
+  height: auto;
+}
+.slıderImage {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  z-index: 1;
+}
+.slıderImage > img {
+  margin-right: 50px;
+  width: 183.2px;
+  border-radius: 20px;
+  height: 100%;
+}
+@media screen and (max-width: 450px) {
+  .slıderImage {
+    flex-direction: column;
+    position: relative;
+    left: 30%;
+  }
+  .slıderImage > img {
+    margin-bottom: 30px;
+  }
+}
+
+
+.teamBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
