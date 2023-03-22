@@ -1,0 +1,455 @@
+.topPictures {
+  display: flex;
+  flex-direction: row;
+}
+.pictureCard {
+  background-image: url("https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/banner-1.jpg");
+  background-repeat: no-repeat;
+  height: 380px;
+  background-position: center;
+  background-size: cover;
+  width: calc(100% + 2px);
+  margin: 0 15px 0 0;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.pictureCard:hover,
+.topPictures button:hover {
+  background-color: #FFFFFF;
+  color: #FFB91F;
+  transition: all .3s ease-in-out;
+}
+
+.pictureCard2 {
+  background-image: url("https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/banner-2.jpg");
+  background-repeat: no-repeat;
+  height: 380px;
+  background-position: center;
+  background-size: cover;
+  width: calc(100% + 2px);
+  margin: 0 0 0 15px;
+  cursor: pointer;
+}
+
+.pictureCard:hover,
+.pictureCard2:hover {
+  transition: all 0.5s ease-in-out;
+}
+
+.pictureInfo {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  color: #FFFFFF;
+  height: 320px;
+}
+
+.pictureInfo h2 {
+  font-size: 48px;
+  letter-spacing: 0.75px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.pictureInfo p {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.pictureSpan {
+  color: #FFD700;
+}
+
+.topPictures button {
+  background-color: #ffb91f;
+  border-color: #ffb91f;
+  color: #202020;
+  font-size: 14px;
+  margin-top: 10px;
+  box-shadow: none;
+  text-shadow: none;
+  line-height: 24px;
+  cursor: pointer;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 42px;
+  padding: 8px 15px;
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  width: 30%;
+  transition: all .5s ease-in-out;
+}
+
+
+/* Products Section */
+.products {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.columnProducts {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  flex-wrap: wrap;
+  width: 33.33%;
+  margin: 0 30px;
+}
+
+.columnProducts > h2 {
+  font-size: 30px;
+  letter-spacing: 0.75px;
+  font-weight: 700;
+  padding: 10%;
+}
+
+.productCard {
+  padding: 0 0 30px 0;
+  margin: 0 0 30px 0;
+  width: 100%;
+  display: block;
+  display: flex;
+  flex-direction: row;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+
+.productCard a {
+  margin: 0;
+  width: 160px;
+  display: block;
+}
+
+.productCard img {
+  max-width: 160px;
+  border: none;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.productInfo a {
+  margin-bottom: 12px;
+  line-height: 1.2;
+  text-decoration: none;
+  color: #000000;
+  transition: all .5s ease-in-out;
+}
+
+.productInfo a:hover {
+  color: #FFB91F;
+  transition: all .3s ease-in-out;
+}
+
+.original {
+  color: #C3C3C3;
+}
+
+.checked {
+  color: #FFD700;
+}
+
+.productCard p {
+  color: #233F92;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.discount {
+  color: #C3C3C3;
+  text-decoration: line-through;
+  font-size: 14px;
+  margin-left: 1rem;
+}
+
+.productCard button {
+  min-width: 120px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  padding: 6px;
+  margin-top: 10px;
+  background: rgba(255,185,31,1);
+  border-color: rgba(255,185,31,1);
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 42px;
+  text-align: center;
+  width: 80%;
+  transition: all .5s ease-in-out;
+}
+
+.productCard button:hover {
+  background-color: #202020;
+  color: #FFB91F;
+  transition: all .3s ease-in-out;
+}
+
+
+/* Shop Section */
+.shopPart {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.maxDiv {
+  max-width: 1280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shopPart h2 {
+  text-align: center;
+  max-width: 600px;
+  display: flex;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.shopItems {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.shopItems ul {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.shopItems ul li {
+  list-style: none;
+  width: 18%;
+  padding: 0 10px 20px;
+  line-height: 22px;
+}
+
+.shopItems ul li a {
+  display: block;
+  border: 1px solid #cbcbcb;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 20px;
+  padding: 14px 5px;
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.shopItems ul li a:hover {
+  background-color: #FFB91F;
+  transition: all 0.3s ease-in-out;
+}
+
+.genuine {
+  width: 100%;
+  background-image: url("https://demo.theme-sky.com/druco/wp-content/uploads/2022/08/banner-3.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 320px;
+  margin-bottom: 40px;
+}
+
+.genuineInfo {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 260px;
+  padding: 30px;
+  color: #FFFFFF;
+}
+
+.genuineInfo h2 {
+  font-size: 90px;
+  line-height: 85px;
+  color: #FFB91F;
+  letter-spacing: 0.75px;
+  margin: 0 0 1px 0;
+}
+
+.genuineInfo p {
+  font-size: 18px;
+  margin: 0 0 20px;
+  letter-spacing: 0.5px;
+}
+
+
+
+@media screen and (max-width: 1280px){
+  .genuine {
+    width: 100%;
+  }
+
+  .genuineInfo h2 {
+    font-size: 50px;
+    line-height: 60px;
+  }
+
+  .genuineInfo p {
+    font-size: 14px;
+  }
+  .pictureInfo {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1054px) {
+  .genuine {
+    width: 100%;
+  }
+  .columnProducts {
+    width: 20%;
+  }
+
+  .shopItems ul {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  
+  .shopItems ul li {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .genuine {
+    width: 100%;
+  }
+  .columnProducts {
+    width: 100%;
+  }
+
+  .productCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .productInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .genuine {
+    width: 100%;
+  }
+
+  .genuineInfo h2 {
+    font-size: 36px;
+    line-height: 40px;
+    text-align: center;
+  }
+
+  .genuineInfo p {
+    text-align: center;
+  }
+
+  .topPictures {
+    flex-wrap: wrap;
+  }
+
+  .pictureCard {
+    width: 100%;
+    margin: 0 0 30px 0;
+  }
+
+  .pictureInfo {
+    width: 50%;
+  }
+
+  .pictureInfo h2 {
+    font-size: 24px;
+  }
+
+  .pictureInfo p {
+    font-size: 16px;
+  }
+
+  .pictureCard2 {
+    margin: 0;
+  }
+
+  .pictureInfo button {
+    width: 60%;
+  }
+
+  .maxDiv {
+    flex-wrap: wrap;
+  }
+  
+  .columnProducts {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .columnProducts > h2 {
+    padding: 0;
+  }
+
+  .productCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .shopItems {
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    margin-left: -30px;
+  }
+
+  .shopItems ul li {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .shopItems ul li {
+    width: 40%;
+  }
+
+  .pictureInfo {
+    padding-left: 5%;
+    margin: 0;
+    width: 70%;
+  }
+
+  .pictureInfo button {
+    width: 80%;
+  }
+  
+
+  .genuine {
+    width: 100%;
+  }
+  
+}

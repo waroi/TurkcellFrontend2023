@@ -368,9 +368,10 @@ input:checked ~ nav .navbar-toggler {
   text-align: initial;
   width: 60%;
 }
+
 .avatarProfil,
 .profilContent {
-  margin: 50px 50px;
+  margin: 27px 32px;
 }
 .avatar {
   border-radius: 50%;
@@ -389,9 +390,32 @@ input:checked ~ nav .navbar-toggler {
   color: #ffffff;
 }
 .buttonW {
+  background-image: linear-gradient(
+    to right,
+    #314755 0%,
+    #26a0da 51%,
+    #314755 100%
+  );
+  border: none;
+  padding: 12px 30px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
   color: white;
   font-weight: bold;
-  margin-left: 0 !important;
+}
+.caricature {
+  position: relative;
+  left: 80px;
+  top: 10px;
+}
+
+.textAvatar {
+  font-family: "roboto", sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 25px;
+  max-width: 500px;
 }
 
 /*End Client Testimonial*/
@@ -566,5 +590,26 @@ input:checked ~ nav .navbar-toggler {
   .elementMiddle {
     width: 100%;
     margin: 0;
+  }
+  .clientElement {
+    flex-direction: column;
+  }
+  .sliderIn {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  .client-left {
+    width: 80%;
+    margin-left: 0px;
+  }
+
+  .buttonW {
+    display: block !important;
+  }
+  .CSSgal {
+    flex-direction: column;
+  }
+  .avatarCard {
+    width: 100%;
   }
 }
