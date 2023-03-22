@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&family=Roboto+Slab:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles-serkan.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link
+      rel="shortcut icon"
+      href="https://druco-be87.kxcdn.com/druco/wp-content/themes/druco/images/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="hw7.css" />
+    <link rel="stylesheet" href="druco.css" />
+    <title>Druco - Elementor WooCommerce WordPress Theme</title>
+    <script src="hw7.js"></script>
+  </head>
+  <body>
+    
+    <!-- start - Osman -->
+
+    <nav>
+      <div class="nav-first">
+        <div class="nav-first-inside">
+          <div class="nav-first-inside-first">FREE DELIVERY on all orders</div>
+          <div class="nav-first-inside-second">
+            <span class="nav-first-inside-second-span-second-first">
+              <i
+                class="fa-sharp fa-solid fa-bolt-lightning"
+                style="color: #ffb91f"
+              ></i>
+            </span>
+            <span class="nav-first-inside-second-span-second">FLASH SALE:</span>
+            60% OFF CAR BATTERIES | USE CODE "BATT60"
+          </div>
+          <div class="nav-first-inside-third">
+            <ul class="nav-first-inside-third-ul">
+              <li class="nav-first-inside-third-ul-li">Help</li>
+              <li class="nav-first-inside-third-ul-li">About Us</li>
+              <li class="nav-first-inside-third-ul-li">Contact Us</li>
+              <li class="nav-first-inside-third-ul-li">Blog</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="nav-second">
+        <div class="nav-second-first">
+          <div class="nav-second-first-inside">
+            <div class="nav-second-first-inside-logo">
+              <a href="hw7.html">
+                <img
+                  src="https://druco-be87.kxcdn.com/druco/wp-content/themes/druco/images/logo.png"
+                  alt="Druco"
+                  title="Druco"
+                  class="normal-logo"
+                  height="58px"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-second-second">
+          <form class="nav-second-second-form">
+            <select name="term" class="nav-second-second-form-select">
+              <option>All Categories</option>
+              <option>Batteries</option>
+              <option>Brake</option>
+              <option>Brake Pad Set</option>
+              <option>Car Seats</option>
+              <option>Car Speakers</option>
+              <option>Engine Oils</option>
+              <option>Entertainments</option>
+            </select>
+            <div class="nav-second-second-form-div">
+              <div class="nav-second-second-form-div-inside">
+                <input
+                  class="nav-second-second-form-div-inside-input"
+                  type="text"
+                  placeholder="Search for products"
+                  autocomplete="off"
+                />
+                <div class="nav-second-second-form-div-inside-searchButton">
+                  <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="nav-second-third">
+          <div class="nav-second-third-first">English▼</div>
+          <div class="nav-second-third-second">USD▼</div>
+        </div>
+        <div class="nav-second-fourth">
+          <div class="nav-second-fourth-divs" id="nav-second-fourth-divs1">
+            <i class="fa-sharp fa-regular fa-user"></i>
+          </div>
+          <div class="nav-second-fourth-divs" id="nav-second-fourth-divs2">
+            <i class="fa-regular fa-heart"> </i>
+          </div>
+          <div class="nav-second-fourth-divs" id="nav-second-fourth-divs3">
+            <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+          </div>
+        </div>
+      </div>
+      <div class="nav-third">
+        <div class="nav-third-inside">
+          <div class="nav-third-inside-first">
+            <ul class="nav-third-inside-first-ul">
+              <li
+                class="nav-third-inside-first-ul-li"
+                id="nav-third-inside-first-ul-li-home"
+                onclick="displayHome()"
+              >
+                HOME▼
+              </li>
+              <li class="nav-third-inside-first-ul-li" onclick="displayPages()">PAGES▼</li>
+              <li class="nav-third-inside-first-ul-li" onclick="displayServiceParts()">SERVICE PARTS▼</li>
+              <li class="nav-third-inside-first-ul-li" onclick="displayBrake()">BRAKE▼</li>
+              <li class="nav-third-inside-first-ul-li" onclick="displayCarBatteries()">CAR BATTERIES▼</li>
+              <li class="nav-third-inside-first-ul-li">TOOLS & GARAGE▼</li>
+            </ul>
+          </div>
+          <div class="nav-third-inside-second">
+            <div class="nav-third-inside-second-first">
+              <i class="fa-solid fa-headphones"></i>
+            </div>
+            <div class="nav-third-inside-second-second">
+              <div class="nav-third-inside-second-second-first">
+                Call us 24/7
+              </div>
+              <div class="nav-third-inside-second-second-second">
+                +08 9229 8228
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-subpart-home" id="nav-subpart-home">
+      <div class="nav-subpart-home-inside">
+        <div class="nav-subpart-home-inside-divs">
+          <img class="nav-subpart-home-inside-divs-img" src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/11/mg-home-1.jpg"></img>
+          <div class="nav-subpart-home-inside-divs-p">Home 1</div>
+        </div>
+        <div class="nav-subpart-home-inside-divs">
+          <img class="nav-subpart-home-inside-divs-img" src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/11/mg-home-2.jpg"></img>
+          <div class="nav-subpart-home-inside-divs-p">Home 2</div>
+        </div>
+        <div class="nav-subpart-home-inside-divs">
+          <img class="nav-subpart-home-inside-divs-img" src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/11/mg-home-3.jpg"></img>
+          <div class="nav-subpart-home-inside-divs-p">Home 3</div>
+        </div>
+        <div class="nav-subpart-home-inside-divs">
+          <img class="nav-subpart-home-inside-divs-img" src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/11/mg-home-4.jpg"></img>
+          <div class="nav-subpart-home-inside-divs-p">Home 4</div>
+        </div>
+        <div class="nav-subpart-home-inside-divs">
+          <img class="nav-subpart-home-inside-divs-img" src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/11/mg-home-5.jpg"></img>
+          <div class="nav-subpart-home-inside-divs-p">Home 5</div>
+        </div>
+        <div class="nav-subpart-home-inside-divs">
+          <img class="nav-subpart-home-inside-divs-img" src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/11/mg-home-6.jpg"></img>
+          <div class="nav-subpart-home-inside-divs-p">Home 6</div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-subpart-pages" id="nav-subpart-pages">
+      <div class="nav-subpart-pages-inside">
+        <div class="nav-subpart-pages-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">HOME</h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Home 1</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Home 2</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Home 3</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Home 4</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Home 5</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Home 6</li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-subpart-pages-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">SHOP</h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Shop fullwidth</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Shop sidebar</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Scroll sidebar</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Shop List</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Load more button</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Infinity Scroll</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Ajax pagination</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Track Order</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Shopping Cart</li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-subpart-pages-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">PRODUCT</h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Simple Product</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Variable product 1</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Variable product 2</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">External product</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Group product</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Discounted product</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Product Video</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Product 360</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Tabs in summary</li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-subpart-pages-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">OTHER</h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Portfolio</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Portfolio post</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Blog</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Blog post</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">About</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Contact</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">404</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Coming soon</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Typography</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>  
+    <div class="nav-subpart-serviceparts" id="nav-subpart-serviceparts">
+      <div class="nav-subpart-serviceparts-inside">
+        <div class="nav-subpart-serviceparts-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">LUBRICANTS & FLUIDS</h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Antifreeze & Coolant</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Automatic Transmission Oils</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Brake Fluid</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Engine Oils</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Manual Transmission Oil</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Power Steering Oil</li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-subpart-serviceparts-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">TIMING BELTS & PARTS</h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Cam Dephaser Pulley </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Deflection/Guide Pulley</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Kit </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Tensioner</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Tensioner Pulley</li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-subpart-serviceparts-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">FEATURED CATEGORIES</h5>
+          <div class="nav-subpart-serviceparts-inside-divs-div">
+            <div class="nav-subpart-serviceparts-inside-divs-div-divs">
+              <img class="nav-subpart-serviceparts-inside-divs-div-divs-img" src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/3.jpg">
+              <p class="nav-subpart-serviceparts-inside-divs-div-divs-p">Wheels & Tires</p>
+            </div>
+            <div class="nav-subpart-serviceparts-inside-divs-div-divs">
+              <img class="nav-subpart-serviceparts-inside-divs-div-divs-img" src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/2-1.jpg">
+              <p class="nav-subpart-serviceparts-inside-divs-div-divs-p">Interiors</p>
+            </div>
+            <div class="nav-subpart-serviceparts-inside-divs-div-divs">
+              <img class="nav-subpart-serviceparts-inside-divs-div-divs-img" src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/1-1.jpg">
+              <p class="nav-subpart-serviceparts-inside-divs-div-divs-p">Exteriors</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="nav-subpart-pages" id="nav-subpart-brake">
+      <div class="nav-subpart-pages-inside">
+        <div class="nav-subpart-pages-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">BRAKE DISCS & PADS </h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Brake Disc</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Brake Pad Set</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Brake Pad Wear Sensor</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Brake Pad Fitting Kit</li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-subpart-pages-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">FILTERS</h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Air Filter</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Brake Disc</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Brake Pad Fitting Kit</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Brake Pad Wear Sensor</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Sump Plug</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Sump Plug Seal</li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-subpart-serviceparts-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">TIMING BELTS & PARTS</h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Cam Dephaser Pulley </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Deflection/Guide Pulley</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Kit </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Tensioner</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Tensioner Pulley</li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-subpart-serviceparts-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">TIMING BELTS & PARTS</h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Cam Dephaser Pulley </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Deflection/Guide Pulley</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Kit </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Tensioner</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Tensioner Pulley</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>  
+    <div class="nav-subpart-pages" id="nav-subpart-carbatteries">
+      <div class="nav-subpart-pages-inside">
+        <div class="nav-subpart-serviceparts-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">LUBRICANTS & FLUIDS</h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Antifreeze & Coolant</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Automatic Transmission Oils</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Brake Fluid</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Engine Oils</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Manual Transmission Oil</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Power Steering Oil</li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-subpart-carbatteries-inside-divs">
+          <div class="nav-subpart-carbatteries-inside-divs-img">
+            <div class="nav-subpart-carbatteries-inside-divs-img-div">
+              <h2 class="nav-subpart-carbatteries-inside-divs-img-div-h2">Car Parts for every make and model</h2>
+              <div class="nav-subpart-carbatteries-inside-divs-img-div-div">Take an Extra <span class="nav-subpart-carbatteries-inside-divs-img-div-div-span">$5</span> Off Every Monday</div>
+              <p class="nav-subpart-carbatteries-inside-divs-img-div-p">SHOP NOW →</p>
+            </div>
+          </div>
+        </div>
+        <div class="nav-subpart-serviceparts-inside-divs">
+          <h5 class="nav-subpart-pages-inside-divs-h5">TIMING BELTS & PARTS</h5>
+          <div class="nav-subpart-pages-inside-divs-div">
+            <ul class="nav-subpart-pages-inside-divs-div-ul">
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Cam Dephaser Pulley </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Deflection/Guide Pulley</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Kit </li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Tensioner</li>
+              <li class="nav-subpart-pages-inside-divs-div-ul-li">Timing Belt Tensioner Pulley</li>
+            </ul>
+          </div>
+        </div>  
+      </div>
+    </div>  
+    <div class="first-part">
+      <div class="first-part-inside">
+        <div class="first-part-inside-first">
+          <h2 class="first-part-inside-first-h2">SEARCH BY VEHICLE</h2>
+          <form class="first-part-inside-first-form">
+            <select class="first-part-inside-first-form-select" aria-placeholder="Select Make">
+              <option class="first-part-inside-first-form-select-option">Select Make</option>
+              <option class="first-part-inside-first-form-select-option">BMW</option>
+              <option class="first-part-inside-first-form-select-option">Ford</option>
+              <option class="first-part-inside-first-form-select-option">Hyundai</option>
+              <option class="first-part-inside-first-form-select-option">Lexus</option>
+              <option class="first-part-inside-first-form-select-option">Mazda</option>
+              <option class="first-part-inside-first-form-select-option">Mercerdess</option>
+              <option class="first-part-inside-first-form-select-option">Toyota</option>
+            </select>
+            <select class="first-part-inside-first-form-select" aria-placeholder="Select Model">
+              <option class="first-part-inside-first-form-select-option">Select Model</option>
+              <option class="first-part-inside-first-form-select-option">124 GT</option>
+              <option class="first-part-inside-first-form-select-option">124 SPIDER</option>
+              <option class="first-part-inside-first-form-select-option">500</option>
+              <option class="first-part-inside-first-form-select-option">500C</option>
+              <option class="first-part-inside-first-form-select-option">595</option>
+              <option class="first-part-inside-first-form-select-option">595C</option>
+            </select>
+            <select class="first-part-inside-first-form-select" aria-placeholder="Select Year">
+              <option class="first-part-inside-first-form-select-option">Select Year</option>
+              <option class="first-part-inside-first-form-select-option">2019</option>
+              <option class="first-part-inside-first-form-select-option">2020</option>
+              <option class="first-part-inside-first-form-select-option">2021</option>
+              <option class="first-part-inside-first-form-select-option">2022</option>
+            </select>
+            <select class="first-part-inside-first-form-select" aria-placeholder="Select Engine">
+              <option class="first-part-inside-first-form-select-option">Select Engine</option>
+              <option class="first-part-inside-first-form-select-option">1.1</option>
+              <option class="first-part-inside-first-form-select-option">1.2</option>
+              <option class="first-part-inside-first-form-select-option">1.3</option>
+              <option class="first-part-inside-first-form-select-option">1.4</option>
+            </select>
+            <input type="submit" class="first-part-inside-first-form-input" value="GO">
+          </form>
+        </div>
+        <div class="first-part-inside-second">
+          <div class="first-part-inside-second-first">BIG SALE</div>
+          <div class="first-part-inside-second-second">40% off Sale Is Back</div>
+          <div class="first-part-inside-second-third">Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+          <div class="first-part-inside-second-fourth">SHOP NOW</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end - Osman -->
+
+    <!-- start - Serkan -->
+
+    <section class="categories" id="categories">
+      <div class="categories-container">
+        <div class="categories-title-row">
+          <h2 class="categories-title">Categories</h2>
+          <p class="categories-text">March favorites</p>
+          <div class="categories-buttons">
+            <div class="categories-button">
+              <i class="fa fa-arrow-left categories-icon"></i>
+            </div>
+            <div class="categories-button">
+              <i class="fa fa-arrow-right categories-icon"></i>
+            </div>
+          </div>
+        </div>
+        <div class="categories-row-images">
+          <div class="categories-image-card">
+            <div class="categories-image-container">
+              <img
+                class="categories-image"
+                src="./Images/entertainment-310x310.jpg"
+              />
+            </div>
+            <p>Entertainment</p>
+          </div>
+          <div class="categories-image-card">
+            <div class="categories-image-container">
+              <img
+                class="categories-image"
+                src="./Images/exteriors-310x310.jpg"
+              />
+            </div>
+            <p>Exteriors</p>
+          </div>
+          <div class="categories-image-card">
+            <div class="categories-image-container">
+              <img
+                class="categories-image"
+                src="./Images/interior-310x310.jpg"
+              />
+            </div>
+            <p>Interiors</p>
+          </div>
+          <div class="categories-image-card">
+            <div class="categories-image-container">
+              <img class="categories-image" src="./Images/oils-310x310.jpg" />
+            </div>
+            <p>Fluids & Chemicals</p>
+          </div>
+          <div class="categories-image-card">
+            <div class="categories-image-container">
+              <img class="categories-image" src="./Images/tires-310x310.jpg" />
+            </div>
+            <p>Wheels & Tires</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="best-sellers" class="best-sellers">
+      <div class="best-sellers-title">
+        <h4>Bestsellers</h4>
+        <h4>Popular items</h4>
+      </div>
+      <div class="best-sellers-container">
+        <div class="best-sellers-card">
+          <div class="offer-percentage">
+            -47%
+          </div>
+          <div class="card-hidden-hover-effects">
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/magnifying-glass-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Quick View</span
+              ></span
+            >
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/heart-regular.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Wishlist</span
+              ></span
+            >
+
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/arrows-rotate-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Compare</span
+              ></span
+            >
+          </div>
+          <img src="./Images/best-sellers/1.jpg" class="best-sellers-image" />
+          <a class="best-sellers-card-anchor">Valvoline Oil Stockists</a>
+          <div class="stars">
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star half"></span>
+            <span class="star"></span>
+          </div>
+          <div class="card-prices">
+            <p class="card-current-price">$106.58</p>
+            <p class="card-old-price">$202.87</p>
+          </div>
+          <div class="add-to-cart">
+            <button type="button" class="add-to-cart-button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="best-sellers-card">
+          <div class="offer-percentage">
+            -15%
+          </div>
+          <div class="card-hidden-hover-effects">
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/magnifying-glass-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Quick View</span
+              ></span
+            >
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/heart-regular.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Wishlist</span
+              ></span
+            >
+
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/arrows-rotate-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Compare</span
+              ></span
+            >
+          </div>
+          <img src="./Images/best-sellers/2.jpg" class="best-sellers-image" />
+          <a class="best-sellers-card-anchor">Racing Custom Wheels VF577</a>
+          <div class="stars">
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+          </div>
+          <div class="card-prices">
+            <p class="card-current-price">$179.49</p>
+            <p class="card-old-price">$209.99</p>
+          </div>
+          <div class="add-to-cart">
+            <button type="button" class="add-to-cart-button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="best-sellers-card">
+          <div class="offer-percentage">
+            <p class="offer-gray">Sold Out</p>
+          </div>
+          <div class="card-hidden-hover-effects">
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/magnifying-glass-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Quick View</span
+              ></span
+            >
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/heart-regular.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Wishlist</span
+              ></span
+            >
+
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/arrows-rotate-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Compare</span
+              ></span
+            >
+          </div>
+          <img src="./Images/best-sellers/3.jpg" class="best-sellers-image" />
+          <a class="best-sellers-card-anchor">Racing Custom Wheels VF421</a>
+          <div class="stars">
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star half"></span>
+          </div>
+          <div class="card-prices">
+            <p class="card-current-price">$38.24</p>
+            <p class="card-old-price">$58.47</p>
+          </div>
+          <div class="add-to-cart">
+            <button type="button" class="add-to-cart-button">
+              SELECT OPTIONS
+            </button>
+          </div>
+        </div>
+        <div class="best-sellers-card">
+          <div class="offer-percentage">
+            -31%
+          </div>
+          <div class="card-hidden-hover-effects">
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/magnifying-glass-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Quick View</span
+              ></span
+            >
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/heart-regular.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Wishlist</span
+              ></span
+            >
+
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/arrows-rotate-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Compare</span
+              ></span
+            >
+          </div>
+          <img src="./Images/best-sellers/4.jpg" class="best-sellers-image" />
+          <a class="best-sellers-card-anchor">Kit Brembo DT BMW</a>
+          <div class="stars">
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+          </div>
+          <div class="card-prices">
+            <p class="card-current-price">$26.45</p>
+            <p class="card-old-price">$38.24</p>
+          </div>
+          <div class="add-to-cart">
+            <button type="button" class="add-to-cart-button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="best-sellers-card">
+          <div class="offer-percentage">
+            -29%
+          </div>
+          <div class="card-hidden-hover-effects">
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/magnifying-glass-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Quick View</span
+              ></span
+            >
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/heart-regular.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Wishlist</span
+              ></span
+            >
+
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/arrows-rotate-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Compare</span
+              ></span
+            >
+          </div>
+          <img src="./Images/best-sellers/5.jpg" class="best-sellers-image" />
+          <a class="best-sellers-card-anchor">Kit Brembo DT BMW</a>
+          <div class="stars">
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+          </div>
+          <div class="card-prices">
+            <p class="card-current-price">$69.75</p>
+            <p class="card-old-price">$98.65</p>
+          </div>
+          <div class="add-to-cart">
+            <button type="button" class="add-to-cart-button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="best-sellers-card">
+          <div class="offer-percentage">
+            -22%
+          </div>
+          <div class="card-hidden-hover-effects">
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/magnifying-glass-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Quick View</span
+              ></span
+            >
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/heart-regular.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Wishlist</span
+              ></span
+            >
+
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/arrows-rotate-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Compare</span
+              ></span
+            >
+          </div>
+          <img src="./Images/best-sellers/6.jpg" class="best-sellers-image" />
+          <a class="best-sellers-card-anchor">Kit Brembo GT BMW</a>
+          <div class="stars">
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+          </div>
+          <div class="card-prices">
+            <p class="card-current-price">$69.75</p>
+            <p class="card-old-price">$89.74</p>
+          </div>
+          <div class="add-to-cart">
+            <button type="button" class="add-to-cart-button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="best-sellers-card">
+          <div class="offer-percentage">
+            -42%
+          </div>
+          <div class="card-hidden-hover-effects">
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/magnifying-glass-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Quick View</span
+              ></span
+            >
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/heart-regular.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Wishlist</span
+              ></span
+            >
+
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/arrows-rotate-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Compare</span
+              ></span
+            >
+          </div>
+          <img src="./Images/best-sellers/7.jpg" class="best-sellers-image" />
+          <a class="best-sellers-card-anchor">Zipp Battery New 12V</a>
+          <div class="stars">
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star"></span>
+          </div>
+          <div class="card-prices">
+            <p class="card-current-price">$26.45</p>
+            <p class="card-old-price">$45.94</p>
+          </div>
+          <div class="add-to-cart">
+            <button type="button" class="add-to-cart-button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="best-sellers-card">
+          <div class="offer-percentage">
+            -7%
+          </div>
+          <div class="offer-percentage-hot">
+            HOT
+          </div>
+          <div class="card-hidden-hover-effects">
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/magnifying-glass-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Quick View</span
+              ></span
+            >
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/heart-regular.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Wishlist</span
+              ></span
+            >
+
+            <span
+              ><img
+              class="best-sellers-card-hidden-logo animate__animated animate__flipInY"
+                src="./Images/logo-svg/arrows-rotate-solid.svg"
+              /><span class="best-sellers-card-hidden-logo-description"
+                >Compare</span
+              ></span
+            >
+          </div>
+          <img src="./Images/best-sellers/8.jpg" class="best-sellers-image" />
+          <a class="best-sellers-card-anchor">Racing Custom Wheels</a>
+          <div class="stars">
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star on"></span>
+            <span class="star"></span>
+          </div>
+          <div class="card-prices">
+            <p class="card-current-price">$35.38</p>
+            <p class="card-old-price">$38.24</p>
+          </div>
+          <div class="add-to-cart">
+            <button type="button" class="add-to-cart-button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="car-widget">
+      <div class="widget-container-first">
+        <h1 class="widget-title">Car & Truck </h1>
+        <h1 class="widget-title">Exhaust Pipes</h1>
+        <p class="widget-paragraph">Exhaust Pipe - Now <span>15%</span> Savings</p>
+        <button class="widget-button">SHOP NOW</button>
+      </div>
+      <div class="widget-container-second">
+        <h1 class="widget-title">Car & Truck </h1>
+        <h1 class="widget-title">Exhaust Pipes</h1>
+        <p class="widget-paragraph">Exhaust Pipe - Now <span>15%</span> Savings</p>
+        <button class="widget-button">SHOP NOW</button>
+      </div>
+    </section>
+    <section class="products">
+      <div class="products-titles">
+        <h1>New Products</h1>
+        <h1>Specials</h1>
+        <h1>Sale</h1>
+      </div>
+      <div class="products-container">
+        <div class="products-card">
+          <div class="products-image-container">
+            <img class="products-image" src="./Images/products/1.jpg"/>
+          </div>
+          <div class="products-description-container">
+            <a href="#" class="products-anchor">Altra Industrial Motion</a>
+            <div class="stars">
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star"></span>
+            </div>
+            <p class="card-current-price">
+              $185.99
+            </p>
+            <button class="products-add-cart-button">ADD TO CART</button>
+          </div>
+        </div>
+        <div class="products-card">
+          <div class="products-image-container">
+            <img class="products-image" src="./Images/products/1.jpg"/>
+          </div>
+          <div class="products-description-container">
+            <a href="#" class="products-anchor">Altra Industrial Motion</a>
+            <div class="stars">
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star"></span>
+            </div>
+            <p class="card-current-price">
+              $185.99
+            </p>
+            <button class="products-add-cart-button">ADD TO CART</button>
+          </div>
+        </div>
+        <div class="products-card">
+          <div class="products-image-container">
+            <img class="products-image" src="./Images/products/1.jpg"/>
+          </div>
+          <div class="products-description-container">
+            <a href="#" class="products-anchor">Altra Industrial Motion</a>
+            <div class="stars">
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star"></span>
+            </div>
+            <p class="card-current-price">
+              $185.99
+            </p>
+            <button class="products-add-cart-button">ADD TO CART</button>
+          </div>
+        </div>
+        <div class="products-card">
+          <div class="products-image-container">
+            <img class="products-image" src="./Images/products/1.jpg"/>
+          </div>
+          <div class="products-description-container">
+            <a href="#" class="products-anchor">Altra Industrial Motion</a>
+            <div class="stars">
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star"></span>
+            </div>
+            <p class="card-current-price">
+              $185.99
+            </p>
+            <button class="products-add-cart-button">ADD TO CART</button>
+          </div>
+        </div>
+        <div class="products-card">
+          <div class="products-image-container">
+            <img class="products-image" src="./Images/products/1.jpg"/>
+          </div>
+          <div class="products-description-container">
+            <a href="#" class="products-anchor">Altra Industrial Motion</a>
+            <div class="stars">
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star"></span>
+            </div>
+            <p class="card-current-price">
+              $185.99
+            </p>
+            <button class="products-add-cart-button">ADD TO CART</button>
+          </div>
+        </div>
+        <div class="products-card">
+          <div class="products-image-container">
+            <img class="products-image" src="./Images/products/1.jpg"/>
+          </div>
+          <div class="products-description-container">
+            <a href="#" class="products-anchor">Altra Industrial Motion</a>
+            <div class="stars">
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star"></span>
+            </div>
+            <p class="card-current-price">
+              $185.99
+            </p>
+            <button class="products-add-cart-button">ADD TO CART</button>
+          </div>
+        </div>
+        <div class="products-card">
+          <div class="products-image-container">
+            <img class="products-image" src="./Images/products/1.jpg"/>
+          </div>
+          <div class="products-description-container">
+            <a href="#" class="products-anchor">Altra Industrial Motion</a>
+            <div class="stars">
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star"></span>
+            </div>
+            <p class="card-current-price">
+              $185.99
+            </p>
+            <button class="products-add-cart-button">ADD TO CART</button>
+          </div>
+        </div>
+        <div class="products-card">
+          <div class="products-image-container">
+            <img class="products-image" src="./Images/products/1.jpg"/>
+          </div>
+          <div class="products-description-container">
+            <a href="#" class="products-anchor">Altra Industrial Motion</a>
+            <div class="stars">
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star"></span>
+            </div>
+            <p class="card-current-price">
+              $185.99
+            </p>
+            <button class="products-add-cart-button">ADD TO CART</button>
+          </div>
+        </div>
+        <div class="products-card">
+          <div class="products-image-container">
+            <img class="products-image" src="./Images/products/1.jpg"/>
+          </div>
+          <div class="products-description-container">
+            <a href="#" class="products-anchor">Altra Industrial Motion</a>
+            <div class="stars">
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star on"></span>
+              <span class="star"></span>
+            </div>
+            <p class="card-current-price">
+              $185.99
+            </p>
+            <button class="products-add-cart-button">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="popular-parts">
+      <div class="popular-parts-title">
+        <h1>Shop by Popular Parts</h1>
+      </div>
+      <div class="popular-parts-container">
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+        <a class="popular-parts-button">Brake Disc and Pad Kit (9)</a>
+      </div>
+    </section>
+
+    <!-- end - Serkan -->
+
+    
+    <!-- start - Tahir -->
+    
+    <section id="section-t-a">
+      <div class="bgimage">
+            <div class="bgimage-text-container">
+                <h1>
+                    GENUINE <br />
+                    PARTS
+                </h1>
+                <p>
+                    YOU CAN NOW BENEFIT WITH
+                    <span class="yuzde-deger">15%</span> SPECIAL DISCOUNT*
+                </p>
+            </div>
+      </div>
+    </section>
+
+    <section id="section-t-b">
+      <div class="section-t-b-container">
+        <h1>From Our Blog</h1>
+      </div>
+      <div class="section-t-b-container-2">
+        <div class="image-container">
+          <img
+            src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2021/03/blog-1-1.jpg"
+            alt=""
+          />
+
+          <ul>
+            <li>BY</li>
+            <li>ADMIN</li>
+            <li>IN</li>
+            <li>EXHAUST,</li>
+            <li>WHEELS & TIRES</li>
+          </ul>
+
+          <h3>How to Check and Maintain Your Suspension</h3>
+          <p>
+            The small round table in the dinette may be great for casual meals
+            with your <br />
+            family, but inviting overnight guests
+          </p>
+          <button class="btn-read-more">READ MORE</button>
+        </div>
+        <div class="container-2-card">
+          <div class="card">
+            <ul>
+              <li>JAN 22, 2021</li>
+              <li>BY ADMIN</li>
+              <li>IN</li>
+              <li>BRAKING,</li>
+              <li>HEADLIGHT,</li>
+              <li>INTERIORS</li>
+            </ul>
+
+            <h3>What Is Car Suspension?</h3>
+            <p>
+              The small round table in the dinette may be great for casual meals
+            </p>
+            <button class="btn-read-more">READ MORE</button>
+            <hr />
+          </div>
+
+          <div class="card">
+            <ul>
+              <li>JAN 22, 2021</li>
+              <li>BY ADMIN</li>
+              <li>IN</li>
+              <li>BRAKING,</li>
+              <li>HEADLIGHT,</li>
+              <li>INTERIORS</li>
+            </ul>
+
+            <h3>What Does A Car Service Include?</h3>
+            <p>
+              The small round table in the dinette may be great for casual meals
+            </p>
+            <button class="btn-read-more">READ MORE</button>
+            <hr />
+          </div>
+
+          <div class="card">
+            <ul>
+              <li>JAN 22, 2021</li>
+              <li>BY ADMIN</li>
+              <li>IN</li>
+              <li>BRAKING,</li>
+              <li>HEADLIGHT,</li>
+              <li>INTERIORS</li>
+            </ul>
+
+            <h3>Wiper Blade Size Guide</h3>
+            <p>
+              The small round table in the dinette may be great for casual meals
+            </p>
+            <button class="btn-read-more">READ MORE</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-t-c">
+      <div class="c-bgimage">
+        <div class="c-bgimage-metin-conteiner">
+          <h3>PROFESSIONAL TEAM SUPPORT</h3>
+          <h1>
+            Why should the customer <br />
+            choose us?
+          </h1>
+        </div>
+        <div class="c-bgimage-icon-conteiner">
+          <div class="iconbox">
+            <img
+              src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/10/icon-1.png"
+              alt=""
+            />
+            <h2>Best quality</h2>
+            <p>Best quality is a must at organic</p>
+          </div>
+          <div class="iconbox">
+            <img
+              src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/10/icon-2.png"
+              alt=""
+            />
+            <h2>Shipping</h2>
+            <p>Deliver within 24 hours</p>
+          </div>
+          <div class="iconbox">
+            <img
+              src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/10/icon-3.png"
+              alt=""
+            />
+            <h2>Support 24/7</h2>
+            <p>Contact us 24 hours a day</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-t-d">
+      <div class="t-d-metin">
+        <h1>Featured Brands</h1>
+      </div>
+      <div class="t-d-logo">
+        <img
+          src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/logo-6-204x142.jpg"
+          alt=""
+        />
+        <img
+          src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/logo-4-204x142.jpg"
+          alt=""
+        />
+        <img
+          src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/logo-5-204x142.jpg"
+          alt=""
+        />
+        <img
+          src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/logo-3-204x142.jpg"
+          alt=""
+        />
+        <img
+          src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/logo-2-204x142.jpg"
+          alt=""
+        />
+        <img
+          src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/08/logo-1-204x142.jpg"
+          alt=""
+        />
+      </div>
+    </section>
+
+    <section id="section-t-e">
+      <div class="t-e-metin">
+        <h1>Newsletter</h1>
+        <p>Subscribe to our Newsletter get 10% discount code</p>
+      </div>
+      <div class="t-e-search">
+        <form action="">
+          <input type="search" placeholder="Your e-mail address" />
+          <button class="btn-search">SUBSCRIBE</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="section-t-f">
+      <div class="t-footer">
+        <div class="t-footer-k1">
+          <h2>SAY HELLO</h2>
+          <p>
+            Address: 1234 Heaven Stress, Beverly <br />
+            Hill OldYork- United State of Lorem
+          </p>
+          <p>Phone: 1234 5678 5576 – 4657 4657 4656</p>
+          <p>Email: Support1234@Orlife</p>
+          <div class="t-footer-k1-icon">
+            <ul>
+              <li class="t-facebook"><i class="fab fa-facebook-f"></i></li>
+              <li class="t-twitter"><i class="fab fa-twitter"></i></li>
+              <li class="t-pinterest">
+                <i class="fab fa-pinterest-square"></i>
+              </li>
+              <li class="t-flickr"><i class="fab fa-flickr"></i></li>
+            </ul>
+          </div>
+        </div>
+        <div class="t-footer-k2">
+          <h2>MY ACCOUNT</h2>
+          <ul>
+            <li>About</li>
+            <li>Advertising</li>
+            <li>Business Development</li>
+            <li>Careers</li>
+            <li>Permissions</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <div class="t-footer-k2">
+          <h2>PRODUCT</h2>
+          <ul>
+            <li>About</li>
+            <li>Advertising</li>
+            <li>Business Development</li>
+            <li>Careers</li>
+            <li>Permissions</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <div class="t-footer-k2">
+          <h2>READER SERVICES</h2>
+          <ul>
+            <li>Advertising</li>
+            <li>Business Development</li>
+            <li>Careers</li>
+            <li>Permissions</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="section-t-e">
+      <div class="t-e-bankcard">
+        <div class="t-e-bankcard-metin">
+          <h2>© <span class="sari">Druco.</span> All Rights Reserved.</h2>
+        </div>
+        <div class="t-e-bankcard-image">
+          <img
+            src="https://druco-be87.kxcdn.com/druco/wp-content/uploads/2022/03/payment.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- end - Tahir -->
+
+
+  </body>
+</html>
