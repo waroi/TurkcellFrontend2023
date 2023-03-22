@@ -130,7 +130,6 @@ nav {
   border-radius: 4px;
   cursor: pointer;
 }
-
 nav .navbar-toggler {
   margin: 20px 20px 20px 0;
   cursor: pointer;
@@ -198,7 +197,7 @@ input:checked ~ nav .navbar-toggler {
 }
 
 .serviceTitle {
-  padding: 50px 10px;
+  padding: 50px 30px;
   text-align: center;
 }
 
@@ -296,7 +295,7 @@ input:checked ~ nav .navbar-toggler {
 }
 
 .featureTitle {
-  padding: 50px 10px;
+  padding: 50px 0;
   text-align: center;
 }
 
@@ -333,6 +332,7 @@ input:checked ~ nav .navbar-toggler {
   display: flex;
   justify-content: center;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 /*Icon arka plan dairesi*/
@@ -358,6 +358,9 @@ input:checked ~ nav .navbar-toggler {
 }
 
 .elementMiddle {
+  /* background-color: #26a0da; */
+  /* display: flex; */
+  /* justify-content: center; */
   width: 40%;
 }
 
@@ -365,6 +368,152 @@ input:checked ~ nav .navbar-toggler {
   width: 100%;
   /* margin: 0 !important; */
 }
+
+/*Client*/
+.client {
+  display: flex;
+  justify-content: center;
+  background-color: #303841;
+  flex-wrap: wrap;
+}
+.client-left {
+  width: 33%;
+  margin: 50px 0px;
+  justify-content: center;
+  align-items: center;
+}
+.client-right {
+  width: 66%;
+  margin: 50px 0px;
+}
+.text28 {
+  font-size: 28px;
+  font-family: "poppins", sans-serif;
+  margin: 0 0 8px;
+  color: white;
+}
+.cli-title {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff4d;
+}
+/*slider*/
+.sliderPhoto {
+  width: 230px;
+  border-radius: 20px 0 0 20px;
+}
+.sliderIn {
+  display: flex;
+  padding-left: 20px;
+}
+.CSSgal {
+  position: relative;
+  overflow: hidden;
+  height: 100%; /* Or set a fixed height */
+}
+
+.CSSgal .slider {
+  height: 100%;
+  white-space: nowrap;
+  font-size: 0;
+  transition: 0.8s;
+}
+
+/* SLIDES */
+
+.CSSgal .slider > * {
+  font-size: 1rem;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  height: 100%;
+  width: 100%;
+  background: none 50% no-repeat;
+  background-size: cover;
+}
+
+.CSSgal .bullets {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+}
+.CSSgal .bullets > a {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+
+  text-decoration: none;
+  text-align: center;
+  background: rgba(255, 255, 255, 1);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.CSSgal .bullets > a + a {
+  background: rgba(255, 255, 255, 0.5); /* Dim all but first */
+}
+.CSSgal .bullets > a:hover {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+CSSgal > s:target ~ .bullets > * {
+  background: #2b4656;
+}
+/* ACTIVE */
+#s1:target ~ .bullets > *:nth-child(1) {
+  background: #0076a3;
+}
+#s2:target ~ .bullets > *:nth-child(2) {
+  background: #0076a3;
+}
+#s3:target ~ .bullets > *:nth-child(3) {
+  background: #0076a3;
+}
+#s4:target ~ .bullets > *:nth-child(4) {
+  background: #0076a3;
+}
+
+.CSSgal > s:target ~ .prevNext > * {
+  visibility: hidden;
+}
+
+#s1:target ~ .slider {
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+}
+#s2:target ~ .slider {
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+}
+#s3:target ~ .slider {
+  transform: translateX(-200%);
+  -webkit-transform: translateX(-200%);
+}
+#s4:target ~ .slider {
+  transform: translateX(-300%);
+  -webkit-transform: translateX(-300%);
+}
+
+.CSSgal {
+  color: #fff;
+  text-align: center;
+}
+.CSSgal .slider h2 {
+  margin-top: 40vh;
+  font-weight: 200;
+  letter-spacing: -0.06em;
+  word-spacing: 0.2em;
+  font-size: 3em;
+}
+.CSSgal a {
+  border-radius: 50%;
+  margin: 0 3px;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+}
+/*End Client Testimonial*/
 
 @media (max-width: 450px) {
   .navbarButton {
@@ -405,29 +554,12 @@ input:checked ~ nav .navbar-toggler {
     flex-wrap: wrap;
     margin-bottom: 70px;
   }
+
   .featureButton {
-    text-align: center;
-  }
-  .featureElements {
-    display: flex;
+    /* display: flex;
+        justify-content: center;
+        margin: 0 0 50px 0; */
     flex-direction: column;
-    justify-content: center;
-  }
-  .elementSpace {
-    margin: 10px 0 0px 10px;
-  }
-  .elementSpace:nth-child(2) {
-    margin: 50px 0 50px 10px;
-  }
-  .elementLeft {
-    margin: 0;
-    text-align: left;
-  }
-  .elementRight {
-    margin: 0px 0px;
-  }
-  .elementMiddle {
-    width: 100%;
-    margin: 0;
+    flex-wrap: wrap;
   }
 }
