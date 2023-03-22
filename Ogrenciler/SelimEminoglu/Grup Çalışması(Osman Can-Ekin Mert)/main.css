@@ -9,6 +9,15 @@ font-family: 'Roboto', sans-serif; */
   box-sizing: border-box;
   text-decoration: none;
 }
+.pointer {
+  cursor: pointer;
+}
+body {
+  padding-top: 60px;
+}
+.colorWhite {
+  color: white;
+}
 ul {
   list-style-type: none;
 }
@@ -36,6 +45,9 @@ ul {
 .colorBlue {
   background-color: #1b7596;
 }
+.paragraphBlue {
+  color: #1b7596;
+}
 .textColorWhite {
   color: white;
 }
@@ -47,6 +59,12 @@ ul {
 }
 .lightGray {
   background-color: #343f4b; /* Arkaplan ve birkac yerde */
+}
+.margin-y-05 {
+  margin: 0.5em 0;
+}
+.margin-y-1 {
+  margin: 1em 0;
 }
 .darkGray {
   background-color: #303841; /* Arkaplan ve birkac yerde */
@@ -65,12 +83,22 @@ ul {
 .flex {
   display: flex;
 }
+.textCenter {
+  text-align: center;
+}
 .alignCenter {
   align-items: center;
 }
+/* Osman Can Kucuk */
 #header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #343f4b;
+  z-index: 1;
 }
-.navbar {
+.mainPage {
+  height: 740px;
 }
 .navItem {
   padding: 0 1.5em;
@@ -88,6 +116,138 @@ ul {
   padding: 1em 0;
   display: flex;
   justify-content: space-between;
+}
+.navList {
+  display: flex;
+}
+.homeSection {
+  padding-top: 3em;
+}
+.popupIcon {
+  display: none;
+}
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  gap: 1em;
+  margin-bottom: 5em;
+}
+.wrapPhone {
+  margin: 0 auto;
+  width: 80%;
+}
+.homeIcons {
+  position: absolute;
+  top: 22em;
+  left: 4.5em;
+}
+.homeListItem {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  color: rgba(184, 177, 177, 0.6);
+}
+.phoneSection {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-top: -2em;
+}
+.homePhone1 {
+  width: 216px;
+  height: 410px;
+  margin-top: 7em;
+}
+.homePhone2 {
+  width: 296px;
+  height: 650px;
+  margin-top: -1.5em;
+}
+
+/* SERVICES */
+.servicesSection {
+  padding: 3em 0 6em 0;
+}
+
+.servicesContent {
+  padding-top: 7em;
+  width: 60%;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  margin: 0 auto;
+  text-align: center;
+}
+.servicesList {
+  margin-top: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.serviceListItem {
+  border-radius: 10px;
+  padding: 1em;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.serviceListItem:hover {
+  background-color: #343f4b;
+}
+.serviceBombItem {
+  background-image: url("https://themesdesign.in/styza/layout/images/service/bomb.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2.5em;
+}
+
+/* Footer */
+
+.footerListSection {
+  padding: 4em 0 6em 0;
+}
+.footerFlex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: space-between;
+}
+.footerItemsFontSize {
+  font-size: 15px !important;
+  line-height: 24px !important;
+}
+
+.exteriorElement {
+  flex-basis: 30%;
+}
+.footerInput {
+  padding: 1.5em 1em;
+  width: 70%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+  margin-right: -4px;
+}
+.footerButton {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  padding: 1.5em 2em;
+}
+.footerIconsFlex {
+  display: flex;
+  gap: 1em;
+}
+.footerIcons {
+  padding: 0.75em;
+  border: 1px dashed rgba(0, 118, 163, 0.15);
+}
+.footerBottom {
+  text-align: center;
+  padding: 1.5em 0;
 }
 
 /* Selim Eminoğlu--Features */
@@ -208,4 +368,65 @@ ul {
   font-size: inherit;
   text-rendering: auto;
   line-height: auto;
+}
+
+@media screen and (max-width: 960px) {
+  .homeIcons {
+    display: none;
+  }
+
+  .phoneSection {
+    display: block;
+    margin-top: -7em;
+  }
+  .wrapPhone {
+    margin: 0 auto;
+    width: 95%;
+  }
+  .homePhone1 {
+    width: 100%;
+    height: 700px;
+    margin-top: 3em;
+  }
+  .homePhone2 {
+    width: 100%;
+    margin-bottom: -4em;
+    height: 994px;
+  }
+  .mainPage {
+    height: 100%;
+  }
+  .sectionContent h1 {
+    font-size: 36px !important;
+    line-height: 43px;
+  }
+  .navListSectionItem {
+    display: none;
+  }
+  .navButtonItem {
+    display: none;
+  }
+  .popupIcon {
+    display: block;
+    color: white;
+  }
+  .servicesContent {
+    width: 100%;
+  }
+  .wrap {
+    width: 90%;
+  }
+  .serviceListItem {
+    width: 100%;
+  }
+  .footerFlex {
+    display: block;
+    width: 100%;
+  }
+  .exteriorElement {
+    margin-bottom: 1.5em;
+  }
+  .insideElement {
+    margin-bottom: 1.5em;
+  }
 }
