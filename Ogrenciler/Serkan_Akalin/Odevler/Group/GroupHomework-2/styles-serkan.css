@@ -8,7 +8,7 @@
   --current-price: #233f92;
   --original-price: #868686;
   --star-color: #ffd200;
-  /* transition: all 0.1s ease; */
+  transition: all 0.1s ease;
 }
 
 /* Section - categories */
@@ -422,6 +422,37 @@
   background-color: var(--main-black);
 }
 
+/* Products End */
+
+/* Popular Parts Start */
+
+.popular-parts-title > h1{
+  margin: 50px auto;
+  text-align: center;
+}
+
+.popular-parts-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  margin: 40px auto;
+}
+
+.popular-parts-button{
+  padding: 10px;
+  border: 1px solid rgba(125,125,125,0.8);
+}
+
+.popular-parts-button:hover{
+  background-color: var(--main-yellow);
+  cursor: pointer;
+}
+
+/* Popular Parts End*/
+
 /* Laptop Screen Media Query */
 @media screen and (min-width: 769px) and (max-width: 1025px) {
   .categories-image-container {
@@ -447,6 +478,16 @@
     height: 90px;
     width: 90px;
   }
+  .popular-parts-button{
+    width: 150px;
+  }
+  .categories {
+    padding: 1rem;
+  }
+  .categories-image-card p {
+    width: 90px;
+  }
+  
 }
 
 @media screen and (max-width: 376px) {
@@ -475,12 +516,22 @@
   }
   .car-widget {
     flex-direction: column;
-    gap: 35px;
+    gap: 1px;
   }
   .widget-container-first {
     width: 100vw;
   }
   .widget-container-second {
     width: 100vw;
+  }
+  .popular-parts-container{
+    height: 350px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-direction: column;
+    padding: 15px;
+  }
+  .popular-parts-button{
+    width: 160px;
   }
 }
