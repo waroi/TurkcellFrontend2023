@@ -238,7 +238,7 @@
 
 .popular-part-header {
     padding: 0;
-    margin: 0;
+    margin-bottom: 30px;
     line-height: 1;
     letter-spacing: 0.9px;
     font-family: Outfit;
@@ -261,18 +261,30 @@
 
 }
 
+
 .popular-part-categories ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    width: 1300px;
 }
 
+.popular-part-categories {
+    display: flex;
+    justify-content: center;
+}
 
 .popular-part-categories ul li {
-    padding: 0 10px 20px;
-    width: 250px;
-    height: 70px;
+    padding: 0 10px 10px;
+    width: 230px;
+    height: 50px;
+    text-align: center;
+}
+
+.popular-part-categories button {
+    margin: 0;
 }
 
 .genuine-banner-container {
@@ -282,7 +294,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-    margin-top: 0px;
+    margin-top: 80px;
     margin-bottom: 81px;
     padding: 28px 0px 37px 0px;
     margin-left: 0;
@@ -317,7 +329,7 @@
     padding: 10px;
     display: flex;
     position: relative;
-    width: 100%;
+
     flex-wrap: wrap;
     align-content: flex-start;
     flex-direction: column;
@@ -348,4 +360,53 @@
 
 .genuine-banner-sub-header span {
     color: rgba(255, 185, 31, 1);
+}
+
+/* Media queires for tablet mode */
+
+@media screen and (min-width: 910px) and (max-width: 1370px) {
+    .product-sales-row {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Media queries for mobile mode */
+
+@media screen and (max-width: 768px) {
+    .genuine-banner-main-header h2 {
+        font-size: 36px;
+        line-height: 40px;
+        text-align: center;
+    }
+
+    .genuine-banner-sub-header p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .genuine-banner-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .genuine-banner-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .genuine-banner-container {
+        height: 195px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
