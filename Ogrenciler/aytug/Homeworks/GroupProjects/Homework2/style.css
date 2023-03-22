@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 	text-decoration: none;
 	font-family: "Outfit", sans-serif;
+	list-style: none;
 }
 
 .container_top {
@@ -13,17 +14,18 @@
 	display: flex;
 	flex-wrap: wrap;
 	text-align: center;
+	justify-content: center;
 }
 
 .container {
 	width: 100%;
 	margin: auto;
 	padding: 9px 15px;
-	background-color: white;
-	display: flex;
-	flex-wrap: wrap;
-	text-align: center;
 }
+
+/* NAV BAR START */
+
+/* NAV BAR END */
 
 .top_ad_vert {
 	color: #eef0f6;
@@ -59,19 +61,20 @@
 
 .topic_btn {
 	margin: 20px 0;
-	padding: 10px;
-	border-radius: 5px;
+	padding: 10px 25px;
+	border-radius: 32px;
+	border: none;
 }
 
 .search_vehicle {
 	padding: 1em;
 	color: black;
 	background-color: #ffffff;
-	border-radius: 5px;
+	border-radius: 10px;
 }
 
 .search_title {
-	padding: 10px;
+	padding: 0.7em;
 }
 
 .select_vehicle_form {
@@ -82,9 +85,10 @@
 
 .vehicle_form {
 	border: 0.5px solid rgb(203, 203, 203);
+	color: #949494;
 	border-radius: 5px;
 	padding: 10px;
-	width: 140px;
+	width: 130px;
 	margin: 6px;
 }
 
@@ -92,13 +96,16 @@
 	width: 100%;
 	padding: 5px;
 	margin: 10px 0;
+	border-radius: 42px;
+	border: none;
+	background-color: #ffb91f;
 }
 
 .categories {
 	width: 100%;
 	height: auto;
 	padding: 1em;
-	background-color: rgb(255, 185, 31);
+	background-color: #ffb91f;
 	align-items: center;
 	text-align: center;
 }
@@ -111,7 +118,7 @@
 
 .categories_body {
 	margin-top: 2.5em;
-	gap: 2em;
+	gap: 1em;
 	display: flex;
 	align-items: center;
 	text-align: center;
@@ -119,16 +126,16 @@
 
 .category_card {
 	display: block;
-	width: 30%;
+	width: 50%;
 }
 
 .category_img {
-	width: 150px;
-	height: 150px;
+	width: 170px;
+	height: 170px;
 	border-radius: 10px;
 }
 
-.best_sellers {
+.best_seller {
 	display: flex;
 }
 
@@ -137,8 +144,28 @@
 	padding: 1em;
 	width: 100%;
 	gap: 20px;
-	align-items: center;
 	text-align: center;
+	margin: 1em 0;
+}
+
+.best_seller_active {
+	display: flex;
+	justify-content: flex-end;
+	color: #ffb91f;
+}
+
+.best_seller_passive {
+	display: flex;
+	justify-content: flex-start;
+	cursor: pointer;
+}
+
+.best_seller_passive:hover {
+	color: #ffb91f;
+}
+
+.best_seller_header h2 {
+	width: 50%;
 }
 
 .best_seller_list {
@@ -149,7 +176,7 @@
 .best_seller_card {
 	padding: 0.5em;
 	width: 50%;
-	border: 0.5px solid rgb(203, 203, 203);
+	border: 0.5px solid #ebebeb;
 }
 
 .best_seller_car_bot {
@@ -170,18 +197,24 @@
 
 .best_seller_stars {
 	color: #ffb91f;
+	margin: 10px 0;
 }
 
 .best_seller_price {
+	width: 100%;
 	flex-wrap: nowrap;
 }
 
 .new_price {
+	font-weight: 600;
+	font-size: 18px;
 	color: #233f92;
+	margin-right: 7px;
 }
 
 .old_price {
-	color: rgb(203, 203, 203);
+	font-size: 15px;
+	color: #878787;
 	text-decoration: line-through;
 }
 
@@ -193,11 +226,64 @@
 	}
 	.container {
 		width: 100%;
-		padding: 6em;
+		max-width: 1260px;
+		padding: 1em;
+		display: flex;
+		align-items: center;
 	}
 	.best_seller_card {
 		padding: 0.5em;
 		width: 25%;
 		border: 0.5px solid rgb(203, 203, 203);
+	}
+	.main_topic {
+		display: flex;
+		padding: 10em 2em;
+	}
+	.topic_text {
+		order: 2;
+		text-align: start;
+		padding-left: 2em;
+		font-size: xx-large;
+	}
+	.search_vehicle {
+		width: 30%;
+	}
+	.vehicle_form {
+		width: 100%;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+	}
+	.vehicle_form_btn {
+		width: 25%;
+		padding: 10px;
+	}
+	.categories {
+		display: inline-flex;
+		text-align: start;
+		font-size: large;
+	}
+	.categories_header {
+		margin-right: 20px;
+	}
+	.row {
+		display: block;
+		flex-wrap: nowrap;
+	}
+	.select_vehicle_form {
+		justify-content: center;
+	}
+	.best_seller_header {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	.best_seller_active {
+	}
+	.best_seller_passive {
+		display: flex;
+		justify-content: flex-start;
+		cursor: pointer;
 	}
 }
