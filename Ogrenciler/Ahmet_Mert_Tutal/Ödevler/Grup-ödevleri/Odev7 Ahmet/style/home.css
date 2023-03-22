@@ -11,7 +11,9 @@
 .dropdown-top {
   position: relative;
   display: inline-block;
-  margin-right: 20px
+  margin-right: 20px;
+  
+  
 }
 
 .dropdown-topcontent {
@@ -20,7 +22,7 @@
   background-color: #f9f9f9;
   min-width: 1260px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
+  top: 0;
   z-index: 1;
   border-top: 2px solid yellow ;
   border-bottom-left-radius: 8px;
@@ -29,14 +31,16 @@
   align-items: center;
   font-size: 15px;
   font-weight: 400;
-  height:200px;
+  height:600px;
   color: black;
   transition: 0.5s ease;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.dropdown:hover .dropdown-topcontent {
+.dropdown-top:hover .dropdown-topcontent {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-top: 20px;
   /* bottom:-90px; */
 }
