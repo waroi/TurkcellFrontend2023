@@ -65,7 +65,7 @@ nav {
 } */
 .container {
   width: 100%;
-  /* background-color: yellow; */
+  margin: 0 auto;
   max-width: 1140px;
 }
 
@@ -527,6 +527,111 @@ input:checked ~ nav .navbar-toggler {
   /* margin: 0 !important; */
 }
 
+/*Our App Css*/
+.freamPhone {
+  display: flex;
+  z-index: 9;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  position: absolute;
+  margin-top: -20px;
+}
+.freame {
+  max-width: 230px;
+  height: auto;
+}
+.slıderImage {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  z-index: 1;
+}
+.slıderImage > img {
+  margin-right: 50px;
+  width: 183.2px;
+  border-radius: 20px;
+  height: 100%;
+}
+.teamBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*WorkSpace*/
+.workSpace {
+  background-image: url("https://themesdesign.in/styza/layout/images/cta-bg.jpg");
+  position: relative;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #343f4b;
+}
+.gradiant {
+  background: linear-gradient(80deg, #377d8f 0%, #0a4157 100%);
+  /* opacity: 0.7; */
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+.workText {
+  position: relative;
+  flex: 2;
+}
+.workSpace::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #343f4b;
+  transform: matrix(1, -0.05, 0, 1, 0, 0);
+  z-index: 3;
+}
+.workSpace::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #343f4b;
+  -ms-transform: matrix(1, -0.05, 0, 1, 0, 0);
+  -webkit-transform: matrix(1, -0.05, 0, 1, 0, 0);
+  transform: matrix(1, -0.05, 0, 1, 0, 0);
+  z-index: 3;
+}
+.workText h1 {
+  font-size: 56px;
+  color: white;
+  font-family: "poppins", sans-serif;
+}
+.workText p {
+  font-size: 18px;
+  color: #ffffff4d;
+  font-family: "Roboto", sans-serif;
+}
+.appButton {
+  display: flex;
+}
+.app-store {
+  margin-right: 20px;
+}
+.workPhone {
+  flex: 1;
+}
+.workPhone img {
+  width: 200%;
+  z-index: 1000;
+}
+.work-space-wraper {
+  display: flex;
+  position: relative;
+}
+
 @media (max-width: 450px) {
   .navbarButton {
     display: none;
@@ -611,5 +716,14 @@ input:checked ~ nav .navbar-toggler {
   }
   .avatarCard {
     width: 100%;
+  }
+  /*Our App Css */
+  .slıderImage {
+    flex-direction: column;
+    position: relative;
+    left: 100px;
+  }
+  .slıderImage > img {
+    margin-bottom: 30px;
   }
 }
