@@ -16,81 +16,108 @@
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
+    align-items: center;
     
 }
 
   .shop-icons {
-    width: 25px;
-    height: 100px;
-    border: 1px solid red;
+    width: 45px;
+    height: 130px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     gap: 20px;
+  
+   
   }
   
   .shop-icons .fa-search {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    width: 40px;
+    height: 350px;
+    border-radius: 4px;
     opacity: 0;
-    color: rgb(25, 67, 173);
+    color: rgb(142, 145, 147);
+    background-color: #ebe7e7;
   }
   
   .bestseller:hover .fa-search {
     opacity: 1;
-    color: rgb(0, 17, 255);
     transition: 0.9s;
     transform: rotateY(180deg);
+
   }
   
   .bestseller .fa-heart-o {
+    border-radius: 4px;
+    width: 40px;
+    height: 350px;
+    color: rgb(142, 145, 147);
+    background-color: #ebe7e7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
-    color: rgb(4, 255, 0);
+  
   }
   
   .bestseller:hover .fa-heart-o {
     opacity: 1;
-    color: rgb(0, 255, 55);
     transition: 0.9s;
     transform: rotateY(180deg);
   }
   
   .bestseller .fa-refresh {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    width: 40px;
+    height: 350px;
+    color: rgb(142, 145, 147);
+    background-color: #ebe7e7;
     opacity: 0;
-    color: red;
+    
   }
   
   .bestseller:hover .fa-refresh {
     opacity: 1;
-    color: red;
     transition: 0.9s;
     transform: rotateY(180deg);
   }
   
   .bestseller-add-card {
-    width: 25px;
+    border-radius: 20px;
+    width: 55px;
     height: 100px;
-    border: 1px solid red;
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
     gap: 20px;
-  }
-  .bestseller .bestseller-add-card {
     opacity: 0;
-    color: red;
     width: auto;
-    max-width: 120px;
-    max-height: 20px;
+    max-width: 100%;
+    max-height: 13%;
+    align-items: center;
+    justify-content: center;
   }
+
   
   .bestseller:hover .bestseller-add-card {
     opacity: 1;
-    color: red;
+    color:#FFB91F;
     transition-delay: 0.2s;
+    background-color: #202020;
   }
   
 .bottom-card{
     display: flex;
     flex-direction: column;
+    width: 280px;
+    gap:20px;
+    margin: 20px;
+
 }
 
 
@@ -99,29 +126,27 @@
     flex-wrap: wrap;
     height: 371px;
     width: 300px;
-    border: 1px solid rgb(17, 209, 78);
+    border: 1px solid rgba(137, 135, 135, 0.262);
   }
+
   .card-head {
+    margin:10px;
     display: flex;
     justify-content: space-around;
   }
   
   .bestseller-main {
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: center;
-    width: 1250px;
+    justify-content: space-between;
+    width: 1230px;
   }
   
-  .bestseller-section .bestseller:hover {
-    height: 567px;
-  }
-  
+
   .bestseller-main-text {
-    border: 1px solid black;
+    font-size:50px;
     display: flex;
     flex-direction: row;
     gap: 40px;
@@ -129,17 +154,19 @@
   }
   
   .bestseller-section {
-    border: 1px solid black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
   
-  .bestseller:hover {
-    z-index: 10;
-    transition-delay: 0.3s;
-  }
+  .bestseller:hover  {
+    background-color: rgba(21, 118, 159, 0.258);
+    position: relative;
+    z-index: 4;
+}
+
+
   
   .bestseller img {
     max-width: 60%;
@@ -162,12 +189,11 @@
   }
   
   .elementor-widget-main {
-    margin-left: -8px;
-    margin-right: -16px;
     display: flex;
     flex-direction: row;
     gap: 20px;
     overflow: hidden;
+
   }
   
   .elementor-widget-left {
@@ -211,24 +237,34 @@
     align-items: flex-start;
     flex-wrap: wrap;
     flex-direction: column;
-    line-height: 15px;
-    margin-left: 10%;
+    gap: 20px;
+    margin: 30px 50px;
+  }
+
+  .elementor-widget-left-text h2{
+    font-size: 45px ;
   }
   
   .elementor-widget-right-text {
     position: absolute;
+    color: #ffffff;
     top: 8px;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
     flex-direction: column;
-    line-height: 15px;
-    margin-left: 10%;
+    gap: 20px;
+    margin: 30px 50px;
+  }
+
+  .elementor-widget-right-text h2{
+    font-size: 45px ;
   }
   
   .shop-now-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 130px;
     height: 45px;
     border-radius: 42px;
@@ -333,13 +369,15 @@
   }
   
   .populer-parts ul {
+    margin: 30px;
     display: flex;
     list-style-type: none;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    max-width: 966px;
   }
   .populer-parts li {
-    max-width: 64px;
+    max-width: 212px;
     border-radius: 5px;
     display: flex;
     float: left;
@@ -367,28 +405,26 @@
     font-size: 30px;
   }
   
-  /*
-  .genuine-parts{
-    margin-left: -8px;
-    margin-right: -10px;
   
-  } */
+  .genuine-parts{
+   display: flex;
+   align-self: flex-start;
+
+  } 
   
   .genuine-parts img {
-    z-index: -10;
-    position: absolute;
-    max-width: 99%;
     object-fit: cover;
-    min-height: 40%;
+    width: 100%;
   }
   
   .genuine-parts-text {
+    position: absolute;
     color: #ffb91f;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    flex-direction: row;
-    line-height: 15px;
+    flex-direction: column;
+   
     margin-left: 10%;
   }
   .genuine-parts-text h2 {
@@ -406,6 +442,7 @@
     color: #ffb91f;
   }
   
+
 
   .up-btn{
     position: fixed;
