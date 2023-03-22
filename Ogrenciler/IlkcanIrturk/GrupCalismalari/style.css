@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  :root {
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    overflow-x: hidden;
+    background-color: #343f4b;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  
+  .container {
+    max-width: 1140px;
+    margin: auto;
+    padding: 0 50px;
+  }
+  
+  section {
+    padding: 100px 0;
+    position: relative;
+  }
+  
+  .bg-overlay {
+    background-color: rgba(22, 28, 45, 0.75);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .bg-light {
+    background-color: #303841;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px;
+    gap: 20px;
+  }
+  
+  .btn {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 0.25rem;
+    letter-spacing: 0.5px;
+    transition: all 0.5s;
+  }
+  
+  header {
+    background-color: #283039;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0px 3px 10px 0px rgba(24, 59, 86, 0.2);
+    z-index: 9999;
+  }
+  
+  nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    width: 98px;
+    padding: 5px 0;
+  }
+  
+  .menu-toggle,
+  #menu-toggle {
+    display: none;
+  }
+  
+  .links {
+    width: 100%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  
+  .ml-auto {
+    margin-left: auto;
+  }
+  
+  .linkItem {
+    display: flex;
+    align-items: center;
+  }
+  
+  .linkItem > a {
+    color: rgba(255, 255, 255, 0.5);
+    padding: 30px 25px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  
+  .btnPrimary {
+    background: linear-gradient(80deg, #46a5bd 0%, #116a8d 100%);
+    padding: 12px 30px;
+    font-size: 0.8rem;
+    border: 1px solid #0076a3;
+    font-weight: 700;
+    overflow: hidden;
+    position: relative;
+    color: #183b56;
+  }
+  
+  #section1 {
+    height: 500px;
+  }
+  
+  .backgroun-line .line-circle {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.03);
+    border-radius: 50px;
+    left: 20%;
+    top: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .backgroun-line::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.03);
+    left: 20%;
+    top: 0;
+    z-index: -1;
+  }
+  
+  .social-media {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 8%;
+    bottom: 20%;
+    color: #fff;
+  }
+  
+  .backgroun-line2 .line-circle {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.03);
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 50px;
+    right: 15%;
+    top: 20%;
+    transform: translateX(50%);
+  }
+  
+  .backgroun-line2::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.03);
+    right: 15%;
+    top: 0;
+    z-index: -1;
+  }
+  
+  footer {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .bottom-footer {
+    width: 100%;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    background-color: #303841 !important;
+  }
+  .bottom-footer p {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: auto;
+    color: #838485 !important;
+  }
+  .bottom-footer p i {
+    color: red;
+    padding: 0px 5px;
+  }
+  .container-out {
+    display: flex;
+    justify-content: space-around;
+    padding: 5%;
+    color: #838485 !important;
+  }
+  .container-out h3 {
+      color: white
+  }
+  
+  .container-inside1-2 {
+    flex: 1;
+    padding-top: 15%;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .footer-input-button {
+    display: flex;
+  }
+  
