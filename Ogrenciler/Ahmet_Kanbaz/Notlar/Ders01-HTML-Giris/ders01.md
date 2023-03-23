@@ -57,7 +57,7 @@ HTML belgesine görüntü yani fotoğraf eklemek için img etiketi kullanılır.
 
 **7. Sıralı Listeler (ol Etiketi)**  
 HTML’de sıralı liste yapabilmek için ol etiketi kullanılır ve liste elemanlarının başında 1, 2, 3 gibi veya a, b, c gibi değerler bulunur. Varsayılan değer olarak 1, 2, 3 gibi değerler gelmektedir. Ancak bu sıralama şekli değiştirilebilir. Bunu da type özelliği kullanılarak yapmak mümkün hale gelmektedir. Listenin her bir elemanını belirtmek için de li etiketi kullanılır ve bu li etiketinin arasına listenin her bir elemanı yazılmaktadır.  
-```<ol type="1"><li>Çay</li><li>Kahve</li><li>Süt</li></ol>```
+```<ol type="1"><li>Çay</li><li>Kahve</li><li>Süt</li></ol>```  
 **8. Sırasız Listeler (ul Etiketi)**  
 HTML’de sırasız liste yani numaralandırma olmadan liste oluşturulmak istenildiği zaman ul etiketi kullanılır ve sıralı listelerde olduğu gibi listenin her bir öğesini ekleyebilmek için de li etiketi kullanılmaktadır. Liste elemanlarının görünümünü değiştirebilmek için de type parametresi kullanılır.  
 ```<ul type="square"><li>Çay</li><li>Şeker</li><li>Kaşık</li></ul>```
