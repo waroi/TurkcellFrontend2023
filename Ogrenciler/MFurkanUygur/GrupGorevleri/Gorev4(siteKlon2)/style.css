@@ -448,6 +448,11 @@ input:checked~nav .navbar-toggler {
 }
 
 /*EN BAŞTAKİ İNPUT CHECKBOX'A SINIF İSMİ VERDİM*/
+/* CONTACT BAŞLANGIÇ */
+.contactSection{
+  padding-bottom: 100px;
+  background-color: #303841;
+}
 .contactBox {
   display: flex;
   justify-content: center;
@@ -462,7 +467,6 @@ input:checked~nav .navbar-toggler {
 
 .mailTitle {
   margin: 10px;
-
 }
 
 .mailTitle>h4 {
@@ -476,26 +480,19 @@ input:checked~nav .navbar-toggler {
 }
 
 .mailTitle>p {
-
   font-family: "roboto", sans-serif;
   font-size: 15px;
   color: rgba(255, 255, 255, 0.3);
-  /* color: #ffffff80; */
   line-height: 25px;
-  /* padding: 9px 0; */
-  /* margin: 20px 0 16px; */
   max-width: 500px;
-
 }
 
 .mailBox {
-  /* flex: 1; */
   width: 40%;
 }
 
 .mapBox {
   width: 60%;
-  /* flex:1; */
 }
 
 .mailInput {
@@ -507,12 +504,11 @@ input:checked~nav .navbar-toggler {
 .inputTwin {
   display: flex;
   width: 100%;
-  gap: 20px
+  gap: 20px;
 }
 
 .inputStyle {
   flex: 1;
-
 }
 
 .inputContact {
@@ -535,29 +531,60 @@ input:checked~nav .navbar-toggler {
   color: white;
   cursor: pointer;
 }
+.contactNumber {
+  display: flex;
+  margin: 50px 20px 0 20px;
+}
 
-/* .map-shape::after{
-    content: "";
-    position: absolute;
-    height: 350px;
-    width: 200px;
-    background-color: #0076a3;
-    top: -5%;
-    right: -5%;
-    border-radius: 10px;
-} */
-@media screen and (max-width:768px) {
+.infos {
+  display: flex;
+  align-items: center;
+  margin-right: 175px;
+
+}
+
+.infos>i {
+  color: #0076a3;
+  font-size: 40px;
+
+}
+
+.subInfos {
+  margin-left: 20px;
+  padding: 5px 0px;
+
+}
+
+.subInfos>h5 {
+  color: white;
+  font-size: 20px;
+  font-family: "poppins", sans-serif;
+  margin: 0;
+}
+
+.subInfos>p {
+  font-family: "roboto", sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 5px 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .contactSection{
+    padding-bottom: 0;
+  }
   .contactBox {
-    /* display: flex; */
     flex-direction: column;
     padding: 10px;
   }
 
-  .mailBox,.mapBox {
-    /* flex: 1; */
+  .mailBox,
+  .mapBox {
     width: 100%;
   }
-  .mapBox{
+
+  .mapBox {
     margin: 50px 0;
   }
 
@@ -565,10 +592,112 @@ input:checked~nav .navbar-toggler {
     flex-direction: column;
     gap: 0;
   }
-  .mapIframe{
+
+  .mapIframe {
     text-align: left;
   }
-  .mapIframe>iframe{
+
+  .mapIframe>iframe {
     width: 300px;
+  }
+
+  .contactNumber {
+    max-width: 600px;
+    margin: auto;
+    /* align-items: center; */
+    flex-direction: column;
+
+  }
+
+  .infos {
+    margin: 0 20px;
+    margin-bottom: 50px;
+  }
+}
+
+
+
+/*FOOTER Başlangıç*/
+.footerMain{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.footer1>img{
+  height: 28px;
+}
+.footerRows{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 10px;
+  padding-bottom: 50px;
+}
+footer ul{
+  list-style: none;
+}
+/* .footer1,.footer2,.footer3,.footer4{
+  flex:1;
+} */
+.footer1>p,.footer4>p{
+  color: #ffffff4d;
+  font-family: "roboto",sans-serif;
+  font-size: 16px;
+  margin: 8px 0 0;
+  line-height: 28px;
+  max-width: 350px;
+}
+.footer4>p{
+  max-width: 370px;
+}
+.footer2 h3,.footer3 h3,.footer4 h3 {
+  color: #ffffff;
+  font-size: 20px;
+  font-family: "poppins",sans-serif;
+  margin: 0 0 8px;
+}
+
+.footer2 p,.footer3 p{
+  color: #ffffff4d;
+  font-size: 16px;
+  font-family: "roboto",sans-serif;
+  margin: 10px 0;
+}
+.footer4 div{
+  display: flex;
+}
+.footer4 input{
+  flex: 1;
+  padding: 20px 20px;
+  border: none;
+  outline: none;
+  border-radius: 5px 0px 0 5px;
+}
+.footer4 button{
+  background-color: #0076a3;
+  border: none;
+  cursor: pointer;
+  padding: 0 25px;
+  border-radius: 0px 5px 5px 0px;
+}
+.footerText{
+  background-color: #303841;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-family: "roboto",sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+@media screen and (max-width:768px) {
+  .footerMain{
+    max-width: 600px;
+    margin: auto;
+  }
+  .footerRows{
+    flex-direction: column;
+    margin: 20px;
+  }
+  .footerRows>div{
+    margin-bottom: 20px;
   }
 }
