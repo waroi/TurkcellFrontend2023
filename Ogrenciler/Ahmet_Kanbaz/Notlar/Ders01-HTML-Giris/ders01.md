@@ -23,7 +23,7 @@ Dosya adındaki “.html” uzantısı dosyanın  bir HTML belgesi olduğunu bel
 	```<h6>Başlık 6</h6>```  
 	&emsp; &emsp; şeklinde kullanılmaktadır.
 
-**2. Link Etiketi (a Etiketi)**
+**2. Link Etiketi (a Etiketi)**  
 a etiketini bağlantı metinleri oluşturabilmek ve bu bağlantılar ile farklı sayfalara geçiş için kullanılmaktadır. Bu etiketin en önemli özelliği “href” özelliğidir. “href” ile bağlantı oluşturmak istediğimiz sayfanın URL’si verilebilir.
 	Tüm tarayıcılarda linkler,
 -  Ziyaret edilmiş linkler mor ve altı çizili,
