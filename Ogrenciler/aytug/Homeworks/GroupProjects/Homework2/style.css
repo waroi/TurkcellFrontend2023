@@ -131,6 +131,11 @@
 	border-radius: 50%;
 	padding: 0.5em;
 }
+
+.nav_bar_computer {
+	display: none;
+}
+
 /* NAV BAR END */
 
 .main_topic {
@@ -224,6 +229,11 @@
 	width: 50%;
 }
 
+.category_card:hover {
+	cursor: pointer;
+	color: white;
+}
+
 .category_img {
 	width: 170px;
 	height: 170px;
@@ -254,6 +264,10 @@
 	display: flex;
 	justify-content: flex-start;
 	cursor: pointer;
+}
+
+.mobile_none {
+	display: none;
 }
 
 .best_seller_passive:hover {
@@ -346,6 +360,19 @@
 	.nav_bar_responsive {
 		display: none;
 	}
+	.nav_bar_computer {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+	.nav_bar_logo_big {
+		width: 120px;
+		height: auto;
+	}
+	.nav_bar_search {
+		width: 580px;
+	}
 	.best_seller_card {
 		padding: 0.5em;
 		width: 25%;
@@ -393,6 +420,9 @@
 		width: 100%;
 		display: flex;
 		justify-content: center;
+	}
+	.mobile_none {
+		display: block;
 	}
 	.best_seller_active {
 	}
