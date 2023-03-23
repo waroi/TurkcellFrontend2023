@@ -1,19 +1,20 @@
-Ders-01: HTML Giriş
-Konular: H1-H6, a, span, img, p, sıralı ve sırasız listeler
+# Ders-01: HTML Giriş
+## Konular: H1-H6, a, span, img, p, sıralı ve sırasız listeler
 
 HTML, web sayfalarını oluşturma aşamasında kullanılan standart bir metin dili olup açılımı “Hyper Text Markup Language” şeklindedir. HTML bir programlama dili değildir ve etiketler ile nitelikler kullanılarak web sayfaları şekillendirilebilir. Web sitesinin iskeletini oluşturmada kullanılır.
 HTML’de kullanılan kod ne olursa olsun tümü “<” ile başlayarak “>” ile bitmelidir.
 Dosya adındaki “.html” uzantısı dosyanın  bir HTML belgesi olduğunu belirtir.
-HTML Belge Yapısı
-1.	<!DOCTYPE html>: Tüm HTML belgelerinin başladığı koddur.
-2.	<html>: Kök etiket olarak da bilinen bu kod kısmında ise tüm HTML kodları bu iki etiket arasında tanımlanmaktadır.
-3.	<head>: Bu etiket alanı içerisine eklenen içerikler web sayfasında görünmez. CSS dosyalarını, style elemanlarını, web sayfasının dili bu alanda bulunur.
-4.	<title>: Web sitesinin başlık alanı tanımlanmaktadır. <title> etiketi de <head> etiketlerinin arasında bulunmaktadır.
-5.	<body>: Web sayfasının görünen yüzüdür. Yani kullanıcı tarafından web sitesinde görünecek olan kısımlar bu etiketler arasına eklenmektedir. Başlıklar, paragraflar, resimler, linkler, tablolar gibi HTML öğelerini içerir. <body> etiketi sadece 1 defa kullanılmaktadır.
-6.	<meta charset=”utf-8”>: Web tarayıcıların HTML sayfasındaki karakterlerin ne olduğunu anlaması içindir. Hangi karakteri kullandığımızı belirterek tarayıcının anlamasını sağlıyoruz.
+### HTML Belge Yapısı
+======
+**1.**	<!DOCTYPE html>: Tüm HTML belgelerinin başladığı koddur.
+**2.**	<html>: Kök etiket olarak da bilinen bu kod kısmında ise tüm HTML kodları bu iki etiket arasında tanımlanmaktadır.
+**3.**	<head>: Bu etiket alanı içerisine eklenen içerikler web sayfasında görünmez. CSS dosyalarını, style elemanlarını, web sayfasının dili bu alanda bulunur.
+**4.**	<title>: Web sitesinin başlık alanı tanımlanmaktadır. <title> etiketi de <head> etiketlerinin arasında bulunmaktadır.
+**5.**	<body>: Web sayfasının görünen yüzüdür. Yani kullanıcı tarafından web sitesinde görünecek olan kısımlar bu etiketler arasına eklenmektedir. Başlıklar, paragraflar, resimler, linkler, tablolar gibi HTML öğelerini içerir. <body> etiketi sadece 1 defa kullanılmaktadır.
+**6.**	<meta charset=”utf-8”>: Web tarayıcıların HTML sayfasındaki karakterlerin ne olduğunu anlaması içindir. Hangi karakteri kullandığımızı belirterek tarayıcının anlamasını sağlıyoruz.
 
-HTML Etiketleri
-1. Başlık Etiketleri
+#### HTML Etiketleri
+**1.** Başlık Etiketleri
 HTML temelde 6 başlık öğesini destekler. H1 ve H6 arasındaki başlık etiketleridir. H1 etiketi önemlidir ve Google tarafından sayfa içeriği hakkında bilgi alınabilmektedir. Bu yüzden bir sayfada bir adet H1 etiketi bulunması önemlidir. En büyük olan H1 etiketi olup H6 etiketi ise en küçük başlık etiketidir.
 	<H1>Başlık 1</H1>
 	<H2>Başlık 2</H2>
