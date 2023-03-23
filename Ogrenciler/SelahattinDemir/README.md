@@ -33,5 +33,13 @@ This file has been created for you to navigate through my folders more easily.
       <td><a href="./Dersler/Ders04"> Ders04 </a></td>
       <td><a href="./Ders_Sonu_Odevleri/css/Team_Work"> Team Work </a></td>
    </tr>
+   <tr>
+      <td><a href="./Dersler/Ders05"> Ders05 </a></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a href="./Dersler/Ders06"> Ders06 </a></td>
+      <td></td>
+   </tr>
   </tbody>
 </table>
