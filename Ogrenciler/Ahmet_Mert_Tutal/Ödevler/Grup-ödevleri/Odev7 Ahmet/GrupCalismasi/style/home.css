@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+.flex-row {
+  display: flex;
+}
+.container-mid {
+  max-width: 1260px;
+  padding: 9px 15px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+.menu-list {
+  list-style-type: none;
+  gap: 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+
+}
+
+
+
+.hover-box {
+  opacity: 0;
+  
+  z-index: -1;
+  position: absolute;
+  transition: 0.5s all ease-in;
+}
+.slider-figure img{
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+}
+
+.hover-content-wrap {
+  margin: 0 auto;
+  width: 100vw;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  background: white;
+  height: 30rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+.home-content{
+  width: 1230px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+justify-content: space-around;
+  gap: 30px;
+  text-align: center;
+  align-items: center;
+  
+  
+}
+
+.menu-list-item:active * {
+  color: rgb(255, 185, 31);
+  cursor: pointer;
+}
+
+.menu-list-item {
+  position: relative;
+}
+
+.menu-list-item:active .hover-box {
+  display: block;
+  opacity: 1;
+  z-index: 1;
+}
+
+.hover-content-element a {
+  text-decoration: none;
+  padding-top: 1rem;
+}
