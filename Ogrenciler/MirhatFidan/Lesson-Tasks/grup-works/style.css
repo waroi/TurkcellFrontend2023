@@ -314,7 +314,6 @@ nav {
   border-radius: 20px;
   padding: 20px;
   transition: 0.3s ease;
-  max-width: 29%;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   margin-bottom: 100px;
 }
@@ -432,4 +431,162 @@ nav {
 }
 .playButton> i{
   color: #fff;
+}
+.workspace{
+  background-image: url(assets/workspace-bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment:  fixed;
+  padding: 120px 0;
+}
+
+.bg-overlay-gradient {
+  background: linear-gradient(80deg, #377d8f 0%, #0a4157 100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+.workspace::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #343f4b;
+  transform: matrix(1, -0.05, 0, 1, 0, 0);
+  z-index: 1;
+}
+
+.workspace::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #303841;
+  -ms-transform: matrix(1, -0.05, 0, 1, 0, 0);
+  -webkit-transform: matrix(1, -0.05, 0, 1, 0, 0);
+  transform: matrix(1, -0.05, 0, 1, 0, 0);
+}
+.workspace-logo{
+  display: flex;
+  gap: 1rem;
+  align-self: flex-start;
+}
+.workspace-image{
+  position: relative;
+  width: 50%;
+}
+.image-wrap{
+  position: absolute;
+  top: -50%;
+  z-index: 999;
+}
+.workspace .titleWrap {
+  width: 50%;
+  text-align: start;
+  gap: 2rem;
+  z-index: 99;
+}
+
+.workspace .titleWrap p {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: start;
+}
+
+.workspace .titleWrap h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 3.5rem;
+  line-height: 1.2;
+}
+
+@media screen and (max-width: 1020px) {
+  .row {
+    flex-wrap: wrap;
+  }
+
+  header .container {
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .links {
+    display: none;
+  }
+  .line {
+    width: 20px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 13px;
+  }
+  .linkItem {
+    margin-left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .linkItem a {
+    padding: 15px 25px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .titleWrap {
+    width: 100%;
+  }
+
+  .workspace .titleWrap {
+    width: 100%;
+  }
+
+  .workspace-image {
+    width: 100%;
+  }
+  .image-wrap {
+    position: relative;
+    top: 0;
+  }
+  .features-wrap {
+    gap: 50px;
+  }
+
+  .features-content {
+    flex-wrap: wrap;
+  }
+
+  .content-box {
+    align-items: self-start;
+  }
+
+  .content-box p {
+    text-align: start;
+  }
+
+  .features-image>img {
+    width: 100%;
+  }
+  .container {
+    padding: 0 20px;
+  }
+
+  .social-media {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    gap: 3px;
+    flex-direction: column;
+  }
 }
