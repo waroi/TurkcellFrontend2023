@@ -65,6 +65,15 @@ p{
 .fl-dir-column{
     flex-direction: column;
 }
+.fl-wrap{
+    flex-wrap: wrap;
+}
+.just-cont-center{
+    justify-content: center;
+}
+.algn-it-center{
+    align-items: center;
+}
 .container{
     max-width: 600px;
     margin: 0 auto;
@@ -107,12 +116,10 @@ header {
     position: fixed;
     width: 100%;
     height: 70px;
-    display: flex;
     align-items: center;
     z-index: 999999999;
 }
 nav {
-    display: flex;
     align-items: center;
     width: 100%;
     padding: 0 20px;
@@ -149,8 +156,6 @@ nav {
 }
 
 .linkItem {
-    display: flex;
-    flex-direction: column;
     gap: 12px;
     align-items: flex-start;
 }
@@ -188,29 +193,18 @@ nav {
     background-color: var(--bg-color-ligth-gray);
     min-height: 90vh;
     align-items: center;
-    display: flex;
 }
 .home .social-icon {
     position: absolute;
     left: 8%;
     bottom: 20%;
 }
-.social-icon{
-    display: none;
-}
-
 .social{
     margin-bottom: 1rem;
 }
 .social i{
     font-size: 24px;
     color: rgba(255,255,255,.6);
-}
-.home-section{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
 }
 .section-title{
     text-align: center;
@@ -235,12 +229,6 @@ nav {
     position: relative;
     z-index: 1;
     margin-bottom: -20%;
-}
-.phone-img{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
 }
 .img-fluid {
     max-width: 100%;
@@ -280,11 +268,6 @@ nav {
     padding-bottom: 120px;
     position: relative;
 }
-.services-section{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 .section-title-h6{
     color: var(--button);
     font-weight: 700;
@@ -300,8 +283,6 @@ nav {
 .services-card{
     padding-top: 0.5rem;
     margin-top: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
 }
 .services-card-box{
@@ -339,7 +320,6 @@ nav {
 .services-card-box:nth-child(2){
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }
-
 @media screen and (max-width: 992px) {
     .home{
         padding:150px 0 50px 0;
@@ -356,10 +336,11 @@ nav {
     text-align: center;
     margin-bottom: 20px;
 }
+.section-title-2 p{
+    padding: 0 20%;
+}
 .features-button{
     margin-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
     text-align: center;
     justify-content: center;
   }
@@ -381,7 +362,6 @@ nav {
   }
   .smart-features{
     padding-top: 50px;
-    display: flex;
     flex-wrap: wrap;
     padding-bottom: 50px;
   
@@ -397,7 +377,6 @@ nav {
   .features-icon{
     font-size: 20px;
     margin-top: 50px;
-    display: flex;
     flex-wrap: wrap;
     gap:5px;
   }
@@ -416,9 +395,6 @@ nav {
   .smart-features-list ul{
     display: flex;
     flex-direction: column;
-  }
-  .smart-features-list ul li{
-    display: flex;
   }
   .smart-features-list h2{
     color:#f8f9fc
@@ -596,6 +572,7 @@ nav {
 }
 .team-title-ofc{
     margin-bottom: 2em;
+    padding: 0 20%;
 }
 .team-cards-sec{
     padding: 5%;
@@ -615,9 +592,9 @@ nav {
     transform: rotate(270deg);
 }
 .social-icon{
-    width: 50%;
+    width: 70%;
     justify-content: space-around;
-    margin:10px 10px 0 0;
+    margin:10px 5px 0 0;
 }
 .cta{
     background-image: url(./img/cta-bg.jpg);
@@ -766,7 +743,6 @@ form textarea{
     margin: 12px 0;
 }
 footer{
-    display: flex;
     background-color: var(--bg-color-dark-gary);
     text-align: center;
     align-items: center;
@@ -791,7 +767,7 @@ footer{
     justify-content: center;
 }
 
-
+/* ----------------------------------------------------********************************************************************************************************************************************************************************************************************************************************************************************** */
 
 
 
@@ -803,7 +779,6 @@ footer{
     max-width: 1140px;
     margin: auto;
     width: 100%;
-    display: flex;
     align-items: center;
     justify-content: space-between;
 }
@@ -977,7 +952,6 @@ h1{
    /* team area */
     .team-cards-sec{
         /* flex-direction:row; */
-        display: flex;
         align-items: normal;
         justify-content: center;
         flex-wrap: wrap;
