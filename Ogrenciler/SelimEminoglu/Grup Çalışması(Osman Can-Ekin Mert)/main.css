@@ -874,6 +874,9 @@ ul {
   width: 100%;
   height: 100%;
 }
+.concactUsSection {
+  padding-top: 8em;
+}
 
 .contactUs {
   display: flex;
@@ -921,6 +924,75 @@ ul {
   color: #0076a3 !important;
 }
 /* Build Your Bölümü */
+.teamSection {
+  background: url("./images/build-your-image.jpg");
+  background-attachment: fixed;
+  position: relative;
+  height: 600px;
+}
+.teamSectionMain {
+  position: relative;
+}
+
+.imageBlue {
+  background: linear-gradient(80deg, #377d8f 0%, #0a4157 100%);
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+.teamSection::before {
+  position: absolute;
+  content: "";
+  background: #343f4b;
+  top: -35px;
+  width: 100%;
+  height: 15%;
+  transform: matrix(1, -0.05, 0, 1, 0, 0);
+  z-index: 1;
+}
+.teamSection::after {
+  position: absolute;
+  content: "";
+  background: #303841;
+  bottom: -35px;
+  width: 100%;
+  height: 15%;
+  transform: matrix(1, -0.05, 0, 1, 0, 0);
+  z-index: 2;
+}
+.teamSectionContent {
+  padding: 10em 0;
+}
+.teamSectionList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.teamSectionParagraph {
+  flex-basis: 50%;
+}
+.teamSectionParagraph h1 {
+  font-size: 53px;
+  line-height: 66px;
+}
+.teamSection p {
+  font-size: 17px;
+  line-height: 25px;
+}
+.teamSectionLogos {
+  display: flex;
+  gap: 1em;
+}
+
+.teamSectionImage {
+  position: absolute;
+  box-sizing: border-box;
+  width: 40%;
+  height: 700px;
+  top: -40px;
+  right: 150px;
+  z-index: 3;
+}
 .buildYour {
   background-image: url("./images/build-your-image.jpg");
   background-size: auto;
@@ -993,6 +1065,16 @@ ul {
 .buttonRule {
   max-width: 100%;
   height: auto;
+}
+@media screen and (max-width: 1150px) {
+  .teamSection {
+    height: 700px;
+  }
+  .teamSectionImage {
+    height: 700px;
+    top: -60px;
+    right: 60px;
+  }
 }
 
 @media screen and (max-width: 960px) {
@@ -1113,7 +1195,22 @@ ul {
   .name {
     margin-right: 0px;
   }
+  .teamSection {
+    height: 1300px;
+  }
+  .teamSectionImage {
+    width: 50%;
+    height: 50%;
+    top: 500px;
+    left: 150px;
+  }
+  .teamSectionParagraph {
+    padding-top: 5em;
+    flex-basis: 100%;
+    justify-content: center;
+  }
 }
+
 /* Responsive--Selim Eminoğlu--Samsung Galaxy S20 Ultra*/
 @media screen and (max-width: 412px) {
   .featureForText {
