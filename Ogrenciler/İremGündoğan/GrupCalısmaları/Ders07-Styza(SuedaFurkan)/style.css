@@ -168,7 +168,7 @@ input:checked ~ nav .navbar-toggler {
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 8%;
+    left: 30px;
     bottom: 20%;
     color: #fff;
   }
@@ -299,7 +299,9 @@ input:checked ~ nav .navbar-toggler {
 .phone {
   max-width: 100%;
   height: auto;
+  vertical-align: middle;
 }
+/*irem eklenenler*/
 .video-container {
   border-radius: 50%;
   box-shadow: 0 0 0 0 #0076a3;
@@ -307,15 +309,17 @@ input:checked ~ nav .navbar-toggler {
 }
 .watch-video {
   position: absolute;
-  width: 72px;
-  height: 72px;
   top: 90%;
   transform: translate(-50%, -50%);
   left: 50%;
-  border-radius: 50%;
-  z-index: 999;
+}
+.button {
+  border-radius: 50rem;
+  width: 4.5rem;
+  padding: 20px;
   background-color: #0076a3;
 }
+
 /*FEATURE SECTIONS*/
 .featureSection {
   margin-top: 70px;
@@ -326,6 +330,11 @@ input:checked ~ nav .navbar-toggler {
 .featureTitle {
   padding: 50px 10px;
   text-align: center;
+}
+@media screen and (max-width: 450px) {
+  .watch-video {
+    top: 195%;
+  }
 }
 
 /****Feature Buttons****/
@@ -459,6 +468,7 @@ input:checked ~ nav .navbar-toggler {
     margin: 0;
   }
 }
+/*irem eklenenler*/
 .freamPhone {
   display: flex;
   z-index: 9;
@@ -490,16 +500,72 @@ input:checked ~ nav .navbar-toggler {
   .slıderImage {
     flex-direction: column;
     position: relative;
-    left: 30%;
   }
   .slıderImage > img {
-    margin-bottom: 30px;
+    margin: 0 auto;
+  }
+  .slıderImage > img:nth-child(n + 2) {
+    margin: 0 auto;
+    display: none;
+  }
+  .freamPhone {
+    display: none;
+  }
+  .teamBox {
+    margin: 0 auto;
   }
 }
-
 
 .teamBox {
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  width: 70%;
+  justify-content: space-around;
 }
+.personal {
+  display: flex;
+}
+.social-icons-horizontal {
+  display: flex;
+  flex-direction: row;
+  left: 8%;
+  bottom: 20%;
+  color: #fff;
+  margin-top: 0.5rem;
+}
+.social-icons-horizontal > a {
+  margin: 0 0.5rem;
+}
+.social-icons-horizontal > a > img {
+  color: #838485;
+}
+.personalText {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  margin-top: 45px;
+  margin-left: -105px;
+}
+.personalText > h6 {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  transform: rotate(270deg);
+}
+.title {
+  color: #838485;
+  font-size: 14px;
+  font-weight: 400;
+}
+.personalImage {
+  width: 190px;
+  height: auto;
+}
+.personalImage > img {
+  width: 100%;
+  border-radius: 10px;
+}
+.personal-container {
+  display: flex;
+}
+/*irem eklenenler*/
