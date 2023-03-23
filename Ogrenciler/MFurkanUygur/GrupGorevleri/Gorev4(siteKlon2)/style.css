@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   padding: 0;
   margin: 0;
@@ -64,6 +65,7 @@ nav {
     
 } */
 .container {
+  margin: 0 auto;
   width: 100%;
   /* background-color: yellow; */
   max-width: 1140px;
@@ -78,7 +80,7 @@ nav {
   justify-content: space-between;
 }
 
-.navbar > a {
+.navbar>a {
   display: flex;
   align-items: center;
   /*Logonun konumunu kesinleştirdim */
@@ -96,12 +98,12 @@ nav {
   list-style: none;
 }
 
-.navbarLink > li {
+.navbarLink>li {
   /* margin: 0 20px; */
   padding: 10px 25px;
 }
 
-.navbarLink > li > a {
+.navbarLink>li>a {
   text-decoration: none;
   font-size: 13px;
   line-height: 25px;
@@ -110,17 +112,15 @@ nav {
   color: #ffffff80;
 }
 
-.navbarLink > li > a:hover {
+.navbarLink>li>a:hover {
   color: white;
 }
 
 .navbarButton {
-  background-image: linear-gradient(
-    to right,
-    #314755 0%,
-    #26a0da 51%,
-    #314755 100%
-  );
+  background-image: linear-gradient(to right,
+      #314755 0%,
+      #26a0da 51%,
+      #314755 100%);
   /*button margin değerleri ile oynandı*/
   margin: 20px 15px 20px 35px;
   padding: 12px 30px;
@@ -145,16 +145,16 @@ nav .navbar-toggler .bar {
   transition: 0.4s;
 }
 
-input {
+.checkbox-input {
   display: none;
 }
 
-input:checked ~ nav .navbarLink {
+input:checked~nav .navbarLink {
   transform: translateY(0);
   z-index: 1;
 }
 
-input:checked ~ nav .navbar-toggler {
+input:checked~nav .navbar-toggler {
   margin-top: 15px;
 }
 
@@ -172,7 +172,7 @@ input:checked ~ nav .navbar-toggler {
   text-align: center;
 }
 
-.homeTitle > i {
+.homeTitle>i {
   color: white;
 }
 
@@ -233,7 +233,7 @@ input:checked ~ nav .navbar-toggler {
   padding: 10px;
 }
 
-.cardIcon > i {
+.cardIcon>i {
   /*icon konumlandırması*/
   padding: 60px 40px 40px 40px;
   background-repeat: no-repeat;
@@ -245,13 +245,15 @@ input:checked ~ nav .navbar-toggler {
   margin-top: 10px;
 }
 
-.cardText > a {
+.cardText>a {
   text-decoration: none;
 }
+
 .phone-mockup {
   z-index: 1;
   margin-bottom: -20%;
 }
+
 .mockup-container {
   align-items: center;
   justify-content: center;
@@ -259,6 +261,7 @@ input:checked ~ nav .navbar-toggler {
   flex-wrap: wrap;
   margin: -1.5rem, -0.75rem, -0, 75rem, 0;
 }
+
 @media screen and (min-width: 450px) {
   .image-1 {
     flex: 0 0 auto;
@@ -266,6 +269,7 @@ input:checked ~ nav .navbar-toggler {
     padding: 0, 0.75rem;
     max-width: 100%;
   }
+
   .image-2 {
     flex: 0 0 auto;
     width: 33%;
@@ -273,21 +277,25 @@ input:checked ~ nav .navbar-toggler {
     max-width: 100%;
   }
 }
+
 .phone {
   max-width: 100%;
   height: auto;
 }
+
 .video-container {
   border-radius: 50%;
   box-shadow: 0 0 0 0 #0076a3;
   margin-top: 1.5rem;
 }
+
 .watch-video {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
   left: 50%;
 }
+
 /*FEATURE SECTIONS*/
 .featureSection {
   margin-top: 70px;
@@ -361,7 +369,7 @@ input:checked ~ nav .navbar-toggler {
   width: 40%;
 }
 
-.elementMiddle > img {
+.elementMiddle>img {
   width: 100%;
   /* margin: 0 !important; */
 }
@@ -405,29 +413,291 @@ input:checked ~ nav .navbar-toggler {
     flex-wrap: wrap;
     margin-bottom: 70px;
   }
+
   .featureButton {
     text-align: center;
   }
+
   .featureElements {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+
   .elementSpace {
     margin: 10px 0 0px 10px;
   }
+
   .elementSpace:nth-child(2) {
     margin: 50px 0 50px 10px;
   }
+
   .elementLeft {
     margin: 0;
     text-align: left;
   }
+
   .elementRight {
     margin: 0px 0px;
   }
+
   .elementMiddle {
     width: 100%;
     margin: 0;
+  }
+}
+
+/*EN BAŞTAKİ İNPUT CHECKBOX'A SINIF İSMİ VERDİM*/
+/* CONTACT BAŞLANGIÇ */
+.contactSection{
+  padding-bottom: 100px;
+  background-color: #303841;
+}
+.contactBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  width: 100%;
+}
+
+.contactTitle {
+  text-align: center;
+}
+
+.mailTitle {
+  margin: 10px;
+}
+
+.mailTitle>h4 {
+  font-size: 24px;
+  color: #ffffff;
+  margin-top: 24px;
+  margin: 0;
+
+  line-height: 20px;
+  font-family: "poppins", sans-serif;
+}
+
+.mailTitle>p {
+  font-family: "roboto", sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 25px;
+  max-width: 500px;
+}
+
+.mailBox {
+  width: 40%;
+}
+
+.mapBox {
+  width: 60%;
+}
+
+.mailInput {
+  flex-direction: column;
+  display: flex;
+  margin: 10px;
+}
+
+.inputTwin {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.inputStyle {
+  flex: 1;
+}
+
+.inputContact {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.sendMessagebtn {
+  background-color: #0076a3;
+  font-family: "poppins", sans-serif;
+  font-size: 12px;
+  border: none;
+  padding: 15px 0;
+  border-radius: 5px;
+  margin: 10px 0px;
+  color: white;
+  cursor: pointer;
+}
+.contactNumber {
+  display: flex;
+  margin: 50px 20px 0 20px;
+}
+
+.infos {
+  display: flex;
+  align-items: center;
+  margin-right: 175px;
+
+}
+
+.infos>i {
+  color: #0076a3;
+  font-size: 40px;
+
+}
+
+.subInfos {
+  margin-left: 20px;
+  padding: 5px 0px;
+
+}
+
+.subInfos>h5 {
+  color: white;
+  font-size: 20px;
+  font-family: "poppins", sans-serif;
+  margin: 0;
+}
+
+.subInfos>p {
+  font-family: "roboto", sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 5px 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .contactSection{
+    padding-bottom: 0;
+  }
+  .contactBox {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .mailBox,
+  .mapBox {
+    width: 100%;
+  }
+
+  .mapBox {
+    margin: 50px 0;
+  }
+
+  .inputTwin {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .mapIframe {
+    text-align: left;
+  }
+
+  .mapIframe>iframe {
+    width: 300px;
+  }
+
+  .contactNumber {
+    max-width: 600px;
+    margin: auto;
+    /* align-items: center; */
+    flex-direction: column;
+
+  }
+
+  .infos {
+    margin: 0 20px;
+    margin-bottom: 50px;
+  }
+}
+
+
+
+/*FOOTER Başlangıç*/
+.footerMain{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.footer1>img{
+  height: 28px;
+}
+.footerRows{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 10px;
+  padding-bottom: 50px;
+}
+footer ul{
+  list-style: none;
+}
+/* .footer1,.footer2,.footer3,.footer4{
+  flex:1;
+} */
+.footer1>p,.footer4>p{
+  color: #ffffff4d;
+  font-family: "roboto",sans-serif;
+  font-size: 16px;
+  margin: 8px 0 0;
+  line-height: 28px;
+  max-width: 350px;
+}
+.footer4>p{
+  max-width: 370px;
+}
+.footer2 h3,.footer3 h3,.footer4 h3 {
+  color: #ffffff;
+  font-size: 20px;
+  font-family: "poppins",sans-serif;
+  margin: 0 0 8px;
+}
+
+.footer2 p,.footer3 p{
+  color: #ffffff4d;
+  font-size: 16px;
+  font-family: "roboto",sans-serif;
+  margin: 10px 0;
+}
+.footer4 div{
+  display: flex;
+}
+.footer4 input{
+  flex: 1;
+  padding: 20px 20px;
+  border: none;
+  outline: none;
+  border-radius: 5px 0px 0 5px;
+}
+.footer4 button{
+  background-color: #0076a3;
+  border: none;
+  cursor: pointer;
+  padding: 0 25px;
+  border-radius: 0px 5px 5px 0px;
+}
+.footerText{
+  background-color: #303841;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-family: "roboto",sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+@media screen and (max-width:768px) {
+  .footerMain{
+    max-width: 600px;
+    margin: auto;
+  }
+  .footerRows{
+    flex-direction: column;
+    margin: 20px;
+  }
+  .footerRows>div{
+    margin-bottom: 20px;
   }
 }
