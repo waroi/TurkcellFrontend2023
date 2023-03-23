@@ -59,12 +59,18 @@ p{
 .d-flex{
     display: flex;
 }
+.d-none{
+    display: none;
+}
 .fl-dir-column{
     flex-direction: column;
 }
 .container{
     max-width: 600px;
     margin: 0 auto;
+}
+.padding-10{
+    padding: 0 10%;
 }
 /* selehattin başlangıç */
 .mode-btn {
@@ -339,7 +345,6 @@ nav {
         padding:150px 0 50px 0;
     }
 }
-
 /* selahattin bitiş */
 /* nurgül başlangıç */
 .features{
@@ -348,6 +353,8 @@ nav {
 .section-title-2{
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
 }
 .features-button{
     margin-top: 15px;
@@ -419,12 +426,10 @@ nav {
 
   .client-testimonial{
     background-color:var(--bg-color-dark-gary);
+ 
   }
   .client-title{
     padding-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: left;
     margin-left: 15px;
   }
   .client-title h6{
@@ -452,44 +457,32 @@ nav {
     color: #fff;
     background: linear-gradient(80deg, #46a5bd 0%, #116a8d 100%);
   }
-  .slider{
-    background-color: #303841;
-    padding-top: 50px;
-    padding-bottom: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 15px;
-  }
-  .slider img{
+  .slider-img{
     width: 100%;
-    height: auto;
     border-radius: 20px;
     box-shadow: 0 5px 13px rgba(60,72,88,.2);
     margin: 20px 0;
   }
-  .client-follow{
-    background-color: #303841;
-    padding-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 15px;
+  .client-follow-sec{
+    align-items: center;
+    margin: 0 0 20px 20px;
+    width: 100%;
   }
   .client-follow img{
     border-radius: 50%;
+    width: 100%;
   }
   .follow-text{
-    background-color: #303841;
-    padding-top: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 20px;
+    padding-left: 20px;
     color: var(--paragraph);
+    width: 100%;
   }
   .follow{
     margin-left: 20px;
   }
   .follow h2{
-    color: #f8f9fc;
+   color: var(--header-color-white);
+   font-size: 2em;
   }
   .follow button{
     margin: 20px;
@@ -505,8 +498,11 @@ nav {
   .pricing{
     background-color: var(--bg-color-ligth-gray);
   }
-  .price{
+  .price-color-2{
     background-color: #183b56;
+  }
+  .price{
+    background-color: rgba(0,118,163,.2);
   }
   .pricing-card-sec{
     flex-direction: column;
@@ -534,6 +530,9 @@ nav {
     align-items: center;
     padding-top: 10px;
   }
+  .price-header p:not(:first-child){
+    font-size: 12px;
+  }
   .price-header h2{
     align-items: center;
     margin: 15px 0px;
@@ -541,13 +540,14 @@ nav {
   .price-header h2>span{
     font-size: 14px;
   }
-  .price-header p:first-child{
+  .price-header-p{
     background-color: var(--button);
     border-radius: 5px;
     padding: 3px;
     width: 15%;
     text-align: center;
     color: var(--header-color-white);
+    margin-top: 10px;
   }
   .pricing-items ul li{
     display: flex;
@@ -558,7 +558,7 @@ nav {
 }
 .pricing-items ul li p{
     color: var(--header-color-white);
-    font-size: 14px;
+    font-size: 12px;
   }
   .pricing-card button{
     background-color: transparent;
@@ -574,16 +574,16 @@ nav {
    /* APPLICATION */
    .application{
     background-color: var(--bg-color-dark-gary);
-    padding-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 50px;
+    padding: 50px 0;
    }
    .application-img{
-    width: 100%;
-    height: auto;
-    margin-top: 80px;
-    margin-left: 40px
+    justify-content: center;
+    padding: 20px 0;
+   }
+   .application-img img{
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 50px;
    }
 
 
@@ -903,8 +903,30 @@ footer{
 /* selahattin web bitiş */
   /* nurgül web başlangıç */
   
- 
-  
+  .slider{
+    align-items: center;
+    gap: 20px;
+   }
+   .slider-img{
+     width: 40%;
+   }
+   .follow h2{
+     font-size: 20px;
+     margin-bottom: 0;
+   }
+   .follow p{
+     font-size: 14px;
+   }
+   .client-title p{
+    width: 90%;
+    font-size: 14px;
+  }
+  .price-header-rec{
+    width: 115%;
+  }
+  .price-header-p{
+    width: 30%;
+  }
   .pricing-card-sec{
     flex-direction: row;
     gap: 30px;
@@ -913,6 +935,7 @@ footer{
   .pricing-card{
     width: 30%;
   }
+ 
 
 h1{
     font-size: 48px;
@@ -931,8 +954,22 @@ h1{
   .paragraph{
     font-size: 18px;
   }
+  .align-center-pc{
+    align-items: center;
+  }
   .fl-dir-row-pc{
     flex-direction: row;
+  }
+  .display-none-img-pc{
+    display: block;
+  }
+  .application-img{
+    margin: 50px 0;
+    gap: 25px;
+  }
+  .application-img img{
+    width: 15%;
+    border-radius: 15px;
   }
     .container{
     max-width: 1100px;
