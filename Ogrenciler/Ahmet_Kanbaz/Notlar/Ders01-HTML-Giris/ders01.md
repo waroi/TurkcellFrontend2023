@@ -13,7 +13,7 @@ Dosya adındaki “.html” uzantısı dosyanın  bir HTML belgesi olduğunu bel
 **6.**	```<meta charset=”utf-8”>```: Web tarayıcıların HTML sayfasındaki karakterlerin ne olduğunu anlaması içindir. Hangi karakteri kullandığımızı belirterek tarayıcının anlamasını sağlıyoruz.  
 
 #### HTML Etiketleri
-**1. Başlık Etiketleri**
+**1. Başlık Etiketleri**  
 &emsp; &emsp; HTML temelde 6 başlık öğesini destekler. H1 ve H6 arasındaki başlık etiketleridir. H1 etiketi önemlidir ve Google tarafından sayfa içeriği hakkında bilgi alınabilmektedir. Bu yüzden bir sayfada bir adet H1 etiketi bulunması önemlidir. En büyük olan H1 etiketi olup H6 etiketi ise en küçük başlık etiketidir. <br>
 	```<h1>Başlık 1</h1>```  
 	```<h2>Başlık 2</h2>```  
