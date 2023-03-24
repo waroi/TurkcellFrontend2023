@@ -1,0 +1,62 @@
+/* Personal Addition Start */
+
+body {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: 18px;
+    text-shadow: #323232 2px 1px 2px;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: gold;
+}
+
+/* Personal Addition Over */
+.container {
+    display: grid;
+    height: 600px;
+    background: #206ee4;
+    gap: 5px;
+    grid-template-areas:
+        "header header header"
+        "sidebar section section"
+        "sidebar . ."
+        "box-1 box-1 box-1"
+        "footer footer footer"
+    ;
+}
+
+.header {
+    grid-area: header;
+    border: 5px solid rebeccapurple;
+    padding: 20px;
+}
+
+.section {
+    grid-area: section;
+    border: 5px solid orange;
+    padding: 20px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    border: 5px solid limegreen;
+    padding: 20px;
+}
+
+.box-1 {
+    grid-area: box-1;
+    border: 5px solid pink;
+    padding: 20px;
+}
+
+.footer {
+    grid-area: footer;
+    border: 5px solid darkred;
+    padding: 20px;
+}
