@@ -65,7 +65,7 @@ nav {
 } */
 .container {
   width: 100%;
-  /* background-color: yellow; */
+  margin: 0 auto;
   max-width: 1140px;
 }
 
@@ -115,17 +115,13 @@ nav {
 }
 
 .navbarButton {
-  background-image: linear-gradient(
-    to right,
-    #314755 0%,
-    #26a0da 51%,
-    #314755 100%
-  );
+  background: linear-gradient(80deg, #46a5bd 0%, #116a8d 100%) !important;
   /*button margin değerleri ile oynandı*/
   margin: 20px 15px 20px 35px;
   padding: 12px 30px;
   text-align: center;
   color: #183b56;
+  font-weight: bold;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -293,6 +289,7 @@ input:checked ~ nav .navbar-toggler {
 }
 .sliderPhoto {
   width: 230px;
+  border-radius: 10px 0px 0px 10px;
 }
 .sliderIn {
   display: flex;
@@ -419,6 +416,122 @@ input:checked ~ nav .navbar-toggler {
 }
 
 /*End Client Testimonial*/
+/* Start Pricing Plans */
+.pricing {
+  padding: 120px 0px;
+}
+.pricing-plans {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+  align-items: center;
+  /* padding: 100px 0; */
+}
+.plans {
+  border-radius: 10px;
+
+  box-shadow: 0px 25px 27px -20px rgba(0, 0, 0, 0.45);
+}
+.price-top {
+  background-color: #0076a3 !important;
+  align-items: flex-start;
+  border-radius: 5px 5px 0px 0px;
+}
+.choice {
+  background-color: #0076a3;
+  padding: 5px 9px;
+  font-size: 14px;
+  display: inline-block;
+  color: #fff;
+  border-radius: 5px;
+}
+.price-top h6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 14px 0px;
+  font-size: 16px;
+  text-align: center;
+  color: white;
+}
+.price-up p {
+  font-family: "roboto", sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 25px;
+  margin: 20px 0 16px;
+  max-width: 500px;
+  margin: auto;
+}
+.price-up {
+  width: 356px;
+  height: 238px;
+  padding: 24px;
+  box-shadow: 0 0 10px rgba(31, 73, 140, 0.15);
+  border-radius: 5px;
+  background-color: #173b56;
+}
+.up-2 {
+  background-color: #304a5e;
+}
+.price-down {
+  padding: 24px;
+}
+.pair {
+  color: #ffffff;
+  font-size: 40px;
+  font-family: "Poppins" sans-serif;
+  font-weight: 700;
+  margin: 10px;
+}
+.pair-dolar,
+.pair-month {
+  font-size: 22px;
+}
+.price-border {
+  border: 1px solid #dee2e6;
+  border-width: 3px;
+}
+.pair-list {
+  margin: -20px 0px 16px;
+  padding: 1.5rem !important;
+}
+.pair-list li {
+  color: white;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.fa-circle-check {
+  color: #209477;
+  margin-right: 10px;
+  font-size: 20px;
+}
+.fa-circle-xmark {
+  color: #da3746;
+  margin-right: 10px;
+  font-size: 20px;
+}
+.blue-btn {
+  display: inline-block;
+  border-color: #0076a3;
+  text-decoration: none;
+  color: #0176a3;
+  border: 1px solid;
+  padding: 6px 20px;
+  border-radius: 3px;
+}
+.buy-now {
+  color: white;
+  background-color: #0076a3;
+  border: none;
+}
+.fa-check-double {
+  font-size: 11px;
+}
+
+/* End PRicing Plans*/
 
 @media screen and (min-width: 450px) {
   .image-1 {
@@ -527,6 +640,111 @@ input:checked ~ nav .navbar-toggler {
   /* margin: 0 !important; */
 }
 
+/*Our App Css*/
+.freamPhone {
+  display: flex;
+  z-index: 9;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  position: absolute;
+  margin-top: -20px;
+}
+.freame {
+  max-width: 230px;
+  height: auto;
+}
+.slıderImage {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  z-index: 1;
+}
+.slıderImage > img {
+  margin-right: 50px;
+  width: 183.2px;
+  border-radius: 20px;
+  height: 100%;
+}
+.teamBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*WorkSpace*/
+.workSpace {
+  background-image: url("https://themesdesign.in/styza/layout/images/cta-bg.jpg");
+  position: relative;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #343f4b;
+}
+.gradiant {
+  background: linear-gradient(80deg, #377d8f 0%, #0a4157 100%);
+  /* opacity: 0.7; */
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+.workText {
+  position: relative;
+  flex: 2;
+}
+.workSpace::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #343f4b;
+  transform: matrix(1, -0.05, 0, 1, 0, 0);
+  z-index: 3;
+}
+.workSpace::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #343f4b;
+  -ms-transform: matrix(1, -0.05, 0, 1, 0, 0);
+  -webkit-transform: matrix(1, -0.05, 0, 1, 0, 0);
+  transform: matrix(1, -0.05, 0, 1, 0, 0);
+  z-index: 3;
+}
+.workText h1 {
+  font-size: 56px;
+  color: white;
+  font-family: "poppins", sans-serif;
+}
+.workText p {
+  font-size: 18px;
+  color: #ffffff4d;
+  font-family: "Roboto", sans-serif;
+}
+.appButton {
+  display: flex;
+}
+.app-store {
+  margin-right: 20px;
+}
+.workPhone {
+  flex: 1;
+}
+.workPhone img {
+  width: 200%;
+  z-index: 100;
+}
+.work-space-wraper {
+  display: flex;
+  position: relative;
+}
+
 @media (max-width: 450px) {
   .navbarButton {
     display: none;
@@ -591,16 +809,38 @@ input:checked ~ nav .navbar-toggler {
     width: 100%;
     margin: 0;
   }
+  .client {
+    height: 1480px;
+  }
   .clientElement {
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
   .sliderIn {
     flex-direction: column !important;
     align-items: center;
+    padding-left: 13px;
+  }
+  .client-left-photo {
+    width: 100%;
+    margin-left: 0px;
   }
   .client-left {
     width: 80%;
-    margin-left: 0px;
+  }
+  .client-right {
+    width: 100%;
+  }
+
+  .sliderPhoto {
+    width: 90%;
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  .caricature {
+    left: 186px;
+    top: -70px;
   }
 
   .buttonW {
@@ -610,6 +850,22 @@ input:checked ~ nav .navbar-toggler {
     flex-direction: column;
   }
   .avatarCard {
-    width: 100%;
+    width: 90%;
+  }
+  /*Our App Css */
+  .slıderImage {
+    flex-direction: column;
+    position: relative;
+    left: 100px;
+  }
+  .slıderImage > img {
+    margin-bottom: 30px;
+  }
+  /*pricing-plans*/
+  .pricing-plans {
+    flex-direction: column;
+  }
+  .bullets {
+    display: none;
   }
 }

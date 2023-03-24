@@ -1,9 +1,11 @@
+/* features */
+
 features{
     background-color: #343f34;
 }
 
 *{
-    background-color: #343f4b;
+    background-color: hsl(211, 18%, 25%);
     margin-left: 10px;
 }
 
@@ -13,6 +15,21 @@ features{
 
 .features-conteiner{
     max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .app h2{
@@ -29,6 +46,7 @@ features{
     color: rgba(255, 255, 255, .3);
     font-size: 15px;
     font-family: "roboto", sans-serif;
+    /*margin-left: 250px;*/
 }
 
 .app{
@@ -46,20 +64,43 @@ features{
     flex-direction: column
 }
 
+p.appteach-text {
+    color: rgba(255, 255, 255, 0.3);
+    max-width: 650px;
+    font-size: 0.93rem;
+    line-height: 25px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.appteach-buttons {
+    margin-top: 100px;
+}
+
+.appteachtab-content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .featureBtn {
     display: flex;
-    margin-left: 440px;
     margin-bottom: 80px;
     gap: 50px;
-    margin-right: 80px;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
 }
 
 button.smart-btn {
-    border: 1px solid #f9f6f6;
     color: white;
     padding: 15px;
     border-radius: 6%;
     background-color: none;
+    margin: 0 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 button.top-btn {;
@@ -69,14 +110,15 @@ button.top-btn {;
     border: 1px solid #0076a3;
     background: linear-gradient(#2e8da5 0%, #114d64 100%);
     color: #fff;
+    cursor: pointer;
 }
 
-.apptab-content{
-    width: 1100px;
+.apptab-content {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    margin-top: 70px;
+    margin-bottom: 250px;
+    width: 75%;
+    justify-content: center;
 }
 
 ::before {
@@ -105,29 +147,31 @@ h4, h5, h6 {
     color: white
 }
 
-.resp-design-text {
+.left-content p{
+    text-align: right;
+}
+
+.resp-design-text , .cool-feat-text {
     margin-bottom: 100px;
 }
 
-.cool-feat-text {
-    margin-bottom: 100px;
-}
 
 .right-content {
     text-align: left;
     margin-left: 0px;
 }
 
-.stun-design-text {
-    margin-bottom: 100px;
-}
-
-.best-psd-text {
+.stun-design-text , .best-psd-text {
     margin-bottom: 100px;
 }
 
 .img-content {
     width: 300px;
+}
+
+.\,img-content {
+    display: flex;
+    justify-content: center;
 }
 
 img.imgphone {
@@ -143,25 +187,23 @@ img.phone-feat {
 }
 
 img.phone-feat2 {
-    width: 20vw;
+    width: 60%;
     padding-left: 20px;
+    padding-right: 20px;
 }
 
 .features2 {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 200px;
-    margin-left: 80px;
-    margin-bottom: 100px;
+    justify-content: space-evenly
 }
 
 .features2-content {
-    width: 1100px;
-    padding: 30px;
     display: flex;
     flex-direction: row;
     align-items: center
+    width: 75%;
 }
 
 .align-items-center {
@@ -178,16 +220,11 @@ button.follow {
     padding-right: 15px;
     width: 100px;
     height: 35px;
+    cursor: pointer;
 }
 
 .buildapp-content {
     margin-top: 25px;
-}
-
-img.phone-feat2 {
-    width: 20vw;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .follow {
@@ -199,6 +236,8 @@ div.feat2-img {
     margin: 5px 0 0 0;
     padding-block-end: 10px;
     padding-inline: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 img.potre-feat2 {
@@ -215,6 +254,7 @@ button.readmore-btn {
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
+    cursor: pointer;
 }
 
 button.followbtn {
@@ -225,6 +265,7 @@ button.followbtn {
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
+    cursor: pointer;
 }
 
 .Client {
@@ -291,53 +332,383 @@ h1, h2, h3 {
     line-height: 1.4;
 }
 
-.price-text-center {
-    align-items: center!important;
+
+/* application */
+
+.application {
+    background-color: #303841 !important;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
-.basic {
-    padding-top: 0.5rem !important;
-    margin-top: 1.5rem !important;
+.application-container {
+    width: 1100px;
+    margin: auto;
+    line-height: 1.5em;
+    flex-direction: column;
 }
 
-.basic.box {
-    border-radius: 10px;
+.application-text {
+    margin-bottom: 100px;
+    text-align: center;
+    color: white;
+    background-color: #303841
 }
 
-.basic.box.up {
-    background-color: #183b56;
-    padding: 1.5rem !important;
+p.app\.teach\.p {
+    text-align: center;
 }
 
-.minibox.basic {
+app.teach.p {
+    text-align: center;
+    font-size: 30px;
+}
+
+.application-container h2{
+    font-size: 45px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #303841;
+}
+
+h6.applooksminititle , h2.applookstitle , p.app\.teach\.p {
+    background-color: #303841 !important;
+}
+
+.application-container p{
+    margin-top: 20px;
+    color: #888E97;
+    background-color: #303841;
+}
+
+.application-container h6{
+    background-color: #303841;
+}
+
+.appfotos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+}
+
+@media screen and (max-width: 996px){
+    .appfotos{
+        flex-direction: column;
+
+
+    }
+}
+
+/* pricing */
+
+
+.btpriceboxs {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+}
+
+section.btsection4 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.btprice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btpricetitles {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 80px;
+    padding: 50px 10px;
+    text-align: center;
+}
+
+ h6 {
+    font-family: "poppins", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    color: #0076a3;
+    margin: 0;
+}
+
+
+h2 {
+    font-family: "poppins", sans-serif;
+    font-size: 40px;
+    line-height: 56px;
+    color: #ffffff;
+    margin: 0;
+}
+
+p {
+    font-family: "roboto", sans-serif;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.3);
+    color: #ffffff80;
+    line-height: 25px;
+    padding: 9px 0;
+    margin: 20px 0 16px;
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
+}
+
+.btbasicbox , .btstartbox , .btenterbox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.05);
+    width: 35%;
+    padding: 2rem;
+    justify-content: space-evenly
+}
+
+.basicprice {
+    width: 356px;
+    height: 238px;
+    padding: 24px;
+    border-radius: 5px;
+}
+
+.ministartbox {
+    font-family: "Roboto Slab", serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: white;
     background-color: #0076a3 !important;
+    padding-left: 0;
+    display: flex;
+    width: 25%;
+    border-radius: 10%;
+}
+
+.minienterbox {
+    font-family: "Roboto Slab", serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: white;
+    background-color: #0076a3 !important;
+    padding-left: 0;
+    display: flex;
+    width: 33%;
+}
+
+.minibasicbox {
+    font-family: "Roboto Slab", serif;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: white;
+    background-color: #0076a3 !important;
+    padding-left: 0;
+    display: flex;
+    width: 18%;
+    border-radius: 10%;
+}
+
+sup.timestart ,  sup.timebasic , sup.timeenter{
+    margin-top: 15px;
+}
+
+h2.month.basic , h2.month.start , h2.month.enter {
+    display: flex;
+    margin-bottom: 0.5rem;
+    margin-top: 15px;
+}
+
+p.basic.text1 {
+    color: rgba(255,255,255,.3) !important;
+    text-align: left;
 }
 
 p.basic2 {
     color: rgba(255,255,255,.3) !important;
+    text-align: left;
+    width: 450px
 }
 
-.basic.down.box {
-    padding: 1.5rem !important;
-}
-
-ul.basic-list {
+ul {
     padding-left: 0;
     list-style: none;
+    margin-bottom: 10px;
+}
+
+.fa-regular, .far {
+    font-weight: 400;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 .text-success {
-    color: #1d9b7b;
-    font-size: 20px;
+    color: #1d9b7b !important;
 }
 
 .text-danger {
-    color: #da3746;
+    color: #da3746 !important;
 }
 
-.section.pricing{
+.btstartbox {
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.05);
+    width: 35%;
+    padding: 2rem;
 }
 
+.basicborder, .startborder , .enterborder {
+    border: 1px solid #dee2e6;
+    border-width: 3px;
+}
+
+sup.moneybasic , sup.moneystart , sup.moneyenter {
+    font-size: 30px;
+}
+
+sup.timebasic {
+    font-size: 35px;
+}
+
+h2.month.start , p.start.text1 {
+    display: flex;
+}
+
+.recommenbox {
+    background-color: #0076a3 !important;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding: 14px 0px;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    font-family: 'Roboto';
+}
+
+.ministartbox {
+    font-family: "Roboto Slab", serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: white;
+    background-color: #0076a3 !important;
+    padding-left: 0;
+    display: flex;
+    width: 20%;
+}
+
+.minienterbox {
+    font-family: "Roboto Slab", serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: white;
+    background-color: #0076a3 !important;
+    padding-left: 0;
+    display: flex;
+    width: 30%;
+    /* text-align: center; */
+}
+
+button.minibtn3 {
+    background: linear-gradient(80deg, #46a5bd 0%, #116a8d 100%);
+    border: none !important;
+    color: #fff !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100px;
+    height: 35px;
+    display: flex;
+    cursor: pointer;
+}
+
+button.minibtn1 {
+    background: linear-gradient(80deg, #46a5bd 0%, #116a8d 100%);
+    border: none !important;
+    color: #fff !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100px;
+    height: 35px;
+    display: flex;
+    cursor: pointer;
+}
+
+.btenterbox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.05);
+    width: 35%;
+    padding: 2rem;
+}
+
+button.minienterbutn {
+    background: linear-gradient(80deg, #46a5bd 0%, #116a8d 100%);
+    border: none !important;
+    color: #fff !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 90px;
+    height: 35px;
+    display: flex;
+    cursor: pointer;
+}
+
+.basicinfobox , .enterinfobox {
+    text-align: left;
+    color: #fff;
+}
+
+.startinfobox{
+    text-align: left;
+    color: #fff;
+}
+
+@media only screen and (min-width: 996px){
+    .mobile-nav{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .btpriceboxs{
+        flex-direction: column;
+    }
+
+    .btpricetitles{
+        width: 45%;
+    }
+}

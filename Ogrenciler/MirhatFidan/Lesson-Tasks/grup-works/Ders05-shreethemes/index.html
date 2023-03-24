@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Usptart</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div>
+          <img src="assets/logo.png" alt="" />
+        </div>
+        <label for="menu-toggle" class="menu-toggle">
+          <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </label>
+        <input type="checkbox" id="menu-toggle" class="hamburgerCheckBox" />
+        <div class="links">
+          <div class="linkItem">
+            <a href="#">HOME</a>
+            <a href="#story">STORY</a>
+            <a href="#services">SERVICES</a>
+            <!--Copyright KMI -->
+            <a href="#portfolio">PORTFOLIO</a>
+            <a href="#pricing">PRICING</a>
+            <a href="#team">TEAM</a>
+            <a href="#blog">BLOGS</a>
+            <a href="#contactus">CONTACT US</a>
+          </div>
+          <div class="socialMedia">
+            <a href="#">
+              <svg
+                width="16px"
+                height="16px"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                  fill="#fff"
+                /></svg></a
+            ><a href="#"
+              ><svg
+                width="16px"
+                height="16px"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 
+                319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7
+                 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 
+                 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 
+                 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 
+                 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 
+                 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 
+                 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 
+                 132.1z"
+                  fill="#fff"
+                /></svg></a
+            ><a href="#"
+              ><svg
+                width="16px"
+                height="16px"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 
+              0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 
+              76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                  fill="#fff"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="landingBg">
+      <div class="bg-overlay"></div>
+      <div class="container">
+        <div class="landing">
+          <div class="title-heading">
+            <h1>Providing Brilliant Ideas <br />For Your <u>Business</u></h1>
+            <p class="landingParagraf">
+              Launch your campaign and benefit from our expertise on designing
+              and managing conversion centered bootstrap v5 html page.
+            </p>
+            <button class="btn btnPrimary">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <section class="bg-light" id="story">
+        <div class="companyStory container">
+          <div class="aboutImgWrap">
+            <img class="aboutImage" src="assets/about.jpg" alt="About Image" />
+            <a target="_blank" href="https://youtu.be/yba7hPeTSjk">
+              <div class="aboutPlayBtn">
+                <svg width="30" viewBox="0 0 100 100">
+                  <polygon
+                    id="playBtn"
+                    points="25,20 75,50 25,80"
+                    fill="none"
+                    stroke="#ff5714"
+                    stroke-width="7"
+                  />
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="aboutUs">
+            <h3 class="text-uppercase">WHO WE ARE ?</h3>
+            <h2 class="title">Our Company Story</h2>
+            <p class="text-muted">
+              <!--Copyright KMI -->
+              Start working with Upstart that can provide everything you need to
+              generate awareness, drive traffic, connect. Dummy text is text
+              that is used in the publishing industry or by web designers to
+              occupy the space which will later be filled with 'real' content.
+              This is required when, for example, the final text is not yet
+              available. Dummy texts have been in use by typesetters since the
+              16th century.
+            </p>
+            <button class="btn btnPrimary">Buy Now ></button>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="container">
+          <div class="whatWeDo">
+            <div class="doContent">
+              <h5 class="text-uppercase">WHAT WE DO ?</h5>
+              <h3 class="title">Perfect Solution For Your Business</h3>
+            </div>
+            <p class="text-muted">
+              Launch your campaign and benefit from our expertise on designing
+              and managing conversion centered bootstrap v5 html page.
+            </p>
+          </div>
+          <div class="row">
+            <div class="card">
+              <div class="cardIcon">
+                <img src="./assets/adjust-circle.svg" alt="adjust-cicrle" />
+              </div>
+              <div class="cardContent">
+                <h3 class="cardTitle">Grow Your Bussines</h3>
+                <!--Copyright KMI -->
+                <p class="text-muted">
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
+                <a href="#"
+                  >Read More <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="cardIcon">
+                <img src="./assets/circuit.svg" alt="circuit" />
+              </div>
+              <div class="cardContent">
+                <h3 class="cardTitle">Drive More Sales</h3>
+                <p class="text-muted">
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
+                <a href="#"
+                  >Read More <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="cardIcon">
+                <img src="./assets/fire.svg" alt="" />
+              </div>
+              <div class="cardContent">
+                <h3 class="cardTitle">Handled By Expert</h3>
+                <p class="text-muted">
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
+                <a href="#"
+                  >Read More <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="cardIcon">
+                <img src="./assets/flower.svg" alt="" />
+              </div>
+              <div class="cardContent">
+                <h3 class="cardTitle">Discussion For Idea</h3>
+                <p class="text-muted">
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
+                <a href="#"
+                  >Read More <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="cardIcon">
+                <img src="assets/shopping-basket.svg" alt="" />
+              </div>
+              <div class="cardContent">
+                <h3 class="cardTitle">Increase Conversion</h3>
+                <p class="text-muted">
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
+                <a href="#"
+                  >Read More <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="cardIcon">
+                <img src="assets/flip-h.svg" alt="" />
+              </div>
+              <div class="cardContent">
+                <h3 class="cardTitle">Sales Growth Idea</h3>
+                <p class="text-muted">
+                  The phrasal sequence of the is now so that many campaign and
+                  benefit
+                </p>
+                <a href="#"
+                  >Read More <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="workProcess">
+            <div class="wpDesc">
+              <h6 class="text-uppercase">WORK PROCESS</h6>
+              <h3 class="title">Digital System For Our Business</h3>
+              <p class="text-muted">
+                Launch your campaign and benefit from our expertise on designing
+                and managing conversion centered bootstrap v5 html page.
+              </p>
+            </div>
+            <div class="wpContent">
+              <div class="timeLineCardWrap">
+                <div class="timeLineCard">
+                  <div class="timeLineImg flex-end">
+                    <img
+                      class="timeLineAvatar"
+                      src="https://shreethemes.in/upstart/layouts/images/svg/design-thinking.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="timeLine">
+                    <div class="dotBorder"><div class="timeLineDot"></div></div>
+                  </div>
+                  <div class="timeLineContent flex-start">
+                    <h6 class="cardTitle">Strategy</h6>
+                    <p class="text-muted">
+                      The generated injected humour, or non-characteristic words
+                      etc. Cum sociis natoque penatibus et magnis dis parturient
+                      montes, nascetur ridiculus mus. Donec quam felis,
+                    </p>
+                  </div>
+                </div>
+                <div class="timeLineCard flex-reverse">
+                  <div class="timeLineImg flex-start">
+                    <img
+                      class="timeLineAvatar"
+                      src="https://shreethemes.in/upstart/layouts/images/svg/coding.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="timeLine">
+                    <div class="dotBorder"><div class="timeLineDot"></div></div>
+                  </div>
+                  <div class="timeLineContent flex-end">
+                    <h6 class="cardTitle flex-end">Development</h6>
+                    <p class="text-muted flex-end">
+                      The generated injected humour, or non-characteristic words
+                      etc. Cum sociis natoque penatibus et magnis dis parturient
+                      montes, nascetur ridiculus mus. Donec quam felis,
+                    </p>
+                  </div>
+                </div>
+                <div class="timeLineCard">
+                  <div class="timeLineImg flex-end">
+                    <img
+                      class="timeLineAvatar"
+                      src="https://shreethemes.in/upstart/layouts/images/svg/office-desk.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="timeLine">
+                    <div class="dotBorder"><div class="timeLineDot"></div></div>
+                  </div>
+                  <div class="timeLineContent flex-start">
+                    <h6 class="cardTitle">Launch</h6>
+                    <p class="text-muted">
+                      The generated injected humour, or non-characteristic words
+                      etc. Cum sociis natoque penatibus et magnis dis parturient
+                      montes, nascetur ridiculus mus. Donec quam felis,
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-light" id="portfolio">
+        <div class="container">
+          <div class="wpDesc">
+            <h6 class="text-uppercase">PORTFOLIO</h6>
+            <h3 class="title">Our Works & Projects</h3>
+            <p class="text-muted">
+              Launch your campaign and benefit from our expertise on designing
+              and managing conversion centered bootstrap v5 html page.
+            </p>
+          </div>
+          <div class="row">
+            <div class="pfImage">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/portfolio/1.jpg"
+                alt=""
+              />
+              <div class="shadow"></div>
+              <div class="imgContent">
+                <h3>Mockup Collection</h3>
+                <p>Mockup</p>
+              </div>
+              <div class="imgIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-camera fea icon-sm image-icon"
+                >
+                  <path
+                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                  ></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="pfImage">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/portfolio/2.jpg"
+                alt=""
+              />
+              <div class="shadow"></div>
+              <div class="imgContent">
+                <h3>Mockup Collection</h3>
+                <p>Mockup</p>
+              </div>
+              <div class="imgIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-camera fea icon-sm image-icon"
+                >
+                  <path
+                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                  ></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="pfImage">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/portfolio/3.jpg"
+                alt=""
+              />
+              <div class="shadow"></div>
+              <div class="imgContent">
+                <h3>Mockup Collection</h3>
+                <p>Mockup</p>
+              </div>
+              <div class="imgIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-camera fea icon-sm image-icon"
+                >
+                  <path
+                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                  ></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="pfImage">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/portfolio/4.jpg"
+                alt=""
+              />
+              <div class="shadow"></div>
+              <div class="imgContent">
+                <h3>Mockup Collection</h3>
+                <p>Mockup</p>
+              </div>
+              <div class="imgIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-camera fea icon-sm image-icon"
+                >
+                  <path
+                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                  ></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="pfImage">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/portfolio/5.jpg"
+                alt=""
+              />
+              <div class="shadow"></div>
+              <div class="imgContent">
+                <h3>Mockup Collection</h3>
+                <p>Mockup</p>
+              </div>
+              <div class="imgIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-camera fea icon-sm image-icon"
+                >
+                  <path
+                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                  ></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="pfImage">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/portfolio/6.jpg"
+                alt=""
+              />
+              <div class="shadow"></div>
+              <div class="imgContent">
+                <h3>Mockup Collection</h3>
+                <p>Mockup</p>
+              </div>
+              <div class="imgIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-camera fea icon-sm image-icon"
+                >
+                  <path
+                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                  ></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="pfImage">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/portfolio/7.jpg"
+                alt=""
+              />
+              <div class="shadow"></div>
+              <div class="imgContent">
+                <h3>Mockup Collection</h3>
+                <p>Mockup</p>
+              </div>
+              <div class="imgIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-camera fea icon-sm image-icon"
+                >
+                  <path
+                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                  ></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="pfImage">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/portfolio/8.jpg"
+                alt=""
+              />
+              <div class="shadow"></div>
+              <div class="imgContent">
+                <h3>Mockup Collection</h3>
+                <p>Mockup</p>
+              </div>
+              <div class="imgIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-camera fea icon-sm image-icon"
+                >
+                  <path
+                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                  ></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="getStarted">
+        <div class="bg-overlay"></div>
+        <div class="gsContent">
+          <h2 class="gsTitle">Ready to start your next web project now?</h2>
+          <p class="text-muted mx-w">
+            Launch your campaign and benefit from our expertise on designing and
+            managing conversion centered bootstrap v5 html page.
+          </p>
+          <button class="btn btnPrimary">Get Started !</button>
+        </div>
+      </section>
+
+      <section id="pricing">
+        <div class="container">
+          <div class="wpDesc">
+            <h6 class="text-uppercase">PLANS</h6>
+            <h3 class="title">Pricing Plans</h3>
+            <p class="text-muted">
+              Launch your campaign and benefit from our expertise on designing
+              and managing conversion centered bootstrap v5 html page.
+            </p>
+          </div>
+          <div class="row">
+            <div class="packageCard">
+              <h5 class="packageTitle">Basic</h5>
+
+              <div class="packagePrice">
+                <div>$</div>
+                <div>9</div>
+                <div>/mo</div>
+              </div>
+
+              <ul class="packageProp">
+                <li class="text-muted">
+                  <span><i class="fa-regular fa-circle-check"></i></span>Full
+                  Access
+                </li>
+                <li class="text-muted">
+                  <span><i class="fa-regular fa-circle-check"></i></span>Source
+                  Files
+                </li>
+                <li class="text-muted">
+                  <span><i class="fa-regular fa-circle-check"></i></span>Free
+                  Appointments
+                </li>
+                <li class="text-muted">
+                  <span class="icon fs-5 me-2"
+                    ><i class="fa-regular fa-circle-check"></i></span
+                  >Enhanced Security
+                </li>
+              </ul>
+              <button class="btn btnSecondary">Get Started</button>
+            </div>
+            <div class="packageCard">
+              <h5 class="packageTitle">Standard</h5>
+
+              <div class="packagePrice">
+                <div>$</div>
+                <div>39</div>
+                <div>/mo</div>
+              </div>
+
+              <ul class="packageProp">
+                <li class="text-muted">
+                  <span><i class="fa-regular fa-circle-check"></i></span>Full
+                  Access
+                </li>
+                <li class="text-muted">
+                  <span><i class="fa-regular fa-circle-check"></i></span>Source
+                  Files
+                </li>
+                <li class="text-muted">
+                  <span><i class="fa-regular fa-circle-check"></i></span>Free
+                  Appointments
+                </li>
+                <li class="text-muted">
+                  <span class="icon fs-5 me-2"
+                    ><i class="fa-regular fa-circle-check"></i></span
+                  >Enhanced Security
+                </li>
+              </ul>
+              <button class="btn btnSecondary">Get Started</button>
+            </div>
+            <div class="packageCard">
+              <h5 class="packageTitle">Professional</h5>
+
+              <div class="packagePrice">
+                <div>$</div>
+                <div>99</div>
+                <div>/mo</div>
+              </div>
+
+              <ul class="packageProp">
+                <li class="text-muted">
+                  <span><i class="fa-regular fa-circle-check"></i></span>Full
+                  Access
+                </li>
+                <li class="text-muted">
+                  <span><i class="fa-regular fa-circle-check"></i></span>Source
+                  Files
+                </li>
+                <li class="text-muted">
+                  <span><i class="fa-regular fa-circle-check"></i></span>Free
+                  Appointments
+                </li>
+                <li class="text-muted">
+                  <span class="icon fs-5 me-2"
+                    ><i class="fa-regular fa-circle-check"></i></span
+                  >Enhanced Security
+                </li>
+              </ul>
+              <button class="btn btnSecondary">Get Started</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-light" id="team">
+        <div class="container">
+          <div class="wpDesc">
+            <h6 class="text-uppercase">OUR TEAM</h6>
+            <h3 class="title">Creative Minds</h3>
+            <p class="text-muted">
+              Launch your campaign and benefit from our expertise on designing
+              and managing conversion centered bootstrap v5 html page.
+            </p>
+          </div>
+          <div class="row">
+            <div class="teamImg">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/client/01.jpg"
+                alt="memeber-KMI"
+              />
+              <div class="teamShadow"></div>
+              <div class="teamContentWrap">
+                <a href="#" class="teamMember">Calvin CARLO</a>
+                <p class="text-muted">Designer</p>
+              </div>
+              <div class="teamIconWrap">
+                <a href="#">
+                  <svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512"
+                  >
+                    <path
+                      d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                      fill="#fff"
+                    /></svg></a
+                ><a href="#"
+                  ><svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 
+                    319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7
+                     74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 
+                     26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 
+                     58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 
+                     26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 
+                     11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 
+                     22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 
+                     132.1z"
+                      fill="#fff"
+                    /></svg></a
+                ><a href="#"
+                  ><svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 
+                  0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 
+                  76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="teamImg">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/client/02.jpg"
+                alt="memeber-KMI"
+              />
+              <div class="teamShadow"></div>
+              <div class="teamContentWrap">
+                <a href="#" class="teamMember">Aliana ROSY</a>
+                <p class="text-muted">Designer</p>
+              </div>
+              <div class="teamIconWrap">
+                <a href="#">
+                  <svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512"
+                  >
+                    <path
+                      d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                      fill="#fff"
+                    /></svg></a
+                ><a href="#"
+                  ><svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 
+                    319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7
+                     74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 
+                     26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 
+                     58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 
+                     26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 
+                     11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 
+                     22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 
+                     132.1z"
+                      fill="#fff"
+                    /></svg></a
+                ><a href="#"
+                  ><svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 
+                  0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 
+                  76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="teamImg">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/client/08.jpg"
+                alt="memeber-KMI"
+              />
+              <div class="teamShadow"></div>
+              <div class="teamContentWrap">
+                <a href="#" class="teamMember">Micheal CARLO</a>
+                <p class="text-muted">Designer</p>
+              </div>
+              <div class="teamIconWrap">
+                <a href="#">
+                  <svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512"
+                  >
+                    <path
+                      d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                      fill="#fff"
+                    /></svg></a
+                ><a href="#"
+                  ><svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 
+                    319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7
+                     74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 
+                     26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 
+                     58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 
+                     26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 
+                     11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 
+                     22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 
+                     132.1z"
+                      fill="#fff"
+                    /></svg></a
+                ><a href="#"
+                  ><svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 
+                  0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 
+                  76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="teamImg">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/client/03.jpg"
+                alt="memeber-KMI"
+              />
+              <div class="teamShadow"></div>
+              <div class="teamContentWrap">
+                <a href="#" class="teamMember">Sofia RAZAQ</a>
+                <p class="text-muted">Designer</p>
+              </div>
+              <div class="teamIconWrap">
+                <a href="#">
+                  <svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512"
+                  >
+                    <path
+                      d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                      fill="#fff"
+                    /></svg></a
+                ><a href="#"
+                  ><svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 
+                    319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7
+                     74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 
+                     26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 
+                     58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 
+                     26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 
+                     11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 
+                     22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 
+                     132.1z"
+                      fill="#fff"
+                    /></svg></a
+                ><a href="#"
+                  ><svg
+                    width="16px"
+                    height="16px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 
+                  0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 
+                  76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row CounterWrap">
+            <div class="counterBox">
+              <h3>40<span>+</span></h3>
+              <span class="text-muted">Project</span>
+            </div>
+            <div class="counterBox">
+              <h3>200<span>+</span></h3>
+              <span class="text-muted">Clients</span>
+            </div>
+            <div class="counterBox">
+              <h3>457<span>K</span></h3>
+              <span class="text-muted">Members</span>
+            </div>
+            <div class="counterBox">
+              <h3>150<span>+</span></h3>
+              <span class="text-muted">Employee</span>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row CounterWrap">
+            <div class="counterImg">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/client/amazon.svg"
+                alt=""
+              />
+            </div>
+            <div class="counterImg">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/client/google.svg"
+                alt=""
+              />
+            </div>
+            <div class="counterImg">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/client/lenovo.svg"
+                alt=""
+              />
+            </div>
+            <div class="counterImg">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/client/paypal.svg"
+                alt=""
+              />
+            </div>
+            <div class="counterImg">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/client/shopify.svg"
+                alt=""
+              />
+            </div>
+            <div class="counterImg">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/client/spotify.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog">
+        <div class="container">
+          <div class="wpDesc">
+            <h6 class="text-uppercase">BLOGS</h6>
+            <h3 class="title">Latest News</h3>
+            <p class="text-muted">
+              Launch your campaign and benefit from our expertise on designing
+              and managing conversion centered bootstrap v5 html page.
+            </p>
+          </div>
+          <div class="row">
+            <div class="blog">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/blog/1.jpg"
+                alt=""
+              />
+              <div class="cardBody">
+                <div class="cardContent cardContent-p">
+                  <h5>Building Your Corporate Identity from Upstart</h5>
+                  <p class="text-muted">
+                    The most well-known dummy text is the 'Lorem Ipsum', in the
+                    16th century.
+                  </p>
+                  <a href="#"
+                    >Read More <i class="fa-solid fa-arrow-right fa-xs"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="blog">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/blog/2.jpg"
+                alt=""
+              />
+              <div class="cardBody">
+                <div class="cardContent cardContent-p">
+                  <h5>The Dark Side of Overnight Success</h5>
+                  <p class="text-muted">
+                    The most well-known dummy text is the 'Lorem Ipsum', in the
+                    16th century.
+                  </p>
+                  <a href="#"
+                    >Read More <i class="fa-solid fa-arrow-right fa-xs"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="blog">
+              <img
+                src="https://shreethemes.in/upstart/layouts/images/blog/3.jpg"
+                alt=""
+              />
+              <div class="cardBody">
+                <div class="cardContent cardContent-p">
+                  <h5>The Right Hand of Business IT World</h5>
+                  <p class="text-muted">
+                    The most well-known dummy text is the 'Lorem Ipsum', in the
+                    16th century.
+                  </p>
+                  <a href="#"
+                    >Read More <i class="fa-solid fa-arrow-right fa-xs"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-light" id="contactus">
+        <div class="container">
+          <div class="wpDesc">
+            <h6 class="text-uppercase">CONTACT US</h6>
+            <h3 class="title">Get In Touch !</h3>
+            <p class="text-muted">
+              Launch your campaign and benefit from our expertise on designing
+              and managing conversion centered bootstrap v5 html page.
+            </p>
+          </div>
+          <div class="row ai-center">
+            <div class="contactForm">
+              <form>
+                <div class="inputArea">
+                  <input type="text" placeholder="Name:" /><input
+                    type="email"
+                    placeholder="Email:"
+                  />
+                </div>
+                <input type="text" placeholder="Subject :" />
+                <textarea
+                  name="mesaj"
+                  id="mesaj"
+                  cols="30"
+                  rows="4"
+                  placeholder="Message :"
+                ></textarea>
+                <button class="btn btnPrimary" type="submit">
+                  Send Message
+                </button>
+              </form>
+            </div>
+            <div class="contactInformation">
+              <div class="info">
+                <div class="infoIcon">
+                  <i class="fa-solid fa-phone fa-xl"></i>
+                </div>
+                <div class="infoContent">
+                  <h3>Phone</h3>
+                  <a href="tel:+152 534-468-854" class="text-muted"
+                    >+152 534-468-854</a
+                  >
+                </div>
+              </div>
+              <div class="info">
+                <div class="infoIcon">
+                  <i class="fa-regular fa-envelope fa-xl"></i>
+                </div>
+                <div class="infoContent">
+                  <h3>Email</h3>
+                  <a href="mailto:contact@example.com" class="text-muted"
+                    >contact@example.com</a
+                  >
+                </div>
+              </div>
+              <div class="info">
+                <div class="infoIcon">
+                  <i class="fa-solid fa-location-dot fa-xl"></i>
+                </div>
+                <div class="infoContent">
+                  <h3>Location</h3>
+                  <a
+                    href="C/54 Northwest Freeway, Suite 558, Houston, USA 485"
+                    class="text-muted"
+                    >C/54 Northwest Freeway, Suite 558, Houston, USA 485</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="container">
+          <div class="footerWrap">
+            <img
+              src="https://shreethemes.in/upstart/layouts/images/logo-light.png"
+              alt=""
+            />
+            <p>© 2023 Upstart. Design with 💖 by <b>KMI</b>.</p>
+
+            <div class="footerSocial">
+              <a href="#">
+                <svg
+                  width="16px"
+                  height="16px"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                    fill="#fff"
+                  /></svg></a
+              ><a href="#"
+                ><svg
+                  width="16px"
+                  height="16px"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <path
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 
+                  319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7
+                   74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 
+                   26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 
+                   58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 
+                   26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 
+                   11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 
+                   22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 
+                   132.1z"
+                    fill="#fff"
+                  />
+                </svg>
+              </a>
+              <a href="#"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="#fff"
+                    d="M22.5 3.589a.5.5 0 0 0-.755-.43a7.938 7.938 0 0 1-2.266.912a4.662 4.662 0 0 0-3.238-1.29a4.731 4.731 0 0 0-4.707 5.135a11.527 11.527 0 0 1-7.717-4.18a.5.5 0 0 0-.82.067a4.777 4.777 0 0 0-.633 2.377a4.724 4.724 0 0 0 .762 2.579l-.06-.033a.504.504 0 0 0-.497.03a.543.543 0 0 0-.247.458c-.004.118.003.237.022.353a4.692 4.692 0 0 0 1.818 3.383a.5.5 0 0 0-.335.632a4.704 4.704 0 0 0 3.088 3.057a7.998 7.998 0 0 1-4.854.963a.5.5 0 0 0-.332.917A12.442 12.442 0 0 0 8.468 20.5a12.299 12.299 0 0 0 11.986-9.006c.339-1.137.512-2.318.514-3.505c0-.12 0-.245-.003-.372A5.37 5.37 0 0 0 22.5 3.59zm-2.424 3.533a.498.498 0 0 0-.117.349a11.366 11.366 0 0 1-.464 3.741A11.174 11.174 0 0 1 8.468 19.5a11.45 11.45 0 0 1-4.443-.897a8.867 8.867 0 0 0 4.525-1.86a.5.5 0 0 0-.3-.893A3.71 3.71 0 0 1 5.1 14c.425.001.847-.057 1.254-.174a.5.5 0 0 0-.042-.97a3.706 3.706 0 0 1-2.905-2.898a4.72 4.72 0 0 0 1.313.228a.473.473 0 0 0 .492-.35a.5.5 0 0 0-.2-.567a3.696 3.696 0 0 1-1.648-3.09c0-.413.067-.823.2-1.213a12.515 12.515 0 0 0 8.54 3.995a.45.45 0 0 0 .409-.179a.5.5 0 0 0 .103-.434a3.642 3.642 0 0 1-.1-.842A3.73 3.73 0 0 1 16.24 3.78a3.68 3.68 0 0 1 2.71 1.179a.499.499 0 0 0 .462.148a8.94 8.94 0 0 0 2.055-.671a4.92 4.92 0 0 1-1.392 2.686z"
+                  />
+                </svg>
+              </a>
+
+              <a href="#"
+                ><svg
+                  width="16px"
+                  height="16px"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <path
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 
+                0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 
+                76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                    fill="#fff"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"
+      integrity="sha512-lYMiwcB608+RcqJmP93CMe7b4i9G9QK1RbixsNu4PzMRJMsqr/bUrkXUuFzCNsRUo3IXNUr5hz98lINURv5CNA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>
