@@ -136,6 +136,10 @@
 	display: none;
 }
 
+.nav_bar_pages {
+	display: none;
+}
+
 /* NAV BAR END */
 
 .main_topic {
@@ -167,6 +171,10 @@
 	border-radius: 32px;
 	border: none;
 }
+.topic_btn:hover {
+	background-color: #ffb91f;
+	cursor: pointer;
+}
 
 .search_vehicle {
 	padding: 1em;
@@ -183,14 +191,15 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
+	justify-content: center;
 }
 
 .vehicle_form {
 	border: 0.5px solid rgb(203, 203, 203);
 	color: #949494;
 	border-radius: 5px;
-	padding: 10px;
-	width: 130px;
+	padding: 15px;
+	width: 150px;
 	margin: 6px;
 }
 
@@ -201,6 +210,12 @@
 	border-radius: 42px;
 	border: none;
 	background-color: #ffb91f;
+}
+
+.vehicle_form_btn:hover {
+	cursor: pointer;
+	background-color: #ffb91f;
+	color: #000;
 }
 
 .categories {
@@ -287,6 +302,7 @@
 	padding: 0.5em;
 	width: 50%;
 	border: 0.5px solid #ebebeb;
+	cursor: pointer;
 }
 
 .best_seller_car_bot {
@@ -361,17 +377,67 @@
 		display: none;
 	}
 	.nav_bar_computer {
+		width: 100%;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: space-between;
-	}
-	.nav_bar_logo_big {
-		width: 120px;
 		height: auto;
 	}
+	.nav_bar_logo {
+		width: 250px;
+	}
+	.nav_bar_logo_big {
+		width: 300px;
+	}
 	.nav_bar_search {
-		width: 580px;
+		width: 50%;
+	}
+	.nav_bar_pages {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.nav_bar_page_list {
+		display: flex;
+		flex-direction: row;
+		gap: 2em;
+	}
+	.nav_bar_pages_element {
+		cursor: pointer;
+		font-size: 14px;
+	}
+	.call_us_head {
+		font: 200;
+		font-size: 14px;
+	}
+	.call_us_number {
+		font-size: 24px;
+	}
+	.call_us_logo {
+		padding: 0 0.5em;
+		font-size: 30px;
+	}
+	.nav_bar_call_us {
+		margin: -16px 0;
+		width: 20%;
+		background-color: #ffb91f;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.nav_bar_icons {
+		float: right;
+		width: 250px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 1.5em;
+		font: 200;
+	}
+	.nav_bar_icon_element {
+		font-size: 14px;
 	}
 	.best_seller_card {
 		padding: 0.5em;
@@ -412,6 +478,9 @@
 	.row {
 		display: block;
 		flex-wrap: nowrap;
+	}
+	.best_seller_container {
+		margin-bottom: 5em;
 	}
 	.select_vehicle_form {
 		justify-content: center;
@@ -884,18 +953,13 @@
 }
 
 /*---------------------BURCU ÖZDEMİR --------------------*/
-
-/* BO-SECTION1 */
-
 .totalblog {
 	padding: 0 10px;
 	margin-bottom: 50px;
 	margin-left: 5px;
 	margin-right: 5px;
 }
-.totalblog a {
-	color: rgb(32, 32, 32);
-}
+
 .bo-border {
 	border: 1px solid rgba(235, 235, 235, 1);
 	border-radius: 10px;
@@ -1008,8 +1072,6 @@ a {
 	padding: 33px 0px;
 	margin-bottom: 36px;
 	background-image: url("https://demo.theme-sky.com/druco/wp-content/uploads/2022/08/home-about.jpg");
-	width: 390px;
-	/* height: 643px; */
 	background-position-x: 50%;
 	background-position-y: 50%;
 	background-size: cover;
@@ -1071,7 +1133,6 @@ a {
 	width: 170px;
 }
 .bo-section3-part2 {
-	width: 100%;
 	display: flex;
 	overflow: hidden;
 }
@@ -1134,7 +1195,6 @@ a {
 .black-area-container {
 	display: flex;
 	flex-wrap: wrap;
-	height: auto;
 }
 .say-hello {
 	margin-bottom: 9px;
@@ -1196,8 +1256,7 @@ a {
 }
 .reader-services-menu li,
 .reader-services-menu a {
-	width: 172.6px;
-	display: inline-block;
+	/* display:inline-block */
 }
 /*FOOTER*/
 .bo-final {
@@ -1253,8 +1312,6 @@ a {
 		display: flex;
 	}
 	.professinal-team-support {
-		width: 100%;
-
 		text-align: center;
 		padding: 112px 0 103px 0;
 	}
@@ -1267,10 +1324,8 @@ a {
 		font-size: 60px;
 	}
 	.bo-section3-part2 {
-		overflow: hidden;
 		display: flex;
 		justify-content: space-between;
-		width: 1230px;
 		margin-left: 107.6px;
 		margin-right: 107.6px;
 	}
@@ -1288,16 +1343,8 @@ a {
 	}
 	.black-area-container {
 		display: flex;
-		justify-content: space-between;
-		margin: 0 129px;
+		justify-content: space-around;
 		padding: 61px 15px 74px 15px;
-	}
-	.reader-services-menu {
-		display: flex;
-		flex-direction: column;
-	}
-	.bo-section5 {
-		height: 448px;
 	}
 	.black-area-container h5 {
 		font-size: 20px;
@@ -1305,8 +1352,7 @@ a {
 	.bo-final-container {
 		display: flex;
 		justify-content: space-between;
-		margin: 0 129px;
-		padding: 0 15px;
+		margin: 0 6%;
 	}
 	.bo-section2-h2 h2 {
 		width: 730px;
