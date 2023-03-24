@@ -47,12 +47,9 @@ h1{
     margin: 0 0 1rem;
     font-size: 44px;
 }
-<<<<<<< Updated upstream
 p{
     color: var(--paragraph);
   }
-=======
->>>>>>> Stashed changes
 .paragraph{
     font-family: var(--base-font-family);
     color: var(--paragraph);
@@ -62,7 +59,6 @@ p{
 .d-flex{
     display: flex;
 }
-<<<<<<< Updated upstream
 .d-none{
     display: none;
 }
@@ -77,16 +73,11 @@ p{
 }
 .algn-it-center{
     align-items: center;
-=======
-.fl-dir-column{
-    flex-direction: column;
->>>>>>> Stashed changes
 }
 .container{
     max-width: 600px;
     margin: 0 auto;
 }
-<<<<<<< Updated upstream
 .padding-10{
     padding: 0 10%;
 }
@@ -163,7 +154,6 @@ nav {
     transition: transform 0.5s ease 0s;
     gap: 32px;
 }
-
 .linkItem {
     gap: 12px;
     align-items: flex-start;
@@ -371,9 +361,9 @@ nav {
   }
   .smart-features{
     padding-top: 50px;
-    flex-wrap: wrap;
     padding-bottom: 50px;
-  
+    display: flex;
+    flex-wrap: wrap;
   } 
   .smart-features p{
     margin-top: 10px;
@@ -396,7 +386,7 @@ nav {
     font-weight: 600;
     color:#e3e5eb;
     font-size: 1rem;
-    
+    white-space:normal;
   }
   .smart-features-list{
     margin-left: 20px;
@@ -408,10 +398,8 @@ nav {
   .smart-features-list h2{
     color:#f8f9fc
   }
-
   .client-testimonial{
     background-color:var(--bg-color-dark-gary);
- 
   }
   .client-title{
     padding-top: 50px;
@@ -570,11 +558,7 @@ nav {
     margin: 0 auto;
     border-radius: 50px;
    }
-
-
 /* nurgül bitiş */
-=======
->>>>>>> Stashed changes
 .team{
     background-color: var(--bg-color-ligth-gray);
 }
@@ -583,10 +567,7 @@ nav {
 }
 .team-title-ofc{
     margin-bottom: 2em;
-<<<<<<< Updated upstream
     padding: 0 20%;
-=======
->>>>>>> Stashed changes
 }
 .team-cards-sec{
     padding: 5%;
@@ -606,15 +587,9 @@ nav {
     transform: rotate(270deg);
 }
 .social-icon{
-<<<<<<< Updated upstream
     width: 70%;
     justify-content: space-around;
     margin:10px 5px 0 0;
-=======
-    width: 50%;
-    justify-content: space-around;
-    margin:10px 10px 0 0;
->>>>>>> Stashed changes
 }
 .cta{
     background-image: url(./img/cta-bg.jpg);
@@ -676,12 +651,6 @@ nav {
 .form-info{
     margin-top: 15px;
 }
-/* form{
-    flex-direction: column;
-} */
-/* .form-start-ofc{
-    flex-direction: column;
-} */
 form input, form textarea{
     margin: 1em;
     height: 50px;
@@ -721,7 +690,6 @@ form textarea{
     width: 75%;
 }
 .contact-icon{
-    /* flex-direction: column;  */
     margin: 0 12px;
 }
 .contact-info{
@@ -743,7 +711,6 @@ form textarea{
 }
 .footer-bg{
     background-color: var(--bg-color-ligth-gray);
-    /* flex-direction: column; */
 }
 .footer-bg h5{
     color: var(--header-color-white);
@@ -763,10 +730,6 @@ form textarea{
     margin: 12px 0;
 }
 footer{
-<<<<<<< Updated upstream
-=======
-    display: flex;
->>>>>>> Stashed changes
     background-color: var(--bg-color-dark-gary);
     text-align: center;
     align-items: center;
@@ -790,12 +753,16 @@ footer{
     color: var(--header-color-white);
     justify-content: center;
 }
-<<<<<<< Updated upstream
 
 /* ----------------------------------------------------********************************************************************************************************************************************************************************************************************************************************************************************** */
-
-
-
+@media screen and (max-width:590px) {
+    .team-item img{
+        width: 180px;
+    }
+    section{
+        width: 100%;
+    }
+}
 
 @media screen and (min-width:768px) {
   /* selahattin web başlangıç */
@@ -821,6 +788,9 @@ footer{
     padding-left: 0;
     margin-bottom: 0;
     margin-top: 0;
+}
+.linkItem a:hover{
+    color: var(--header-color-white);
 }
 .linkItem > a {
     color: var(--paragraph);
@@ -878,9 +848,6 @@ footer{
     top: -20%;
     transform: translateX(50%);
 }
-.social-icon{
-    display: block;
-}
 .section-title{
     margin-top: 120px;
     width: 66.66666667%;
@@ -935,34 +902,46 @@ footer{
   .pricing-card{
     width: 30%;
   }
- 
+  .smart-features{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+  .smart-features-img{
+    width: 150%;
+    margin-right: 15px;
+  }
+  .smart-features-list h2{
+    display: block;
+  }
+  .smart-features-list ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .smart-features-list ul li{
+    width: 45%;
+    margin: 5px;
+  }
 
 h1{
-=======
-@media screen and (min-width:768px) {
-  h1{
->>>>>>> Stashed changes
     font-size: 48px;
   }
   h5{
     font-size: 20px;
   }
-<<<<<<< Updated upstream
-  .team-item-text h6{
-=======
-  h6{
->>>>>>> Stashed changes
-    width: 150px;
-    margin-right: 10px;
+  .team-item-text h6,.team-item-text p{
+    font-size: 14px;
+    margin-bottom: 5px ;
   }
-  p{
+  .team-item-text p{
     width: 100%;
     margin-right: -90px;
   }
+  
   .paragraph{
     font-size: 18px;
   }
-<<<<<<< Updated upstream
   .align-center-pc{
     align-items: center;
   }
@@ -980,35 +959,24 @@ h1{
     width: 15%;
     border-radius: 15px;
   }
-=======
-  .fl-dir-row-pc{
-    flex-direction: row;
-  }
->>>>>>> Stashed changes
     .container{
     max-width: 1100px;
    }
    /* team area */
     .team-cards-sec{
-        /* flex-direction:row; */
-<<<<<<< Updated upstream
-=======
-        display: flex;
->>>>>>> Stashed changes
-        align-items: normal;
+        align-items:center;
         justify-content: center;
         flex-wrap: wrap;
         padding: 55px 0 0 0;
     }
     .team-card{
-        width: 22%;
+        width: 25%;
     }
     .team-item img{
         width: 180px;
     }
     .team-item-text{
-        /* align-items: center; */
-        margin-right: -50px;
+        font-size: 14px;
     }
     /*  */
     .cta::before{
@@ -1018,7 +986,6 @@ h1{
         height: 300px;
     }
     .cta-section-ofc{
-        /* flex-direction: row; */
         justify-content:space-around;
         align-items: center;
     }
@@ -1032,7 +999,6 @@ h1{
     }
     /* contact us area */
     .contact-card{
-        /* flex-direction: row; */
         margin-top: 80px;
         align-items: center;
     }
@@ -1041,18 +1007,15 @@ h1{
     }
     .form-start-ofc{
         width: 48%;
-        /* flex-direction: row; */
     }
     .contact-iframe{
         width: 100%;
     }
     .contact-icon{
-        /* flex-direction:row ; */
         justify-content: space-between;
     }
     /* footer area */
     .footer-section-ofc{
-        /* flex-direction: row; */
         align-items: start;
         gap: 20px;
     }
