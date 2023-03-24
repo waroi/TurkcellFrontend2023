@@ -154,7 +154,6 @@ nav {
     transition: transform 0.5s ease 0s;
     gap: 32px;
 }
-
 .linkItem {
     gap: 12px;
     align-items: flex-start;
@@ -362,9 +361,7 @@ nav {
   }
   .smart-features{
     padding-top: 50px;
-    flex-wrap: wrap;
     padding-bottom: 50px;
-  
   } 
   .smart-features p{
     margin-top: 10px;
@@ -387,7 +384,7 @@ nav {
     font-weight: 600;
     color:#e3e5eb;
     font-size: 1rem;
-    
+    white-space:normal;
   }
   .smart-features-list{
     margin-left: 20px;
@@ -399,10 +396,8 @@ nav {
   .smart-features-list h2{
     color:#f8f9fc
   }
-
   .client-testimonial{
     background-color:var(--bg-color-dark-gary);
- 
   }
   .client-title{
     padding-top: 50px;
@@ -561,8 +556,6 @@ nav {
     margin: 0 auto;
     border-radius: 50px;
    }
-
-
 /* nurgül bitiş */
 .team{
     background-color: var(--bg-color-ligth-gray);
@@ -656,12 +649,6 @@ nav {
 .form-info{
     margin-top: 15px;
 }
-/* form{
-    flex-direction: column;
-} */
-/* .form-start-ofc{
-    flex-direction: column;
-} */
 form input, form textarea{
     margin: 1em;
     height: 50px;
@@ -701,7 +688,6 @@ form textarea{
     width: 75%;
 }
 .contact-icon{
-    /* flex-direction: column;  */
     margin: 0 12px;
 }
 .contact-info{
@@ -723,7 +709,6 @@ form textarea{
 }
 .footer-bg{
     background-color: var(--bg-color-ligth-gray);
-    /* flex-direction: column; */
 }
 .footer-bg h5{
     color: var(--header-color-white);
@@ -801,6 +786,9 @@ footer{
     padding-left: 0;
     margin-bottom: 0;
     margin-top: 0;
+}
+.linkItem a:hover{
+    color: var(--header-color-white);
 }
 .linkItem > a {
     color: var(--paragraph);
@@ -912,7 +900,27 @@ footer{
   .pricing-card{
     width: 30%;
   }
- 
+  .smart-features{
+    display: flex;
+    flex-direction: row;
+  }
+  .smart-features-img{
+    width: 150%;
+    margin-right: 15px;
+  }
+  .smart-features-list h2{
+    display: block;
+  }
+  .smart-features-list ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .smart-features-list ul li{
+    width: 45%;
+    margin: 5px;
+  }
+
 h1{
     font-size: 48px;
   }
