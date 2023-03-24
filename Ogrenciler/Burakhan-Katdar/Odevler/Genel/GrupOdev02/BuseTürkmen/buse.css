@@ -125,24 +125,17 @@ h4, h5, h6 {
     color: white
 }
 
-.resp-design-text {
+.resp-design-text , .cool-feat-text {
     margin-bottom: 100px;
 }
 
-.cool-feat-text {
-    margin-bottom: 100px;
-}
 
 .right-content {
     text-align: left;
     margin-left: 0px;
 }
 
-.stun-design-text {
-    margin-bottom: 100px;
-}
-
-.best-psd-text {
+.stun-design-text , .best-psd-text {
     margin-bottom: 100px;
 }
 
@@ -168,9 +161,7 @@ img.phone-feat {
 }
 
 img.phone-feat2 {
-    img.phone-feat2 {
     width: 90%;
-    }
 }
 
 .features2 {
@@ -336,12 +327,15 @@ h1, h2, h3 {
 }
 
 .application-text {
-    margin: auto;
-    width: 60%;
+    margin-bottom: 100px;
     text-align: center;
     color: white;
-    background-color: #303841
-    margin-bottom: 50px
+    /*background-color: #303841 */
+}
+
+app.teach.p {
+    text-align: center;
+    font-size: 30px;
 }
 
 .application-container h2{
@@ -384,7 +378,6 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-evenly;
     gap: 1.5rem;
-    width: 100%;
 }
 
 section.btsection4 {
@@ -404,40 +397,50 @@ section.btsection4 {
     /* flex-direction: column; */
     justify-content: center;
     align-items: center;
-    width: 75%
+    width: 100%;
+    margin: 0 auto;
 }
 
 .btpricetitles {
     display: flex;
     flex-direction: column;
-    /* gap: 1rem; */
     text-align: center;
     margin-bottom: 80px;
+    padding: 50px 10px;
+    text-align: center;
 }
 
-h6 {
+ h6 {
+    font-family: "poppins", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
     color: #0076a3;
-    font-family: "Roboto Slab", serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 15px;
+    margin: 0;
 }
+
 
 h2 {
-    font-family: "Roboto Slab", serif;
-    font-size: 28px;
-    font-weight: 600;
-    color: white;
+    font-family: "poppins", sans-serif;
+    font-size: 40px;
+    line-height: 56px;
+    color: #ffffff;
+    margin: 0;
 }
 
 p {
-    max-width: 600px;
-    font-size: 17px;
-    letter-spacing: 0.5px;
-    color: #888E97;
+    font-family: "roboto", sans-serif;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.3);
+    color: #ffffff80;
+    line-height: 25px;
+    padding: 9px 0;
+    margin: 20px 0 16px;
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
 }
 
-.btbasicbox {
+.btbasicbox , .btstartbox , .btenterbox {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -445,23 +448,65 @@ p {
     box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.05);
     width: 35%;
     padding: 2rem;
+    justify-content: space-evenly
+
+
 }
 
-.minibasicbox {
+.basicprice {
+    width: 356px;
+    height: 238px;
+    padding: 24px;
+    border-radius: 5px;
+}
+
+.ministartbox {
     font-family: "Roboto Slab", serif;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 600;
     margin-top: 0.5rem;
     color: white;
     background-color: #0076a3 !important;
     padding-left: 0;
     display: flex;
-    width: 20%;
+    width: 25%;
+    border-radius: 10%;
 }
 
-h2.month.basic {
+.minienterbox {
+    font-family: "Roboto Slab", serif;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: white;
+    background-color: #0076a3 !important;
+    padding-left: 0;
+    display: flex;
+    width: 33%;
+}
+
+.minibasicbox {
+    font-family: "Roboto Slab", serif;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: white;
+    background-color: #0076a3 !important;
+    padding-left: 0;
+    display: flex;
+    width: 18%;
+    border-radius: 10%;
+}
+
+sup.timestart ,  sup.timebasic , sup.timeenter{
+    margin-top: 15px;
+}
+
+
+h2.month.basic , h2.month.start , h2.month.enter {
     display: flex;
     margin-bottom: 0.5rem;
+    margin-top: 15px;
 }
 
 p.basic.text1 {
@@ -472,6 +517,7 @@ p.basic.text1 {
 p.basic2 {
     color: rgba(255,255,255,.3) !important;
     text-align: left;
+    width: 450px
 }
 
 ul {
@@ -505,19 +551,34 @@ ul {
     padding: 2rem;
 }
 
-h2.month.start {
-    display: flex;
+.basicborder, .startborder , .enterborder {
+    border: 1px solid #dee2e6;
+    border-width: 3px;
 }
 
-p.start.text1 {
+sup.moneybasic , sup.moneystart , sup.moneyenter {
+    font-size: 30px;
+}
+
+sup.timebasic {
+    font-size: 35px;
+}
+
+h2.month.start , p.start.text1 {
     display: flex;
 }
 
 .recommenbox {
     background-color: #0076a3 !important;
     color: white;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding: 14px 0px;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    font-family: 'Roboto';
 }
-
 
 .ministartbox {
     font-family: "Roboto Slab", serif;
@@ -593,9 +654,12 @@ button.minienterbutn {
     display: flex;
 }
 
-.basicinfobox, .startinfobox, .enterinfobox {
+.basicinfobox , .enterinfobox {
     text-align: left;
     color: #fff;
 }
 
-
+.startinfobox{
+    text-align: left;
+    color: #fff;
+}
