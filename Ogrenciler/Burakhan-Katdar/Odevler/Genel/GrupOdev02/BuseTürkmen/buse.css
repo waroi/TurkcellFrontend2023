@@ -5,8 +5,7 @@ features{
 }
 
 *{
-    background-color: hsl(211, 18%, 25%);
-    margin-left: 10px;
+    background-color: hsl(211, 18%, 25%)
 }
 
 .section#features{
@@ -154,7 +153,6 @@ h4, h5, h6 {
 .resp-design-text , .cool-feat-text {
     margin-bottom: 100px;
 }
-
 
 .right-content {
     text-align: left;
@@ -304,14 +302,14 @@ p.text-pravity {
 h3.title.Testimonial {
     color: white;
     font-size: 28px;
-    font-family: poppins, sans-serif;
+    font-family: poppins
     margin: 0px 0px 8px;
     color: white;
 }
 
 p.Testimonial {
     color: rgba(255, 255, 255, .3);
-    font-family: "roboto", sans-serif;
+    font-family: "roboto"
     font-size: 15px;
     line-height: 25px;
     padding: 9px 0;
@@ -332,7 +330,43 @@ h1, h2, h3 {
     line-height: 1.4;
 }
 
+@media screen and (max-width: 996px){
+    .features2-content{
+        flex-direction: column;
+        align-items: center;
+    }
 
+}
+
+@media screen and (max-width: 768px){
+    .features2-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .tab-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .appteach-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 996px){
+    .features2-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .tab-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .appteach-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 /* application */
 
 .application {
@@ -342,6 +376,7 @@ h1, h2, h3 {
     padding-top: 100px;
     flex-wrap: wrap;
     align-content: center;
+    margin-bottom: 200px;
 }
 
 .application-container {
@@ -390,22 +425,38 @@ h6.applooksminititle , h2.applookstitle , p.app\.teach\.p {
 
 .appfotos{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 70%;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 996px){
     .appfotos{
         flex-direction: column;
+    }
 
+    .application.container{
+        align-items: center;
+    }
 
+    .application-text {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .appfotos{
+        flex-direction: column;
+    }
+
+    .application.container{
+        align-items: center;
+    }
+
+    .application-text {
+        width: 40%;
     }
 }
 
 /* pricing */
-
 
 .btpriceboxs {
     display: flex;
@@ -697,11 +748,6 @@ button.minienterbutn {
     color: #fff;
 }
 
-@media only screen and (min-width: 996px){
-    .mobile-nav{
-        display: none;
-    }
-}
 
 @media only screen and (max-width: 768px){
     .btpriceboxs{
@@ -712,3 +758,103 @@ button.minienterbutn {
         width: 45%;
     }
 }
+
+@media only screen and (max-width: 768px){
+    .btbasicbox, .btstartbox, .btenterbox{
+        flex-direction: column;
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 996px){
+    .btbasicbox, .btstartbox, .btenterbox{
+        flex-direction: column;
+        width: 50%;
+    }
+}
+
+/* team */
+
+section.team {
+    background-image: url(../images/cta-bg.jpg);
+}
+
+.teamimg> img{
+    width: 60%;
+}
+
+
+.team-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 250px;
+}
+
+.team-content {
+    width: 40%;
+    margin-left: 500px;
+    margin-top: 150px;
+}
+
+h1.ideal {
+    color: #ffffff;
+    font-size: 80px;
+}
+
+p.textteam {
+    color: rgba(255,255,255,.3) !important;
+    font-size: 18px;
+    font-family: 'Poppins';
+    /* text-align: left; */
+    margin-left: 0px;
+}
+
+button.appstore , button.googleplay {
+    border: none;
+}
+
+.teambutton> img {
+    width: 200px;
+}
+
+.teambutton {
+    margin-top: 50px;
+}
+
+media screen and (max-width: 996px){
+    .team-container{
+        flex-direction: column;
+    }
+
+    .team-content{
+        font-size: 40px;
+        margin-top: 150px;
+        width: 20%;
+        text-align: left;
+        margin-left: 0;
+    }
+
+    .teamimg {
+        width: 800px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .team-container{
+        flex-direction: column;
+    }
+
+    .team-content{
+        font-size: 40px;
+        margin-top: 150px;
+        width: 20%;
+        text-align: left;
+        margin-left: 0;
+    }
+
+    .teamimg {
+        width: 800px;
+    }
+
+}
+
