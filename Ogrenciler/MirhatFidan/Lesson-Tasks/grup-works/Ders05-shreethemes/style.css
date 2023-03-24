@@ -1,0 +1,994 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto Slab", sans-serif;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+u {
+  text-decoration-color: #ffbf66;
+}
+
+.container {
+  max-width: 1140px;
+  margin: auto;
+  padding: 0 50px;
+}
+
+section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.bg-overlay {
+  background-color: rgba(22, 28, 45, 0.75);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-light {
+  background-color: #f8f9fc;
+}
+/* Copyright KMI  */
+
+header {
+  background-color: rgba(255, 255, 255);
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  /* Copyright KMI  */
+  align-items: center;
+  box-shadow: 0 0 5px 0 #313131;
+  z-index: 999999999;
+}
+
+nav {
+  max-width: 1140px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
+}
+
+.linkItem {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+}
+
+.linkItem > a:hover {
+  color: #e04000 !important;
+}
+
+.socialMedia {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.socialMedia > a {
+  display: flex;
+  align-items: center;
+  background-color: #ff5714;
+  border-radius: 50%;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+.socialMedia > a:hover {
+  background-color: #e04000 !important;
+}
+
+.hamburgerCheckBox {
+  display: none;
+}
+
+.landingBg {
+  background-image: url(./assets/1.jpg);
+  background-size: cover !important;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.landing {
+  /* background-color: rgba(3, 1, 14, 0.8); */
+  height: 710px;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-heading {
+  color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  max-width: 600px;
+  height: 45%;
+  z-index: 99999;
+}
+
+.title-heading > h1 {
+  font-size: 42px;
+}
+
+.landingParagraf {
+  opacity: 0.5;
+}
+/* Copyright KMI  */
+
+.btn {
+  cursor: pointer;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.btnPrimary {
+  background-color: #ff5714;
+  border: 1px solid #ff5714;
+  color: #fff !important;
+  box-shadow: 0 3px 5px 0 rgb(255 87 20 / 10%);
+  height: 41px;
+  width: 127px;
+}
+
+.btnPrimary:hover {
+  background-color: #e04000 !important;
+  border-color: #e04000 !important;
+  color: #fff;
+}
+
+.companyStory {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: row;
+  gap: 70px;
+}
+
+.aboutImgWrap {
+  position: relative;
+}
+
+.aboutPlayBtn {
+  cursor: pointer;
+  position: absolute;
+  top: 42%;
+  left: 42%;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aboutPlayBtn > svg {
+  padding-left: 5px;
+}
+
+.aboutPlayBtn:hover #playBtn {
+  fill: #ff5714;
+}
+
+#playBtn:hover {
+  fill: #ff5714;
+}
+.aboutImage {
+  width: 451px;
+  height: 526px;
+  border-radius: 10px;
+}
+
+.aboutUs {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  color: #ff5714;
+  font-size: 15px !important;
+  font-weight: 600;
+}
+
+.title {
+  letter-spacing: 0.5px;
+  font-size: 28px !important;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.text-muted {
+  color: #8492a6;
+}
+
+.whatWeDo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+}
+
+.doContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 100px;
+  gap: 20px;
+}
+/* Copyright KMI  */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: all 0.5s ease;
+  border-radius: 30px;
+  width: 30%;
+  min-width: 250px;
+  padding: 20px 0;
+  box-shadow: 0 25px 25px rgb(36 39 44 / 10%);
+}
+
+.card:hover {
+  box-shadow: 0 25px 25px rgb(36 39 44 / 20%);
+}
+
+.cardIcon {
+  width: 85px;
+  height: 85px;
+  background: rgba(255, 87, 20, 0.1);
+  color: #ff5714;
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Copyright KMI  */
+
+.cardTitle {
+  font-size: 1.12rem;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  gap: 30px;
+  padding: 20px;
+}
+
+.workProcess {
+  margin: 100px 0;
+}
+
+.wpDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.timeLineCardWrap {
+  display: flex;
+  flex-direction: column;
+  /* gap: 50px; */
+  margin: 50px 0;
+}
+
+.timeLineCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.timeLineImg {
+  width: 50%;
+  padding-bottom: 50px;
+}
+
+.timeLineAvatar {
+  width: 250px;
+  height: 250px;
+}
+
+.timeLine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+}
+
+.timeLine::after {
+  content: "";
+  width: 2px;
+  flex: 1;
+  background: repeating-linear-gradient(#dee2e6 0 2px, transparent 4px 6px);
+}
+
+.dotBorder {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px dashed #dee2e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeLineDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff5714;
+}
+
+.timeLineContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+  justify-content: flex-start !important;
+  padding-bottom: 50px;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: start;
+  text-align: start;
+}
+.flex-end {
+  display: flex;
+  justify-content: end;
+  text-align: end;
+}
+
+.flex-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.pfImage {
+  position: relative;
+  transition: transform 0.5s;
+  overflow: hidden;
+  width: 261px;
+  height: 195px;
+  border-radius: 5px;
+}
+
+.pfImage > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.pfImage:hover {
+  transition: transform 0.5s;
+}
+
+.pfImage:hover > img {
+  transform: rotate(3deg) scale(1.2);
+}
+
+.pfImage:hover .shadow {
+  border-radius: 5px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background: #00000062;
+  transition: 0.5s ease;
+}
+
+.imgContent {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  opacity: 0;
+  color: #fff;
+  cursor: pointer;
+}
+
+.pfImage:hover .imgContent {
+  opacity: 1;
+  z-index: 9999;
+}
+
+.imgContent > h3:hover {
+  color: #ff5714;
+}
+
+.imgIcon {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #ff5714;
+  border-radius: 50%;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  opacity: 0;
+}
+.pfImage:hover .imgIcon {
+  opacity: 1;
+  z-index: 999;
+}
+
+.imgIcon:hover {
+  background-color: #e04000;
+}
+
+#getStarted {
+  background-image: url(assets/getStarted.png);
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+  position: relative;
+  max-height: 27.6vw;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.gsContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+  z-index: 999;
+}
+
+.gsTitle {
+  letter-spacing: 0.5px;
+  font-size: 1.75rem;
+}
+
+.mx-w {
+  max-width: 600px;
+  margin: auto;
+}
+.packageCard {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 25%;
+  box-shadow: 0 25px 25px rgb(36 39 44 / 10%);
+  padding: 40px 30px;
+  border-radius: 5px;
+  transition: transform 0.5s ease;
+}
+
+.packageCard:hover {
+  box-shadow: 0 25px 25px rgb(36 39 44 / 20%);
+  transform: translateY(-10px);
+  transition: transform 0.5s ease;
+}
+
+.packageTitle {
+  font-size: 1.12rem;
+  color: black;
+  text-transform: uppercase;
+}
+
+.packagePrice {
+  display: flex;
+  flex-direction: row;
+}
+
+.packagePrice > *:nth-child(1) {
+  font-size: 1.12rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.packagePrice > *:nth-child(2) {
+  font-size: 2.62rem;
+}
+.packagePrice > *:nth-child(3) {
+  font-size: 1.12rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.packageProp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.packageProp > li {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.btnSecondary {
+  background-color: rgba(255, 87, 20, 0.1);
+  border: 1px solid rgba(255, 87, 20, 0.1);
+  color: #ff5714;
+  box-shadow: 0 3px 5px 0 rgb(255 87 20 / 10%);
+  width: 100%;
+  height: 42px;
+}
+
+.btnSecondary:hover {
+  background-color: #ff5714 !important;
+  border-color: #ff5714 !important;
+  color: #fff !important;
+}
+
+.teamImg {
+  position: relative;
+  transition: transform 0.5s;
+  overflow: hidden;
+  width: 261px;
+  height: 261px;
+  border-radius: 5px;
+}
+
+.teamImg > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.teamImg:hover {
+  transition: transform 0.5s;
+}
+
+.teamImg:hover > img {
+  transform: scale(1.05);
+}
+
+.teamImg:hover .teamShadow {
+  border-radius: 5px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 30%;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  background: linear-gradient(to bottom, transparent, #000);
+  transition: transform 0.5s ease;
+}
+
+.teamIconWrap {
+  position: absolute;
+  top: 10px;
+  right: -35px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  transition: 0.5s ease;
+}
+
+.teamIconWrap > a {
+  background-color: #ff5714;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teamImg:hover .teamIconWrap {
+  right: 10px;
+  transition: 0.5s ease;
+}
+
+.teamContentWrap {
+  position: absolute;
+  border-radius: 5px;
+  left: 15px;
+  bottom: -70px;
+  right: 15px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 0;
+  z-index: 9999;
+  transition: 0.5s ease;
+}
+
+.teamImg:hover .teamContentWrap {
+  bottom: 15px;
+  transition: 0.5s ease;
+}
+
+.teamMember {
+  font-size: 1.12rem;
+  color: #000;
+}
+.teamMember:hover {
+  color: #ff5714;
+}
+
+.imgContent {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  opacity: 0;
+  color: #fff;
+  cursor: pointer;
+}
+
+.pfImage:hover .imgContent {
+  opacity: 1;
+  z-index: 9999;
+}
+
+.counterBox > h3 {
+  font-size: 1.87rem;
+  font-weight: 600 !important;
+}
+
+.CounterWrap {
+  justify-content: space-around;
+  margin-top: 50px !important;
+}
+
+.counterImg {
+  width: 75px;
+  height: 25px;
+  padding-top: 20px;
+}
+
+.blog {
+  border: 1px solid rgba(0, 0, 0, 0.103);
+  border-radius: 5px;
+  box-shadow: 0 25px 25px rgb(36 39 44 / 10%);
+}
+
+.blog > img {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  width: 356px;
+  height: 222px;
+}
+
+.cardBody {
+  padding-bottom: 10px;
+}
+
+.cardContent-p > h5 {
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.cardContent-p > h5:hover {
+  color: #ff5714;
+}
+
+.cardContent-p > a {
+  font-size: 0.9rem;
+}
+
+.cardContent-p > a:hover {
+  color: #ff5714;
+}
+
+.cardContent-p {
+  gap: 20px !important;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 60%;
+  background-color: #fff;
+}
+
+.ai-center {
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 10px;
+  box-shadow: 0 0 3px rgb(36 39 44 / 15%) !important;
+  padding: 24px;
+}
+
+.inputArea {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 20px 12px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.contactInformation {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 34%;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.infoIcon {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.infoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+footer {
+  background-color: #202942 !important;
+}
+
+.footerWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 35px 0;
+  color: #fff;
+}
+
+.footerSocial {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.footerSocial > a {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #283354;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.footerSocial > a:hover {
+  background-color: #ff5714;
+  transition: 0.3s ease;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    max-width: 870px;
+    margin: auto;
+    padding: 0 30px;
+  }
+  .btnPrimary {
+    padding: 10px 0;
+  }
+
+  .row {
+    margin-top: 50px;
+  }
+
+  nav {
+    padding: 0 20px;
+    justify-content: space-between;
+  }
+  .links {
+    display: none;
+    align-items: start;
+    transition: transform 0.5s ease 0s;
+  }
+
+  .linkItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .line {
+    display: block;
+    background-color: #000;
+    width: 30px;
+    height: 4px;
+    border-radius: 5px;
+    transition: transform 0.5s;
+  }
+
+  .hamburger {
+    display: flex;
+    gap: 3px;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 999999999999999;
+  }
+
+  .hamburgerCheckBox {
+    position: absolute;
+    opacity: 0;
+  }
+
+  #menu-toggle:checked ~ .links {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    background-color: white;
+    justify-content: start;
+    flex-direction: column;
+    padding: 50px;
+    transition: 1s;
+  }
+
+  #menu-toggle:active .hamburger > .line:nth-child(1) {
+    transform: rotate(45deg) translateX(5px);
+    transition: transform 0.5s;
+  }
+  #menu-toggle:active .line:nth-child(2) {
+    display: none;
+    transition: transform 0.5s;
+  }
+  #menu-toggle:active .line:nth-child(3) {
+    transform: rotate(-45deg) translateX(5px);
+    transition: transform 0.5s;
+  }
+
+  .title-heading {
+    gap: 20px;
+  }
+
+  .companyStory {
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 25px;
+  }
+  .aboutImgWrap {
+    display: flex;
+    justify-content: center;
+  }
+  .aboutImage {
+    width: 366px;
+    height: 427px;
+  }
+
+  .aboutUs {
+    align-items: center;
+    padding: 0 20px;
+    gap: 15px;
+  }
+
+  .whatWeDo {
+    gap: 25px;
+  }
+  .wpDesc {
+    width: 100%;
+  }
+  #getStarted {
+    max-height: none !important;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .companyStory {
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 25px;
+  }
+  .aboutImgWrap {
+    display: flex;
+    justify-content: center;
+  }
+  .aboutImage {
+    width: 366px;
+    height: 427px;
+  }
+
+  .aboutUs {
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .whatWeDo {
+    flex-direction: column;
+  }
+
+  .timeLineAvatar {
+    width: 100%;
+    height: auto;
+  }
+  .packageCard {
+    min-width: 200px;
+  }
+
+  .contactForm {
+    width: 100%;
+  }
+
+  .contactInformation {
+    width: 100%;
+  }
+
+  .footerWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+  /* KMI */
+}
