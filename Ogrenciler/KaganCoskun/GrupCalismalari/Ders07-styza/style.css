@@ -298,11 +298,34 @@ nav {
   left: 136px;
   top: 50%;
 
+  cursor: pointer;
   width: 72px;
   height: 72px;
   border-radius: 50%;
   z-index: 999;
   background-color: #0076a3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation-name: waves;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes waves {
+  0% {
+    box-shadow: 0 0 0 0 #0075a34b, 0 0 0 0 #0075a34b;
+  }
+
+  80% {
+    box-shadow: 0 0 0 20px #fff0, 0 0 0 40px #fff0;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 #fff0, 0 0 0 0 #fff0;
+  }
 }
 
 .pt-250 {
