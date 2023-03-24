@@ -20,10 +20,16 @@ features{
 }
 
 .section-title {
-    margin: auto;
-    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
     text-align: center;
-    color: white;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .app h2{
@@ -58,6 +64,15 @@ features{
     flex-direction: column
 }
 
+p.appteach-text {
+    color: rgba(255, 255, 255, 0.3);
+    max-width: 650px;
+    font-size: 0.93rem;
+    line-height: 25px;
+    text-align: center;
+    margin-top: 0;
+}
+
 .appteach-buttons {
     margin-top: 100px;
 }
@@ -72,14 +87,20 @@ features{
     margin-bottom: 80px;
     gap: 50px;
     justify-content: center;
+    flex-direction: row;
+    align-items: center;
 }
 
 button.smart-btn {
-    border: 1px solid #f9f6f6;
     color: white;
     padding: 15px;
     border-radius: 6%;
     background-color: none;
+    margin: 0 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 button.top-btn {;
@@ -89,6 +110,7 @@ button.top-btn {;
     border: 1px solid #0076a3;
     background: linear-gradient(#2e8da5 0%, #114d64 100%);
     color: #fff;
+    cursor: pointer;
 }
 
 .apptab-content {
@@ -125,10 +147,13 @@ h4, h5, h6 {
     color: white
 }
 
+.left-content p{
+    text-align: right;
+}
+
 .resp-design-text , .cool-feat-text {
     margin-bottom: 100px;
 }
-
 
 .right-content {
     text-align: left;
@@ -161,7 +186,9 @@ img.phone-feat {
 }
 
 img.phone-feat2 {
-    width: 90%;
+    width: 60%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .features2 {
@@ -192,23 +219,17 @@ button.follow {
     padding-right: 15px;
     width: 100px;
     height: 35px;
+    cursor: pointer;
 }
 
 .buildapp-content {
     margin-top: 25px;
 }
 
-img.phone-feat2 {
-    width: 20vw;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
 .follow {
     height: 260px;
     width: 500px;
 }
-
 
 div.feat2-img {
     margin: 5px 0 0 0;
@@ -232,6 +253,7 @@ button.readmore-btn {
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
+    cursor: pointer;
 }
 
 button.followbtn {
@@ -242,6 +264,7 @@ button.followbtn {
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
+    cursor: pointer;
 }
 
 .Client {
@@ -308,6 +331,43 @@ h1, h2, h3 {
     line-height: 1.4;
 }
 
+@media screen and (max-width: 996px){
+    .features2-content{
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    .features2-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .tab-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .appteach-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 996px){
+    .features2-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .tab-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .appteach-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 /* application */
 
 .application {
@@ -330,7 +390,11 @@ h1, h2, h3 {
     margin-bottom: 100px;
     text-align: center;
     color: white;
-    /*background-color: #303841 */
+    background-color: #303841
+}
+
+p.app\.teach\.p {
+    text-align: center;
 }
 
 app.teach.p {
@@ -343,6 +407,10 @@ app.teach.p {
     margin-top: 20px;
     color: #fff;
     background-color: #303841;
+}
+
+h6.applooksminititle , h2.applookstitle , p.app\.teach\.p {
+    background-color: #303841 !important;
 }
 
 .application-container p{
@@ -366,13 +434,26 @@ app.teach.p {
 @media screen and (max-width: 996px){
     .appfotos{
         flex-direction: column;
+    }
+
+    .application.container{
         align-items: center;
     }
-    
 }
 
-/* pricing */
+@media screen and (max-width: 768px){
+    .appfotos{
+        flex-direction: column;
+    }
 
+    .application.container{
+        align-items: center;
+    }
+}
+
+
+
+/* pricing */
 
 .btpriceboxs {
     display: flex;
@@ -449,8 +530,6 @@ p {
     width: 35%;
     padding: 2rem;
     justify-content: space-evenly
-
-
 }
 
 .basicprice {
@@ -462,7 +541,7 @@ p {
 
 .ministartbox {
     font-family: "Roboto Slab", serif;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 600;
     margin-top: 0.5rem;
     color: white;
@@ -475,7 +554,7 @@ p {
 
 .minienterbox {
     font-family: "Roboto Slab", serif;
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 600;
     margin-top: 0.5rem;
     color: white;
@@ -501,7 +580,6 @@ p {
 sup.timestart ,  sup.timebasic , sup.timeenter{
     margin-top: 15px;
 }
-
 
 h2.month.basic , h2.month.start , h2.month.enter {
     display: flex;
@@ -616,6 +694,7 @@ button.minibtn3 {
     width: 100px;
     height: 35px;
     display: flex;
+    cursor: pointer;
 }
 
 button.minibtn1 {
@@ -629,6 +708,7 @@ button.minibtn1 {
     width: 100px;
     height: 35px;
     display: flex;
+    cursor: pointer;
 }
 
 .btenterbox {
@@ -652,6 +732,7 @@ button.minienterbutn {
     width: 90px;
     height: 35px;
     display: flex;
+    cursor: pointer;
 }
 
 .basicinfobox , .enterinfobox {
@@ -663,3 +744,30 @@ button.minienterbutn {
     text-align: left;
     color: #fff;
 }
+
+
+@media only screen and (max-width: 768px){
+    .btpriceboxs{
+        flex-direction: column;
+    }
+
+    .btpricetitles{
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .btbasicbox, .btstartbox, .btenterbox{
+        flex-direction: column;
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 996px){
+    .btbasicbox, .btstartbox, .btenterbox{
+        flex-direction: column;
+        width: 50%;
+    }
+}
+
+
