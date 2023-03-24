@@ -1,0 +1,556 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Outfit";
+  --main-yellow: #ffb91f;
+  --main-black: #202020;
+  --current-price: #233f92;
+  --original-price: #868686;
+  --star-color: #ffd200;
+  transition: all 0.1s ease;
+}
+
+/* Section - categories */
+
+.categories {
+  background-color: var(--main-yellow);
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.categories-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+}
+
+.categories-title {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.categories-text {
+  font-size: 17px;
+  margin-top: 10px;
+}
+
+.categories-buttons {
+  display: flex;
+}
+
+.categories-button {
+  border-radius: 50%;
+  background-color: #fcc559;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories-button:hover {
+  background-color: var(--star-color);
+  cursor: pointer;
+}
+
+.categories-image-container {
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.categories-image-container > img {
+  width: 160px;
+  height: 160px;
+}
+
+.categories-row-images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.categories-image-card:hover {
+  color: white;
+}
+
+.categories-image:hover {
+  transform: scale(1.25);
+  cursor: pointer;
+}
+
+.categories-image-card > p {
+  text-align: center;
+}
+
+/* Categories End */
+
+/* Bestsellers start */
+
+.best-sellers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1300px;
+  margin: 50px auto;
+}
+.best-sellers-title {
+  font-size: 36px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.best-sellers-title:hover {
+  cursor: pointer;
+}
+
+.best-sellers-title > *:hover {
+  color: var(--main-yellow);
+}
+
+.best-sellers-card {
+  border: 1px solid rgba(235, 235, 235, 1);
+  border-radius: 2px;
+  max-width: 320px;
+  padding: 10px;
+  position: relative;
+}
+.offer-percentage {
+  position: absolute;
+  width: 60px;
+  text-align: center;
+  background-color: rgba(212, 56, 17, 1);
+  border-radius: 65px;
+  color: rgba(235, 235, 235, 1);
+}
+.offer-percentage-hot {
+  position: absolute;
+  width: 60px;
+  text-align: center;
+  background-color: var(--main-yellow);
+  border-radius: 65px;
+  color: rgba(235, 235, 235, 1);
+  top: 40px;
+}
+.offer-gray {
+  width: 75px;
+  background-color: #868686;
+  border-radius: 65px;
+}
+
+.card-hidden-hover-effects {
+  width: 200px;
+  flex-direction: column;
+  position: absolute;
+  left: 30%;
+  display: none;
+}
+
+.card-hidden-hover-effects > span {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 25px;
+  border-radius: 50%;
+}
+
+.best-sellers-card-hidden-logo-description {
+  visibility: hidden;
+  border-radius: 10px;
+}
+
+.best-sellers-card-hidden-logo {
+  height: 20px;
+  margin-bottom: 10px;
+  width: 20px;
+}
+
+.best-sellers-card-hidden-logo:hover
+  + .best-sellers-card-hidden-logo-description {
+  visibility: visible;
+}
+
+.best-sellers-card:hover > .card-hidden-hover-effects {
+  display: flex;
+}
+
+.best-sellers-card-hidden-logo:hover {
+  cursor: pointer;
+}
+
+.best-sellers-card-hidden-logo:hover
+  + .best-sellers-card-hidden-logo-description {
+  cursor: pointer;
+  background-color: var(--main-yellow);
+}
+.best-sellers-card-hidden-logo:hover {
+  background-color: var(--main-yellow);
+}
+.best-sellers-card-anchor:hover {
+  cursor: pointer;
+  color: var(--main-yellow);
+}
+
+.stars {
+  width: 120px;
+}
+.star {
+  font-size: x-large;
+  width: 20px;
+  display: inline-block;
+  color: gray;
+}
+.star:last-child {
+  margin-right: 0;
+}
+.star:before {
+  content: "\2605";
+}
+.star.on {
+  color: gold;
+}
+.star.half:after {
+  content: "\2605";
+  color: gold;
+  position: absolute;
+  margin-left: -20px;
+  width: 10px;
+  overflow: hidden;
+}
+.best-sellers-image {
+  width: 300px;
+  height: 300px;
+}
+.card-prices {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-current-price {
+  font-size: 18px;
+  font-weight: 900;
+  color: blue;
+}
+.card-old-price {
+  font-size: 14px;
+  text-decoration: line-through;
+}
+.add-to-cart-button {
+  display: none;
+  width: 100%;
+  height: 40px;
+  background-color: var(--main-black);
+  color: var(--main-yellow);
+  border-radius: 30px;
+  margin-top: 15px;
+  position: relative;
+}
+
+.best-sellers-card:hover .add-to-cart-button {
+  display: block;
+}
+
+.add-to-cart-button:hover {
+  background-color: var(--main-yellow);
+  color: var(--main-black);
+  cursor: pointer;
+}
+
+/* Bestsellers end */
+
+/* Car widget Start */
+
+.car-widget {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  color: rgb(255, 255, 255);
+}
+
+.widget-title {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+}
+
+.widget-paragraph {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.widget-paragraph > span {
+  color: var(--main-yellow);
+}
+
+.widget-button {
+  width: 100px;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: var(--main-yellow);
+  color: var(--main-black);
+}
+
+.widget-container-first {
+  display: flex;
+  flex-direction: column;
+  background-image: url("./Images/best-sellers/banner-1.jpg");
+  width: 45vw;
+  height: 250px;
+  background-size: cover;
+  padding: 50px;
+}
+
+.widget-container-second {
+  display: flex;
+  flex-direction: column;
+  background-image: url("./Images/best-sellers/banner-2.jpg");
+  width: 45vw;
+  height: 250px;
+  background-size: cover;
+  padding: 50px;
+}
+.widget-container-first:hover {
+  cursor: pointer;
+  /* scale: 1.09; */
+}
+.widget-container-second:hover {
+  cursor: pointer;
+  /* scale: 1.09; */
+}
+.widget-container-first:hover .widget-button {
+  background-color: white;
+  color: var(--main-yellow);
+}
+.widget-container-second:hover .widget-button {
+  background-color: white;
+  color: var(--main-yellow);
+}
+
+/* Widget End */
+
+/* Products Start */
+
+.products-container{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1300px;
+  max-height: 850px;
+  margin: 0 auto;
+}
+
+.products-titles {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.products-image {
+  width: 180px;
+  height: 180px;
+}
+
+.products-card {
+  display: flex;
+  border: 1px solid rgba(235, 235, 235, 1);
+  border-radius: 2px;
+  max-width: 450px;
+  padding: 30px;
+}
+
+/* .products-image-container:after {
+  content:'\A';
+  position:absolute;
+  width:180px; 
+  height:100%;
+  top:0; left:0;
+  background:rgba(0,0,0,0.6);
+  opacity:0;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+.products-card:hover .products-image-container:after {
+  opacity:0.6;
+} */
+
+.products-anchor {
+  text-decoration: none;
+  color: var(--main-black);
+  margin-bottom: 10px;
+}
+
+.products-anchor:hover {
+  color: var(--main-yellow);
+}
+
+.products-description-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.products-description-container > p {
+  margin: 20px 0;
+}
+
+.products-add-cart-button {
+  font-size: 12px;
+  padding: 7px;
+  width: 100px;
+  border-radius: 30px;
+  color: var(--main-black);
+  background-color: var(--main-yellow);
+}
+
+.products-add-cart-button:hover {
+  cursor: pointer;
+  color: var(--main-yellow);
+  background-color: var(--main-black);
+}
+
+/* Products End */
+
+/* Popular Parts Start */
+
+.popular-parts-title > h1{
+  margin: 50px auto;
+  text-align: center;
+}
+
+.popular-parts-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.popular-parts-button{
+  padding: 10px;
+  border: 1px solid rgba(125,125,125,0.8);
+}
+
+.popular-parts-button:hover{
+  background-color: var(--main-yellow);
+  cursor: pointer;
+}
+
+/* Popular Parts End*/
+
+/* Laptop Screen Media Query */
+@media screen and (min-width: 769px) and (max-width: 1025px) {
+  .categories-image-container {
+    width: 120px;
+    height: 120px;
+  }
+  .categories-image-container > img {
+    height: 120px;
+    width: 120px;
+  }
+  .best-sellers-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .products-container{
+    max-width:none;
+    max-height: none;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 769px) {
+  .categories-image-container {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .categories-image-container > img {
+    height: 90px;
+    width: 90px;
+  }
+  .popular-parts-button{
+    width: 150px;
+  }
+  .categories {
+    padding: 1rem;
+  }
+  .categories-image-card p {
+    width: 90px;
+  }
+  .products-container{
+    max-width:none;
+    max-height: none;
+    flex-direction: column;
+  }  
+}
+
+@media screen and (max-width: 376px) {
+  .categories-image-card p {
+    width: 80px;
+  }
+  .categories-image-container {
+    width: 80px;
+    height: 80px;
+    gap: 40px;
+  }
+  .categories-image-container > img {
+    height: 80px;
+    width: 80px;
+    gap: 30px;
+  }
+  .categories-container {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .categories-title-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .car-widget {
+    flex-direction: column;
+    gap: 1px;
+  }
+  .widget-container-first {
+    width: 100vw;
+  }
+  .widget-container-second {
+    width: 100vw;
+  }
+  .popular-parts-container{
+    height: 350px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-direction: column;
+    padding: 15px;
+  }
+  .popular-parts-button{
+    width: 160px;
+  }
+  .products-container{
+    max-width:none;
+    max-height: none;
+    flex-direction: column;
+  }
+}
