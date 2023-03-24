@@ -155,7 +155,6 @@ h4, h5, h6 {
     margin-bottom: 100px;
 }
 
-
 .right-content {
     text-align: left;
     margin-left: 0px;
@@ -332,7 +331,43 @@ h1, h2, h3 {
     line-height: 1.4;
 }
 
+@media screen and (max-width: 996px){
+    .features2-content{
+        flex-direction: column;
+        align-items: center;
+    }
 
+}
+
+@media screen and (max-width: 768px){
+    .features2-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .tab-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .appteach-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 996px){
+    .features2-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .tab-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .appteach-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 /* application */
 
 .application {
@@ -399,13 +434,26 @@ h6.applooksminititle , h2.applookstitle , p.app\.teach\.p {
 @media screen and (max-width: 996px){
     .appfotos{
         flex-direction: column;
+    }
 
-
+    .application.container{
+        align-items: center;
     }
 }
 
-/* pricing */
+@media screen and (max-width: 768px){
+    .appfotos{
+        flex-direction: column;
+    }
 
+    .application.container{
+        align-items: center;
+    }
+}
+
+
+
+/* pricing */
 
 .btpriceboxs {
     display: flex;
@@ -697,11 +745,6 @@ button.minienterbutn {
     color: #fff;
 }
 
-@media only screen and (min-width: 996px){
-    .mobile-nav{
-        display: none;
-    }
-}
 
 @media only screen and (max-width: 768px){
     .btpriceboxs{
@@ -712,3 +755,19 @@ button.minienterbutn {
         width: 45%;
     }
 }
+
+@media only screen and (max-width: 768px){
+    .btbasicbox, .btstartbox, .btenterbox{
+        flex-direction: column;
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 996px){
+    .btbasicbox, .btstartbox, .btenterbox{
+        flex-direction: column;
+        width: 50%;
+    }
+}
+
+
