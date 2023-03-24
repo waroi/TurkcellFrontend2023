@@ -18,6 +18,7 @@
 - [fontawesome CDN](https://cdnjs.com/libraries/font-awesome)
 - [Hazır iconlar](https://fontawesome.com/icons)
 - [Css-Tricks Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [Grid Generator](https://cssgrid-generator.netlify.app/)
 
 ## Extra Kaynaklar
 
