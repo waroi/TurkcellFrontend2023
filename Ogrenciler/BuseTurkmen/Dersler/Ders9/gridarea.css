@@ -1,0 +1,38 @@
+.container{
+    display: grid;
+    height: 600px;
+    background-color: rgb(167, 167, 167);
+    gap: 5px;
+    grid-template-areas: 
+      "header header header"
+      "sidebar section section"
+      "sidebar . ."
+      "footer footer footer"
+      "box-1 box-1 box-1";
+  }
+  
+  .header{
+    grid-area: header;
+    background-color: rgb(255, 112, 3);
+    padding: 20px;
+  }
+  .section{
+    grid-area: section;
+    background-color: rgb(3, 255, 37);
+    padding: 20px;
+  }
+  .sidebar{
+    grid-area: sidebar;
+    background-color: rgb(3, 154, 255);
+    padding: 20px;
+  }
+  .footer{
+    grid-area: footer;
+    background-color: rgb(255, 3, 171);
+    padding: 20px;
+  }
+  .box-1{
+    grid-area: box-1;
+    background-color: rgb(255, 3, 3);
+    padding: 20px;
+  }
