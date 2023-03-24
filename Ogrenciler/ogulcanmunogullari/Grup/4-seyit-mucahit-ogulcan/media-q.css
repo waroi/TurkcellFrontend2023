@@ -3,25 +3,43 @@
   /* Genel */
   .container {
     max-width: 1140px;
-    /* Container test rengi */
-    /* background: red; */
   }
   /* Mücahit */
   .apptech-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 0;
-  list-style: none;
-  max-width: 100%;
-  justify-content: center;
-  margin: 0 auto;
-}
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
+    max-width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .apptech-content1 {
+    display: flex;
+    flex-direction: column;
+    align-items: self-end;
+    justify-content: center;
+    width: 100%;
+  }
 
+  .apptech-image-cl {
+    width: 360px;
+  }
 
+  .apptech-content2 {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: center;
+    width: 100%;
+    text-align: left;
+  }
   .what-we-do-container {
     height: 800px;
   }
-
+  .app-services {
+    padding-top: 250px;
+  }
   .button1 {
     display: block;
   }
@@ -34,6 +52,9 @@
 
   .column1 {
     width: 25%;
+    flex-direction: column;
+    display: flex;
+    text-align: center;
   }
   .column2 {
     width: 33%;
@@ -49,10 +70,40 @@
   .servicecol {
     width: 33%;
   }
-  /* Oğulcan */
-  .client-testimonial-container {
-    flex-direction: row;
+  .rowcontainer1 {
+    align-items: center;
+    justify-content: center;
   }
+  .apptech-image-cl {
+    margin: 0;
+  }
+  .apptech-content1 > p {
+    text-align: right;
+  }
+  .toggle-video-container {
+    top: 800px;
+  }
+  .socials-column {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 50px;
+    transform: translateY(150%);
+  }
+  .socials-column img {
+    width: 75%;
+    margin: 10px;
+  }
+
+  .socials-column img:hover {
+    transition: ease-in 200ms;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: white;
+  }
+  /* Oğulcan */
+
   .client-testimonial-info {
     width: 45%;
   }
@@ -60,25 +111,115 @@
     width: 55%;
   }
   .client-testimonial {
-    padding: 6em 0 6em 0;
-  }
-  .client-testimonial-container {
-    flex-direction: row;
+    padding: 10em 0 10em 0;
   }
   .client-testimonial-info {
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .client-testimonial-info > button {
+    width: 250px;
   }
   .carousel {
     width: 70%;
     padding-top: 27%;
     box-shadow: none;
   }
-  .carousel__snapper {
-    flex-direction: row;
-  }
+
   .carousel-img-container {
     height: 280px;
     border-radius: 1em 0 0 1em;
   }
+  .wyp-cards-container {
+    align-items: center;
+    gap: 1.5em;
+  }
+  .wyp-card {
+    width: 31.89%;
+  }
+  .app-looks-like {
+    padding: 5em 0;
+  }
+  .all-carousel {
+    display: none;
+  }
+  .app-looks-like-pc-images {
+    display: flex;
+    gap: 1em;
+  }
+  .pc-img-container {
+    border: none;
+    border-radius: 1em;
+    overflow: hidden;
+  }
   /* Seyit */
+  .our-team {
+    padding-bottom: 10em;
+  }
+
+  .our-team-member {
+    width: 25%;
+  }
+  .our-team-member-name {
+    bottom: 45%;
+  }
+  .build-your-ideal-container {
+    align-items: center;
+    height: 350px;
+  }
+  .build-your-ideal::before {
+    top: -100px;
+  }
+  .build-your-ideal::after {
+    bottom: -60px;
+  }
+  .build-your-ideal-header > h1 {
+    padding-top: 0.5em;
+    font-size: 4em;
+  }
+  .contact-us-header {
+    margin-top: 5.5rem;
+  }
+  .contact-us-support {
+    display: flex;
+    flex-direction: row;
+  }
+  .contact-us-infos {
+    justify-content: space-between;
+  }
+  .contact-us-map::after {
+    right: -10%;
+  }
+  .contact-us-map {
+    margin-right: 4%;
+    width: 80%;
+  }
+  .contact-us-support {
+    gap: 3em;
+  }
+  .footer-container {
+    display: flex;
+  }
+  .footer-container div {
+    flex: 1;
+    margin-top: 0;
+    padding-right: 10px;
+  }
+  .contact-action-form-namediv {
+    gap: 1em;
+  }
+  .footer-container div:first-child,
+  .footer-container div:last-child {
+    flex: 0 0 auto;
+    width: 33.33333%;
+  }
+
+  .footer-icons-social {
+    display: flex;
+  }
+  .flex {
+    flex-direction: row;
+  }
 }
