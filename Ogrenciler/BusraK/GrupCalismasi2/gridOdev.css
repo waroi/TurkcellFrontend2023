@@ -2,16 +2,16 @@
 
 .container {
     display: grid;
-   
+    grid-template-columns: 0.3fr 0.8fr ;
     gap: 8px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      "header header"
-      "main main"
-      "main main"
-      "saat saat"
-      "latest-news latest-news"
-      "footer footer";
+      "header header "
+      "main main "
+      "main main "
+      "saat saat "
+      "latest-news latest-news "
+      "footer footer ";
   }
   
   .header {
@@ -32,19 +32,16 @@
     grid-area: account;
   }
   
-  .logom {
+  /* .logom {
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 0px 0px;
     grid-auto-flow: row;
-    grid-template-areas:
-      ". . ."
-      ". . ."
-      ". . .";
+
     grid-area: logom;
-  }
+  } */
   
   .home {
     grid-area: home;
@@ -123,9 +120,9 @@
   
   .latest-news {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    gap: 0px 0px;
+    gap: 10px 10px;
     grid-auto-flow: row;
     justify-content: stretch;
     align-content: stretch;
@@ -139,18 +136,21 @@
   
   .a {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      ". a-img ."
-      ". a-h3 ."
-      ". a-span .";
+      " a-img "
+      " a-h3 "
+      "a-span ";
     grid-area: a;
+    
   }
   
+
   .a-img {
+    width: 100%;
     grid-area: a-img;
   }
   
@@ -198,8 +198,16 @@
   }
   
   .logo {
+    display: grid;
     grid-area: logo;
   }
+
+
+  .logo img{
+    width: 100%;
+  }
+
+  
   
   html,
   body,
