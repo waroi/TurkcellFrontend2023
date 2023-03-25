@@ -13,7 +13,7 @@ body {
 }
 a {
   text-decoration: none;
-  color: #fff;
+  color: inherit;
 }
 /* containırımız bile grid hocam */
 .container {
@@ -80,8 +80,15 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
   background-color: #cd412b;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.links a:last-child:hover {
+  color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .heroWrap {
   position: relative;
@@ -140,11 +147,60 @@ video {
   margin-bottom: 5px;
 }
 
+footer {
+  background-color: #0c0b0b;
+}
+
+.brands {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 0;
+}
+
+.brands img:first-child {
+  justify-self: end;
+}
+
+.brands img:last-child {
+  justify-self: start;
+}
+
+.navigator {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.footerCopyright {
+  padding: 50px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-items: center;
+  gap: 10px;
+}
+
 @media screen and (max-width: 1020px) {
   .heroContent h1 {
     font-size: 2rem;
   }
   .links {
     display: none;
+  }
+  .brands img:first-child {
+    width: 100px;
+  }
+
+  .brands img:last-child {
+    width: 100px;
+  }
+
+  .navigator {
+    flex-wrap: wrap;
+  }
+
+  .navigator a {
+    width: 100%;
+    text-align: center;
   }
 }
