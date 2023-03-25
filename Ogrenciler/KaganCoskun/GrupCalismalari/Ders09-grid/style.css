@@ -22,6 +22,11 @@ a {
   position: relative;
 }
 
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
 .px-20 {
   padding: 0 20px;
 }
@@ -105,8 +110,41 @@ video {
   margin-bottom: 20px;
 }
 
+.cardWrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin: 50px 0;
+}
+.cardImg img {
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.devblog {
+  font-size: 0.8rem;
+  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #cd412b;
+  margin-bottom: 5px;
+}
+.community {
+  font-size: 0.8rem;
+  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #5d7239;
+  margin-bottom: 5px;
+}
+
 @media screen and (max-width: 1020px) {
-  :root {
-    font-size: 5px;
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+  .links {
+    display: none;
   }
 }
