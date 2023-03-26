@@ -1,9 +1,11 @@
+/* features */
+
 features{
     background-color: #343f34;
 }
 
 *{
-    background-color: #343f4b;
+    background-color: hsl(211, 18%, 25%);
     margin-left: 10px;
 }
 
@@ -12,7 +14,15 @@ features{
 }
 
 .features-conteiner{
-    width: 1100px;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-title {
+    margin: auto;
+    text-align: center;
+    color: white;
 }
 
 .app h2{
@@ -26,7 +36,9 @@ features{
 }
 
 .app p{
-    color: rgba(255, 255, 255, .3);c
+    color: rgba(255, 255, 255, .3);
+    font-size: 15px;
+    font-family: "roboto", sans-serif;
 }
 
 .app{
@@ -44,20 +56,20 @@ features{
     flex-direction: column
 }
 
-ul.features-buttons {
-    list-style-type: none;
-    padding-left: 0;
-    }
-
-ul.features-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+.appteach-buttons {
+    margin-top: 100px;
 }
 
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
+.appteachtab-content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.featureBtn {
+    display: flex;
+    margin-bottom: 80px;
+    gap: 50px;
+    justify-content: center;
 }
 
 button.smart-btn {
@@ -77,30 +89,59 @@ button.top-btn {;
     color: #fff;
 }
 
-.apptab-content{
-    width: 1100px;
+.apptab-content {
     display: flex;
-    height: 100px;
     align-items: center;
-    flex-wrap: wrap;
+    margin-bottom: 250px;
+    width: 100%;
+    justify-content: center;
+}
+
+::before {
+    color: #0076a3;
+    background-color: rgba(0,118,163,.1) !important;
 }
 
 h4, h5, h6 {
     font-family: "Poppins",sans-serif;
-    font-weight: 600 !important;
+    font-weight: 600 !important ;
     line-height: 1.4;
 }
 
-.h5, h5 {
+.h5 {
     font-size: 1.25rem;
+    font-family: "poppins", sans-serif;
 }
 
 .tab-content p {
     color: rgba(255, 255, 255, .3);
+    font-size: 14px;
+    font-family: "roboto", sans-serif;
 }
 
 .left-content>h5{
     color: white
+}
+
+.resp-design-text {
+    margin-bottom: 100px;
+}
+
+.cool-feat-text {
+    margin-bottom: 100px;
+}
+
+.right-content {
+    text-align: left;
+    margin-left: 0px;
+}
+
+.stun-design-text {
+    margin-bottom: 100px;
+}
+
+.best-psd-text {
+    margin-bottom: 100px;
 }
 
 .img-content {
@@ -111,37 +152,47 @@ img.imgphone {
     width: 100%;
 }
 
+img.phone-feat {
+    width: 350px;
+}
+
 .left-content {
     text-align: right;
 }
 
 img.phone-feat2 {
-    width: 20vw;
-    padding-left: 20px;
+    img.phone-feat2 {
+    width: 90%;
+    }
 }
 
 .features2 {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: space-evenly
 }
 
 .features2-content {
-    margin-top: 750px;
-    width: 1100px;
-    padding: 30px;
     display: flex;
     flex-direction: row;
+    align-items: center
 }
-
 
 .align-items-center {
     align-items: center!important;
 }
 
-.follow{
-    display: flex;
-    flex-direction: row;
+button.follow {
+    background: linear-gradient(80deg, #46a5bd 0%, #116a8d 100%);
+    border: none !important;
+    color: #fff !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100px;
+    height: 35px;
 }
 
 .buildapp-content {
@@ -191,8 +242,140 @@ button.followbtn {
     padding-right: 15px;
 }
 
-
-
 .Client {
     width: 200px;
+}
+
+.title.text-center {
+    width: 1100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center !important;
+}
+
+h6.title1 {
+    color: #0076a3;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+h2.title2 {
+    color: white;
+    margin-top: 0;
+    margin: bottom 0;
+}
+
+p.text-pravity {
+    color: rgba(255, 255, 255, .3);
+}
+
+.cantainer {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h3.title.Testimonial {
+    color: white;
+    font-size: 28px;
+    font-family: poppins, sans-serif;
+    margin: 0px 0px 8px;
+    color: white;
+}
+
+p.Testimonial {
+    color: rgba(255, 255, 255, .3);
+    font-family: "roboto", sans-serif;
+    font-size: 15px;
+    line-height: 25px;
+    padding: 9px 0;
+    margin: 20px 0 16px;
+    max-width: 500px;
+    margin: auto;
+}
+
+
+h5.title.Testimonial {
+    color: white;
+    margin-left: 0;
+}
+
+h1, h2, h3 {
+    font-family: "Poppins",sans-serif;
+    font-weight: 700 !important;
+    line-height: 1.4;
+}
+
+/* application */
+
+.application {
+    background-color: #303841 !important;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+}
+
+.application-container {
+    width: 1100px;
+    margin: auto;
+    line-height: 1.5em;
+    flex-direction: column;
+}
+
+.application-text {
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    color: white;
+    background-color: #303841
+}
+
+.application-container h2{
+    font-size: 45px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #303841;
+}
+
+.application-container p{
+    margin-top: 20px;
+    color: #888E97;
+    background-color: #303841;
+}
+
+.application-container h6{
+    background-color: #303841;
+}
+
+.appfotos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@media screen and (max-width: 996px){
+    .appfotos{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
+
+/* pricing */
+
+.btprice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.btpriceboxs {
+    display: flex;
+    justify-content: space-evenly;
+    /* justify-content: center; */
+}
+
+section.btsection4 {
+    text-align: center;
 }
