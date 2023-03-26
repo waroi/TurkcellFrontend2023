@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+background-image: url(https://images.blz-contentstack.com/v3/assets/blt77f4425de611b362/bltd67dca48ed245d93/63f6b998b624bd69a0f701f9/71997a5b8fd00e35a1ed2b90b324d694.png);
+background-repeat: no-repeat; 
+font-family: "Poppins",Helvetica,Arial,sans-serif;
+}
+.conteiner{
+    display: grid;
+}
+
+.nav{
+    display: grid;
+    grid-area: navbar;
+    grid-template-columns: 1fr 2fr 1fr;
+    background-color: rgb(53, 54, 54);
+}
+.nav img{
+   margin-left: 130px;
+}
+.nav-link{
+    align-self: center;
+}
+.nav-link a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+.nav-account{
+    display: flex;
+    align-self: center;
+    gap:30px;
+}
+.nav-account button{
+ text-align: center;
+ background-color: rgb(153, 23, 23);
+ color: white;
+}
+.header-img{
+ display: grid;
+ grid-template-rows: 1fr 1fr 1fr;
+ grid-template-columns: 1fr 2fr 1fr;
+ /* justify-items: center; */
+gap:20px;
+
+}
+.header-img img{
+    grid-area: logo;
+    align-items: center;
+    width: 480px;
+    height: 224px;
+    background-color: beige;
+    grid-row-start: 2;
+    grid-column-end: 2;
+}
+.header-img h2{
+    grid-area: baslik;
+    background-color: antiquewhite;
+}
+.header-img button{
+    grid-area: buton;
+    background-color: azure;
+}
