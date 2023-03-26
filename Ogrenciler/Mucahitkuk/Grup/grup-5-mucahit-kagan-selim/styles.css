@@ -26,10 +26,14 @@ ol {
   list-style: none;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 /* Set core root defaults */
 html:focus-within {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+ 
 }
 
 /* Set core body defaults */
@@ -116,7 +120,9 @@ a {
   background-color: rgb(255, 112, 3);
   grid-template-columns: 1fr;
   background-color: transparent;
+  background-color:transparent;
   margin-top: 20px;
+  
 }
 
 .header img {
@@ -137,9 +143,8 @@ a {
 .navbar ul li {
  
   padding: 15px 30px;
-  background-color: cornsilk;
+  background-color: black;
   font-size: larger;
-  cursor: pointer;
 }
 
 .navbar ul li:last-child {
@@ -178,12 +183,47 @@ a {
 .footer{
   grid-area: footer;
   background-color: black;
+  text-align: center;
+  margin-top: 50px;
+  text-transform: uppercase;
+}
+
+.blizzard-icon {
+  width: 240px;
+  margin: 0 auto;
+}
+
+span {
+  position: relative;
+  letter-spacing: 3px;
+  margin: 10px;
+  color:#7F0403;
+}
+
+span:hover {
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+
+
+.footer p {
+  margin: 20px;
+}
+
+.footer img {
+  margin: 20px auto;
+}
+
+svg {
+  width: 75px;
+  margin: 40px;
 }
 
 .buy-image {
   transition: all 0.5s ease;
   cursor: pointer;
   opacity: 0.7;
+  margin: 0 auto;
 }
 
 .buy-image:hover {
@@ -201,10 +241,10 @@ a {
 }
 .cardwrapper {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 grid-template-rows: repeat(2, 1fr);
 grid-column-gap: 20px;
-grid-row-gap: 20px;
+grid-row-gap: 100px;
 }
 
 
@@ -228,4 +268,25 @@ video {
   z-index: -1;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   user-zoom: 100px;
+}
+ 
+@media screen and (min-width: 320px) and (max-width: 767px) { 
+  .navbar ul {
+    display: none;
+  }
+  .diabloimg {
+    margin-left: 50%;
+  }
+  .section2 h2 {
+    text-align: left !important;
+  }
+  .section2 p {
+    text-align: left !important;
+  }
+  .socials-container svg {
+    width: 40px;
+  }
+  .cardwrapper div {
+    max-width: 767px;
+  }
 }
