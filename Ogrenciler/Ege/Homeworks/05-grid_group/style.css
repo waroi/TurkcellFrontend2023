@@ -5,9 +5,8 @@
     list-style-type: none;
     color: white;
     font-family: 'Almendra', serif;
+    text-shadow: 1px 5px #000000
 }
-
-
 
 img {
     width: 100%;
@@ -17,8 +16,6 @@ body {
     background: rgb(0, 0, 0);
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(65, 23, 23, 1) 35%, rgba(112, 2, 2, 0.9360119047619048) 100%);
 }
-
-.header {}
 
 .heading {
     font-family: 'Almendra SC', serif;
@@ -41,8 +38,6 @@ body {
     margin-left: 1rem;
 }
 
-.intro {}
-
 .logo {
     width: 150px;
 }
@@ -60,11 +55,8 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
-    padding: 1rem;
-    background: rgba(192, 192, 192, 0.2);
+    padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 0 30px #F1BE15 inset;
-
 }
 
 .quest {
@@ -72,6 +64,7 @@ body {
     display: grid;
     gap: 0.5rem;
     place-items: center;
+    background: rgba(192, 192, 192, 0.2);
     border-radius: 10px;
     box-shadow: 0px 1px 15px rgba(255, 255, 255, 0.1);
 }
@@ -79,8 +72,6 @@ body {
 .quest-img {
     width: 250px;
 }
-
-/* #region Quest Tags */
 
 .quest-tags span {
     border-radius: 15px;
@@ -90,46 +81,15 @@ body {
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(65, 23, 23, 1) 35%, rgba(112, 2, 2, 0.9360119047619048) 100%);
 }
 
-/* .quest-difficulty.easy {
-    background: #00C851;
-}
-
-.quest-difficulty.medium {
-    background: #4B515D;
-}
-
-.quest-difficulty.hard {
-    background: #FF4444;
-}
-
-.quest-price {
-    background: #FFBB33;
-}
-
-.quest-party-size {
-    background: #33B5E5;
-}
-
-.quest-type.hunt {
-    background: #2BBBAD;
-}
-
-.quest-type.explore {
-    background: #795548;
-}
-
-.quest-type.info {
-    background: #673AB7;
-} */
-
-/* #endregion */
-
 .quest:hover {
     box-shadow: 0px 1px 15px #F1BE15;
     transform: scale(1.08);
     transition: 0.25s all;
 }
 
+section {
+    padding: 50px 0;
+}
 
 .intro video {
     width: 100%;
@@ -138,7 +98,6 @@ body {
 .btn {
     background-color: #942424;
     border: 1px solid #7e2020;
-    color: white;
     padding: 5px 10px;
     border-radius: 15px;
     text-align: center;
@@ -148,8 +107,6 @@ body {
     letter-spacing: 1px;
 }
 
-.footer {}
-
 .footer-boxes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -157,7 +114,6 @@ body {
 }
 
 .footer-box {
-    border: 1px solid black;
     padding: 0 10px;
 }
 
@@ -166,18 +122,9 @@ body {
     margin-bottom: 1rem;
 }
 
-
 .footer-box .logo {
     width: 100%;
 }
-
-
-/* .footer-box {
-    display: grid;
-    gap: 1rem;
-    place-content: center;
-} */
-
 
 .link-wrapper li {
     border-bottom: 2px dotted gray;
@@ -193,12 +140,14 @@ body {
     margin: 1rem 0;
     color: black;
     font-size: 18px;
+    text-shadow: none;
+    outline: none;
 }
+
 
 .join-us a {
     display: block;
 }
-
 
 .copyright {
     background: gray;
@@ -225,6 +174,5 @@ body {
         grid-template-columns: 1fr;
         place-content: center;
         place-items: center;
-
     }
 }
