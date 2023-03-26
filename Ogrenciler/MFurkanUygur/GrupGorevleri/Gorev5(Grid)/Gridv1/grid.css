@@ -1,0 +1,257 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Merienda", cursive;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+
+}
+
+/* header start*/
+header {
+    background-color: whitesmoke;
+    box-shadow: 0px 1px 5px 5px black;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 7fr 2fr;
+    align-items: center;
+}
+
+.nav-logo>img {
+    margin-top: 5px;
+    width: 50px;
+}
+
+.nav-logo>img:hover {
+    cursor: pointer;
+}
+
+.nav-menu>ul {
+    display: flex;
+}
+
+.nav-menu li a {
+    color: black;
+    margin: 0 25px;
+    font-size: 14px;
+    transition: .3s ease;
+
+}
+.nav-menu li a:hover{
+    background-color: #020A1C;
+    color: white;
+    padding: 10px ;
+    transition: .3s ease;
+    border-radius: 5px;
+}
+.social {
+    justify-self: end;
+}
+
+.social a {
+    color: black;
+    margin: 0 10px;
+}
+
+.social a:hover {
+    color: white;
+    /* background-color: #020A1C; */
+}
+
+/* end header*/
+
+/*intro start*/
+.intro {
+    background-image: url("https://www.pixel4k.com/wp-content/uploads/2018/11/sky-art-dark-night-4k_1541971602.jpg.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.intro {
+    height: 100vh;
+}
+
+.intro-text {
+    padding: 10rem 0 0 1rem;
+    text-align: center;
+    color: white;
+}
+
+.intro-text>h1 {
+    font-size: 35px;
+}
+
+.startAdventureBtn {
+    margin-top: 10px;
+    background-color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    transition: .6s ease-in-out;
+    cursor: pointer;
+}
+
+.startAdventureBtn:hover {
+    background-color: white;
+    padding: 10px 100px;
+    transition: .9s ease-in-out;
+}
+
+/*end intro*/
+
+/*content start*/
+.content {
+    background-color: gainsboro;
+    padding: 2rem 0;
+}
+
+.content>.container>h2 {
+    text-align: center;
+}
+
+.content-box {
+    padding: 1rem 0;
+    display: grid;
+    /*media query mantığını AUTO-FİT özelliği ile sağlıyoruz aslında*/
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 2rem;
+}
+
+.box {
+    background-color: #424E55;
+    color: gainsboro;
+    /*???????????????????????????????*/
+    display: grid;
+    place-items: stretch;
+    /* text-align: center; */
+    gap: 5px;
+    padding: 10px;
+    border: 2px solid #020A1C;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px 1px #020A1C;
+    transition: .7s ease-in-out;
+}
+
+.box:hover {
+    box-shadow: 0px 10px 20px 5px #020A1C;
+    transition: .5s ease;
+}
+
+.box h3 {
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 1px solid;
+}
+
+.box p {
+    text-align: justify;
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.box-img {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+}
+
+.box-tag span {
+    background-color: gainsboro;
+    color: black;
+    border-radius: 10px;
+    padding: 1px 10px;
+}
+
+/*end content*/
+
+/*footer start*/
+.footer {
+    background-color: #424e55b3;
+    padding: 3rem 0 0 0;
+}
+
+.footer-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    gap: 2rem;
+}
+
+.footer-col img {
+    width: 75px;
+}
+
+.col1,
+.col2 p {
+    font-size: 14px;
+    text-align: justify;
+    margin: 10px 0;
+}
+
+.col2>input {
+    width: 100%;
+    padding: 5px 0;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin: 10px 0;
+}
+
+.col2>button {
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: .3s ease;
+}
+
+.col2>button:hover {
+    color: white;
+    background-color: #424E55;
+    transition: .3s ease;
+}
+
+.col3 li:not(:first-child) {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.col4 h3 {
+    margin-bottom: 10px;
+}
+
+.copyright {
+    background-color: #424e55a0;
+    padding: 1rem 0;
+    text-align: center;
+    grid-column: 1/ span 4;
+}
+
+@media screen and (max-width:500px) {
+    .nav-menu li a {
+        color: black;
+        margin: 0 10px;
+    }
+    .social{
+        display: none;
+    }
+    .content-box{
+        margin: 10px 15px;
+    }
+    .footer-col {
+        margin: 10px 15px;
+    }
+}
