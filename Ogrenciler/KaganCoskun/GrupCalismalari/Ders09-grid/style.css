@@ -22,6 +22,10 @@ a {
   position: relative;
 }
 
+.container > * {
+  grid-column: 2;
+}
+
 .img-fluid {
   max-width: 100%;
   height: auto;
@@ -29,10 +33,6 @@ a {
 
 .px-20 {
   padding: 0 20px;
-}
-
-.container > * {
-  grid-column: 2;
 }
 
 header {
@@ -46,6 +46,10 @@ header {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   z-index: 999;
   font-weight: 500;
+}
+
+#menu {
+  display: none;
 }
 
 nav {
@@ -107,7 +111,7 @@ video {
   top: 70%;
   transform: translatey(-50%);
   left: 5%;
-  z-index: 999;
+  z-index: 9;
   max-width: 50%;
 }
 
@@ -185,8 +189,44 @@ footer {
     font-size: 2rem;
   }
   .links {
-    display: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    position: absolute;
+    top: -500px;
+    opacity: 0;
+    padding: 20px 0;
+    left: 0;
+    background-color: #000000;
+    width: 100%;
+    z-index: -1;
+    gap: 20px;
+    transition: 0.3s ease;
   }
+
+  .header {
+    background: #000000 !important;
+  }
+
+  #menu:checked ~ .links {
+    top: 58px;
+    opacity: 1;
+    z-index: 9999;
+    transition: 0.3s ease;
+  }
+
+  .hamburger {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 3px;
+  }
+
+  .line {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
   .brands img:first-child {
     width: 100px;
   }
