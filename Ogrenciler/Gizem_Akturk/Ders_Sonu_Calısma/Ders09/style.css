@@ -1,5 +1,82 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+list-style: none;
+}
+.container{
+display: grid;
+
+}
+.header-container{
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 200px 200px 1fr 200px;
+grid-template-rows: 80px;
+    grid-template-areas:"logo nav  .  icon "
+
+}
+.logo{
+    grid-area: logo;
+ 
+    width: auto;
+    
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.header-container nav{
+    grid-area: nav;
+
+}
+.header-container nav ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    align-items: center;
+    height: 100%;
+    gap:10px;
+    
+    
+}
+.header-container nav ul li :hover{
+    text-align: center;
+    background-color: red;
+    color: white;
+    border-radius: 20%;
+    
+
+}
+.header-container nav ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.header-container icon{
+    grid-area: icon;
+    
+}
+.header-container icon ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    height: 100%;
+}
+.header-container icon ul li :hover{
+    display: grid;
+    color: red;
+
+   
+}
+.header-container icon ul li a{
+    text-decoration: none;
+    color: black;
+}
+.banner-container{
+    grid-area: banner;
+    background-color: red;
+}
+.banner-container img{
+    width: 100%;
+    height: 100%;
 }
