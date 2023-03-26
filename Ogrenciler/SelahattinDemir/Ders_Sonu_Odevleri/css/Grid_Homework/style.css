@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.4;
+    transition: all 0.5s ease;
+    text-decoration: none;
+    list-style: none;
+    list-style-type: none;
+}
+html{
+    font-size: 10px;
+}
+h2{
+    font-size: 3rem;
+}
+h4,h6{
+    margin: 20px 0px;
+    font-size: 2rem;
+}
+p{
+    font-size: 1.8rem;
+}
+button{
+    font-size: 1.8rem;
+    width: 40%;
+    cursor: pointer;
+    border: none;
+    background-color: orangered;
+    color: aliceblue;
+}
+section{
+    padding: 5rem 0;
+}
+.section-container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+header nav{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    height: auto;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+.nav-menu ul{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.nav-menu ul li{
+    margin: 0 1rem;
+    font-size: 2rem;
+}
+.nav-icon{
+    display:flex;
+}
+.social{
+    font-size: 2rem;
+    padding: 1rem;
+}
+.nav-logo img{
+    width: 100px;
+    margin-left: 3rem;
+}
+.home{
+    background: url("https://images.squarespace-cdn.com/content/v1/51cdafc4e4b09eb676a64e68/1618602622635-4LFSCPXPMK8MOR64BC2N/cars_trip.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 50rem;
+    box-shadow: inset 0 0 0 200rem rgba(22, 28, 45, 0.35);
+}
+.home .section-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.section-title{
+    display: grid;
+    grid-template-rows: 1fr 1fr 3fr 1fr;
+    gap: 2rem;
+    color: aliceblue;
+}
+.button{
+    padding: 1rem;
+    background-color: aqua;
+    font-size: 1.5rem;
+    width: 12%;
+    border-radius: 40%;
+    text-align: center;
+}
+.news-card{
+    display: grid;
+    grid-template-rows:3fr 2fr;
+    border: 1px solid #cecece;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.news-card img{
+   width: 100%;
+   height: 240px;
+   background-size:cover;
+}
+.news-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+}
+.news-card-title{
+    padding: 0 15px;
+}
+.btn{
+    background-color: aqua;
+    font-size: 1.5rem;
+    border-radius: 10%;
+    text-align: center;
+    width: 30%;
+    margin-top: 10px;
+}
+.footer-bar img{
+    width: 200px;
+    margin-left: 3rem;
+    
+}
+.footer-top{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+.help div{
+    font-size: 1.5rem;
+}
+.input-area{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    gap: 10px;
+}
+.input-area input{
+    height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #cecece;
+}
+.footer-bar p{
+    font-size: 1.4rem;
+}
+footer{
+    background-color: rgb(194, 194, 194);
+}
+.footer-bottom{
+    text-align: center;
+    margin: 30px 0 0 0;
+    padding: 20px;
+}
+@media screen  and (max-width:1000px){
+    .news-container{
+        grid-template-columns: 1fr;
+    }
+    .news-card img{
+        height: auto;
+    }
+    .footer-top{
+        grid-template-columns: 1fr;
+        align-content: center;
+    }
+    .footer-bar{
+        
+    }
+}
+@media screen  and (max-width:650px){
+    
+    .home .section-container{
+        grid-template-columns: 1fr;
+    }
+    header nav .nav-icon{
+        display: none;
+    }
+    header nav{
+        grid-template-columns: 1fr;
+    }
+    header{
+        display: flex;
+        justify-content: center;
+    }
+    .nav-logo{
+        display: flex;
+        justify-content: center;
+    }
+    .help{
+        font-size: 4rem;
+    }
+}
