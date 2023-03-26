@@ -1,0 +1,192 @@
+
+body{
+  margin:0;
+  background-color: rgb(251, 245, 245);
+}
+/* Navbar */
+.navbar{
+  display: grid;
+  grid-template-columns: 10% 60% 30%;  
+  justify-content: space-evenly;
+  height: auto;
+  background-color:white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;  
+}
+.logo{
+  padding-left: 20px;
+}
+.menu{
+  display: grid;
+}
+ul{
+  list-style-type: none;
+}
+.menu ul{
+  display: grid;
+  align-items: center;
+  text-align: center;
+  grid-template-columns: repeat(4,50px);
+}
+.menu ul li:hover{
+  background-color: rgb(237, 124, 84);
+  border-radius: 5px;
+  cursor: pointer;   
+}
+.icons{
+  margin-right: 5px;
+}
+.icons ul{
+  display: grid;
+  grid-template-columns: repeat(4,20px);
+  justify-content: flex-end;
+  gap: 3px;
+}
+/* World Rowing Race */
+.slider{
+  background-image: url("https://www.ebu.ch/files/live/sites/ebu/files/News/2020/12/WorldRowing.jpg");
+  background-position-x: center ;
+  background-position-y:center;
+  background-size: cover;
+  height: 400px;
+  margin-top: 50px;
+}
+.opacity{
+  background-color: #161c2dbf;
+  opacity: 0.8;
+  width: 100%;
+  height: 400px;
+  display: grid;
+  justify-content: flex-start;
+  align-items: center;    
+}
+.slider-inside{
+  max-width: 400px;
+  margin-left: 50px;
+}
+.slider-inside h2{
+  color: white;
+}
+.slider-inside p{
+  color: white;   
+}
+button{
+  border: none; 
+  color: white;
+  background-color: orangered;
+  border-radius: 5px;
+  background-size: 100% auto;
+  font-size: 15px;
+  text-align: center;
+  width: 100px;
+  height: 42px;
+  margin-top: 10px;
+}
+/*Cards*/
+.cards{  
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  justify-content: center;
+  margin:auto;
+  gap:25px;
+}
+.container{
+  display: grid;   
+  justify-content: center;
+  max-width: 1140px;
+  margin: auto;
+  margin-bottom: 20px;   
+}
+.card{
+ padding: 5px;
+ background-color: white;
+}
+.card img{
+  width: 100%;
+}
+.card h5{
+  color: gray;
+  font-size:15px;
+}
+.sport{
+  background-color: rgb(80, 169, 80);
+  width: 100px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top:10px;
+}
+.health{
+  background-color: orange;
+  width: 100px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top:10px;
+}
+/* Footer */
+.footer{
+  display: grid;
+  justify-content: center;
+  max-width: 100%;
+  margin: auto;
+  background-color: darkgray;
+  padding-left: 20px;
+  color: white;
+}
+.footer-top{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
+  margin-bottom: 20px;  
+}
+.footer-top-item{
+  margin-right: 20px;
+}
+.footer-social{
+  display: grid;
+  grid-template-columns: repeat(4,20px);
+  justify-content: center;
+  gap: 10px;
+  margin: auto;   
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+.footer-top h2{
+  text-align: center;
+}
+.footer-bottom p{
+  text-align: center;
+  width: 80%;
+  background-color:gray;
+  margin: auto;
+}
+.footer button{
+  width:100%;
+  height: 30px;
+}
+.footer input{
+  width: 100%;
+}
+@media screen and (max-width:740px) {
+  .icons{
+      display: none;
+  }
+  .navbar{
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+      width: 100%;
+      align-items: center;     
+  }
+  .menu ul{
+      justify-content: center;
+      padding:0;
+  }
+  .logo{
+     text-align: center;
+     padding-top: 10px;
+  }
+}
