@@ -14,17 +14,39 @@ body{
     transition-duration: 0.5s;
     transition-timing-function: ease-in-out; */
     /* transition: background-color 1s, width 1s ease-in-out; */
-    transition: all 1s ease-in-out;
+    /* transition: all 1s ease-in-out; */
+    /* animation-name: aa;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s; */
+    /* animation-direction: alternate-reverse; */
+    /* animation-timing-function: ease-in-out; */
+    animation: aa 4s forwards 1s infinite ease-in-out;
 }
 
 .box:hover{
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
     /* width: 300px; */
-    transform: scale(2);
+    /* transform: scale(2);
     transform: rotate(180deg);
     transform: skew(-30deg);
     transform: translateX(100px);
     transform: translateX(100px) rotate(180deg);
     transform: translateY(-100px);
-    transform: translate(100px, -100px) rotate(180deg);
+    transform: translate(100px, -100px) rotate(180deg); */
+}
+
+@keyframes aa {
+    0%{
+        background-color: orangered;
+        transform: translate(0,0);
+    }
+    50%{
+        background-color: greenyellow;
+        transform: translate(100px,-100px) rotate(180deg);
+    }
+    100%{
+        background-color: orangered;
+        transform: translate(0,0);
+    }
 }
