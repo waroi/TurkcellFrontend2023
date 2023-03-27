@@ -8,6 +8,10 @@ a {
   color: inherit;
 }
 
+ul {
+  list-style-type: none;
+}
+
 body {
   font-family: "Chivo", sans-serif;
 }
@@ -16,9 +20,15 @@ body {
   background-color: #bee1e6;
 }
 
+.fluid {
+  width: 100%;
+  height: auto;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr minmax(300px, 1320px) 1fr;
+  position: relative;
 }
 
 .container * {
@@ -27,7 +37,57 @@ body {
 
 .btn {
   padding: 18px 20px;
-  border-radius: 4px;
   font-weight: 700;
   border: 2px solid transparent;
+}
+
+header {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 10px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  min-height: 96px;
+}
+
+.menu ul {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+}
+
+.menu > ul > li {
+  font-size: 1.125rem;
+  line-height: 22px;
+  padding: 30px 22px;
+}
+
+.logo {
+  position: relative;
+  width: 135px;
+}
+
+.btn-default {
+  color: #101828;
+  background-color: #f2f4f7;
+  border-radius: 50px;
+  font-size: 18px;
+  line-height: 22px;
+  font-family: Chivo, sans-serif;
+  font-weight: 700;
+}
+
+.btn-default:hover {
+  transform: translateY(-2px);
+  transition: 0.2s;
+  background-color: #101828;
+  color: #fff;
+}
+
+.btn-default:hover .right-arrow path {
+  fill: #fff;
 }
