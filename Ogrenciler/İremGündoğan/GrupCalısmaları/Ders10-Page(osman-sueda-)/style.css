@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style-type: none;
+}
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+  height: auto;
+  grid-template-rows: 150px auto auto;
+}
+#header {
+  grid-area: header;
+}
+.content {
+  grid-area: content;
+}
+#footer {
+  grid-area: footer;
+}
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex {
+  display: flex;
+}
+
+.container {
+  width: 75%;
+  margin: 0 auto;
+}
+.nav-button {
+}

@@ -1,0 +1,36 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(151, 145, 145);
+    height: 100vh;
+}
+.box{
+    background-color: yellow;
+    width: 150px;
+    height: 150px;
+    transition-property: bacground-color;
+    /*transition'dan neyin etkileneceği*/
+    transition-property: all;
+    /*all dediğimiz zaman bütün transitionları kapsar.*/
+    transition-duration: 1s;
+    /*ne kadar süreceği*/
+    transition-timing-function: ease-in-out;
+    /* transition'un yumuşaklığını ayarlar.*/
+
+
+}
+.box:hover{
+    background-color: red;
+    /* width: 250px; */
+    /* border-radius: 30%; */
+    transform: scale(2);
+    /*büyütür*/
+    transform: rotate(180deg);
+    /* 180 derece döndürür*/
+    transform: translateX(100px);
+    /* 100 px sağa kaydırır*/
+    transform: translateY(100px);
+    /* 100px aşağı kaydırır*/
+    transform: translate(100px, -100px) rotate(180deg);
+}
