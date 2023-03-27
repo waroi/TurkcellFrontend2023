@@ -1,0 +1,65 @@
+body {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  /* background-color: red; */
+  border: 5px dotted red;
+  border-radius: 50%;
+  /* transition-property: background-color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out; */
+  /* transition: background-color 0.5s ease-in-out, width 0.5s ease-in-out; */
+  /* transition: all 1s ease-in-out; */
+
+  animation-name: aa;
+  animation-duration: 3s;
+  /* animation-iteration-count: infinite; */
+  /* animation-iteration-count: 4; */
+  /* animation: kaganAnimation 3s infinite 1s ease-in-out forwards; */
+  /* 2. sayı delay olarak algılanıyor */
+
+  animation: kaganAnimation 6s linear infinite;
+}
+
+/* .box:hover { */
+/* background-color: blue; */
+/* width: 200px; */
+/* border-radius: 50%; */
+/* transform: scale(1.5); */
+/* transform: skew(-30deg); */
+/* transform: rotate(180deg); */
+/* transform: translateX(100px); */
+/* transform: translateX(100px) rotate(180deg); */
+/* transform: translateY(-100px); */
+/* transform: translate(100px, -100px) rotate(180deg); */
+/* } */
+
+@keyframes kaganAnimation {
+  0% {
+    border: 5px dotted red;
+    /* background-color: red; */
+    /* transform: translate(0, 0); */
+  }
+  50% {
+    border: 5px dotted blue;
+
+    /* background-color: blue; */
+    /* transform: translate(100px, -200px) rotate(180deg); */
+    transform: rotate(180deg);
+  }
+  100% {
+    /* background-color: red; */
+    /* transform: translate(0, 0); */
+    border: 5px dotted green;
+
+    transform: scale(1.1) rotate(360deg);
+  }
+}
