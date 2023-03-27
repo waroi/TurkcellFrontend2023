@@ -28,12 +28,12 @@ ol {
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* Set core root defaults */
 html:focus-within {
   scroll-behavior: smooth;
- 
 }
 
 /* Set core body defaults */
@@ -95,6 +95,7 @@ select {
     "header header header"
     "section section section"
     "section2 section2 section2"
+    "buy-section2 buy-section2 buy-section2"
     "footer footer footer"
 }
 
@@ -161,7 +162,7 @@ a {
 }
 
 .section{
-  display: flex;
+  display: grid;
   grid-area: section;
   justify-content: center;
   align-items: center;
@@ -179,6 +180,26 @@ a {
  
 }
 
+.buy-section {
+  display: grid;
+  grid-area: buy-section2;
+  justify-content: center;
+  align-items: center;
+}
+
+.buy-wrapper {
+  display: grid;
+  z-index: 10;
+  position: absolute;
+  text-align: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  margin-top: 15%;
+  text-transform: uppercase;
+  row-gap: 20px;
+}
 
 .footer{
   grid-area: footer;
@@ -214,9 +235,16 @@ span:hover {
   margin: 20px auto;
 }
 
-svg {
+.socials {
   width: 75px;
-  margin: 40px;
+}
+
+.socials-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: center;
+  justify-items: center;
+  margin: 30px;
 }
 
 .buy-image {
@@ -253,6 +281,11 @@ grid-row-gap: 100px;
   transition: all 0.5s ease;
 }
 
+.cardwrapper div:hover h2 {
+  color: #7F0403;
+  transition: all 0.5s ease;
+}
+
 .img-fluid {
   max-width: 100%;
   height: 50%;
@@ -274,19 +307,35 @@ video {
   .navbar ul {
     display: none;
   }
+
+  .navbar {
+    display: flex;
+  }
+
   .diabloimg {
-    margin-left: 50%;
+    margin: 0 auto;
   }
   .section2 h2 {
     text-align: left !important;
   }
   .section2 p {
     text-align: left !important;
+    font-size: 14px;
   }
-  .socials-container svg {
+  .socials-container img {
     width: 40px;
   }
   .cardwrapper div {
     max-width: 767px;
+  }
+  .video2 {
+    display: none;
+  }
+  .buy-wrapper {
+    position: relative;
+    padding-top: 50px;
+  }
+  .img-fluid {
+    height: auto;
   }
 }
