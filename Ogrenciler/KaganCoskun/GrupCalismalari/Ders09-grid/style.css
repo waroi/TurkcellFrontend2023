@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: #bab1a8;
+}
+
+body {
+  background-color: #1f1f1f;
+  font-family: "Bebas Neue", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* containırımız bile grid hocam */
+.container {
+  display: grid;
+  grid-template-columns: 1fr minmax(200px, 1200px) 1fr;
+  position: relative;
+}
+
+.container > * {
+  grid-column: 2;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.px-20 {
+  padding: 0 20px;
+}
+
+header {
+  background-color: #0000008e;
+  width: 100%;
+  position: fixed;
+  height: 70px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 999;
+  font-weight: 500;
+}
+
+#menu {
+  display: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.links a {
+  padding: 0 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+  padding: 8px;
+  text-align: center;
+  transition: color 0.2s ease;
+}
+
+.links a:hover {
+  border-bottom: 3px solid #cd412b;
+  transition: 0.3s ease;
+}
+
+.links a:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #cd412b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.links a:last-child:hover {
+  color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.heroWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  position: relative;
+  box-shadow: 0 4px 12px 12px #cd412b48, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
+}
+
+.heroContent {
+  position: absolute;
+  top: 70%;
+  transform: translatey(-50%);
+  left: 5%;
+  z-index: 9;
+  max-width: 50%;
+}
+
+.heroContent h1 {
+  font-size: 5rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.cardWrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin: 50px 0;
+}
+.cardImg img {
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.devblog {
+  font-size: 0.8rem;
+  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #cd412b;
+  margin-bottom: 5px;
+}
+.community {
+  font-size: 0.8rem;
+  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #5d7239;
+  margin-bottom: 5px;
+}
+
+footer {
+  background-color: #0c0b0b;
+}
+
+.brands {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 0;
+}
+
+.brands img:first-child {
+  justify-self: end;
+}
+
+.brands img:last-child {
+  justify-self: start;
+}
+
+.navigator {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.footerCopyright {
+  padding: 50px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-items: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 1020px) {
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+  .links {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: absolute;
+    top: -500px;
+    opacity: 0;
+    padding: 20px 0;
+    left: 0;
+    background-color: #000000;
+    width: 100%;
+    z-index: -1;
+    gap: 20px;
+    transition: 0.3s ease;
+  }
+
+  #menu:checked ~ .links {
+    top: 58px;
+    opacity: 1;
+    z-index: 9999;
+    transition: 0.3s ease;
+  }
+
+  .hamburger {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 3px;
+  }
+
+  .line {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  .brands img:first-child {
+    width: 100px;
+  }
+
+  .brands img:last-child {
+    width: 100px;
+  }
+
+  .navigator {
+    flex-wrap: wrap;
+  }
+
+  .navigator a {
+    width: 100%;
+    text-align: center;
+  }
+}

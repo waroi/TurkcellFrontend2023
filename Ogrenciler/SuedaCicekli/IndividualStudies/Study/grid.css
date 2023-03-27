@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  transition: .2s linear;
+}
+.box{
+  background-image: url("https://dockhunt-images.nyc3.cdn.digitaloceanspaces.com/monterey.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.114);
+  border-radius: 20px;
+  text-align: center;
+  padding: 30px 20px;
+  display: grid;
+  grid-template-rows: repeat(3,1fr);
+}
+.box img{
+  width: 80px;
+}
+.box img:hover{
+  -ms-transform: scale(1.2); /* IE 9 */
+  -webkit-transform: scale(1.2); /* Safari 3-8 */
+  transform: scale(1.2); 
+  cursor: pointer;
+}
+.container{
+height: 100%;
+padding: 15px 9%;
+padding-bottom:100px;
+background: linear-gradient(129deg,#1c0c20 45%,#000);
+}
+.container .heading{
+  text-align: center;
+  color: #ffff;
+  font-size: 30px;
+  padding-bottom: 30px;
+  font-weight: 900;
+  text-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+.box-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+  grid-gap: 20px;
+}
+.dock{
+  width: 100%;
+  background-color: #13121278;
+  border-radius: 20px;
+}
+.box h3{
+  font-size: 30px;
+  color:white;
+  font-weight: 600;
+}
+.box p{
+  font-size: 15px;
+  color: #ffff;
+  font-weight: 400;
+  padding: 20px 0;
+}
+footer{
+  background: linear-gradient(129deg,#1c0c20 45%,#000);
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 20px 0;
+}
+footer .socials{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.socials a{
+  color:#adb5bd;
+  font-size: 15px;
+}
+.socials a:hover{
+  color:white;
+}
+.socials :first-child{
+  margin-right: 20px;
+}

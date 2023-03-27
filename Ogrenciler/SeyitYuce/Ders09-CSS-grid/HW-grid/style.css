@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+.container {
+  display: grid;
+  background-color: bisque;
+  grid-template-areas:
+    "nav nav nav"
+    "header header header"
+    "section section section"
+    "footer footer footer";
+}
+.inner-container {
+  margin: 10px 10%;
+}
+.nav {
+  display: grid;
+  grid-area: nav;
+  background-color: rgba(0, 255, 60, 0.19);
+}
+.nav-container {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+.logo {
+  height: 50px;
+  border-radius: 60%;
+  margin: auto;
+  justify-content: center;
+}
+
+.nav-container > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.header {
+  background: url("https://preview.redd.it/ghmnmmsrd8k21.png?auto=webp&s=992e2a5fddd62b4b898fbc98c6827d3139bb697c")
+    center;
+  background-size: cover;
+  height: 400px;
+  grid-area: header;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+}
+.header-container {
+  color: rgb(0, 0, 0);
+  display: grid;
+  height: 100%;
+  /* width: 100%; */
+  grid-template-rows: 1fr;
+  text-align: center;
+  align-items: flex-end;
+  /* background-color: rgba(0, 132, 255, 0.348); */
+  color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  position: absolute;
+  padding-bottom: 15px;
+}
+.header-container h3 {
+  font-size: 30px;
+}
+.header-container p {
+  font-size: 18px;
+}
+.section {
+  display: grid;
+  grid-area: section;
+  /* background-color: rgb(255, 0, 179); */
+}
+.section h3 {
+  font-size: 36px;
+}
+.section-container {
+  display: grid;
+  gap: 20px;
+  /* padding: 0 5%; */
+}
+
+.section-container-box {
+  display: grid;
+  background-color: rgb01a(255, 255, 0, 0.73);
+  gap: 15px;
+  padding: 10px 15px;
+  border: 1px double rgba(0, 0, 0, 0.223);
+  border-radius: 10px;
+}
+.section-container-box > img {
+  justify-content: center;
+  margin: 0 auto;
+  /* padding-top: 10px; */
+  width: 100%;
+  height: 300px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  /* object-fit: cover; */
+  /* object-fit: contain; */
+}
+.section-container-box > span {
+  width: fit-content;
+  padding: 0 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.section-container-box > button {
+  width: fit-content;
+  gap: 100px;
+}
+.footer {
+  grid-area: footer;
+  background-color: rgba(62, 62, 62, 0.338);
+  border-top: 1px solid black;
+}
+.footer-container {
+  display: grid;
+  gap: 20px;
+  padding-top: 10px;
+}
+.footer-followus > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 10%);
+  text-align: left;
+}
+.footer-copyright {
+  justify-content: center;
+  text-align: center;
+}

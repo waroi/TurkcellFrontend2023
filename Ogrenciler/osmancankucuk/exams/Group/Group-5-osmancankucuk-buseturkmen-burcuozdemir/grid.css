@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.colorWhite {
+  color: white;
+}
+.radius-10 {
+  border-radius: 10px;
+}
+.colorBlack {
+  color: black;
+}
+.margin-x-1 {
+  margin: 0 1em;
+}
+.margin-y-1 {
+  margin: 1em 0;
+}
+.margin-x-quarter {
+  margin: 0 0.25em;
+}
+.margin-y-quarter {
+  margin: 0.25em 0;
+}
+.flex {
+  display: flex;
+}
+.navigationItem li {
+  padding: 0 1em;
+  padding: 0.5em;
+}
+.navigationItem a {
+  padding: 0.5em;
+  border-radius: 5px;
+  color: black;
+}
+.navigationItem a:hover {
+  background-color: rgb(204, 136, 9);
+}
+.navIconList {
+  justify-content: flex-end;
+}
+.navIconList i {
+  color: black;
+}
+.navIconList i:hover {
+  color: orange;
+}
+
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+  height: auto;
+  grid-template-rows: 100px auto auto;
+  background-image: url("https://www.tarkett-asia.com/media/img/M/THH_PROTECTWALL_Tisse_Light_Grey.jpg");
+}
+.contentBox {
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.contentBox:hover {
+  opacity: 0.8;
+}
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  grid-area: header;
+  background-color: white;
+}
+#nav {
+  display: grid;
+  height: 100px;
+  grid-template-columns: 1fr 3fr 8fr;
+
+  align-items: center;
+}
+
+#nav ul li {
+  padding: 0 1em;
+}
+#content {
+  grid-area: content;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+.mainSection {
+  background-image: url("https://www.wallpapers4u.org/wp-content/uploads/river_jungle_moss_stones_vegetation_green_45577_1920x1080.jpg");
+  background-position: center;
+  background-size: cover;
+  padding: 3em 0;
+}
+.mainSectionContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  line-height: 1.5em;
+}
+.mainSectionContent a:hover {
+  opacity: 0.8;
+}
+.main-1 {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.sectionTitle {
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: #1e609e;
+}
+.article {
+  padding: 1em 0;
+}
+.articleList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2em;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+.card {
+  display: grid;
+  grid-template-rows: 1.5fr 1fr;
+}
+.cardImage {
+  max-width: 100%;
+  background-size: cover;
+}
+.nature-1 {
+  background-image: url("https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=");
+}
+.nature-2 {
+  background-image: url("https://static.wixstatic.com/media/bb1bd6_bff16ec17b254ea9a802558f14af75e0~mv2.png/v1/fit/w_1000%2Ch_608%2Cal_c%2Cq_80,enc_auto/file.jpg");
+}
+.nature-3 {
+  background-image: url(" https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/1121098-pink-nature-wallpaper-1920x1080-lockscreen.jpg/1024px-1121098-pink-nature-wallpaper-1920x1080-lockscreen.jpg");
+}
+.nature-4 {
+  background-image: url("https://www.travelandleisure.com/thmb/KLPvXakEKLGE5AY2jVyovl3Md1k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/iceland-BEAUTCONT1021-b1aeafa7ac2847a484cbca48d3172b6c.jpg");
+}
+.nature-5 {
+  background-image: url("https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=");
+}
+.nature-6 {
+  background-image: url("https://images.unsplash.com/photo-1618588507085-c79565432917?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwbmF0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+}
+section.footer {
+  background-color: #373b54;
+  color: white;
+  font-family: sans-serif;
+  padding: 1rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 2rem;
+}
+
+.minifooter {
+  text-align: center;
+  margin: 2rem 0;
+  border: none;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  background-color: #2f3034;
+}
+
+.footer h3 {
+  color: white;
+  margin: 15px;
+}
+
+img.logopict {
+  width: 40%;
+}
+
+button {
+  background-color: orangered;
+  border: none;
+  color: white;
+  margin-top: 10px;
+  width: 80%;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+input#email {
+  width: 80%;
+  border: 1px solid #dee2e6;
+  font-size: 15px;
+  border-radius: 8px;
+  padding: 0.3rem;
+}
+
+.links-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-container ul li {
+  border-bottom: thin dotted black;
+  font-size: 1.2rem;
+}
+
+p.paragraph {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
+#footer {
+  grid-area: footer;
+  margin-top: 1em;
+  background-color: #373b54;
+  margin-top: 2em;
+  padding: 1em 0;
+}
+@media screen and (max-width: 650px) {
+  body {
+    grid-template-rows: 130px auto auto;
+  }
+  #header {
+    height: 130px;
+  }
+  .navIconList {
+    display: none;
+  }
+  #nav {
+    grid-template-columns: auto;
+    justify-content: center;
+    text-align: center;
+
+    padding-top: 1em;
+    gap: 0.5em;
+  }
+  .mainSectionContent {
+    grid-template-columns: 1fr;
+    line-height: 1.5em;
+  }
+  .articleList {
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+}

@@ -1,0 +1,228 @@
+body{
+   background: #000000;
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+html {
+  color: #fff;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+video{
+  box-shadow: 0 8px 16px 8px rgba(6, 128, 52, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
+}
+header {
+  display: grid;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  background: #000000aa;
+  position: fixed;
+  transition: transform .3s;
+  width: 100vw;
+  box-shadow: 0 0.5px 0.5px 0.5px rgba(6, 128, 52, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.container{
+  display: grid;
+  grid-template-columns: 1fr minmax(200px, 1320px) 1fr;
+  position: relative;
+}
+.container > *{
+  grid-column: 2;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logos{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-2{
+  width: 196px;
+  height: 28px;
+}
+.avatar{
+  width: 32px;
+  height: 32px;
+}
+.line{
+  background: #fff;
+  width: 1px;
+  height: 30px;
+}
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+nav > a{
+  color: #fff;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px;
+  transition: 0.3s ease;
+}
+nav > a:hover {
+  border-bottom: 3px solid #fff;
+  transition: 0.3s ease;
+  transform: scale(1.2);
+}
+.create{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.create > a {
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+  text-decoration: none;
+  align-items: center;
+  background-color: rgba(96, 189, 29, 0.189);
+  color: #fff;
+  padding: 8px 15px;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+.create > a:hover {
+  border-bottom: 2px solid rgba(96, 189, 29, 0.189);
+  background-color: #ffffff59;
+  color: black;
+  box-shadow: 0 2px 2px 2px rgba(6, 128, 52, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.3s ease;
+}
+.content-image >img{
+  margin-bottom: 15px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.content-image{
+  position: relative;
+  transition: transform 0.5s;
+  overflow: hidden;
+}
+.content-image > img:hover{
+  transition: transform 0.5s;
+  transform: scale(1.05);
+}
+.content-text>h2{
+  transition: 0.3s ease;
+}
+
+.content-text > h2:hover{
+  box-shadow: 0 0.5px 0.5px 0.5px #fff, 0 6px 20px 0 #fff;
+  transition: 0.3s ease;
+}
+
+.fluid{
+  max-width: 100%;
+  height: auto;
+}
+.shadow{
+  position: absolute;
+  z-index: 9;
+  width: auto;
+}
+.shadow > img{
+  height: auto;
+}
+
+.tag{
+  background: #3d550c76;
+  padding: 7px 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 2rem;
+}
+.game{
+  background: #821D30;
+}
+
+.content-gta{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 50px;
+  margin: 70px 0;
+}
+footer{
+  box-shadow: 0 10px 10px 10px rgba(6, 128, 52, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.footer-wrap{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 50px 10px;
+}
+.footer-right-image {
+  position: relative;
+  width: 100px;
+  justify-self: end;
+}
+.footer-left-image {
+  position: relative;
+  width: 100px;
+  justify-self: start;
+}
+.footer-content{
+  display: grid;
+  grid-template-columns: auto;
+  align-items: center;
+  justify-items: center;
+  gap: 15px;
+  font-size: 1.2rem;
+}
+.copy-right{
+  text-align: center;
+  padding-bottom: 2px;
+}
+
+@media screen and (max-width: 1020px) {
+  nav, .create{
+    display: none;
+  }
+  header{
+    padding-left: 10px;
+  }
+  .content-text{
+    padding: 5px 10px;
+  }
+  .footer-content > a {
+    text-align: center;
+  }
+  .h-line {
+    width: 20px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 13px;
+  }
+  
+  .hamburger {
+    display: flex;
+    gap: 3px;
+    flex-direction: column;
+    position: relative;
+    right: 20px;
+    bottom: 2px;
+  }
+}
