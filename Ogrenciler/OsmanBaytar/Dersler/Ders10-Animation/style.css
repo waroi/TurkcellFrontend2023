@@ -1,0 +1,30 @@
+body{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+.box{
+    background-color: orangered;
+    width: 150px;
+    height: 150px;
+    /* transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out; */
+    /* transition: background-color 1s, width 1s ease-in-out; */
+    transition: all 1s ease-in-out;
+}
+
+.box:hover{
+    background-color: greenyellow;
+    /* width: 300px; */
+    transform: scale(2);
+    transform: rotate(180deg);
+    transform: skew(-30deg);
+    transform: translateX(100px);
+    transform: translateX(100px) rotate(180deg);
+    transform: translateY(-100px);
+    transform: translate(100px, -100px) rotate(180deg);
+}
