@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap%27');
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  list-style-type: none;
+  color: #000000;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+}
+.container {
+  width: 100%;
+  padding: 0 2rem;
+}
+nav {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.145);
+  align-content: center;
+  justify-content: center;
+}
+nav .container {
+  display: grid;
+  grid-template-areas:
+    'img'
+    'nav-menu';
+}
+.nav-social-icons-div {
+  display: none;
+}
+.nav-img-div {
+  grid-area: img;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-img-div > a > img {
+  width: 75px;
+  margin-bottom: 0.2rem;
+}
+.nav-menu-div {
+  grid-area: nav-menu;
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.5rem 0;
+}
+.nav-menu-div > li > a {
+  padding: 0.3rem 0.3rem;
+  border-radius: 0.3rem;
+}
+.nav-menu-div > li > a:active {
+  background: #e76f51;
+  color: #ffffff;
+}
+.nav-social-icons-div > a > img {
+  width: 30px;
+}
+.nav-social-icons-div > a:hover {
+  color: #e76f51;
+}
+header {
+  background: url('https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/soonersports.com/images/2022/4/8/20220112_oklahoma_sooners_rowing_dtuskan_02492.jpg')
+    center center / cover;
+  position: relative;
+  z-index: 1;
+}
+.filter {
+  position: absolute;
+  background: #00000060;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+header > .container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  z-index: 50;
+}
+.header-items {
+  padding: 5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+:is(.header-items > *, article > div > h4) {
+  color: #ffffff;
+}
+:is(.header-items > h4, article > div > h4) {
+  display: inline-block;
+  text-align: center;
+  border-radius: 1rem;
+  font-weight: 100;
+}
+.header-items > h4 {
+  background: #2a9d8f;
+
+  width: 4rem;
+
+  padding: 0.5rem 0;
+}
+
+.header-items > h2 {
+  font-size: 3rem;
+  font-weight: 100;
+}
+.header-items > p {
+  line-height: 1.7rem;
+}
+.header-button-div > button {
+  padding: 0.5rem 1.3rem;
+  font-size: larger;
+  color: #ffffff;
+  background-color: #e76f51;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.22);
+}
+.header-button-div > button:hover {
+  color: #e76f51;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+}
+main {
+  padding: 1rem 0;
+}
+.main-head-div {
+  padding: 1rem 0;
+}
+.main-head-div > h2 {
+  font-size: xx-large;
+  font-weight: 100;
+}
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  background: #f8f9fa;
+}
+article {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.049);
+  background: #ffffff;
+  padding: 1rem;
+  gap: 1rem;
+}
+article > img {
+  width: 100%;
+}
+article > h2 {
+  color: #666f78;
+  font-size: x-large;
+}
+article > p {
+  font-size: large;
+  line-height: 1.6rem;
+}
+article > div > h4 {
+  width: auto;
+  padding: 0.5rem 0.5rem;
+}
+article > div > h4 {
+  background: #2a9d8f;
+}
+article:nth-child(2n + 3) > div > h4 {
+  background: #e76f51;
+}
+footer {
+  background: #6c757d;
+  padding: 1rem 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.footer-header-div {
+  padding: 1rem 0;
+  border-bottom: 1px dashed #444444;
+}
+.footer-header-div > p {
+  color: #ffffff;
+  line-height: 1.6rem;
+}
+.footer-header-img-div > img {
+  width: 12rem;
+  margin-left: -2rem;
+}
+.footer-cta-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-bottom: 1px dashed #444444;
+  padding: 1rem 0;
+}
+.footer-cta-div > h3 {
+  font-size: x-large;
+  font-weight: 100;
+  padding: 0.5rem 0;
+}
+.footer-cta-div > p {
+  line-height: 1.6rem;
+}
+.footer-cta-div > :is(h3, p, button) {
+  color: #ffffff;
+}
+.footer-cta-div > input {
+  padding: 0.4rem;
+  outline: none;
+}
+.footer-cta-div > input::placeholder {
+  padding: 0.3rem 0.2rem;
+  outline: none;
+  color: #7a7a7a;
+}
+.footer-cta-div > button {
+  background: #e76f51;
+  border: none;
+  padding: 0.3rem 0.2rem;
+}
+.footer-links-div {
+  padding: 1rem 0;
+  border-bottom: 1px dashed #444444;
+}
+.footer-links-div :is(h3, a) {
+  color: #ffffff;
+}
+.footer-links-div a:hover {
+  color: #e76f51;
+}
+.footer-links-div h3 {
+  font-size: large;
+  font-weight: 100;
+  padding: 0.5rem 0;
+}
+.footer-links-div li {
+  cursor: pointer;
+  border-bottom: 1px dashed #444444;
+  padding: 0.5rem 0;
+  max-width: 90%;
+}
+.footer-links-div li:hover {
+  cursor: pointer;
+}
+.footer-socials-div > h3 {
+  font-size: large;
+  padding: 0.7rem 0;
+  color: #ffffff;
+}
+.footer-social-icons-div {
+  border-bottom: 1px dashed #444444;
+  padding-bottom: 0.5rem;
+}
+
+.footer-social-icons-div > a > img {
+  width: 30px;
+  fill: white !important;
+}
+.footer-copyright-div {
+  background: #444444;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+.footer-copyright-div > p {
+  text-align: center;
+  font-size: x-small;
+  color: #ffffff;
+}
