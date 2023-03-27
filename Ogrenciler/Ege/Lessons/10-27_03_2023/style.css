@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #808080;
+}
+
+.box {
+    background: orangered;
+    width: 150px;
+    height: 150px;
+    /* transition-property: background-color; */
+    /* transition-property: background-color, width; */
+    /* transition-property: all; */
+    /* transition-duration: .5s; */
+    /* transition-timing-function: ease-in-out; */
+    /* transition: background-color .5s, width 1s, ease-in-outs; */
+    /* transition: all .5s ease-in-out; */
+    /* animation-name: aa; */
+    /* animation-duration: 2s; */
+    /* animation-iteration-count: infinite; */
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 1s; */
+    /* animation-direction: alternate-reverse; */
+    /* animation-timing-function: ease-in-out; */
+    animation: aa 2s forwards 1s ease-in-out infinite;
+}
+
+.box:hover {
+    /* background: limegreen;
+    width: 300px;
+    border-radius: 50%; */
+    /* transform: scale(2); */
+    /* transform: rotate(180deg); */
+    /* transform: skew(-30deg); */
+    /* transform: translateX(100px); */
+    /* transform: translateY(100px); */
+    /* transform: translate(100px, -100px); */
+    /* transform: translate(100px, -100px) rotate(180deg); */
+}
+
+@keyframes aa {
+    0% {
+        background-color: orangered;
+        transform: translate(0, 0);
+    }
+
+    50% {
+        background-color: chartreuse;
+        transform: translate(400px, -400px) rotate(180deg);
+    }
+
+    100% {
+        background-color: orangered;
+        transform: translate(0, 0);
+    }
+
+}
