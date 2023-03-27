@@ -1,14 +1,32 @@
-header {
-  width: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
   background-color: gainsboro;
 }
 
-.maxDivHeader {
+hr {
+  border-color: #000000;
+  margin: 15px 0;
+}
+
+header {
+  color: #000000;
+  padding: 1%;
+}
+
+.maxDiv {
   max-width: 1260px;
   margin: 0 auto;
+}
+
+.headerContainer {
   display: grid;
   grid-template-columns: 1fr 6fr 1fr;
-  padding: 1%;
 }
 
 header img {
@@ -16,148 +34,276 @@ header img {
   cursor: pointer;
 }
 
-.menu {
+.menuItems {
   display: grid;
   align-content: center;
 }
 
-.menu ul {
-  list-style-type: none;
+.menuItems ul {
   display: grid;
-  grid-template-columns: repeat(4, 70px);
+  grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
   gap: 2%;
+  list-style-type: none;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.menu ul li {
-  padding: 8%;
+.menuItems ul li {
+  padding: 12% 50%;
   border-radius: 15px;
   display: grid;
   justify-content: center;
   align-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all .5s ease-in-out;
 }
 
-.menu ul li:hover {
-  cursor: pointer;
+.menuItems ul li:hover {
   background-color: rgb(255, 111, 0);
   color: #FFFFFF;
+  transition: all .3s ease-in-out;
 }
 
 .socialItems {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
+  grid-template-columns: repeat(4, 0.15fr);
   justify-content: center;
-  gap: 10px;
   align-content: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .socialItems a {
   text-decoration: none;
-  color: #7E7E7E;
+  color: #606060;
+  transition: all .3s ease-in-out;
 }
 
 .socialItems a:hover {
-  color: rgb(255, 111, 0);
+  color: rgb(255, 111, 0); 
+  transition: all .3s ease-in-out;
 }
 
-section {
-  width: 100%;
-  background-color: rgb(200, 200, 200);
-}
-
-.topSection {
+.sectionBg {
+  background: url("http://frpnet.net/wp-content/uploads/2013/12/kitaplik-banner.jpg");
   height: 400px;
-  background: url("https://media06.ligtv.com.tr/img/news/2022/11/16/super-ligde-ilk-14-haftasi-pek-cok-hikayeye-sahne-oldu/1024_400/HikayeKapak.jpg");
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.maxDivSection {
-  max-width: 1260px;
-  margin: 0 auto;
-  padding: 1%;
-  min-width: 200px;
+  background-size: cover;
 }
 
 .topSectionInfo {
   width: 45%;
-  padding: 7% 0;
+  padding: 7% 2%;
+  color: #FFFFFF;
+}
+
+.typeBook {
+  background-color: #3e9a00;
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  text-align: center;
+  border-radius: 42px;
+  padding: 4px 10px;
+  width: 30%;
+}
+
+.pc {
+  background-color: #9e4a05;
+}
+
+.topSectionInfo h2 {
+  font-size: 2rem;
+  margin: 15px 0;
 }
 
 .topSectionInfo p {
-  margin-bottom: 5%;
-  font-size: 0.9rem;
-}
-
-.topSectionInfo a {
-  text-decoration: none;
-  color: #FFFFFF;
-  background-color: rgb(203, 88, 0);
-  padding: 2% 3%;
-  border-radius: 15px;
-}
-
-.cardsContainer {
-  padding: 1%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2%;
-}
-
-.card {
-  background-color: #FFFFFF;
-  padding: 2%;
-  border-radius: 15px;
-  width: 100%;
-}
-
-.card img {
-  width: 100%;
-  border-radius: 2% 2% 0 0;
+  font-size: 1rem;
   margin-bottom: 20px;
 }
 
-.card a {
+.readMore {
+  background-color: #e66c08;
   text-decoration: none;
-  color: #FFFFFF;
-  background-color: rgb(18, 105, 0);
-  padding: 2% 4%;
-  border-radius: 15px;
+  padding: 8px 15px;
+  transition: all .3s ease-in-out;
 }
 
-.card h4 {
-  color: #7E7E7E;
+.readMore:hover {
+  transition: all .3s ease-in-out;
+  background-color: #9e4a05;
+}
+
+.booksCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1%;
+  gap: 20px;
+}
+
+.maxDiv h3 {
+  margin: 20px;
+}
+
+.card {
+  background-color: #efefef;
+  padding: 5%;
+  border-radius: 15px;
+  transition: all .3s ease-in-out;
+}
+
+.cardImage {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.cardImage img {
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.cardInfo h4 {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #606060;
+  margin: 10px 0;
+}
+
+.cardInfo p {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transition: all .3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 14px 8px;
 }
 
 footer {
-  width: 100%;
-  background-color: #5b5b5b;
+  background-color: rgb(116, 116, 116);
   color: #FFFFFF;
 }
 
-.footerArea {
-  width: 100%;
+.footerCards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1%;
+  padding: 1%;
+  gap: 10px;
 }
 
 .footerCard {
-  display: grid;
-  grid-template-columns: 1fr;
+  padding: 5%;
 }
 
+.footerCard img {
+  width: 50%;
+  justify-self: center;
+}
+
+.footerCard input {
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  margin-top: 10px;
+  justify-self: center;
+  border-radius: 12px;
+}
+
+.subscribe {
+  width: 100%;
+  height: 30px;
+  background-color: #ce5d01;
+  cursor: pointer;
+  margin-top: 10px;
+  justify-self: center;
+  border: none;
+  transition: all .3s ease-in-out;
+}
+
+.subscribe:hover {
+  transition: all .3s ease-in-out;
+  background-color: #9e4a05;
+}
+
+.footerCard h5 {
+  margin-bottom: 10px;
+}
+
+.footerCard ul {
+  list-style-type: none;
+  padding: 2%;
+  margin-top: 20px;
+}
+
+.footerCard ul li {
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.footerCard ul li:hover {
+  color: #ce5d01;
+  transition: all .3s ease-in-out;
+}
+
+.footerSocial a{
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.bottomFooter {
+  background-color: #303030;
+  padding: 1%;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+
 @media screen and (max-width: 768px) {
-  .maxDivHeader {
-    display: grid;
+  .headerContainer {
     grid-template-columns: 1fr;
-    justify-content: center;
-    width: 100%;
-    align-items: center;
+  }
+
+  .headerContainer img {
+    justify-self: center;
+  }
+
+  .menuItems ul {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .socialItems {
     display: none;
+  }
+
+  .sectionBg{
+    height: 300px;
+  }
+
+  .topSectionInfo {
+    width: 80%;
+  }
+
+  .topSectionInfo p {
+    font-size: 0.8rem;
+  }
+
+  .booksCards {
+    grid-template-columns: 1fr;
+  }
+
+  .footerCards {
+    grid-template-columns: 1fr;
+  }
+
+  .footerSocial {
+    display: block;
+  }
+
+  .bottomFooter {
+    font-size: 0.8rem;
   }
 }
