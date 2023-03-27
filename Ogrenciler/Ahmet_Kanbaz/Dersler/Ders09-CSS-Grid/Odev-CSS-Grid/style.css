@@ -1,0 +1,309 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: gainsboro;
+}
+
+hr {
+  border-color: #000000;
+  margin: 15px 0;
+}
+
+header {
+  color: #000000;
+  padding: 1%;
+}
+
+.maxDiv {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.headerContainer {
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+}
+
+header img {
+  height: 80px;
+  cursor: pointer;
+}
+
+.menuItems {
+  display: grid;
+  align-content: center;
+}
+
+.menuItems ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
+  gap: 2%;
+  list-style-type: none;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menuItems ul li {
+  padding: 12% 50%;
+  border-radius: 15px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all .5s ease-in-out;
+}
+
+.menuItems ul li:hover {
+  background-color: rgb(255, 111, 0);
+  color: #FFFFFF;
+  transition: all .3s ease-in-out;
+}
+
+.socialItems {
+  display: grid;
+  grid-template-columns: repeat(4, 0.15fr);
+  justify-content: center;
+  align-content: center;
+  font-size: 1.1rem;
+}
+
+.socialItems a {
+  text-decoration: none;
+  color: #606060;
+  transition: all .3s ease-in-out;
+}
+
+.socialItems a:hover {
+  color: rgb(255, 111, 0); 
+  transition: all .3s ease-in-out;
+}
+
+.sectionBg {
+  background: url("http://frpnet.net/wp-content/uploads/2013/12/kitaplik-banner.jpg");
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.topSectionInfo {
+  width: 45%;
+  padding: 7% 2%;
+  color: #FFFFFF;
+}
+
+.typeBook {
+  background-color: #3e9a00;
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  text-align: center;
+  border-radius: 42px;
+  padding: 4px 10px;
+  width: 30%;
+}
+
+.pc {
+  background-color: #9e4a05;
+}
+
+.topSectionInfo h2 {
+  font-size: 2rem;
+  margin: 15px 0;
+}
+
+.topSectionInfo p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.readMore {
+  background-color: #e66c08;
+  text-decoration: none;
+  padding: 8px 15px;
+  transition: all .3s ease-in-out;
+}
+
+.readMore:hover {
+  transition: all .3s ease-in-out;
+  background-color: #9e4a05;
+}
+
+.booksCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1%;
+  gap: 20px;
+}
+
+.maxDiv h3 {
+  margin: 20px;
+}
+
+.card {
+  background-color: #efefef;
+  padding: 5%;
+  border-radius: 15px;
+  transition: all .3s ease-in-out;
+}
+
+.cardImage {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.cardImage img {
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.cardInfo h4 {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #606060;
+  margin: 10px 0;
+}
+
+.cardInfo p {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transition: all .3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 14px 8px;
+}
+
+footer {
+  background-color: rgb(116, 116, 116);
+  color: #FFFFFF;
+}
+
+.footerCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 1%;
+  gap: 10px;
+}
+
+.footerCard {
+  padding: 5%;
+}
+
+.footerCard img {
+  width: 50%;
+  justify-self: center;
+}
+
+.footerCard input {
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  margin-top: 10px;
+  justify-self: center;
+  border-radius: 12px;
+}
+
+.subscribe {
+  width: 100%;
+  height: 30px;
+  background-color: #ce5d01;
+  cursor: pointer;
+  margin-top: 10px;
+  justify-self: center;
+  border: none;
+  transition: all .3s ease-in-out;
+}
+
+.subscribe:hover {
+  transition: all .3s ease-in-out;
+  background-color: #9e4a05;
+}
+
+.footerCard h5 {
+  margin-bottom: 10px;
+}
+
+.footerCard ul {
+  list-style-type: none;
+  padding: 2%;
+  margin-top: 20px;
+}
+
+.footerCard ul li {
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.footerCard ul li:hover {
+  color: #ce5d01;
+  transition: all .3s ease-in-out;
+}
+
+.footerSocial a{
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.bottomFooter {
+  background-color: #303030;
+  padding: 1%;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .headerContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .headerContainer img {
+    justify-self: center;
+  }
+
+  .menuItems ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .socialItems {
+    display: none;
+  }
+
+  .sectionBg{
+    height: 300px;
+  }
+
+  .topSectionInfo {
+    width: 80%;
+  }
+
+  .topSectionInfo p {
+    font-size: 0.8rem;
+  }
+
+  .booksCards {
+    grid-template-columns: 1fr;
+  }
+
+  .footerCards {
+    grid-template-columns: 1fr;
+  }
+
+  .footerSocial {
+    display: block;
+  }
+
+  .bottomFooter {
+    font-size: 0.8rem;
+  }
+}

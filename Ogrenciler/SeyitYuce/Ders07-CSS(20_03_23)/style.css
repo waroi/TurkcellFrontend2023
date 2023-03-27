@@ -193,18 +193,91 @@
   height: auto;
 }
 /*build-your-ideal bitiş*/
+
 /*contact-us başlangıç*/
 .contact-us {
   background-color: var(--dark-bg2);
-  padding-top: 80px;
+  /* color: white; */
+  padding-top: 80px; /*paddingi afterdan sonra vermiyor*/
   padding-bottom: 80px;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
 }
+.contact-us-container {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
 .contact-us-header {
-  /* margin-top: 10px; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  text-align: center;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.contact-us-header > h6 {
+  color: var(--blue1);
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.4;
+  font-size: 1rem;
+}
+.contact-us-header > h2 {
+  color: var(--white-text);
+  font-size: 40px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700 !important;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+.contact-us-header > p {
+  /* color: rgba(255, 255, 255, 0.3); */
+  color: var(--text);
+  max-width: 650px;
+  font-size: 15px;
+  line-height: 25px;
+}
+.contact-us-support {
+  align-items: center;
+}
+.contact-us-support > * {
+  width: 100%;
 }
 
+.contact-us-forms-header {
+  margin-bottom: 1.5rem;
+}
+.contact-us-forms-header > h4 {
+  color: var(--white-text);
+  margin-bottom: 0.25rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  line-height: 1.4;
+  font-size: calc(1.275rem + 0.3vw);
+}
+.contact-us-forms-header > p {
+  color: var(--text);
+  max-width: 650px;
+  font-size: 15px;
+  line-height: 25px;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.contact-action-form {
+  margin-top: 1.5rem;
+}
+
+.contact-us-map iframe {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(1.5rem * 0.5);
+  padding-left: calc(1.5rem * 0.5);
+  margin-top: 0;
+}
 /*contact-us bitiş*/
 
 /*footer başlangıç*/

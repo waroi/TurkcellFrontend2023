@@ -1,0 +1,341 @@
+
+ /* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+@font-face {
+    font-family: 'Diablo Heavy';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Diablo Heavy'), url('diablo.woff') format('woff');
+    }
+
+/* Remove default margin */
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'],
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: black;
+  color: rgb(241, 237, 237);
+  font-family: 'Diablo Heavy';
+
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+
+.template{
+  display: grid;
+  background-color: white(167, 167, 167);
+  margin:0 auto;
+  gap: 20px;
+  grid-template-areas: 
+    "header header header"
+    "section section section"
+    "section2 section2 section2"
+    "buy-section2 buy-section2 buy-section2"
+    "footer footer footer"
+}
+
+
+a {
+  text-decoration: none;
+  list-style: none;
+  color: red;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr minmax(200px, 1200px) 1fr;
+  position: relative;
+}
+
+.container > * {
+  grid-column: 2;
+}
+
+.header{
+  grid-area: header;
+  background-color: rgb(255, 112, 3);
+  grid-template-columns: 1fr;
+  background-color: transparent;
+  background-color:transparent;
+  margin-top: 20px;
+  
+}
+
+.header img {
+  width: 10rem;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.navbar ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: center;
+  justify-items: center;
+}
+.navbar ul li {
+ 
+  padding: 15px 30px;
+  background-color: black;
+  font-size: larger;
+}
+
+.navbar ul li:last-child {
+  padding: 15px 37.5px;
+}
+
+.navbar ul li:hover {
+  background-color: #7F0403;
+  transition: all 0.5s ease;
+}
+.navbar  li:hover a{
+  color: cornsilk;
+  transition: all 0.5s ease;
+}
+
+.section{
+  display: grid;
+  grid-area: section;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.section h1 {
+  color: red;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.section2{
+  grid-area: section2;
+ 
+}
+
+.buy-section {
+  display: grid;
+  grid-area: buy-section2;
+  justify-content: center;
+  align-items: center;
+}
+
+.buy-wrapper {
+  display: grid;
+  z-index: 10;
+  position: absolute;
+  text-align: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  margin-top: 15%;
+  text-transform: uppercase;
+  row-gap: 20px;
+}
+
+.footer{
+  grid-area: footer;
+  background-color: black;
+  text-align: center;
+  margin-top: 50px;
+  text-transform: uppercase;
+}
+
+.blizzard-icon {
+  width: 240px;
+  margin: 0 auto;
+}
+
+span {
+  position: relative;
+  letter-spacing: 3px;
+  margin: 10px;
+  color:#7F0403;
+}
+
+span:hover {
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+
+
+.footer p {
+  margin: 20px;
+}
+
+.footer img {
+  margin: 20px auto;
+}
+
+.socials {
+  width: 75px;
+}
+
+.socials-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: center;
+  justify-items: center;
+  margin: 30px;
+}
+
+.buy-image {
+  transition: all 0.5s ease;
+  cursor: pointer;
+  opacity: 0.7;
+  margin: 0 auto;
+}
+
+.buy-image:hover {
+  transition: all 0.5s ease;
+  opacity: 1;
+}
+
+.section2 h2, p {
+  text-transform: uppercase;
+}
+
+.section2 h2, p{
+ padding: 10px;
+ text-align: center;
+}
+.cardwrapper {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+grid-template-rows: repeat(2, 1fr);
+grid-column-gap: 20px;
+grid-row-gap: 100px;
+}
+
+
+.cardwrapper div:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  transition: all 0.5s ease;
+}
+
+.cardwrapper div:hover h2 {
+  color: #7F0403;
+  transition: all 0.5s ease;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: 50%;
+}
+
+.custom {
+  cursor: url(cursor.svg) 30 30, move;
+}
+
+video {
+  width: 100%;
+  position: relative;
+  z-index: -1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  user-zoom: 100px;
+}
+ 
+@media screen and (min-width: 320px) and (max-width: 767px) { 
+  .navbar ul {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+  }
+
+  .diabloimg {
+    margin: 0 auto;
+  }
+  .section2 h2 {
+    text-align: left !important;
+  }
+  .section2 p {
+    text-align: left !important;
+    font-size: 14px;
+  }
+  .socials-container img {
+    width: 40px;
+  }
+  .cardwrapper div {
+    max-width: 767px;
+  }
+  .video2 {
+    display: none;
+  }
+  .buy-wrapper {
+    position: relative;
+    padding-top: 50px;
+  }
+  .img-fluid {
+    height: auto;
+  }
+}
