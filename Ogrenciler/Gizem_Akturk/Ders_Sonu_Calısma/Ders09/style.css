@@ -73,10 +73,87 @@ grid-template-rows: 80px;
     color: black;
 }
 .banner-container{
+    position: relative;
     grid-area: banner;
-    background-color: red;
+    height: 350px;
 }
-.banner-container img{
+.banner-image{
     width: 100%;
     height: 100%;
+    }
+.banner-image img{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+.banner-container .badge{
+    position: relative;
+    top:0;
+    left: 0;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    width: fit-content;
+    border-radius: 30%;
+    
+}
+.banner-container .banner-text{
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    text-align: left;
+    color: black;
+   background-color: rgba(255, 255, 255, 0.217);
+   border-radius: 50%;
+   
+}
+.banner-container .banner-text button{
+    font-size: 15px;
+    font-weight: 80;
+    padding: 5px;
+    background-color: red;
+    border: none;
+}
+.main-container{
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "main1 main2 main3"
+                         "main4 main5 main6" ;
+    gap: 10px;
+   
+}
+.main-content{
+    border: 1px;
+    border-style: solid;
+    
+}
+.main-content-image{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+.main-content-image img{
+    width: 100%;
+    height: 100%;
+}
+.main-content .badge{
+    
+    top:0;
+    left: 0;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    width: fit-content;
+    border-radius: 30%;
+    
+}
+.main-content-text{
+    text-align: left;
+    font-size: 15px;
+    font-weight: 80;
+    color: black;
 }
