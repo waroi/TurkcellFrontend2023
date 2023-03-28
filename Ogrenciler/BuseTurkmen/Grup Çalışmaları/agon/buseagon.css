@@ -38,13 +38,19 @@
 }
 
 .discover-container-box{
-    display: grid;
+    /*display: grid;
     grid-template-columns: 1fr, 1fr;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
     width: 60%;
-    margin: auto
+    margin: auto */
     /*column-gap: 30px;*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    width: 70%;
+    justify-items: center;
+    align-items: center;
+    margin: auto;
 }
 
 .cross-pic img{
@@ -272,5 +278,7 @@ section.built {
     color: #475467;
     font-weight: 400;
 }
+
+
 
 
