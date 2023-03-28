@@ -64,7 +64,7 @@ ul{
 }
 .slider-inside{
     max-width: 400px;
-    margin-left: 50px;
+    margin-left: 35px;
 }
 .slider-inside h2{
     color: white;
@@ -100,7 +100,7 @@ button{
     margin-bottom: 20px;   
 }
 .card{
-   padding: 5px;
+   padding: 10px;
    background-color: white;
 }
 .card img{
@@ -125,13 +125,16 @@ button{
     margin-top:10px;
 }
 /* Footer */
+.footer-container{
+    max-width: 100%;
+    background-color: darkgray;
+    margin: auto;
+}
 .footer{
     display: grid;
     justify-content: center;
-    max-width: 100%;
+    max-width: 1140px;
     margin: auto;
-    background-color: darkgray;
-    padding-left: 20px;
     color: white;
 }
 .footer-top{
@@ -140,15 +143,12 @@ button{
     gap: 20px;
     margin-bottom: 20px;  
 }
-.footer-top-item{
-    margin-right: 20px;
-}
 .footer-social{
     display: grid;
     grid-template-columns: repeat(4,20px);
-    justify-content: center;
+   justify-content:center;
     gap: 10px;
-    margin: auto;   
+    margin-right: 27px;
 }
 a{
     text-decoration: none;
@@ -157,18 +157,24 @@ a{
 .footer-top h2{
     text-align: center;
 }
+.footer-bottom{
+    max-width: 1140px;
+    background-color:gray;
+    margin-bottom:10px;
+}
 .footer-bottom p{
     text-align: center;
-    width: 80%;
+    width: 100%;
     background-color:gray;
     margin: auto;
+    padding: 5px 0;
 }
 .footer button{
     width:100%;
     height: 30px;
 }
 .footer input{
-    width: 100%;
+    width: 98%;
 }
 @media screen and (max-width:740px) {
     .icons{
@@ -188,5 +194,14 @@ a{
     .logo{
        text-align: center;
        padding-top: 10px;
+    }
+    .footer{
+        padding: 0 20px;
+    }
+    .container{
+        padding: 0 20px;
+    }
+    .footer-top-item{
+        border-bottom: 1px solid gray;
     }
 }
