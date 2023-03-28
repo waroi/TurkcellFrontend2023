@@ -119,10 +119,11 @@ grid-template-rows: 80px;
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
     grid-template-areas: "main1 main2 main3"
                          "main4 main5 main6" ;
     gap: 10px;
+    margin: 10px;
    
 }
 .main-content{
@@ -156,4 +157,28 @@ grid-template-rows: 80px;
     font-size: 15px;
     font-weight: 80;
     color: black;
+}
+.footer-container{
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr ;
+    grid-template-areas: "footer-content footer-content footer-content footer-content"
+                         ;
+    gap: 10px;
+}
+.footer-content-logo{
+   
+    width: 200px;
+    height: 200px;
+
+ 
+ 
+}
+.footer-content-followtext ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    align-items: normal;
+    height: 100%;
+   
 }

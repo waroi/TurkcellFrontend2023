@@ -1,0 +1,47 @@
+body {
+	display: flex;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	background-color: grey;
+}
+
+.box {
+	background-color: crimson;
+	width: 150px;
+	height: 150px;
+	/* transition-property: background-color;
+	transition-duration: 1s;
+	transition-timing-function: ease-in-out;
+	transition: backgorund-color 1s, width 1s ease-in-out; */
+	/* transition: all 1s ease-in-out; */
+	animation-name: aa;
+	animation-duration: 2s;
+	/* animation-iteration-count: infinite; */
+	/* animation-iteration-count: 3; */
+}
+
+.box:hover {
+	/* background-color: dodgerblue;
+	width: 300px;
+	border-radius: 50%;
+	transform: scale(2);
+	transform: rotate(180deg); */
+}
+
+@keyframes aa {
+	0% {
+		background-color: orangered;
+		transform: translate(0, 0);
+	}
+
+	50% {
+		background-color: green;
+		transform: translate(100px, -100px) rotate(180deg);
+	}
+
+	100% {
+		background-color: blue;
+		transform: translate(0, 0);
+	}
+}
