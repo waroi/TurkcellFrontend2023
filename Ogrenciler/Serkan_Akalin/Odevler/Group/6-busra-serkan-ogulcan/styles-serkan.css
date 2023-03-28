@@ -1,0 +1,133 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar component */
+nav {
+  height: 60px;
+  position: sticky;
+  top: 0px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+nav a {
+  all: unset;
+}
+
+.navbar-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 15px;
+  text-transform: uppercase;
+}
+
+.nav-logo{
+  height: 35px;
+  width: 120px;
+}
+
+.nav-menu {
+  display: none;
+}
+
+.nav-submenu{
+  display: none;
+  background-color: yellow;
+}
+
+.nav-get-started{
+  display: none;
+}
+
+.btn-get-started{
+  background-color: #f2f4f7;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.btn-get-started:hover {
+  background-color: #111828;
+  color: #f2f4f7;
+}
+
+.nav-hidden-menu {
+  display: none;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 320px;
+  background-color: #f2f4f7;
+  padding: 10px;
+  height: 100vh;
+}
+
+.nav-hidden-menu a:hover {
+  cursor: pointer;
+  color: orangered;
+  transition: all 0.3s ease;
+  transform: translateX(10px);
+}
+
+.nav-hidden-close{
+  transform: scale(3);
+  position: absolute;
+  right: 20px;
+}
+
+.navbar-checkbox {
+  display: none;
+}
+
+.navbar-checkbox:checked + label > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.nav-profile-picture{
+  height: 30px;
+  width: 30px;
+}
+
+.nav-notifications{
+  display: flex;
+  padding: 10px;
+  gap: 20px;
+}
+
+.nav-notification-title{
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.nav-notificaiton-parag{
+  font-size: 13px;
+}
+
+.nav-hidden-main-menu{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.nav-hidden-account{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.nav-hidden-copyright{
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* Navbar Component Finish */

@@ -324,7 +324,7 @@ h4.heading {
 
 .fresh-element {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
 }
 
@@ -358,13 +358,14 @@ h4.heading {
 
 .discover-wrapper {
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
     margin-top: 90px;
 }
 
 .discover-img {
-    width: 500px;
-    height: 390px;
+    max-width: 500px;
+    max-height: 390px;
     margin: 0 auto;
     border-radius: 15px;
     padding: 23px 19px;
@@ -410,6 +411,7 @@ h4.heading {
 
 .built-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 3rem;
     margin-top: 3rem;
 }
@@ -456,11 +458,11 @@ h4.heading {
 }
 
 
-.customers h2.heading {
+/* .customers h2.heading {
     font-size: 56px;
     line-height: 64px;
     font-weight: 700;
-}
+} */
 
 .customers-cards {
     display: flex;
@@ -738,4 +740,62 @@ li.footer-element:hover {
     width: 20px;
     height: 20px;
     transform: translateY(30%);
+}
+
+@media screen  and (max-width:1200px){
+    .menu{
+        display: none;
+    }
+    nav .get-started{
+        display: none;
+    }
+}
+
+@media screen  and (max-width:768px){
+    .burger-menu {
+        top: 15px;
+    }
+    .hero-right{
+        display: none;
+    }
+    .hero .container {
+        grid-template-columns: 1fr;
+    }
+    h2.heading{
+        font-size: 35px;
+        line-height: 42px;
+    }
+    .stats {
+        gap: 1rem;
+    }
+    .company {
+        width: 25%;
+    }
+    .fresh .container {
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+    .fresh .main-img{
+        padding-right: 0;
+        width: 100%;
+    }
+    .fresh .mini-img{
+        right: 0;
+        bottom: -20px;
+    }
+    .from-list{
+        grid-template-columns: 1fr;
+    }
+    .discover-txt {
+        width: 100%;
+    }
+    .mini-img.from{
+        bottom: 100px;
+    }
+    .customer{
+        width: 100%;
+    }
+    .discover-img.one, .discover-img.two{
+        transform: translateY(0);
+    }
 }
