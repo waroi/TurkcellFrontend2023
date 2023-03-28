@@ -1,0 +1,52 @@
+@media only screen and (min-width: 1200px) {
+  .container {
+    width: 1140px;
+    margin: 0 auto;
+  }
+  .nav-social-icons-div {
+    grid-area: nav-socials;
+    display: flex;
+  }
+  nav > .container {
+    grid-template-areas: 'img nav-menu 1fr 1fr 1fr 1fr nav-socials';
+    align-items: center;
+  }
+  .nav-menu-div {
+    justify-content: flex-start;
+  }
+  .nav-img-div > a > img {
+    margin-left: -75px;
+  }
+  .nav-social-icons-div {
+    display: flex;
+    justify-content: flex-end;
+  }
+  header > .container {
+    grid-template-columns: 1fr 1fr;
+  }
+  header {
+    background: url('https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/soonersports.com/images/2022/4/8/20220112_oklahoma_sooners_rowing_dtuskan_02492.jpg');
+    background-repeat: no-repeat;
+    background-position: center 40%;
+  }
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .footer-header-div {
+    border-bottom: none;
+  }
+  .footer-cta-div {
+    border-bottom: none;
+  }
+  .footer-links-div {
+    border-bottom: none;
+  }
+  .footer-copyright-div > p {
+    font-size: large;
+  }
+}

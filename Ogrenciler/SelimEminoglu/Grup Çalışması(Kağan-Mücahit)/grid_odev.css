@@ -1,0 +1,207 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.margin-top-1rem {
+  margin-top: 1rem;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  background-color: rgb(156, 48, 48);
+  z-index: 2;
+}
+
+.wrap {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+}
+
+.navbar {
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+.navElements {
+  grid-auto-flow: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.navElements a {
+  display: grid;
+  height: 60%;
+  align-items: center;
+  justify-content: center;
+}
+
+.navElements a:hover {
+  background-color: black;
+}
+
+.navElements a p {
+  display: inline;
+  color: white;
+}
+
+.navİcons {
+  text-align: end;
+}
+
+.hamİcon {
+  display: none;
+  margin-left: 1rem;
+}
+
+.videoSection video {
+  margin: 3% auto;
+  position: relative;
+  z-index: 0;
+}
+
+.videoText {
+  position: absolute;
+  color: white;
+  z-index: 1;
+  top: 25%;
+  left: 37%;
+}
+
+.valoText {
+  position: absolute;
+  color: white;
+  z-index: 1;
+  top: 30%;
+  left: 32%;
+  font-size: 5rem;
+}
+
+.valoLink {
+  position: absolute;
+  color: white;
+  border: 3px dashed red;
+  border-radius: 5%;
+  z-index: 1;
+  top: 65%;
+  left: 42%;
+  font-size: 2rem;
+}
+
+.blogHeadline {
+  margin-top: 0px;
+  font-size: 1.5rem;
+}
+
+.blogSection {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  column-gap: 10%;
+  grid-template-rows: 20rem 20rem;
+  margin-bottom: 50px;
+}
+
+.blogİtem h2 {
+  font-size: 14pt;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.blogİtem p {
+  font-size: 11pt;
+  text-align: center;
+}
+
+.itemİmage {
+  height: 50%;
+}
+
+.footer {
+  width: 100%;
+  background-color: #0f1922;
+}
+
+.footerCard {
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  color: white;
+}
+
+.footerLogo h4 {
+  margin-top: 0px;
+  margin-bottom: 2rem;
+}
+
+.footerSocial h4 {
+  margin-bottom: 1rem;
+}
+
+.copyRight {
+  width: 100%;
+  background-color: rgb(97, 91, 91);
+  color: white;
+  text-align: center;
+  font-size: 14pt;
+}
+
+.copyRight h5 {
+  margin-bottom: 0px;
+}
+
+@media screen and (max-width: 1340px) {
+  .videoText {
+    display: none;
+  }
+  .valoText {
+    display: none;
+  }
+  .valoLink {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .blogSection {
+    grid-template-columns: repeat(2, 2fr);
+    gap: 3rem;
+    grid-template-rows: repeat(3, 3fr);
+  }
+  .navElements a {
+    display: none;
+  }
+  .hamİcon {
+    display: inline;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .blogSection {
+    grid-template-columns: repeat(1, 2fr);
+    gap: 1rem;
+    grid-template-rows: repeat(6, 2fr);
+  }
+  .footerCard {
+    grid-template-columns: repeat(1, 3fr);
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .navİtem {
+    display: none;
+  }
+}
