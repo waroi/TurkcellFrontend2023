@@ -2,9 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Chivo", sans-serif;
 }
 ul {
   list-style-type: none;
+}
+a {
+  text-decoration: none;
 }
 body {
   display: grid;
@@ -13,10 +17,15 @@ body {
     "content"
     "footer";
   height: auto;
-  grid-template-rows: 150px auto auto;
+  grid-template-rows: 120px auto auto;
+}
+.margin-x-1 {
+  margin: 0 1em;
 }
 #header {
   grid-area: header;
+  width: 100%;
+  background-color: red;
 }
 .content {
   grid-area: content;
@@ -26,9 +35,18 @@ body {
 }
 #nav {
   display: flex;
+  height: 120px;
   justify-content: space-between;
   align-items: center;
 }
+#nav a {
+  color: black;
+}
+#nav button {
+  padding: 1.5em;
+  cursor: pointer;
+}
+
 .flex {
   display: flex;
 }
@@ -39,3 +57,4 @@ body {
 }
 .nav-button {
 }
+
