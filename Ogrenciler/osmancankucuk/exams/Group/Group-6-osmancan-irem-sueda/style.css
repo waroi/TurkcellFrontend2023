@@ -26,8 +26,14 @@ body {
 .margin-x-1 {
   margin: 0 1em;
 }
+.margin-x-big {
+  margin: 0 1.5em;
+}
 .margin-x-2 {
   margin: 0 2em;
+}
+.margin-x-4 {
+  margin: 0 4em;
 }
 .margin-y-half {
   margin: 0.5em 0;
@@ -74,6 +80,11 @@ body {
   font-weight: 700;
   font-size: 18px;
   background-color: #f2f4f7;
+  transition: 0.2s all;
+}
+#nav button:hover {
+  background-color: #101828;
+  color: white;
 }
 
 .flex {
@@ -84,8 +95,23 @@ body {
   margin: 0 auto;
 }
 .mainSection {
+  position: relative;
   background-color: #bee1e6;
-  padding: 3em 0;
+  padding: 3em 0 0 0;
+}
+.mainSection-1 {
+  z-index: 1;
+}
+.mainSection::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+  width: 200px;
+  background: url("https://agon-nextjs-13.vercel.app/_next/static/media/pattern-6.8b501f61.svg")
+    no-repeat;
+  background-size: cover;
 }
 .mainSectionSplit {
   display: grid;
@@ -93,21 +119,21 @@ body {
   gap: 2.5em;
   padding: 3em 0;
 }
-.mainSectionSplit span {
+.episode1 span {
   background-color: #006d77;
   color: white;
   padding: 1em 2em;
   border-radius: 2em;
   font-size: 14px;
 }
-.mainSection-1 h1 {
+.episode1 h1 {
   font-weight: 600;
   font-size: 64px;
   line-height: 72px;
   letter-spacing: 0;
   color: #101828;
 }
-.mainSection-1 p {
+.episode1 p {
   font-family: "Noto Sans", sans-serif;
   font-size: 24px;
   line-height: 32px;
@@ -167,6 +193,51 @@ body {
   border-radius: 10px;
   max-width: 100%;
   animation: balanceAnimation 4s linear infinite alternate;
+}
+
+.navMenu li {
+  position: relative;
+}
+.navMenu ul {
+  background-color: white;
+  width: 200px;
+  position: absolute;
+  top: 30px;
+  left: -5px;
+  border-radius: 5px;
+  box-shadow: inset;
+  padding: 0.5em 4em 0.5em 0.5em;
+  border: 1px solid rgba(159, 153, 153, 0.092);
+  opacity: 0;
+  transition: 250ms all;
+  visibility: hidden;
+}
+.navMenu > li:hover ul {
+  opacity: 1;
+  visibility: visible;
+}
+.navMenu li a {
+  font-size: 18px;
+  line-height: 24px;
+}
+.navMenu ul li {
+  padding: 0.5em 0;
+}
+
+.navMenu ul li a {
+  display: block;
+  color: red;
+}
+.main1Info h3 {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+}
+.main1Info p {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  color: #667085;
 }
 @keyframes hero-thumb-animation {
   0% {
