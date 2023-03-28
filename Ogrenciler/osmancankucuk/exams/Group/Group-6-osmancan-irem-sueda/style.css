@@ -10,6 +10,10 @@ ul {
 a {
   text-decoration: none;
 }
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
 body {
   display: grid;
   grid-template-areas:
@@ -55,6 +59,7 @@ body {
   position: fixed;
   z-index: 999;
   width: 100%;
+
   background-color: white;
 }
 .content {
@@ -69,10 +74,15 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.nav-BarMenu {
+  position: absolute;
+  top: 50px;
+  right: 45px;
+}
 #nav a {
   color: black;
 }
-#nav button {
+.navButton {
   padding: 1.3em 2em;
   cursor: pointer;
   border-radius: 4em;
@@ -82,7 +92,7 @@ body {
   background-color: #f2f4f7;
   transition: 0.2s all;
 }
-#nav button:hover {
+.navButton:hover {
   background-color: #101828;
   color: white;
 }
@@ -183,6 +193,7 @@ body {
 }
 .imageBlock2 {
   position: absolute;
+  z-index: 3;
   bottom: 40px;
   left: -50px;
   z-index: 3;
@@ -239,6 +250,42 @@ body {
   line-height: 19px;
   color: #667085;
 }
+.sectionBrands {
+  background-color: white;
+  padding-top: 5em;
+}
+.sectionBrands h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 35px;
+  color: #101828;
+}
+.brandsSection {
+  display: inline-block;
+  text-align: center;
+}
+.brandsSection li {
+  display: inline-block;
+  width: 19%;
+  padding: 1em;
+}
+.brandsSection li:hover {
+  transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.brandsSection li img {
+  width: 100%;
+}
+.brandsSection li a {
+  display: inline-block;
+  transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+  padding: 1em;
+}
+.brandsSection li a:hover {
+  box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
 @keyframes hero-thumb-animation {
   0% {
     transform: translateY(-20px);
@@ -261,5 +308,48 @@ body {
   }
   100% {
     transform: translateX(-35px);
+  }
+}
+@media screen and (max-width: 1400px) {
+  .navButton {
+    display: none;
+  }
+  .imageBlock2 {
+    bottom: 200px;
+    left: -30px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .navButton {
+    display: block;
+  }
+  .navMenu {
+    display: none;
+  }
+  .imageBlock2 {
+    bottom: 320px;
+    left: -30px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .navButton {
+    display: none;
+  }
+  .mainSectionImage {
+    display: none;
+  }
+  .mainSectionSplit {
+    grid-template-columns: 1fr;
+  }
+  .episode1 h1 {
+    font-size: 38px;
+    line-height: 50px;
+  }
+  .brandsSection li {
+    width: 30%;
+  }
+  .sectionBrands h2 {
+    font-size: 25px;
+    line-height: 30px;
   }
 }
