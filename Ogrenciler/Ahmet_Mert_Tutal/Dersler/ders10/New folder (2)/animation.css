@@ -1,0 +1,59 @@
+body{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #9e9e9e;
+}
+
+.box{
+  width: 150px;
+  height: 100px;
+  background-color: orangered;
+  /* transition-property: background-color; */
+  /* transition-duration: 1s; */
+ 
+  /* transition-timing-function: ease-in-out;
+  transition: background-color 1s, width 1s ease-in-out; */
+  /* transition:  all 1s ease-in-out; */
+  animation-name:aa;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay:1s ;
+}
+
+.box:hover{
+  /* background-color: #21e967; */
+  /* width: 300px;
+  border-radius: 50%; */
+  /* transform: scale(2);
+  transform: rotate(180deg);
+  transform: skew(30deg); */
+  /* transform: translate(100px); */
+  /* transform: translateX(100px) rotate(180deg); */
+  /* transform: translateY(100px) rotate(180deg); */
+}
+
+@keyframes aa{
+  0%{
+    background-color: #9e9e9e;
+    transform: translate(0px 0px);
+  }
+  25%{
+    background-color: orangered;
+    transform: translate(100px, 0px);
+  }
+  50%{
+    background-color: orangered;
+    transform: translate(100px, -100px) rotate(180deg);
+    
+  }
+  75%{
+    background-color: #9e9e9e;
+    transform: translate(0px, -100px);
+  }
+  100%{
+    background-color: #f16060;
+    transform: translate(0px 0px);
+  }
+}
