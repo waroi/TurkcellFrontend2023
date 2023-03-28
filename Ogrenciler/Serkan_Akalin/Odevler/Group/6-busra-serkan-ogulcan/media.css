@@ -22,3 +22,31 @@
     display: flex;
   } */
 }
+
+@media only screen and (min-width: 768px) {
+  .nav-get-started{
+    display: unset;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .nav-menu{
+      display: flex;
+      gap: 25px;
+      font-size: 18px;
+  }
+  .nav-menu-icon{
+    display: none;
+  }
+  
+  .nav-menu a:hover {
+    cursor: pointer;
+    color: #006d77;
+    transition: all 0.3s ease;
+    transform: translateY(2.5px);
+  }
+
+  .nav-menu a:hover > div{
+    display: unset;
+  }
+}
