@@ -41,6 +41,7 @@ nav .container {
 
 .logo {
   width: 150px;
+  cursor: pointer;
 }
 
 .menu-list .menu-item {
@@ -372,11 +373,11 @@ h4.heading {
   transform: translateY(50px);
 }
 
-
 .discover-card {
   padding: 55px 50px 0;
   border-radius: 15px;
   transition: 0.4s all;
+  width: 40%;
 }
 
 .discover-card:hover {
@@ -503,7 +504,7 @@ h4.heading {
 .footer-top {
   display: flex;
   justify-content: space-between;
-
+  flex-wrap: wrap;
 }
 
 .footer-top .logo,
@@ -550,6 +551,8 @@ h6.heading {
   border-radius: 15px;
   gap: 2rem;
   border: 1px solid #d0d5dd;
+  width: 20%;
+  transition: all .5s ease-in-out;
 }
 
 .plan-card:hover {
@@ -626,8 +629,8 @@ h5.heading {
 .input-icon {
   position: absolute;
   background: #006d77;
-  padding: 10px;
-  top: 75%;
+  padding: 22px;
+  top: 68%;
   right: 10%;
   border-radius: 50%;
 }
@@ -646,7 +649,7 @@ h5.heading {
 }
 
 .sub-right .mini-img {
-  top: 65%;
+  bottom: -60px;
   left: 30px;
   max-width: 255px;
   height: 194px;
@@ -702,6 +705,7 @@ li.footer-element:hover {
 .footer-bottom {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -709,6 +713,7 @@ li.footer-element:hover {
 
 .footer-bottom-txt {
   display: flex;
+  flex-wrap: wrap;
   gap: 3rem;
 }
 
@@ -797,8 +802,74 @@ li.footer-element:hover {
       width: 100%;
   }
 
-  
   .discover-img.one, .discover-img.two{
       transform: translateY(0);
+  }
+
+  .discover-card {
+      width: 100%;
+  }
+
+  .cont-sub {
+      grid-template-columns: 1fr;
+      padding: 80px 10px 450px;
+      width: 90%;
+      max-width: 100%;
+      gap: 1.5rem;
+  }
+
+  .sub-right .mini-img {
+    left: 0;
+    bottom: -410px;
+  }
+
+  .input-icon {
+    top: 75%;
+  }
+
+  .plan-card {
+    width: 100%;
+  }
+
+  .footer-top {
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  .footer-top .logo {
+    margin: 0;
+  }
+  .footer-top-txt {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    gap: 2rem;
+  }
+
+  .footer-middle {
+    margin-top: 3rem;
+  }
+
+  .footer-box {
+    padding: 0 12px;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+  }
+
+  .footer-bottom-txt {
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .bottom-list {
+    gap: 1rem;
+  }
+
+  .socials {
+    margin-top: 20px;
   }
 }

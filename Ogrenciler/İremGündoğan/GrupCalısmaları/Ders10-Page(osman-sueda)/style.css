@@ -80,9 +80,9 @@ body {
   display: flex;
 }
 .container {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
-  max-width: 1320px;
+  max-width: 1300px;
 }
 .mainSection {
   background-color: #bee1e6;
@@ -203,28 +203,27 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+.wrapper > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+}
 .fresh-ideas-img {
   width: 50%;
   flex: 0 0 auto;
-  padding-right: 30px;
-  position: relative;
 }
 .fresh-ideas-chart1 {
-  max-width: 100%;
-  border-radius: 16px;
-  position: absolute;
+  position: relative;
 }
 .fresh-ideas-chart2 {
   position: absolute;
-  right: -15%;
+  right: -60px;
   width: 270px;
-  height: 205px;
   bottom: -100px;
 }
 .fresh-ideas-text {
-  padding-left: 90px;
+  padding-left: 80px;
   width: 50%;
-  position: relative;
   flex: 0 0 auto;
 }
 .fresh-ideas-header {
@@ -252,6 +251,7 @@ body {
 }
 .text-icon1 {
   display: flex;
+  margin-bottom: 15px;
 }
 .text-icon1 img {
   margin-right: 30px;
@@ -264,15 +264,18 @@ body {
   line-height: 30px;
   display: flex;
 }
-.fresh-ideas-chart2 img {
+img {
   max-width: 100%;
+}
+.fresh-ideas-chart2 img {
   border-radius: 16px;
+  box-shadow: 0 47px 65px rgba(21, 28, 38, 0.1);
 }
 .fresh-ideas-chart1 img {
   max-width: 100%;
   border-radius: 16px;
 }
-.text-content p {
+.text-icon1 p {
   margin-top: 15px;
   color: #475467;
   font-family: Noto Sans, sans-serif;
@@ -280,4 +283,7 @@ body {
   font-size: 18px;
   line-height: 26px;
   margin-bottom: 40px;
+}
+.text-content{
+  margin-left: 12px;
 }
