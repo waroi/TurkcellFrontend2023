@@ -47,7 +47,7 @@ body {
 #header {
   grid-area: header;
   position: fixed;
-  z-index: 1;
+  z-index: 999;
   width: 100%;
   background-color: white;
 }
@@ -80,7 +80,7 @@ body {
   display: flex;
 }
 .container {
-  width: 75%;
+  width: 85%;
   margin: 0 auto;
 }
 .mainSection {
@@ -89,7 +89,8 @@ body {
 }
 .mainSectionSplit {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2.5em;
   padding: 3em 0;
 }
 .mainSectionSplit span {
@@ -131,4 +132,63 @@ body {
 .sectionTag-2 i {
   color: #006d77;
   margin-right: 0.5em;
+}
+.mainSectionImage {
+  position: relative;
+}
+
+.mainSectionBackImage {
+  max-width: 100%;
+  background-size: cover;
+  animation: hero-thumb-animation 2s linear infinite alternate;
+}
+.mainPaymentImage {
+  border-radius: 10px;
+  max-width: 100%;
+  animation: paymentAnimation 4s linear infinite alternate;
+}
+.imageBlock1 {
+  z-index: 3;
+  position: absolute;
+  top: 11%;
+  right: -80px;
+  height: 169px;
+  width: 155px;
+}
+.imageBlock2 {
+  position: absolute;
+  bottom: 40px;
+  left: -50px;
+  z-index: 3;
+  width: 220px;
+  height: 260px;
+}
+.mainBalanceImage {
+  border-radius: 10px;
+  max-width: 100%;
+  animation: balanceAnimation 4s linear infinite alternate;
+}
+@keyframes hero-thumb-animation {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes paymentAnimation {
+  0% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+@keyframes balanceAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-35px);
+  }
 }
