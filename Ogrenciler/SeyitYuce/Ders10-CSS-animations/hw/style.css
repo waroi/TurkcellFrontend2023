@@ -19,7 +19,7 @@
   --green-icon: #006d77;
 }
 p {
-  color: var(--gray-text);
+  /* color: var(--gray-text); */
 }
 h1,
 h2,
@@ -35,16 +35,12 @@ img {
   width: 100%;
   height: auto;
 }
-a {
-  text-decoration: none;
-}
-li {
-  list-style: none;
-}
 * {
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   /* box-sizing: border-box; */
+  list-style: none;
+  text-decoration: none;
 }
 .container {
   padding: 0 12px;
@@ -123,7 +119,7 @@ li {
   width: 26px;
   height: 26px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 9999999999;
 }
 .menu__btn > span,
 .menu__btn > span::before,
@@ -149,13 +145,14 @@ li {
   top: 0;
   right: 0%;
   width: 380px;
-  min-height: 100vh;
+  min-height: 90vh;
   margin: 0;
   list-style: none;
   background-color: #ffffff;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   overflow-y: scroll;
   padding: 0 0 30px;
+  z-index: 9999999;
 }
 .menu__box-top {
   display: grid;
@@ -266,6 +263,8 @@ li {
 }
 .for-dropdown-sub > i {
   float: right;
+  z-index: 99999999;
+  position: absolute;
 }
 
 .section-dropdown-sub {
@@ -320,22 +319,27 @@ li {
 .advanced-analytics {
   background-color: var(--blue-bg);
   /* padding: 60px 0; */
+  position: relative;
+  
 }
 .advanced-analytics-container {
+  position: relative;
   padding: 60px 0;
   display: grid;
   grid-template-columns: 1fr;
+  z-index: 1;
 }
-.advanced-analytics-container::after {
-  /* background: url("https://agon-nextjs-13.vercel.app/_next/static/media/pattern-6.8b501f61.svg")
-    no-repeat; */
-  /* content: ""; */
-  /* position: absolute; */
-  bottom: 10%;
+.advanced-analytics:after {
+  background: url("https://agon-nextjs-13.vercel.app/_next/static/media/pattern-6.8b501f61.svg")
+    no-repeat;
+  content: "";
+  position: absolute;
+  bottom: 0;
   left: 0;
   height: 200px;
   width: 200px;
   background-size: cover;
+  
 }
 .advanced-analytics-left-con {
   /* display: grid; */
@@ -667,6 +671,13 @@ li {
   padding: 55px 50px 0;
   text-align: center;
 }
+.card-box1 > p {
+  color: var(--gray-text2);
+  font-size: 14px;
+  line-height: 19px;
+  font-family: Noto Sans, sans-serif;
+  font-weight: 400;
+}
 .card-box1:hover {
   transform: translatey(-5px);
   transition: 0.25s;
@@ -771,13 +782,13 @@ li {
   height: auto;
   border-radius: 16px;
 }
-.img-bottom {
+.img-bottom1 {
   position: absolute;
   bottom: -60px;
   right: -10px;
   width: 200px;
 }
-.img-bottom img {
+.img-bottom1 img {
   border-radius: 16px;
   box-shadow: 0 47px 65px rgba(21, 28, 38, 0.1);
 }
@@ -1062,10 +1073,10 @@ input:checked + .slider:before {
 }
 
 .news {
-  /* width: 95%; */
+  width: 95%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  
   background-color: var(--blue-bg);
   border-radius: 20px;
   /* margin: 0 10px; */
@@ -1153,7 +1164,7 @@ input:checked + .slider:before {
 
 .img-bottom {
   position: relative;
-  top: 5rem;
+  top: 0;
   left: 3rem;
   width: 80%;
   border-radius: 20px;
@@ -1344,8 +1355,22 @@ p {
     font-size: 24px;
     line-height: 32px;
   }
+  /* .advanced-analytics::after{
+    bottom: -145%;
+  } */
   .advanced-analytics-right-con {
     display: block;
+  }
+  .advanced-analytics:after {
+    background: url("https://agon-nextjs-13.vercel.app/_next/static/media/pattern-6.8b501f61.svg")
+      no-repeat;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 200px;
+    width: 200px;
+    background-size: cover;
   }
   .trusted-by-container > h2 {
     font-size: 35px;
@@ -1377,8 +1402,8 @@ p {
   }
   .fresh-ideas-chart {
     position: absolute;
-    left: 85%;
-    top: 66%;
+    left: 79%;
+    top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
   }
@@ -1420,6 +1445,7 @@ p {
   .from-the-big-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap:1rem;
   }
   .from-the-container {
     display: grid;
@@ -1429,7 +1455,7 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .img-bottom {
+  .img-bottom1 {
     bottom: -80px;
     width: 315px;
   }
@@ -1477,7 +1503,7 @@ p {
 
   /*footerrr*/
   .newsletter-container {
-    padding: 100px 0;
+    padding: 100px 100px;
   }
 
   .footer-logo {
