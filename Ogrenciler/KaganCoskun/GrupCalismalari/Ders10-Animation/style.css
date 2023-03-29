@@ -27,18 +27,18 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr minmax(300px, 1320px) 1fr;
+  grid-template-columns: 1fr minmax(300px, 1200px) 1fr;
   position: relative;
 }
 
-.container * {
+.container > * {
   grid-column: 2;
 }
 
 .row {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -46,6 +46,66 @@ body {
   padding: 18px 20px;
   font-weight: 700;
   border: 2px solid transparent;
+}
+
+.text-heading-1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 4rem;
+  margin-top: 30px;
+}
+.text-heading-2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 2.7rem;
+  margin: 10px 0;
+}
+.text-heading-3 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 2.2rem;
+  margin: 10px 0;
+  color: #101828;
+}
+.text-heading-4 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 2rem;
+  margin: 10px 0;
+  color: #101828;
+}
+.text-heading-5 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 2rem;
+  margin: 10px 0;
+  color: #101828;
+}
+.text-heading-6 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 2rem;
+  color: #101828;
+}
+
+.text-body-large {
+  color: #475467;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-top: 20px;
+}
+
+.text-body-md {
+  color: #475467;
+  font-weight: 400;
+  margin-top: 15px;
+  font-size: 1.12rem;
+  line-height: 26px;
 }
 
 header {
@@ -99,6 +159,22 @@ nav {
   fill: #fff;
 }
 
+.hero {
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+  width: 200px;
+  background: url(https://agon-nextjs-13.vercel.app/_next/static/media/pattern-6.8b501f61.svg)
+    no-repeat;
+  background-size: cover;
+}
+
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -118,7 +194,7 @@ nav {
 .hero-text {
   font-size: 1.5rem;
   color: #667085;
-  font-family: Noto Sans,sans-serif;
+  font-family: Noto Sans, sans-serif;
   font-weight: 400;
   line-height: 2rem;
 }
@@ -128,18 +204,18 @@ nav {
   color: #ffff;
   margin-right: 40px;
   border-radius: 4px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-hero:hover {
   background-color: #fff;
   color: #101828;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-hero:hover svg path {
   fill: #101828;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .gap-50 {
@@ -161,7 +237,7 @@ nav {
   padding: 14px 28px;
 }
 
-.hiw{
+.hiw {
   gap: 7px;
   display: flex;
   flex-direction: row;
@@ -169,7 +245,7 @@ nav {
   justify-content: center;
 }
 
-.img-wrap{
+.img-wrap {
   margin: 0px 50px;
   position: relative;
 }
@@ -184,10 +260,10 @@ nav {
   0% {
     transform: translateY(0);
   }
-  50%{
+  50% {
     transform: translateY(-50px);
   }
-  100%{
+  100% {
     transform: translateY(0px);
   }
 }
@@ -205,10 +281,10 @@ nav {
   0% {
     transform: translateX(0);
   }
-  50%{
+  50% {
     transform: translateX(60px);
   }
-  100%{
+  100% {
     transform: translateX(0px);
   }
 }
@@ -219,17 +295,73 @@ nav {
   right: -15%;
   top: 15%;
   border-radius: 15px;
-  animation: img3 9s infinite .1s ease-in-out;
+  animation: img3 9s infinite 0.1s ease-in-out;
 }
 
 @keyframes img3 {
   0% {
     transform: translateY(0);
   }
-  50%{
+  50% {
     transform: translateY(60px);
   }
-  100%{
+  100% {
     transform: translateY(0px);
   }
+}
+
+.companies-title {
+  margin-bottom: 35px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.companies-logo {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.companies-logo img {
+  width: 16%;
+  display: inline;
+  padding: 30px 15px;
+}
+
+#what-we-do {
+  margin: 100px 0;
+}
+
+.wwd-images {
+  position: relative;
+  max-width: 545px;
+  margin-right: 100px;
+}
+
+.wwd-images img:first-child {
+  border-radius: 10px;
+}
+
+.wwd-image2 {
+  position: absolute;
+  bottom: -100px;
+  right: -60px;
+  width: 270px;
+  border-radius: 20px;
+}
+
+.wwd-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+.wwd-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
