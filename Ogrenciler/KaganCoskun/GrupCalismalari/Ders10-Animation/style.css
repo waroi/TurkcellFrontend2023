@@ -27,7 +27,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr minmax(300px, 1320px) 1fr;
+  grid-template-columns: 1fr minmax(300px, 1200px) 1fr;
   position: relative;
 }
 
@@ -38,7 +38,7 @@ body {
 .row {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -91,6 +91,21 @@ body {
   letter-spacing: 0;
   line-height: 2rem;
   color: #101828;
+}
+
+.text-body-large {
+  color: #475467;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-top: 20px;
+}
+
+.text-body-md {
+  color: #475467;
+  font-weight: 400;
+  margin-top: 15px;
+  font-size: 1.12rem;
+  line-height: 26px;
 }
 
 header {
@@ -310,4 +325,43 @@ nav {
   width: 16%;
   display: inline;
   padding: 30px 15px;
+}
+
+#what-we-do {
+  margin: 100px 0;
+}
+
+.wwd-images {
+  position: relative;
+  max-width: 545px;
+  margin-right: 100px;
+}
+
+.wwd-images img:first-child {
+  border-radius: 10px;
+}
+
+.wwd-image2 {
+  position: absolute;
+  bottom: -100px;
+  right: -60px;
+  width: 270px;
+  border-radius: 20px;
+}
+
+.wwd-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 50px;
+}
+
+.wwd-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
