@@ -1025,6 +1025,11 @@ li > img {
   margin: 0 0 50px 0;
   border-radius: 20px;
   gap: 30px;
+  transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+  cursor: pointer;
+}
+.card-ofc:hover{
+  transform: translateY(-5px);
 }
 .h4-ofc{
   font-size: 28px;
@@ -1093,8 +1098,9 @@ color: #101828;
 .from-area-header{
   display: flex;
 }
+/* changed */
 .img-side-ofc{
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 }
 .inner-image{
   position: relative;
@@ -1105,18 +1111,13 @@ color: #101828;
 .block-image{
   position: absolute;
   width: 60%;
-  bottom: -170px;
-  right: -90px;
+  bottom: -20px;
+  right: -20px;
 }
 .discover-section .container, .from-section .container{
   display: grid;
 }
-
 @media screen and (min-width:992px) {
-  .container{
-    width: 1100px;
-  }
-
 .from-section .container{
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -1153,10 +1154,14 @@ color: #101828;
     .card-img-ofc{
       max-width: 85%; 
       position:absolute;
-       bottom: -40%;
+       bottom: -55%;
        padding: 20px;
-       background-color: #475467;
+       background-color: #e2e2e2;
        border-radius: 20px;
+    }
+    .block-image{
+      bottom: -170px;
+      right: -90px;
     }
 }
 
