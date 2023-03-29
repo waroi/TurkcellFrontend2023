@@ -140,20 +140,35 @@
     margin-top: 50px;
 }
 
-/*@media only screen and (min-width: 996px){
+/@media only screen and (min-width: 996px){
     .discover-container {
         flex-direction: column;
         align-items: center;
         display: flex;
+        justify-content: center;
     }
     .discover-container-titles{
-        width: 100%;
+        width: 80%;
     }
 
     .discover-container-box{
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr, 1fr;
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        gap:2rem;
+    }
+
+    .extremely-box{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cross-box{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
     }
 }
 
@@ -175,22 +190,37 @@
 
 }*/
 
-/*@media only screen and (max-width: 768px){
+/@media only screen and (max-width: 768px){
     .discover-container {
         flex-direction: column;
         align-items: center;
         display: flex;
+        justify-content: center;
     }
     .discover-container-titles{
-        width: 100%;
+        width: 80%;
     }
 
     .discover-container-box{
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr, 1fr;
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        gap:2rem;
     }
-}*/
+
+    .extremely-box{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cross-box{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+    }
+}
 
 /* SECTION BUILT*/
 
@@ -617,3 +647,44 @@ section.customers {
 .cusbox4:hover {
     transform: translateY(-15px);
 }
+
+@media only screen and (max-width: 768px){
+
+    .customers-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-around;
+        height: 100vh;
+        padding: 0;
+    }
+
+    .customers-boxs{
+        flex-direction: column;
+    }
+
+    .customers-content{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 996px){
+
+    .customers-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-around;
+        height: 100vh;
+        padding: 0;
+    }
+
+    .customers-boxs{
+        flex-direction: column;
+    }
+
+    .customers-content{
+        width: 80%;
+    }
+}
+
