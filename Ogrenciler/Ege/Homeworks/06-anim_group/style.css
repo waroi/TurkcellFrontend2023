@@ -324,7 +324,7 @@ h4.heading {
 
 .fresh-element {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
 }
 
@@ -358,13 +358,15 @@ h4.heading {
 
 .discover-wrapper {
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
     margin-top: 90px;
+    justify-content: center;
 }
 
 .discover-img {
-    width: 500px;
-    height: 390px;
+    max-width: 500px;
+    max-height: 390px;
     margin: 0 auto;
     border-radius: 15px;
     padding: 23px 19px;
@@ -373,6 +375,7 @@ h4.heading {
 
 
 .discover-card {
+    width: 40%;
     padding: 55px 50px 0;
     border-radius: 15px;
     transition: 0.4s all;
@@ -410,6 +413,7 @@ h4.heading {
 
 .built-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 3rem;
     margin-top: 3rem;
 }
@@ -456,11 +460,11 @@ h4.heading {
 }
 
 
-.customers h2.heading {
+/* .customers h2.heading {
     font-size: 56px;
     line-height: 64px;
     font-weight: 700;
-}
+} */
 
 .customers-cards {
     display: flex;
@@ -502,6 +506,7 @@ h4.heading {
 
 .footer-top {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
 }
@@ -513,6 +518,7 @@ h4.heading {
 
 .footer-top-txt {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -538,7 +544,9 @@ h6.heading {
 
 .plan-cards {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
 }
 
 .plan-card {
@@ -548,6 +556,8 @@ h6.heading {
     padding: 40px 1.5rem;
     border-radius: 15px;
     gap: 2rem;
+    width: 20%;
+    transition: 0.4s all;
 }
 
 .plan-card:hover {
@@ -699,6 +709,7 @@ li.footer-element:hover {
 
 .footer-bottom {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
@@ -707,6 +718,7 @@ li.footer-element:hover {
 
 .footer-bottom-txt {
     display: flex;
+    flex-wrap: wrap;
     gap: 3rem;
 }
 
@@ -738,4 +750,132 @@ li.footer-element:hover {
     width: 20px;
     height: 20px;
     transform: translateY(30%);
+}
+
+@media screen and (max-width:1200px) {
+    .menu {
+        display: none;
+    }
+
+    nav .get-started {
+        display: none;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .burger-menu {
+        top: 15px;
+    }
+
+    .hero-right {
+        display: none;
+    }
+
+    .hero .container {
+        grid-template-columns: 1fr;
+    }
+
+    h2.heading {
+        font-size: 35px;
+        line-height: 42px;
+    }
+
+    .stats {
+        gap: 1rem;
+    }
+
+    .company {
+        width: 25%;
+    }
+
+    .fresh .container {
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+
+    .fresh .main-img {
+        padding-right: 0;
+        width: 100%;
+    }
+
+    .fresh .mini-img {
+        right: 0;
+        bottom: -20px;
+    }
+
+    .from-list {
+        grid-template-columns: 1fr;
+    }
+
+    .discover-txt {
+        width: 100%;
+    }
+
+    .mini-img.from {
+        bottom: 100px;
+    }
+
+    .customer {
+        width: 100%;
+    }
+
+    .discover-img {
+        transform: translateY(0);
+        margin-top: 3rem;
+    }
+
+    .discover-card {
+        width: 100%;
+    }
+
+    .plan-card {
+        width: 100%;
+    }
+
+    .cont-sub {
+        grid-template-columns: 1fr;
+        padding: 80px 10px 450px;
+        width: 90%;
+        max-width: 100%;
+        gap: 1.5rem;
+    }
+
+    .sub-right .mini-img {
+        left: 0;
+        bottom: -410px;
+    }
+
+    .footer-top {
+        justify-content: center;
+        margin-bottom: 4rem;
+    }
+
+    .footer-top .logo {
+        margin: 0;
+    }
+
+    .footer-top-txt {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        gap: 2rem;
+    }
+
+    .footer-box {
+        width: 100%;
+    }
+
+    .footer-bottom {
+        justify-content: center;
+    }
+
+    .footer-bottom-txt {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .bottom-list {
+        gap: 1rem;
+        margin-bottom: 35px;
+    }
 }
