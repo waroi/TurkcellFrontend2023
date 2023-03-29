@@ -166,12 +166,13 @@ p.text{
     line-height: 32px;
 }
 
-.header5-box p{
+p.header5-box-p{
     color: #667085;
     font-size: 14px;
     line-height: 19px;
     font-family: Noto Sans,sans-serif;
     font-weight: 400;
+    padding-top: 10px;
 }
 
 .header-right-box{
@@ -244,9 +245,9 @@ p.text{
 
 /*⁡⁣⁣⁢---- 𝗦𝗘𝗖𝗧𝗜𝗢𝗡 2 ----⁡*/
 
-.section2{
+/* .section2{
     
-}
+} */
 #container2{
     display: flex;
     flex-direction: row;
@@ -413,7 +414,7 @@ p.text{
 }
 
 
-/*----SECTİON 5----*/
+/*----SECTION 5----*/
 .container-s5{
     margin-top: 80px;
 }
@@ -461,6 +462,7 @@ p.text{
 }
 .s5-right img{
     max-width: 100%;
+    border-radius: 16px;
     
 }
 .s5-right-img{
@@ -474,6 +476,61 @@ p.text{
 }
 .deneme{
     padding-bottom: 60px;
+}
+/*----SECTION 5----*/
+
+/*----SECTION 6----*/
+
+#container6{
+    background-color: #f2f4f7;
+    padding: 80px;
+    border-radius: 58px;
+    margin-top: 140px;
+}
+
+.s6-up{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.s6-down{
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.s6-down-box{
+    margin-bottom: 20px;
+    padding: 53px 48px;
+    width: 100%;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: inset 0 40px 80px #fcfcfc;
+}
+
+h5.s6{
+    color: #101828;
+    font-size: 22px;
+    line-height: 24px;
+    font-family: Chivo,sans-serif;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.s6-down-box-info{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.s6-down-box-info-left img{
+    width: 80px;
+    height: 80px;
 }
 
 /*⁡⁣⁣⁢----  MEDIA QUERIES ----⁡*/
@@ -533,6 +590,15 @@ p.text{
     .s4-down{
         flex-direction: column;
     }
+    #container6{
+        width: 90%;
+    }
+    .s6-down{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .s6-down-box{
+        padding: 24px 20px;
+    }
 }
 
 @media screen and (max-width:375px) { 
@@ -570,5 +636,8 @@ p.text{
     .s5-left-down{
         display: grid;
         grid-template-columns: 1fr;
+    }
+    #container6{
+        padding: 10px;
     }
 }
