@@ -204,6 +204,13 @@ body {
   max-width: 100%;
   background-color: #ffffff;
 }
+/*last seciton*/
+.choose {
+  padding: 3em 0;
+  max-width: 100%;
+  background-color: #ffffff;
+}
+/**/
 .wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -299,8 +306,18 @@ img {
   width: 50%;
   flex: 0 0 auto;
 }
+.stick {
+  border: 1px dashed #006d77;
+  margin-top: 3em;
+}
+.inline {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
 .inline-block {
   margin-top: 50px;
+  width: 50%;
 }
 .inline-block h4 {
   padding: 0 0 0 28px;
@@ -311,7 +328,6 @@ img {
   font-size: 18px;
   line-height: 22px;
 }
-
 .inline-block p {
   margin-top: 15px;
   color: #475467;
@@ -321,9 +337,109 @@ img {
   line-height: 26px;
 }
 
-.built-img{
- .fresh-ideas-img 
+.built-img {
   width: 50%;
   flex: 0 0 auto;
+  padding-left: 3em;
+}
+.built-img1 {
+  position: relative;
+}
+.built-img2 {
+  position: absolute;
+  right: -60px;
+  width: 270px;
+  bottom: -100px;
+}
+.built-img1 img {
+  max-width: 100%;
+  border-radius: 16px;
 }
 
+.built-img2 img {
+  border-radius: 16px;
+  box-shadow: 0 47px 65px rgba(21, 28, 38, 0.1);
+}
+@media screen and (max-width: 390px) {
+  .fresh-ideas-img {
+    width: 90%;
+  }
+  .fresh-ideas-text {
+    width: 90%;
+    margin-top: 150px;
+    padding-left: 0;
+  }
+  .fresh-ideas-h3 {
+    font-size: 40px;
+    font-weight: 400;
+  }
+  .wrapper {
+    justify-content: center;
+  }
+  .fresh-ideas-chart2 {
+    right: 0;
+  }
+  .text-icon1 img {
+    margin-right: 65px;
+    max-width: 150%;
+  }
+  /* built-section-responsive*/
+  .built-text {
+    width: 90%;
+  }
+  .built-img {
+    width: 90%;
+    margin-top: 150px;
+    padding-left: 0;
+  }
+}
+/* new section*/
+.checbox {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+input[type="checkbox"] {
+  appearance: none;
+  visibility: hidden;
+  display: none;
+}
+.check {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 20px;
+  background: #092c3e;
+  cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: ease-in 0.5s;
+}
+input[type="checkbox"]:checked ~ .check {
+  background: #fff;
+  box-shadow: 0 0 0 1200px #092c3e;
+}
+.check:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: #fff;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+input[type="checkbox"]:checked ~ .check::before {
+  transform: translateX(0px);
+}
+.choose-center {
+  display: flex;
+  justify-content: center;
+}
+.choose-box {
+  border: 1px solid #d0d5dd;
+}
