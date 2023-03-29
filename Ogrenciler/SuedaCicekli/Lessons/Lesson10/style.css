@@ -1,0 +1,77 @@
+body{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  background:#9e9e9e;
+}
+.box{
+  background-color: rgb(0, 34, 255);
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  /* transition-property: background-color;
+  transition-duration:.5s;
+  transition-timing-function: ease-in-out; */
+  /* transition: background-color 1s, width 1s ease-in-out; */
+  transition: all .5s ease-in-out;
+}
+.box:hover{
+  background-color: #6cc651;
+ width: 300px;
+ border-radius: 5%;
+}
+
+.box2{
+  background-color: rgb(108, 163, 103);
+  width: 150px;
+  height: 150px;
+  transition: all 1s ease-in-out;
+  margin-bottom: 30px;
+}
+.box2:hover{
+background-color: #55b429;
+/* transform: translateX(100px); */
+/* transform: scale(1.2); */
+/* transform:translate(100px, 100px);  */
+/* transform: skew(-10deg); */
+/* transform: translateY(-180px); */
+transform: translate(100px, 100px) rotate(45deg);
+}
+.animation{
+  width: 150px;
+  height: 150px;
+  background-color: #4ca85a;
+  /* animation-name: myAnimation;
+  animation-duration: 3s; */
+  /* animation-iteration-count: infinite; */
+  /* animation-direction: 3;
+  animation-delay: 1;
+  animation-timing-function: ease-in-out; */
+  animation: myAnimation 3s forwards 1s ease-in-out infinite;
+}
+@keyframes myAnimation{
+  0%{
+    background-color: #76b8e7;
+    transform: translate(0,0);
+  }
+  50%{
+    background-color: #42975a;
+    transform: translate(100px, -100px) rotate(100deg);
+  }
+  100%{
+    background-color: #66b822;
+    transform: translate(0,0);
+  }
+}
+.animation2 {
+  width: 150px;
+  height: 150px;
+  background: rgb(60, 212, 43);
+  position: relative;
+  animation: mymove 5s infinite;
+}
+@keyframes mymove {
+  0%   {top: 0px; background: rgb(169, 231, 135); width: 100px;}
+  100% {top: 200px; background: rgb(80, 218, 52); width: 300px;}
+}

@@ -382,6 +382,100 @@ p.text{
     font-weight: 400;
 }
 
+/* ----SECTİON 4----*/
+
+.s4-up{
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+.s4-up h1{
+    font-size: 56px;
+}
+.s4-down{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.s4-box{
+    display: flex;
+    gap: 16px;
+    margin-right: 24px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+.s4-box img{
+    width: 64px;
+}
+.text3{
+    font-size: 16px;
+}
+
+
+/*----SECTİON 5----*/
+.container-s5{
+    margin-top: 80px;
+}
+
+.s5-left-up h1{
+    font-size: 56px;
+}
+
+.s5-left-up span{
+    background-color: #bee1e6;
+    color: #006d77;
+}
+
+.s5-left-down{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    border-top: 2.5px dashed #006d77;
+    
+}
+
+.s5-box{
+    margin-top: 40px;
+}
+.s5-box h4{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0;
+}
+.s5-box p{
+    font-family: Noto Sans,sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 15px;
+}
+.fa-solid{
+    color: #006d77;
+    margin-right: 10px;
+}
+
+.s5-right{
+    position: relative;
+}
+.s5-right img{
+    max-width: 100%;
+    
+}
+.s5-right-img{
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 313px;
+}
+.s5-right-img img{
+    border-radius: 20px;
+}
+.deneme{
+    padding-bottom: 60px;
+}
+
 /*⁡⁣⁣⁢----  MEDIA QUERIES ----⁡*/
 
 
@@ -436,6 +530,9 @@ p.text{
         height: auto;
         margin-top: 40px;
     }
+    .s4-down{
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width:375px) { 
@@ -469,5 +566,9 @@ p.text{
     }
     .header5-box p{
         font-size: 14px;
+    }
+    .s5-left-down{
+        display: grid;
+        grid-template-columns: 1fr;
     }
 }
