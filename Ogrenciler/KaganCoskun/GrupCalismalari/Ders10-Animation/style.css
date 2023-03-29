@@ -548,6 +548,164 @@ nav {
   width: 80px;
 }
 
+.plan-title {
+  width: 50%;
+  margin: auto;
+}
+
+.selector-wrap {
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto 50px;
+}
+
+.selector-wrap .text-body-sm {
+  margin: 0;
+}
+
+#select {
+  display: none;
+}
+
+.select-plan {
+  position: relative;
+  background-color: #101828;
+  border-radius: 34px;
+  transition: 0.4s;
+  cursor: pointer;
+  width: 65px;
+  height: 30px;
+}
+
+.select-plan-ball {
+  display: inline;
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translate(50%, -50%);
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 99;
+  transition: all 0.4s ease-in-out;
+}
+
+#select:checked ~ .plan-title .select-plan {
+  background-color: #006d77;
+  transition: all 0.4s ease-in-out;
+}
+
+#select:checked ~ .plan-title .select-plan .select-plan-ball {
+  transform: translate(45px, -50%);
+  transition: all 0.4s ease-in-out;
+}
+
+.plan-cards {
+  gap: 20px;
+}
+
+.card {
+  padding: 40px 32px;
+  margin: 0 0 30px;
+  border-radius: 16px;
+  border: 1px solid #d0d5dd;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: all 0.5s ease;
+}
+
+.card-up {
+  border-bottom: 1px solid #d0d5dd;
+  padding: 0 0 40px;
+  margin-bottom: 21px;
+}
+
+.card-down {
+  position: relative;
+}
+
+.card-down ul {
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 30px;
+  min-height: 200px;
+  transition: all 0.5s ease;
+}
+
+.card-down ul li {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #101828;
+  padding: 1px 0 1px 0;
+  transition: all 0.5s ease;
+}
+
+.check-pink {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.card:hover {
+  background-color: #006d77;
+  transform: translateY(-5px);
+  transition: all 0.5s ease;
+}
+
+.card:hover .card-up > *,
+.card:hover .card-down li {
+  color: #fff;
+  transition: all 0.5s ease;
+}
+
+.card:hover .btn-plan {
+  background-color: transparent;
+  transition: all 0.5s ease;
+}
+
+.card:hover .check-pink {
+  display: inline-block;
+  transition: all 0.5s ease;
+}
+
+.card:hover .check-green {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.annualy {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+#select:checked ~ .plan-cards .card .card-up .annualy {
+  display: inline;
+  transition: all 0.5s ease;
+}
+#select:checked ~ .plan-cards .card .card-up .monthly {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.plan-btn-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-plan {
+  border: 1px solid #fff;
+  text-align: center;
+  background-color: #101828;
+  color: #fff;
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* News */
 .topSecret-container {
   width: 83%;
   margin: auto;
