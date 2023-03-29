@@ -27,7 +27,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr minmax(300px, 1200px) 1fr;
+  grid-template-columns: 1fr minmax(300px, 1320px) 1fr;
   position: relative;
 }
 
@@ -38,8 +38,7 @@ body {
 .row {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
+ 
 }
 
 .btn {
@@ -349,6 +348,10 @@ nav {
   margin: 100px 0;
 }
 
+#what-we-do .row {
+  align-items: flex-start;
+}
+
 .wwd-images {
   position: relative;
   max-width: 545px;
@@ -446,4 +449,56 @@ nav {
   width: 64px;
   height: 64px;
   margin-right: 10px;
+}
+
+.built-detail {
+  border-top: 1px dashed #006d77;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 50px;
+}
+
+.built-image-wrapper {
+  position: relative;
+  padding-left: 40px;
+}
+
+#built-2 .row {
+  align-items: flex-start;
+}
+
+.built-row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+}
+
+.built-content .text-body-large{
+  margin-bottom: 50px;
+}
+
+.built-bg-img {
+  border-radius: 16px;
+}
+
+.built-content .tag {
+  background-color: #bee1e6!important;
+  color: #006d77!important;
+}
+
+.built-sm-img {
+  position: absolute;
+  width: 313px;
+  bottom: -80px;
+  right: -80px;
+  border-radius: 16px;
+  box-shadow: 0 47px 65px rgba(21,28,38,.1);
+}
+
+.built2-icon {
+  padding-right: 10px;
+}
+
+.detail-card > p {
+  margin-bottom: 20px;
 }
