@@ -9,11 +9,12 @@
 }
 
 .container {
-  width: 80%;
+  width: 68.75%;
+  max-width: 1325px;
   margin: 0 auto;
   display: grid;
 }
-
+/* Navbar Başlangıç */
 .nav-container {
   grid-auto-flow: column;
   grid-template-columns: 1fr 5fr;
@@ -23,6 +24,10 @@
 .nav-logo {
   display: grid;
   align-content: center;
+}
+
+.agon-logo {
+  width: 80%;
 }
 
 .nav-links {
@@ -41,6 +46,14 @@
   align-content: center;
 }
 
+.nav-links ul li a {
+  color: #101828;
+  font-family: Chivo, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
 .nav-burger {
   display: flex;
   justify-content: end;
@@ -49,16 +62,17 @@
 }
 
 .nav-burger img {
-  height: 50%;
+  height: 20%;
 }
 
 nav {
   display: grid;
   width: 100%;
-  height: 4em;
+  height: 7em;
   grid-template-columns: 1fr 8fr 1fr;
 }
-
+/* Navbar Sonu */
+/* Animation Başlangıç */
 .animation {
   background-color: #bee1e6;
 }
@@ -67,7 +81,7 @@ nav {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 3fr 2fr;
-  padding: 3.5em 0;
+  padding-top: 3.5em;
 }
 
 .animation-left {
@@ -103,20 +117,33 @@ nav {
 .ani-left-button {
   display: grid;
   grid-auto-flow: column;
-  margin-top: 0.5em;
+  justify-content: start;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .ani-left-row {
   display: grid;
-  grid-auto-flow: column;
-  margin-top: 1em;
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 1em;
+  margin-top: 1em;
+  margin-right: 8em;
 }
 
 .get-started {
-  font-family: Noto Sans, sans-serif;
+  width: 10em;
   font-size: 18px;
   line-height: 22px;
+  font-weight: 700;
+  border-radius: 4px;
+  background-color: #101828;
+  color: white;
+  padding: 22px 8px 22px 32px;
+  align-self: center;
+}
+
+.get-img {
+  margin-left: 1em;
 }
 
 .how-it-works {
@@ -124,21 +151,27 @@ nav {
   font-weight: 500;
   font-size: 18px;
   line-height: 18px;
+  color: #303d4b;
+  margin-left: 2.5em;
+  display: grid;
+  grid-auto-flow: column;
+  align-content: center;
 }
 
 .rows p {
-  font-family: Noto Sans, sans-serif;
   font-size: 14px;
   line-height: 19px;
   margin-top: 1em;
-  text-align: center;
+  text-align: left;
 }
 
 .rows h3 {
   font-family: Chivo, sans-serif;
   font-size: 28px;
   line-height: 32px;
-  text-align: center;
+  font-weight: 700;
+  text-align: left;
+  color: #101828;
 }
 
 .animation-right {
@@ -230,7 +263,301 @@ nav {
     transform: translateX(0px);
   }
 }
+/* Animation Sonu */
+/* Section Logos Başlangıç */
 
+.section-logos {
+  margin-top: 80px;
+}
+
+.logos-headline h2 {
+  color: #101828;
+  font-family: Chivo, sans-serif;
+  font-size: 35px;
+  line-height: 38px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.logo-galery {
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  margin-top: 3em;
+  border: 1px solid black;
+  align-content: center;
+}
+
+.galery-item img {
+  width: 70%;
+  border: 1px solid black;
+}
+/* Section Logos Sonu */
+/* What We Do */
+/* başlıklar */
+.head-title {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 64px;
+  color: #101828;
+  text-align: start;
+  font-family: Chivo, sans-serif;
+}
+.head-content {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #475467;
+  text-align: start;
+  font-family: Noto Sans, sans-serif;
+}
+
+.head-small {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #000000;
+  text-align: start;
+  font-family: Noto Sans, sans-serif;
+}
+
+.head-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #475467;
+  text-align: start;
+  font-family: Noto Sans, sans-serif;
+}
+/* başlıklar */
+
+/* whatwedo */
+.img {
+  width: 100%;
+}
+
+.whatwedo {
+  margin: 5rem 0;
+}
+
+.whatwedo .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.whatwedo .main-img {
+  width: 90%;
+  padding-right: 30px;
+}
+
+.whatwedo-left {
+  position: relative;
+}
+
+.whatwedo-right {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.whatwedo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.main-img img {
+  border-radius: 16px;
+}
+
+.whatwedo .mini-img {
+  position: absolute;
+  width: 270px;
+  height: 204px;
+  right: 30px;
+  bottom: 50px;
+  box-shadow: 0 47px 65px rgba(21, 28, 38, 0.1);
+}
+
+.whatwedo-element {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.whatwedo-element i {
+  color: black;
+}
+
+.whatwedo-element-icon {
+  background-color: #e4e7ec;
+  border-radius: 50%;
+  padding: 5px;
+  text-align: center;
+}
+.whatwedo-element-icon img {
+  width: 60px;
+}
+/* whatwedo */
+/* big-picture */
+.big-picture {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  width: 100%;
+  gap: 30px;
+  justify-content: center;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  width: 100%;
+  gap: 30px;
+  justify-content: center;
+  margin: 5rem 0;
+}
+
+.built {
+  /* width: 68.75%; */
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  /* margin: auto; */
+  margin: 5rem 0;
+}
+
+.built-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 3rem;
+  justify-self: center;
+  align-items: center;
+}
+
+.text {
+  width: 70%;
+  margin: auto;
+}
+.text h2 {
+  color: #101828;
+  font-weight: 700;
+  line-height: 64px;
+  font-family: Chivo, sans-serif;
+  font-size: 56px;
+  text-align: center;
+  margin-top: 10px;
+}
+.text p {
+  color: #475467;
+  margin-top: 20px;
+  font-family: Noto Sans, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+}
+
+.card {
+  border-radius: 16px;
+  padding: 50px;
+  height: 455px;
+  text-align: center;
+}
+
+.image {
+  background-color: #ebecf4;
+  border-radius: 16px;
+  padding: 23px 19px;
+  margin-top: 50px;
+  text-align: center;
+  height: 301px;
+}
+
+.card-left {
+  background-color: #fff3ea;
+}
+.card:hover {
+  transform: translateY(-8px);
+  transition-duration: 1s;
+}
+.card-right {
+  background-color: #bee1e6;
+}
+.cards-bottom {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 100%;
+  gap: 30px;
+  justify-content: center;
+}
+.card-bottom {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  border-bottom: rgb(201, 193, 193) solid 1px;
+  padding-bottom: 2em;
+}
+.icon-left {
+  width: 64px;
+  height: 64px;
+}
+h3 {
+  margin-top: 30px;
+  color: #101828;
+  font-weight: 700;
+  line-height: 64px;
+  font-family: Chivo, sans-serif;
+  font-size: 56px;
+}
+.green-text {
+  background-color: #bee1e6;
+  color: #006d77;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 50px;
+  padding: 14px 28px;
+  display: inline-block;
+  font-family: Chivo, sans-serif;
+  width: 50%;
+}
+.dashed {
+  border-bottom: 1px dashed #006d77;
+  margin: 30px 0;
+  padding-bottom: 30px;
+}
+.little-leaf {
+  background: url("./images/littleleaf.svg") no-repeat;
+  padding: 0 0 0 25px;
+  margin-bottom: 30px;
+}
+.bigPicture-card h4 {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+.bigPicture-card p {
+  margin-top: 15px;
+  padding: 0;
+  text-align: left;
+  margin-bottom: 0;
+}
+.bigPicture-image {
+  position: relative;
+}
+.big-picture-leaf {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.images {
+  width: 100%;
+}
+.bigPicture-image img {
+  border-radius: 16px;
+}
+.bottom-image {
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 300px;
+}
+/* What we Do Sonu */
 .customer {
   background-color: grey;
   border-radius: 40px;
