@@ -661,6 +661,8 @@ h5.heading {
     animation: mini-sub 4s infinite;
 }
 
+
+
 @keyframes mini-sub {
     0% {
         transform: translateY(0);
@@ -751,6 +753,51 @@ li.footer-element:hover {
     height: 20px;
     transform: translateY(30%);
 }
+
+/* ----__________-----________---- */
+.menu-box {
+    display: none;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.git-wrapper {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.git {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: 0.4s all;
+
+}
+
+.git i {
+    color: #006d77;
+
+}
+
+.git:hover i {
+    scale: 1.1;
+    color: #008996;
+}
+
+.git:hover div {
+    color: #006d77;
+}
+
+.menu-item:hover .menu-box {
+    display: block;
+    position: absolute;
+    z-index: 100;
+}
+
+/* ------------------- */
+
 
 @media screen and (max-width:1200px) {
     .menu {
