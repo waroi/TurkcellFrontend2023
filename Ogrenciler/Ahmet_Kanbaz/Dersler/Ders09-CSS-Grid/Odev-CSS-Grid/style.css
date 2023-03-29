@@ -62,7 +62,6 @@ header img {
 .menuItems ul li:hover {
   background-color: rgb(255, 111, 0);
   color: #FFFFFF;
-  transition: all .3s ease-in-out;
 }
 
 .socialItems {
@@ -81,7 +80,6 @@ header img {
 
 .socialItems a:hover {
   color: rgb(255, 111, 0); 
-  transition: all .3s ease-in-out;
 }
 
 .sectionBg {
@@ -129,11 +127,6 @@ header img {
   transition: all .3s ease-in-out;
 }
 
-.readMore:hover {
-  transition: all .3s ease-in-out;
-  background-color: #9e4a05;
-}
-
 .booksCards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -151,6 +144,7 @@ header img {
   border-radius: 15px;
   transition: all .3s ease-in-out;
 }
+
 
 .cardImage {
   width: 100%;
@@ -222,6 +216,7 @@ footer {
   transition: all .3s ease-in-out;
 }
 
+.readMore:hover,
 .subscribe:hover {
   transition: all .3s ease-in-out;
   background-color: #9e4a05;
@@ -229,6 +224,7 @@ footer {
 
 .footerCard h5 {
   margin-bottom: 10px;
+  font-size: 0.9rem;
 }
 
 .footerCard ul {
@@ -244,7 +240,6 @@ footer {
 
 .footerCard ul li:hover {
   color: #ce5d01;
-  transition: all .3s ease-in-out;
 }
 
 .footerSocial a{
@@ -263,7 +258,9 @@ footer {
 
 
 @media screen and (max-width: 768px) {
-  .headerContainer {
+  .headerContainer,
+  .booksCards,
+  .footerCards {
     grid-template-columns: 1fr;
   }
 
@@ -280,30 +277,19 @@ footer {
   }
 
   .sectionBg{
-    height: 300px;
+    height: auto;
   }
 
   .topSectionInfo {
     width: 80%;
   }
 
-  .topSectionInfo p {
-    font-size: 0.8rem;
-  }
-
-  .booksCards {
-    grid-template-columns: 1fr;
-  }
-
-  .footerCards {
-    grid-template-columns: 1fr;
-  }
-
-  .footerSocial {
-    display: block;
-  }
-
+  .topSectionInfo p,
   .bottomFooter {
     font-size: 0.8rem;
+  }
+  
+  .footerSocial {
+    display: block;
   }
 }
