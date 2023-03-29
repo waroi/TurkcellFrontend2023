@@ -227,7 +227,7 @@ font-weight: 400;
   }
  .plan-cards{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    
     grid-template-rows: 1fr;
     grid-template-areas: "plan-card plan-card plan-card plan-card";
     margin-top: 70px;
@@ -402,6 +402,7 @@ margin-bottom: 150px;
     
     display: flex;
     flex-wrap: wrap;
+    
   
  }
  .newsletter-title{
@@ -539,9 +540,10 @@ margin-bottom: 150px;
     max-width: 332px;
     position: absolute;
     bottom: -110px;
-    right: 0;
+    right: 50px;
     display: inline-block;
     z-index: 1;
+    width:100%;
     }
   
     footer{
@@ -755,4 +757,38 @@ margin-bottom: 150px;
     100% {
         transform: translateY(0);
     }
+}
+@media screen and (max-width: 768px) {
+    .happy-cards{
+        display:grid;
+        grid-template-areas: "happy-card "
+                            "happy-card "
+                            "happy-card"
+                             "happy-card";
+                              }
+ 
+    .plan-cards{
+        display: grid;
+        grid-row:auto;
+        grid-template-areas: "plan-card"
+                            " plan-card"
+                             " plan-card"
+                             " plan-card";
+        margin-top: 70px;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+        
+     }
+     .footer-contents{
+        display: grid;
+        grid-template-areas: "footer-content"
+        "footer-content"
+        " footer-content"
+        " footer-content" 
+        "   footer-content";
+        justify-content: center;
+    }
+ 
+    
 }
