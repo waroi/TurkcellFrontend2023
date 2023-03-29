@@ -10,6 +10,11 @@ ul {
 a {
   text-decoration: none;
 }
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  max-width: 100%;
+}
 body {
   display: grid;
   grid-template-areas:
@@ -18,7 +23,6 @@ body {
     "footer";
   height: auto;
   grid-template-rows: 120px auto auto;
-  background-color: gray;
 }
 .margin-x-half {
   margin: 0 0.5em;
@@ -55,6 +59,7 @@ body {
   position: fixed;
   z-index: 999;
   width: 100%;
+
   background-color: white;
 }
 .content {
@@ -69,10 +74,15 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.nav-BarMenu {
+  position: absolute;
+  top: 50px;
+  right: 45px;
+}
 #nav a {
   color: black;
 }
-#nav button {
+.navButton {
   padding: 1.3em 2em;
   cursor: pointer;
   border-radius: 4em;
@@ -82,7 +92,7 @@ body {
   background-color: #f2f4f7;
   transition: 0.2s all;
 }
-#nav button:hover {
+.navButton:hover {
   background-color: #101828;
   color: white;
 }
@@ -183,6 +193,7 @@ body {
 }
 .imageBlock2 {
   position: absolute;
+  z-index: 3;
   bottom: 40px;
   left: -50px;
   z-index: 3;
@@ -226,7 +237,6 @@ body {
 
 .navMenu ul li a {
   display: block;
-  color: red;
 }
 .main1Info h3 {
   font-weight: 700;
@@ -239,6 +249,135 @@ body {
   line-height: 19px;
   color: #667085;
 }
+.sectionBrands {
+  background-color: white;
+  padding-top: 5em;
+}
+.sectionBrands h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 35px;
+  color: #101828;
+}
+.brandsSection {
+  display: inline-block;
+  text-align: center;
+}
+.brandsSection li {
+  display: inline-block;
+  width: 19%;
+  padding: 1em;
+}
+.brandsSection li:hover {
+  transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.brandsSection li img {
+  width: 100%;
+}
+.brandsSection li a {
+  display: inline-block;
+  transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+  padding: 1em;
+}
+.brandsSection li a:hover {
+  box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+.subscribeContainer {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #bee1e6;
+  border-radius: 10px;
+  padding: 2em 3em;
+}
+.subscribeSection {
+  margin: 6em 0 10em 0;
+}
+
+.subscribeTry {
+  position: relative;
+}
+.subscribeContent {
+  width: 42%;
+}
+.subscribeContent h5 {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 1.5px;
+  color: #667085;
+}
+.subscribeContent h2 {
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 44px;
+
+  color: #101828;
+}
+.subscribeContent p {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+
+  color: #667085;
+}
+.subscribeContent a {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #116b62;
+}
+.subscribeInput {
+  position: relative;
+}
+.subscribeInput input {
+  width: 350px;
+  padding: 2.3em;
+  border: none;
+  border-radius: 60px;
+}
+.subscribeInput button {
+  position: absolute;
+  background-image: url("https://agon-nextjs-13.vercel.app/_next/static/media/btn-send.793d82ba.svg");
+  background-position: -30px -20px;
+  background-color: transparent;
+  border: none;
+  top: 40px;
+  right: 120px;
+  height: 57px;
+  width: 72px;
+  border-radius: 0;
+  cursor: pointer;
+}
+.subscribeImage {
+  position: relative;
+  width: 65%;
+}
+.subscribeMainImage {
+  max-width: 332px;
+  position: absolute;
+  top: 30px;
+  border-radius: 10px;
+  right: 10px;
+}
+.staticImage {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  max-width: 255px;
+  height: 194px;
+  z-index: 2;
+  transition: all 0.3s ease 0s;
+}
+.staticImage img {
+  border-radius: 10px;
+  animation: static-animation 2s linear infinite alternate;
+}
+
 @keyframes hero-thumb-animation {
   0% {
     transform: translateY(-20px);
@@ -261,5 +400,56 @@ body {
   }
   100% {
     transform: translateX(-35px);
+  }
+}
+@keyframes static-animation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+@media screen and (max-width: 1400px) {
+  .navButton {
+    display: none;
+  }
+  .imageBlock2 {
+    bottom: 200px;
+    left: -30px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .navButton {
+    display: block;
+  }
+  .navMenu {
+    display: none;
+  }
+  .imageBlock2 {
+    bottom: 320px;
+    left: -30px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .navButton {
+    display: none;
+  }
+  .mainSectionImage {
+    display: none;
+  }
+  .mainSectionSplit {
+    grid-template-columns: 1fr;
+  }
+  .episode1 h1 {
+    font-size: 38px;
+    line-height: 50px;
+  }
+  .brandsSection li {
+    width: 30%;
+  }
+  .sectionBrands h2 {
+    font-size: 25px;
+    line-height: 30px;
   }
 }
