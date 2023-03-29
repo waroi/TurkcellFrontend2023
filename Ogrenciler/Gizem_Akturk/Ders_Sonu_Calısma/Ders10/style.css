@@ -66,8 +66,9 @@ gap:30px;
    box-shadow: inset 0 40px 80px #fcfcfc;
   
 }
-.happy-card :hover{
+.happy-cards :hover{
     transition: all .25s cubic-bezier(.02,.01,.47,1);
+    transform: translateY(-3px);
 
 }
 .happy-card h5{
@@ -235,28 +236,59 @@ font-weight: 400;
     width: 100%;
     gap:10px;
  }
- .plan-card{
+ .plan-card-column{
     animation-name : fadeIn; 
     animation-duration: 1s;
     animation-fill-mode: both;
-    padding: 0 12px;
-    border: 1px solid #d0d5dd;
+    max-width: 100%;
+  }
+  .plan-card {
+    transition: all .25s cubic-bezier(.02,.01,.47,1);
     display: inline-block;
     width: 100%;
     padding: 40px 32px;
     background: #fff;
     border-radius: 16px;
     margin-bottom: 30px;
- }
- .plan-card :hover {
-    transition: all .25s cubic-bezier(.02,.01,.47,1);
+    border: 1px solid #d0d5dd;
+  }
+  .plan-card-column :hover {
+    transition-duration: .2s;
     background-color: #006d77;
-    border:none;
-    color:white;
+    border: none;
+    color: #fff;
+  }
+  .plan-card-column :hover .month, .plan-card-column .active .month{
+    color: #fff !important;
+  }
+  .plan-card-column :hover * , .plan-card-column .active *{
+    color: #fff;
+    transition-duration: .2s;
+  }
+  .plan-card-column :hover .plan-card-title,.plan-card-column .active {
+    border-bottom: 1px solid #fff;
+  }
+  .plan-card-column :hover .plan-card-button, .plan-card-column .active  .plan-card-button {
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+  }
+  
+  .plan-card-column :hover .plan-card-info li, .plan-card-column .active li{
+    background: url(https://agon-nextjs-13.vercel.app/_next/static/media/check-circle-pink.4bdb8306.svg) no-repeat 0;
    
-
- }
-   
+  }
+  .plan-card-column:hover  {
+    transform: translateY(-3px);
+    transition: all .25s cubic-bezier(.02,.01,.47,1);
+  }
+  .plan-card-column .active {
+    background-color: #006d77;
+    border: none;
+    color: #fff;
+    
+    transition-duration: .2s;
+  }
  
  .plan-card-price{
     display: inline-block;
@@ -304,6 +336,7 @@ font-weight: 400;
     line-height: 16px;
     color: #98a2b3;
  }
+
  .plan-card-info{
     list-style: none;
     display: inline-block;
@@ -353,7 +386,7 @@ font-weight: 400;
     max-width: 1320px;
     margin-top: 100px;
     max-width: 100%;
-
+margin-bottom: 150px;
     flex: 0 0 auto;
     width: 83.3333333333%;
     margin-right: auto;
@@ -362,7 +395,9 @@ font-weight: 400;
     background-color: #bee1e6;
     border-radius: 18px;
     padding: 52px 74px;
+    
  }
+
  .newsletter-container{
     
     display: flex;

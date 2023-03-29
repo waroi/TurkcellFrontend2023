@@ -326,6 +326,7 @@
 
 .companies {
 	margin: 80px 0px 0px;
+	max-width: 100%;
 }
 
 .companies_title h2 {
@@ -333,9 +334,11 @@
 	font-weight: 700;
 	text-align: center;
 	margin: 0px 0px 60px;
+
 }
 
 .companies_list {
+
 	padding: 0px 12px;
 	display: flex;
 	justify-content: center;
@@ -392,7 +395,7 @@
 
 .fresh_ideas_img {
 	padding: 0px 30px 0px 12px;
-	width: 50%;
+	max-width: 100%;
 }
 
 .fresh_img1 img {
@@ -409,7 +412,7 @@
 
 .fresh_ideas_text {
 	padding: 0px 12px 0px 40px;
-	width: 50%;
+	max-width: 100%;
 }
 
 .fresh_ideas_text span {
@@ -469,4 +472,83 @@
 	font-size: 14px;
 	line-height: 20px;
 	color: #475467;
+}
+
+@media screen and (max-width: 390px) {
+	.container {
+		padding: 0 10px;
+	}
+
+	.nav_items {
+		display: none;
+	}
+
+	.get_started {
+		display: none;
+	}
+
+	.nav_logo {
+		padding: 10px 0px;
+	}
+
+	.nav_logo img {
+		width: 100px;
+	}
+
+	.hamburger {
+		top: 15px;
+	}
+
+	.hamburger i {
+		font-size: 20px;
+		color: #667085;
+	}
+
+	.banner {
+		padding: 80px 5px 0px;
+	}
+
+	.banner_imgs {
+		display: none;
+	}
+
+	.banner_text {
+		margin: 10px 0px 0px;
+		padding: 0 5px;
+		width: 100%;
+	}
+
+	.banner_h1 {
+		font-size: 30px;
+		line-height: 32px;
+		margin: 30px 0px 0px;
+	}
+
+	.banner_boxes {
+		gap: 25px;
+	}
+
+	.companies {
+		margin: 20px 0px 0px;
+	}
+
+	.companies_title h2 {
+		font-size: 25px;
+	}
+
+	.compony_list_item {
+		padding: 30px 20px;
+	}
+
+	.compony_list_item img {
+		width: 50px;
+	}
+
+	.fresh_ideas {
+		flex-wrap: wrap;
+	}
+
+	.fresh_ideas_img {
+		padding: 0px 12px 20px 12px;
+	}
 }
