@@ -19,7 +19,7 @@
   --green-icon: #006d77;
 }
 p {
-  color: var(--gray-text);
+  /* color: var(--gray-text); */
 }
 h1,
 h2,
@@ -35,16 +35,12 @@ img {
   width: 100%;
   height: auto;
 }
-a {
-  text-decoration: none;
-}
-li {
-  list-style: none;
-}
 * {
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   /* box-sizing: border-box; */
+  list-style: none;
+  text-decoration: none;
 }
 .container {
   padding: 0 12px;
@@ -123,7 +119,7 @@ li {
   width: 26px;
   height: 26px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 9999999999;
 }
 .menu__btn > span,
 .menu__btn > span::before,
@@ -149,13 +145,14 @@ li {
   top: 0;
   right: 0%;
   width: 380px;
-  min-height: 100vh;
+  min-height: 90vh;
   margin: 0;
   list-style: none;
   background-color: #ffffff;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   overflow-y: scroll;
   padding: 0 0 30px;
+  z-index: 9999999;
 }
 .menu__box-top {
   display: grid;
@@ -266,6 +263,8 @@ li {
 }
 .for-dropdown-sub > i {
   float: right;
+  z-index: 99999999;
+  position: absolute;
 }
 
 .section-dropdown-sub {
@@ -666,6 +665,13 @@ li {
   border-radius: 16px;
   padding: 55px 50px 0;
   text-align: center;
+}
+.card-box1 > p {
+  color: var(--gray-text2);
+  font-size: 14px;
+  line-height: 19px;
+  font-family: Noto Sans, sans-serif;
+  font-weight: 400;
 }
 .card-box1:hover {
   transform: translatey(-5px);
