@@ -1,0 +1,72 @@
+/* GRID */
+
+/* body{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  display: grid;
+  height: 800px;
+  background-color: rgb(65, 96, 149);
+  padding: 30px;
+  gap: 20px; */
+  /* grid-template-columns: 100px 100px 100px 150px 150px 150px; */
+  /* grid-template-columns: 150px auto 150px auto 150px 150px; */
+  /* grid-template-columns: 150px 1fr 150px 2fr 150px 150px; */
+  /* grid-template-columns: 1fr 2fr 5fr; */
+  /* grid-template-columns: repeat(3, 3fr);
+  grid-template-rows: repeat(2, 1fr); */
+  /* grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(2, 100px); */
+  /* grid-auto-columns: 1fr;
+  grid-auto-rows: 3fr; */
+  /* grid-template-columns: minmax(200px, 500px) 1fr 2fr;
+  grid-template-rows: 200px 1fr 2fr; */
+  /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+  align-content: center;
+}
+.item{
+  background-color: rgb(234, 3, 255);
+  padding: 30px;
+} */
+
+/* GRID AREA */
+.container{
+  display: grid;
+  height: 600px;
+  background-color: rgb(167, 167, 167);
+  gap: 5px;
+  grid-template-areas: 
+    "header header header"
+    "sidebar section section"
+    "sidebar . ."
+    "footer footer footer"
+    "box-1 box-1 box-1";
+}
+.header{
+  grid-area: header;
+  background-color: rgb(255, 112, 3);
+  padding: 20px;
+}
+.section{
+  grid-area: section;
+  background-color: rgb(3, 255, 37);
+  padding: 20px;
+}
+.sidebar{
+  grid-area: sidebar;
+  background-color: rgb(3, 154, 255);
+  padding: 20px;
+}
+.footer{
+  grid-area: footer;
+  background-color: rgb(255, 3, 171);
+  padding: 20px;
+}
+.box-1{
+  grid-area: box-1;
+  background-color: rgb(255, 3, 3);
+  padding: 20px;
+}
