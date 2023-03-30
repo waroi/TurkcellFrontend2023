@@ -16,9 +16,16 @@
 body {
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
+    align-items: center;
+}
+
+.big-boy {
     overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 100px;
 }
 
 img {
@@ -33,6 +40,7 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: -1;
 }
 
 .right-out {
@@ -43,6 +51,8 @@ img {
     left: 40%;
     right: 0;
     bottom: 0;
+    z-index: -1;
+
 }
 
 .wavy-img {
@@ -120,6 +130,7 @@ h2.heading {
 .sub-btn input {
     padding: 25px 24px;
     border-radius: 10px;
+    margin: 16px;
     color: #fff;
     background-color: #0c7f86;
     font-size: 16px;
@@ -155,7 +166,6 @@ h2.heading {
     width: 345px;
     height: 345px;
     margin-bottom: 32px;
-    position: relative;
     z-index: 1;
 }
 
@@ -217,16 +227,16 @@ h2.heading {
     position: relative;
 }
 
-/* .big {
+.big {
     position: absolute;
     width: 800px;
     height: 800px;
     border-radius: 50%;
     border: 2px solid #0c7f86;
     animation: big-c 10s infinite;
-} */
+}
 
-/* .small {
+.small {
     position: absolute;
     width: 345px;
     height: 345px;
@@ -235,10 +245,10 @@ h2.heading {
     animation: small-c 10s ease-in-out infinite;
     top: -10px;
 
-} */
+}
 
 
-.profile-img::before {
+/* .profile-img::before {
     content: '';
     position: absolute;
     top: -45px;
@@ -266,7 +276,7 @@ h2.heading {
     user-select: none;
     z-index: 0;
     animation: big-c 10s linear infinite alternate;
-}
+} */
 
 @keyframes big-c {
     0% {
@@ -357,6 +367,17 @@ h2.heading {
 
     .inp-ico {
         display: none;
+    }
+
+    .sub-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .sub-btn input {
+        width: 85%;
     }
 
     .cont {

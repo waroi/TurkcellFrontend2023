@@ -339,7 +339,7 @@ nav {
 	margin: 5rem 0;
 }
 
-.whatwedo .container{
+.whatwedo .container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 3rem;
@@ -433,7 +433,6 @@ nav {
 	gap: 3rem;
 	justify-self: center;
 	align-items: center;
-	
 }
 
 .text {
@@ -562,14 +561,29 @@ h3 {
 }
 /* What we Do Sonu */
 .customer {
-	background-color: grey;
+	background-color: #f2f4f7;
 	border-radius: 40px;
+	margin: 5rem 0;
+	padding: 5rem;
 }
 
 .customer-head {
-	width: 70%;
-	justify-self: center;
 	text-align: center;
+}
+
+.customer-header {
+	color: #101828;
+	font-family: Chivo, sans-serif;
+	font-size: 56px;
+	font-weight: 700;
+	line-height: 64px;
+}
+
+.customer-text {
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 32px;
+	margin: 1em 0 2em;
 }
 
 .customer-card {
@@ -580,20 +594,129 @@ h3 {
 }
 
 .customer-box {
+	display: grid;
 	border-radius: 20px;
 	padding: 1em;
 	background-color: white;
+	gap: 1em;
+	padding: 3.5em 3em;
+}
+
+.customer-box-top {
+	color: #101828;
+	font-size: 22px;
+	line-height: 24px;
+	font-weight: 700;
+	font-family: Chivo, sans-serif;
+}
+
+.customer-box-mid {
+	color: #475467;
+	font-size: 16px;
+	line-height: 28px;
+	font-weight: 400;
+}
+
+.customer-box-bot {
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: 1fr 4fr;
+	gap: 1em;
+	align-items: center;
+}
+
+.customer-box-bot-text h4 {
+	color: #101828;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 700;
+	display: grid;
+}
+
+.customer-box-bot-text p {
+	color: #101828;
+	font-size: 14px;
+	line-height: 19px;
+	font-weight: 400;
+}
+
+.customer-card-image {
+	margin-top: 1em;
+	width: 100%;
+	border-radius: 10px;
+}
+
+.customer-box-img {
 }
 
 .price {
-	background-color: white;
-	padding: 1em;
+	background-color: aqua;
+	padding: 5em;
 }
 
 .price-head {
 }
 
+.price-head-month {
+	margin: 2em 0;
+	text-align: center;
+	align-items: center;
+}
+
 .price-offer-list {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
+}
+
+/* PRICE CSS */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+input:checked + .slider {
+	background-color: #2196f3;
+}
+input:focus + .slider {
+	box-shadow: 0 0 1px #2196f3;
+}
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+.slider.round:before {
+	border-radius: 50%;
 }
