@@ -319,8 +319,126 @@
     left: 100px;
 }
 
+.howItWorksIcon{
+    font-size: 25px;
+    color: #006d77;
+}
 
+.hrDiv{
+    width: 70%;
+    margin:0 auto;
+    margin-bottom: 100px;
+}
 
+.hr{
+    height: 1px;
+    background-color: #ccc;
+    border: none;
+}
+
+.freshIdeasSection{
+    width: 100%;
+}
+
+.ideasSectionWrap{
+    width: 70%;
+    height: 1000px;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: row;
+}
+
+.leftSide{
+    width: 50%;
+    height: 1000px;
+}
+
+.bigImg{
+    width: 615px;
+    height: 715px;
+    position: relative;
+}
+
+.imgBig{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.smallImg{
+    width: 270px;
+    height: 204px;
+    position: absolute;
+    bottom:-100px;
+    right: -60px;
+    -webkit-box-shadow: 10px 10px 32px 0px rgba(240,240,240,1);
+    -moz-box-shadow: 10px 10px 32px 0px rgba(240,240,240,1);
+    box-shadow: 10px 10px 32px 0px rgba(240,240,240,1);
+}
+
+.imgSmall{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.blue{
+    color: #006d77;
+    background-color: #BEE1E6;
+    width: 230px;
+}
+
+.homeItemWrap{
+    display: flex;
+    flex-direction: row;
+}
+
+.rightSide{
+    width: 50%;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+}
+
+.rightSideHeader h1{
+    font-size: 60px;
+    font-family: Chivo,sans-serif;
+}
+
+.rightSideParag p{
+    color: #475467;
+    margin-top: 30px!important;
+    font-family: Noto Sans,sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.itemInfoHeader h3{
+    font-family: Chivo,sans-serif;
+    font-weight: 700;
+    letter-spacing: 0;
+    font-size: 28px;
+    line-height: 32px;
+    color: #101828;
+}
+
+.itemInfoParag p{
+    margin-top: 15px!important;
+    font-family: Noto Sans,sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.rightSideItem{
+    margin-top:50px;
+}
+
+.itemInfo{
+    margin-left:12px;
+}
 
 /*SECTION DISCOVER*/
 
@@ -419,13 +537,13 @@
 
 .cross-text h4 {
     /* margin-bottom: 15px!important; */
-    margin: 0;
+    margin-top:20px;
     font-size: 28px;
     font-family:"Chivo", sans-serif;
 }
 
 .extremely-text h4{
-    margin: 0;
+    margin-top: 20px;
     font-size: 28px;
     font-family:"Chivo", sans-serif;
 }
@@ -477,12 +595,12 @@
 
     .discover-container-box{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap:2rem;
     }
 
     .extremely-box{
-        width: 30%;
+        width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -491,8 +609,8 @@
     .cross-box{
         display: flex;
         flex-direction: column;
-        width: 100%;
         justify-content: center;
+        width: 50%;
     }
 }
 
@@ -577,6 +695,7 @@ section.built {
 }
 
 .built-container-titles {
+    margin: 50px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -748,18 +867,29 @@ section.information {
     width: 100%;
 }
 
+.imgbt1{
+    width: 600px;
+    height: 700px;
+    position: relative;
+}
+
 .imgbt1 img{
     width: 100%;
+    height: 100%;
     border-radius: 16px;
 }
 
+.imgbt2{
+    position: absolute;
+    width: 310px;
+    height: 330px;
+    bottom:-100px;
+    right: -60px;
+}
 
 .imgbt2 img {
-    position: absolute;
-    /* top: 150px; */
-    right: 240px;
-    width: 300px;
-    bottom: -1350px;
+    width: 100%;
+    height: 100%;
     border-radius: 16px;
 }
 
@@ -815,18 +945,6 @@ section.customers {
     justify-content: center;*/
 }
 
-.cusbox1 {
-    width: 40%;
-    background-color: #FFFFFF;
-    padding: 53px 48px;
-    box-shadow: inset 0 40px 80px #fcfcfc;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: 0.4s all;
-    gap: 2rem;
-}
 
 .customers-titles h2{
     font-size: 56px;
@@ -883,7 +1001,7 @@ section.customers {
 }
 
 .cusbox2 {
-    width: 80%;
+    width: 100%;
     background-color: #FFFFFF;
     padding: 53px 48px;
     box-shadow: inset 0 40px 80px #fcfcfc;
@@ -896,7 +1014,7 @@ section.customers {
 }
 
 .cusbox1 {
-    width: 80%;
+    width: 100%;
     background-color: #FFFFFF;
     padding: 53px 48px;
     box-shadow: inset 0 40px 80px #fcfcfc;
@@ -909,7 +1027,7 @@ section.customers {
 }
 
 .cusbox3 {
-    width: 80%;
+    width: 100%;
     background-color: #FFFFFF;
     padding: 53px 48px;
     box-shadow: inset 0 40px 80px #fcfcfc;
@@ -922,7 +1040,7 @@ section.customers {
 }
 
 .cusbox4 {
-    width: 80%;
+    width: 100%;
     background-color: #FFFFFF;
     padding: 53px 48px;
     box-shadow: inset 0 40px 80px #fcfcfc;
@@ -1021,23 +1139,27 @@ section.customers {
 }
 
 .kısım1-baslik h1{
-    font-size: 3rem;
+    font-size: 56px;
+    font-family: Chiova, sans-serif;
+
 }
 .kısım1-card h3{
     padding-top: 1rem;
     font-size: 1.8rem;
+    font-family: Noto Sans, sans-serif;
 
 }
 .kısım1-container{
+    margin-top:30px;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 18px;
 }
 
 .kısım1-card{
-    width: 22%;
+    width: 15%;
     height: auto;
-    border: 1px solid grey;
+    border: 1px solid rgb(212, 212, 212);
     border-radius: 10px;
     text-align: left;
     padding: 2rem;
@@ -1096,7 +1218,7 @@ section.customers {
     padding-bottom: 6rem;
 }
 .kısım2-container{
-    width: 70%;
+    width: 55%;
     height: 350px;
     background-color: #bee1e6;
     border-radius: 20px;
@@ -1125,12 +1247,24 @@ section.customers {
     color: #83c5be;
 }
 .kısım2-img{
-    width:30%;
+    width:332px;
+    height: 402px;
     border-radius: 20px;
     position: absolute;
     right: 55px;
-  
 }
+
+.spanH1{
+    font-size: 17px;
+    color:rgb(201, 201, 201)
+}
+
+.kısım1-card h1{
+    font-size: 35px;
+    font-weight: 700;
+    font-family: Noto Sans, sans-serif;
+}
+
 .kısım2-img2 img{
     width: 250px;
     position: relative;
@@ -1164,6 +1298,7 @@ section.customers {
     position: absolute;
     bottom: 3px;
     left: 260px;
+    margin-left: 30px;
 }
 .kısım3-row{
     display: grid;
@@ -1184,9 +1319,15 @@ section.customers {
     border: 1px solid;
 }
 
+.kısım3{
+    width: 70%;
+    margin:0 auto;
+}
+
 #section-t-f{
-    width: 100%;
+    width: 70%;
     height: auto;
+    margin:0 auto;
 
 }
 .t-footer{
@@ -1223,6 +1364,8 @@ section.customers {
 }
 .kısım5{
     display: flex;
+    width: 70%;
+    margin: 0 auto;
 }
 .kısım5-metin{
     display: flex;
