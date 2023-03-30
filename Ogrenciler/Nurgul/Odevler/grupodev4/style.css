@@ -15,7 +15,7 @@ body {
     font-size: 16px;
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
+    
 }
 
 .bg-1 {
@@ -41,6 +41,7 @@ body {
 
 .container {
     padding: 30px;
+    overflow: hidden;
 }
 
 .header>img {
@@ -56,12 +57,27 @@ body {
 }
 
 .animation-x {
+    background-image: url('https://demo.cocobasic.com/seppo-html/demo-5/images/wavy-shape.png');
     width: 100%;
+    height: 20px;
+    background-size: 645px 20px;
+    background-repeat: repeat-x;
+    animation: snake 15s linear infinite;
+    margin: 25px 0;
 }
 
-.animation-x>img {
-    width: 100%;
+
+@keyframes snake {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: 645px;
+    }
 }
+
+
 
 .title h3 {
     font-size: 22px;
@@ -109,7 +125,7 @@ body {
     transition: .5s ease;
     cursor: pointer;
     position: relative;
-    z-index: -1;
+    z-index: 1;
 }
 
 .input-area>button:hover {
@@ -166,6 +182,8 @@ body {
     font-weight: 600;
     line-height: 30px;
     color: #084b4f;
+    position: relative;
+    z-index: 333;
 
 }
 .profile>h5{
@@ -175,16 +193,20 @@ body {
     letter-spacing: 5px;
     margin-bottom: 24px;
     color: #084b4f;
-
+    position: relative;
+    z-index: 3;
 }
 .profile>p{
     line-height: 30px;
     margin-bottom: 24px;
     text-align: justify;
     color: #084b4f;
+    position: relative;
+    z-index: 3;
 }
 .profile>ul{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 .profile>ul>li>a{
@@ -222,10 +244,13 @@ body {
         color: #fff;
     }
 }
+
+
 @media screen and (min-width: 1024px){
     .container{
         max-width: 1140px;
         margin: 0 auto;
+        overflow: hidden;
     }
     .bg-1{
         width: 40%;
@@ -271,6 +296,10 @@ body {
     .profile-img {
         width: 90%;
         position: relative;  
+    }
+    .profile-img::after{
+        right: -430px;
+        top: -100px;
     }
  
 
