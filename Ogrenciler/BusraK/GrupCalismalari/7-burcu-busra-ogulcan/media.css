@@ -1,0 +1,146 @@
+@media only screen and (min-width: 1024px) {
+  body {
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    height: 100dvh;
+
+    width: 100vw;
+    width: 100dvw;
+  }
+  .pc-left-bg,
+  .pc-right-bg {
+    display: block;
+    position: absolute;
+  }
+  .pc-left-bg {
+    background: #e5fff9;
+    left: 0;
+    right: 60%;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+  }
+  .pc-right-bg {
+    background: #b8e4da;
+    z-index: -1;
+    left: 40%;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 0;
+    width: 1024px;
+    margin: 0 auto;
+    align-self: center;
+  }
+  .cta {
+    width: 60%;
+  }
+  h1 {
+    padding: 30px 0 20px 0;
+    font-size: 90px;
+    line-height: 1.2em;
+  }
+  .cta > p {
+    font-size: 28px;
+    letter-spacing: 25px;
+  }
+  .submit {
+    gap: 16px;
+    margin: 50px 0;
+  }
+  .email {
+    padding: 26px 24px;
+    flex: 5;
+    border-radius: 10px;
+  }
+  .email::placeholder {
+    font-size: 16px;
+  }
+  .btn {
+    padding: 25px 24px;
+    font-size: 16px;
+    margin: 0;
+  }
+  .hero {
+    width: 30%;
+    overflow: unset;
+    padding-top: 60px;
+  }
+  .circle-2 {
+    z-index: 1;
+    width: 750px;
+    height: 750px;
+    top: 75px;
+    left: -50px;
+    border: 1px solid #0c7f86;
+    border-radius: 50%;
+    animation: circle2 8s linear infinite;
+  }
+  @keyframes circle2 {
+    0% {
+      top: 75px;
+    }
+    50% {
+      top: -50px;
+      opacity: 0%;
+    }
+    100% {
+      top: 75px;
+    }
+  }
+  .circle-1 {
+    position: absolute;
+    bottom: -15px;
+    top: -5px;
+    left: 30px;
+    right: -50px;
+    z-index: 5;
+    border: 3px solid #0c7f86;
+    border-radius: 50%;
+    animation: circle1 10s linear infinite;
+  }
+  @keyframes circle1 {
+    0% {
+      left: 30px;
+      right: -50px;
+    }
+    50% {
+      opacity: 0%;
+      left: -20px;
+      right: 0px;
+    }
+    100% {
+      left: 30px;
+      right: -50px;
+    }
+  }
+
+  .ceo {
+    letter-spacing: 5px;
+    line-height: 30px;
+  }
+  .name {
+    margin-top: 16px;
+  }
+  .hero-paragraph {
+    line-height: 30px;
+    margin-bottom: 24px;
+  }
+  .links {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .caption {
+    line-height: 30px;
+    letter-spacing: 5px;
+  }
+}
