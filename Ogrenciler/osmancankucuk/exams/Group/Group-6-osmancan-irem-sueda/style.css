@@ -289,7 +289,7 @@ body {
   margin: 0 auto;
   background-color: #bee1e6;
   border-radius: 10px;
-  /* padding: 3em 2em 3em 5em; */
+  padding: 3em 2em 3em 5em;
 }
 .subscribeSection {
   margin: 6em 0 10em 0;
@@ -395,20 +395,23 @@ body {
 .subscribeMainImage {
   max-width: 332px;
   position: absolute;
-  top: 30px;
+  top: 20px;
+
   border-radius: 10px;
   right: 10px;
 }
+
 .staticImage {
-  position: absolute;
-  bottom: 25px;
-  left: 80px;
+  position: relative;
+  bottom: -120px;
+  left: 10px;
   max-width: 255px;
   height: 194px;
   z-index: 2;
   transition: all 0.3s ease 0s;
 }
 .staticImage img {
+  position: absolute;
   border-radius: 10px;
   animation: static-animation 2s linear infinite alternate;
 }
@@ -890,16 +893,17 @@ img {
     text-align: center;
   }
   .subscribeMainImage {
-    max-width: 90%;
+    max-width: 100%;
     position: static;
 
     border-radius: 10px;
   }
 
-  .staticImage {
-    position: static;
-    bottom: 25px;
-    left: 80px;
+  .staticImage img {
+    position: absolute;
+
+    left: -21px;
+    top: 100px;
     max-width: 255px;
     height: 194px;
     z-index: 2;
@@ -907,6 +911,7 @@ img {
   }
   .subscribeContainer {
     width: 100%;
+    padding: 1em 1em;
   }
 }
 @media screen and (max-width: 390px) {
