@@ -135,15 +135,6 @@
     border: none;
 }
 
-.howItWorksButton::before{
-    font-family: "Font Awesome 5 Free";
-    content: "\f061";
-    display: inline-block;
-    vertical-align: top;
-    font-size: 12px;
-    margin-right: 15px;
-}
-
 .statisticsItem h3{
     font-family: Chivo,sans-serif;
     font-weight: 700;
@@ -186,6 +177,9 @@
 .bannerLeftSide{
     width: 60%;
     padding: 100px 0 100px 100px;
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
 }
 
 
@@ -197,8 +191,15 @@
     gap:100px;
 }
 
+.imageWrap{
+    position: relative;
+    width: 490px;
+    height: 600px;
+}
+
 .bannerMainImage{
     width: 100%;
+    height: 100%;
     animation: mainImageAnimation 8s forwards 1s ease-in-out infinite;
 }
 
@@ -234,7 +235,7 @@
     position: absolute;
     width: 220px;
     right: 400px;
-    top: 440px;
+    top: 320px;
     border-radius: 10px;
     animation: bannerImageAnimation 10s forwards 1s ease-in-out infinite;
 }
@@ -255,9 +256,9 @@
 .bannerPaymentImage{
     position: absolute;
     width: 155px;
-    right: 30px;
+    right: -70px;
     border-radius: 10px;
-    top: 200px;
+    top: 50px;
     animation: paymentImageAnimation 10s forwards 1s ease-in-out infinite;
 }
 
@@ -323,6 +324,14 @@
     font-size: 25px;
     color: #006d77;
 }
+
+.howItWorks{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+}   
 
 .hrDiv{
     width: 70%;
@@ -582,87 +591,6 @@
     margin-top: 50px;
 }
 
-@media only screen and (min-width: 996px){
-    .discover-container {
-        flex-direction: column;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-    }
-    .discover-container-titles{
-        width: 80%;
-    }
-
-    .discover-container-box{
-        display: flex;
-        flex-direction: row;
-        gap:2rem;
-    }
-
-    .extremely-box{
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .cross-box{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 50%;
-    }
-}
-
-/*@media only screen and (max-width: 1200px){
-    .discover-container {
-        flex-direction: column;
-        align-items: center;
-        display: flex;
-    }
-    .discover-container-titles{
-        width: 100%;
-    }
-
-    .discover-container-box{
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr, 1fr;
-        display: grid;
-    }
-
-}*/
-
-@media only screen and (max-width: 768px){
-    .discover-container {
-        flex-direction: column;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-    }
-    .discover-container-titles{
-        width: 80%;
-    }
-
-    .discover-container-box{
-        display: flex;
-        flex-direction: column;
-        gap:2rem;
-    }
-
-    .extremely-box{
-        width: 30%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .cross-box{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        justify-content: center;
-    }
-}
 
 /* SECTION BUILT*/
 
@@ -1090,47 +1018,6 @@ section.customers {
     transform: translateY(-15px);
 }
 
-@media only screen and (max-width: 768px){
-
-    .customers-container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        justify-content: space-around;
-        height: 100vh;
-        padding: 0;
-    }
-
-    .customers-boxs{
-        flex-direction: column;
-    }
-
-    .customers-content{
-        width: 80%;
-    }
-}
-
-@media only screen and (max-width: 996px){
-
-    .customers-container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        justify-content: space-around;
-        height: 100vh;
-        padding: 0;
-    }
-
-    .customers-boxs{
-        flex-direction: column;
-    }
-
-    .customers-content{
-        width: 80%;
-    }
-}
-
-
 .ty-kısım1{
     display: flex;
     flex-direction: column;
@@ -1396,6 +1283,14 @@ section.customers {
     transform: translateY(-5px);
     background-color: #145c62;
 }
-@media only screen and (max-width: 400px){
-    
+@media only screen and (max-width: 990px){
+    .navBarGetStarted{
+        display: none;
+    }
+    .navBarMenuWrap{
+        display: none;
+    }
+    .bannerRightSide{
+        display: none;
+    }
 }
