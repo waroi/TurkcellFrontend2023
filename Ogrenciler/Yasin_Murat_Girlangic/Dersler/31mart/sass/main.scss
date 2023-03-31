@@ -1,0 +1,43 @@
+$bgcolor: red;
+$x150: 150px;
+$y100: 100px;
+
+@mixin boxFunction($x, $y, $bg) {
+    width: $x;
+    height: $y;
+    background-color: $bg;
+}
+
+.container {
+    display: flex;
+    &:hover{
+        background-color: blue;
+    }
+    .box1{
+        // width: $x150;
+        // height: $y100;
+        // background-color: $bgcolor;
+        @include boxFunction($x150, $y100, $bgcolor);
+    }
+    .box2{
+        // width: $x150;
+        // height: $y100;
+        // background-color: black;
+        @include boxFunction($x150 * 2, $y100, black);
+    }
+    .box3{
+        // width: $x150;
+        // height: $y100;
+        // background-color: green;
+        @include boxFunction($x150, $y100 * 3, green);
+    }
+    .box4{
+        // width: $x150;
+        // height: $y100;
+        // background-color: $bgcolor;
+        @include boxFunction($x150, $y100, $bgcolor);
+        &:hover{
+            background-color: purple;
+        }
+    }
+}
