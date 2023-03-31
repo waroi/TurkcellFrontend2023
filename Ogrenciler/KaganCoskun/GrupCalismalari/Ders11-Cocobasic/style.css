@@ -1,0 +1,55 @@
+.scooter {
+  position: relative;
+  display: flex;
+  animation: vespa 10s infinite linear;
+}
+
+.vespa {
+  position: relative;
+  width: 300px;
+  height: 216px;
+}
+
+.rear-wheel {
+  position: absolute;
+  width: 133px;
+  border-radius: 50%;
+
+  left: 28px;
+  bottom: 2px;
+  margin: -37px;
+  z-index: -1;
+  animation: wheel 1s infinite linear;
+}
+.front-wheel {
+  position: absolute;
+  border-radius: 50%;
+  width: 133px;
+  margin: -37px;
+  left: 236px;
+  bottom: 2px;
+  z-index: -1;
+  animation: wheel 1s infinite linear;
+}
+
+@keyframes vespa {
+  0% {
+    transform: translateX(-400px);
+  }
+  /* 50% {
+    transform: translateX(50vw);
+    transform: rotate(-45deg);
+  } */
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes wheel {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

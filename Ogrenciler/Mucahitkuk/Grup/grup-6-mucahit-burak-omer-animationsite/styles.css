@@ -1,16 +1,239 @@
+:root{
+  --text-color: #0c7f86;
+  --main-color: #0c7f86;
+}
+body {
+position: relative;
+padding: 0;
+margin: 0;
+font-size: 16px;
+min-height: 100vh;
+width: 100%;
+overflow: hidden;
+}
+
+
 .container {
   width: 100%;
   max-width: 1200px;
   padding: 0 24px;
   margin: 0 auto;
 }
-
 header {
   padding-top: 60px;
+  padding-left: 20px;
 }
-
+.section{
+  display: grid;
+  grid-template-columns: 8fr 3.5fr;
+  gap: 100px;
+}
 header img {
   display: block;
   width: 98px;
   height: 56px;
+}
+h1{
+  font-size: 100px;
+  padding: 100px 0 0;
+  line-height: 1;
+  color: var(--text-color);
+  text-align: left;
+  vertical-align: top;
+}
+h4{
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 30px;
+}
+.subtitle{
+  text-transform: uppercase;
+  letter-spacing: 30px;
+  color: var(--text-color);
+  font-weight: 900;
+  font-size: 32px;
+}
+.form{
+  display: flex;
+  margin: 50px 0 0 0;
+  align-items: center;
+}
+.form img{
+  width: 34px;
+  height: 50px;
+}
+.form input{
+  width: 60%;
+  border-radius: 10px;
+  margin: 0 15px;
+  padding: 10px;
+  border: 1px solid #cecece;
+  box-shadow: 7px -1px 25px -8px rgba(0,0,0,0.5);
+  height: 60px;
+  outline: none;
+}
+.form input:focus{
+  box-shadow: 0px;
+  border: 1px solid #0c7f86;
+}
+
+.btn{
+padding: 20px 24px;
+background-color: var(--text-color);
+border-radius: 10px;
+border: none;
+color: white;
+}
+.img-box {
+  position: relative;
+}
+.img-box img{
+  max-width: 100%;
+  border-radius: 50%;
+  z-index: 1;
+}
+.img-title-section{
+  margin: 50px 0 0 0;
+  color: var(--text-color);
+}
+.person-p{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 5px;
+  margin-bottom: 24px;
+}
+.coming-links{
+  margin: 50px 0 0 0;
+  display: flex;
+  font-style: normal;
+  justify-content: space-between;
+}
+.coming-links a{
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 800;
+}
+.wave-image{
+  background-image: url("https://demo.cocobasic.com/seppo-html/demo-5/images/wavy-shape.png");
+  width: 100%;
+  height: 20px;
+  background-size: 645px 20px;
+  background-repeat: repeat-x;
+  animation: wavy-motion 15s linear infinite;
+  margin: 25px 0;
+}
+.bg-shape-1{
+  position: absolute;
+    height: 100%;
+    width: 40%;
+    background-color: #e5fff9;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+.bg-shape-2{
+  position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 60%;
+    background-color: #b8e4da;
+    z-index: -1;
+}
+.img-box::before {
+  content: '';
+  position: absolute;
+  top: -45px;
+  left: -30px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 3px solid #fafafa;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  animation: animate-img-circle 8s linear infinite;
+}
+.img-box::after{
+  content: '';
+  position: absolute;
+  right: -420px;
+  top: 0;
+  width: 800px;
+  height: 800px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+  animation: animate-img-circle-2 3s linear infinite alternate;
+}
+@keyframes wavy-motion {
+  0% {
+    background-position-x: 0%;
+}
+100% {
+    background-position-x: 645px;
+}
+}
+@keyframes animate-img-circle {
+  0% {
+      top: -20px;
+      left: -20px;
+  }
+
+  50% {
+      top: -20px;
+      left: 20px;
+      border-color: var(--main-color);
+  }
+
+  100% {
+      top: -20px;
+      left: -20px;
+  }
+}
+@keyframes animate-img-circle-2 {
+  from {
+      top: -70px;
+  }
+  to {
+      top: 10px;
+      border-color: var(--main-color);
+  }
+}
+@media screen and (max-width:600px) {
+  .container{
+    padding: 0 0 30px 0;
+    background-color: #e5fff9;
+  }
+  h1{
+    font-size: 60px;
+    padding-top: 30px;
+  }
+  .bg-shape-1{
+    width: 100%;
+  }
+  .bg-shape-2{
+    display: none;
+  }
+  .form{
+    flex-direction: column;
+  }
+  .form .btn{
+    width: 100%;
+    margin: 16px;
+  }
+  .form input{
+    width: 100%;
+    margin: 0;
+  }
+  .form img{
+    display: none;
+  }
+  .section{
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
 }
