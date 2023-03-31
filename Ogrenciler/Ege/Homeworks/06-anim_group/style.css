@@ -850,6 +850,49 @@ li.footer-element:hover {
 
 /* ------------------- */
 
+/* Toggle */
+
+
+#toggle {
+    display: none;
+}
+
+label[for="toggle"] {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background-color: #000;
+    border-radius: 30px;
+}
+
+label[for="toggle"]::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+#toggle:checked+label[for="toggle"] {
+    background-color: #006d77;
+}
+
+#toggle:checked+label[for="toggle"]::before {
+    transform: translateX(30px);
+}
+
+.toggle-checkbox {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
 
 @media screen and (max-width:1200px) {
     .menu {
