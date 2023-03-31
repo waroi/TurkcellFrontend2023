@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: gray;
+}
+
+.box{
+    background-color: orange;
+    width: 150px;
+    height: 150px;
+    /* transition-property: background-color; */
+    /* transition-duration: 1s; */
+    /* transition: all 1s ease-in-out; */
+    /* animation-name: aa; */
+    /* animation-duration: 2s; */
+    /* animation-iteration-count: infinite; */
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 1s; */
+    /* animation-direction: alternate-reverse; */
+    animation: aa 2s forwards 1s ease-in-out infinite
+}
+
+.box:hover{
+    /* background-color: green; */
+    /* width: 300px; */
+    /* transform: scale(3); */
+    /* transform: skew(-30deg) */
+    /* transform: rotate(180deg); */
+    /* transform: translateX(100px); */
+    /* transform: translateY(100px) translateX(100px); */
+    /* transform: translate(100px, -100px) rotate(180deg); */
+}
+
+@keyframes aa {
+    0%{
+        background-color: orangered;
+        transform: translate(0,0);
+    }
+    50%{
+        background-color: gray;
+        transform: translate(50px,50px) rotate(50deg);
+    }
+    100%{
+        background-color: black;
+        transform: translate(100px,100px);
+    }
+}

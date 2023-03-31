@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gainsboro;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: #b61616;
+  /* transition-property: background-color;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out; */
+  /* animation: aa 3s forwards 1s ease-in-out infinite; */
+  animation: infinite ;
+}
+
+.box:hover {
+  background-color: rgb(50, 228, 18);
+}
+
+@keyframes aa {
+  0% {
+    background-color: #b61616;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    background-color: rgb(191, 3, 208);
+    transform: translate(300px, 300px) rotate(180deg);
+  }
+  100% {
+    background-color: #b61616;
+    transform: translate(0, 0) rotate(0deg);
+  }
+}

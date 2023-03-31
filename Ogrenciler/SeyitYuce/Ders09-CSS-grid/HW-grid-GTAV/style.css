@@ -148,7 +148,7 @@ nav > a:hover {
   transition: 0.3s ease;
 }
 
-.content-text > h2:hover {
+.tag:hover {
   box-shadow: 0 0.5px 0.5px 0.5px #fff, 0 6px 20px 0 #fff;
   transition: 0.3s ease;
 }
@@ -253,9 +253,13 @@ footer {
   background: #06d85f;
 }
 
+.popups {
+  /* position: relative; */
+}
+
 .overlay {
   position: fixed;
-  top: 0;
+  top: 20px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -263,6 +267,7 @@ footer {
   transition: opacity 500ms;
   visibility: hidden;
   opacity: 0;
+  position: absolute;
 }
 
 .overlay:target {
@@ -276,10 +281,10 @@ footer {
   background: #686868;
   border-radius: 5px;
   width: 80%;
-  height: 85%;
+  height: 80vh;
   position: relative;
   /* transition: all 5s ease-in-out; */
-  z-index: 9999;
+  z-index: 99999;
   overflow-y: scroll;
 }
 
@@ -302,15 +307,6 @@ footer {
 
 .popup .close:hover {
   color: #06d85f;
-}
-
-.popup .content {
-  /* max-height: 30%; */
-  /* overflow: auto; */
-}
-
-.popup-content {
-  /* overflow-x: scroll; */
 }
 
 .popup-content > img {

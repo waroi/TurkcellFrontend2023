@@ -1,0 +1,64 @@
+body{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: 9e9e9e;
+}
+.box{
+  background-color: rgb(0, 119, 119);
+  width: 150px;
+  height: 150px;
+  /* transition-property: background-color; */
+  /*property all olunca bütün propertyleri etkileyebiliyoruz*/
+  /* transition-duration: .5s; */
+  /*transition-timing-function: ease-in-out ; ease başlangıçta ve bitişte animasyonun yumuşamasını sağlıyor */
+/* transition: background-color 5s, width 1s ease-in-out ; */
+/* transition: all 1s ease-in-out; */
+/***************animation******************/
+animation-name:aa;
+/*1) ilk olarak bir animation name tanımlıyoruz.*/
+animation-duration: 2s;
+/* 3) infinite ile sürekli tekrar etmesini sağlayabiliyoruz */
+animation-iteration-count: infinite;
+/* 4)delay ile geciktirebiliyoruz */
+animation-delay: 2s;
+/* 5)direction ile yönünü çevirebiliyoruz */
+/* animation-direction: alternate-reverse; */
+/* animation-timing-function: ease-in-out; */
+/* bu yazdıklarımızı tek satıra da indirgeyebiliriz */
+animation: aa 2s forwards 1s ease-in-out infinite;
+/* burada 2. girdiğimiz 1 dely ilki ise duration */
+}
+.box:hover{
+  /* background-color: blueviolet; */
+  /* width: 300px; */
+  /* border-radius: 25px; */
+  /* transform: scale(2); */
+  /* transform özellikleri ile yer ve boyut değişikliği yapabiliriz */
+  /* transform: rotate(180deg); */
+  /* transform: skew(-30deg); objeyi kaydırıyor */
+  /* transform: translateX(500px); translate ile eksenlerde taşıma yapıyoruz */
+}
+/*2)tanımladığımız animation-name ile bir key frames oluşturuyoruz*/
+@keyframes aa{
+/* yüzdelik değereler sürenin yüzdelerini tanımlıyor */
+  0%{
+background-color: blueviolet;
+transform: translate(0,0);
+}
+50%{
+  background-color: burlywood;
+  transform: translate(100px,-100px) rotate(180deg);
+}
+30%{
+  transform: translateX(-300px);
+}
+90%{
+  transform: translateY(-300px);
+}
+100%{
+  background-color: rgb(70, 43, 226);
+  transform: translate(0,0);
+}
+}

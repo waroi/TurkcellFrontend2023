@@ -1,0 +1,41 @@
+body{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: #aa0f0f;
+}
+
+.box{
+    background-color: burlywood;
+    width: 150px;
+    height: 150px;
+    /*transition: all 1s ease-in-out; */
+    /* animation-name: aa;
+    animation-duration: 2s;
+    /* animation-iteration-count:infinite 
+    animation-iteration-count: 3; */
+    animation: aa 2s forwards 1s ease-in-out infinite;
+}
+
+.box:hover{
+/* background-color: rgb(21, 12, 148); */
+/* transform: scale(2); */
+/* transform: rotate(180deg); */
+/*transform: skew(-360deg); */
+/*transform: translateX(100px); */
+/*transform: translate(-100px,100px) rotate(180deg); */
+}
+
+
+@keyframes aa{
+    0%{
+        background-color: cornflowerblue;
+        transform: translate(0,0);
+    }    
+
+    50%{
+        background-color: #59ee6f;
+        transform: translate(100px,-100px) rotate(180deg);
+    }
+}

@@ -1,0 +1,53 @@
+body {
+  display: flex;
+  height: 300vh;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.box {
+  background-color: blue;
+  width: 150px;
+  height: 150px;
+  /* transition: background-color,0.5s,ease-in-out; */
+  /* transition: all, 5s, ease-in-out; */
+  /* transition-property: all;
+    transition-duration: 0.5ms;
+    transition-timing-function: ease-in-out; */
+  /* animation-name: aa;
+  animation-duration: 2s; */
+  /* animation-iteration-count: infinite; */
+  /* animation-iteration-count: 2;
+  animation-delay: 1s; */
+  /* animation-direction: alternate-reverse; */
+  /* animation-timing-function: ease-in-out; */
+  animation: aa 2s forwards 1s ease-in-out infinite;
+}
+
+.box:hover {
+  background-color: brown;
+  /* width: 300px; */
+  /* border-radius: 50%; */
+  /* transform: scale(2); büyütme */
+  /* transform: rotate(180deg); döndürme */
+  /* transform: skew(-30deg); yamultma */
+  /* transform: translateX(100px); x de kaydırma */
+  /* transform: translateX(100px) rotate(180deg); */
+  /* transform: translate(200px,200px); */
+}
+
+@keyframes aa {
+  0% {
+    background-color: blue;
+    transform: translate(0, 0);
+  }
+  50% {
+    background-color: blueviolet;
+    transform: translate(100px, -100px);
+  }
+  100% {
+    background-color: black;
+    transform: translate(0, 0);
+  }
+}
