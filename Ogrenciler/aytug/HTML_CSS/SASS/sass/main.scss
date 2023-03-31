@@ -1,0 +1,47 @@
+$bgColor: red;
+$x150: 150px;
+$x100: 100px;
+
+// .box1 {
+// 	background-color: $bgColor;
+// 	width: $x150;
+// 	height: $x100;
+// }
+
+// .box2 {
+// 	background-color: $bgColor;
+// 	width: $x150 * 2;
+// 	height: $x100;
+// }
+@mixin boxFunction($color, $w, $h) {
+	background-color: $color;
+	width: $w;
+	height: $h;
+}
+.container {
+	display: flex;
+	&:hover {
+		background-color: green;
+	}
+	.box1 {
+		@include boxFunction(orange, $x150, $x100);
+	}
+
+	.box2 {
+		@include boxFunction($bgColor, $x150, $x100 * 2);
+	}
+
+	.box3 {
+		@extend .box2;
+		width: 300px;
+	}
+
+	.box4 {
+		background-color: $bgColor;
+		width: $x150 * 4;
+		height: $x100;
+		&.deneme {
+			background-color: blue;
+		}
+	}
+}
