@@ -1,0 +1,24 @@
+$bgColor: red;
+$x150: 150px;
+$x100: 100px;
+
+@mixin boxFunxtion($Color, $w, $h) {
+  background-color: $Color;
+  width: $w;
+  height: $h;
+}
+.container {
+  display: flex;
+  .box-1 {
+    @include boxFunxtion($bgColor, $x150, $x100);
+  }
+  .box-2 {
+    @include boxFunxtion(orange, $x150, $x100);
+  }
+  .box-3 {
+    @include boxFunxtion(green, $x150, $x100);
+  }
+  .box-4 {
+    @include boxFunxtion($bgColor, $x150, $x100);
+  }
+}
