@@ -1,0 +1,52 @@
+$bgcolor:red;
+$x150:150px;
+$x100:100px;
+
+.container{
+  display: flex;
+  background-color: bisque;
+}
+// .box1{
+//   background-color: $bgcolor;
+//   width: $x150;
+//   height: $x100;
+// }
+// .box2{
+//   background-color: $bgcolor;
+//   width: $x150*2;
+//   height: $x100;
+// }
+// .box4{
+//   background-color: $bgcolor;
+//   width: $x150*3;
+//   height: $x100;
+//   &{
+//     background-color: aqua;
+//   }
+// }
+@mixin boxFunction( $w, $h,$color){
+  background-color: $color; 
+  width: $w;
+  height: $h;
+}
+.container{
+  display: flex;
+  background-color: bisque;
+}
+.box1{
+  @include boxFunction($x100, $x150, #5f0624);
+  border-right:1px black solid;
+}
+// .box2{
+//   @include boxFunction(#493737,$x150*2,$x100*2)
+// }
+.box3{
+  @extend .box1;
+  
+}
+.box4{
+  @include boxFunction(#c7489d,$x150,$x100);
+  &.deneme{ 
+   background-color: aqua;
+  }
+}
