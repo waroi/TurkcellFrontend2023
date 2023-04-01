@@ -1,0 +1,73 @@
+$color-yellow: yellow;
+$menuButtonBg: #f00;
+$paddingX: 100px;
+$paddingY: 50px;
+
+h1 {
+  color: $color-yellow;
+}
+
+header {
+  background-color: gainsboro;
+  .menu {
+    max-width: 1260px;
+    margin: 0 auto;
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      li {
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+        background-color: $menuButtonBg;
+        &:hover {
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+@mixin containerBox ($width, $height, $color, $margin) {
+  width: $width;
+  height: $height;
+  background-color: $color;
+  margin: $margin;
+}
+
+.container {
+  width: 100%;
+  padding: $paddingY $paddingX;
+  display: flex;
+  justify-content: center;
+
+  .box1 {
+    @include containerBox(100px, 100px, $menuButtonBg, 10px $paddingX);
+    transition: all .3s ease-in-out;
+    &:hover {
+      background-color: $menuButtonBg;
+      border-radius: 42px;
+    }
+  }
+
+  .box2 {
+    @include containerBox(200px, 300px, $color-yellow, 10px $paddingX);
+    transition: all .5s ease-in-out;
+    &:hover {
+      @include containerBox(400px, 400px, green, 10px 20px);
+      border-radius: 45px;
+    }
+  }
+
+  .box3 {
+    @extend .box2;
+  }
+
+  .box4 {
+    @include containerBox(100px, 100px, purple, 10px 200px);
+    &.deneme {
+      background-color: $color-yellow;
+    }
+  }
+}

@@ -62,7 +62,53 @@ i.fa-arrow-right {
   padding-left: 10px;
 }
 
+
+/*⁡⁣⁣⁢---- ⁡⁢⁣⁣ANIMATIONS⁡ ⁡⁣⁣⁢----⁡⁡*/
+
+@keyframes leftToRight {
+  0%{
+    transform: translate(0, 0);
+  }
+  50%{
+    
+    transform: translate(-20px, 0);
+  }
+  100%{
+    
+    transform: translate(0, 0);
+  }
+}
+@keyframes upToLeft {
+  0%{
+    transform: translate(0, 0);
+  }
+  50%{
+    
+    transform: translate(0, 50px);
+  }
+  100%{
+    
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes upToDown {
+  0%{
+    transform: translate(0, 0);
+  }
+  50%{
+    
+    transform: translate(0, 20px);
+  }
+  100%{
+    
+    transform: translate(0, 0);
+  }
+}
+
 /*⁡⁣⁣⁢---- ⁡⁣⁣⁢HEADER⁡ ⁡⁣⁣⁢----⁡⁡*/
+
+
 
 header {
   background-color: #bee1e6;
@@ -178,6 +224,10 @@ p.header5-box-p {
 .header-right-box {
   position: relative;
 }
+.header-right-box  img{
+  animation: upToDown 5s forwards 1s ease-in-out infinite;
+
+}
 
 .block1 {
   position: absolute;
@@ -186,6 +236,7 @@ p.header5-box-p {
   z-index: 3;
   width: 220px;
   height: 260px;
+  animation: leftToRight 5s forwards 1s ease-in-out infinite;
 }
 
 .block2 {
@@ -195,6 +246,8 @@ p.header5-box-p {
   right: -80px;
   height: 169px;
   width: 155px;
+  animation: upToLeft 5s forwards 1s ease-in-out infinite;
+
 }
 
 .sharp {
@@ -805,6 +858,8 @@ li.s7-box2 {
 }
 .s8-inner-img img {
   max-width: 100%;
+  animation: upToDown 5s forwards 1s ease-in-out infinite;
+
 }
 
 /* FOOTER  */

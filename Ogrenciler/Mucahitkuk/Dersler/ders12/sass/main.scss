@@ -1,0 +1,32 @@
+$text-color: black;
+$width: 500px;
+$height: 500px;
+
+.container {
+  width: $width;
+  height: $height;
+  display: flex;
+  justify-content: center;
+  &:hover {
+    background-color: red;
+  }
+  .box1 {
+    width: 50%;
+    height: 50%;
+    background-color: antiquewhite;
+  }
+  .box2 {
+    width: 200px;
+    height: 200px;
+    background-color: brown;
+  }
+  .box3 {
+    width: 100%;
+    height: 100%;
+    background-color: darkblue;
+    &.deneme {
+      background-color: blueviolet;
+      width: $width;
+    }
+  }
+}

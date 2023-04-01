@@ -1,7 +1,149 @@
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr minmax(350px, 1200px) 1fr;
+}
+
+.container > * {
+  grid-column: 2;
+}
+
+.bg-shape-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2000px;
+  width: 40%;
+  background-color: #e5fff9;
+  z-index: -1;
+}
+
+.bg-shape-2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2000px;
+  width: 60%;
+  background-color: #b8e4da;
+  z-index: -1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  padding-top: 10px;
+}
+
+header img {
+  width: 98px;
+}
+
+.holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coming-text {
+  width: calc(60%);
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 120px;
+  font-weight: 700;
+  line-height: 120px;
+  letter-spacing: -4px;
+  text-align: left;
+  vertical-align: top;
+  color: #0c7f86;
+  margin: 20px 0;
+}
+
+.subtitle {
+  color: #0c7f86;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 35px;
+  letter-spacing: 30px;
+  text-transform: uppercase;
+  padding-top: 15px;
+}
+
+.coming-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+.arrow {
+  width: 34px;
+  height: 50px;
+}
+
 .scooter {
   position: relative;
   display: flex;
   animation: vespa 10s infinite linear;
+}
+
+input[type="text"] {
+  font-size: 18px;
+  padding: 20px 24px;
+  flex-grow: 1;
+  margin: 0 16px;
+  border: none;
+  outline: none;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 30px 7px #0c7f8640;
+  transition: 0.5s ease;
+}
+
+.btn-filled {
+  padding: 25px 24px;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #0c7f86;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: 0.5s ease;
+}
+
+.coming-image {
+  width: calc(30%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coming-image .img-box {
+  position: relative;
+  margin-bottom: 32px;
+  z-index: 1;
+}
+
+.coming-image img {
+  position: relative;
+  max-width: 100%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  z-index: 1;
+  background: black;
+  padding-top: 40px;
 }
 
 .vespa {
@@ -34,7 +176,7 @@
 
 @keyframes vespa {
   0% {
-    transform: translateX(-400px);
+    transform: translateX(-330px);
   }
   /* 50% {
     transform: translateX(50vw);
