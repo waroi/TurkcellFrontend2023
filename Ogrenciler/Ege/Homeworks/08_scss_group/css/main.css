@@ -48,6 +48,7 @@ a {
 
 .title {
   position: relative;
+  margin-bottom: 20px;
 }
 .title.center {
   text-align: center;
@@ -68,6 +69,7 @@ a {
 .sub-heading {
   color: rgba(0, 0, 0, 0.5);
   text-transform: capitalize;
+  padding-bottom: 1rem;
 }
 
 .tag {
@@ -111,13 +113,28 @@ a {
   color: white;
 }
 
+.featured-ads {
+  background-color: #f8f9fa;
+  padding: 25px 0;
+}
+.featured-ads h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #000;
+}
+.featured-ads .card:nth-child(n+2) {
+  display: none;
+}
+
 .card {
   width: 340px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
   margin-bottom: 30px;
-  margin-left: 30px;
 }
 .card .card-tag {
   background-color: #e9ecef;
@@ -182,8 +199,11 @@ a {
   color: #2f89fc;
 }
 
-.other .card-img {
+.trending .card-img {
   height: 250px;
+}
+.trending .card .card-img {
+  background-image: url("https://preview.colorlib.com/theme/directoryads/images/img_3.jpg.webp");
 }
 
 .blog-card {
@@ -248,7 +268,7 @@ header {
 
 .hero {
   min-height: 100vh;
-  background-position: 50% -25px;
+  background-position: 50%;
   background-repeat: no-repeat;
   padding: 2rem 0;
   background-size: cover;
