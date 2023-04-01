@@ -1,0 +1,36 @@
+$bgColor: red;
+$px150: 150px;
+$x100: 100px;
+
+// fonksiyonların parametrelerini boş bırakıp default değer verilebilir.
+
+@mixin boxFunction($color, $w, $h) {
+  background-color: $color;
+  width: $w;
+  height: $h;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  max-width: 1320px;
+  margin: auto;
+
+  &:hover {
+    background-color: green;
+  }
+
+  .box1 {
+    @include boxFunction($bgColor, $px150, $x100);
+  }
+  .box2 {
+    @include boxFunction(orange, $px150 * 2, $x100);
+  }
+
+  .box4 {
+    @include boxFunction(blue, $px150, $x100 * 4);
+    &.deneme {
+      background-color: blue;
+    }
+  }
+}
