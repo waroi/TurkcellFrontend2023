@@ -31,7 +31,6 @@ $font11: 0.6875rem;
 
 body {
   font-family: "Nanum Gothic", sans-serif;
-  background-color: black;
 }
 
 a {
@@ -63,9 +62,10 @@ ul {
 }
 
 header {
-  background-color: transparent;
-  margin: 40px 0;
-
+  // background-color: rgba(0, 0, 0, 0.4);
+  padding: 40px 0;
+  width: 100%;
+  position: absolute;
   nav {
     padding: 30px 10px;
     display: flex;
@@ -159,5 +159,56 @@ header {
     @include btnFunc($colorBlue, $colorWhite, 0.25rem, 12px 20px !important);
     font-size: $font15;
     margin-left: 40px;
+  }
+}
+
+#hero {
+  position: relative;
+  background-image: url(https://preview.colorlib.com/theme/directoryads/images/hero_2.jpg.webp);
+  background-position: 50% -25px;
+  min-height: 600px;
+  width: 100%;
+  z-index: -1;
+  &::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .hero {
+    min-height: 600px;
+    height: calc(100vh);
+    align-items: center;
+  }
+
+  .hero-wrap {
+    position: relative;
+    z-index: 1;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+
+    .hero-title {
+      font-size: $font48;
+      font-weight: 900;
+      line-height: 1.2;
+      color: $colorWhite;
+      margin-bottom: 8px;
+    }
+
+    .hero-text {
+      font-size: $font20;
+      font-weight: 400;
+      line-height: 1.5;
+      color: $colorWhite;
+      margin-bottom: 16px;
+    }
   }
 }
