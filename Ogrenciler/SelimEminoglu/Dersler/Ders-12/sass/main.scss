@@ -1,0 +1,50 @@
+$bgColor:red;
+$x150:150px;
+$x100:100px;
+
+// Fonksiyonlar yukarıda yazılmak zorunda
+
+@mixin boxFunction($color,$w,$h){
+    background-color: $color;
+    width: $w;
+    height: $h;
+}
+
+.container{
+    display: flex;
+    &:hover{
+        background-color: green;
+    }
+    .box1{
+        @include boxFunction($bgColor,$x150,$x100)  //örnek fonksiyon çağrımı
+    }
+    .box3{
+        @extend .box1; //box1 içindeki tüm bilgileri kopyalar
+        width: 250px;
+    }
+    .box2{
+    background-color: black;
+    width: $x150*2; //burada *2 ile direkt kat verebiliriz
+    height: $x100;
+    }
+    .box4{
+    background-color: gray;
+    width: $x150*4; //burada *4 ile direkt kat verebiliriz
+    height: $x100;
+    &.deneme{
+        background-color: blue;
+    }
+    }
+}
+
+.box1{
+    background-color: $bgColor;
+    width: $x150*2; //burada *2 ile direkt kat verebiliriz
+    height: $x100;
+}
+
+.box2{
+    background-color: $bgColor;
+    width: $x150;
+    height: $x100;
+}
