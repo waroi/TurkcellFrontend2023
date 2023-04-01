@@ -1,0 +1,51 @@
+$bgColor: red;
+$x150: 150px;
+$x100: 100px;
+
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  .box1{
+    width: $x150;
+    height: $x100;
+  }
+}
+.box2{
+  background-color: $bgColor;
+  width: $x150 * 2;
+  height: $x100; 
+}
+
+.box4{
+  background-color: $bgColor;
+  width: $x150*4;
+  height: $x100;
+  &.deneme{
+    background-color: aqua;
+  }
+}
+// & işareti bir üst parent elementi ifade ediyor
+
+@mixin boxFunction($color, $w, $h){
+  background-color: $color;
+  width: $w;
+  height: $h;
+}
+// mixin ile parametre alan değer fonksiyonunu oluşturup kullanacağımız zaman ise include olarak kullanıyoruz
+.box2{
+  @include boxFunction($bgColor,$x150 ,$x100*9)
+}
+.box3{
+  @include boxFunction(brown,$x150*3 ,$x100 )
+}
+.box1{
+  @extend .box3;
+}
+.box4{
+  @include boxFunction(green,$x150 ,$x100*4 );
+  &.deneme{
+    background: blue;
+  }
+}
+// extend ile box3 ün bütün özelliklerini alır 
