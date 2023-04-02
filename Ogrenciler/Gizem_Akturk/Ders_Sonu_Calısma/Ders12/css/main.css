@@ -30,6 +30,9 @@ header {
   align-items: center;
   position: relative;
 }
+header .container {
+  padding: 0 15px;
+}
 header nav {
   position: absolute;
   top: 30px;
@@ -116,7 +119,8 @@ header .header-content form {
   justify-content: space-evenly;
   align-items: center;
 }
-header .header-content form input, header .header-content form select {
+header .header-content form input,
+header .header-content form select {
   border: none;
   height: 43px;
   border-radius: 0.25rem;
@@ -322,7 +326,9 @@ header .header-content .trending a:hover {
   box-shadow: 0 5px 30px -5px rgba(47, 137, 252, 0.5);
   transform: scale(1.09);
 }
-.popular .category-content .category-card:hover i, .popular .category-content .category-card:hover p, .popular .category-content .category-card:hover h5 {
+.popular .category-content .category-card:hover i,
+.popular .category-content .category-card:hover p,
+.popular .category-content .category-card:hover h5 {
   color: #fff;
 }
 .popular .category-content .category-card:hover h5 {
@@ -577,10 +583,49 @@ footer .footer-top .search-products button {
   color: #fff;
 }
 footer .footer-top .footer-card:first-child {
-  max-width: 30%;
+  width: 30%;
 }
-footer .footer-top .footer-card:nth-child(3), footer .footer-top .footer-card:nth-child(4) {
+footer .footer-top .footer-card:nth-child(3),
+footer .footer-top .footer-card:nth-child(4) {
   margin-bottom: 80px;
+}
+footer .footer-bottom {
+  padding-top: 3rem;
+  margin-top: 3rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+footer .footer-bottom p {
+  font-size: 16px;
+  margin-bottom: 1rem;
+  color: #737373;
+}
+
+@media screen and (max-width: 768px) {
+  .today .ads-card {
+    flex-direction: column;
+    width: 340px;
+  }
+  .blog .newsletter {
+    flex-direction: column;
+  }
+  .blog .newsletter .newsletter-title {
+    width: 80%;
+  }
+  .blog .newsletter form {
+    width: 80%;
+  }
+  .blog .newsletter form button {
+    width: 30%;
+    text-align: left;
+    font-size: 13px;
+  }
+  .footer-card {
+    width: 100%;
+  }
+  .footer-card:first-child {
+    width: 100% !important;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
