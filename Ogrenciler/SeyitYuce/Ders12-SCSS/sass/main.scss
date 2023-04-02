@@ -1,0 +1,30 @@
+$bgColor: red;
+$x100: 100px;
+$x150: 150px;
+@mixin boxFunc($colorbg, $w, $h) {
+  background-color: $colorbg;
+  width: $w;
+  height: $h;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  &hover {
+    background-color: aquamarine;
+  }
+  .box1 {
+    @include boxFunc($bgColor, $x100, $x150);
+  }
+  .box2 {
+    @include boxFunc($bgColor, $x100 * 2, $x150);
+  }
+  .box3 {
+    @include boxFunc($bgColor, $x100 * 3, $x150 * 2);
+  }
+  .box4 {
+    @include boxFunc($bgColor, $x100 * 3, $x150 * 2);
+    &.deneme {
+      background-color: blueviolet;
+    }
+  }
+}
