@@ -87,7 +87,7 @@ header {
   .container {
     text-align: center;
     .topSection {
-      padding-top: 12rem;
+      padding-top: 18rem;
       margin-bottom: 1.5rem;
       color: #FFFFFF;
       h1 {
@@ -211,11 +211,11 @@ header {
     .card {
       width: 23%;
       box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
       border-radius: 7px;
       background: #FFFFFF;
       .cardImg {
         width: 100%;
+        cursor: pointer;
         img {
           width: 100%;
           border-radius: 7px 7px 0 0;
@@ -259,6 +259,11 @@ header {
             font-weight: 500;
             line-height: 1.2;
             margin-bottom: .7rem;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+            &:hover {
+              color: #2970ce;
+            }
           }
           address {
             margin-bottom: 1.5rem;
@@ -280,6 +285,129 @@ header {
             }
           }
         }
+      }
+    }
+  }
+}
+
+.popular {
+  background-color: #FFFFFF;
+  padding: 5rem 0;
+  .topSection {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #2f89fc;
+      margin-bottom: .5rem;
+    }
+    p {
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 1.1rem;
+      line-height: 2rem;
+      &::after {
+        position: absolute;
+        content: "";
+        left: 47%;
+        bottom: -10px;
+        width: 80px;
+        height: 3px;
+        background: #2f89fc;
+      }
+    }
+  }
+  .cardWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: center;
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 12%;
+      gap: 1.5rem;
+      cursor: pointer;
+      background: #FFFFFF;
+      text-align: center;
+      padding: 1.5rem 1.5rem;
+      border-radius: 7px;
+      transition: all .3s ease-in-out;
+      span {
+        font-size: 2.5rem;
+        transition: all .3s ease-in-out;
+        &.icon {
+          color: #2f89fc;
+        }
+        &.typeIcon {
+          color: #666666;
+          font-size: 1rem;
+        }
+        &.number {
+          padding: 7px 20px;
+          border-radius: 30px;
+          display: inline-block;
+          background: #e9ecef;
+          color: #000;
+          font-size: 1rem;
+        }
+      }
+      &:hover {
+        background-color: #2f89fc;
+        transform: scale(1.15);
+        .icon {
+          color: #FFFFFF;
+        }
+        .typeIcon {
+          color: #FFFFFF;
+        }
+        .number {
+          background-color: #2970ce;
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+}
+
+.section2 {
+  .topSection {
+    position: relative;
+    margin-bottom: 5rem;
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #2f89fc;
+      margin-bottom: .5rem;
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: -10px;
+        left: 0;
+        width: 90px;
+        height: 3.5px;
+        background: #2f89fc;
+      }
+    }
+  }
+  .cardWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .card {
+      width: 100%;
+      display: flex;
+      .cardImg {
+        background: url("https://preview.colorlib.com/theme/directoryads/images/img_2.jpg.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 45%;
+      }
+      .cardInfo {
+        width: 55%;
+        padding: 1.5rem;
       }
     }
   }

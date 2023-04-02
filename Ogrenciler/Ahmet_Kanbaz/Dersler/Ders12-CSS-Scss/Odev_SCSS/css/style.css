@@ -83,7 +83,7 @@ header .container .logInContainer .register span {
   text-align: center;
 }
 .welcome .container .topSection {
-  padding-top: 12rem;
+  padding-top: 18rem;
   margin-bottom: 1.5rem;
   color: #FFFFFF;
 }
@@ -207,12 +207,12 @@ header .container .logInContainer .register span {
 .featured .cardWrapper .card {
   width: 23%;
   box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
   border-radius: 7px;
   background: #FFFFFF;
 }
 .featured .cardWrapper .card .cardImg {
   width: 100%;
+  cursor: pointer;
 }
 .featured .cardWrapper .card .cardImg img {
   width: 100%;
@@ -253,6 +253,11 @@ header .container .logInContainer .register span {
   font-weight: 500;
   line-height: 1.2;
   margin-bottom: 0.7rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.featured .cardWrapper .card .cardInfo .middleCardInfo h3:hover {
+  color: #2970ce;
 }
 .featured .cardWrapper .card .cardInfo .middleCardInfo address {
   margin-bottom: 1.5rem;
@@ -269,6 +274,127 @@ header .container .logInContainer .register span {
 .featured .cardWrapper .card .cardInfo .middleCardInfo .stars .review {
   font-size: 0.9rem;
   margin-left: 0.2rem;
+}
+
+.popular {
+  background-color: #FFFFFF;
+  padding: 5rem 0;
+}
+.popular .topSection {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+.popular .topSection h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2f89fc;
+  margin-bottom: 0.5rem;
+}
+.popular .topSection p {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1.1rem;
+  line-height: 2rem;
+}
+.popular .topSection p::after {
+  position: absolute;
+  content: "";
+  left: 47%;
+  bottom: -10px;
+  width: 80px;
+  height: 3px;
+  background: #2f89fc;
+}
+.popular .cardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.popular .cardWrapper .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 12%;
+  gap: 1.5rem;
+  cursor: pointer;
+  background: #FFFFFF;
+  text-align: center;
+  padding: 1.5rem 1.5rem;
+  border-radius: 7px;
+  transition: all 0.3s ease-in-out;
+}
+.popular .cardWrapper .card span {
+  font-size: 2.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.popular .cardWrapper .card span.icon {
+  color: #2f89fc;
+}
+.popular .cardWrapper .card span.typeIcon {
+  color: #666666;
+  font-size: 1rem;
+}
+.popular .cardWrapper .card span.number {
+  padding: 7px 20px;
+  border-radius: 30px;
+  display: inline-block;
+  background: #e9ecef;
+  color: #000;
+  font-size: 1rem;
+}
+.popular .cardWrapper .card:hover {
+  background-color: #2f89fc;
+  transform: scale(1.15);
+}
+.popular .cardWrapper .card:hover .icon {
+  color: #FFFFFF;
+}
+.popular .cardWrapper .card:hover .typeIcon {
+  color: #FFFFFF;
+}
+.popular .cardWrapper .card:hover .number {
+  background-color: #2970ce;
+  color: #FFFFFF;
+}
+
+.section2 .topSection {
+  position: relative;
+  margin-bottom: 5rem;
+}
+.section2 .topSection h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2f89fc;
+  margin-bottom: 0.5rem;
+}
+.section2 .topSection h2::after {
+  position: absolute;
+  content: "";
+  bottom: -10px;
+  left: 0;
+  width: 90px;
+  height: 3.5px;
+  background: #2f89fc;
+}
+.section2 .cardWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.section2 .cardWrapper .card {
+  width: 100%;
+  display: flex;
+}
+.section2 .cardWrapper .card .cardImg {
+  background: url("https://preview.colorlib.com/theme/directoryads/images/img_2.jpg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 45%;
+}
+.section2 .cardWrapper .card .cardInfo {
+  width: 55%;
+  padding: 1.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */
