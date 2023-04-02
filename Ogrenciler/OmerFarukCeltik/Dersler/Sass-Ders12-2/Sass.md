@@ -179,3 +179,38 @@ ul {
         }
     }
 }
+
+
+## package lock json dosyası içerisinde script düzenleyerek sass in css e yazmasını sağladık
+
+{
+  "name": "sass-ders12-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass -w sass:css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.60.0"
+  }
+}
+
+bu sayede takip edip üzerine yazıyor 
+
+npm init 
+npm i sass
+script package.json
+npm run sass
+
+.box4{
+  background-color: $bgColor;
+  width: $x150*4;
+  height: $x100;
+  &.deneme{
+    background-color: aqua;
+  }
+}
+// & işareti bir üst parent elementi ifade ediyor

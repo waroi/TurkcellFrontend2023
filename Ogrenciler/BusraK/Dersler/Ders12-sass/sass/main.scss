@@ -6,8 +6,9 @@ $x100:100px;
 
 @mixin boxFunction($color,$h,$w){
   background-color: $color;
-  width: $w;
+  width: $x150;
   height: $h;
+  color: aqua;
   
   }
 
@@ -44,12 +45,13 @@ $x100:100px;
 
 
   .box2{
-    @include boxFunction($bgColor,$x150 ,$x100 );
+    @include boxFunction(red,10px,10px);
+    color:rgb(255, 255, 255);
   }
 
   
   .box1{
-    @include boxFunction(#ff9655,$x150 ,$x100 *2 );
+    @include boxFunction(#66f959,$x150 ,$x100 *2 );
   }
 
   .box3{
