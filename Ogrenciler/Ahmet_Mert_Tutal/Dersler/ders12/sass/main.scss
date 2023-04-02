@@ -1,0 +1,20 @@
+$bgColor:red;
+$x150:150px;
+$x100:100px;
+@mixin box($bgColor,$x,$y){
+    background-color:$bgColor;
+    width:$x;
+    height:$y;
+}
+.container{
+    @include box($bgColor,$x150,$x100);
+    .box1{
+        @include box(orange,$x150,$x100);
+    }
+    .box2{
+        @include box(blue,$x150*2,$x100);
+    }
+}
+
+
+
