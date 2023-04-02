@@ -1,0 +1,23 @@
+$bgColor:red;
+$x150:150px;
+$x100:100px;
+
+@mixin boxFunction($color, $w,$h){
+    background-color: $color;
+    width: $w;
+    height: $h;
+}
+
+.container{
+    display: flex;
+    &:hover{
+        background-color: greenyellow;
+    }
+}
+.box1{
+    @include boxFunction(red,100px ,200px )
+}
+
+.box2{
+    @include boxFunction(purple,$x150 ,$x100 )
+}

@@ -1,0 +1,43 @@
+$bgColor: red;
+$x150: 150px;
+$x100: 100px;
+$roundedCorners: 15px;
+
+@mixin boxFunction($colorBg, $w, $h) {
+  background: $colorBg;
+  width: $w;
+  height: $h;
+  border-radius: $roundedCorners;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  box-sizing: border-box;
+  &:hover {
+    background: limegreen;
+  }
+  .box1 {
+    @include boxFunction($bgColor, $x150, $x100);
+  }
+
+  .box2 {
+    @include boxFunction(orange, $x150 * 2, $x100);
+  }
+
+  .box3 {
+    @include boxFunction(skyblue, $x150 * 3, $x100);
+  }
+
+  .box4 {
+    @extend .box3;
+
+    &.deneme {
+      background: blue;
+    }
+  }
+}
