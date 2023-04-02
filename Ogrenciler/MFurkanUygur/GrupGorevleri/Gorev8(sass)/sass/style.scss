@@ -1,0 +1,344 @@
+$title: #2f89fc;
+$grey-text: #4d4d4d;
+$bg-grey: #f8f9fa;
+$bg-white: #fff;
+$header-tag: #ffffff33;
+$input-area: #ffffffcc;
+$grey-span: #e9ecef;
+$font-family: "Nanum Gothic", sans-serif;
+$border-radius: 30px;
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+@mixin title {
+  font-size: 2rem;
+  color: $title;
+  margin-bottom: 8px;
+}
+
+@mixin section-padding {
+  padding: 80px 0;
+}
+
+//Header backgorund image
+.header {
+  padding-top: 10px;
+  position: relative;
+  z-index: 0;
+  background-image: url("https://preview.colorlib.com/theme/directoryads/images/hero_2.jpg.webp");
+  height: 150vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top center;
+
+  &::before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background-color: #0000004d;
+  }
+}
+
+//Logo ve burger menu container
+.header-container {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+  .header-logo {
+    margin: 0 10px;
+    h1 {
+      font-size: 20px;
+      color: $bg-white;
+      font-family: $font-family;
+    }
+  }
+  .header-menu {
+    height: 100%;
+    .hamburger {
+      color: $bg-white;
+      font-weight: 700;
+      font-size: 15px;
+      position: relative;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      z-index: 11;
+    }
+    .check {
+      display: none;
+    }
+    .check:checked ~ .hamburger {
+      color: black;
+    }
+  }
+  .check:checked ~ .nav {
+    display: block;
+  }
+}
+
+//Login solundaki çıbuk
+.login {
+  span {
+    display: none;
+  }
+}
+
+//dropdown menu "about"
+.about {
+  .drop-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-right: 30px;
+    i {
+      margin-left: 100px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  }
+  .drop-input {
+    display: none;
+  }
+  .drop-menu {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  .drop-input + .drop-menu {
+    display: none;
+  }
+  .drop-input:checked + .drop-menu {
+    display: block;
+  }
+}
+
+// içerik başlangıç "welcome to"
+.header-content {
+  position: relative;
+  padding: 60px 0;
+  .main-title {
+    text-align: center;
+    color: $bg-white;
+    font-family: $font-family;
+    p {
+      margin: 10px 0;
+      font-size: 18px;
+      max-width: 400px;
+      margin: 10px auto;
+      line-height: 25px;
+    }
+  }
+  .input-area {
+    background-color: $input-area;
+    display: grid;
+    margin: 50px 15px 10px 15px;
+    padding: 10px;
+    border-radius: 5px;
+    // grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    input,
+    select,
+    button {
+      background-color: $bg-white;
+      margin: 10px 10px;
+      padding: 20px 15px;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      font-family: $font-family;
+      font-size: 16px;
+      color: #212529;
+      &::placeholder {
+        font-family: $font-family;
+        font-size: 15px;
+      }
+    }
+
+    .input-fbtn {
+      background-color: $title;
+      color: $bg-white;
+      font-family: $font-family;
+      padding: 15px;
+      cursor: pointer;
+    }
+  }
+  .trending-search {
+    margin: 0 15px;
+    font-family: $font-family;
+    h3 {
+      font-size: 16px;
+      font-weight: 100;
+      color: $bg-white;
+      margin: 10px 0;
+    }
+    span {
+      border: 1px solid $bg-white;
+      padding: 5px 10px;
+      font-size: 13px;
+      background-color: rgba(255, 255, 255, 0.261);
+      color: $bg-white;
+      border-radius: 5px;
+    }
+  }
+}
+
+//mobile nav
+.nav {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  width: 275px;
+  height: 100%;
+  padding: 20px 0;
+  background-color: $bg-white;
+  font-family: $font-family;
+  font-size: 18px;
+  .main-links {
+    margin-top: 60px;
+    li {
+      margin-top: 26px;
+      a {
+        margin: 0px 30px;
+        color: #212529;
+      }
+    }
+  }
+  .navbar-button {
+    padding: 12px 20px;
+    margin: 0px 30px;
+    background-color: $title;
+    font-family: $font-family;
+    border: none;
+    color: $bg-white;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .hamburger {
+    display: none;
+  }
+
+  .header-container {
+    align-items: center;
+  }
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    //menu ana sınıfı olan nav'ın position'ı ile konumu ayarladık
+    position: relative;
+    background-color: transparent;
+    .main-links {
+      //mobildeki menuyu tek satıra getirdik flex ile
+      display: flex;
+      align-items: center;
+      margin-top: 0px;
+      font-size: 15px;
+      li {
+        margin-top: 0px;
+        a {
+          margin: 0px 10px;
+          color: $bg-white;
+        }
+      }
+    }
+    .login {
+      display: flex;
+      align-items: center;
+      span {
+        display: block;
+        color: $bg-white;
+        margin: 0 20px 0 80px;
+        font-size: 20px;
+      }
+    }
+    .navbar-button {
+      margin-right: 0px;
+      margin-left: 30px;
+      font-size: 15px;
+    }
+  }
+
+  .about {
+    padding: 10px 0;
+    &:hover {
+      .drop-menu {
+        display: block;
+      }
+    }
+    .drop-link {
+      margin-right: 0px;
+      i {
+        color: $bg-white;
+        margin-left: 0;
+        margin-right: 10px;
+        padding: 0px;
+      }
+    }
+    .drop-menu {
+      position: absolute;
+      background-color: $bg-white;
+      margin-top: 10px;
+      li {
+        padding: 10px 20px 10px 0;
+        &:hover {
+          background-color: $bg-grey;
+        }
+
+        a {
+          color: #212529 !important;
+        }
+      }
+    }
+  }
+  .header {
+    height: 100vh;
+  }
+  .header-content {
+    margin-top: 40px;
+    padding: 100px 0;
+    .main-title {
+      h1 {
+        font-size: 48px;
+      }
+      p {
+        max-width: 800px;
+      }
+    }
+    .input-area {
+      grid-template-columns: 4fr 3fr 3fr 2fr;
+      gap: 0.5em;
+      input,
+      select,
+      button {
+        padding: 0 15px;
+      }
+    }
+  }
+
+  .trending-search {
+    display: flex;
+    align-items: center;
+    span {
+      margin: 0 5px;
+    }
+  }
+}
