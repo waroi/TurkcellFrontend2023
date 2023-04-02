@@ -1,0 +1,81 @@
+// h1 {
+//   color: rgb(100, 61, 159);
+//   font-size: 50px;
+// }
+
+// p {
+//   font-size: 30px
+// }
+
+
+$bgColor: rgb(116, 113, 214);
+$x150: 150px;
+$x100: 100px;
+
+// .container {
+//   display: flex;
+
+//   &:hover {
+//     background-color: rgb(202, 140, 194);
+//   }
+
+//   .box1 {
+//     /*sass'da cssleri iç içe yazabiliriz*/
+//     width: $x150;
+//     height: $x100;
+//     background-color: $bgColor;
+//   }
+
+//   .box2 {
+//     width: $x150 *2;
+//     /*çarpı iki kullanabilirim*/
+//     height: $x100;
+//     background-color: $bgColor;
+//   }
+
+//   .box4 {
+//     width: $x150 *4;
+//     height: $x100;
+//     background-color: $bgColor;
+
+//     &.deneme {
+//       background-color: rgb(163, 163, 208)
+//     }
+//   }
+// }
+
+@mixin boxFunction($color, $w, $h) {
+  width: $w;
+  height: $h;
+  background-color: $color;
+}
+
+.container {
+  display: flex;
+
+  &:hover {
+    background-color: #d8e2dc;
+  }
+
+  .box2 {
+    @include boxFunction(#ffe5d9, $x150*3, $x100);
+  }
+
+  .box1 {
+    @include boxFunction(#ffcad4, $x150, $x100*2);
+  }
+
+  .box3 {
+    @extend .box1;
+    /*extend ile bir üstü miras alabliriz*/
+    height: 300px;
+  }
+
+  .box4 {
+    @include boxFunction(#f4acb7, $x150, $x100*2);
+
+    &.deneme {
+      background-color: #9d8189;
+    }
+  }
+}

@@ -2,6 +2,17 @@
   --text-color: #0c7f86;
   --main-color: #0c7f86;
 }
+body {
+position: relative;
+padding: 0;
+margin: 0;
+font-size: 16px;
+min-height: 100vh;
+width: 100%;
+overflow: hidden;
+}
+
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -10,6 +21,7 @@
 }
 header {
   padding-top: 60px;
+  padding-left: 20px;
 }
 .section{
   display: grid;
@@ -129,14 +141,6 @@ color: white;
     background-color: #b8e4da;
     z-index: -1;
 }
-@keyframes wavy-motion {
-  0% {
-    background-position-x: 0%;
-}
-100% {
-    background-position-x: 645px;
-}
-}
 .img-box::before {
   content: '';
   position: absolute;
@@ -164,6 +168,14 @@ color: white;
   user-select: none;
   z-index: 2;
   animation: animate-img-circle-2 3s linear infinite alternate;
+}
+@keyframes wavy-motion {
+  0% {
+    background-position-x: 0%;
+}
+100% {
+    background-position-x: 645px;
+}
 }
 @keyframes animate-img-circle {
   0% {
