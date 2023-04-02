@@ -322,6 +322,7 @@ form {
     .card-body {
       padding: 20px;
       margin-top: 20px;
+      width: 100%;
       > * {
         margin-bottom: $font16;
       }
@@ -375,6 +376,32 @@ form {
           color: #6c757d;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .trending-search {
+    display: block;
+    h2 {
+      margin-bottom: 10px;
+    }
+  }
+
+  .hero {
+    min-height: 400px;
+    height: calc(100vh);
+  }
+  .hero-content {
+    .hero-title {
+      font-size: $font32;
+    }
+    .hero-text {
+      font-size: $font16;
     }
   }
 }
