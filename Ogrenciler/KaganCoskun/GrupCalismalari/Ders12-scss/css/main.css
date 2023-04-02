@@ -6,7 +6,6 @@
 
 body {
   font-family: "Nanum Gothic", sans-serif;
-  background-color: black;
 }
 
 a {
@@ -37,8 +36,9 @@ ul {
 }
 
 header {
-  background-color: transparent;
-  margin: 40px 0;
+  padding: 40px 0;
+  width: 100%;
+  position: absolute;
 }
 header nav {
   padding: 30px 10px;
@@ -139,6 +139,53 @@ header nav {
   cursor: pointer;
   font-size: 0.9375rem;
   margin-left: 40px;
+}
+
+#hero {
+  position: relative;
+  background-image: url(https://preview.colorlib.com/theme/directoryads/images/hero_2.jpg.webp);
+  background-position: 50% -25px;
+  min-height: 600px;
+  width: 100%;
+  z-index: -1;
+}
+#hero::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+#hero .hero {
+  min-height: 600px;
+  height: 100vh;
+  align-items: center;
+}
+#hero .hero-wrap {
+  position: relative;
+  z-index: 1;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+#hero .hero-wrap .hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 8px;
+}
+#hero .hero-wrap .hero-text {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 16px;
 }
 
 /*# sourceMappingURL=main.css.map */

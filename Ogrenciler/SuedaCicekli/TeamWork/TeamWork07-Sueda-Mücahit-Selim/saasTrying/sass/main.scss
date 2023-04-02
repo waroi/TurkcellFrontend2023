@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+* {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+$dark-gray-color: #666666;
+$popular-cat-gray: #00000080;
+$light-gray-color-2: #495057;
+$blue-color: #2f89fc;
+$dark-blue-color: #2a7dea;
+$white-color: #ffffff;
+$primary-bg-color: #f8f9fa;
+$footer-bg-color: #333333;
+$star-yellow: #f89d13;
+$heard-red: #f23a2e;
+$x1140: 1140px;
+$x720: 720px;
+
+body {
+  line-height: 1.7;
+  color: #4d4d4d;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: $x1140;
+  margin: 0 auto;
+
+}
+
+//Featured Ads
+
+
+.review-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+@mixin card-style($card-direction) {
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 150px;
+    border-radius: 7px 7px 0 0px;
+  }
+
+  .tag {
+    padding: 4px 8px;
+    background-color: #e9ecef;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 20px;
+    color: #000;
+  }
+
+  .name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: $blue-color;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 13px;
+    color: #4d4d4d;
+    line-height: 150%;
+  }
+
+  .card__details {
+    background-color: $white-color;
+    padding: 20px;
+    border-radius: 0px 0px 7px 7px;
+  }
+
+  .card-tag {
+    display: flex;
+    justify-content: space-between;
+
+    .love {
+      cursor: pointer;
+      color: $blue-color;
+      font-size: 16px;
+      background-color: #e9ecef;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: $heard-red;
+        color: $white-color;
+      }
+    }
+  }
+}
+
+.review {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+.star {
+  color: $star-yellow;
+  font-size: 14px;
+}
+
+.noStar {
+  color: $light-gray-color-2;
+  font-size: 14px;
+}
+
+.review-section {
+  background-color: $primary-bg-color;
+  padding: 80px 0px;
+
+  .featured {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    @include card-style("vertical");
+    display: grid;
+  }
+}
+
+
+// Popüler Categories Kısmı
+
+.category-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-size: 32px;
+    color: $blue-color;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 0;
+    font-size: 16px;
+    color: $popular-cat-gray;
+  }
+}
+
+// Popüler Katergori Kartları
+
+.categories-cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  .card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 30px 10px;
+
+    &:hover {
+      box-shadow: 0 5px 30px -5px rgba(47, 137, 252, 0.5);
+      z-index: 1;
+      border-radius: 7px;
+      background-color: $blue-color;
+
+      .category-icon {
+        color: $white-color;
+      }
+
+      .category-title {
+        color: $white-color;
+      }
+
+      .category-number-tag {
+        background: $dark-blue-color;
+        color: $white-color;
+      }
+    }
+  }
+}
+
+.category-icon {
+  font-size: 40px;
+  color: $blue-color;
+  margin-bottom: 10px;
+}
+
+.category-title {
+  font-size: 15px;
+  color: #666666;
+  margin-bottom: 0.5rem !important;
+}
+
+.category-number-tag {
+  padding: 2px 20px;
+  background: #e9ecef;
+  color: #000;
+  font-size: 14px;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+
+@media (min-width: 1200px) {
+  .container1 {
+    max-width: $x1140 ;
+  }
+}
+
+// 990px için
+@media (max-width: 990px) {
+  .container {
+    max-width: $x720;
+  }
+
+  .categories-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .review-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+
+    .card img {
+      width: 253px;
+    }
+
+    .box-4 {
+      display: none;
+    }
+  }
+}
+
+// 768px için
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+
+    .review-cards {
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+
+      .card img {
+        width: 280px;
+      }
+
+      .box-3 {
+        display: none;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 575px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .review-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .card img {
+      width: 340px !important;
+    }
+
+    .box-2 {
+      display: none;
+    }
+
+
+
+  }
+
+  .categories-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

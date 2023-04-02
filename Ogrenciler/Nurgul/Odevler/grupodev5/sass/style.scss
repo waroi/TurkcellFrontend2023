@@ -1,27 +1,175 @@
-$title:#2f89fc;
-$grey-text:#4d4d4d;
-$bg-grey:#f8f9fa;
-$bg-white:#fff;
-$header-tag:#ffffff33;
-$input-area:#ffffffcc;
-$grey-span:#e9ecef;
-$font-family: 'Nanum Gothic', sans-serif;
-$border-radius:30px;
+$title: #2f89fc;
+$grey-text: #4d4d4d;
+$bg-grey: #f8f9fa;
+$bg-white: #fff;
+$header-tag: #ffffff33;
+$input-area: #ffffffcc;
+$grey-span: #e9ecef;
+$font-family: "Nanum Gothic", sans-serif;
+$border-radius: 30px;
+$box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.1);
 
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-    
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
 @mixin title {
-    font-size: 2rem;
-    color: $title;
-    margin-bottom: 8px;
+  font-size: 2rem;
+  color: $title;
+  margin-bottom: 8px;
 }
-@mixin section-padding{
-    padding:80px 0;   
+@mixin section-padding {
+  padding: 80px 0;
+}
+// nurgul start
+.trend {
+  @include section-padding;
+  background-color: $bg-grey;
+  padding-left: 15px;
+}
+.n-title {
+  position: relative;
+}
+.n-title h2 {
+  @include title;
+  font-family: $font-family;
+}
+.n-title::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  width: 80px;
+  height: 3px;
+  background: $title;
+  transform: translateX(0%);
+}
+.n-cards {
+  margin-top: 50px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.box {
+  width: max-content;
+  height: 172px;
+  box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  border-radius: 7px;
+  position: relative;
+  background: $bg-white;
+  box-sizing: $box-shadow;
+}
+.box img {
+  width: 460px;
+  height: auto;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+.n-item {
+  padding: 20px;
+  width: 100%;
+  position: relative;
+}
+.span {
+  background-color: $grey-span;
+  border-radius: $border-radius;
+  padding: 5px 20px;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+.n-icon {
+  position: absolute;
+  // background-color:#4d4d4d;
+  // border-radius: 50%;
+  right: 20px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
 }
 
+.n-item h3 {
+  color: $title;
+  padding-top: 16px;
+}
+.n-item p {
+  font-size: 13px;
+  padding-top: 10px;
+  margin-bottom: 1rem;
+  color: $grey-text;
+}
+.star {
+  padding-bottom: 10px;
+}
+.star span {
+  font-family: $font-family;
+  font-size: 13px;
+  color: $grey-text;
+}
+.testimonial {
+  @include section-padding;
+  background-color: $bg-white;
+  padding-left: 15px;
+  text-align: center;
+}
+.test-title {
+  position: relative;
+  text-align: center;
+  padding-bottom: 10px;
+}
+.test-title h2 {
+  @include title;
+  font-family: $font-family;
+}
+.test-title::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 50%;
+  width: 80px;
+  height: 3px;
+  background: $title;
+  transform: translateX(-50%);
+}
+.profile img {
+  display: block;
+  max-width: 100px;
+  margin: 30px auto;
+  border-radius: 50%;
+}
+.profile p {
+  display: block;
+  font-family: $font-family;
+}
+.paragraph {
+  font-family: $font-family;
+  margin-top: 30px;
+  font-size: 1.5rem;
+  font-style: italic;
+  padding-left: 250px;
+  padding-right: 250px;
+  color: $grey-text;
+  line-height: 1.7;
+}
+@media (min-width: 1024px) {
+  .trend {
+    padding-left: 80px;
+  }
+
+  .n-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .box img {
+    width: 275px;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+  }
+}
