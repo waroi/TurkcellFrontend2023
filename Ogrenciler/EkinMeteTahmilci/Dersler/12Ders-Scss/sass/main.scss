@@ -1,0 +1,39 @@
+$bgColor:red;
+$x150: 150px;
+$x100: 100px;
+
+
+@mixin boxFunction($color, $w, $h){
+    background-color: $color;
+    width: $w;
+    height: $h;
+}
+// nested css yazma yöntemi
+.container{
+    display: flex;
+    &:hover{
+        background-color: rgb(27, 194, 111);
+    }
+    .box1{
+        @include boxFunction($bgColor, 150px, 200px);
+    }   
+    .box2{
+        @include boxFunction(red, $x150, $x100);
+    }
+    .box3{
+        @extend .box1;
+        width: 300px;
+    }
+    .box4{
+        @include boxFunction(gray, 150px, 200px);
+        &.deneme{
+            background-color: blue;
+        }
+    }
+}
+
+
+
+
+
+
