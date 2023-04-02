@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+* {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+$dark-gray-color: #666666;
+$popular-cat-gray: #00000080;
+$blue-color: #2f89fc;
+$dark-blue-color: #2a7dea;
+$white-color: #ffffff;
+$x1140: 1140px;
+$x720: 720px;
+
+body {
+  line-height: 1.7;
+  color: #4d4d4d;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: $x1140;
+  margin: 0 auto;
+
+}
+
+// Popüler Categories Kısmı
+
+.category-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-size: 32px;
+    color: $blue-color;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 0;
+    font-size: 16px;
+    color: $popular-cat-gray;
+  }
+}
+
+// Popüler Katergori Kartları
+
+.categories-cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  .card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 30px 10px;
+
+    &:hover {
+      box-shadow: 0 5px 30px -5px rgba(47, 137, 252, 0.5);
+      z-index: 1;
+      border-radius: 7px;
+      background-color: $blue-color;
+
+      .category-icon {
+        color: $white-color;
+      }
+
+      .category-title {
+        color: $white-color;
+      }
+
+      .category-number-tag {
+        background: $dark-blue-color;
+        color: $white-color;
+      }
+    }
+  }
+}
+
+.category-icon {
+  font-size: 40px;
+  color: $blue-color;
+  margin-bottom: 10px;
+}
+
+.category-title {
+  font-size: 15px;
+  color: #666666;
+  margin-bottom: 0.5rem !important;
+}
+
+.category-number-tag {
+  padding: 2px 20px;
+  background: #e9ecef;
+  color: #000;
+  font-size: 14px;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+// 990px için
+@media (max-width: 990px) {
+  .container {
+    max-width: $x720;
+  }
+
+  .categories-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+// 768px için
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .categories-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 575px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .categories-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
