@@ -114,7 +114,37 @@
         <div class="navbar">
           <h1><a href="#">DirectoryAds</a></h1>
           <div class="menu"></div>
-          <span><i class="fa-solid fa-bars"></i></span>
+          <!-- <span><i class="fa-solid fa-bars"></i></span> -->
+          <input type="checkbox" name="checkbox" id="checkbox" />
+          <label
+            for="checkbox"
+            class="fa-solid fa-bars"
+            id="label-check"
+          ></label>
+          <div class="navbar-menu">
+            <div class="menu-body">
+              <ul class="navbar-list">
+                <li>Home</li>
+                <li>Ads</li>
+                <li>About</li>
+                <li>Blog</li>
+                <li>Contact</li>
+                <li>Log In</li>
+                <li class="btn">Register</li>
+              </ul>
+            </div>
+          </div>
+          <div class="navbar-menu-web">
+            <ul class="navbar-list">
+              <li>Home</li>
+              <li>Ads</li>
+              <li>About</li>
+              <li>Blog</li>
+              <li>Contact</li>
+              <li>Log In</li>
+              <li class="btn">Register</li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>
@@ -128,7 +158,11 @@
           <form>
             <div class="form-inner">
               <div class="input-wrap">
-                <input type="text" placeholder="What are you looking for?" />
+                <input
+                  id="what"
+                  type="text"
+                  placeholder="What are you looking for?"
+                />
               </div>
               <div class="input-wrap">
                 <div class="input-wrap2"></div>
@@ -191,7 +225,7 @@
               <a href="#" class="bookmark">
                 <span><i class="fa-solid fa-heart"></i></span>
               </a>
-              <h3><a href="#">Own New House</a></h3>
+              <h3><a href="#">Wooden Chair & Table</a></h3>
               <address>Don St. Brooklyn, New York</address>
               <p class="stars">
                 <span><i class="fa-solid fa-star"></i></span>
@@ -210,7 +244,7 @@
               <a href="#" class="bookmark">
                 <span><i class="fa-solid fa-heart"></i></span>
               </a>
-              <h3><a href="#">Own New House</a></h3>
+              <h3><a href="#">iPhone X gray</a></h3>
               <address>Don St. Brooklyn, New York</address>
               <p class="stars">
                 <span><i class="fa-solid fa-star"></i></span>
@@ -229,7 +263,7 @@
               <a href="#" class="bookmark">
                 <span><i class="fa-solid fa-heart"></i></span>
               </a>
-              <h3><a href="#">Own New House</a></h3>
+              <h3><a href="#">New Black Car</a></h3>
               <address>Don St. Brooklyn, New York</address>
               <p class="stars">
                 <span><i class="fa-solid fa-star"></i></span>
@@ -250,38 +284,38 @@
           <h2 class="heading">Popular Categories</h2>
           <p class="sub-heading">Lorem Ipsum Dolor Sit Amet</p>
         </div>
-      </div>
-      <div class="categories-area">
-        <a class="category">
-          <span><i class="fa-solid fa-car"></i></span>
-          <span class="category-title">Cars & Vehicles</span>
-          <span class="tag">1,921</span>
-        </a>
-        <a class="category">
-          <span><i class="fa-solid fa-couch"></i></span>
-          <span class="category-title">Furniture</span>
-          <span class="tag">2,339 </span>
-        </a>
-        <a class="category">
-          <span><i class="fa-solid fa-house"></i></span>
-          <span class="category-title">Real Estate</span>
-          <span class="tag">4,398</span>
-        </a>
-        <a class="category">
-          <span><i class="fa-solid fa-book"></i></span>
-          <span class="category-title">Books & Magazines</span>
-          <span class="tag">3,298</span>
-        </a>
-        <a class="category">
-          <span><i class="fa-solid fa-radio"></i></span>
-          <span class="category-title">Electronics</span>
-          <span class="tag">2,932</span>
-        </a>
-        <a class="category">
-          <span><i class="fa-solid fa-pizza-slice"></i></span>
-          <span class="category-title">Other</span>
-          <span class="tag">183</span>
-        </a>
+        <div class="categories-area">
+          <a class="category">
+            <span><i class="fa-solid fa-car"></i></span>
+            <span class="category-title">Cars & Vehicles</span>
+            <span class="tag">1,921</span>
+          </a>
+          <a class="category">
+            <span><i class="fa-solid fa-couch"></i></span>
+            <span class="category-title">Furniture</span>
+            <span class="tag">2,339 </span>
+          </a>
+          <a class="category">
+            <span><i class="fa-solid fa-house"></i></span>
+            <span class="category-title">Real Estate</span>
+            <span class="tag">4,398</span>
+          </a>
+          <a class="category">
+            <span><i class="fa-solid fa-book"></i></span>
+            <span class="category-title">Books & Magazines</span>
+            <span class="tag">3,298</span>
+          </a>
+          <a class="category">
+            <span><i class="fa-solid fa-radio"></i></span>
+            <span class="category-title">Electronics</span>
+            <span class="tag">2,932</span>
+          </a>
+          <a class="category">
+            <span><i class="fa-solid fa-pizza-slice"></i></span>
+            <span class="category-title">Other</span>
+            <span class="tag">183</span>
+          </a>
+        </div>
       </div>
     </section>
     <section class="trending">
@@ -289,118 +323,120 @@
         <div class="title">
           <h2 class="heading">Trending Today</h2>
         </div>
-        <div class="card">
-          <a class="card-img" href="#"></a>
-          <div class="card-text">
-            <span class="card-tag">Real Estate</span>
-            <a href="#" class="bookmark">
-              <span><i class="fa-solid fa-heart"></i></span>
-            </a>
-            <h3><a href="#">Own New House</a></h3>
-            <address>Don St. Brooklyn, New York</address>
-            <p class="stars">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span class="review">(3 Reviews)</span>
-            </p>
+        <div class="card-area">
+          <div class="card">
+            <a class="card-img" href="#"></a>
+            <div class="card-text">
+              <span class="card-tag">Real Estate</span>
+              <a href="#" class="bookmark">
+                <span><i class="fa-solid fa-heart"></i></span>
+              </a>
+              <h3><a href="#">Own New House</a></h3>
+              <address>Don St. Brooklyn, New York</address>
+              <p class="stars">
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span class="review">(3 Reviews)</span>
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <a class="card-img img2" href="#"></a>
-          <div class="card-text">
-            <span class="card-tag">Furniture</span>
-            <a href="#" class="bookmark">
-              <span><i class="fa-solid fa-heart"></i></span>
-            </a>
-            <h3><a href="#">Wooden Chair & Table</a></h3>
-            <address>Don St. Brooklyn, New York</address>
-            <p class="stars">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span class="review">(3 Reviews)</span>
-            </p>
+          <div class="card">
+            <a class="card-img img2" href="#"></a>
+            <div class="card-text">
+              <span class="card-tag">Furniture</span>
+              <a href="#" class="bookmark">
+                <span><i class="fa-solid fa-heart"></i></span>
+              </a>
+              <h3><a href="#">Wooden Chair & Table</a></h3>
+              <address>Don St. Brooklyn, New York</address>
+              <p class="stars">
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span class="review">(3 Reviews)</span>
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <a class="card-img img4" href="#"></a>
-          <div class="card-text">
-            <span class="card-tag">Electronics</span>
-            <a href="#" class="bookmark">
-              <span><i class="fa-solid fa-heart"></i></span>
-            </a>
-            <h3><a href="#">iPhone X gray</a></h3>
-            <address>Don St. Brooklyn, New York</address>
-            <p class="stars">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span class="review">(3 Reviews)</span>
-            </p>
+          <div class="card">
+            <a class="card-img img4" href="#"></a>
+            <div class="card-text">
+              <span class="card-tag">Electronics</span>
+              <a href="#" class="bookmark">
+                <span><i class="fa-solid fa-heart"></i></span>
+              </a>
+              <h3><a href="#">iPhone X gray</a></h3>
+              <address>Don St. Brooklyn, New York</address>
+              <p class="stars">
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span class="review">(3 Reviews)</span>
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <a class="card-img img3" href="#"></a>
-          <div class="card-text">
-            <span class="card-tag">Cars & Vehicles</span>
-            <a href="#" class="bookmark">
-              <span><i class="fa-solid fa-heart"></i></span>
-            </a>
-            <h3><a href="#">New Black Car</a></h3>
-            <address>Don St. Brooklyn, New York</address>
-            <p class="stars">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span class="review">(3 Reviews)</span>
-            </p>
+          <div class="card">
+            <a class="card-img img3" href="#"></a>
+            <div class="card-text">
+              <span class="card-tag">Cars & Vehicles</span>
+              <a href="#" class="bookmark">
+                <span><i class="fa-solid fa-heart"></i></span>
+              </a>
+              <h3><a href="#">New Black Car</a></h3>
+              <address>Don St. Brooklyn, New York</address>
+              <p class="stars">
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span class="review">(3 Reviews)</span>
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <a class="card-img" href="#"></a>
-          <div class="card-text">
-            <span class="card-tag">Real Estate</span>
-            <a href="#" class="bookmark">
-              <span><i class="fa-solid fa-heart"></i></span>
-            </a>
-            <h3><a href="#">Own New House</a></h3>
-            <address>Don St. Brooklyn, New York</address>
-            <p class="stars">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span class="review">(3 Reviews)</span>
-            </p>
+          <div class="card">
+            <a class="card-img" href="#"></a>
+            <div class="card-text">
+              <span class="card-tag">Real Estate</span>
+              <a href="#" class="bookmark">
+                <span><i class="fa-solid fa-heart"></i></span>
+              </a>
+              <h3><a href="#">Own New House</a></h3>
+              <address>Don St. Brooklyn, New York</address>
+              <p class="stars">
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span class="review">(3 Reviews)</span>
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <a class="card-img img2" href="#"></a>
-          <div class="card-text">
-            <span class="card-tag">Furniture</span>
-            <a href="#" class="bookmark">
-              <span><i class="fa-solid fa-heart"></i></span>
-            </a>
-            <h3><a href="#">Wooden Chair & Table</a></h3>
-            <address>Don St. Brooklyn, New York</address>
-            <p class="stars">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span class="review">(3 Reviews)</span>
-            </p>
+          <div class="card">
+            <a class="card-img img2" href="#"></a>
+            <div class="card-text">
+              <span class="card-tag">Furniture</span>
+              <a href="#" class="bookmark">
+                <span><i class="fa-solid fa-heart"></i></span>
+              </a>
+              <h3><a href="#">Wooden Chair & Table</a></h3>
+              <address>Don St. Brooklyn, New York</address>
+              <p class="stars">
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span class="review">(3 Reviews)</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -436,62 +472,64 @@
           <p class="sub-heading">See Our Daily News & Updates</p>
         </div>
         <div class="blog-area">
-          <div class="blog-card">
-            <img
-              src="https://preview.colorlib.com/theme/directoryads/images/img_1.jpg.webp"
-              alt=""
-            />
-            <h2>Many People Selling Online</h2>
-            <div class="blog-info">
-              by Mark Spiker
-              <span>•</span>
-              Jan 18, 2019
-              <span>•</span>
-              <a href="#">News</a>
+          <div class="blog-cards">
+            <div class="blog-card">
+              <img
+                src="https://preview.colorlib.com/theme/directoryads/images/img_1.jpg.webp"
+                alt=""
+              />
+              <h2>Many People Selling Online</h2>
+              <div class="blog-info">
+                by Mark Spiker
+                <span>•</span>
+                Jan 18, 2019
+                <span>•</span>
+                <a href="#">News</a>
+              </div>
+              <p class="blog-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
+                eligendi nobis ea maiores sapiente veritatis reprehenderit
+                suscipit quaerat rerum voluptatibus a eius.
+              </p>
             </div>
-            <p class="blog-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              eligendi nobis ea maiores sapiente veritatis reprehenderit
-              suscipit quaerat rerum voluptatibus a eius.
-            </p>
-          </div>
-          <div class="blog-card">
-            <img
-              src="https://preview.colorlib.com/theme/directoryads/images/img_2.jpg.webp"
-              alt=""
-            />
-            <h2>Many People Selling Online</h2>
-            <div class="blog-info">
-              by Mark Spiker
-              <span>•</span>
-              Jan 18, 2019
-              <span>•</span>
-              <a href="#">News</a>
+            <div class="blog-card">
+              <img
+                src="https://preview.colorlib.com/theme/directoryads/images/img_2.jpg.webp"
+                alt=""
+              />
+              <h2>Many People Selling Online</h2>
+              <div class="blog-info">
+                by Mark Spiker
+                <span>•</span>
+                Jan 18, 2019
+                <span>•</span>
+                <a href="#">News</a>
+              </div>
+              <p class="blog-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
+                eligendi nobis ea maiores sapiente veritatis reprehenderit
+                suscipit quaerat rerum voluptatibus a eius.
+              </p>
             </div>
-            <p class="blog-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              eligendi nobis ea maiores sapiente veritatis reprehenderit
-              suscipit quaerat rerum voluptatibus a eius.
-            </p>
-          </div>
-          <div class="blog-card">
-            <img
-              src="https://preview.colorlib.com/theme/directoryads/images/img_3.jpg.webp"
-              alt=""
-            />
-            <h2>Many People Selling Online</h2>
-            <div class="blog-info">
-              by Mark Spiker
-              <span>•</span>
-              Jan 18, 2019
-              <span>•</span>
-              <a href="#">News</a>
+            <div class="blog-card">
+              <img
+                src="https://preview.colorlib.com/theme/directoryads/images/img_3.jpg.webp"
+                alt=""
+              />
+              <h2>Many People Selling Online</h2>
+              <div class="blog-info">
+                by Mark Spiker
+                <span>•</span>
+                Jan 18, 2019
+                <span>•</span>
+                <a href="#">News</a>
+              </div>
+              <p class="blog-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
+                eligendi nobis ea maiores sapiente veritatis reprehenderit
+                suscipit quaerat rerum voluptatibus a eius.
+              </p>
             </div>
-            <p class="blog-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              eligendi nobis ea maiores sapiente veritatis reprehenderit
-              suscipit quaerat rerum voluptatibus a eius.
-            </p>
           </div>
           <a href="#" class="btn" id="blog-btn">View All Posts</a>
         </div>
@@ -544,7 +582,11 @@
           </div>
           <div class="footer-info-box">
             <form>
-              <input class="text" type="text" placeholder="Email" />
+              <input
+                class="text"
+                type="text"
+                placeholder="Search products..."
+              />
               <input class="button" type="button" value="Search" />
             </form>
           </div>
@@ -555,7 +597,7 @@
             >Ömer Faruk Çeltik</a
           >
           <a href="https://www.linkedin.com/in/osmanbaytar/">Osman Baytar</a>
-          <a href="">Ege</a>
+          <a href="https://www.linkedin.com/in/ege-kara-0a003b183/">Ege Kara</a>
         </div>
       </div>
     </footer>
