@@ -23,12 +23,18 @@ a {
   text-decoration: none;
 }
 
+body,
+html {
+  height: 100%;
+}
+
 .mainBackground {
   background: rgba(0, 0, 0, 0.3) url("https://preview.colorlib.com/theme/directoryads/images/hero_2.jpg");
   background-blend-mode: darken;
   background-size: cover;
-  height: 100vh;
-  max-width: 100%;
+  background-position: center top;
+  min-height: 100vh;
+  width: 100%;
 }
 
 body {
@@ -64,6 +70,12 @@ body {
   color: white;
 }
 
+.navBarIcon {
+  display: none;
+  position: relative;
+  cursor: pointer;
+}
+
 .content {
   grid-area: content;
 }
@@ -74,11 +86,20 @@ footer {
 
 nav {
   display: grid;
-  grid-template-columns: 4fr 3fr 2fr;
+  grid-template-columns: 4fr 3fr 2fr auto;
   align-items: center;
 }
 
+@keyframes hero-thumb-animation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-35px);
+  }
+}
 .navItems {
+  display: flex;
   gap: 1.5em;
   font-weight: 400;
   font-size: 17px;
@@ -90,6 +111,7 @@ nav a {
 }
 
 .navLogin {
+  display: flex;
   gap: 4em;
   align-items: center;
 }
@@ -100,19 +122,22 @@ nav a {
 }
 
 .navLogin button {
-  background-color: #2f89fc;
   padding: 0.6em 1.5em;
+  background-color: #2f89fc;
   color: white;
+  cursor: pointer;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
 }
 
 .homeSection {
-  padding-top: 10em;
+  padding-top: 9em;
+}
+
+.homeTitle {
   text-align: center;
 }
 
@@ -120,12 +145,128 @@ nav a {
   font-weight: 400;
   font-size: 51px;
   line-height: 61px;
+  letter-spacing: 1px;
 }
 
 .homeTitle p {
   font-weight: 400;
   font-size: 21px;
-  line-height: 31px;
+  line-height: 32px;
+  letter-spacing: 0.7px;
+  margin-top: 0.5em;
+}
+
+.mainSearch {
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 3em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+}
+
+.mainInput {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: 3fr 2fr 2fr 1.5fr;
+  padding: 1.5em;
+}
+
+.mainInput input,
+select {
+  padding: 0.75em;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #495057;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.mainInput button {
+  background-color: #2f89fc;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.mainInput button:hover {
+  background-color: #0974fb;
+}
+
+.homeTags {
+  margin-top: 1.5em;
+  color: white;
+}
+
+.homeTags span {
+  margin-right: 0.5em;
+}
+
+.homeTags a {
+  padding: 0.5em;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border: 1px solid white;
+  color: white;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  margin-right: 0.5em;
+}
+
+.homeTags a:hover {
+  background-color: white;
+  color: #2f89fc;
+}
+
+@media screen and (max-width: 1210px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .navItems {
+    display: none;
+  }
+  .navLogin {
+    display: none;
+  }
+  .navBarIcon {
+    display: block;
+  }
+  .homeSection {
+    padding-top: 0;
+  }
+  .homeTitle h1 {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 60px;
+  }
+  .mainInput {
+    display: grid;
+    gap: 2em;
+    grid-template-columns: 1fr;
+    padding: 1.5em;
+  }
+  .mainInput button {
+    padding: 0.75em;
+  }
+}
+@media screen and (max-width: 820px) {
+  .container {
+    width: 95%;
+  }
+  .homeTitle h1 {
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

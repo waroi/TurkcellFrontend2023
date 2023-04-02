@@ -1,0 +1,33 @@
+$bgColor:red
+$x150: 150px
+$x100: 100px
+
+// nested css yazma yöntemi
+.container
+    display: flex
+    &:hover
+        background-color: rgb(27, 194, 111)
+    
+    .box1
+        background-color: $bgColor
+        width: $x150
+        height: $x100
+     
+    .box2
+        background-color: $bgColor
+        width: $x150*2
+        height: $x100
+    
+    .box4
+        background-color: $bgColor
+        width: $x150*4
+        height: $x100
+        &.deneme
+            background-color: blue
+        
+    
+
+
+
+
+
