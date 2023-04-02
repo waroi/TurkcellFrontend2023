@@ -30,7 +30,7 @@ $white: #fff;
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 5rem 0;
 }
 header{
   background: linear-gradient(
@@ -50,34 +50,34 @@ header{
     width: 1140px;
     border-radius: 4px;
     @include flex(row, space-between, start);
-  }
-  .logo > h1{
-    font-size: 20px;
-    font-weight: 900;
-    color: $white;
-    margin-top: 8px;
-  }
-  .menu-list{
-    @include flex(row, space-evenly, center);
-    li{
-      a{
-        color: $white;
-        font-size: 18px;
-        padding: 20px 10px;
-        border-radius: 30px;
+    .logo h1{
+      font-size: 20px;
+      font-weight: 900;
+      color: $white;
+      margin-top: 8px;
+    }
+    .menu-list{
+      @include flex(row, space-evenly, center);
+      li{
+        a{
+          color: $white;
+          font-size: 18px;
+          padding: 20px 10px;
+          border-radius: 30px;
+        }
       }
-    }
-    li:nth-child(6){
-      margin-left: 3rem;
-    }
-    li:nth-child(6) a span{
-      padding-left: 1.5rem;
-      border-left: 1px solid #dee2e6;
-    }
-    li:nth-child(7){
-      padding: 7px 0px;
-      border-radius: 0.25rem;
-      background-color: $blue;
+      li:nth-child(6){
+        margin-left: 3rem;
+      }
+      li:nth-child(6) a span{
+        padding-left: 1.5rem;
+        border-left: 1px solid #dee2e6;
+      }
+      li:nth-child(7){
+        padding: 7px 0px;
+        border-radius: 0.25rem;
+        background-color: $blue;
+      }
     }
   }
   .header-content{
@@ -158,61 +158,162 @@ header{
   }
 }
 .ads{
-  padding: 5rem 0;
   background-color: #f8f9fa;
   h2{
     color: #000;
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
   }
-  .ads-content{
-    @include flex(row, space-evenly, start);
-    width: 100%;
-    .ads-card{
-      width: 250px;
-      box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
-      border-radius: 7px;
-      padding-bottom: 1.5rem;
-      @include flex(column, center, space-between);
-      .ads-img{
-        height: 150px;
-        img{
-          width: 100%;
-          height: 100%;
-          border-top-right-radius: 7px;
-          border-bottom-left-radius: 0px;
-        }
+}
+.ads-content{
+  @include flex(row, space-evenly, start);
+  width: 100%;
+  .ads-card{
+    width: 250px;
+    box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border-radius: 7px;
+    padding-bottom: 1.5rem;
+    @include flex(column, center, space-between);
+    .ads-img{
+      height: 150px;
+      img{
+        width: 100%;
+        height: 100%;
+        border-top-right-radius: 7px;
+        border-bottom-left-radius: 0px;
       }
-      .category{
-        @include flex(column, center, space-evenly);
-        padding: 0 1rem;
-        .category-top{
-          @include flex(row, space-between, center);
-          span{
-            font-size: 11px;
-            padding: 5px 20px;
-            background: #e9ecef;
-            border-radius: 30px;
-            color: #000;
-            font-weight: bold;
-          }
-          i{
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.03);
-            font-size: 16px;
-          }
+    }
+    .category{
+      @include flex(column, center, space-evenly);
+      padding: 0 1rem;
+      .category-top{
+        @include flex(row, space-between, center);
+        span{
+          font-size: 11px;
+          padding: 5px 20px;
+          background: #e9ecef;
+          border-radius: 30px;
+          color: #000;
+          font-weight: bold;
         }
-        h4{
+        i{
+          border-radius: 50%;
+          padding: 8px 8px;
+          background: rgba(0, 0, 0, 0.03);
           font-size: 16px;
           color: $blue;
-          margin-bottom: 0.5rem;
-        }
-        address{
-          font-size: 13px;
-          font-style: normal;
+          &:hover{
+            background: red;
+            color: $white;
+          }
         }
       }
+      h4{
+        font-size: 16px;
+        color: $blue;
+        margin-bottom: 0.5rem;
+      }
+      address{
+        font-size: 13px;
+        font-style: normal;
+      }
+      .checked{
+        color: #ffc107;
+      }
+    }
+  }
+}
+.section-title{
+  margin-bottom: 3rem;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  h2{
+    font-weight: 700;
+    color: #2f89fc;
+    font-size: 2rem;
+  }
+  p{
+    color: rgba(0, 0, 0, 0.5);
+  }
+  &::after{
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: 47%;
+    width: 80px;
+    height: 3px;
+    background: #2f89fc;
+  }
+}
+.popular{
+  .category-content{
+    @include flex(row, space-evenly, start);
+    margin-top: 3rem;
+    .category-card{
+      text-align: center;
+      padding: 30px 10px;
+      border-radius: 7px;
+      width: 185px;
+      i{
+        font-size: 45px;
+        color: $blue;
+      }
+      p{
+        font-size: 15px;
+        color: #666666;
+        margin: 0 0 8px;
+      }
+      h5{
+        font-size: 14px;
+        color: #000;
+        background: $gray;
+        padding: 2px 20px;
+        border-radius: 30px;
+        display: inline-block;
+      }
+      &:hover{
+        background: $blue;
+        box-shadow: 0 5px 30px -5px rgba(47, 137, 252, 0.5);
+        transform: scale(1.09);
+        i, p, h5{
+          color: $white;
+        }
+        h5{
+          background: #046df4;
+        }
+      }
+    }
+  }
+}
+.today{
+  background-color: #f8f9fa;
+  .today-title{
+    position: relative;
+    margin-bottom: 3rem;
+    h2{
+      font-size: 2rem;
+      font-weight: 700;
+      color: $blue;
+      &::after{
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: $blue;
+      }
+    }
+  }
+  .ads-card{
+    width: 540px;
+    height: 180px;
+    @include flex(row, start, center);
+    .ads-img{
+      width: 230px;
+      height: 180px;
     }
   }
 }
