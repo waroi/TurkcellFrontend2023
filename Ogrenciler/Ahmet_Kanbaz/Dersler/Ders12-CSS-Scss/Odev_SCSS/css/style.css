@@ -163,6 +163,7 @@ header .container .logInContainer .register span {
   width: 100%;
   color: #FFFFFF;
   display: flex;
+  flex-wrap: wrap;
   padding: 10px 0;
   align-items: center;
   gap: 0.5rem;
@@ -384,10 +385,10 @@ header .container .logInContainer .register span {
 }
 .section2 .cardWrapper .card {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
 }
 .section2 .cardWrapper .card .cardImg {
-  width: 45%;
   border-radius: 7px 0 0 7px;
 }
 .section2 .cardWrapper .card .cardImg.bgCard1 {
@@ -427,7 +428,6 @@ header .container .logInContainer .register span {
   background-repeat: no-repeat;
 }
 .section2 .cardWrapper .card .cardInfo {
-  width: 55%;
   padding: 1.5rem;
 }
 
@@ -546,6 +546,11 @@ header .container .logInContainer .register span {
   background-color: #2f89fc;
   color: #FFFFFF;
   border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+.blog .cardButton a:hover {
+  background-color: #2970ce;
+  color: #FFFFFF;
 }
 
 .newsSection {
@@ -585,13 +590,183 @@ header .container .logInContainer .register span {
 .newsSection .news .newsRight input:focus {
   outline: none;
 }
+.newsSection .news .newsRight input::placeholder {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-style: italic;
+}
 .newsSection .news .newsRight a {
   padding: 0.82rem 0.9rem;
   background-color: #FFFFFF;
   color: #000000;
   font-size: 1rem;
+  transition: all 0.3s ease-in-out;
   border: 1px solid transparent;
   margin: 0 -5px;
+}
+.newsSection .news .newsRight a:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+footer {
+  padding: 8rem 0;
+  background: #333333;
+  color: #FFFFFF;
+}
+footer .footerCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0 15px;
+}
+footer .footerCards .footerCard {
+  width: 33%;
+}
+footer .footerCards .footerCard h2 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+footer .footerCards .footerCard p {
+  color: #737373;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+footer .footerCards .navigations {
+  padding: 0 15px;
+  width: 12%;
+}
+footer .footerCards .navigations ul li {
+  margin-bottom: 1.1rem;
+}
+footer .footerCards .navigations ul li a {
+  color: #999999;
+  transition: all 0.3s ease-in-out;
+}
+footer .footerCards .navigations ul li a:hover {
+  color: #FFFFFF;
+}
+footer .footerCards .socials {
+  padding: 0 15px;
+  width: 12%;
+}
+footer .footerCards .socials .socialItems {
+  display: flex;
+  justify-content: space-between;
+}
+footer .footerCards .socials .socialItems a {
+  color: #999999;
+  transition: all 0.3s ease-in-out;
+}
+footer .footerCards .socials .socialItems a:hover {
+  color: #FFFFFF;
+}
+footer .footerCards .search {
+  width: 20%;
+  display: flex;
+  padding: 0 15px;
+}
+footer .footerCards .search input {
+  height: 43px;
+  background-color: transparent;
+  border: 1px solid #6c757d;
+  padding: 0 10px;
+  font-size: 1rem;
+  color: #FFFFFF;
+}
+footer .footerCards .search input:focus {
+  outline: none;
+}
+footer .footerCards .search button {
+  height: 45px;
+  padding: 0 10px;
+  background-color: #2f89fc;
+  border-color: #2f89fc;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #FFFFFF;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid transparent;
+}
+footer .footerCards .search button:hover {
+  background-color: #2970ce;
+}
+footer .copyRight {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  margin-top: 3rem;
+}
+footer .copyRight p {
+  padding-top: 3rem;
+  color: #737373;
+  font-size: 1rem;
+}
+footer .copyRight p a {
+  color: #999999;
+  transition: all 0.3s ease-in-out;
+}
+footer .copyRight p a:hover {
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 768px) {
+  header .container .menu {
+    display: none;
+  }
+  header .container .logInContainer {
+    display: none;
+  }
+  .featured .cardWrapper .card {
+    width: 100%;
+  }
+  .featured .cardWrapper .card:nth-child(2), .featured .cardWrapper .card:nth-child(3), .featured .cardWrapper .card:nth-child(4) {
+    display: none;
+  }
+  .popular .cardWrapper .card {
+    width: 80%;
+  }
+  .testimonials .topSection::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 40%;
+    width: 80px;
+    height: 3px;
+    background: #2f89fc;
+  }
+  .blog .topSection p::after {
+    position: absolute;
+    content: "";
+    left: 40%;
+    bottom: -10px;
+    width: 80px;
+    height: 3px;
+    background: #2f89fc;
+  }
+  .blog .cardWrapper .card {
+    width: 80%;
+  }
+  .newsSection .news .newsLeft {
+    width: 100%;
+  }
+  .newsSection .news .newsRight {
+    width: 100%;
+  }
+  footer .footerCards .footerCard {
+    width: 100%;
+  }
+  footer .footerCards .navigations {
+    width: 100%;
+    padding: 0;
+  }
+  footer .footerCards .socials {
+    width: 50%;
+  }
+  footer .footerCards .search {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
