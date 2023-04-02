@@ -8,6 +8,7 @@
   <title>DirectoryAds</title>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -15,26 +16,26 @@
     <div class="container">
       <div class="logo">
         <h1>
-          <a href="#">DIRECTORYADS</a>
+          <a href="#">DirectoryAds</a>
         </h1>
       </div>
       <div class="menu">
         <ul>
           <li>Home</li>
           <li>Ads</li>
-          <li>About</li>
+          <li>About <span class="fa-solid fa-chevron-down"></span></li>
           <li>Blog</li>
           <li>Contact</li>
         </ul>
       </div>
       <div class="logInContainer">
-        <a href="#" class="login">Log In</a>
-        <a href="#" class="register">Register</a>
+        <a href="#" class="login"><span></span>Log In</a>
+        <a href="#" class="register"><span>Register</span></a>
       </div>
     </div>
   </header>
 
-  <section>
+  <section class="welcome">
     <div class="container">
       <div class="topSection">
         <h1>Welcome To DirectoryAds</h1>
@@ -42,9 +43,12 @@
       </div>
       <div class="formWelcome">
         <form>
-          <input type="text" placeholder="What are you looking for?" />
-          <input type="text" placeholder="Location" />
-          <select name="categories" id="categories">
+          <input type="text" placeholder="What are you looking for?" class="formItem lookInput"/>
+          <div class="locationInput">
+            <input type="text" placeholder="Location" class="formItem"/>
+            <span class="fa-solid fa-location-dot fa-lg"></span>
+          </div>
+          <select name="categories" id="categories" class="formItem formSelect">
             <option value="realEstate">All Categories</option>
             <option value="realEstate">Real Estate</option>
             <option value="realEstate">Books & Magazines</option>
@@ -65,62 +69,13 @@
       </div>
     </div>
   </section>
-  <section>
+  <section class="featured">
     <div class="container">
-      <h2>Featured Adss</h2>
+      <h2>Featured Ads</h2>
       <div class="cardWrapper">
         <div class="card">
           <div class="cardImg">
             <img src="https://preview.colorlib.com/theme/directoryads/images/img_2.jpg.webp" alt="" />
-            <div class="cardInfo">
-              <div class="topCardInfo">
-                <span>Real Estate</span>
-                <a href="#">
-                  <span class="fa-solid fa-heart"></span>
-                </a>
-              </div>
-              <div class="middleCardInfo">
-                <h3>Own New House</h3>
-                <address>Don St, Brooklyn, New York</address>
-                <div class="stars">
-                  <span class="fa-solid fa-star"></span>
-                  <span class="fa-solid fa-star"></span>
-                  <span class="fa-solid fa-star"></span>
-                  <span class="fa-solid fa-star"></span>
-                  <span class="fa-solid fa-star"></span>
-                  <span>(3 Reviews)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="topSection">
-        <h2>Popular Categories</h2>
-        <p>Lorem Ipsum Dolor Sit Amet</p>
-      </div>
-      <div class="cardWrapper">
-        <div class="card">
-          <span class="fa-solid fa-car"></span>
-          <span>Cars & Vehicles</span>
-          <span>1,921</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2>Trending Today</h2>
-      <div class="trendingCards">
-        <div class="trendCard">
-          <div class="cardImg">
-            <img src="https://preview.colorlib.com/theme/directoryads/images/img_2.jpg.webp" alt="">
           </div>
           <div class="cardInfo">
             <div class="topCardInfo">
@@ -133,11 +88,277 @@
               <h3>Own New House</h3>
               <address>Don St, Brooklyn, New York</address>
               <div class="stars">
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star original"></span>
+                <span class="review">(3 Reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg">
+            <img src="https://preview.colorlib.com/theme/directoryads/images/img_3.jpg.webp" alt="" />
+          </div>
+          <div class="cardInfo">
+            <div class="topCardInfo">
+              <span>Furniture</span>
+              <a href="#">
+                <span class="fa-solid fa-heart"></span>
+              </a>
+            </div>
+            <div class="middleCardInfo">
+              <h3>Wooden Chair & Table</h3>
+              <address>Don St, Brooklyn, New York</address>
+              <div class="stars">
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star original"></span>
+                <span class="review">(3 Reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg">
+            <img src="https://preview.colorlib.com/theme/directoryads/images/img_4.jpg.webp" alt="" />
+          </div>
+          <div class="cardInfo">
+            <div class="topCardInfo">
+              <span>Electronics</span>
+              <a href="#">
+                <span class="fa-solid fa-heart"></span>
+              </a>
+            </div>
+            <div class="middleCardInfo">
+              <h3>iPhone X gray</h3>
+              <address>Don St, Brooklyn, New York</address>
+              <div class="stars">
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star original"></span>
+                <span class="review">(3 Reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg">
+            <img src="https://preview.colorlib.com/theme/directoryads/images/img_1.jpg.webp" alt="" />
+          </div>
+          <div class="cardInfo">
+            <div class="topCardInfo">
+              <span>Cars & Vehicles</span>
+              <a href="#">
+                <span class="fa-solid fa-heart"></span>
+              </a>
+            </div>
+            <div class="middleCardInfo">
+              <h3>New Black Car</h3>
+              <address>Don St, Brooklyn, New York</address>
+              <div class="stars">
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star original"></span>
+                <span class="review">(3 Reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="popular">
+    <div class="container">
+      <div class="topSection">
+        <h2>Popular Categories</h2>
+        <p>Lorem Ipsum Dolor Sit Amet</p>
+      </div>
+      <div class="cardWrapper">
+        <div class="card">
+          <span class="fa-solid fa-car icon"></span>
+          <span class="typeIcon">Cars & Vehicles</span>
+          <span class="number">1,921</span>
+        </div>
+        <div class="card">
+          <span class="fa-solid fa-building icon"></span>
+          <span class="typeIcon">Furniture</span>
+          <span class="number">2,339</span>
+        </div>
+        <div class="card">
+          <span class="fa-solid fa-house-chimney icon"></span>
+          <span class="typeIcon">Real Estate</span>
+          <span class="number">4,398</span>
+        </div>
+        <div class="card">
+          <span class="fa-solid fa-book icon"></span>
+          <span class="typeIcon">Books & Magazines</span>
+          <span class="number">3,298</span>
+        </div>
+        <div class="card">
+          <span class="fa-solid fa-tv icon"></span>
+          <span class="typeIcon">Electronics</span>
+          <span class="number">2,932</span>
+        </div>
+        <div class="card">
+          <span class="fa-solid fa-pizza-slice icon"></span>
+          <span class="typeIcon">Other</span>
+          <span class="number">183</span>
+        </div>
+        
+
+      </div>
+    </div>
+  </section>
+
+  <section class="featured section2">
+    <div class="container">
+      <div class="topSection">
+        <h2>Trending Today</h2>
+      </div>
+      <div class="cardWrapper">
+        <div class="card">
+          <div class="cardImg"></div>
+          <div class="cardInfo">
+            <div class="topCardInfo">
+              <span>Real Estate</span>
+              <a href="#">
+                <span class="fa-solid fa-heart"></span>
+              </a>
+            </div>
+            <div class="middleCardInfo">
+              <h3>Own New House</h3>
+              <address>Don St, Brooklyn, New York</address>
+              <div class="stars">
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star original"></span>
+                <span>(3 Reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg"></div>
+          <div class="cardInfo">
+            <div class="topCardInfo">
+              <span>Real Estate</span>
+              <a href="#">
+                <span class="fa-solid fa-heart"></span>
+              </a>
+            </div>
+            <div class="middleCardInfo">
+              <h3>Own New House</h3>
+              <address>Don St, Brooklyn, New York</address>
+              <div class="stars">
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star original"></span>
+                <span>(3 Reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg"></div>
+          <div class="cardInfo">
+            <div class="topCardInfo">
+              <span>Real Estate</span>
+              <a href="#">
+                <span class="fa-solid fa-heart"></span>
+              </a>
+            </div>
+            <div class="middleCardInfo">
+              <h3>Own New House</h3>
+              <address>Don St, Brooklyn, New York</address>
+              <div class="stars">
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star original"></span>
+                <span>(3 Reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg"></div>
+          <div class="cardInfo">
+            <div class="topCardInfo">
+              <span>Real Estate</span>
+              <a href="#">
+                <span class="fa-solid fa-heart"></span>
+              </a>
+            </div>
+            <div class="middleCardInfo">
+              <h3>Own New House</h3>
+              <address>Don St, Brooklyn, New York</address>
+              <div class="stars">
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star original"></span>
+                <span>(3 Reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg"></div>
+          <div class="cardInfo">
+            <div class="topCardInfo">
+              <span>Real Estate</span>
+              <a href="#">
+                <span class="fa-solid fa-heart"></span>
+              </a>
+            </div>
+            <div class="middleCardInfo">
+              <h3>Own New House</h3>
+              <address>Don St, Brooklyn, New York</address>
+              <div class="stars">
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star original"></span>
+                <span>(3 Reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg"></div>
+          <div class="cardInfo">
+            <div class="topCardInfo">
+              <span>Real Estate</span>
+              <a href="#">
+                <span class="fa-solid fa-heart"></span>
+              </a>
+            </div>
+            <div class="middleCardInfo">
+              <h3>Own New House</h3>
+              <address>Don St, Brooklyn, New York</address>
+              <div class="stars">
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star checked"></span>
+                <span class="fa-solid fa-star original"></span>
                 <span>(3 Reviews)</span>
               </div>
             </div>
