@@ -63,6 +63,7 @@ a {
 
 .title {
   position: relative;
+  margin-bottom: 20px;
   &.center {
     text-align: center;
     &::after {
@@ -83,6 +84,7 @@ a {
 .sub-heading {
   color: $opacityBlack;
   text-transform: capitalize;
+  padding-bottom: 1rem;
 }
 
 .tag {
@@ -122,14 +124,31 @@ a {
   }
   
 }
+.featured-ads{
+  background-color: #f8f9fa;
+  padding: 25px 0;
+  h2{
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #000;
+  }
+  .card{
+    &:nth-child(n+2){
+      display: none;
+    }
+  }
+}
 .card {
   width: 340px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 20px -2px rgb(0 0 0 / 10%);
+  margin: 0 auto;
   margin-bottom: 30px;
-  margin-left: 30px;
-  //   margin-right: 30px;
+  // margin-left: 30px;
+  // margin-right: 30px;
   .card-tag {
     @include boxMixin($bgGray, black, $pill, 5px, 20px);
     font-size: 14px;
@@ -193,13 +212,46 @@ a {
   }
 }
 
+.popular{
+ 
+}
+
 .bookmark {
   color: $siteBlue;
 }
 
-.other {
+.trending {
+  background-color: #f8f9fa;
+  padding: 20px 0;
   .card-img {
     height: 250px;
+  }
+}
+// images
+.img2{
+ background-image: url("https://preview.colorlib.com/theme/directoryads/images/img_3.jpg.webp") !important;
+}
+.img3{
+  background-image: url("https://preview.colorlib.com/theme/directoryads/images/img_1.jpg.webp") !important;
+}
+.img4{
+  background-image: url("https://preview.colorlib.com/theme/directoryads/images/img_4.jpg.webp") !important;
+}
+
+.testimonials{
+  margin-top: 20px;
+  text-align: center;
+  img{
+    border-radius: 50%;
+    max-width: 100px;
+  }
+  figure{
+    margin: 2rem 0;
+  }
+  blockquote{
+    font-style: italic;
+    font-size: 1.5rem;
+    padding: 0 0 20px 0;
   }
 }
 
@@ -265,7 +317,7 @@ header {
 }
 .hero {
   min-height: 100vh;
-  background-position: 50% -25px;
+  background-position: 50% ;
   background-repeat: no-repeat;
   padding: 2rem 0;
   background-size: cover;
