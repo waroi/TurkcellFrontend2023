@@ -355,6 +355,74 @@ form .btn-search {
   color: #6c757d;
 }
 
+#popular-categories {
+  margin: 100px 0;
+}
+#popular-categories .title {
+  text-align: center;
+  border-color: #2f89fc;
+  position: relative;
+  margin-bottom: 50px;
+}
+#popular-categories .title::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  width: 80px;
+  height: 3px;
+  background: #2f89fc;
+  transform: translate(-50%, 50%);
+}
+#popular-categories .title h2 {
+  color: #2f89fc;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+#popular-categories .title p {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+#popular-categories .categories .category {
+  padding: 40px 10px;
+  text-align: center;
+}
+#popular-categories .categories .category:hover {
+  background: #2f89fc;
+  transform: scale(1.1);
+  z-index: 1;
+  border-radius: 7px;
+  box-shadow: 0 5px 30px -5px rgba(47, 137, 252, 0.5);
+  transition: all 0.3s ease;
+}
+#popular-categories .categories .category:hover .category-icon {
+  color: #fff;
+}
+#popular-categories .categories .category:hover h3 {
+  color: #fff;
+}
+#popular-categories .categories .category:hover .tag {
+  background: #046df4;
+  color: #fff;
+}
+#popular-categories .categories .category > * {
+  margin-bottom: 15px;
+}
+#popular-categories .categories .category .category-icon {
+  color: #2f89fc;
+}
+#popular-categories .categories .category h3 {
+  color: #666666;
+  transition: 0.1s all ease;
+  text-transform: none;
+  font-size: 0.9375rem;
+  min-width: 150px;
+}
+#popular-categories .categories .category .tag {
+  font-size: 0.9375rem;
+}
+
 @media screen and (max-width: 1020px) {
   .row {
     flex-wrap: wrap;

@@ -380,6 +380,76 @@ form {
   }
 }
 
+#popular-categories {
+  margin: 100px 0;
+  .title {
+    text-align: center;
+    border-color: #2f89fc;
+    position: relative;
+    margin-bottom: 50px;
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      width: 80px;
+      height: 3px;
+      background: #2f89fc;
+      transform: translate(-50%, 50%);
+    }
+    h2 {
+      color: $colorBlue;
+      font-size: $font32;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    p {
+      color: rgba(0, 0, 0, 0.5);
+      font-size: $font16;
+      margin-bottom: 28px;
+    }
+  }
+  .categories {
+    .category {
+      padding: 40px 10px;
+      text-align: center;
+      &:hover {
+        background: $colorBlue;
+        transform: scale(1.1);
+        z-index: 1;
+        border-radius: 7px;
+        box-shadow: 0 5px 30px -5px rgba(47, 137, 252, 0.5);
+        transition: all 0.3s ease;
+        .category-icon {
+          color: $colorWhite;
+        }
+        h3 {
+          color: $colorWhite;
+        }
+        .tag {
+          background: #046df4;
+          color: #fff;
+        }
+      }
+      > * {
+        margin-bottom: 15px;
+      }
+      .category-icon {
+        color: $colorBlue;
+      }
+      h3 {
+        color: #666666;
+        transition: 0.1s all ease;
+        text-transform: none;
+        font-size: $font15;
+        min-width: 150px;
+      }
+      .tag {
+        font-size: $font15;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1020px) {
   .row {
     flex-wrap: wrap;
