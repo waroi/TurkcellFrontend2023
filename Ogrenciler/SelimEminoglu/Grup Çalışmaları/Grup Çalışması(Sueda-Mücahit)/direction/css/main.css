@@ -1,3 +1,360 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap%27");
+body {
+  font-family: "Nanum Gothic";
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
 
+.mr5 {
+  margin-right: 3rem;
+}
+
+.span-border {
+  border-left: 1px solid #ffffff;
+}
+
+.ml5 span {
+  padding-left: 1rem;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-xl {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 33.33333%;
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+  display: flex;
+  flex-direction: column;
+}
+
+.col-m {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.col-s {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 16.66667%;
+  flex: 0 0 16.66667%;
+  max-width: 16.66667%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  color: #ffffff;
+  background-color: #2f89fc;
+  border-color: #2f89fc;
+  border-radius: 5px;
+  height: 2.4rem;
+  width: 75%;
+}
+
+.register-button {
+  padding: 12px 20px;
+  color: #ffffff;
+  border-radius: 0.25rem;
+  background-color: #2f89fc;
+}
+
+.dropdown {
+  display: block;
+  width: 100%;
+}
+.dropdown .dropbtn {
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  position: relative;
+}
+
+.dropdown-content {
+  width: 300px;
+  position: absolute;
+  right: 0;
+  z-index: 2000;
+  top: -20px;
+  padding-top: 20px;
+  background: #fff;
+  height: 100vh;
+  -webkit-transform: translateX(110%);
+  -ms-transform: translateX(110%);
+  transform: translateX(110%);
+  -webkit-box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
+  box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.5s all ease-in-out;
+}
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover {
+  color: #2f89fc;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  transform: translateX(0%);
+}
+
+.form-control {
+  display: block;
+  width: 95%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  margin-left: 10px;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row2 {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+header {
+  position: relative;
+}
+
+.site-navbar {
+  margin-bottom: 0px;
+  z-index: 1999;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 100%;
+  border-radius: 4px;
+}
+.site-navbar .col-1 {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.site-navbar h1 {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 900;
+}
+.site-navbar .col-2 {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.site-navbar .site-navigation {
+  text-align: right;
+  align-items: center;
+  display: flex;
+}
+.site-navbar .site-navigation ul {
+  display: flex;
+  gap: 20px;
+  text-align: end;
+}
+.site-navbar .site-navigation ul a {
+  color: #fff;
+  text-decoration: none !important;
+  padding: 20px 10px;
+  display: inline-block;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.home-section {
+  background-image: url(https://cdn.discordapp.com/attachments/1085908166174318725/1092072806306566184/image_5.png);
+  background-position: 50% -25px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  background-attachment: fixed;
+}
+.home-section .site-block {
+  display: flex;
+  top: 20rem;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.home-section .site-block .col-welcome {
+  margin: 20px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+.home-section .site-block h1 {
+  font-size: 3rem;
+  font-weight: 400;
+}
+.home-section .site-block p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.testimonial-section {
+  margin-top: 150px;
+}
+.testimonial-section .col-t-m {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+}
+.testimonial-section .col-t-m .border-bottom {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+.testimonial-section .col-t-m .border-bottom h1 {
+  font-weight: 700 !important;
+  font-size: 2rem;
+  color: #2f89fc;
+}
+.testimonial-section .p-image {
+  border-radius: 50%;
+  max-width: 100px;
+  margin: 2rem;
+}
+.testimonial-section .col-f {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.testimonial-section .col-f blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+.testimonial-section .col-f p {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: #4d4d4d;
+}
+.testimonial-section .dots {
+  text-align: center;
+}
+.testimonial-section .dots .dot {
+  display: inline-block;
+  margin: 4px;
+}
+.testimonial-section .dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #dee2e6;
+  margin: 5px;
+}
+.testimonial-section .dots span:nth-child(3) {
+  background: #2f89fc;
+}
+
+.border-bottom::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  width: 80px;
+  height: 3px;
+  background: #2f89fc;
+}
+
+.wrap-icon {
+  position: relative;
+}
+.wrap-icon span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.site-search {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  padding: 20px;
+  margin-top: 2.5rem;
+}
+.site-search .button:hover {
+  cursor: pointer;
+  background-color: #2a7dea;
+  transition: all 0.4s ease;
+}
+
+.search-col {
+  display: flex;
+  text-align: center;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.search-col h2 {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-right: 10px;
+}
+.search-col a {
+  display: inline-block;
+  color: #fff;
+  padding: 2px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #fff;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.search-col a:hover {
+  color: #2f89fc;
+  background-color: #ffffff;
+  transition: all 0.4s ease;
+}
 
 /*# sourceMappingURL=main.css.map */
