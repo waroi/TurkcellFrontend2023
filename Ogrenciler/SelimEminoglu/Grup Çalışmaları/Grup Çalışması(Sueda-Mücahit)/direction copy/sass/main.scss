@@ -1,0 +1,380 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+    line-height: 1.7;
+    color: #4d4d4d;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+ul{
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+// Ortak Değerler
+$light-gray-color: #343a40;
+$light-gray-color-2: #495057;
+$dark-gray-color: #25262a;
+$blue-color: #2f89fc;
+$dark-blue-color: #2a7dea;
+$white-color: #ffffff;
+$primary-bg-color: #f8f9fa;
+$footer-bg-color: #333333;
+$start-yellow: #f89d13;
+$heard-red: #f23a2e;
+
+$x1140: 1140px;
+$x960: 960px;
+$x720: 720px;
+
+$flex:flex;
+$wrap:wrap;
+$center:center;
+
+@mixin make-flex($display, $wra,$cent){
+    display: $display;
+    flex-wrap: $wra;
+    justify-content: $cent;
+}
+
+.our-blog{
+    background-color: $primary-bg-color;
+}
+
+.our-blog-headline{
+    margin-bottom: 3rem;
+    justify-content: center !important;
+}
+
+.our-head-text{
+    position: relative;
+    text-align: $center;
+    border-color: $blue-color;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    h2{
+        font-weight: 700;
+        color: $blue-color;
+        font-size: 2rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+    p{
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.our-head-text::after{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background: $blue-color;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.our-blog-galery{
+    margin-bottom: 1rem;
+    align-items: stretch;
+    .view-post{
+        text-align: $center;
+        margin-top: 1.5rem;
+        flex: 0 0 100%;
+        max-width: 100%;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        a{
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.25rem;
+            background-color: $blue-color;
+            border-color: $blue-color;
+            color: $white-color;
+
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            user-select: none;
+            border: 1px solid transparent;
+            font-size: 1rem;
+            line-height: 1.5;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+        }
+    }
+}
+
+.galery-div{
+    margin-bottom: 1.5rem;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.item-in{
+    img{
+        margin-bottom: 30px;
+        border-radius: 0.25rem;
+        vertical-align: middle;
+        border-style: none;
+        max-width: 100%;
+        height: auto;
+    }
+    h2{
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+        color: inherit;
+    }
+    h2 a{
+        color: black;
+    }
+    .line-text{
+        color: #b3b3b3;
+        font-size: 14px;
+        margin-bottom: 1rem;
+        a{
+            color: #2f89fc;
+            text-decoration: none;
+            background-color: transparent;
+        }
+        span{
+            margin-left: 0.25rem;
+            margin-right: 0.25rem;
+        }
+        p{
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.newsletter{
+    padding: 3rem 0;
+    background-color: $blue-color;
+    h2{
+        font-size: 18px;
+        color:$white-color;
+    }
+    p{
+        margin-bottom: 0;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .form-input{
+        border: none;
+        border-bottom: 1px solid #fff;
+        background: none;
+        padding-left: 0;
+        height: 43px;
+        border-radius: 0;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        color: $light-gray-color-2;
+        border: 1px solid #ced4da;
+        line-height: 1.5;
+        font-size: 1rem;
+        padding: 0.375rem 0.75rem;
+        display: block;
+        width: 100%;
+    }
+    .second-input{
+        padding-left: 15px;
+        padding-right: 15px;
+
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    }
+}
+
+.news-row{
+    align-items: $center;
+}
+
+.form-news{
+    display: $flex;
+}
+
+.site-footer{
+    background: $footer-bg-color;
+    p{
+        color: #737373;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+.row-text{
+    @include make-flex($flex, $wrap ,start );
+    margin-right: -15px;
+    margin-left: -15px;
+
+    ul li{
+        margin-bottom: 10px;
+    }
+    a{
+        color: #999999;
+    }
+}
+
+.footer-last-text{
+    text-align: $center;
+    padding-top: 3rem;
+    margin-top: 3rem;
+    margin-right: -15px;
+    margin-left: -15px;
+    @include make-flex($flex,$wrap ,$center )
+    
+}
+
+.row-col-1{
+    h2{
+        font-size: 16px;
+        color: $white-color;
+    }
+}
+
+.row-col-2{
+    h2{
+        font-size: 16px;
+        color: $white-color;
+    }
+    .navigation-list{
+        padding-left: 0;
+        list-style: none;
+    }
+    .follow-us{
+        margin-bottom: 1.5rem;
+    }
+    .form-in{
+        margin-bottom: 1rem;
+        position: relative;
+        width: 100%;
+        align-items: stretch;
+        @include make-flex($flex, $wrap ,start)
+    }
+    .form-input{
+        height: 43px;
+        border-radius: 0;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        line-height: 1.5;
+        font-size: 1rem;
+        padding: 0.375rem 0.75rem;
+        display: block;
+    }
+    .form-button-div{
+        margin-left: -1px;
+        display: $flex;
+    }
+    .form-button{
+        color: $white-color;
+        background-color: $blue-color;
+        border-color: $blue-color;
+        border-radius: 0;
+        cursor: pointer;
+    }
+
+}
+
+@media (min-width: 1400px) {
+    .container {
+      max-width: $x1140;
+    }
+  
+}
+
+@media (min-width:1200px){
+    .container{
+        max-width: $x1140;
+    }
+}
+  
+@media (min-width: 992px) {
+    .container {
+      min-width: $x960;
+    }
+    .galery-div{
+        flex: 0 0 33.3%;
+        max-width: 33.3%;
+    }
+}
+
+@media (min-width:768px){
+    .container{
+        max-width: $x720;
+    }
+    .our-head-text{
+        flex: 0 0 58.3%;
+        max-width: 58.3%;
+    }
+    .site-section{
+        padding: 5em 0;
+    }
+    .site-footer{
+        padding: 8em 0;
+    }
+
+    .row-col-1{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .row-col-2{
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .footer-last{
+        flex: 0 0 100%;
+        max-width: 100%;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .footer-last-in{
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 3rem;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+
+}
