@@ -41,7 +41,7 @@ body {
   display: grid;
   grid-template-areas: "header" "content" "footer";
   height: auto;
-  grid-template-rows: 100% auto auto;
+  grid-template-rows: 1fr auto auto;
 }
 
 .flex {
@@ -134,7 +134,7 @@ nav a {
 }
 
 .homeSection {
-  padding-top: 9em;
+  padding-top: 7em;
 }
 
 .homeTitle {
@@ -266,6 +266,296 @@ select {
     font-weight: 400;
     font-size: 34px;
     line-height: 40px;
+  }
+}
+.container-m {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 1140px) 1fr;
+}
+.container-m > * {
+  grid-column: 2;
+  padding: 0 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.featured-title {
+  color: #000;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.cards .card {
+  background: #fff;
+  border-radius: 4px;
+  width: 100%;
+  z-index: 1;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+}
+.cards .card .card-img {
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+.cards .card .card-body {
+  padding: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+.cards .card .card-body > * {
+  margin-bottom: 1rem;
+}
+.cards .card .card-body .row {
+  align-items: center;
+  justify-content: space-between;
+}
+.cards .card .card-body .row .tag {
+  margin: 0;
+}
+.cards .card .card-body .row .like-btn {
+  background-color: #e9ecef;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cards .card .card-body .row .like-btn:hover {
+  background-color: #f23a2e;
+}
+.cards .card .card-body .row .like-btn:hover i {
+  color: #fff;
+}
+.cards .card .card-body .row .like-btn i {
+  color: #2f89fc;
+}
+.cards .card .card-body .row .card-title {
+  font-weight: 500;
+  line-height: 1.5;
+  color: #343a40;
+  margin-bottom: 5px;
+}
+.cards .card .card-body .card-title {
+  font-size: 1rem;
+  color: #2f89fc;
+}
+.cards .card .card-body address {
+  font-size: 1rem;
+  color: #4d4d4d;
+  font-weight: 400;
+}
+.cards .card .card-body .stars {
+  margin: 0;
+}
+.cards .card .card-body .stars .star-selected {
+  color: #f89d13;
+}
+.cards .card .card-body .stars .star-secondary {
+  color: #6c757d;
+}
+
+#popular-categories {
+  margin: 100px 0;
+}
+#popular-categories .title {
+  text-align: center;
+  border-color: #2f89fc;
+  position: relative;
+  margin-bottom: 50px;
+}
+#popular-categories .title::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  width: 80px;
+  height: 3px;
+  background: #2f89fc;
+  transform: translate(-50%, 50%);
+}
+#popular-categories .title h2 {
+  color: #2f89fc;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+#popular-categories .title p {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+#popular-categories .categories .category {
+  padding: 40px 10px;
+  text-align: center;
+}
+#popular-categories .categories .category:hover {
+  background: #2f89fc;
+  transform: scale(1.1);
+  z-index: 1;
+  border-radius: 7px;
+  box-shadow: 0 5px 30px -5px rgba(47, 137, 252, 0.5);
+  transition: all 0.3s ease;
+}
+#popular-categories .categories .category:hover .category-icon {
+  color: #fff;
+}
+#popular-categories .categories .category:hover h3 {
+  color: #fff;
+}
+#popular-categories .categories .category:hover .tag {
+  background: #046df4;
+  color: #fff;
+}
+#popular-categories .categories .category > * {
+  margin-bottom: 15px;
+}
+#popular-categories .categories .category .category-icon {
+  color: #2f89fc;
+}
+#popular-categories .categories .category h3 {
+  color: #666666;
+  transition: 0.1s all ease;
+  text-transform: none;
+  font-size: 0.9375rem;
+  min-width: 150px;
+}
+#popular-categories .categories .category .tag {
+  font-size: 0.9375rem;
+}
+
+#trends .trend-title {
+  margin-bottom: 3rem;
+  position: relative;
+  text-align: left;
+}
+#trends .trend-title h2 {
+  font-weight: 700;
+  color: #2f89fc;
+  font-size: 2rem;
+}
+#trends .trend-title::after {
+  position: absolute;
+  content: "";
+  bottom: 0px;
+  width: 80px;
+  height: 3px;
+  background: #2f89fc;
+}
+#trends .trend-title .trend-cards {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+#trends .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 20px;
+}
+#trends .cards .card {
+  background: #fff;
+  border-radius: 4px;
+  width: 100%;
+  z-index: 1;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  height: 200px;
+}
+#trends .cards .card .card-img {
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  max-width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+#trends .cards .card .card-body {
+  padding: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+#trends .cards .card .card-body > * {
+  margin-bottom: 1rem;
+}
+#trends .cards .card .card-body .row {
+  align-items: center;
+  justify-content: space-between;
+}
+#trends .cards .card .card-body .row .tag {
+  margin: 0;
+}
+#trends .cards .card .card-body .row .like-btn {
+  background-color: #e9ecef;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#trends .cards .card .card-body .row .like-btn:hover {
+  background-color: #f23a2e;
+}
+#trends .cards .card .card-body .row .like-btn:hover i {
+  color: #fff;
+}
+#trends .cards .card .card-body .row .like-btn i {
+  color: #2f89fc;
+}
+#trends .cards .card .card-body .row .card-title {
+  font-weight: 500;
+  line-height: 1.5;
+  color: #343a40;
+  margin-bottom: 5px;
+}
+#trends .cards .card .card-body .card-title {
+  font-size: 1rem;
+  color: #2f89fc;
+}
+#trends .cards .card .card-body address {
+  font-size: 1rem;
+  color: #4d4d4d;
+  font-weight: 400;
+}
+#trends .cards .card .card-body .stars {
+  margin: 0;
+}
+#trends .cards .card .card-body .stars .star-selected {
+  color: #f89d13;
+}
+#trends .cards .card .card-body .stars .star-secondary {
+  color: #6c757d;
+}
+
+@media screen and (max-width: 1020px) {
+  .row {
+    flex-wrap: wrap;
+  }
+  #trends .cards {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+  #trends .cards .card {
+    flex-direction: column;
+    height: auto;
+  }
+  #trends .cards .card img {
+    max-width: 100% !important;
   }
 }
 
