@@ -1,0 +1,306 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.header {
+  padding-top: 10px;
+  position: relative;
+  z-index: 0;
+  background-image: url("https://preview.colorlib.com/theme/directoryads/images/hero_2.jpg.webp");
+  height: 150vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top center;
+}
+.header::before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3019607843);
+}
+
+.header-container {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+}
+.header-container .header-logo {
+  margin: 0 10px;
+}
+.header-container .header-logo h1 {
+  font-size: 20px;
+  color: #fff;
+  font-family: "Nanum Gothic", sans-serif;
+}
+.header-container .header-menu {
+  height: 100%;
+}
+.header-container .header-menu .hamburger {
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 11;
+}
+.header-container .header-menu .check {
+  display: none;
+}
+.header-container .header-menu .check:checked ~ .hamburger {
+  color: black;
+}
+.header-container .check:checked ~ .nav {
+  display: block;
+}
+
+.login span {
+  display: none;
+}
+
+.about .drop-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-right: 30px;
+}
+.about .drop-link i {
+  margin-left: 100px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.about .drop-input {
+  display: none;
+}
+.about .drop-menu {
+  font-size: 15px;
+  margin-left: 10px;
+}
+.about .drop-input + .drop-menu {
+  display: none;
+}
+.about .drop-input:checked + .drop-menu {
+  display: block;
+}
+
+.header-content {
+  position: relative;
+  padding: 60px 0;
+}
+.header-content .main-title {
+  text-align: center;
+  color: #fff;
+  font-family: "Nanum Gothic", sans-serif;
+}
+.header-content .main-title p {
+  margin: 10px 0;
+  font-size: 18px;
+  max-width: 400px;
+  margin: 10px auto;
+  line-height: 25px;
+}
+.header-content .input-area {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: grid;
+  margin: 50px 15px 10px 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.header-content .input-area input,
+.header-content .input-area select,
+.header-content .input-area button {
+  background-color: #fff;
+  margin: 10px 10px;
+  padding: 20px 15px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 16px;
+  color: #212529;
+}
+.header-content .input-area input::placeholder,
+.header-content .input-area select::placeholder,
+.header-content .input-area button::placeholder {
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 15px;
+}
+.header-content .input-area .input-fbtn {
+  background-color: #2f89fc;
+  color: #fff;
+  font-family: "Nanum Gothic", sans-serif;
+  padding: 15px;
+  cursor: pointer;
+}
+.header-content .trending-search {
+  margin: 0 15px;
+  font-family: "Nanum Gothic", sans-serif;
+}
+.header-content .trending-search h3 {
+  font-size: 16px;
+  font-weight: 100;
+  color: #fff;
+  margin: 10px 0;
+}
+.header-content .trending-search span {
+  border: 1px solid #fff;
+  padding: 5px 10px;
+  font-size: 13px;
+  background-color: rgba(255, 255, 255, 0.261);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.nav {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  width: 275px;
+  height: 100%;
+  padding: 20px 0;
+  background-color: #fff;
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 18px;
+}
+.nav .main-links {
+  margin-top: 60px;
+}
+.nav .main-links li {
+  margin-top: 26px;
+}
+.nav .main-links li a {
+  margin: 0px 30px;
+  color: #212529;
+}
+.nav .navbar-button {
+  padding: 12px 20px;
+  margin: 0px 30px;
+  background-color: #2f89fc;
+  font-family: "Nanum Gothic", sans-serif;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .hamburger {
+    display: none;
+  }
+  .header-container {
+    align-items: center;
+  }
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    background-color: transparent;
+  }
+  .nav .main-links {
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+    font-size: 15px;
+  }
+  .nav .main-links li {
+    margin-top: 0px;
+  }
+  .nav .main-links li a {
+    margin: 0px 10px;
+    color: #fff;
+  }
+  .nav .login {
+    display: flex;
+    align-items: center;
+  }
+  .nav .login span {
+    display: block;
+    color: #fff;
+    margin: 0 20px 0 80px;
+    font-size: 20px;
+  }
+  .nav .navbar-button {
+    margin-right: 0px;
+    margin-left: 30px;
+    font-size: 15px;
+  }
+  .about {
+    padding: 10px 0;
+  }
+  .about:hover .drop-menu {
+    display: block;
+  }
+  .about .drop-link {
+    margin-right: 0px;
+  }
+  .about .drop-link i {
+    color: #fff;
+    margin-left: 0;
+    margin-right: 10px;
+    padding: 0px;
+  }
+  .about .drop-menu {
+    position: absolute;
+    background-color: #fff;
+    margin-top: 10px;
+  }
+  .about .drop-menu li {
+    padding: 10px 20px 10px 0;
+  }
+  .about .drop-menu li:hover {
+    background-color: #f8f9fa;
+  }
+  .about .drop-menu li a {
+    color: #212529 !important;
+  }
+  .header {
+    height: 100vh;
+  }
+  .header-content {
+    margin-top: 40px;
+    padding: 100px 0;
+  }
+  .header-content .main-title h1 {
+    font-size: 48px;
+  }
+  .header-content .main-title p {
+    max-width: 800px;
+  }
+  .header-content .input-area {
+    grid-template-columns: 4fr 3fr 3fr 2fr;
+    gap: 0.5em;
+  }
+  .header-content .input-area input,
+  .header-content .input-area select,
+  .header-content .input-area button {
+    padding: 0 15px;
+  }
+  .trending-search {
+    display: flex;
+    align-items: center;
+  }
+  .trending-search span {
+    margin: 0 5px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
