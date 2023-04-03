@@ -62,7 +62,7 @@ $text_clr_secondary: #ffffff;
 footer {
 	@include sectionClr($clr_secondary, rgb(115, 115, 115));
 	.footer_copyright {
-		padding-top: 3em;
+		padding: 5em;
 		text-align: center;
 	}
 }
@@ -162,6 +162,10 @@ footer {
 			input {
 				background-color: transparent;
 				border: none;
+				&:focus {
+					outline: none;
+					color: $text_clr_secondary;
+				}
 			}
 		}
 	}
@@ -217,6 +221,7 @@ footer {
 }
 
 .btn {
+	cursor: pointer;
 	width: 152px;
 	background-color: $clr_primary;
 	color: white;
