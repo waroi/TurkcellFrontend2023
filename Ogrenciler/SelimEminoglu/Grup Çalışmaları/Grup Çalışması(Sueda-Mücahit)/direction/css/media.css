@@ -81,5 +81,77 @@
   .wrap-icon span {
     right: 4px;
     top: 65%;
+  }
+  .categories-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .review-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+    .card img {
+      width: 253px;
+    }
+
+    .box-4 {
+      display: none;
+    }
+     .galery-div {
+      width: 100%;
+    }
 }
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+    .review-cards {
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+    }
+      .card img {
+        width: 280px;
+      }
+
+      .box-3 {
+        display: none;
+      }
+      .row-col-1 {
+      width: 100%;
+      margin: 10px;
+    }
+    .row-col-2 {
+      width: 100%;
+    }
+    .form-in {
+      padding-top: 2rem;
+    }
+    .our-blog {
+      padding: 5px;
+    }
+    .site-footer {
+      padding: 10px;
+    }
 }
+   
+@media (max-width: 575px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .review-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+    .box-2 {
+      display: none;
+    }
+    .categories-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  }
+
+ 
