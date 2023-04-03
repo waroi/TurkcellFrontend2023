@@ -4,5 +4,5 @@
 <ul>
     <li> <a href="./grup-calismalarim"> Grup Çalışmalarım</a></li>
     <li> <a href="./bireysel-odevlerim"> Bireysel Ödevlerim</a> </li>
-    <li> <a href="./ders-ici-calismalarım"> Ders İçi Çalışmalarım</a> </li>
+    <li> <a href="./ders-ici-calismalarim"> Ders İçi Çalışmalarım</a> </li>
 </ul>
