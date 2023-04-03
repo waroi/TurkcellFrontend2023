@@ -2,27 +2,31 @@ $bgColor: red;
 $x150: 150px;
 $x100: 100px;
 
+@mixin boxFunction($color, $w, $h) {
+  background-color: $color;
+  width: $w;
+  height: $h;
+}
 .container {
   display: flex;
   &:hover {
     background-color: green;
   }
-  .box1 {
-    background-color: $bgColor;
-    width: $x150 * 2;
-    height: $x100 / 2;
-  }
   .box2 {
-    background-color: $bgColor;
-    width: $x150 * 2;
-    height: $x100 * 2;
+    @include boxFunction($bgColor, $x150, $x100 );
+  }
+  .box1 {
+    @include boxFunction(orange, $x150, $x100 * 4);
+  }
+  .box3 {
+    @extend .box1;
+    width: 300px;
   }
   .box4 {
-    background-color: $bgColor;
-    width: $x150 * 4;
-    height: $x100;
-    &.deneme {
-        background-color: blue;
+    @include boxFunction(lime, $x150, $x100 * 2);
+   &.deneme {
+      background-color: blue;
     }
   }
 }
+
