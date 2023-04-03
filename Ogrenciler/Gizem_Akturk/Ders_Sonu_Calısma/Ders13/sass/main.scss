@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+$size: 16px;
+$line-height: 1.6;
+$weight: 400;
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+@mixin fonts-maker($size, $line-height, $weight) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}
+@mixin grid($min) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax($min,1fr));
+}
+@mixin flex($direction,$justify,$align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
