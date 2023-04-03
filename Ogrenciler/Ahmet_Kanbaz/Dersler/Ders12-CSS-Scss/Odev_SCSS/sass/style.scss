@@ -70,6 +70,9 @@ header {
         }
       }
     }
+    .hamburger {
+      display: none;
+    }
   }
 }
 
@@ -108,6 +111,7 @@ header {
       padding: 20px;
       form {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
         gap: 2rem;
         .formItem{
@@ -123,12 +127,12 @@ header {
             outline: none;
           }
           &.lookInput {
-            width: 30%;
+            width: 28%;
           }
           &.formSelect {
             margin-left: 2rem;
             height: auto;
-            width: 23%;
+            width: 22%;
             padding: 0.375rem 0.75rem;
           }
         }
@@ -145,7 +149,7 @@ header {
           }
         }
         button {
-          width: 14%;
+          width: 15%;
           padding: 10px 30px;
           border-radius: 0.25rem;
           background-color: #2f89fc;
@@ -517,7 +521,6 @@ header {
       }
     }
   }
-
   .cardWrapper {
     padding: 0;
     .card {
@@ -738,16 +741,71 @@ footer {
 @media screen and (max-width: 768px) {
   header {
     .container {
+      padding-top: 0;
       .menu {
         display: none;
       }
       .logInContainer {
         display: none;
       }
+      .hamburger {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 1rem;
+        cursor: pointer;
+        z-index: 999;
+        .hamburgerLine {
+          width: 25px;
+          height: 3px;
+          background-color: #FFFFFF;
+          margin: 5px 0;
+          transition: all .3s ease-in-out;
+        }
+      }
     }
   }
 
-  .featured {
+  .welcome {
+    .container {
+      .topSection {
+        padding-top: 12rem;
+        h1 {
+          font-size: 2rem;
+        }
+      }
+      .formWelcome {
+        form {
+          gap: 1.4rem;
+          .formItem{
+            &.lookInput {
+              width: 100%;
+              height: 40px;
+            }
+            &.formSelect {
+              width: 100%;
+              height: 55px;
+              margin: 0;
+            }
+          }
+          .locationInput {
+            width: calc(100% - 25px);
+            input {
+              width: 100%;
+              height: 40px;
+            }
+          }
+          button {
+            width: 100%;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  .sectionfea {
     .cardWrapper {
       .card {
         width: 100%;
