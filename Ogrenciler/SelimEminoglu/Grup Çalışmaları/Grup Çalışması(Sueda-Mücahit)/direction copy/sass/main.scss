@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap%27');
+
 *{
     margin: 0;
     padding: 0;
@@ -10,6 +12,7 @@ body{
     color: #4d4d4d;
     font-weight: 400;
     font-size: 1rem;
+    font-family: 'Nanum Gothic',sans-serif;
 }
 
 .container{
@@ -23,6 +26,11 @@ body{
 ul{
     margin-top: 0;
     margin-bottom: 1rem;
+}
+
+input{
+    overflow: visible;
+    margin: 0;
 }
 
 // Ortak Değerler
@@ -189,20 +197,24 @@ $center:center;
         color: rgba(255, 255, 255, 0.7);
     }
     .form-input{
+        color: $white-color;
         border: none;
         border-bottom: 1px solid #fff;
         background: none;
-        padding-left: 0;
+        padding-left: 0 !important;
+
         height: 43px;
         border-radius: 0;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        color: $light-gray-color-2;
-        border: 1px solid #ced4da;
         line-height: 1.5;
         font-size: 1rem;
         padding: 0.375rem 0.75rem;
         display: block;
         width: 100%;
+    }
+    .form-input::placeholder{
+        color: $white-color;
+        cursor: text;
     }
     .second-input{
         padding-left: 15px;
@@ -252,6 +264,14 @@ $center:center;
     }
 }
 
+.foot-text-col-1{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 .footer-last-text{
     text-align: $center;
     padding-top: 3rem;
@@ -263,6 +283,12 @@ $center:center;
 }
 
 .row-col-1{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
     h2{
         font-size: 16px;
         color: $white-color;
@@ -270,6 +296,12 @@ $center:center;
 }
 
 .row-col-2{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
     h2{
         font-size: 16px;
         color: $white-color;
@@ -298,6 +330,15 @@ $center:center;
         font-size: 1rem;
         padding: 0.375rem 0.75rem;
         display: block;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        margin-bottom: 0;
+        color: $white-color;
+        border-color: #6c757d;
+        background-color: transparent;
     }
     .form-button-div{
         margin-left: -1px;
@@ -309,33 +350,34 @@ $center:center;
         border-color: $blue-color;
         border-radius: 0;
         cursor: pointer;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        position: relative;
+        z-index: 2;
+
+        display:inline-block;
+        text-align:$center;
+        white-space:nowrap;
+        vertical-align:middle;
+        border: 1px solid transparent;
+        line-height: 1.5;
+        font-size: 1rem;
+        padding: 0.375rem 0.75rem;
     }
 
 }
 
-@media (min-width: 1400px) {
-    .container {
-      max-width: $x1140;
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .site-footer{
+        padding:4em 0;
     }
+    .row-text{
+        a{
+            padding-right:1em ;
+        }
+    }
+}
   
-}
-
-@media (min-width:1200px){
-    .container{
-        max-width: $x1140;
-    }
-}
-  
-@media (min-width: 992px) {
-    .container {
-      min-width: $x960;
-    }
-    .galery-div{
-        flex: 0 0 33.3%;
-        max-width: 33.3%;
-    }
-}
-
 @media (min-width:768px){
     .container{
         max-width: $x720;
@@ -350,15 +392,17 @@ $center:center;
     .site-footer{
         padding: 8em 0;
     }
-
     .row-col-1{
         flex: 0 0 50%;
         max-width: 50%;
     }
-
     .row-col-2{
         flex: 0 0 25%;
         max-width: 25%;
+    }
+    .foot-text-col-1{
+        flex: 0 0 75%;
+        max-width: 75%;
     }
     .footer-last{
         flex: 0 0 100%;
@@ -375,6 +419,25 @@ $center:center;
     }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px){
+@media (min-width: 992px) {
+    .container {
+      max-width: $x960;
+    }
+    .galery-div{
+        flex: 0 0 33.3%;
+        max-width: 33.3%;
+    }
+}
 
+@media (min-width:1200px){
+    .container{
+       max-width: $x1140;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+      max-width: $x1140;
+    }
+  
 }
