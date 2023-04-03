@@ -1,10 +1,31 @@
-h1 {
-  color: rgb(100, 61, 159);
-  font-size: 50px;
+@charset "UTF-8";
+.container {
+  display: flex;
 }
-
-p {
-  font-size: 30px;
+.container:hover {
+  background-color: #d8e2dc;
+}
+.container .box2 {
+  width: 450px;
+  height: 100px;
+  background-color: #ffe5d9;
+}
+.container .box1, .container .box3 {
+  width: 150px;
+  height: 200px;
+  background-color: #ffcad4;
+}
+.container .box3 {
+  /*extend ile bir üstü miras alabliriz*/
+  height: 300px;
+}
+.container .box4 {
+  width: 150px;
+  height: 200px;
+  background-color: #f4acb7;
+}
+.container .box4.deneme {
+  background-color: #9d8189;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,76 @@
+$bgColor:rgb(70, 14, 143);
+$x150:150px;
+$x100:100px;
+
+
+
+@mixin boxFunction($color,$h,$w){
+  background-color: $color;
+  width: $x150;
+  height: $h;
+  color: aqua;
+  
+  }
+
+  
+
+.container{
+  display: flex;
+  &:hover{
+    background-color: rgb(152, 86, 238);
+  }
+  // .box1{
+  //   background-color: $bgColor;
+  //   width: $x100;
+  //   height: $x100;
+  // }
+
+  // .box2{
+  //   background-color: $bgColor;
+  //   width: $x150 *2; 
+  //   height: $x100;
+  // }
+
+  // .box4{
+  //   background-color: $bgColor;
+  //   width: $x150 *4; 
+  //   height: $x100;
+  //   &.deneme{
+  //     background-color: antiquewhite;
+  //   }
+  //   &.deneme:hover{
+  //     background-color: blueviolet;
+  //   }
+  // }
+
+
+  .box2{
+    @include boxFunction(red,10px,10px);
+    color:rgb(255, 255, 255);
+  }
+
+  
+  .box1{
+    @include boxFunction(#66f959,$x150 ,$x100 *2 );
+  }
+
+  .box3{
+    @extend .box1;
+  }
+
+  .box4{
+    @include boxFunction(#3b6fff,$x150 ,$x100 *4 );
+    &.deneme{
+      background-color: rgb(255, 0, 221);
+    }
+  
+  }
+
+
+}
+
+
+
+
+
+

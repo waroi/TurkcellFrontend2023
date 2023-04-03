@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+* {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+$dark-gray-color: #666666;
+$popular-cat-gray: #00000080;
+$light-gray-color-2: #495057;
+$blue-color: #2f89fc;
+$dark-blue-color: #2a7dea;
+$white-color: #ffffff;
+$primary-bg-color: #f8f9fa;
+$footer-bg-color: #333333;
+$star-yellow: #f89d13;
+$heard-red: #f23a2e;
+$x1140: 1140px;
+$x720: 720px;
+
+body {
+  line-height: 1.7;
+  color: #4d4d4d;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: $x1140;
+  margin: 0 auto;
+
+}
+
+//Featured Ads
+
+.card {
+  flex-direction: row;
+  display: grid;
+
+  img {
+    object-fit: cover;
+    width: 230px;
+  }
+
+  .tag {
+    padding: 4px 8px;
+    background-color: #e9ecef;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 20px;
+    color: #000;
+  }
+
+  .name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: $blue-color;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 13px;
+    color: #4d4d4d;
+    line-height: 150%;
+  }
+
+  .card__details {
+    background-color: $white-color;
+    padding: 20px;
+    border-radius: 0px 0px 7px 7px;
+  }
+
+  .card-tag {
+    display: flex;
+    justify-content: space-between;
+
+    .love {
+      cursor: pointer;
+      color: $blue-color;
+      font-size: 16px;
+      background-color: #e9ecef;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: $heard-red;
+        color: $white-color;
+      }
+    }
+  }
+}
+
+.top-border {
+  border-radius: 7px 7px 0px 0px;
+}
+
+.review-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.review {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  color: $star-yellow;
+  font-size: 14px;
+}
+
+.noStar {
+  color: $light-gray-color-2;
+  font-size: 14px;
+}
+
+//vertical card
+.review-section {
+  background-color: $primary-bg-color;
+  padding: 80px 0px;
+
+  .featured {
+    font-size: 20px;
+    margin-left: 1rem;
+    margin-bottom: 20px;
+  }
+
+}
+
+
+
+// Popüler Categories Kısmı
+
+.category-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-size: 32px;
+    color: $blue-color;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 0;
+    font-size: 16px;
+    color: $popular-cat-gray;
+  }
+}
+
+// Popüler Katergori Kartları
+
+.categories-cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  .card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 30px 10px;
+
+    &:hover {
+      box-shadow: 0 5px 30px -5px rgba(47, 137, 252, 0.5);
+      z-index: 1;
+      border-radius: 7px;
+      background-color: $blue-color;
+
+      .category-icon {
+        color: $white-color;
+      }
+
+      .category-title {
+        color: $white-color;
+      }
+
+      .category-number-tag {
+        background: $dark-blue-color;
+        color: $white-color;
+      }
+    }
+  }
+}
+
+.category-icon {
+  font-size: 40px;
+  color: $blue-color;
+  margin-bottom: 10px;
+}
+
+.category-title {
+  font-size: 15px;
+  color: #666666;
+  margin-bottom: 0.5rem !important;
+}
+
+.category-number-tag {
+  padding: 2px 20px;
+  background: #e9ecef;
+  color: #000;
+  font-size: 14px;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+// Trending Today Kısmı
+.blue-line {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: #2f89fc;
+}
+
+.trending-section {
+  padding-top: 10px;
+  background-color: $primary-bg-color;
+
+  .trending-cards {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+
+    //Horizontal card
+    .card {
+      display: flex;
+      margin-bottom: 25px;
+    }
+
+    .card__details {
+      width: 100%;
+      border-radius: 0px 10px 10px 0px;
+    }
+  }
+
+  .trending-title {
+    h2 {
+      font-size: 32px;
+      color: $blue-color;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.trending-title::after {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: $blue-color;
+}
+
+.left-border {
+  border-radius: 7px 0px 0px 7px;
+}
+
+@media (min-width: 1200px) {
+  .container1 {
+    max-width: $x1140 ;
+  }
+}
+
+// 990px için
+@media (max-width: 990px) {
+  .container {
+    max-width: $x720;
+  }
+
+  .categories-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .review-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+
+    .card img {
+      width: 233px;
+    }
+
+    .box-4 {
+      display: none;
+    }
+  }
+
+  .trending-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+// 768px için
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+
+    .review-cards {
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+
+      .card img {
+        width: 270px;
+      }
+
+      .box-3 {
+        display: none;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 575px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .review-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .card img {
+      width: 340px;
+    }
+
+    .box-2 {
+      display: none;
+    }
+  }
+
+  .categories-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .trending-cards {
+    margin-right: 20px;
+
+    .card {
+      flex-direction: column !important;
+
+      .card__details {
+        width: 88%;
+        border-radius: 0px 0px 7px 7px;
+      }
+    }
+  }
+
+  .trending-section .trending-cards .card img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 7px 7px 0px 0px;
+  }
+
+  .trending-today {
+    margin-left: 2rem;
+  }
+}
