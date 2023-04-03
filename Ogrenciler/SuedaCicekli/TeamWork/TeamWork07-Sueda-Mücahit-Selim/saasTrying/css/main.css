@@ -18,6 +18,65 @@ body {
   margin: 0 auto;
 }
 
+.card {
+  flex-direction: row;
+  display: grid;
+}
+.card img {
+  object-fit: cover;
+  width: 230px;
+}
+.card .tag {
+  padding: 4px 8px;
+  background-color: #e9ecef;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 20px;
+  color: #000;
+}
+.card .name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #2f89fc;
+  font-weight: 400;
+}
+.card p {
+  font-size: 13px;
+  color: #4d4d4d;
+  line-height: 150%;
+}
+.card .card__details {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 0px 0px 7px 7px;
+}
+.card .card-tag {
+  display: flex;
+  justify-content: space-between;
+}
+.card .card-tag .love {
+  cursor: pointer;
+  color: #2f89fc;
+  font-size: 16px;
+  background-color: #e9ecef;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.card .card-tag .love:hover {
+  background-color: #f23a2e;
+  color: #ffffff;
+}
+
+.top-border {
+  border-radius: 7px 7px 0px 0px;
+}
+
 .review-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -25,8 +84,7 @@ body {
 }
 
 .review {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   align-items: center;
 }
 
@@ -46,63 +104,8 @@ body {
 }
 .review-section .featured {
   font-size: 20px;
-  margin-left: 10px;
+  margin-left: 1rem;
   margin-bottom: 20px;
-}
-.review-section .card {
-  display: grid;
-}
-.review-section .card img {
-  object-fit: cover;
-  width: 100%;
-  height: 150px;
-  border-radius: 7px 7px 0 0px;
-}
-.review-section .card .tag {
-  padding: 4px 8px;
-  background-color: #e9ecef;
-  border-radius: 50px;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 5px 20px;
-  color: #000;
-}
-.review-section .card .name {
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 10px;
-  color: #2f89fc;
-  font-weight: 400;
-}
-.review-section .card p {
-  font-size: 13px;
-  color: #4d4d4d;
-  line-height: 150%;
-}
-.review-section .card .card__details {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 0px 0px 7px 7px;
-}
-.review-section .card .card-tag {
-  display: flex;
-  justify-content: space-between;
-}
-.review-section .card .card-tag .love {
-  cursor: pointer;
-  color: #2f89fc;
-  font-size: 16px;
-  background-color: #e9ecef;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-}
-.review-section .card .card-tag .love:hover {
-  background-color: #f23a2e;
-  color: #ffffff;
 }
 
 .category-title {
@@ -172,6 +175,49 @@ body {
   display: inline-block;
 }
 
+.blue-line {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: #2f89fc;
+}
+
+.trending-section {
+  padding-top: 10px;
+  background-color: #f8f9fa;
+}
+.trending-section .trending-cards {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+}
+.trending-section .trending-cards .card {
+  display: flex;
+  margin-bottom: 25px;
+}
+.trending-section .trending-cards .card__details {
+  width: 100%;
+  border-radius: 0px 10px 10px 0px;
+}
+.trending-section .trending-title h2 {
+  font-size: 32px;
+  color: #2f89fc;
+  margin-bottom: 0;
+}
+
+.trending-title::after {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: #2f89fc;
+}
+
+.left-border {
+  border-radius: 7px 0px 0px 7px;
+}
+
 @media (min-width: 1200px) {
   .container1 {
     max-width: 1140px;
@@ -189,10 +235,13 @@ body {
     gap: 10px;
   }
   .review-cards .card img {
-    width: 253px;
+    width: 233px;
   }
   .review-cards .box-4 {
     display: none;
+  }
+  .trending-cards {
+    grid-template-columns: 1fr !important;
   }
 }
 @media (max-width: 768px) {
@@ -204,7 +253,7 @@ body {
     width: 100%;
   }
   .container .review-cards .card img {
-    width: 280px;
+    width: 270px;
   }
   .container .review-cards .box-3 {
     display: none;
@@ -220,13 +269,31 @@ body {
     justify-content: center;
   }
   .review-cards .card img {
-    width: 340px !important;
+    width: 340px;
   }
   .review-cards .box-2 {
     display: none;
   }
   .categories-cards {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .trending-cards {
+    margin-right: 20px;
+  }
+  .trending-cards .card {
+    flex-direction: column !important;
+  }
+  .trending-cards .card .card__details {
+    width: 88%;
+    border-radius: 0px 0px 7px 7px;
+  }
+  .trending-section .trending-cards .card img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 7px 7px 0px 0px;
+  }
+  .trending-today {
+    margin-left: 2rem;
   }
 }
 

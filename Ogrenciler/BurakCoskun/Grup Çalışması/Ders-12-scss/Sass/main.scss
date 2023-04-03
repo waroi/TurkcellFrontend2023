@@ -252,6 +252,91 @@ header {
       flex-wrap: wrap;
     }
   }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 20px;
+    .card {
+      background: #fff;
+      border-radius: 4px;
+      width: 100%;
+      z-index: 1;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.1);
+      border-radius: 7px;
+      height: 200px;
+      .card-img {
+        border-top-right-radius: 7px;
+        border-top-left-radius: 7px;
+        max-width: 50%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-body {
+        padding: 20px;
+        margin-top: 20px;
+        width: 100%;
+        > * {
+          margin-bottom: $font16;
+        }
+        .row {
+          align-items: center;
+          justify-content: space-between;
+          .tag {
+            margin: 0;
+          }
+
+          .like-btn {
+            background-color: $colorGray;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+              background-color: #f23a2e;
+              i {
+                color: $colorWhite;
+              }
+            }
+            i {
+              color: $colorBlue;
+            }
+          }
+          .card-title {
+            font-weight: 500;
+            line-height: 1.5;
+            color: #343a40;
+            margin-bottom: 5px;
+          }
+        }
+        .card-title {
+          font-size: $font16;
+          color: $colorBlue;
+        }
+        address {
+          font-size: $font16;
+          color: $textGray;
+          font-weight: 400;
+        }
+        .stars {
+          margin: 0;
+          .star-selected {
+            color: #f89d13;
+          }
+          .star-secondary {
+            color: #6c757d;
+          }
+        }
+      }
+    }
+  }
 }
 
 #testimonials {
@@ -509,4 +594,19 @@ header {
 .footer-bottom p {
   padding-top: 3rem;
   text-align: center;
+}
+
+@media screen and (max-width: 1020px) {
+  #trends {
+    .cards {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      .card {
+        flex-direction: column;
+        height: auto;
+        img {
+          max-width: 100% !important;
+        }
+      }
+    }
+  }
 }

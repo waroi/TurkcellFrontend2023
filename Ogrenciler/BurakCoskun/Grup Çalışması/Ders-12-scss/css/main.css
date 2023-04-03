@@ -223,6 +223,89 @@ header nav {
   display: flex;
   flex-wrap: wrap;
 }
+#trends .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 20px;
+}
+#trends .cards .card {
+  background: #fff;
+  border-radius: 4px;
+  width: 100%;
+  z-index: 1;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 20px -2px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  height: 200px;
+}
+#trends .cards .card .card-img {
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  max-width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+#trends .cards .card .card-body {
+  padding: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+#trends .cards .card .card-body > * {
+  margin-bottom: 1rem;
+}
+#trends .cards .card .card-body .row {
+  align-items: center;
+  justify-content: space-between;
+}
+#trends .cards .card .card-body .row .tag {
+  margin: 0;
+}
+#trends .cards .card .card-body .row .like-btn {
+  background-color: #e9ecef;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#trends .cards .card .card-body .row .like-btn:hover {
+  background-color: #f23a2e;
+}
+#trends .cards .card .card-body .row .like-btn:hover i {
+  color: #fff;
+}
+#trends .cards .card .card-body .row .like-btn i {
+  color: #2f89fc;
+}
+#trends .cards .card .card-body .row .card-title {
+  font-weight: 500;
+  line-height: 1.5;
+  color: #343a40;
+  margin-bottom: 5px;
+}
+#trends .cards .card .card-body .card-title {
+  font-size: 1rem;
+  color: #2f89fc;
+}
+#trends .cards .card .card-body address {
+  font-size: 1rem;
+  color: #4d4d4d;
+  font-weight: 400;
+}
+#trends .cards .card .card-body .stars {
+  margin: 0;
+}
+#trends .cards .card .card-body .stars .star-selected {
+  color: #f89d13;
+}
+#trends .cards .card .card-body .stars .star-secondary {
+  color: #6c757d;
+}
 
 #testimonials {
   margin: 0 auto;
@@ -504,6 +587,19 @@ header nav {
 .footer-bottom p {
   padding-top: 3rem;
   text-align: center;
+}
+
+@media screen and (max-width: 1020px) {
+  #trends .cards {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+  #trends .cards .card {
+    flex-direction: column;
+    height: auto;
+  }
+  #trends .cards .card img {
+    max-width: 100% !important;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
