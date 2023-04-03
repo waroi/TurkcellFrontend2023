@@ -1,64 +1,121 @@
+$bg-color-hover: linear-gradient(
+  to left,
+  #ffab8b,
+  #ff957d,
+  #ff7d75,
+  #ff6371,
+  #fd4372
+);
+
 $bg-color: linear-gradient(to right, #ff5195, #ffb84b);
 
-
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+}
+p {
+  font-weight: 400;
+  font-size: 15px;
+  color: #696969;
 }
 
 @mixin d-flex($jst, $algn, $flexDir) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    flex-direction: $flexDir;
-    justify-content: $jst;
-    align-items: $algn;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex-direction: $flexDir;
+  justify-content: $jst;
+  align-items: $algn;
 }
 
+@mixin button {
+  background: $bg-color;
+  width: fit-content;
+  padding: 16px 25px;
+  border-radius: 4px;
+  border: none;
+  color: #ffff;
+  font-size: 16px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
 
-@mixin button{
-    background: $bg-color;
-    width: fit-content;
-    padding: 16px 25px;
-    border-radius: 4px;
-    border: none;
-    color: #ffff;
-    font-size: 16px;
-    font-weight: 700;
-}
-
-.header {
-    margin-top: 85px;
-    background-color: #f9f2ff !important;
-    // background: url('http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape-1.png') no-repeat;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+    background: $bg-color-hover;
+    transition: transform 0.3s ease-in-out;
+    z-index: -1;
+  }
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+      transform-origin: 0% 50%;
+    }
+  }
 }
 
 .container {
-    width: 100%;
-    display: flex;
-    margin: 0 12px;
+  padding: 0 12px;
 }
+.section-image {
+  width: 100%;
+  margin-top: 75px;
+  img {
+    width: 100%;
+  }
+}
+.section-content {
+  .section-header {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ecf0f3;
+    & h2 {
+      margin-bottom: 15px;
+      margin-top: 35px;
+    }
+  }
+}
+.header {
+  background-color: #f9f2ff;
+  margin-top: 170px;
 
-.header-con {
+  .header-con {
     @include d-flex(space-evenly, flex-start, column);
     img {
-        width: 100%;
-        margin-bottom: 85px;
+      width: 100%;
+      margin-bottom: 95px;
     }
     .btn {
-        @include button();
+      @include button();
     }
     .header-con-div {
       @include d-flex(space-evenly, flex-start, column);
       h2 {
         font-size: 30px;
+        font-weight: 900;
       }
-      p {
-        color: #696969;
-        font-weight: 500 !important;
+      button {
+        margin-top: 20px;
       }
     }
+  }
+}
+.omnichannel {
+  .omnichannel-con {
+  }
 }
