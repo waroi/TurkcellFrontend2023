@@ -35,19 +35,13 @@ body {
 
 //Featured Ads
 
-
-.review-cards {
+.card {
+  flex-direction: row;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-items: center;
-}
 
-@mixin card-style($card-direction) {
   img {
     object-fit: cover;
-    width: 100%;
-    height: 150px;
-    border-radius: 7px 7px 0 0px;
+    width: 230px;
   }
 
   .tag {
@@ -104,9 +98,18 @@ body {
   }
 }
 
-.review {
+.top-border {
+  border-radius: 7px 7px 0px 0px;
+}
+
+.review-cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.review {
+  display: flex;
   align-items: center;
 }
 
@@ -120,21 +123,19 @@ body {
   font-size: 14px;
 }
 
+//vertical card
 .review-section {
   background-color: $primary-bg-color;
   padding: 80px 0px;
 
   .featured {
     font-size: 20px;
-    margin-left: 10px;
+    margin-left: 1rem;
     margin-bottom: 20px;
   }
 
-  .card {
-    @include card-style("vertical");
-    display: grid;
-  }
 }
+
 
 
 // Popüler Categories Kısmı
@@ -215,6 +216,56 @@ body {
   display: inline-block;
 }
 
+// Trending Today Kısmı
+.blue-line {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: #2f89fc;
+}
+
+.trending-section {
+  padding-top: 10px;
+  background-color: $primary-bg-color;
+
+  .trending-cards {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+
+    //Horizontal card
+    .card {
+      display: flex;
+      margin-bottom: 25px;
+    }
+
+    .card__details {
+      width: 100%;
+      border-radius: 0px 10px 10px 0px;
+    }
+  }
+
+  .trending-title {
+    h2 {
+      font-size: 32px;
+      color: $blue-color;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.trending-title::after {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: $blue-color;
+}
+
+.left-border {
+  border-radius: 7px 0px 0px 7px;
+}
 
 @media (min-width: 1200px) {
   .container1 {
@@ -237,12 +288,16 @@ body {
     gap: 10px;
 
     .card img {
-      width: 253px;
+      width: 233px;
     }
 
     .box-4 {
       display: none;
     }
+  }
+
+  .trending-cards {
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -256,7 +311,7 @@ body {
       width: 100%;
 
       .card img {
-        width: 280px;
+        width: 270px;
       }
 
       .box-3 {
@@ -278,18 +333,38 @@ body {
     justify-content: center;
 
     .card img {
-      width: 340px !important;
+      width: 340px;
     }
 
     .box-2 {
       display: none;
     }
-
-
-
   }
 
   .categories-cards {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .trending-cards {
+    margin-right: 20px;
+
+    .card {
+      flex-direction: column !important;
+
+      .card__details {
+        width: 88%;
+        border-radius: 0px 0px 7px 7px;
+      }
+    }
+  }
+
+  .trending-section .trending-cards .card img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 7px 7px 0px 0px;
+  }
+
+  .trending-today {
+    margin-left: 2rem;
   }
 }
