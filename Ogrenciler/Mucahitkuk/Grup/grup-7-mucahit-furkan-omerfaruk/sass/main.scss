@@ -1,0 +1,145 @@
+
+.container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+
+@mixin button {
+  background: linear-gradient(to right, #ff5195, #ffb84b);
+  padding: 16px 25px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  &:hover {
+    background: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
+    background: black;
+    transition:all .15s linear;
+  }
+} 
+
+//nav//
+
+
+
+.dropdown {
+  display: none;
+  width: 100%;
+  .dropbtn {
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    position: relative;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+}
+
+.dropdown-content {
+  width: 300px;
+  position: absolute;
+  right: 0;
+  z-index: 2000;
+  top: -20px;
+  padding-top: 20px;
+  background: #fff;
+  height: calc(100vh);
+  -webkit-transform: translateX(110%);
+  -ms-transform: translateX(110%);
+  transform: translateX(110%);
+  -webkit-box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
+  box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.5s all ease-in-out;
+  a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    &:hover {
+      color: blue;
+    }
+  }
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  transform: translateX(0%);
+}
+
+header {
+  position: relative;
+}
+
+.site-navbar {
+  z-index: 1999;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  border-radius: 4px;
+  .col-1 {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  h1 {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .col-2 {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .site-navigation {
+    text-align: right;
+    align-items: center;
+    display: flex;
+    ul {
+      display: flex;
+      a {
+        color: black;
+        text-decoration: none !important;
+        padding: 20px 10px;
+        display: inline-block;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .button {
+        @include button
+      }
+    }
+  }
+}
+
+
+// keyframes //
+
+@keyframes button-animation {
+  0% {
+    background: linear-gradient(to right, #ff5195, #ffb84b);
+
+  }
+  50% {
+    background: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
+  }
+
+  100% {
+    background: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
+  }
+}
