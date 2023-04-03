@@ -5,6 +5,9 @@ $clr_secondary: #343333;
 $text_clr_primary: #4d4d4d;
 $text_clr_secondary: #ffffff;
 
+body {
+	border-right: 1px solid black;
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -68,10 +71,18 @@ footer {
 }
 
 .container {
-	width: 80%;
-	max-width: 1140px;
-	margin: auto;
+	// width: 80%;
+	// max-width: 1140px;
+	// margin: auto;
+	// padding: 5em 0;
+
+	display: grid;
+	grid-template-columns: 1fr minmax(300px, 1140px) 1fr;
 	padding: 5em 0;
+	> * {
+		grid-column: 2;
+		padding: 0 10px;
+	}
 
 	.testimonial {
 		@include sectionCtor(row, (1fr, 1fr, 3fr), center);
@@ -120,13 +131,13 @@ footer {
 
 	.news {
 		@include sectionCtor(column, repeat(2, 1fr), space-between);
-		margin: -1.5em 0;
 		align-items: center;
 		justify-content: space-between;
+		padding: 1em;
 	}
 
 	.footer {
-		@include sectionCtor(column, 2fr repeat(3, 1fr), space-between);
+		@include sectionCtor(column, (2fr repeat(3, 1fr)), space-between);
 		gap: 1em;
 		border-bottom: 1px solid $text_clr_primary;
 		padding-bottom: 5em;
@@ -203,12 +214,12 @@ footer {
 	font-style: italic;
 }
 
-.card_header {
+.blog_card_header {
 	@include textCtor(20px, 500, 24px);
 	margin-top: 0.75em;
 }
 
-.card_info {
+.blog_card_info {
 	@include textCtor(14px, 400, 23.8px);
 	color: rgb(179, 179, 179);
 	a {
@@ -216,7 +227,7 @@ footer {
 	}
 }
 
-.card_text {
+.blog_card_text {
 	@include textCtor(16px, 400, 27.2px);
 }
 
@@ -261,4 +272,7 @@ footer {
 		background-color: $bck_color_secondary;
 		color: black;
 	}
+}
+
+@media only screen and (max-width: 1200px) {
 }
