@@ -5,9 +5,11 @@ $clr_secondary: #343333;
 $text_clr_primary: #4d4d4d;
 $text_clr_secondary: #ffffff;
 
+// NEED DELETE !!!!!
 body {
 	border-right: 1px solid black;
 }
+
 * {
 	margin: 0;
 	padding: 0;
@@ -65,7 +67,7 @@ body {
 footer {
 	@include sectionClr($clr_secondary, rgb(115, 115, 115));
 	.footer_copyright {
-		padding: 5em;
+		padding: 5em 0;
 		text-align: center;
 	}
 }
@@ -131,6 +133,7 @@ footer {
 
 	.news {
 		@include sectionCtor(column, repeat(2, 1fr), space-between);
+		margin: -16px 0;
 		align-items: center;
 		justify-content: space-between;
 		padding: 1em;
@@ -170,13 +173,20 @@ footer {
 		.footer_input {
 			display: flex;
 			border: 1px solid $text_clr_primary;
+			width: 100%;
 			input {
 				background-color: transparent;
 				border: none;
+				width: 70%;
+				padding: 1em;
 				&:focus {
 					outline: none;
 					color: $text_clr_secondary;
 				}
+			}
+			.btn {
+				width: 30%;
+				padding: 12px 6px;
 			}
 		}
 	}
@@ -275,4 +285,35 @@ footer {
 }
 
 @media only screen and (max-width: 1200px) {
+}
+
+@media only screen and (max-width: 992px) {
+	.container {
+		.blog {
+			.section_mid {
+				@include sectionMidCtor(repeat(2, 1fr), column, center);
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.container {
+		.blog {
+			.section_mid {
+				@include sectionMidCtor(repeat(3, 1fr), row, center);
+				grid-template-columns: none;
+			}
+		}
+
+		.news {
+			@include sectionCtor(row, repeat(2, 1fr), center);
+			grid-template-columns: none;
+		}
+
+		.footer {
+			@include sectionCtor(row, (1fr, 2fr, 1fr, 1fr), center);
+			grid-template-columns: none;
+		}
+	}
 }

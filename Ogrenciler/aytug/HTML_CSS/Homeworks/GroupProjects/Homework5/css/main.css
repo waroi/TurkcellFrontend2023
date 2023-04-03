@@ -31,7 +31,7 @@ footer {
   color: rgb(115, 115, 115);
 }
 footer .footer_copyright {
-  padding: 5em;
+  padding: 5em 0;
   text-align: center;
 }
 
@@ -96,6 +96,7 @@ footer .footer_copyright {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: space-between;
+  margin: -16px 0;
   align-items: center;
   justify-content: space-between;
   padding: 1em;
@@ -138,14 +139,21 @@ footer .footer_copyright {
 .container .footer .footer_input {
   display: flex;
   border: 1px solid #4d4d4d;
+  width: 100%;
 }
 .container .footer .footer_input input {
   background-color: transparent;
   border: none;
+  width: 70%;
+  padding: 1em;
 }
 .container .footer .footer_input input:focus {
   outline: none;
   color: #ffffff;
+}
+.container .footer .footer_input .btn {
+  width: 30%;
+  padding: 12px 6px;
 }
 
 .section_top {
@@ -256,6 +264,34 @@ footer .footer_copyright {
 .news_input .btn {
   background-color: #f8f9fa;
   color: black;
+}
+
+@media only screen and (max-width: 992px) {
+  .container .blog .section_mid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container .blog .section_mid {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+    grid-template-columns: none;
+  }
+  .container .news {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+    grid-template-columns: none;
+  }
+  .container .footer {
+    display: grid;
+    grid-template-rows: 1fr, 2fr, 1fr, 1fr;
+    justify-content: center;
+    grid-template-columns: none;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
