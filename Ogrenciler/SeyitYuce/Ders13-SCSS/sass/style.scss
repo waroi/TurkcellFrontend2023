@@ -1,0 +1,64 @@
+$bg-color: linear-gradient(to right, #ff5195, #ffb84b);
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+
+@mixin d-flex($jst, $algn, $flexDir) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: $flexDir;
+    justify-content: $jst;
+    align-items: $algn;
+}
+
+
+@mixin button{
+    background: $bg-color;
+    width: fit-content;
+    padding: 16px 25px;
+    border-radius: 4px;
+    border: none;
+    color: #ffff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.header {
+    margin-top: 85px;
+    background-color: #f9f2ff !important;
+    // background: url('http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape-1.png') no-repeat;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    margin: 0 12px;
+}
+
+.header-con {
+    @include d-flex(space-evenly, flex-start, column);
+    img {
+        width: 100%;
+        margin-bottom: 85px;
+    }
+    .btn {
+        @include button();
+    }
+    .header-con-div {
+      @include d-flex(space-evenly, flex-start, column);
+      h2 {
+        font-size: 30px;
+      }
+      p {
+        color: #696969;
+        font-weight: 500 !important;
+      }
+    }
+}
