@@ -85,6 +85,9 @@
   .categories-cards {
     grid-template-columns: repeat(3, 1fr);
   }
+  .trending-cards {
+    grid-template-columns: 1fr !important;
+  }
 
   .review-cards {
     grid-template-columns: 1fr 1fr 1fr;
@@ -111,7 +114,7 @@
       width: 100%;
     }
       .card img {
-        width: 280px;
+        width: 270px;
       }
 
       .box-3 {
@@ -151,6 +154,24 @@
     }
     .categories-cards {
     grid-template-columns: repeat(1, 1fr);
+  }
+    .trending-cards {
+      margin-right: 20px;
+    }
+    .card {
+      flex-direction: column !important;
+    }
+    .card__details {
+      width: 100% !important;
+      border-radius: 0px 0px 7px 7px;
+    }
+    .trending-section .trending-cards .card img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 7px 7px 0px 0px;
+  }
+  .trending-today {
+    margin-left: 2rem;
   }
   }
 

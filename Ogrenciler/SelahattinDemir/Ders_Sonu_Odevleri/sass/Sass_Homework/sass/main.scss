@@ -16,6 +16,7 @@ $white: #fff;
   text-decoration: none;
   list-style: none;
   list-style-type: none;
+  font-family: "Nanum Gothic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 @mixin flex($direction, $justify, $align) {
@@ -43,11 +44,14 @@ header{
   height: 100vh;
   @include flex(column, space-evenly, center);
   position: relative;
+  .container{
+    padding: 0 15px;
+  }
   nav{
     position: absolute;
     top: 30px;
     left: 10%;
-    width: 1140px;
+    width: 80%;
     border-radius: 4px;
     @include flex(row, space-between, start);
     .logo h1{
@@ -55,6 +59,17 @@ header{
       font-weight: 900;
       color: $white;
       margin-top: 8px;
+    }
+    .navbar-toggler{
+      display: none;
+      color: $white;
+      margin-top: 10px;
+      margin-right: 20px;
+      cursor: pointer;
+    } 
+    .hamburgerCheckBox {
+      position: absolute;
+      opacity: 0;
     }
     .menu-list{
       @include flex(row, space-evenly, center);
@@ -79,6 +94,18 @@ header{
         background-color: $blue;
       }
     }
+    #navbar-toggler:checked ~ .links {
+      display: flex;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 70px;
+      padding-bottom: 30px;
+      background-color: $white;
+      justify-content: start;
+      flex-direction: column;
+      transition: 1s;
+  }
   }
   .header-content{
     min-height: 600px;
@@ -102,7 +129,6 @@ header{
       border-radius: 4px;
       padding: 20px;
       margin-bottom: 1rem;
-      width: 1140px;
       @include flex(row, space-evenly, center);
       input, select{
         border: none;
@@ -118,8 +144,8 @@ header{
       }
       i{
         position: absolute;
-        top: 59%;
-        left: 52%;
+        top: 58%;
+        left: 53%;
         font-size: 22px;
       }
       input:last-child{
@@ -144,11 +170,11 @@ header{
       }
       a{
         color: #fff;
-        padding: 2px 10px;
+        padding: 5px 12px;
         background: rgba(255, 255, 255, 0.2);
         border: 1px solid #fff;
         border-radius: 4px;
-        font-size: .8rem;
+        font-size: 1rem;
         &:hover{
           background: $white;
           color: $blue;; 
@@ -287,16 +313,16 @@ header{
     }
   }
 }
-.today{
+.today {
   background-color: #f8f9fa;
-  .today-title{
+  .today-title {
     position: relative;
     margin-bottom: 3rem;
-    h2{
+    h2 {
       font-size: 2rem;
       font-weight: 700;
       color: $blue;
-      &::after{
+      &::after {
         content: "";
         position: absolute;
         bottom: 0px;
@@ -307,13 +333,338 @@ header{
       }
     }
   }
-  .ads-card{
+  .ads-card {
     width: 540px;
     height: 180px;
     @include flex(row, start, center);
-    .ads-img{
+    .ads-img {
       width: 230px;
       height: 180px;
     }
+    .category-top{
+      position: relative;
+    }
+    .category-top i{
+      position: absolute;
+      right: -40%;
+    }
   }
+}
+.testimonials {
+  .testimonials-title {
+    position: relative;
+    margin-bottom: 3rem;
+    text-align: center;
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: $blue;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: $blue;
+        left: 47%;
+      }
+    }
+  }
+  .testimonials-img {
+    text-align: center;
+    img {
+      max-width: 100px;
+      margin: 0 auto;
+      border-radius: 50%;
+      margin-bottom: 16px;
+    }
+    .name {
+      font-size: 16px;
+      color: #4d4d4d;
+      margin: 0 0 16px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .paragh {
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.7;
+    color: #4d4d4d;
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+.blog {
+  .blog-content {
+    margin-top: 48px;
+    @include flex(row, space-evenly, start);
+    width: 100%;
+    .blog-card {
+      width: 350px;
+      margin-bottom: 30px;
+      padding-bottom: 1.5rem;
+      @include flex(column, center, space-between);
+      img {
+        height: 220px;
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 30px;
+      }
+      a {
+        font-size: 20px;
+        color: black;
+      }
+      .date {
+        a {
+          font-size: 14px;
+          color: #4d4d4d;
+        }
+        .mx-1 {
+          font-size: 14px;
+          color: #4d4d4d;
+        }
+        .news {
+          font-size: 14px;
+          color: $blue;
+        }
+      }
+      p {
+        font-size: 16px;
+        margin: 0 0 16px;
+        color: #4d4d4d;
+      }
+    }
+  }
+  .posts {
+    margin: 24px 0 0;
+    text-align: center;
+    padding: 0 15px;
+    button {
+      font-size: 16px;
+      background-color: $blue;
+      padding: 8px 24px;
+      color: $white;
+      border: none;
+      border-radius: 4px;
+    }
+  }
+  .newsletter {
+    @include flex(row, center, center);
+    background-color: $blue;
+    padding: 48px 0;
+    .newsletter-title {
+      width: 30%;
+      padding: 0 15px;
+      h2 {
+        font-size: 18px;
+        color: $white;
+        margin: 0 0 8px;
+      }
+      p {
+        font-size: 16px;
+        color: $white;
+      }
+    }
+    form {
+      width: 30%;
+      padding: 0 15px;
+      font-size: 16px;
+      @include flex(row, start, center);
+      gap: 0;
+      input {
+        background-color: $blue;
+        border: none;
+        border-bottom: 1px solid #fff;
+        width: 70%;
+        &::placeholder {
+          color: $white;
+          opacity: 1;
+        }
+      }
+      button {
+        padding: 6px 15px;
+        cursor: pointer;
+        background-color: #f0f0f0;
+        border: none;
+      }
+    }
+  }
+}
+footer {
+  background-color: #333333;
+  .footer-top {
+    width: 100%;
+
+    @include flex(row, space-evenly, center);
+    .footer-card {
+      padding: 0 15px;
+      h2 {
+        color: $white;
+        font-size: 16px;
+      }
+      p {
+        font-size: 16px;
+        color: #737373;
+        margin: 0 0 16px;
+      }
+    }
+    li a {
+      color: #999999;
+    }
+    .socials {
+      color: #999999;
+      padding: 0 16px;
+    }
+    .search-products {
+      .deneme {
+        @include flex(row, center, center);
+        flex-wrap: nowrap;
+        gap: 0;
+      }
+      input {
+        background-color: #333333;
+        border: 1px solid #6c757d;
+        padding: 6px 12px;
+      }
+      button {
+        padding: 7px 12px;
+        background-color: $blue;
+        border: none;
+        color: $white;
+      }
+    }
+    .footer-card:first-child {
+      width: 30%;
+    }
+    .footer-card:nth-child(3),
+    .footer-card:nth-child(4) {
+      margin-bottom: 80px;
+    }
+  }
+  .footer-bottom {
+    padding-top: 3rem;
+    margin-top: 3rem;
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    p {
+      font-size: 16px;
+      margin-bottom: 1rem;
+      color: #737373;
+    }
+  }
+}
+@media screen and (max-width:768px) {
+  header{
+    nav{
+      width: 90%;
+    }
+    .navbar-toggler{
+      display: block!important;
+    }
+    .links {
+      display: none;
+      align-items: start;
+      transition: transform 0.5s ease 0s;
+      height: 100vh;
+      margin-top: -30px;
+      z-index: 1;
+    }
+    .menu-list{
+      flex-direction: column!important;
+      li{
+        margin-top: 20px;
+        a{
+          color: #000!important;
+        }
+      }
+      li:nth-child(6){
+        margin-left: 0!important;
+      }
+      li:nth-child(6) a span{
+        display: none;
+      }
+    }
+    .header-content{
+      .header-title{
+        margin-top: 50px;
+        text-align: center;
+        padding: 0 20px;
+        h1{
+          line-height: 1.2;
+          font-size: 2rem; 
+        }
+        p{
+          font-size: 1.2rem;
+        }
+      }
+      input,select{
+        width: 100%;
+        height: 50px!important;
+        margin-bottom: 1rem;
+      }
+      i{
+        top: 53%!important;
+        left: 85%!important;
+        font-size: 22px;
+      }
+      .trending{
+        @include flex(column, start, start);
+      }
+    }
+  }
+  .today .ads-card {
+    width: 345px;
+    height: 420px;
+    .ads-img {
+      width: 345px;
+      height: 250px;
+    }
+    .category-top i{
+      right: -55%;
+    }
+  }
+  .testimonials-title {
+    h2 {
+      &::after {
+        left: 40%!important;
+      }
+    }
+  }
+  .section-title{
+    &::after{
+      left: 38%!important;
+    }
+  }
+  .blog .newsletter {
+    flex-direction: column;
+    .newsletter-title {
+      width: 80%;
+    }
+    form {
+      width: 80%;
+      button {
+        width: 30%;
+        text-align: left;
+        font-size: 13px;
+      }
+    }
+  }
+  .footer-card {
+    width: 100%;
+  }
+  .footer-card:first-child {
+    width: 100% !important;
+  }
+  .footer-card:nth-child(3) {
+    margin-bottom: 0!important;
+  }
+  .footer-card .search-products .deneme{
+    justify-content: flex-start!important;
+  }
+  
 }
