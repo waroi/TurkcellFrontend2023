@@ -1,12 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 * {
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
   color: #696969;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -21,6 +22,63 @@ body {
   margin-left: auto;
 }
 
+.header-btn {
+  background: linear-gradient(to right, #ff5195, #ffb84b);
+  padding: 16px 25px;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+}
+.header-btn a {
+  color: #fff;
+}
+
+header {
+  margin-top: 20px;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+.banner-section {
+  background-color: #f9f2ff;
+  padding: 265px 0 190px;
+}
+.banner-section .banner-header {
+  position: relative;
+  flex: 0 0 auto;
+  width: 50%;
+}
+.banner-section .banner-header h2 {
+  font-size: 60px;
+  line-height: 72px;
+  color: black;
+}
+
+.site-paragraph {
+  margin: 15px 0 30px;
+}
+
+.pos-banner-shape {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  content: "";
+}
+.pos-banner-shape .pos-shape-1 {
+  left: -22%;
+  position: absolute;
+  content: "";
+}
+.pos-banner-shape .pos-shape-2 {
+  position: absolute;
+  content: "";
+  right: -22%;
+}
+
 .primary-menu {
   display: flex;
   justify-content: space-between;
@@ -28,25 +86,29 @@ body {
   flex-wrap: wrap;
 }
 
+.main-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .main-menu ul {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
   gap: 20px;
 }
 .main-menu ul li {
   margin-right: 16px;
 }
-.main-menu ul li a::after {
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  font-weight: 400;
-  content: " " !important;
-  font-family: IcoFont !important;
+.main-menu ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: black;
 }
 
 .main-area {
