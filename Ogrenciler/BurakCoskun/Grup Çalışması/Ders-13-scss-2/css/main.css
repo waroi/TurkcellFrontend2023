@@ -184,8 +184,14 @@ header {
   box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
   padding: 70px 40px;
   margin: 15px;
+  position: relative;
+  transition: all 0.3 ease;
 }
-.perfect-pos-part .card-image {
+.perfect-pos-part .perfect-cards .perfect-card:hover ::after,
+.perfect-pos-part .perfect-cards .perfect-card :hover ::before {
+  animation: circle-2 1.05s infinite;
+}
+.perfect-pos-part .perfect-cards .card-image {
   line-height: 100px;
   border-radius: 100%;
   margin: auto;
@@ -196,7 +202,7 @@ header {
   height: 80px;
   position: relative;
 }
-.perfect-pos-part .card-image::before {
+.perfect-pos-part .perfect-cards .card-image::before {
   content: "";
   width: 92px;
   height: 92px;
@@ -210,7 +216,7 @@ header {
   background-color: #bb6df7;
   position: absolute;
 }
-.perfect-pos-part .card-image::after {
+.perfect-pos-part .perfect-cards .card-image::after {
   position: absolute;
   content: "";
   width: 105px;
@@ -252,8 +258,22 @@ header {
   gap: 0;
   border-bottom: 1px solid #fff5f3;
 }
-.world-cards .world-card .world-header img {
+.world-cards .world-card .world-header .person-image {
+  position: relative;
+}
+.world-cards .world-card .world-header .person-image img {
   border-radius: 50%;
+}
+.world-cards .world-card .world-header .person-image .person-animation {
+  position: absolute;
+  background: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-2.png);
+  animation: testi_round 6s linear infinite;
+  width: 80px;
+  height: 80px;
+  left: -10px;
+  top: -10px;
+  background-repeat: no-repeat !important;
+  animation-play-state: running;
 }
 .world-cards .world-card .world-header h5 {
   font-size: 20px;
@@ -261,10 +281,25 @@ header {
   font-weight: 700;
 }
 .world-cards .world-card .world-body {
+  position: relative;
   padding: 30px;
 }
 .world-cards .world-card .world-body p {
   margin-bottom: 15px;
+}
+.world-cards .world-card .world-body .checked {
+  color: orange;
+}
+.world-cards .world-card .world-body ::after {
+  position: absolute;
+  content: "";
+  bottom: 20px;
+  right: 30px;
+  width: 30px;
+  height: 20px;
+  background: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/02.png);
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
 }
 
 .sponsors .sponsor-logo {
@@ -328,6 +363,7 @@ footer .footer-top .footer-cards .footer-top-card p {
 footer .footer-top .footer-cards .footer-top-card span {
   color: #c961fa;
   text-transform: uppercase;
+  font-weight: bold;
 }
 footer .footer-links {
   padding: 110px 0 95px;
@@ -403,6 +439,25 @@ footer .footer-bottom {
   line-height: 24px;
   font-weight: 400;
   color: #696969;
+}
+
+@keyframes circle-2 {
+  100% {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+  }
+}
+@keyframes testi_round {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
