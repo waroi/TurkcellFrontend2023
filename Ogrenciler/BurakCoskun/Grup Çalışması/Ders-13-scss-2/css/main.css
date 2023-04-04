@@ -129,12 +129,12 @@ header {
   gap: 80px;
 }
 
-.cards-title, .perfect-pos-retail .platform-title {
+.cards-title, .perfect-pos-part .perfect-cards .perfect-title, .perfect-pos-retail .platform-title {
   margin: 0 auto 60px;
   text-align: center;
   max-width: 100%;
 }
-.cards-title .paragraph, .perfect-pos-retail .platform-title .paragraph {
+.cards-title .paragraph, .perfect-pos-part .perfect-cards .perfect-title .paragraph, .perfect-pos-retail .platform-title .paragraph {
   display: inline-block;
   max-width: 600px;
 }
@@ -170,6 +170,20 @@ header {
 .perfect-pos-part .perfect-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+.perfect-pos-part .perfect-cards .perfect-title {
+  max-width: 70%;
+}
+.perfect-pos-part .perfect-cards .perfect-title h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+.perfect-pos-part .perfect-cards .perfect-card {
+  box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
+  padding: 70px 40px;
+  margin: 15px;
 }
 .perfect-pos-part .card-image {
   line-height: 100px;
@@ -218,6 +232,133 @@ header {
 }
 .perfect-pos-part .perfect-card:nth-child(3) .card-image {
   background: linear-gradient(to top, #d17fff, #9982ff);
+}
+
+.world-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+.world-cards .world-card {
+  background-color: white;
+}
+.world-cards .world-card .world-header {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  border-bottom: 1px solid #fff5f3;
+}
+.world-cards .world-card .world-header img {
+  border-radius: 50%;
+}
+.world-cards .world-card .world-header h5 {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+.world-cards .world-card .world-body {
+  padding: 30px;
+}
+.world-cards .world-card .world-body p {
+  margin-bottom: 15px;
+}
+
+.sponsors .sponsor-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
+}
+.sponsors .sponsor-logo a:hover img {
+  filter: grayscale(100%);
+}
+
+footer {
+  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
+}
+footer * {
+  color: white;
+}
+footer .footer-top {
+  padding: 110px 0 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
+}
+footer .footer-top .footer-top-title {
+  padding: 0 12px;
+}
+footer .footer-top .footer-top-title h2 {
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+footer .footer-top .footer-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+footer .footer-top .footer-cards .footer-top-card {
+  padding: 10px 20px;
+  margin: 0 15px 0 0;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
+}
+footer .footer-top .footer-cards .footer-top-card img {
+  margin: 0 10px 0 0;
+}
+footer .footer-top .footer-cards .footer-top-card p {
+  color: gray;
+}
+footer .footer-top .footer-cards .footer-top-card span {
+  color: #c961fa;
+  text-transform: uppercase;
+}
+footer .footer-links {
+  padding: 110px 0 95px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: left;
+  gap: 0px;
+}
+footer .footer-links .footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  gap: 0px;
+}
+footer .footer-links .footer-content .title {
+  margin-bottom: 30px;
+}
+footer .footer-links .footer-content .title h6 {
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: bold;
+}
+footer .footer-links .footer-content li {
+  padding: 8px 0;
+}
+footer .footer-bottom {
+  text-align: center;
+  padding: 35px 0;
 }
 
 .grow {
