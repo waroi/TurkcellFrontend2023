@@ -1,0 +1,234 @@
+$bck_primary: #ffff;
+$bck_secondary: #fffcfa;
+// $bck_secondary: #ffa500;
+$btn_primary: linear-gradient(to right, #ff5195, #ffb84b);
+$text_clr: #696969;
+
+* {
+	font-family: "Nanum Gothic", sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+	scroll-behavior: smooth;
+}
+
+@mixin d-flex($justify, $align) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin d-grid($grid_direction, $grid_size, $item_justify, $item_align, $gap) {
+	display: grid;
+	justify-content: $item_justify;
+	align-items: $item_align;
+	gap: $gap;
+	@if $grid_direction == row {
+		grid-template-rows: $grid_size;
+	} @else if $grid_direction == column {
+		grid-template-columns: $grid_size;
+	}
+}
+
+@mixin bckClr($bck-clr) {
+	background-color: $bck-clr;
+}
+
+@mixin textCtor($font-size, $font-weight, $line-height, $color) {
+	font-size: $font-size;
+	font-weight: $font-weight;
+	line-height: $line-height;
+	color: $color;
+}
+
+// padding: 2em 0;
+section {
+	padding: 2em 0;
+}
+
+main {
+	.banner {
+		@include bckClr(rgb(249, 242, 255));
+	}
+	.omni {
+		@include bckClr($bck_primary);
+	}
+	.retail {
+		@include bckClr($bck_secondary);
+	}
+	.device {
+		@extend .omni;
+	}
+	.perfect {
+		@extend .retail;
+	}
+	.stores {
+		@extend .omni;
+	}
+	.smartpos {
+		@extend .retail;
+	}
+	.software {
+		@extend .omni;
+	}
+	.world {
+		@extend .retail;
+	}
+	.logos {
+		@extend .omni;
+	}
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 1fr minmax(300px, 1140px) 1fr;
+	> * {
+		grid-column: 2;
+		padding: 0 10px;
+	}
+
+	.banner-cnt {
+		@include d-grid(row, repeat(2, 1fr), center, center, 1em);
+		.left {
+			@include d-grid(row, repeat(3, 1fr), center, center, 0.5em);
+			h4 {
+				@include textCtor(30px, 700, 42px, black);
+			}
+			p {
+				@include textCtor(15px, 400, 22.5px, rgb(105, 105, 105));
+			}
+		}
+		.right {
+			img {
+				width: 100%;
+				max-width: 570px;
+			}
+		}
+	}
+	.omni-cnt {
+		@include d-grid(row, (2fr, 1fr), center, center, 1.5em);
+		.bot {
+			order: 2;
+			@include d-grid(row, (1fr, 1fr, 3fr), center, center, 1em);
+			h4 {
+				@include textCtor(24px, 700, 33.6px, black);
+			}
+			p {
+				@include textCtor(15px, 400, 22.5px, rgb(105, 105, 105));
+				padding-bottom: 30px;
+				margin-bottom: 30px;
+				border-bottom: 1px solid rgb(236, 240, 243);
+			}
+			ul {
+				margin-bottom: 40px;
+				li {
+					@include textCtor(16px, 400, 24px, rgb(105, 105, 105));
+					padding: 10px 0;
+					i {
+						margin: 0 0.5em;
+						color: rgb(253, 67, 114);
+					}
+				}
+			}
+		}
+		.top {
+			img {
+				width: 100%;
+				max-width: 570px;
+			}
+		}
+	}
+	.retail-cnt {
+		@extend .omni-cnt;
+	}
+	.device-cnt {
+		@extend .omni-cnt;
+	}
+	.perfect-cnt {
+		@include d-grid(row, (1fr, 3fr), center, center, 1.5em);
+		.card-header {
+			@include d-grid(row, (1fr, 1fr, 3fr), center, center, 1em);
+			text-align: center;
+			h4 {
+				@include textCtor(24px, 700, 33.6px, black);
+			}
+			p {
+				@include textCtor(15px, 400, 22.5px, rgb(105, 105, 105));
+				padding-bottom: 30px;
+				margin-bottom: 30px;
+			}
+		}
+		.card-list {
+			@include d-grid(row, repeat(8, 1fr), center, center, 1em);
+			.card {
+				width: 100%;
+				text-align: center;
+				border: 1px solid black;
+				margin: 15px 0;
+				padding: 48px 45px;
+				img {
+					margin-bottom: 30px;
+				}
+				h6 {
+					@include textCtor(16px, 700, 22.4px, black);
+				}
+			}
+		}
+	}
+	.stores-cnt {
+		@extend .omni-cnt;
+	}
+	.smartpos-cnt {
+		@extend .omni-cnt;
+	}
+	.software-cnt {
+		@extend .perfect-cnt;
+		.card-list {
+			@include d-grid(row, repeat(3, 1fr), center, center, 1em);
+			.card {
+				h4 {
+					@include textCtor(20px, 700, 28px, black);
+					margin: 0.5em 0;
+				}
+				p {
+					@include textCtor(15px, 400, 22.5px, black);
+				}
+				img {
+					background-color: #ff5195;
+				}
+			}
+		}
+	}
+	.world-cnt {
+		@extend .software-cnt;
+		.world-card-header {
+			@include d-flex(space-between, center);
+			img {
+				border-radius: 50%;
+			}
+			.world-card-name {
+				width: 50%;
+				justify-self: end;
+			}
+		}
+	}
+	.logos-cnt {
+		@extend .omni-cnt;
+	}
+}
+
+.btn {
+	@include textCtor(16px, 400, 24px, white);
+	width: 180px;
+	padding: 16px 25px;
+	color: $bck_primary;
+	border-radius: 4px;
+	background-image: $btn_primary;
+	text-align: center;
+}
+
+// .desktop {
+// 	display: none;
+// }
