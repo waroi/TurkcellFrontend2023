@@ -181,6 +181,19 @@ header {
 .perfect-pos-part {
   .perfect-cards {
     @include grid(350px);
+    .perfect-title {
+      @extend .cards-title;
+      max-width: 70%;
+      h3 {
+        margin-bottom: 20px;
+        @include fonts-maker(24px, 32px, 700);
+      }
+    }
+    .perfect-card {
+      box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
+      padding: 70px 40px;
+      margin: 15px;
+    }
   }
   .card-image {
     line-height: 100px;
@@ -239,6 +252,103 @@ header {
     }
   }
 }
+.world-cards {
+  @include grid(400px);
+  gap: 20px;
+  padding: 30px;
+  .world-card {
+    background-color: white;
+    .world-header {
+      img {
+        border-radius: 50%;
+      }
+      h5 {
+        @include fonts-maker(20px, 24px, 700);
+      }
+      padding: 30px;
+      @include flex(row, space-between, center, 0);
+      border-bottom: 1px solid #fff5f3;
+    }
+    .world-body {
+      padding: 30px;
+      p {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+.sponsors {
+  .sponsor-logo {
+    @include flex(row, space-between, center, 0px);
+  }
+  .sponsor-logo a:hover img {
+    filter: grayscale(100%);
+  }
+}
+footer {
+  * {
+    color: white;
+  }
+  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
+  .footer-top {
+    padding: 110px 0 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    @include flex(row, space-between, center, 0px);
+
+    .footer-top-title {
+      padding: 0 12px;
+      h2 {
+        @include fonts-maker(36px, 48px, 700);
+        margin-bottom: 5px;
+      }
+    }
+    .footer-cards {
+      @include flex(row, flex-end, center, 10px);
+
+      .footer-top-card {
+        padding: 10px 20px;
+        margin: 0 15px 0 0;
+        background-color: white;
+        img {
+          margin: 0 10px 0 0;
+        }
+        p {
+          color: gray;
+        }
+        span {
+          color: #c961fa;
+          text-transform: uppercase;
+        }
+        @include flex(row, space-between, center, 0px);
+      }
+    }
+  }
+
+  .footer-links {
+    padding: 110px 0 95px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    @include flex(row, space-around, left, 0px);
+    .footer-content {
+      @include flex(column, space-between, left, 0px);
+
+      .title {
+        margin-bottom: 30px;
+        h6 {
+          @include fonts-maker(18px, 30px, bold);
+        }
+      }
+      li {
+        padding: 8px 0;
+      }
+    }
+  }
+  .footer-bottom {
+    text-align: center;
+    padding: 35px 0;
+  }
+}
+
 .grow {
   background-color: #f9f2ff;
   height: 114vh;
@@ -257,7 +367,6 @@ header {
     }
     .purpleSection {
       position: relative;
-
       img {
         position: absolute;
         right: 0;
