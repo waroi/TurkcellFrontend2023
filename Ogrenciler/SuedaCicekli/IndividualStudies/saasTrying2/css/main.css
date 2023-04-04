@@ -91,12 +91,49 @@ header {
 .banner-section {
   background-color: #f9f2ff;
   padding: 265px 0 190px;
-  overflow-x: hidden;
+  position: relative;
+  overflow: hidden;
+}
+.banner-section .banner-title {
+  display: flex;
+}
+.banner-section .banner-image, .banner-section .banner-header {
+  flex: 0 0 auto;
+  width: 50%;
+}
+.banner-section .banner-image .th-shape, .banner-section .banner-header .th-shape {
+  position: absolute;
+  content: "";
+  overflow: hidden;
+  border-radius: 3px;
+}
+.banner-section .banner-image .shape-1, .banner-section .banner-header .shape-1 {
+  right: -10%;
+  top: 23%;
+  animation: lab_sideeffect 15s linear infinite;
+}
+.banner-section .banner-image .shape-2, .banner-section .banner-header .shape-2 {
+  right: -40%;
+  top: 0;
+  animation: lab_zoomin 5s linear infinite;
+}
+.banner-section .banner-image .shape-3, .banner-section .banner-header .shape-3 {
+  left: 40%;
+  bottom: 0;
+  animation: lab_run_top_y 5s linear infinite;
+}
+.banner-section .banner-image .banner-thumb, .banner-section .banner-header .banner-thumb {
+  margin-right: -120px;
+  text-align: center;
+  position: relative;
+}
+.banner-section .banner-image .banner-thumb img, .banner-section .banner-header .banner-thumb img {
+  vertical-align: middle;
+  height: auto;
+  max-width: none;
 }
 .banner-section .banner-header {
   position: relative;
-  flex: 0 0 auto;
-  width: 50%;
 }
 .banner-section .banner-header h2 {
   font-size: 60px;
@@ -104,6 +141,45 @@ header {
   color: black;
 }
 
+@keyframes lab_sideeffect {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateX(-60px);
+  }
+  50% {
+    transform: translateY(-60px);
+  }
+  75% {
+    transform: translateX(-60px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes lab_zoomin {
+  0% {
+    transform: translateY(-20px) translateX(0px);
+  }
+  50% {
+    transform: translateY(0px) translateX(-20px);
+  }
+  100% {
+    transform: translateY(-20px) translateX(0px);
+  }
+}
+@keyframes lab_run_top_y {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 .site-paragraph {
   margin: 15px 0 30px;
 }
@@ -117,18 +193,16 @@ header {
   content: "";
 }
 .pos-banner-shape .pos-shape-1 {
-  bottom: 33.01%;
+  left: -22%;
   position: absolute;
   content: "";
 }
 .pos-banner-shape .pos-shape-2 {
   position: absolute;
   content: "";
-  right: 0;
+  right: -5%;
 }
 .pos-banner-shape .pos-shape-2 img {
-  overflow-clip-margin: content-box;
-  overflow: clip;
   vertical-align: middle;
   height: auto;
   max-width: 100%;
