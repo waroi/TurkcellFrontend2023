@@ -386,6 +386,65 @@ p {
   transform-origin: 0% 50%;
 }
 
+.marks-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 30px;
+  padding: 0;
+  gap: 80px;
+}
+.marks-area a {
+  transition: all 0.5s ease-in-out;
+}
+.marks-area a:nth-child(n+3) {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .ul-area {
+    flex-direction: row !important;
+  }
+  .marks-area {
+    padding: 70px 0 55px;
+  }
+  .marks-area a:nth-child(-n+3) {
+    display: block;
+  }
+  .marks-area a:hover {
+    filter: grayscale(0.9);
+  }
+}
+@media screen and (min-width: 992px) {
+  .list-section {
+    padding: 110px 0 95px;
+  }
+  .omnichanel {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .omnichanel .title {
+    width: 80%;
+  }
+  .omnichanel .title h2 {
+    font-size: 36px !important;
+  }
+  .list-area {
+    order: -1 !important;
+  }
+  .list-img img {
+    order: 1 !important;
+  }
+  .section-reversed .list-area {
+    order: 1 !important;
+  }
+  .section-reversed .list-img img {
+    order: -1 !important;
+  }
+  .marks-area a:nth-child(n) {
+    display: block;
+  }
+}
 .perfect-card {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -414,11 +473,29 @@ p {
 
 .smart-pos {
   background-color: #fffef6;
+  padding: 100px 0;
+}
+
+.smart-title h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: -10px 0 20px;
+  padding: 0;
+  color: #000;
+  text-align: center;
+}
+.smart-title p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 0 0 40px;
+  padding: 0 0 30px;
+  color: #696969;
+  text-align: center;
 }
 
 .smart-card {
   display: grid;
-  padding: 20px;
+  padding: 20px 0;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
@@ -481,17 +558,6 @@ p {
   color: black;
 }
 
-@keyframes anime {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 .profile-animation1 {
   content: url("https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-3.png");
   position: absolute;
@@ -519,65 +585,6 @@ p {
 .rating i {
   color: #e9ba17;
   font-size: 13px;
-}
-
-@keyframes pulse-animation {
-  0% {
-    box-shadow: 0 0 0 0px rgba(32, 140, 241, 0.788);
-  }
-  100% {
-    box-shadow: 0 0 0 30px rgba(36, 194, 255, 0);
-  }
-}
-@keyframes button-animation {
-  0% {
-    background: linear-gradient(to right, #ff5195, #ffb84b);
-  }
-  50% {
-    background: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
-  }
-  100% {
-    background: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
-  }
-}
-@keyframes updown {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-30px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-@keyframes sideffect {
-  0% {
-    transform: translateY(0px);
-  }
-  25% {
-    transform: translateX(-60px);
-  }
-  50% {
-    transform: translateY(-60px);
-  }
-  75% {
-    transform: translateX(-60px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-@keyframes sideffect2 {
-  0% {
-    transform: translateY(-20px) translateX(0px);
-  }
-  50% {
-    transform: translateY(0px) translateX(-20px);
-  }
-  100% {
-    transform: translateY(-20px) translateX(0px);
-  }
 }
 
 /*# sourceMappingURL=main.css.map */
