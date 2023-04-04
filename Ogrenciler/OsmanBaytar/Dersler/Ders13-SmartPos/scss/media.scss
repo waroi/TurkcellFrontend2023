@@ -1,0 +1,41 @@
+@mixin font($size,$weight,$color){
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+@mixin flex($direction,$justify,$align,$gap,$wrap){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+    flex-wrap: $wrap;
+}
+
+@media screen and (max-width:390px) {
+    .container{
+        max-width: 390px;
+        padding: 0 0.75rem;
+    }
+    .section{
+        @include flex(column,center,center,20px,nowrap);
+        margin-top: 20px;
+        .info{
+            width: 100%;
+        }
+        .img{
+            width: 100%;
+            margin-bottom: 50px;
+            img{
+             width: 100%;   
+            }
+        }
+        ul{
+            @include flex(column,flex-start ,flex-start ,0 ,wrap);
+        }
+        li{
+            width: 100%;
+        }
+    }
+}

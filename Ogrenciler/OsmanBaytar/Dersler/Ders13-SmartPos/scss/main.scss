@@ -25,18 +25,21 @@
 }
 
 .btn{
+    position: relative;
     display: inline-block;
     padding: 16px 25px;
     transition: all 0.3s ease;
     border-radius: 4px;
     background: linear-gradient(to right, #ff5195, #ffb84b);
+    height: 50px;
+    width: 150px;
     &::after{
+        content: "";
+        position: absolute;
         width: 100%;
         height: 100%;
         left: 0;
         top: 0;
-        bottom: 0;
-        right: 0;
         transform: scaleX(0);
         transform-origin: 100% 50%;
         background: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
@@ -47,13 +50,19 @@
         transform-origin: 0% 50%;
     }
     span{
+        position: absolute;
       @include font(16px,700 ,#fff );  
+      display: inline-block;
+      z-index: 10;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 }
 
 .container{
     max-width: 1320px;
-    width: 100%;
     margin: auto;
 }
 
@@ -65,7 +74,7 @@ p{
 }
 
 .section{
-    @include flex(row,center,center,20px,nowrap);
+    @include flex(row-reverse,center,center,20px,nowrap);
     .info{
         width: 50%;
     }
