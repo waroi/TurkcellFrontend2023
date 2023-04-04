@@ -60,15 +60,15 @@
 .dropdown-content {
   width: 300px;
   position: absolute;
-  right: 0;
+  left: 0;
   z-index: 2000;
-  top: -20px;
+  top: 100%;
   padding-top: 20px;
   background: #fff;
   height: 100vh;
   -webkit-transform: translateX(110%);
-  -ms-transform: translateX(110%);
-  transform: translateX(110%);
+  -ms-transform: translateX(-110%);
+  transform: translateX(-110%);
   -webkit-box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
   box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
   -webkit-transition: 0.5s all ease-in-out;
@@ -80,6 +80,7 @@
   text-decoration: none;
   display: block;
   text-align: left;
+  font-weight: 600;
 }
 .dropdown-content a:hover {
   color: blue;
@@ -155,17 +156,18 @@ header {
   top: 0;
 }
 .home-section .banner-area {
-  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/01.png);
-  background-repeat: no-repeat;
-  background-position-x: right;
   z-index: 2;
   position: relative;
   height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .home-section .row-grid {
   display: flex;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .home-section .row-grid .col {
   display: flex;
@@ -181,26 +183,31 @@ header {
   color: #696969;
   max-width: 80%;
 }
+.home-section .row-grid .col .section-wrapper {
+  display: flex;
+  position: relative;
+}
 .home-section .row-grid .col .right-images {
   position: relative;
 }
 .home-section .row-grid .col .right-images .image-1 {
-  right: -15%;
-  bottom: 0;
+  right: 10rem;
+  top: 23%;
   animation: sideffect 15s linear infinite;
   position: absolute;
 }
 .home-section .row-grid .col .right-images .image-2 {
-  right: -40%;
-  bottom: 0;
   animation: sideffect2 5s linear infinite;
   position: absolute;
+  top: 0;
+  right: -40%;
 }
 .home-section .row-grid .col .right-images .image-3 {
-  left: 20rem;
-  top: -5rem;
-  position: absolute;
+  bottom: 0;
+  top: 5rem;
+  right: 29rem;
   animation: updown 5s linear infinite;
+  position: absolute;
 }
 
 @keyframes button-animation {
