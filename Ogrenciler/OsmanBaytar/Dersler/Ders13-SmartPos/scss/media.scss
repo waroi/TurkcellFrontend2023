@@ -1,0 +1,74 @@
+@mixin font($size, $weight, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin flex($direction, $justify, $align, $gap, $wrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-wrap: $wrap;
+}
+
+@media screen and (max-width: 390px) {
+  .container {
+    max-width: 390px;
+    padding: 0 0.75rem;
+  }
+  .section {
+    @include flex(column, center, center, 20px, nowrap);
+    margin-top: 20px;
+    .info {
+      width: 100%;
+    }
+    .img {
+      width: 100%;
+      margin-bottom: 50px;
+      img {
+        width: 100%;
+      }
+    }
+    ul {
+      @include flex(column, flex-start, flex-start, 0, wrap);
+    }
+    li {
+      width: 100%;
+    }
+  }
+  .header {
+    max-width: 100%;
+    h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+    p {
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+  }
+  .store {
+    padding-top: 80px;
+    padding-bottom: 55px;
+
+    .wrapper {
+      @include flex(column, center, center, 0, wrap);
+      .wrapper-item {
+        width: 100%;
+      }
+    }
+  }
+  .upload {
+    padding-top: 80px;
+    padding-bottom: 55px;
+
+    .down {
+      @include flex(column, center, center, 0, wrap);
+      .down-item {
+        width: 100%;
+      }
+    }
+  }
+}
