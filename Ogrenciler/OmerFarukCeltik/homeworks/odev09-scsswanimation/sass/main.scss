@@ -1,0 +1,193 @@
+:root {
+  --button-primary-color: linear-gradient(to right, #ff5195, #ffb84b);
+  --button-secondary-color: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
+  --icon-color: #fd4372;
+  --site-background-color:#FFFEF9;
+}
+p {
+  font-size: 1rem;
+}
+// img display none
+.left-image {
+  display: none;
+}
+.right-image {
+  display: none;
+}
+.site-navbar {
+  display: none;
+}
+// h2 margin padding ve font size
+@mixin title_h2_tag($font-size, $m, $p, $c,$fw) {
+  font-size: $font-size;
+  font-weight: $fw;
+  margin: $m;
+  padding: $p;
+  color: $c;
+}
+// section ve ul li ler için grid area düzenlemesi
+@mixin grid_area($grid-column, $justify, $m, $p, $g) {
+  display: grid;
+  grid-template-columns: $grid-column;
+  align-items: center;
+  justify-content: $justify;
+  margin: $m ;
+  padding: $p;
+  gap: $g;
+}
+// flex area
+@mixin flex_area($fl-dir, $justify, $algn-itm, $m, $p) {
+  display: flex;
+  flex-direction: $fl-dir;
+  align-items: $algn-itm;
+  justify-content: $justify;
+  margin: $m;
+  padding: $p;
+}
+// card yapıları 
+@mixin cards($w, $p, $m, $txt-align) {
+  display: flex;
+  flex-direction: column;
+  width: $w;
+  padding: $p;
+  margin: $m;
+  text-align: $txt-align;
+}
+@mixin button($d, $p, $bg, $tr, $pos, $ov) {
+  display: $d;
+  padding: $p;
+  background: $bg;
+  transition: $tr;
+  position: $pos;
+  overflow: $ov;
+  border: 0;
+}
+// ul li img area 
+.list-section {
+  padding: 80px 0 55px;
+  &.site-bg{
+    background-color: var(--site-background-color);
+  }
+  .omnichanel {
+    @include grid_area(1fr, flex-start, 10px, 10px, 40px);
+    .list-area {
+      order: 1;
+      .title {
+        @include title_h2_tag(1rem, 0 0 40px, 0 0 30px, #696969,300);
+        border-bottom: 1px solid #ecf0f3;
+        h2 {
+          @include title_h2_tag(24px, -10px 0 20px, 0, #000,700)
+        }
+      }
+      .ul-area {
+        @include flex_area(column, flex-start, inherit, 0 0 20px, inherit);
+        li {
+          padding: 10px 10px;
+          i {
+            color: var(--icon-color);
+          }
+        }
+      }
+    }
+    .list-img {
+      img {
+        order: -1;
+        width: 100%;
+        padding: 20px;
+      }
+    }
+  }
+}
+// marks area
+.marks{
+  background-color: var(--site-background-color);
+}
+.marks-area{
+  @include flex_area(row, space-evenly, center, 30px, 0);
+  gap: 80px;
+  a{
+    transition: all .5s ease-in-out;
+  }
+  a:nth-child(n+3){
+  display: none;
+  }
+}
+@media screen and (min-width:576px) {
+  .ul-area{
+    flex-direction: row !important;
+  }
+  .marks-area{
+    padding: 70px 0 55px;
+    a:nth-child(-n+3){
+      display: block;
+      }
+  }
+  a:hover{
+    filter: grayscale(.9);
+    
+  }
+}
+@media screen and (min-width:992px) {
+  .list-section{
+    padding: 110px 0 95px;
+  }
+  .omnichanel{
+    grid-template-columns: 1fr 1fr !important;
+    .title{
+      width: 80%;
+      h2{
+        font-size: 36px !important;
+      }
+    }
+  }
+    .list-area{
+      order: -1 !important;
+    }
+    .list-img {
+      img{
+      order: 1 !important;
+    }
+    }
+    .section-reversed{
+      .list-area{
+        order:1 !important;
+      }
+      .list-img {
+        img{
+        order:-1 !important;
+      }
+      }
+    }
+    .marks-area{
+      a:nth-child(n){
+        display: block;
+        }
+    }
+  }
+// button animation area 
+.btn-inner {
+  @include button(inline-block, 16px 25px, var(--button-primary-color), transform .3s ease-in-out, relative, hidden);
+  border-radius: 4px;
+  &::after {
+    @include button(inherit, inherit, var(--button-secondary-color), transform .3s ease-in-out, absolute, inherit);
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+  }
+  span {
+    z-index: 1;
+    position: relative;
+  }
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+      transform-origin: 0% 50%;
+    }
+  }
+}
+
+
