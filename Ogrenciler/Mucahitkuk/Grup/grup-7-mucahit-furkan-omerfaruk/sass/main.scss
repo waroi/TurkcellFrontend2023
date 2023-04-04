@@ -1,3 +1,9 @@
+:root {
+  --button-primary-color: linear-gradient(to right, #ff5195, #ffb84b);
+  --button-secondary-color: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
+  --icon-color: #fd4372;
+  --site-background-color:#FFFEF9;
+}
 
 .container {
   padding-left: 10px;
@@ -9,50 +15,6 @@
   -o-transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
-}
-
-@mixin button {
-  text-align: center;
-  width: 150px;
-  cursor: pointer;
-}
-
-.btn-inner {
-  padding: 16px 25px;
-  background: linear-gradient(to right, #ff5195, #ffb84b);
-  transition: transform .3s ease-in-out;
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-  @include button;
-  &::after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      transform: scaleX(0);
-      transform-origin:   100% 50%;
-      background: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
-      transition: transform .3s ease-in-out;
-      -webkit-transition: transform .3s ease-in-out;
-  }
-  span {
-      z-index: 1;
-      position: relative;
-      font-size: 16px;
-      font-weight: 700;
-      color: white;
-  }
-  &:hover {
-      &::after {
-          transform: scaleX(1);
-          transform-origin:   0% 50%;
-      }
-  }
 }
 
 @mixin flex-center {
@@ -177,10 +139,13 @@ header {
     }
   }
 }
+//nav//
 
+// Home //
 .home-section {
   background-color: #F9F2FF;
   padding: 265px 0 134px;
+  position: relative;
   .left-image {
     position: absolute;
     left: 0;
@@ -241,8 +206,431 @@ header {
   }
 }
 
+// Home //
+
+// Footer //
+
+.footer-bg-wrapper {
+  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 110px;
+    .border-bottom {
+      padding: 0 0 60px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  .row{
+    @include row;
+    .col {
+      @include col50;
+    }
+    .header-style {
+      max-width: 100%;
+      margin-bottom: 0;
+      margin-left: 0;
+      text-align: left;
+      h2 {
+        margin-bottom: 5px;
+        color: #fff;
+        font-size: 36px;
+    line-height: 48px;
+      }
+      p {
+        color: #fff;
+        margin-bottom: 0;
+      }
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-direction: row-reverse;
+      a {
+        width: 230px;
+    height: 70px;
+    padding: 10px 20px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    background: #fff;
+    display: flex;
+        img {
+          margin-right: 10px;
+        }
+        span {
+          text-transform: uppercase;
+          font-weight: 700;
+          color: #c961fa;
+        }
+        p {
+          margin-bottom: 0;
+          color: #696969;
+        }
+      }
+    }
+  }
+}
+
+.footer-padding {
+  padding-top: 110px;
+  padding-bottom: 95px; 
+  h6 {
+    font-size: 18px;
+    color: #fff;
+    padding-bottom: 10px;
+  }
+  li {
+    padding-top: 1rem;
+  }
+  a {
+    font-size: 16px;
+    color: #fff;
+  }
+}
+// Footer //
+
+// ömerfaruk //
+
+p {
+  font-size: 1rem;
+}
+
+// h2 margin padding ve font size
+@mixin title_h2_tag($font-size, $m, $p, $c,$fw) {
+  font-size: $font-size;
+  font-weight: $fw;
+  margin: $m;
+  padding: $p;
+  color: $c;
+}
+// section ve ul li ler için grid area düzenlemesi
+@mixin grid_area($grid-column, $justify, $m, $p, $g) {
+  display: grid;
+  grid-template-columns: $grid-column;
+  align-items: center;
+  justify-content: $justify;
+  margin: $m ;
+  padding: $p;
+  gap: $g;
+}
+// flex area
+@mixin flex_area($fl-dir, $justify, $algn-itm, $m, $p) {
+  display: flex;
+  flex-direction: $fl-dir;
+  align-items: $algn-itm;
+  justify-content: $justify;
+  margin: $m;
+  padding: $p;
+}
+// card yapıları 
+@mixin cards($w, $p, $m, $txt-align) {
+  display: flex;
+  flex-direction: column;
+  width: $w;
+  padding: $p;
+  margin: $m;
+  text-align: $txt-align;
+}
+@mixin button($d, $p, $bg, $tr, $pos, $ov) {
+  display: $d;
+  padding: $p;
+  background: $bg;
+  transition: $tr;
+  position: $pos;
+  overflow: $ov;
+  border: 0;
+  color: white;
+}
+// ul li img area 
+.list-section {
+  padding: 80px 0 55px;
+  &.site-bg{
+    background-color: var(--site-background-color);
+  }
+  .omnichanel {
+    @include grid_area(1fr, flex-start, 10px, 10px, 40px);
+    .list-area {
+      order: 1;
+      .title {
+        @include title_h2_tag(1rem, 0 0 40px, 0 0 30px, #696969,300);
+        border-bottom: 1px solid #ecf0f3;
+        h2 {
+          @include title_h2_tag(24px, -10px 0 20px, 0, #000,700)
+        }
+      }
+      .ul-area {
+        @include flex_area(column, flex-start, inherit, 0 0 20px, inherit);
+        li {
+          padding: 10px 10px;
+          i {
+            color: var(--icon-color);
+          }
+        }
+      }
+    }
+    .list-img {
+      img {
+        order: -1;
+        width: 100%;
+        padding: 20px;
+      }
+    }
+  }
+}
+@media screen and (min-width:576px) {
+  .ul-area{
+    flex-direction: row !important;
+  }
+}
+@media screen and (min-width:992px) {
+  .list-section{
+    padding: 110px 0 95px;
+  }
+  .omnichanel{
+    grid-template-columns: 1fr 1fr !important;
+    .title{
+      width: 80%;
+      h2{
+        font-size: 36px !important;
+      }
+    }
+  }
+    .list-area{
+      order: -1 !important;
+    }
+    .list-img {
+      img{
+      order: 1 !important;
+    }
+    }
+    .section-reversed{
+      .list-area{
+        order:1 !important;
+      }
+      .list-img {
+        img{
+        order:-1 !important;
+      }
+      }
+    }
+  }
+// button animation area 
+.btn-inner {
+  @include button(inline-block, 16px 25px, var(--button-primary-color), transform .3s ease-in-out, relative, hidden);
+  border-radius: 4px;
+
+  &::after {
+    @include button(inherit, inherit, var(--button-secondary-color), transform .3s ease-in-out, absolute, inherit);
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+  }
+  span {
+    z-index: 1;
+    position: relative;
+  }
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+      transform-origin: 0% 50%;
+    }
+  }
+}
+
+
+
+// ömerfaruk //
+
+
+// furkan //
+
+@mixin h6 {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "roboto", sans-serif;
+  color: black;
+  text-transform: uppercase;
+}
+@mixin pcard {
+  padding: 30px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid rgba(128, 128, 128, 0.182);
+  box-shadow: 0 4px 4px rgba(58, 58, 58, 0.1);
+  transition: 0.3s ease;
+  &:hover {
+    box-shadow: 0 -4px 4px rgba(58, 58, 58, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+@mixin perfect-card-logo {
+  padding-top: 15px;
+  //resimler tam oldu gibi sanki
+}
+
+.perfect-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  .pcard {
+    @include pcard;
+    @include h6;
+    img {
+      @include perfect-card-logo;
+    }
+  }
+}
+
+//******************************************************
+@mixin h2 {
+  text-align: center;
+  font-size: 36px;
+  color: black;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+@mixin h5 {
+  font-size: 20px;
+  color: black;
+  margin: 0;
+  text-transform: capitalize;
+  font-family: "roboto", sans-serif;
+}
+
+// ana section sınıfı
+.smart-pos {
+  background-color: #fffef6;
+}
+
+//3 adet kartın kapsayıcısı
+.smart-card {
+  display: grid;
+  padding: 20px;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+//Paragraflar
+@mixin smart-paragraph {
+  font-family: "roboto", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  color: #696969;
+  text-align: left;
+  line-height: 24px;
+}
+//3 adet kartın iç kısımları
+.smart-card-content {
+  background-color: white;
+  border-radius: 5px;
+  padding: 30px;
+  box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.319);
+  &:hover {
+    .profile-animation {
+      animation-play-state: paused;
+    }
+  }
+  .smart-card-header {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.198);
+    justify-content: space-between;
+    .profile {
+      position: relative;
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    .profile-title {
+      h5 {
+        @include h5;
+      }
+      p {
+        @include smart-paragraph;
+      }
+    }
+  }
+  .smart-card-title {
+    @include smart-paragraph;
+    position: relative;
+    padding-top: 2rem;
+    &::after {
+      position: absolute;
+      content: url("https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/01.png");
+      bottom: 10px;
+      right: 25px;
+      width: 10px;
+      height: 5px;
+      transform: scale(0.7);
+      color: black;
+    }
+  }
+}
+@mixin profile-animation-bg($url) {
+  content: url($url);
+  position: absolute;
+  animation: anime 5s linear infinite;
+  top: -10px;
+  left: -10px;
+}
+@keyframes anime {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.profile-animation1 {
+  @include profile-animation-bg(
+    "https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-3.png"
+  );
+}
+.profile-animation2 {
+  @include profile-animation-bg(
+    "https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-2.png"
+  );
+}
+.profile-animation3{
+    @include profile-animation-bg(
+    "https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-1.png"
+  );
+}
+//Sarı yıldızlar
+@mixin stars {
+  color: #e9ba17;
+  font-size: 13px;
+}
+.rating {
+  i {
+    @include stars;
+  }
+}
+
+
+// furkan //
 
 // keyframes //
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(32, 140, 241, 0.788);
+  }
+  100% {
+    box-shadow: 0 0 0 30px rgba(36, 194, 255, 0);
+  }
+}
+
 
 @keyframes button-animation {
   0% {
