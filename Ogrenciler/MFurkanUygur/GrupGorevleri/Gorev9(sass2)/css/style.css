@@ -1,0 +1,139 @@
+.container {
+  max-width: 1140px;
+  margin: auto;
+}
+
+.perfect-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.perfect-card .pcard {
+  padding: 30px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid rgba(128, 128, 128, 0.182);
+  box-shadow: 0 4px 4px rgba(58, 58, 58, 0.1);
+  transition: 0.3s ease;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "roboto", sans-serif;
+  color: black;
+  text-transform: uppercase;
+}
+.perfect-card .pcard:hover {
+  box-shadow: 0 -4px 4px rgba(58, 58, 58, 0.1);
+  transform: translateY(-2px);
+}
+.perfect-card .pcard img {
+  padding-top: 15px;
+}
+
+.smart-pos {
+  background-color: #fffef6;
+}
+
+.smart-card {
+  display: grid;
+  padding: 20px;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.smart-card-content {
+  background-color: white;
+  border-radius: 5px;
+  padding: 30px;
+  box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.319);
+}
+.smart-card-content:hover .profile-animation {
+  animation-play-state: paused;
+}
+.smart-card-content .smart-card-header {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.198);
+}
+.smart-card-content .smart-card-header .profile {
+  position: relative;
+}
+.smart-card-content .smart-card-header .profile img {
+  border-radius: 50%;
+}
+.smart-card-content .smart-card-header .profile-title h5 {
+  font-size: 20px;
+  color: black;
+  margin: 0;
+  text-transform: capitalize;
+  font-family: "roboto", sans-serif;
+}
+.smart-card-content .smart-card-header .profile-title p {
+  font-family: "roboto", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  color: #696969;
+  text-align: left;
+  line-height: 24px;
+}
+.smart-card-content .smart-card-title {
+  font-family: "roboto", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  color: #696969;
+  text-align: left;
+  line-height: 24px;
+  position: relative;
+}
+.smart-card-content .smart-card-title::after {
+  position: absolute;
+  content: url("https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/01.png");
+  bottom: 10px;
+  right: 25px;
+  width: 10px;
+  height: 5px;
+  transform: scale(0.7);
+  color: black;
+}
+
+@keyframes anime {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.profile-animation1 {
+  content: url("https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-3.png");
+  position: absolute;
+  animation: anime 5s linear infinite;
+  top: -10px;
+  left: -10px;
+}
+
+.profile-animation2 {
+  content: url("https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-2.png");
+  position: absolute;
+  animation: anime 5s linear infinite;
+  top: -10px;
+  left: -10px;
+}
+
+.profile-animation3 {
+  content: url("https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-1.png");
+  position: absolute;
+  animation: anime 5s linear infinite;
+  top: -10px;
+  left: -10px;
+}
+
+.rating i {
+  color: #e9ba17;
+  font-size: 13px;
+}
+
+/*# sourceMappingURL=style.css.map */

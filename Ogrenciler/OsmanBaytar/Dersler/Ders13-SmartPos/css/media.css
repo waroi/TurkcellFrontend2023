@@ -1,4 +1,10 @@
 @media screen and (max-width: 390px) {
+  h2 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 15px;
+  }
   .container {
     max-width: 390px;
     padding: 0 0.75rem;
@@ -38,15 +44,24 @@
   }
   .header h2 {
     margin-bottom: 15px;
-    font-size: 24px;
   }
   .header p {
-    font-size: 15px;
     margin-bottom: 15px;
   }
-  .store {
+  .default {
     padding-top: 80px;
     padding-bottom: 55px;
+  }
+  .default .down {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .default .down .down-item {
+    width: 100%;
   }
   .store .wrapper {
     display: flex;
@@ -59,20 +74,50 @@
   .store .wrapper .wrapper-item {
     width: 100%;
   }
-  .upload {
-    padding-top: 80px;
-    padding-bottom: 55px;
+  .person .logo {
+    display: none;
   }
-  .upload .down {
+  .logos .logos-inside .logos-item {
+    margin: 0 auto;
+  }
+  .logos .logos-inside .none {
+    display: none;
+  }
+  footer .top {
+    padding-top: 80px;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  footer .top h2 {
+    margin-bottom: 10px;
+  }
+  footer .top .top-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  footer .middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+  footer .middle .m-item {
+    width: 100%;
+  }
+  footer .bottom {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0;
     flex-wrap: wrap;
-  }
-  .upload .down .down-item {
-    width: 100%;
   }
 }
 

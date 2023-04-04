@@ -14,6 +14,12 @@
 }
 
 @media screen and (max-width: 390px) {
+  h2{
+    font-size: 24px;
+  }
+  p{
+    font-size: 15px;
+  }
   .container {
     max-width: 390px;
     padding: 0 0.75rem;
@@ -42,17 +48,23 @@
     max-width: 100%;
     h2 {
       margin-bottom: 15px;
-      font-size: 24px;
     }
     p {
-      font-size: 15px;
       margin-bottom: 15px;
     }
   }
+  .default{
+      padding-top: 80px;
+      padding-bottom: 55px;
+  
+      .down {
+        @include flex(column, center, center, 0, wrap);
+        .down-item {
+          width: 100%;
+        }
+      }
+  }
   .store {
-    padding-top: 80px;
-    padding-bottom: 55px;
-
     .wrapper {
       @include flex(column, center, center, 0, wrap);
       .wrapper-item {
@@ -60,15 +72,43 @@
       }
     }
   }
-  .upload {
-    padding-top: 80px;
-    padding-bottom: 55px;
-
-    .down {
-      @include flex(column, center, center, 0, wrap);
-      .down-item {
+  .person{
+    .logo{
+      display: none;
+    }
+  }
+  .logos{
+    .logos-inside{
+      .logos-item{
+        margin: 0 auto;
+      }
+      .none{
+        display: none;
+      }
+    }
+  }
+  footer{
+    .top{
+      padding-top: 80px;
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+      h2{
+        margin-bottom: 10px
+      }
+      .top-right{
+       @include flex(column,center ,center ,20px ,wrap);
+      }
+    }
+    .middle{
+      @include flex(column,center ,flex-start ,50px ,wrap );
+      .m-item{
+        // margin-top: 5 0px;
         width: 100%;
       }
+    }
+    .bottom{
+      @include flex(column,center ,center ,0 ,wrap);
     }
   }
 }

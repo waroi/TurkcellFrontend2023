@@ -157,11 +157,7 @@ p {
     }
   }
 }
-.upload {
-  max-width: 100%;
-  padding-top: 110px;
-  padding-bottom: 95px;
-  .down {
+.down {
     margin: -15px -15px 0;
     @include flex(row, center, center, 0, wrap);
     .down-item {
@@ -174,6 +170,13 @@ p {
       box-shadow: 0 0 8px rgba(136, 136, 136, 0.2);
       transition: all 0.3s ease;
       text-align: center;
+    }
+}
+.upload {
+  max-width: 100%;
+  padding-top: 110px;
+  padding-bottom: 95px;
+  
       // &:hover {
       //   position: absolute;
       //   width: 412px;
@@ -234,7 +237,161 @@ p {
         margin-bottom: 20px;
         @include font(24px, 700, #000);
         line-height: 32px;
+    }
+}
+
+.person{
+    background-color: #fffef6;
+    padding-top: 110px;
+    padding-bottom: 95px;
+    .down-item{
+      padding: 15px;
+      .down-item-inner{
+        background-color: white;
+        margin: 0;
+        padding: 15px;
+        text-align: left;
+        .title{
+          @include flex(row,space-between,center ,0 ,wrap );
+          padding: 30px;
+          border-bottom: 1px solid #fff5f3;
+          .photo{
+            position: relative;
+            img{
+              border-radius: 50%;
+              width: 80px;
+              height: 80px;
+            }
+            .shape{
+              content: "";
+              position: absolute;
+              width: 80px;
+              height: 80px;
+              left: -10px;
+              top: -10px;
+              background: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-1.png);
+              background-repeat: no-repeat !important;
+              animation: testi_round 5s linear infinite;
+              animation-play-state: running;
+              
+            }
+          }
+          h5{
+            @include font(20px,700 ,#000 );
+            line-height: 24px;
+          }
+        }
+        .info{
+          padding: 30px;
+          p{
+            margin-bottom: 15px;
+          }
+          .info-footer{
+            @include flex(row,space-between ,center , 0,wrap );
+            position: relative;
+            .checked{
+              color: #e9ba17;
+            }
+            img{
+              position: absolute;
+              right: 0;
+              top:10px;
+            }
+          }
+        }
+    }
+    }
+    
+    
+}
+@keyframes testi_round {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.logos{
+  .logos-inside{
+    padding-top: 70px;
+    padding-bottom: 95px;
+    @include flex(row,space-between ,center ,0 ,wrap );
+    img{
+      transition: all 0.3s ease;
+      &:hover{
+        filter: grayscale(100%);
+        cursor: pointer;
       }
     }
   }
 }
+footer{
+  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 30px;
+  .top{
+    padding-top: 110px;
+    padding-bottom: 50px;
+    @include flex(row,space-between ,center ,0 ,wrap );
+    .top-left{
+      h2 ,p{
+        color: white;
+      }
+    }
+    .top-right{
+      @include flex(row,space-between ,center ,0 ,wrap );
+      .download{
+        width: 230px;
+        background-color: white;
+        @include flex(row,space-between ,center ,0 ,wrap );
+        padding: 10px 20px;
+        margin-right: 15px;
+        img{
+          margin-right: 10px;
+        }
+        span{
+          color: #c961fa;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  .middle{
+    padding-top: 110px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 95px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    @include flex(row,flex-start,center ,0 ,wrap );
+    .m-item{
+      width: 25%;
+      h6{
+        @include font(18px,700 ,white );
+        margin-bottom: 30px;
+      }
+      li{
+        padding: 8px 0;
+        i{
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  .bottom{
+    padding-top: 30px;
+    ul{
+      @include flex(row,center,center ,100px ,wrap );
+      a{
+        @include font(24px,700 ,white )
+      }
+    }
+  }
+}
+

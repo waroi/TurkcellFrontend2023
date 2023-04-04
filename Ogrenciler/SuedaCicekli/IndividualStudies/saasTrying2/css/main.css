@@ -14,8 +14,17 @@ body {
   line-height: 1.5;
 }
 
+h2 {
+  font-size: 36px;
+  color: black;
+}
+
+.cream-color {
+  background-color: #fffef9;
+}
+
 .container {
-  width: 1140px;
+  width: 1320px;
   padding-right: var(--bs-gutter-x, 0.75rem);
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
@@ -96,6 +105,10 @@ header {
 }
 .banner-section .banner-title {
   display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .banner-section .banner-image, .banner-section .banner-header {
   flex: 0 0 auto;
@@ -118,7 +131,7 @@ header {
   animation: lab_zoomin 5s linear infinite;
 }
 .banner-section .banner-image .shape-3, .banner-section .banner-header .shape-3 {
-  left: 40%;
+  left: 30%;
   bottom: 0;
   animation: lab_run_top_y 5s linear infinite;
 }
@@ -138,7 +151,6 @@ header {
 .banner-section .banner-header h2 {
   font-size: 60px;
   line-height: 72px;
-  color: black;
 }
 
 @keyframes lab_sideeffect {
@@ -239,9 +251,7 @@ header {
   border-bottom: 1px solid #ecf0f3;
 }
 .right-image-section .content .content-title h2 {
-  font-size: 36px;
   margin-bottom: 20px;
-  color: black;
 }
 .right-image-section .content .content-title p {
   max-width: 450px;
@@ -273,9 +283,7 @@ header {
   border-bottom: 1px solid #ecf0f3;
 }
 .left-image-section .content .content-title h2 {
-  font-size: 36px;
   margin-bottom: 20px;
-  color: black;
 }
 .left-image-section .content .content-title p {
   max-width: 450px;
@@ -317,6 +325,60 @@ header {
   color: #fff;
 }
 
+.center-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: 0 206px 60px;
+}
+.center-header h2 {
+  margin: -10px 0 20px;
+}
+.center-header p {
+  max-width: 600px;
+  margin: 0 51px;
+  text-align: center;
+}
+
+.perfect-section {
+  padding: 110px 0 95px 0;
+}
+
+.perfect-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0px;
+}
+.perfect-wrapper .image-item {
+  padding: 48px 45px;
+  margin: 15px;
+  box-shadow: 0 4px 4px rgba(58, 58, 58, 0.1);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.perfect-wrapper .image-item img {
+  margin-bottom: 30px;
+}
+.perfect-wrapper .image-item:hover {
+  box-shadow: 0 0px 10px rgba(58, 58, 58, 0.1);
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+.perfect-wrapper h6 {
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 30px;
+  color: black;
+}
+
 @media screen and (max-width: 1400px) {
   .container {
     max-width: 1140px;
@@ -326,10 +388,34 @@ header {
   .container {
     max-width: 960px;
   }
+  .perfect-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
+    justify-content: center;
+  }
+  .thumb-shape {
+    display: none;
+  }
+  .banner-title {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 }
 @media screen and (max-width: 992px) {
   .container {
     max-width: 720px;
+  }
+  .main-menu {
+    display: none;
+  }
+  .perfect-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
   }
   .right-image-section {
     display: grid;
@@ -353,9 +439,7 @@ header {
     border-bottom: 1px solid #ecf0f3;
   }
   .right-image-section .content .content-title h2 {
-    font-size: 36px;
     margin-bottom: 20px;
-    color: black;
   }
   .right-image-section .content .content-title p {
     max-width: 100%;
@@ -364,10 +448,46 @@ header {
   .right-image-section .image-area {
     order: 1;
   }
+  .left-image-section {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+  .left-image-section img {
+    width: 100%;
+    padding: 0 12px;
+  }
+  .left-image-section .content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    order: 2;
+    padding: 0 32px;
+  }
+  .left-image-section .content .content-title {
+    border-bottom: 1px solid #ecf0f3;
+  }
+  .left-image-section .content .content-title h2 {
+    margin-bottom: 20px;
+  }
+  .left-image-section .content .content-title p {
+    max-width: 100%;
+    margin: 0 0 15px;
+  }
+  .left-image-section .image-area {
+    order: 1;
+  }
 }
 @media screen and (max-width: 768px) {
   .container {
     max-width: 540px;
+  }
+  .perfect-wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0px;
   }
 }
 
