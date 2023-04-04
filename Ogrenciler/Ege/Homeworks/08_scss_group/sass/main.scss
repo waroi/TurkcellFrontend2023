@@ -198,6 +198,9 @@ a {
       transition: 0.3s all ease;
       font-size: 16px;
 
+      &:hover {
+        background: red;
+      }
       span {
         position: absolute;
         left: 50%;
@@ -224,10 +227,6 @@ a {
       }
     }
   }
-}
-
-.bookmark {
-  color: $siteBlue;
 }
 
 .trending {
@@ -283,6 +282,12 @@ a {
 
     .blog-text {
       margin-bottom: 1rem;
+    }
+
+    a {
+      &:hover {
+        color: $siteDarkBlue;
+      }
     }
   }
 
@@ -346,6 +351,7 @@ header {
   display: flex;
   flex-direction: column;
 }
+
 .input-wrap {
   position: relative;
   margin-bottom: 1.5rem;
@@ -393,6 +399,11 @@ header {
     border: 1px solid #fff;
     border-radius: 4px;
     font-size: 0.8rem;
+
+    &:hover {
+      background-color: white;
+      color: $siteBlue;
+    }
   }
 }
 
@@ -625,6 +636,13 @@ footer {
   display: none;
 }
 
+.bookmark {
+  color: $siteBlue;
+  &:hover {
+    color: white;
+  }
+}
+
 @media screen and (min-width: 576px) {
   .container {
     max-width: 1140px;
@@ -735,6 +753,9 @@ footer {
       h3 {
         a {
           font-size: 16px;
+          &:hover {
+            color: $siteDarkBlue;
+          }
         }
       }
 
@@ -791,6 +812,9 @@ footer {
         h3 {
           a {
             font-size: 16px;
+            &:hover {
+              color: $siteDarkBlue;
+            }
           }
         }
 

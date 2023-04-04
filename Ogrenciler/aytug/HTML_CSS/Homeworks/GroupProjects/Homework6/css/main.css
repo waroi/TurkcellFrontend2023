@@ -1,17 +1,24 @@
-/* Error: Expected identifier.
- *    ,
- * 46 |     @include;
- *    |             ^
- *    '
- *   sass/main.scss 46:10  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Expected identifier.\a    \2577 \a 46 \2502      @include;\a    \2502              ^\a    \2575 \a   sass/main.scss 46:10  root stylesheet";
+* {
+  font-family: "Nanum Gothic", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 1140px) 1fr;
+}
+.container > * {
+  grid-column: 2;
+  padding: 0 10px;
+}
+
+.desktop {
+  display: none;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,72 @@
+$size: 16px;
+$line-height: 1.6;
+$weight: 400;
+
+.container {
+  max-width: 85%;
+  margin: 0 auto;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: $weight;
+}
+ul {
+  list-style-type: none;
+}
+body {
+  padding-top: 75px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+@mixin fonts-maker($size, $line-height, $weight) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}
+@mixin grid($min) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+}
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+.flex {
+  display: flex;
+}
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  // background-color: white;
+}
+#nav {
+}
+.btn {
+  background: linear-gradient(to right, #ff5195, #ffb84b);
+  border: none;
+  padding: 1.2em 2em;
+  color: white;
+  border-radius: 5px;
+  @include fonts-maker(1em, 1.5em, 700);
+}
+.header-title {
+  @include flex(row, space-between, center);
+  height: 75px;
+}
+.navList {
+  display: flex;
+  align-items: center;
+
+  li {
+    margin-right: 2em;
+  }
+}
