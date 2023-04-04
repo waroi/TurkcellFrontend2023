@@ -157,12 +157,7 @@ p {
   font-weight: 700;
 }
 
-.upload {
-  max-width: 100%;
-  padding-top: 110px;
-  padding-bottom: 95px;
-}
-.upload .down {
+.down {
   margin: -15px -15px 0;
   display: flex;
   flex-direction: row;
@@ -171,10 +166,10 @@ p {
   gap: 0;
   flex-wrap: wrap;
 }
-.upload .down .down-item {
+.down .down-item {
   width: 33.3333333333%;
 }
-.upload .down .down-item-inner {
+.down .down-item-inner {
   padding: 70px 40px;
   margin: 15px;
   position: relative;
@@ -182,7 +177,13 @@ p {
   transition: all 0.3s ease;
   text-align: center;
 }
-.upload .down .down-item-inner .img {
+
+.upload {
+  max-width: 100%;
+  padding-top: 110px;
+  padding-bottom: 95px;
+}
+.upload .img {
   width: 80px;
   height: 80px;
   text-align: center;
@@ -193,21 +194,216 @@ p {
   margin: auto;
   margin-bottom: 30px;
 }
-.upload .down .down-item-inner .img img {
+.upload .img img {
   vertical-align: middle;
 }
-.upload .down .down-item-inner #img2 {
+.upload #img2 {
   background: linear-gradient(to top, #fd77b4, #ffbae7);
 }
-.upload .down .down-item-inner #img3 {
+.upload #img3 {
   background: linear-gradient(to top, #d17fff, #9982ff);
 }
-.upload .down .down-item-inner h4 {
+.upload h4 {
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: 700;
   color: #000;
   line-height: 32px;
+}
+
+.person {
+  background-color: #fffef6;
+  padding-top: 110px;
+  padding-bottom: 95px;
+}
+.person .down-item {
+  padding: 15px;
+}
+.person .down-item .down-item-inner {
+  background-color: white;
+  margin: 0;
+  padding: 15px;
+  text-align: left;
+}
+.person .down-item .down-item-inner .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  padding: 30px;
+  border-bottom: 1px solid #fff5f3;
+}
+.person .down-item .down-item-inner .title .photo {
+  position: relative;
+}
+.person .down-item .down-item-inner .title .photo img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+.person .down-item .down-item-inner .title .photo .shape {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: -10px;
+  top: -10px;
+  background: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-1.png);
+  background-repeat: no-repeat !important;
+  animation: testi_round 5s linear infinite;
+  animation-play-state: running;
+}
+.person .down-item .down-item-inner .title h5 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  line-height: 24px;
+}
+.person .down-item .down-item-inner .info {
+  padding: 30px;
+}
+.person .down-item .down-item-inner .info p {
+  margin-bottom: 15px;
+}
+.person .down-item .down-item-inner .info .info-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: relative;
+}
+.person .down-item .down-item-inner .info .info-footer .checked {
+  color: #e9ba17;
+}
+.person .down-item .down-item-inner .info .info-footer img {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+@keyframes testi_round {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.logos .logos-inside {
+  padding-top: 70px;
+  padding-bottom: 95px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.logos .logos-inside img {
+  transition: all 0.3s ease;
+}
+.logos .logos-inside img:hover {
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+
+footer {
+  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 30px;
+}
+footer .top {
+  padding-top: 110px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+footer .top .top-left h2, footer .top .top-left p {
+  color: white;
+}
+footer .top .top-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+footer .top .top-right .download {
+  width: 230px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  margin-right: 15px;
+}
+footer .top .top-right .download img {
+  margin-right: 10px;
+}
+footer .top .top-right .download span {
+  color: #c961fa;
+  font-weight: 700;
+}
+footer .middle {
+  padding-top: 110px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 95px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+footer .middle .m-item {
+  width: 25%;
+}
+footer .middle .m-item h6 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 30px;
+}
+footer .middle .m-item li {
+  padding: 8px 0;
+}
+footer .middle .m-item li i {
+  margin-right: 10px;
+}
+footer .bottom {
+  padding-top: 30px;
+}
+footer .bottom ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+footer .bottom ul a {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
