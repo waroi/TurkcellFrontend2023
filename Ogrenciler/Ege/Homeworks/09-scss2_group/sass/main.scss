@@ -1,3 +1,10 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 img {
   width: 100%;
 }
@@ -56,13 +63,14 @@ img {
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
 .lab-btn {
   @include btn(5px, 16px, 24px);
   margin-top: 32px;
+  font-weight: 700;
 }
 
 .section {
@@ -73,3 +81,252 @@ img {
     width: 500px;
   }
 }
+
+header {
+  height: 100vh;
+  width: 100%;
+  background: #f9f2ff;
+  position: relative;
+  .left-shape {
+    position: absolute;
+    background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape-1.png");
+    background-repeat: no-repeat;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .right-shape {
+    position: absolute;
+    background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape-2.png");
+    background-repeat: no-repeat;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+
+    .images {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      .img1 {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/01.png");
+        background-repeat: no-repeat;
+        z-index: 1;
+      }
+      .img2 {
+        @extend .img1;
+        background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape/02.png");
+        right: -75%;
+        top: 23%;
+        z-index: 2;
+        animation: img2 5s infinite;
+
+        @keyframes img2 {
+          0% {
+            transform: translateY(-20px) translateX(0px);
+          }
+          50% {
+            transform: translateY(0px) translateX(-20px);
+          }
+          100% {
+            transform: translateY(-20px) translateX(0px);
+          }
+        }
+      }
+      .img3 {
+        @extend .img1;
+        background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape/03.png");
+        right: -27%;
+        top: 35%;
+        z-index: 2;
+        animation: img3 5s linear infinite;
+        @keyframes img3 {
+          0% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-30px);
+          }
+          100% {
+            transform: translateY(0px);
+          }
+        }
+      }
+      .img4 {
+        @extend .img1;
+        background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape/01.png");
+        right: -52%;
+        top: 35%;
+        z-index: 2;
+        animation: img4 15s linear infinite;
+
+        @keyframes img4 {
+          0% {
+            transform: translateY(0px);
+          }
+          25% {
+            transform: translateX(-60px);
+          }
+          50% {
+            transform: translateY(-60px);
+          }
+          75% {
+            transform: translateX(-60px);
+          }
+          100% {
+            transform: translateY(0px);
+          }
+        }
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .title {
+    h2 {
+      font-size: 60px;
+      line-height: 72px;
+      color: black;
+    }
+  }
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 100;
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .menu {
+    position: relative;
+  }
+
+  #label-check {
+    z-index: 300;
+    margin-right: 1rem;
+    display: none;
+    color: #ff5195;
+  }
+  .menu-web {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    .lab-btn {
+      margin-top: 0;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+    }
+  }
+
+  li:hover {
+    color: #ffb84b;
+    cursor: pointer;
+  }
+}
+
+.menu-mobile {
+  display: none;
+}
+
+#checkbox {
+  display: none;
+}
+
+@media screen and (max-width: 740px) {
+  .navbar {
+    .container {
+      max-width: 540px;
+      .menu-web {
+        display: none;
+      }
+
+      #label-check {
+        display: block;
+      }
+      #checkbox:checked {
+        + label {
+          color: black;
+          z-index: 1000;
+        }
+
+        ~ .menu-mobile {
+          position: absolute;
+          background: white;
+          padding: 5rem;
+          height: 100vh;
+          top: 1rem;
+          right: 0px;
+          display: block;
+
+          li {
+            margin-bottom: 30px;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  .left-shape,
+  .right-shape {
+    display: none;
+  }
+
+  header {
+    height: 75vh;
+    .content {
+      grid-template-columns: 1fr;
+      padding: 10px;
+    }
+    .content-part {
+      margin-bottom: 2rem;
+    }
+    .title {
+      h2 {
+        font-size: 30px;
+        line-height: 1.4;
+      }
+      p {
+        margin: 5px 0 30px;
+        margin-top: 5px;
+        margin-top: 10px;
+        color: #696969;
+        font-size: 15px;
+      }
+    }
+  }
+}
+// <i class="icofont-navigation-menu"></i>
