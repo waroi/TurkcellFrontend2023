@@ -2,7 +2,7 @@
 
 ![Geleceği Yazanlar Logo](https://gelecegiyazanlar.turkcell.com.tr/themes/custom/gyz/logo.svg)
 
-Bu dökümanda Geleceği Yazanlar eğitimim sırasında aldığım notları bulabilirsiniz.
+Bu dökümanda Geleceği Yazanlar eğitimim sırasında aldığım notları bulabilirsiniz..
 
 # Ders Notlarım
 
