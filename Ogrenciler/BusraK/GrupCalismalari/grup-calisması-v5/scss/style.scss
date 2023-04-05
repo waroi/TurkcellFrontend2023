@@ -1,0 +1,506 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ list-style: none;
+ list-style-type: none;
+ text-decoration: none;
+ font-family: 'Roboto', sans-serif;
+ scroll-behavior: smooth;
+}
+
+@import '_variables.scss';
+@import '_mixin.scss';
+@import '_extends.scss';
+a:visited {
+ color: inherit;
+}
+
+.container {
+ max-width: 100%;
+ padding: 0 12px;
+}
+
+//navbar baslangic
+.pc-navbar {
+ display: none;
+}
+
+.navbar {
+ //background: rgba(255, 255, 255, 0.25);
+ box-shadow: 0 0 20px 10px #f9f2ff; //renk ayarlanacak
+ backdrop-filter: blur(2px);
+ -webkit-backdrop-filter: blur(2px);
+ z-index: 999;
+ padding: 15px 0px;
+ @include absolute-full(0, auto, 0, 0);
+ position: fixed;
+ .container {
+  .mobile-navbar {
+   @include flex-full(row, space-between, center);
+   label {
+    div {
+     cursor: pointer;
+     @include flex-full(column, space-between, center);
+     width: 25px;
+     height: 20px;
+     span {
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, #ff5195, #ffb84b);
+     }
+    }
+   }
+   .open-close-menu,
+   #navbar-menu {
+    display: none;
+   }
+   .closed {
+    margin-bottom: 7px;
+    align-self: flex-end;
+    position: relative;
+    display: none;
+    div {
+     height: 25px;
+     span:nth-child(1) {
+      rotate: 45deg;
+      position: absolute;
+     }
+     span:nth-child(2) {
+      position: absolute;
+      rotate: 135deg;
+     }
+    }
+   }
+   #navbar-menu:checked ~ .closed {
+    display: block;
+   }
+   #navbar-menu:checked ~ .opened {
+    display: none;
+   }
+   #navbar-menu:checked ~ .open-close-menu {
+    display: block;
+   }
+   .open-close-menu {
+    padding-top: 2em;
+    @include absolute-full(85px, auto, 0, 0);
+    background-color: $white;
+    z-index: 999;
+    ul {
+     @include flex-full(column, start, start);
+     gap: 1em;
+     padding-left: 1em;
+    }
+    li {
+     display: flex;
+     align-items: center;
+     border-bottom: 0.5px solid rgba(128, 128, 128, 0.245);
+     width: 95%;
+     a {
+      padding: 1em 0;
+      flex: 1;
+      color: inherit;
+     }
+    }
+   }
+  }
+ }
+}
+
+//header baslangic
+header {
+ background: #f9f2ff;
+ margin-top: 86px;
+ padding: 5em 0;
+ height: 100vh;
+ height: 100dvh;
+ .header-triangle {
+  display: none;
+ }
+ .header-container {
+  @include flex-col();
+  gap: 1em;
+  .header-text {
+   h2 {
+    line-height: 1.4em;
+    font-size: 30px;
+   }
+   p {
+    line-height: 1.3em;
+    margin: 5px 0 30px;
+    margin-top: 10px;
+    color: #696969;
+   }
+   a {
+    width: 180px;
+    @extend .extbutton;
+   }
+  }
+
+  .header-image {
+   .pos-man-img {
+    width: 100%;
+   }
+
+   .candle-card {
+    display: none;
+   }
+   .woman-img {
+    display: none;
+   }
+  }
+ }
+
+ .purple-img {
+  display: none;
+ }
+}
+
+//header bitis
+
+//omnichannel
+.omnichannel {
+ padding: 5em 0;
+ .container {
+  .pos-section-container {
+   @include flex-col();
+   gap: 1em;
+   img {
+    padding-bottom: 2em;
+    width: 100%;
+   }
+   .pos-section-left {
+    .pos-section-text {
+     @include flex-col();
+     gap: 2em;
+     padding-bottom: 2em;
+     border-bottom: 1px solid #ecf0f3;
+
+     p {
+      font-weight: 400;
+      font-size: 15px;
+      color: #696969;
+     }
+    }
+    ul {
+     margin-bottom: 2em;
+     padding-top: 2em;
+     @include flex-col();
+     gap: 1em;
+     div {
+      width: 100%;
+      li {
+       color: #696969;
+       padding: 1em 0;
+       i {
+        margin-right: 10px;
+        color: #fd4372;
+       }
+      }
+     }
+    }
+    a {
+     width: 170px;
+     @extend .extbutton;
+    }
+   }
+  }
+ }
+}
+//all-in-one
+.all-in-one {
+ background: #f8efff;
+ @extend .omnichannel;
+}
+//retail-pos
+.retail-pos {
+ @extend .omnichannel;
+}
+//Retail Card baslangic
+.retail-cards {
+ padding: 2em 0;
+ background: #f8efff;
+ .header {
+  @extend .extheader;
+ }
+}
+.retail-card-container {
+ @include flex-row();
+ flex-wrap: wrap;
+ gap: 2em;
+}
+.retail-card {
+ background: $white;
+ @include flex-full(column, center, center);
+ width: 100%;
+ border: 1px solid #e6e6e673;
+ border-radius: 10px;
+ box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.233);
+ padding: 3em 0 1em 0;
+ gap: 2em;
+ &:hover {
+  transform: translatey(-5px);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+ }
+}
+
+//Retail Card bitis
+//retail stores
+.retail-stores {
+ @extend .omnichannel;
+}
+//extend-power
+.extend-power {
+ background: #f8efff;
+ @extend .omnichannel;
+}
+
+//upload baslangic
+.upload {
+ background: $white;
+ padding: 5em 0;
+ .container {
+  .upload-container {
+   .header {
+    @extend .extheader;
+   }
+   .card-container {
+    @include flex-col();
+    gap: 1.5em;
+    .card {
+     width: 100%;
+     border: 1px solid #e6e6e673;
+     border-radius: 10px;
+     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.112);
+     padding: 50px 30px;
+     @include flex-full(column, center, center);
+     position: relative;
+     z-index: 1;
+     &::after {
+      content: '';
+      @include absolute-full(auto, 0, 0, auto);
+      width: 0%;
+      height: 5px;
+      opacity: 0.5;
+      border-radius: 10px;
+      z-index: 5;
+      width: 0%;
+      transition: all 0.5s ease-in-out;
+     }
+     &:hover {
+      .img-container {
+       &::after {
+        box-shadow: 0 0 0 0 #f7dfff97;
+        animation: pulse 2s infinite;
+       }
+       &::before {
+        box-shadow: 0 0 0 0 #f7dfff97;
+       }
+      }
+      &::after {
+       width: 100%;
+       transition: all 0.5s ease-in-out;
+      }
+     }
+     .img-container {
+      margin-bottom: 1.5em;
+      width: 80px;
+      height: 80px;
+      position: relative;
+      z-index: 0;
+      &::before {
+       content: '';
+       @include absolute-full(5px, 5px, 5px, 5px);
+       border-radius: 50%;
+       box-shadow: 0 0 0 5px #f7dfff97;
+       z-index: 2;
+      }
+      &::after {
+       content: '';
+       @include absolute-full(5px, 5px, 5px, 5px);
+       border-radius: 50%;
+       box-shadow: 0 0 0 10px #f7dfff97;
+       z-index: 1;
+      }
+      @include flex-full(row, center, center);
+      border-radius: 50%;
+      img {
+       object-fit: cover;
+      }
+     }
+     .card-1 {
+      background: linear-gradient(
+       rgba(189, 109, 245, 1) 0%,
+       rgba(248, 118, 159, 1) 100%
+      );
+     }
+     .card-2 {
+      background: linear-gradient(#ffb8e5 0%, #fd79b5 100%);
+     }
+     .card-3 {
+      background: linear-gradient(#9a81ff 0%, #d17fff 100%);
+     }
+    }
+    .header {
+     padding-bottom: 0;
+     h4 {
+      font-size: 20px;
+     }
+     p {
+      font-size: 15px;
+     }
+    }
+    .border-bottom-1 {
+     &::after {
+      background: linear-gradient(
+       90deg,
+       rgb(149, 0, 255) 0%,
+       rgb(255, 0, 81) 100%
+      );
+     }
+    }
+    .border-bottom-2 {
+     &::after {
+      background: linear-gradient(90deg, #ff00a2 0%, #ff0073 100%);
+     }
+    }
+    .border-bottom-3 {
+     &::after {
+      background: linear-gradient(90deg, #3300ff 0%, #a200ff 100%);
+     }
+    }
+   }
+  }
+ }
+}
+@keyframes pulse {
+ 0% {
+  transform: scale(1);
+  box-shadow: 0 0 0 0px #f7dfff97;
+  @include absolute-full(2px, 2px, 2px, 2px);
+ }
+ 50% {
+  transform: scale(1.5);
+  box-shadow: 0 0 0 20px #f7dfff97;
+  background: #f7dfff97;
+ }
+ 100% {
+  opacity: 0;
+ }
+}
+//upload bitis
+//smratpos-powers-retail baslangic
+.smratpos-powers-retail {
+ background: #f8efff;
+ padding: 2em 0;
+}
+.smratpos-powers-retail-container > .header {
+ @extend .extheader;
+}
+
+.card-container {
+ @include flex-col();
+ gap: 1.5em;
+}
+.card {
+ background: $white;
+ width: 100%;
+ padding: 2em 0;
+ border: 1px solid rgba(236, 236, 236, 0.112);
+ border-radius: 5px;
+ box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.233);
+ display: none;
+}
+.card:first-child {
+ display: block;
+}
+.card-header {
+ @include flex-full(row, space-between, center);
+ border-bottom: 1px solid rgba(0, 0, 0, 0.112);
+ padding: 0 1em;
+ .image-container {
+  position: relative;
+  margin-bottom: 2em;
+  margin-left: 1em;
+
+  .image {
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+  }
+  .image-border {
+   width: 120%;
+   height: 120%;
+   @include absolute-full(-7px, 0, -7px, auto);
+   animation: rotate 5s linear infinite;
+  }
+  @keyframes rotate {
+   0% {
+    transform: rotate(0deg);
+   }
+   50% {
+    transform: rotate(180deg);
+   }
+   100% {
+    transform: rotate(360deg);
+   }
+  }
+ }
+ .person-info {
+  margin-top: -30px;
+  h4 {
+   @include font-full(20px, 600, 1.3em);
+  }
+  p {
+   @include font-full(15px, 400, 1.4em);
+   color: #696969;
+  }
+ }
+ .person-company {
+  margin-top: -20px;
+  display: none;
+ }
+}
+.card-info {
+ padding: 1em 1em;
+ p {
+  @include font-full(14px, 400, 1.4em);
+  color: #696969;
+ }
+}
+.card-footer {
+ padding: 0 1em;
+ @include flex-full(row, space-between, center);
+ height: 20px;
+ .stars {
+  span {
+   color: #e9ba17;
+  }
+ }
+ img {
+  height: 100%;
+ }
+}
+//smratpos-powers-retail bitis
+
+//sponsor-logos
+.sponsor-logos {
+ .container {
+  .sponsor-logo-container {
+   .sponsor-logo-item {
+    @include flex-full(row, center, center);
+    img {
+     padding: 4em;
+     &:nth-child(n + 2) {
+      display: none;
+     }
+     &:hover {
+      filter: grayscale(1);
+      cursor: pointer;
+     }
+    }
+   }
+  }
+ }
+}
