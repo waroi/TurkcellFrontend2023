@@ -453,6 +453,22 @@ img {
 
 // Ege
 
+.sponsors {
+  .container {
+    display: flex;
+    justify-content: space-between;
+
+    .sponsor {
+      transition: filter 0.3s;
+
+      filter: grayscale(0%);
+      &:hover {
+        filter: grayscale(100%);
+      }
+    }
+  }
+}
+
 header {
   height: 100vh;
   width: 100%;
