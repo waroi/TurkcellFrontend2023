@@ -1,0 +1,228 @@
+:root {
+  --button-primary-color: linear-gradient(to right, #ff5195, #ffb84b);
+  --button-secondary-color: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
+  --icon-color: #fd4372;
+  --site-background-color:#FFFEF9;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.left-image {
+  display: none;
+}
+
+.right-image {
+  display: none;
+}
+
+.site-navbar {
+  display: none;
+}
+
+.list-section {
+  padding: 80px 0 55px;
+}
+.list-section.site-bg {
+  background-color: var(--site-background-color);
+}
+.list-section .omnichanel {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 10px;
+  padding: 10px;
+  gap: 40px;
+}
+.list-section .omnichanel .list-area {
+  order: 1;
+}
+.list-section .omnichanel .list-area .title {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 0 0 40px;
+  padding: 0 0 30px;
+  color: #696969;
+  border-bottom: 1px solid #ecf0f3;
+}
+.list-section .omnichanel .list-area .title h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: -10px 0 20px;
+  padding: 0;
+  color: #000;
+}
+.list-section .omnichanel .list-area .ul-area {
+  display: flex;
+  flex-direction: column;
+  align-items: inherit;
+  justify-content: flex-start;
+  margin: 0 0 20px;
+  padding: inherit;
+}
+.list-section .omnichanel .list-area .ul-area li {
+  padding: 10px 10px;
+}
+.list-section .omnichanel .list-area .ul-area li i {
+  color: var(--icon-color);
+}
+.list-section .omnichanel .list-img img {
+  order: -1;
+  width: 100%;
+  padding: 20px;
+}
+
+.marks {
+  background-color: var(--site-background-color);
+}
+
+.marks-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 30px;
+  padding: 0;
+  gap: 80px;
+}
+.marks-area a {
+  transition: all 0.5s ease-in-out;
+}
+.marks-area a:nth-child(n+3) {
+  display: none;
+}
+
+.card-section-software {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: inherit;
+  padding: 80px 30px 55px;
+  text-align: center;
+}
+.card-section-software .software-card {
+  padding: 50px 30px;
+  margin: 15px 0;
+  box-shadow: 0 0 8px rgba(136, 136, 136, 0.2);
+}
+.card-section-software .software-card .software-img img {
+  border-radius: 50%;
+}
+.card-section-software .software-card .software-img img:hover {
+  animation: pulse-animation 1s infinite;
+}
+.card-section-software h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 5px;
+  padding: 0;
+  color: #000;
+}
+
+@media screen and (min-width: 576px) {
+  .card-section-software {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+  .card-section-software .software-card {
+    width: 45%;
+  }
+  .ul-area {
+    flex-direction: row !important;
+  }
+  .marks-area {
+    padding: 70px 0 55px;
+  }
+  .marks-area a:nth-child(-n+3) {
+    display: block;
+  }
+  .marks-area a:hover {
+    filter: grayscale(0.9);
+  }
+}
+@media screen and (min-width: 992px) {
+  .card-section-software {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 50px;
+  }
+  .card-section-software .software-card {
+    width: 33%;
+  }
+  .list-section {
+    padding: 110px 0 95px;
+  }
+  .omnichanel {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .omnichanel .title {
+    width: 80%;
+  }
+  .omnichanel .title h2 {
+    font-size: 36px !important;
+  }
+  .list-area {
+    order: -1 !important;
+  }
+  .list-img img {
+    order: 1 !important;
+  }
+  .section-reversed .list-area {
+    order: 1 !important;
+  }
+  .section-reversed .list-img img {
+    order: -1 !important;
+  }
+  .marks-area a:nth-child(n) {
+    display: block;
+  }
+}
+.btn-inner {
+  display: inline-block;
+  padding: 16px 25px;
+  background: var(--button-primary-color);
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  border-radius: 4px;
+}
+.btn-inner::after {
+  display: inherit;
+  padding: inherit;
+  background: var(--button-secondary-color);
+  transition: transform 0.3s ease-in-out;
+  position: absolute;
+  overflow: inherit;
+  border: 0;
+  content: "";
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
+}
+.btn-inner span {
+  z-index: 1;
+  position: relative;
+}
+.btn-inner:hover::after {
+  transform: scaleX(1);
+  transform-origin: 0% 50%;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(185, 107, 245, 0.3294117647);
+  }
+  100% {
+    box-shadow: 0 0 0 30px rgba(36, 194, 255, 0);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

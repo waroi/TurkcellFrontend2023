@@ -1,0 +1,250 @@
+@import 'colors.scss';
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1150px;
+    margin: 0 auto;
+  }
+  @mixin selectedlink {
+    color: $light;
+    background: $primary-color;
+    padding: 0.5em;
+    border-radius: 5px;
+  }
+  @mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+  }
+  //Header Başlangıç
+  :has(input[id='anchor-home']:checked) label[for='anchor-home'] {
+    @include selectedlink;
+  }
+
+  :has(input[id='anchor-ads']:checked) label[for='anchor-ads'] {
+    @include selectedlink;
+  }
+
+  :has(input[id='anchor-about']:checked) label[for='anchor-about'] {
+    @include selectedlink;
+  }
+
+  :has(input[id='anchor-contact']:checked) label[for='anchor-contact'] {
+    @include selectedlink;
+  }
+
+  :has(input[id='anchor-blog']:checked) label[for='anchor-blog'] {
+    @include selectedlink;
+  }
+
+  #anchor-ads,
+  #anchor-home,
+  #anchor-about,
+  #anchor-contact,
+  #anchor-blog {
+    top: 200px;
+  }
+  nav {
+    font-size: 16px;
+    font-weight: 600;
+    .mobile {
+      display: none;
+    }
+    .desktop {
+      display: flex;
+      align-items: center;
+      .nav-links {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 6em;
+        gap: 1em;
+        li {
+          a {
+            color: $dark;
+            label {
+              padding: 0.5em;
+              border-radius: 5px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .sign-container {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        .login {
+          border-left: 2px solid $primary-color;
+          padding: 0 2em;
+        }
+        .register {
+          padding: 12px 20px;
+          border-radius: 5px;
+          background: $primary-color;
+          color: $light;
+        }
+      }
+    }
+  }
+  header {
+    background: fixed
+      url('https://preview.colorlib.com/theme/directoryads/images/hero_2.jpg.webp')
+      top center / cover no-repeat;
+    height: 102vh;
+    height: 102dvh;
+    .container {
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .header-container {
+    width: 100%;
+    gap: 1em;
+    .header-title {
+      font-size: 48px;
+    }
+    .header-footer {
+      margin-top: -1em;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      padding: 1em 0;
+      h5 {
+        margin-top: 0.5em;
+      }
+    }
+  }
+  form {
+    flex-direction: row;
+    input[type='text'],
+    select {
+      flex: 2;
+    }
+    input[type='submit'] {
+      flex: 1;
+    }
+  }
+  //Header Bitiş
+  // Featured Ads Başlangıç
+  .featured-cards-container {
+    justify-content: space-between;
+    .featured-card {
+      display: block;
+      width: 23%;
+    }
+  }
+  // Featured Ads Bitiş
+  //populer categories başlangıç
+  .popular {
+    padding: 3em 0;
+  }
+  .popular-links-container {
+    justify-content: space-between;
+    gap: 0.5em;
+    .popular-links {
+      width: 16%;
+      padding: 1em 0;
+    }
+  }
+  //populer categories bitiş
+  //Trending Today Başlangıç
+  .featured-ads.trending-today {
+    h2::after {
+      width: 220px;
+      background: $primary-color;
+    }
+  }
+  .featured-card.trending-today-card {
+    display: flex;
+    flex-direction: row;
+    width: 48%;
+    &:first-child {
+      display: flex;
+    }
+    img {
+      width: 230px;
+    }
+    .featured-card-content.trending-today-card-content {
+      flex: 1;
+      div:not(.review) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+  //Trending Today Bitiş
+  //Testimonial Başlangıç
+  .testimonial {
+    .container {
+      .testimonial-container {
+        .testimonial-card {
+          display: flex;
+          align-items: center;
+          text-align: center;
+          .testimonial-card-body {
+            p {
+              font-size: 24px;
+              max-width: 800px;
+            }
+          }
+        }
+      }
+    }
+  }
+  //Testimonial Bitiş
+  //Our Blog Başlangıç
+  .our-blog {
+    padding: 3em 0;
+    .ourblog-container {
+      @include flexColumn();
+      .ourblog-cards {
+        display: flex;
+        flex-direction: row !important;
+        width: 100%;
+        .ourblog-card-body {
+          p {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  //Our Blog Bitiş
+  //Newslatter Başlangıç
+  .newsletter {
+    .container {
+      display: flex;
+      justify-content: space-between;
+      .newsletter-form {
+        width: 62%;
+        padding: 1em 0;
+        text-align: right;
+        margin-top: 0.8em;
+      }
+    }
+  }
+  //Footer Başlangıç
+  .site-footer {
+    padding: 8rem 0;
+    .container {
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        .footer-about {
+          max-width: 35%;
+        }
+        .footer-form {
+          height: 3rem;
+          width: 25%;
+          .search-btn {
+            height: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+}
