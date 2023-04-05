@@ -81,6 +81,31 @@ h2 {
 p {
   @include font(16px, 400, #696969);
 }
+.primary-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .logo {
+    width: 140px;
+  }
+}
+.main-area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .menu {
+    width: 95%;
+    .nav-wrapper {
+      display: flex;
+    }
+    .nav-wrapper li {
+      padding: 25px 20px;
+    }
+  }
+}
+.hover-menu {
+  display: none;
+}
 
 .section {
   @include flex(row-reverse, center, center, 20px, nowrap);
@@ -114,7 +139,7 @@ p {
     color: #696969;
   }
 }
-.section-reverse{
+.section-reverse {
   background: #fffcfa;
 }
 .reverse {
