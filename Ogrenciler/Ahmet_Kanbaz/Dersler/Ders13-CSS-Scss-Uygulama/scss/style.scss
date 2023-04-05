@@ -7,13 +7,24 @@
   font-family: "Roboto", sans-serif ;
   font-size: 1rem;
 }
-@mixin buttonType{
+@mixin buttonType {
     background: linear-gradient(to right, #ff5195, #ffb84b);
     padding: 16px 25px;
     border-radius: 4px;
     text-align: center;
     font-weight: 700;
     color: #fff;
+}
+@mixin beforeAfter ($width, $height, $left, $transform, $borderRadius, $background) {
+  width: $width;
+  height: $height;
+  left: $left;
+  transform: $transform;
+  border-radius: $borderRadius;
+  background: $background;
+  position: absolute;
+  content: "";
+  display: inline-block;
 }
 .container{
   max-width: 1320px;
@@ -134,7 +145,7 @@ header{
           color: #696969;
           margin-bottom: 3rem;
           li {
-            width: 45%;
+            width: 50%;
             padding: 15px 0;
             span {
               color: #fd4372;
@@ -152,6 +163,9 @@ header{
       padding:  0 12px;
       width: 50%;
       text-align: center;
+      img {
+        max-width: 100%;
+      }
     }
   }
 }
@@ -175,7 +189,7 @@ header{
     align-items: center;
     .perfectTop {
       text-align: center;
-      max-width: 63%;
+      max-width: 70%;
       margin: 0 auto 5rem;
       h2 {
         font-size: 36px;
@@ -227,4 +241,333 @@ header{
 .retailStores {
   @extend .allInOne;
   background-color: #FFFFFF;
+}
+
+.extend {
+  @extend .omnichannelPOS;
+}
+
+.software {
+  @extend .perfectPOS;
+  background-color: #FFFFFF;
+  .softwareBottom {
+    .softwareCardWrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      .softwareCard {
+        position: relative;
+        width: 30%;
+        padding: 70px 40px;
+        text-align: center;
+        box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
+        transition: all .3s ease;
+        .cardImg {
+          width: 80px;
+          height: 80px;
+          position: relative;
+          z-index: 1;
+          line-height: 80px;
+          background: linear-gradient(to top, #f9769d, #bb6df7);
+          border-radius: 100%;
+          margin: 0 auto;
+          margin-bottom: 20px;
+          box-shadow: 0 0 10px 2px #fcd5e1;
+          transition: all .3s ease;
+          &::before {
+            @include beforeAfter (92px, 92px, 50%, translate(-50%, -50%), 50%, #bb6df7);
+            opacity: 0.2;
+            top: 50%;
+            z-index: -1;
+          }
+          &::after {
+            @extend ::before;
+            opacity: 0.09;
+            top: 50%;
+            z-index: -1;
+          }
+          img {
+            vertical-align: middle;
+          }
+        }
+        &:hover {
+          .cardImg{
+            &::before {
+              animation: cardImgBefore .8s linear infinite forwards;
+            }
+            &::after {
+              animation: cardImgAfter .8s linear infinite forwards;
+            }
+          }
+          .softwareCardInfo {
+            &::after {
+              transform: scaleX(1);
+              transform-origin: 0 50%;
+            }
+          }
+        }
+        .softwareCardInfo {
+          h4 {
+          font-size: 24px;
+          line-height: 32px;
+          margin: 30px 0 30px;
+          font-weight: 700;
+        }
+        p {
+          font-size: 1rem;
+          font-weight: 400;
+          color: #696969;
+        }
+        &::after {
+          @include beforeAfter (100%, 5px, 0, scaleX(0), none, linear-gradient(to left, #f9769d, #bb6df7));
+          bottom: 0;
+          transition: transform 0.3s ease-in-out;
+          transform-origin: 100% 50%;
+        }
+        }
+      }
+      .softwareCard:nth-child(2) {
+        .cardImg {
+          background: linear-gradient(to top, #fd77b4, #ffbae7);
+        }
+      }
+      .softwareCard:nth-child(3) {
+        .cardImg {
+          background: linear-gradient(to top, #d17fff, #9982ff);
+        }
+      }
+    }
+  }
+}
+
+@keyframes cardImgBefore {
+  0% {
+    width: 92px;
+    height: 92px;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    opacity: 0.05;
+  }
+}
+
+@keyframes cardImgAfter {
+  0% {
+    width: 105px;
+    height: 105px;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    opacity: 0.05;
+  }
+}
+
+.powers {
+  @extend .perfectPOS;
+  .powersBottom {
+    .powersCardWrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      .powerCard {
+        width: 30%;
+        padding: 1rem;
+        background: #FFFFFF;
+        box-shadow: 0 0 10px rgba(136, 136, 136, 0.1);
+        .powerCardTop {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid #fff5f3;
+          padding: 30px;
+          position: relative;
+          .powerTopLeft {
+            position: relative;
+            .animationTop {
+              position: absolute;
+              width: 80px;
+              height: 80px;
+              left: -10px;
+              top: -10px;
+              background: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-1.png");
+              background-repeat: no-repeat;
+              animation: testi_round 5s linear infinite;
+              animation-play-state: running;
+            }
+          }
+        }
+        .powerCardBottom {
+          position: relative;
+          padding: 30px;
+          p {
+            color: #696969;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-weight: 400;
+            font-size: 1rem;
+            text-align: justify;
+            width: 90%;
+          }
+          .rating {
+            color: #ffb84b;
+            span {
+              font-size: .9rem;
+            }
+            &::after {
+              position: absolute;
+              content: "";
+              bottom: 20px;
+              right: 30px;
+              width: 30px;
+              height: 20px;
+              background: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/01.png");
+              background-size: contain;
+              background-repeat: no-repeat;
+          }
+          }
+        }
+        &:hover .powerTopLeft .animationTop{
+          animation-play-state: paused;
+        }
+      }
+    }
+  }
+}
+
+@keyframes testi_round {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.logos {
+  padding-bottom: 6rem;
+  .container {
+    .logoWrapper {
+      padding-top: 4rem;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      justify-items: center;
+      .logo {
+        width: 15%;
+        &:hover {
+          a {
+            img {
+              filter: grayscale(100%);
+              transition: all .3s ease-in-out;
+            }
+          }  
+        }
+      }
+    }
+  }
+}
+
+.footerSection {
+  background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 8rem 0 0;
+  color: #FFFFFF;
+  .container {
+    .footerTop {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0 5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      .logoLeft {
+      h2 {
+        margin-bottom: 5px;
+        font-size: 36px;
+        line-height: 48px;
+      }
+      p {
+        max-width: 600px;
+        margin-bottom: 15px;
+      }
+    }
+    .logoRight {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+      width: 45%;
+      a {
+        width: 40%;
+        height: 70px;
+        padding: 10px 20px;
+        border-radius: 2px;
+        margin-bottom: 20px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        img {
+          margin-right: 10px;
+        }
+        p {
+          margin-bottom: 0;
+          color: #696969;
+          font-weight: 400;
+          font-size: 1rem;
+        }
+        span {
+          font-weight: 700;
+          color: #c961fa;
+          text-transform: uppercase;
+          font-size: .9rem;
+        }
+      }
+    }
+    }
+  }
+  footer {
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 8rem 0 0;
+    .container {
+      .footerCards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        .cards {
+          h6 {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            line-height: 30px;
+          }
+          ul {
+            li {
+              margin-bottom: .7rem;
+              a {
+                color: #FFFFFF;
+                font-size: 1rem;
+                line-height: 30px;
+              }
+            }
+          }
+        }
+      }
+      .bottomFooter {
+        margin: 5rem 0 0;
+        padding: 3rem 0 2rem;
+        display: flex;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        justify-content: center;
+        a {
+          color: #FFFFFF;
+          font-size: 1rem;
+          margin-left: 10px;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
 }
