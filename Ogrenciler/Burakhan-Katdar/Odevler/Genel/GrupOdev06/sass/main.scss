@@ -65,7 +65,7 @@ p {
   display: grid;
   grid-template-columns: 1fr minmax(300px, 1320px) 1fr;
 
-  & > * {
+  &>* {
     padding: 0 20px;
     grid-column: 2;
   }
@@ -101,6 +101,7 @@ p {
 .bg-light {
   background-color: $bg-light;
 }
+
 .bg-light2 {
   background-color: $bg-light2;
 }
@@ -138,14 +139,12 @@ p {
   right: 0;
   transform: scaleX(0);
   transform-origin: 100% 50%;
-  background: linear-gradient(
-    to left,
-    #ffab8b,
-    #ff957d,
-    #ff7d75,
-    #ff6371,
-    #fd4372
-  );
+  background: linear-gradient(to left,
+      #ffab8b,
+      #ff957d,
+      #ff7d75,
+      #ff6371,
+      #fd4372);
   transition: transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
   position: absolute;
@@ -216,6 +215,7 @@ header {
     .banner2 {
       position: absolute;
       content: "";
+
       img {
         overflow-clip-margin: content-box;
         overflow: clip;
@@ -287,9 +287,11 @@ header {
 
 #perfectPos {
   margin: 100px 0;
+
   .section-head {
     text-align: center;
     margin-bottom: 50px;
+
     p {
       max-width: 600px;
       margin: auto;
@@ -299,25 +301,31 @@ header {
   .section-wrap {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+
     * {
       text-align: center;
       text-transform: uppercase;
     }
+
     .lab-item {
       transition: all 0.3s ease;
+
       &:hover {
         transform: translateY(-10px);
         transition: all 0.5s ease-in-out;
       }
+
       .inner {
         padding: 48px 45px;
         border-radius: 4px;
         margin: 15px;
         box-shadow: 0 4px 4px rgba(58, 58, 58, 0.1);
       }
+
       img {
         margin-bottom: 20px;
       }
+
       h6 {
         @include buttonText(black, 700, 1rem, 30px);
       }
@@ -329,6 +337,7 @@ header {
   .section-head {
     @extend .section-head;
   }
+
   .card-wrap {
     display: grid;
     grid-template-columns: repeat(auto-fit, 350px);
@@ -510,11 +519,14 @@ header {
   display: flex;
   flex-direction: row-reverse;
   margin-top: 80px;
+
   .section2-left {
     padding-left: 0;
-    &{
-        padding-left: 50px;
+
+    & {
+      padding-left: 50px;
     }
+
     .section2-title {
       margin-bottom: 40px;
       max-width: 100%;
@@ -522,6 +534,7 @@ header {
       text-align: left;
       padding-bottom: 30px;
       border-bottom: 1px solid #ecf0f3;
+
       h2 {
         font-weight: 700;
         margin-bottom: 20px;
@@ -530,6 +543,7 @@ header {
         font-size: 36px;
         line-height: 48px;
       }
+
       p {
         max-width: 450px;
         margin: 0 0 15px;
@@ -539,23 +553,27 @@ header {
     }
   }
 }
+
 .section2-list {
   ul {
     display: flex;
     flex-wrap: wrap;
     margin: 0 0 40px;
+
     li {
       width: 50%;
       display: inline-block;
       padding: 10px 0;
       color: #696969;
       font-size: 16px;
+
       i {
         color: #ff4d94;
       }
     }
   }
 }
+
 /*-⁡⁣⁣⁢--- SECTION 8 ----⁡*/
 
 
@@ -703,6 +721,7 @@ header {
     .s9-card {
       width: calc(100% / 3.1);
       background-color: white;
+
       .s9-card-inner {
         box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
         padding: 20px 40px;
@@ -764,11 +783,11 @@ header {
 
 /*-⁡⁣⁣⁢--- SECTION 10 ----⁡*/
 
-.section10{
-  .s10-inner{
+.section10 {
+  .s10-inner {
     @include flex(space-between, center);
 
-    .logo img::hover{
+    .logo img::hover {
       filter: grayscale(100%);
       -webkit-transition: all 0.3s ease;
       -moz-transition: all 0.3s ease;
@@ -779,67 +798,76 @@ header {
 
 /*-⁡⁣⁣⁢--- APP FOOTER ----⁡*/
 
-.app-footer{
+.app-footer {
   background-image: url(../img/app-footer-bg.jpg);
   background-repeat: no-repeat;
-  background-size:  cover;
-  padding: 80px 0 0 0 ;
-  .footer-top{
+  background-size: cover;
+  padding: 80px 0 0 0;
+
+  .footer-top {
     @include flex(space-between, center);
     border-bottom: 1px solid #A26BDD;
     padding: 50px 0;
-    .footer-header{
-    color: white;
-      
+
+    .footer-header {
+      color: white;
+
       text-align: start;
-      h2{
+
+      h2 {
         font-size: 36px;
       }
-      p{
+
+      p {
         color: white;
         margin-top: 10px;
       }
-      
-      
+
+
     }
 
-    .footer-apps{
-    @include flex(center, center);
+    .footer-apps {
+      @include flex(center, center);
       gap: 20px;
 
-      .f-app{
+      .f-app {
         background-color: #FFFEFE;
         padding: 10px;
         width: 200px;
-        a{
+
+        a {
           @include flex(center, center);
           gap: 20px;
-          span{
+
+          span {
             color: #D363FA;
             font-weight: 600;
           }
         }
-        
+
       }
     }
   }
 
-  footer{
+  footer {
     padding-top: 70px;
     @include flex(space-between, center);
     flex-wrap: wrap;
-    .footer-sec{
+
+    .footer-sec {
       color: white;
       display: flex;
       flex-direction: column;
       gap: 40px;
       margin: 10px 20px;
-      ul{
+
+      ul {
         list-style-type: none;
         display: flex;
         flex-direction: column;
         gap: 20px;
-        a{
+
+        a {
           display: flex;
           gap: 10px;
         }
@@ -847,14 +875,15 @@ header {
     }
   }
 
-  .footer-bottom{
+  .footer-bottom {
     margin: auto;
     text-align: center;
     padding: 40px 0;
     margin-top: 100px;
     border-top: 1px solid #A26BDD;
     @include flex(center, center);
-    p{
+
+    p {
       color: white !important;
     }
   }
@@ -883,7 +912,7 @@ header {
   }
 
 
-/*-⁡⁢⁣⁢--- BURAKHAN ----⁡⁡*/
+  /*-⁡⁢⁣⁢--- BURAKHAN ----⁡⁡*/
 
   .s8-cards {
     @include flex(center, center);
@@ -894,43 +923,45 @@ header {
     }
   }
 
-  .footer-top{
+  .footer-top {
     flex-direction: column;
     justify-content: center;
     gap: 40px;
-    .footer-header{
+
+    .footer-header {
       text-align: center;
-      p{
+
+      p {
         margin: auto;
-      text-align: center;
-        
+        text-align: center;
       }
-      
     }
   }
-
 }
 
-@media only screen and (max-width: 768px){
-/*-⁡⁢⁣⁢--- BURAKHAN ----⁡⁡*/
+@media only screen and (max-width: 768px) {
+
+  /*-⁡⁢⁣⁢--- BURAKHAN ----⁡⁡*/
   .s9-cards {
     .s9-card {
       width: calc(100% / 2.1) !important;
     }
-    #last-box{
+
+    #last-box {
       display: none;
     }
 
-    
+
   }
-  #display-none{
+
+  #display-none {
     display: none;
   }
 
-  .f-app{
+  .f-app {
     width: 50% !important;
     font-size: 10px;
-    
+
   }
 }
 
