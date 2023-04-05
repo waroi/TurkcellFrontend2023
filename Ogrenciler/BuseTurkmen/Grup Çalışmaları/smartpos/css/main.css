@@ -486,11 +486,13 @@ header {
 }
 
 .powers-wrapper {
-  background: #fff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 .powers-wrapper .powers-card {
+  background: #fff;
   padding: 15px;
-  padding: 30px;
   box-shadow: 0 0 10px rgba(136, 136, 136, 0.1);
 }
 .powers-wrapper .powers-card .power-header {
@@ -499,8 +501,66 @@ header {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 30px;
+}
+.powers-wrapper .powers-card .power-header h5 {
+  font-size: 20px;
+  color: black;
+}
+.powers-wrapper .powers-card .power-header .person {
+  position: relative;
+}
+.powers-wrapper .powers-card .power-header .person img {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+}
+.powers-wrapper .powers-card .power-header .person .power-animation {
+  width: 80px;
+  height: 80px;
+  left: -10px;
+  top: -10px;
+  background: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-3.png");
+  background-repeat: no-repeat !important;
+  animation: testi_round 7s linear infinite;
+  animation-play-state: running;
+  position: absolute;
+  content: "";
+}
+.powers-wrapper .powers-card .powers-text {
+  padding: 30px;
+  position: relative;
+}
+.powers-wrapper .powers-card .powers-text::after {
+  position: absolute;
+  content: "";
+  bottom: 20px;
+  right: 30px;
+  width: 30px;
+  height: 20px;
+  background: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/01.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.powers-wrapper .powers-card .powers-text p {
+  margin-bottom: 15px;
+  font-weight: 400px;
+}
+.powers-wrapper .powers-card .powers-text .fa-star {
+  color: #e9ba17;
 }
 
+@keyframes testi_round {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .sponsor-wrapper {
   display: flex;
   justify-content: center;
