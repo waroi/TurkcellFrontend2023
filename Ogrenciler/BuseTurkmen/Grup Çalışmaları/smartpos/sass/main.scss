@@ -403,6 +403,10 @@ header {
   }
 }
 
+.software, .powers {
+  padding: 110px 0px 95px;
+}
+
 .software-wrapper {
   @include grid-layout(30px, 3);
 
@@ -417,73 +421,73 @@ header {
       margin-bottom: 0;
     }
   }
+}
 
-  .card-img {
-    @include flexbox(center, center, column, nowrap);
-    @include widthHeigt(80px, 80px, 100%);
-    box-shadow: 0 0 10px 2px #fcd5e1;
-    color: #fff;
-    position: relative;
+.card-img {
+  @include flexbox(center, center, column, nowrap);
+  @include widthHeigt(80px, 80px, 100%);
+  box-shadow: 0 0 10px 2px #fcd5e1;
+  color: #fff;
+  position: relative;
 
-    &:before {
-      content: "";
-      width: 92px;
-      height: 92px;
-      position: absolute;
-      opacity: 0.2;
-      display: inline-block;
-      border-radius: 50%;
-      background: linear-gradient(to left, #f9769d, #bb6df7);
-      z-index: -1;
-    }
-
-    &:after {
-      content: "";
-      width: 105px;
-      height: 105px;
-      position: absolute;
-      opacity: 0.2;
-      display: inline-block;
-      border-radius: 50%;
-      background: linear-gradient(to left, #f9769d, #bb6df7);
-      z-index: -1;
-    }
+  &:before {
+    content: "";
+    width: 92px;
+    height: 92px;
+    position: absolute;
+    opacity: 0.2;
+    display: inline-block;
+    border-radius: 50%;
+    background: linear-gradient(to left, #f9769d, #bb6df7);
+    z-index: -1;
   }
 
-  .software-card {
-    @include flexbox(center, center, column, nowrap);
-    position: relative;
-    box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
-    text-align: center;
-    padding: 70px 40px;
+  &:after {
+    content: "";
+    width: 105px;
+    height: 105px;
+    position: absolute;
+    opacity: 0.2;
+    display: inline-block;
+    border-radius: 50%;
+    background: linear-gradient(to left, #f9769d, #bb6df7);
+    z-index: -1;
+  }
+}
 
-    &::after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 5px;
-      left: 0;
-      bottom: 0;
-      transition: transform 0.3s ease-in-out;
-      transform: scaleX(0);
-      transform-origin: 100% 50%;
-      background: linear-gradient(to left, #f9769d, #bb6df7);
+.software-card {
+  @include flexbox(center, center, column, nowrap);
+  position: relative;
+  box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
+  text-align: center;
+  padding: 70px 40px;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 5px;
+    left: 0;
+    bottom: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+    background: linear-gradient(to left, #f9769d, #bb6df7);
+  }
+
+  &:hover {
+    .card-img:before {
+      animation: circle-2 1.3s infinite;
     }
 
-    &:hover {
-      .card-img:before {
-        animation: circle-2 1.3s infinite;
-      }
+    .card-img:after {
+      display: none;
+    }
 
-      .card-img:after {
-        display: none;
-      }
-
-      &::after {
-        transition: transform 0.3s ease-in-out;
-        transform: scaleX(1);
-        transform-origin: 0% 50%;
-      }
+    &::after {
+      transition: transform 0.3s ease-in-out;
+      transform: scaleX(1);
+      transform-origin: 0% 50%;
     }
   }
 
@@ -517,7 +521,7 @@ header {
     padding: 15px;
     box-shadow: 0 0 10px rgba(136, 136, 136, 0.1);
     .power-header {
-      @include flexbox(space-between, center, row, wrap);
+      @include flexbox(space-between, center, row, nowrap);
       padding: 30px;
       h5 {
         font-size: 20px;
@@ -582,22 +586,87 @@ header {
 
 //Sponsor Container
 
-.sponsor-wrapper {
-  @include flexbox(center, center, row, wrap);
-  gap: 7rem;
-  padding: 70px 0 0;
+.sponsor {
+  padding-bottom: 95px;
+  .sponsor-wrapper {
+    @include flexbox(center, center, row, wrap);
+    gap: 7rem;
+    padding: 70px 0 0;
 
-  .sponsor-card {
-    a:hover {
-      outline: 0;
-      color: black;
-    }
+    .sponsor-card {
+      a:hover {
+        outline: 0;
+        color: black;
+      }
 
-    img:hover {
-      filter: grayscale(100%);
+      img:hover {
+        filter: grayscale(100%);
+      }
     }
   }
 }
+//FOOTER//
+
+.footer {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
+  overflow: hidden;
+  h2,
+  li,
+  a,
+  p,
+  h6 {
+    color: white;
+  }
+  .footer-wrapper {
+    .footer1,
+    .footer2-top {
+      padding: 110px 0px 60px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer1,
+    .footer1-logo,
+    .socialmedia {
+      @include flexbox(space-between, center, row, wrap);
+    }
+    .socialmedia {
+      background-color: white;
+      width: 230px;
+      height: 70px;
+      padding: 10px 20px;
+      border-radius: 2px;
+      margin-right: 15px;
+      span {
+        color: #c961fa;
+        font-weight: 700;
+      }
+      p {
+        color: #696969;
+      }
+    }
+    .footer2-top {
+      .row-content i{
+        margin-right: 10px;
+      }
+    
+        .row-title {
+          margin-bottom: 30px;
+          h6{
+            font-size: 18px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+    .footer2-bottom {
+      justify-content: center;
+      display: flex;
+      padding: 35px 0px;
+    }
+  }
+
 
 @media screen and (max-width: 1400px) {
   .container {
@@ -621,6 +690,11 @@ header {
 
   .banner-title {
     @include flexbox(start, start, column, wrap);
+  }
+
+  .software-wrapper,
+  .powers-wrapper {
+    @include grid-layout(30px, 2);
   }
 }
 
@@ -646,6 +720,16 @@ header {
     margin: 0;
     text-align: center;
   }
+
+  .footer2-top{
+    .row {
+      @include grid-layout(30px, 2);
+    }
+  }
+  .footer1{
+    padding-top: 80px;
+    padding-bottom:55px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -653,11 +737,13 @@ header {
     max-width: 540px;
   }
 
-  .perfect-wrapper {
-    @include grid-layout(0px, 1);
-  }
-
   .software-wrapper {
     padding: 50px 30px;
+  }
+
+  .software-wrapper,
+  .powers-wrapper,
+  .perfect-wrapper {
+    @include grid-layout(0px, 1);
   }
 }
