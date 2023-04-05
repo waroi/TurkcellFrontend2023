@@ -28,12 +28,14 @@
   top: 0;
   transform: scaleX(0);
   transform-origin: 100% 50%;
+  border-radius: 4px;
   background: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
   transition: transform 0.3s ease-in-out;
 }
 .btn:hover::after {
   transform: scaleX(1);
   transform-origin: 0% 50%;
+  border-radius: 4px;
 }
 .btn span {
   position: absolute;
@@ -72,6 +74,8 @@ p {
   align-items: center;
   gap: 20px;
   flex-wrap: nowrap;
+  padding-bottom: 100px;
+  padding-top: 100px;
 }
 .section img {
   max-width: 100%;
@@ -106,9 +110,12 @@ p {
   color: #696969;
 }
 
+.section-reverse {
+  background: #fffcfa;
+}
+
 .reverse {
   flex-direction: row;
-  padding-bottom: 30px;
 }
 .reverse .info {
   margin-left: 10%;
