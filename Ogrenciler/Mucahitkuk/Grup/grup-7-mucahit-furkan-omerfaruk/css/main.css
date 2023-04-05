@@ -10,6 +10,26 @@
   padding: 0 10px;
 }
 
+.arrow-up {
+  border-radius: 100%;
+  background-color: #fd4372;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 1040;
+  animation: pulse-animation2 1s infinite, updown 8s infinite;
+}
+.arrow-up a {
+  color: white;
+  text-align: center;
+}
+
 .dropdown {
   display: none;
   width: 100%;
@@ -524,6 +544,7 @@ p {
   transform-origin: 100% 50%;
 }
 .btn-inner span {
+  color: white;
   z-index: 1;
   position: relative;
 }
@@ -754,15 +775,6 @@ p {
 .rating i {
   color: #e9ba17;
   margin: 20px 0;
-}
-
-@keyframes pulse-animation {
-  0% {
-    box-shadow: 0 0 0 0px rgba(185, 107, 245, 0.3294117647);
-  }
-  100% {
-    box-shadow: 0 0 0 30px rgba(185, 107, 245, 0.3294117647);
-  }
 }
 
 /*# sourceMappingURL=main.css.map */
