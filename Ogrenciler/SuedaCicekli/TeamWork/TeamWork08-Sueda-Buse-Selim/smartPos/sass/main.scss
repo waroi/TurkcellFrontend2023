@@ -1,0 +1,594 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #696969;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 36px;
+  color: black;
+}
+
+//width heigth için bir fonksiyon
+@mixin widthHeigt($width, $height , $border-radius: 0) {
+  width: $width;
+  height: $height;
+  border-radius: $border-radius;
+}
+
+// Flexbox için bir mixin tanımlıyoruz
+// varsayılan değerlerle birlikte $justify-content, $align-items, $flex-direction ve $flex-wrap değişkenleri kullanılabilir
+@mixin flexbox($justify-content: center, $align-items: center, $flex-direction: row, $flex-wrap: nowrap) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+  flex-wrap: $flex-wrap;
+}
+
+// Grid için bir mixin tanımlıyoruz
+// $gap ve $columns değişkenleri kullanılabilir
+@mixin grid-layout($gap, $columns) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Düğmeler için bir mixin tanımlıyoruz
+// $width değişkeni kullanılabilir
+@mixin button-gradient($width) {
+  @include flexbox(center, center, row, nowrap);
+  background: linear-gradient(to right, #ff5195, #ffb84b);
+  padding: 18px 23px;
+  border-radius: 4px;
+  font-weight: 700;
+  line-height: 24px;
+  width: $width;
+
+  a {
+    color: #fff;
+  }
+}
+
+//posshape
+@mixin pos-shape {
+  position: absolute;
+  content: "";
+}
+
+//softwarecard width
+@mixin software-card-width($width, $height) {
+  width: $width;
+  height: $height;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+
+// Resim ve metinlerin yerleştirildiği alanlar için bir mixin tanımlıyoruz
+// $img-order, $content-order, $p-max-width, $gap ve $columns değişkenleri kullanılabilir
+@mixin content-layout($img-order, $content-order, $p-max-width, $gap, $columns) {
+  @include grid-layout($gap, $columns);
+
+  img {
+    width: 100%;
+    padding: 0 12px;
+  }
+
+  .content {
+    @include flexbox(center, flex-start, column, nowrap);
+    order: $content-order;
+    padding: 0 32px;
+
+    .content-title {
+      border-bottom: 1px solid #ecf0f3;
+
+      h2 {
+        margin-bottom: 20px;
+      }
+
+      p {
+        max-width: $p-max-width;
+        margin: 0 0 15px;
+      }
+    }
+  }
+
+  .image-area {
+    order: $img-order;
+  }
+}
+
+.cream-color {
+  background-color: #fffef9;
+}
+
+.container {
+  width: 1320px;
+  padding-right: var(--bs-gutter-x, .75rem);
+  padding-left: var(--bs-gutter-x, .75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+//Header 
+header {
+  margin-top: 20px;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+.header-btn {
+  @include button-gradient(171px);
+}
+
+.primary-menu {
+  @include flexbox(space-between, center, row, nowrap);
+
+  .main-area {
+    @include flexbox(center, center, row, nowrap);
+  }
+}
+
+.main-menu {
+  @include flexbox(center, center, row, nowrap);
+
+  ul {
+    @include flexbox(center, center, row, nowrap);
+    gap: 20px;
+
+    li {
+      margin-right: 16px;
+
+      a {
+        @include flexbox(center, center, row, nowrap);
+        color: black;
+      }
+    }
+  }
+}
+
+//banner section
+.banner-section {
+  background-color: #f9f2ff;
+  padding: 265px 0 190px;
+  position: relative;
+  overflow: hidden;
+
+  .banner-title {
+    @include flexbox(start, start, row, wrap);
+  }
+
+  .banner-image {
+    flex: 0 0 auto;
+    width: 50%;
+
+    .th-shape {
+      @include pos-shape;
+      overflow: hidden;
+      border-radius: 3px;
+    }
+
+    .shape-1 {
+      right: -10%;
+      top: 23%;
+      animation: lab_sideeffect 15s linear infinite;
+    }
+
+    .shape-2 {
+      right: -40%;
+      top: 0;
+      animation: lab_zoomin 5s linear infinite;
+    }
+
+    .shape-3 {
+      left: 30%;
+      bottom: 0;
+      animation: lab_run_top_y 5s linear infinite;
+    }
+
+    .banner-thumb {
+      margin-right: -120px;
+      text-align: center;
+      position: relative;
+
+      img {
+        vertical-align: middle;
+        height: auto;
+        max-width: none;
+      }
+    }
+  }
+
+  .banner-header {
+    position: relative;
+    @extend .banner-image;
+
+    h2 {
+      font-size: 60px;
+      line-height: 72px;
+    }
+  }
+}
+
+// Animations
+@keyframes lab_sideeffect {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  25%,
+  75% {
+    transform: translateX(-60px);
+  }
+
+  50% {
+    transform: translateY(-60px);
+  }
+
+}
+
+@keyframes lab_zoomin {
+
+  0%,
+  100% {
+    transform: translateY(-20px) translateX(0px);
+  }
+
+  50% {
+    transform: translateY(0px) translateX(-20px);
+  }
+}
+
+@keyframes circle-2 {
+  100% {
+    width: 50%;
+    height: 50%;
+    opacity: 0;
+  }
+}
+
+@keyframes lab_run_top_y {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+
+.site-paragraph {
+  margin: 15px 0 30px;
+}
+
+.pos-banner-shape {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  @include pos-shape;
+
+  .pos-shape-1 {
+    left: -22%;
+    @include pos-shape;
+  }
+
+  .pos-shape-2 {
+    @include pos-shape;
+    right: -5%;
+
+    img {
+      vertical-align: middle;
+      height: auto;
+      max-width: 100%;
+    }
+  }
+}
+
+.section-area {
+  @include flexbox(center, center, row, wrap);
+  padding: 110px 0 95px;
+}
+
+.right-image-section {
+  @include content-layout(2, 1, 450px, 20px, 2);
+}
+
+.left-image-section {
+  @include content-layout(1, 2, 450px, 20px, 2);
+}
+
+.features-list {
+  width: 100%;
+
+  ul {
+    padding-top: 30px;
+    @include grid-layout(20px, 2);
+    margin: 0 0 40px;
+
+    i {
+      margin-right: 5px;
+    }
+  }
+}
+
+.navbar-btn {
+  @include button-gradient(132px);
+  overflow: hidden;
+}
+
+.center-header {
+  @include flexbox(center, center, column, nowrap);
+  margin: 0 206px 60px;
+  text-align: center;
+
+  h2 {
+    margin: -10px 0 20px;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 0 51px;
+    text-align: center;
+  }
+}
+
+.perfect-section {
+  padding: 110px 0 95px 0;
+}
+
+.perfect-wrapper {
+  @include grid-layout(0px, 4);
+
+  .image-item {
+    padding: 48px 45px;
+    margin: 15px;
+    box-shadow: 0 4px 4px rgba(58, 58, 58, 0.1);
+    border-radius: 4px;
+    @include flexbox(center, center, column, nowrap);
+    position: relative;
+    transition: all 0.3s ease;
+
+    img {
+      margin-bottom: 30px;
+    }
+
+    &:hover {
+      box-shadow: 0 0px 10px rgba(58, 58, 58, 0.1);
+      transform: translateY(-5px);
+      cursor: pointer;
+    }
+  }
+
+  h6 {
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 30px;
+    color: black;
+  }
+}
+
+@keyframes circle-2 {
+  0% {
+    transform: scale(0);
+    opacity: 100;
+  }
+
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.software-wrapper {
+  @include grid-layout(30px, 3);
+
+  .card-text {
+    margin-top: 30px;
+
+    p {
+      margin-top: 0;
+    }
+
+    h4 {
+      margin-bottom: 0
+    }
+  }
+
+  .card-img {
+    @include flexbox(center, center, column, nowrap);
+    @include widthHeigt(80px, 80px, 100%);
+    box-shadow: 0 0 10px 2px #fcd5e1;
+    color: #fff;
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 92px;
+      height: 92px;
+      position: absolute;
+      opacity: 0.2;
+      display: inline-block;
+      border-radius: 50%;
+      background: linear-gradient(to left, #f9769d, #bb6df7);
+      z-index: -1;
+    }
+
+    &:after {
+      content: "";
+      width: 105px;
+      height: 105px;
+      position: absolute;
+      opacity: 0.2;
+      display: inline-block;
+      border-radius: 50%;
+      background: linear-gradient(to left, #f9769d, #bb6df7);
+      z-index: -1;
+    }
+  }
+
+  .software-card {
+    @include flexbox(center, center, column, nowrap);
+    position: relative;
+    box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
+    text-align: center;
+    padding: 70px 40px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 5px;
+      left: 0;
+      bottom: 0;
+      transition: transform 0.3s ease-in-out;
+      transform: scaleX(0);
+      transform-origin: 100% 50%;
+      background: linear-gradient(to left, #f9769d, #bb6df7);
+    }
+
+    &:hover {
+
+      .card-img:before {
+        animation: circle-2 1.3s infinite;
+      }
+
+      .card-img:after {
+        display: none;
+      }
+
+      &::after {
+        transition: transform 0.3s ease-in-out;
+        transform: scaleX(1);
+        transform-origin: 0% 50%;
+      }
+    }
+  }
+
+
+  .gradiant-1 {
+    background: linear-gradient(to top, #f9769d, #bb6df7);
+  }
+
+  .gradiant-2 {
+    background: linear-gradient(to top, #fd77b4, #ffbae7);
+  }
+
+  .gradiant-3 {
+    background: linear-gradient(to top, #d17fff, #9982ff);
+    background-color: #bb6df7;
+  }
+
+
+
+  h4 {
+    font-size: 24px;
+    line-height: 32px;
+    color: black;
+    margin: 0 0 20px;
+  }
+
+}
+
+
+//Sponsor Container 
+
+.sponsor-wrapper {
+  @include flexbox(center, center, row, wrap);
+  gap: 7rem;
+  padding: 70px 0 0;
+
+  .sponsor-card {
+
+    a:hover {
+      outline: 0;
+      color: black;
+    }
+
+    img:hover {
+      filter: grayscale(100%);
+    }
+  }
+
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .perfect-wrapper {
+    @include grid-layout(0px, 3);
+    justify-content: center;
+  }
+
+  .thumb-shape {
+    display: none;
+  }
+
+  .banner-title {
+    @include flexbox(start, start, column, wrap);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .main-menu {
+    display: none;
+  }
+
+  .perfect-wrapper {
+    @include grid-layout(0px, 2);
+  }
+
+  .right-image-section,
+  .left-image-section {
+    @include content-layout(1, 2, 100%, 20px, 1);
+  }
+
+  .center-header {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .perfect-wrapper {
+    @include grid-layout(0px, 1);
+  }
+
+  .software-wrapper {
+    padding: 50px 30px;
+  }
+}
