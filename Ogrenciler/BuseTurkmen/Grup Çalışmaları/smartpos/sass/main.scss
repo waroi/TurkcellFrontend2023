@@ -134,10 +134,11 @@ h2 {
 
 //Header
 header {
-  margin-top: 20px;
+  padding: 20px 0;
   position: fixed;
   z-index: 999;
   width: 100%;
+  background-color: white;
 }
 
 .header-btn {
@@ -344,6 +345,7 @@ header {
   @include flexbox(center, center, column, nowrap);
   margin: 0 206px 60px;
   text-align: center;
+  max-width: 100%;
 
   h2 {
     margin: -10px 0 20px;
@@ -647,17 +649,20 @@ header {
       }
     }
     .footer2-top {
+      .row{
+        @include grid-layout(50px,4);
+      }
       .row-content i{
         margin-right: 10px;
       }
     
-        .row-title {
-          margin-bottom: 30px;
-          h6{
-            font-size: 18px;
-            line-height: 30px;
-          }
+      .row-title {
+        margin-bottom: 30px;
+        h6{
+          font-size: 18px;
+          line-height: 30px;
         }
+      }
       }
     }
     .footer2-bottom {
@@ -703,7 +708,7 @@ header {
     max-width: 720px;
   }
 
-  .main-menu {
+  .main-menu,.navbar-btn {
     display: none;
   }
 
@@ -720,10 +725,13 @@ header {
     margin: 0;
     text-align: center;
   }
-
-  .footer2-top{
-    .row {
-      @include grid-layout(30px, 2);
+  .footer{
+    .footer-wrapper{
+      .footer2-top{
+        .row{
+          @include grid-layout(30px, 2);
+        }
+      }  
     }
   }
   .footer1{
@@ -740,10 +748,33 @@ header {
   .software-wrapper {
     padding: 50px 30px;
   }
-
+  
   .software-wrapper,
   .powers-wrapper,
   .perfect-wrapper {
     @include grid-layout(0px, 1);
   }
+  .footer{
+    .footer-wrapper{
+      .footer2-top{
+        .row{
+          @include grid-layout(30px, 1);
+        }
+      }  
+    }
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .sponsor-card:nth-last-child(1){
+    display: block;
+  }
+  .sponsor-card:nth-child(n){
+    display: none;
+  }
+
+  h2{
+    font-size: 24px;
+  }
+  
 }
