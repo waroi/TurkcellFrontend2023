@@ -17,7 +17,7 @@ ul {
   list-style-type: none;
 }
 body {
-  // overflow: hidden;
+  overflow-x: hidden;
   // padding-top: 75px;
 }
 a {
@@ -26,7 +26,7 @@ a {
 }
 
 .container {
-  max-width: 1340px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 .bg-light {
@@ -56,7 +56,7 @@ h2 {
 }
 
 section {
-  // padding: 110px 0 85px 0;
+  padding: 110px 0 85px 0;
 }
 
 img {
@@ -90,6 +90,37 @@ header {
   border-radius: 4px;
   @include fonts-maker(1em, 1.5em, 700);
   cursor: pointer;
+  transition: all 0.3 ease;
+  position: relative;
+  span {
+    position: relative;
+    z-index: 1;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+    background: linear-gradient(
+      to left,
+      #ffab8b,
+      #ff957d,
+      #ff7d75,
+      #ff6371,
+      #fd4372
+    );
+    transition: transform 0.3s ease-in-out;
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: 0 50%;
+  }
 }
 .header-title {
   @include flex(row, space-between, center, 0);
@@ -108,7 +139,7 @@ header {
 }
 
 .pos-img {
-  width: 50%;
+  width: 42%;
   margin-bottom: 0;
   text-align: center;
 }
@@ -140,10 +171,12 @@ header {
 
 .row-reverse {
   @include flex(row-reverse, space-between, center, 80px);
+  flex-wrap: wrap;
 }
 
 .row {
   @include flex(row, space-between, center, 80px);
+  flex-wrap: wrap;
 }
 
 .cards-title {
@@ -169,6 +202,7 @@ header {
       box-shadow: 0 4px 4px rgba(58, 58, 58, 0.1);
       border-radius: 4px;
       text-align: center;
+      transition: all 0.3s ease;
       img {
         margin-bottom: 30px;
       }
@@ -180,6 +214,10 @@ header {
         @include fonts-maker(16px, 30px, 700);
         text-transform: uppercase;
       }
+      &:hover {
+        box-shadow: 0 0 10px rgba(136, 136, 136, 0.1);
+        transform: translateY(-10px);
+      }
     }
   }
 }
@@ -187,44 +225,78 @@ header {
 .perfect-pos-part {
   .perfect-cards {
     @include grid(350px);
-  }
-  .card-image {
-    line-height: 100px;
-    border-radius: 100%;
-    margin: auto;
-    margin-bottom: 30px;
-    box-shadow: 0 0 10px 2px #fcd5e1;
-    text-align: center;
-    width: 80px;
-    height: 80px;
-    position: relative;
-    &::before {
-      content: "";
-      width: 92px;
-      height: 92px;
-      opacity: 0.2;
-      display: inline-block;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      z-index: -1;
-      background-color: #bb6df7;
-      position: absolute;
+    .perfect-title {
+      @extend .cards-title;
+      max-width: 70%;
+      h3 {
+        margin-bottom: 20px;
+        @include fonts-maker(24px, 32px, 700);
+      }
     }
-    &::after {
-      position: absolute;
-      content: "";
-      width: 105px;
-      height: 105px;
-      opacity: 0.09;
-      display: inline-block;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      z-index: -1;
-      background-color: #bb6df7;
+    .perfect-card {
+      box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
+      padding: 70px 40px;
+      margin: 15px;
+      position: relative;
+      transition: all 0.3s ease;
+      &:hover ::after,
+      :hover ::before {
+        animation: circle-2 1.05s infinite;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        left: 0;
+        bottom: 0;
+        transform: scaleX(0);
+        transform-origin: 100% 50%;
+        background: linear-gradient(to left, #f9769d, #bb6df7);
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
+    .card-image {
+      line-height: 100px;
+      border-radius: 100%;
+      margin: auto;
+      margin-bottom: 30px;
+      box-shadow: 0 0 10px 2px #fcd5e1;
+      text-align: center;
+      width: 80px;
+      height: 80px;
+      position: relative;
+      &::before {
+        content: "";
+        width: 92px;
+        height: 92px;
+        opacity: 0.2;
+        display: inline-block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: -1;
+        background-color: #bb6df7;
+        position: absolute;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        width: 105px;
+        height: 105px;
+        opacity: 0.09;
+        display: inline-block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: -1;
+        background-color: #bb6df7;
+      }
     }
   }
   .perfect-card {
@@ -245,6 +317,141 @@ header {
     }
   }
 }
+.world-cards {
+  @include grid(300px);
+  gap: 20px;
+  padding: 30px;
+  .world-card {
+    background-color: white;
+    .world-header {
+      .person-image {
+        position: relative;
+        img {
+          border-radius: 50%;
+        }
+        .person-animation {
+          position: absolute;
+          background: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-2.png);
+          animation: testi_round 6s linear infinite;
+          width: 80px;
+          height: 80px;
+          left: -10px;
+          top: -10px;
+          background-repeat: no-repeat !important;
+          animation-play-state: running;
+        }
+      }
+      h5 {
+        @include fonts-maker(20px, 24px, 700);
+      }
+      padding: 30px;
+      @include flex(row, space-between, center, 0);
+      border-bottom: 1px solid #fff5f3;
+    }
+    .world-body {
+      position: relative;
+      padding: 30px;
+      p {
+        margin-bottom: 15px;
+      }
+      .checked {
+        color: orange;
+      }
+      & ::after {
+        position: absolute;
+        content: "";
+        bottom: 20px;
+        right: 30px;
+        width: 30px;
+        height: 20px;
+        background: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/02.png);
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+      }
+    }
+  }
+}
+.sponsors {
+  .sponsor-logo {
+    @include flex(row, space-between, center, 0px);
+    flex-wrap: wrap;
+  }
+  .sponsor-logo a:hover img {
+    filter: grayscale(100%);
+  }
+}
+footer {
+  * {
+    color: white;
+  }
+  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
+  .footer-top {
+    padding: 110px 0 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    @include flex(row, space-between, center, 0px);
+    flex-wrap: wrap;
+
+    .footer-top-title {
+      padding: 0 12px;
+      h2 {
+        @include fonts-maker(36px, 48px, 700);
+        margin-bottom: 5px;
+      }
+    }
+    .footer-cards {
+      @include flex(row, flex-end, center, 10px);
+      flex-wrap: wrap;
+
+      .footer-top-card {
+        padding: 10px 20px;
+        margin: 0 15px 0 0;
+        background-color: white;
+        width: 230px;
+        height: 70px;
+        border-radius: 2px;
+
+        img {
+          margin: 0 10px 0 0;
+        }
+        p {
+          color: gray;
+        }
+        span {
+          color: #c961fa;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+        @include flex(row, space-between, center, 0px);
+      }
+    }
+  }
+
+  .footer-links {
+    padding: 110px 0 95px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    @include flex(row, space-around, left, 0px);
+    flex-wrap: wrap;
+    .footer-content {
+      @include flex(column, space-between, left, 0px);
+
+      .title {
+        margin-bottom: 30px;
+        h6 {
+          @include fonts-maker(18px, 30px, bold);
+        }
+      }
+      li {
+        padding: 8px 0;
+      }
+    }
+  }
+  .footer-bottom {
+    text-align: center;
+    padding: 35px 0;
+  }
+}
+
 .grow {
   background-color: #f9f2ff;
   overflow: hidden;
@@ -378,6 +585,51 @@ header {
   }
 }
 @media screen and (max-width: 800px) {
+  .world-cards {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .sponsor-logo {
+    justify-content: center !important;
+    a {
+      text-align: center;
+      width: 30%;
+    }
+  }
+
+  .footer-top {
+    padding: 40px 0 40px !important;
+    justify-content: center !important;
+  }
+  .footer-links {
+    padding-left: 12px !important;
+  }
+  .footer-content {
+    width: 100%;
+  }
+  .footer-top-title {
+    text-align: center;
+    h2 {
+      font-size: 24px !important;
+    }
+    p {
+      font-size: 15px !important;
+      font-weight: 400 !important;
+    }
+    margin-bottom: 30px;
+  }
+
+  .footer-cards {
+    justify-content: center !important;
+    margin-bottom: 20px;
+  }
+
+  .pos-img {
+    width: 100%;
+  }
+  .pos-content {
+    width: 100%;
+  }
   .navList {
     display: none;
   }
@@ -385,7 +637,9 @@ header {
     display: none;
   }
   .header-title {
+    padding: 0 20px;
     .navbar-icon {
+      color: #ff5195;
       display: flex;
       align-items: center;
     }
@@ -400,5 +654,23 @@ header {
         }
       }
     }
+  }
+}
+@keyframes circle-2 {
+  100% {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+  }
+}
+@keyframes testi_round {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
