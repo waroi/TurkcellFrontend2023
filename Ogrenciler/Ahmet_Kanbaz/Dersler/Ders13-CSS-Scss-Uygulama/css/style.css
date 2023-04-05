@@ -8,6 +8,10 @@
   font-size: 1rem;
 }
 
+body {
+  position: relative;
+}
+
 .container {
   max-width: 1320px;
   margin: 0 auto;
@@ -15,8 +19,10 @@
 }
 
 header {
-  position: sticky;
+  position: fixed;
   width: 100%;
+  padding: 10px 0;
+  background-color: #f1f1f1;
 }
 header .container {
   display: flex;
@@ -49,12 +55,14 @@ header .container .btn .button {
   text-align: center;
   font-weight: 700;
   color: #fff;
+  overflow: hidden;
 }
 
 .banner {
   position: relative;
   background-color: #F9F2FF;
   z-index: -2;
+  overflow: hidden;
 }
 .banner .bgBanner {
   position: relative;
@@ -74,36 +82,94 @@ header .container .btn .button {
 }
 .banner .container {
   padding: 15rem 0;
+  display: flex;
 }
 .banner .container .growContainer {
   display: flex;
-  gap: 1rem;
+  justify-content: start;
+  align-items: start;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-.banner .container .growContainer .growLeft {
+.banner .container .growRight {
+  flex: 0 0 auto;
   width: 45%;
-  text-align: left;
+  margin-right: -120px;
+  text-align: center;
+  position: relative;
 }
-.banner .container .growContainer .growLeft h2 {
-  font-size: 4rem;
-  line-height: 72px;
+.banner .container .growRight img {
+  vertical-align: middle;
+  height: auto;
+  max-width: none;
+}
+.banner .container .growRight .animationOne, .banner .container .growRight .animationThree, .banner .container .growRight .animationTwo {
+  position: absolute;
+  content: "";
+  overflow: hidden;
+  border-radius: 3px;
+  left: 43%;
+  top: 21%;
+  animation: animationOne 5s linear infinite;
+}
+.banner .container .growRight .animationTwo {
+  left: 75%;
+  bottom: 0;
+  animation: animationTwo 5s linear infinite;
+}
+.banner .container .growRight .animationThree {
+  right: -105%;
+  top: 0;
+  animation: animationThree 5s linear infinite;
+}
+.banner .container .growLeft {
+  width: 55%;
+  text-align: left;
+  padding: 2rem 0;
+}
+.banner .container .growLeft h2 {
+  font-size: 3.8rem;
   font-weight: 700;
 }
-.banner .container .growContainer .growLeft p {
+.banner .container .growLeft p {
   margin: 15px 0 30px;
   color: #696969;
+  max-width: 550px;
 }
-.banner .container .growContainer .growLeft .button {
+.banner .container .growLeft .button {
   background: linear-gradient(to right, #ff5195, #ffb84b);
   padding: 16px 25px;
   border-radius: 4px;
   text-align: center;
   font-weight: 700;
   color: #fff;
-}
-.banner .container .growContainer .growRight {
-  width: 45%;
+  overflow: hidden;
 }
 
+@keyframes animationOne {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+}
+@keyframes animationTwo {
+  0% {
+    transform: translateY(-20px) translateX(0);
+  }
+  50% {
+    transform: translateY(0) translateX(-20px);
+  }
+}
+@keyframes animationThree {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-40px) translateX(40px);
+  }
+}
 .omnichannelPOS .container, .extend .container, .retailPOS .container, .allInOne .container, .retailStores .container {
   display: flex;
   padding: 8rem 0;
@@ -153,6 +219,7 @@ header .container .btn .button {
   text-align: center;
   font-weight: 700;
   color: #fff;
+  overflow: hidden;
   padding: 16px 46px;
 }
 .omnichannelPOS .container .omniRight, .extend .container .omniRight, .retailPOS .container .omniRight, .allInOne .container .omniRight, .retailStores .container .omniRight {
@@ -433,9 +500,12 @@ header .container .btn .button {
 .logos .container .logoWrapper .logo {
   width: 15%;
 }
+.logos .container .logoWrapper .logo a img {
+  filter: grayscale(0%);
+  transition: all 0.3s ease-in-out;
+}
 .logos .container .logoWrapper .logo:hover a img {
   filter: grayscale(100%);
-  transition: all 0.3s ease-in-out;
 }
 
 .footerSection {
@@ -528,6 +598,38 @@ header .container .btn .button {
   font-size: 1rem;
   margin-left: 10px;
   margin-right: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  header .menu,
+  header .btn {
+    display: none;
+  }
+  .banner .bgBanner {
+    display: none;
+  }
+  .banner .growContainer .growLeft {
+    width: 100%;
+  }
+  .banner .growContainer .growLeft h2 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .banner .growContainer .growRight {
+    width: 100%;
+  }
+  .banner .growContainer .growRight img {
+    width: 100%;
+  }
+  .banner .growContainer .growRight .animationDiv {
+    display: none;
+  }
+  .omnichannelPOS .omniLeft, .allInOne .omniLeft, .retailPOS .omniLeft, .retailStores .omniLeft, .extend .omniLeft {
+    width: 100%;
+  }
+  .omnichannelPOS .omniLeft img, .allInOne .omniLeft img, .retailPOS .omniLeft img, .retailStores .omniLeft img, .extend .omniLeft img {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

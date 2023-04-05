@@ -24,6 +24,45 @@
     max-width: 390px;
     padding: 0 0.75rem;
   }
+
+  header{
+    padding: 10px;
+    background-color: white;
+    width: 100%;
+    // position: fixed;
+    .hamburger{
+      display: inline-block;
+    }
+    .main-area{
+      display: none;
+    }
+  }
+
+  .banner{
+    padding: 100px 10px;
+    .banner-bg{
+      display: none;
+    }
+    .main-area{
+      @include flex(column,center ,center ,10px ,wrap);
+      .text{
+        padding: 0;
+        h2{
+          font-size: 30px;
+          line-height: 1.4;
+        }
+      }
+      .img{
+        width: 100%;
+        img{
+          max-width: 100%;
+        }
+      }
+      .animation{
+        display: none;
+      }
+    }
+  }
   .section {
     @include flex(column, center, center, 20px, nowrap);
     padding-top: 50px;

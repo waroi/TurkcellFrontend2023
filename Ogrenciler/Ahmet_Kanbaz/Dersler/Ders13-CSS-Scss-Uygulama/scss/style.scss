@@ -7,6 +7,9 @@
   font-family: "Roboto", sans-serif ;
   font-size: 1rem;
 }
+body {
+  position: relative;
+}
 @mixin buttonType {
     background: linear-gradient(to right, #ff5195, #ffb84b);
     padding: 16px 25px;
@@ -14,6 +17,7 @@
     text-align: center;
     font-weight: 700;
     color: #fff;
+    overflow: hidden;
 }
 @mixin beforeAfter ($width, $height, $left, $transform, $borderRadius, $background) {
   width: $width;
@@ -32,8 +36,10 @@
   padding: 0 1rem;
 }
 header{
-  position:sticky;
+  position: fixed;
   width: 100%;
+  padding: 10px 0;
+  background-color: #f1f1f1;
   .container{
     display: flex;
     align-items: center;
@@ -66,6 +72,7 @@ header{
   position: relative;
   background-color: #F9F2FF;
   z-index: -2;
+  overflow: hidden;
   .bgBanner{
     position: relative;
     z-index: -1;
@@ -80,36 +87,100 @@ header{
       right: 0;
       bottom:0 ;
       top:0;
-    
     }
   }
   .container{
     padding: 15rem 0;
-    .growContainer{
+    display: flex;
+    .growContainer {
       display: flex;
-      gap: 1rem;
-      .growLeft{
-        width: 45%;
-        text-align: left;
-        h2{
-          font-size: 4rem;
-          line-height: 72px;
-          font-weight: 700;
-        }
-        p {
-          margin: 15px 0 30px;
-          color: #696969;
-        }
-        .button{
-          @include buttonType;
-        }
+      justify-content: start;
+      align-items: start;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  
+    .growRight {
+      flex: 0 0 auto;
+      width: 45%;
+      margin-right: -120px;
+      text-align: center;
+      position: relative;
+      img {
+        vertical-align: middle;
+        height: auto;
+        max-width: none;
       }
-      .growRight{
-        width: 45%;
-        
+  
+      .animationOne {
+        position: absolute;
+        content: "";
+        overflow: hidden;
+        border-radius: 3px;
+        left: 43%;
+        top: 21%;
+        animation: animationOne 5s linear infinite;
+      }
+  
+      .animationTwo {
+        @extend .animationOne;
+        left: 75%;
+        bottom: 0;
+        animation: animationTwo 5s linear infinite;
+      }
+  
+      .animationThree {
+        @extend .animationOne;
+        right: -105%;
+        top: 0;
+        animation: animationThree 5s linear infinite;
+      }
+    }
+  
+    .growLeft{
+      width: 55%;
+      text-align: left;
+      padding: 2rem 0;
+      h2{
+        font-size: 3.8rem;
+        font-weight: 700;
+      }
+      p {
+        margin: 15px 0 30px;
+        color: #696969;
+        max-width: 550px;
+      }
+      .button{
+        @include buttonType;
       }
     }
   }
+}
+
+@keyframes animationOne {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+}
+@keyframes animationTwo {
+  0% {
+    transform: translateY(-20px) translateX(0);
+  }
+  50% {
+    transform: translateY(0) translateX(-20px);
+  }
+}
+@keyframes animationThree {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-40px) translateX(40px);
+  }
+
 }
 .omnichannelPOS {
   .container {
@@ -457,11 +528,16 @@ header{
       justify-items: center;
       .logo {
         width: 15%;
+        a {
+          img {
+            filter: grayscale(0%);
+            transition: all .3s ease-in-out;
+          }
+        }
         &:hover {
           a {
             img {
               filter: grayscale(100%);
-              transition: all .3s ease-in-out;
             }
           }  
         }
@@ -567,6 +643,46 @@ header{
           margin-left: 10px;
           margin-right: 1rem;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    .menu,
+    .btn {
+      display: none;
+    }
+  }
+  .banner {
+    .bgBanner {
+      display: none;
+    }
+    .growContainer {
+      .growLeft {
+        width: 100%;
+        h2 {
+          font-size: 2.5rem;
+          text-align: center;
+        }
+      }
+      .growRight {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+        .animationDiv {
+          display: none;
+        }
+      }
+    }
+  }
+  .omnichannelPOS {
+    .omniLeft {
+      width: 100%;
+      img {
+        width: 100%;
       }
     }
   }
