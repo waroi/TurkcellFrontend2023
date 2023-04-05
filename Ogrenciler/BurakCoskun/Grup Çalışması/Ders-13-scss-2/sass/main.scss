@@ -17,6 +17,7 @@ ul {
   list-style-type: none;
 }
 body {
+  overflow-x: hidden;
   // padding-top: 75px;
 }
 a {
@@ -25,7 +26,7 @@ a {
 }
 
 .container {
-  max-width: 1340px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 .bg-light {
@@ -55,7 +56,7 @@ h2 {
 }
 
 section {
-  // padding: 110px 0 85px 0;
+  padding: 110px 0 85px 0;
 }
 
 img {
@@ -75,10 +76,11 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
-  // background-color: white;
+  z-index: 999;
+  background-color: white;
 }
 #nav {
+  display: inline;
 }
 .btn {
   background: linear-gradient(to right, #ff5195, #ffb84b);
@@ -87,10 +89,45 @@ header {
   color: white;
   border-radius: 4px;
   @include fonts-maker(1em, 1.5em, 700);
+  cursor: pointer;
+  transition: all 0.3 ease;
+  position: relative;
+  span {
+    position: relative;
+    z-index: 1;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+    background: linear-gradient(
+      to left,
+      #ffab8b,
+      #ff957d,
+      #ff7d75,
+      #ff6371,
+      #fd4372
+    );
+    transition: transform 0.3s ease-in-out;
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: 0 50%;
+  }
 }
 .header-title {
   @include flex(row, space-between, center, 0);
   height: 75px;
+  .navbar-icon {
+    display: none;
+  }
 }
 .navList {
   display: flex;
@@ -102,7 +139,7 @@ header {
 }
 
 .pos-img {
-  width: 50%;
+  width: 42%;
   margin-bottom: 0;
   text-align: center;
 }
@@ -134,10 +171,12 @@ header {
 
 .row-reverse {
   @include flex(row-reverse, space-between, center, 80px);
+  flex-wrap: wrap;
 }
 
 .row {
   @include flex(row, space-between, center, 80px);
+  flex-wrap: wrap;
 }
 
 .cards-title {
@@ -163,6 +202,7 @@ header {
       box-shadow: 0 4px 4px rgba(58, 58, 58, 0.1);
       border-radius: 4px;
       text-align: center;
+      transition: all 0.3s ease;
       img {
         margin-bottom: 30px;
       }
@@ -173,6 +213,10 @@ header {
       h3 {
         @include fonts-maker(16px, 30px, 700);
         text-transform: uppercase;
+      }
+      &:hover {
+        box-shadow: 0 0 10px rgba(136, 136, 136, 0.1);
+        transform: translateY(-10px);
       }
     }
   }
@@ -194,10 +238,25 @@ header {
       padding: 70px 40px;
       margin: 15px;
       position: relative;
-      transition: all 0.3 ease;
+      transition: all 0.3s ease;
       &:hover ::after,
       :hover ::before {
         animation: circle-2 1.05s infinite;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        left: 0;
+        bottom: 0;
+        transform: scaleX(0);
+        transform-origin: 100% 50%;
+        background: linear-gradient(to left, #f9769d, #bb6df7);
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover::after {
+        transform: scaleX(1);
       }
     }
     .card-image {
@@ -259,7 +318,7 @@ header {
   }
 }
 .world-cards {
-  @include grid(400px);
+  @include grid(300px);
   gap: 20px;
   padding: 30px;
   .world-card {
@@ -315,6 +374,7 @@ header {
 .sponsors {
   .sponsor-logo {
     @include flex(row, space-between, center, 0px);
+    flex-wrap: wrap;
   }
   .sponsor-logo a:hover img {
     filter: grayscale(100%);
@@ -330,6 +390,7 @@ footer {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     @include flex(row, space-between, center, 0px);
+    flex-wrap: wrap;
 
     .footer-top-title {
       padding: 0 12px;
@@ -340,11 +401,16 @@ footer {
     }
     .footer-cards {
       @include flex(row, flex-end, center, 10px);
+      flex-wrap: wrap;
 
       .footer-top-card {
         padding: 10px 20px;
         margin: 0 15px 0 0;
         background-color: white;
+        width: 230px;
+        height: 70px;
+        border-radius: 2px;
+
         img {
           margin: 0 10px 0 0;
         }
@@ -365,6 +431,7 @@ footer {
     padding: 110px 0 95px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     @include flex(row, space-around, left, 0px);
+    flex-wrap: wrap;
     .footer-content {
       @include flex(column, space-between, left, 0px);
 
@@ -387,6 +454,7 @@ footer {
 
 .grow {
   background-color: #f9f2ff;
+  overflow: hidden;
   height: 114vh;
   .imageSection {
     position: relative;
@@ -398,11 +466,11 @@ footer {
         height: auto;
         max-width: 100%;
         left: 0;
-        // z-index: -1;
       }
     }
     .purpleSection {
       position: relative;
+
       img {
         position: absolute;
         right: 0;
@@ -412,7 +480,6 @@ footer {
   .grow-part {
     position: relative;
     display: flex;
-
     padding-top: 20em;
     z-index: 1;
   }
@@ -424,6 +491,168 @@ footer {
     p {
       @include fonts-maker(16px, 24px, 400);
       color: #696969;
+      margin-bottom: 2em;
+    }
+  }
+  .grow-img {
+    position: relative;
+
+    .main-img {
+      position: absolute;
+      max-width: none;
+      top: -50px;
+      left: 100px;
+    }
+    .woman-img {
+      position: absolute;
+      max-width: none;
+      top: 10px;
+      left: 350px;
+      animation: woman-animation 2s linear infinite alternate;
+    }
+    .post-img {
+      position: absolute;
+      max-width: none;
+      top: 50px;
+      left: 600px;
+      animation: post-animation 7s linear infinite alternate;
+    }
+    .view-img {
+      position: absolute;
+      max-width: none;
+      top: -45px;
+      left: 830px;
+      animation: view-animation 3.5s linear infinite alternate;
+    }
+    @keyframes woman-animation {
+      100% {
+        transform: translateY(30px);
+      }
+    }
+    @keyframes post-animation {
+      50% {
+        transform: translateX(-40px);
+      }
+      100% {
+        transform: translateY(-50px);
+      }
+    }
+    @keyframes view-animation {
+      0% {
+        transform: translateX(-30px);
+      }
+      100% {
+        transform: translateX(0);
+        transform: translatey(-50px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .grow {
+    display: block;
+    height: 160vh;
+
+    .imageSection {
+      display: none;
+    }
+    .grow-part {
+      padding-top: 14em;
+      display: block;
+
+      .grow-title {
+        width: 100%;
+        h2 {
+          @include fonts-maker(37px, 49px, 700);
+        }
+      }
+      .grow-img {
+        display: flex;
+        text-align: center;
+
+        .main-img {
+          width: 90%;
+          margin-top: 6em;
+          margin-left: -5em;
+        }
+      }
+    }
+
+    .img-wrap {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .world-cards {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .sponsor-logo {
+    justify-content: center !important;
+    a {
+      text-align: center;
+      width: 30%;
+    }
+  }
+
+  .footer-top {
+    padding: 40px 0 40px !important;
+    justify-content: center !important;
+  }
+  .footer-links {
+    padding-left: 12px !important;
+  }
+  .footer-content {
+    width: 100%;
+  }
+  .footer-top-title {
+    text-align: center;
+    h2 {
+      font-size: 24px !important;
+    }
+    p {
+      font-size: 15px !important;
+      font-weight: 400 !important;
+    }
+    margin-bottom: 30px;
+  }
+
+  .footer-cards {
+    justify-content: center !important;
+    margin-bottom: 20px;
+  }
+
+  .pos-img {
+    width: 100%;
+  }
+  .pos-content {
+    width: 100%;
+  }
+  .navList {
+    display: none;
+  }
+  .nav-button {
+    display: none;
+  }
+  .header-title {
+    padding: 0 20px;
+    .navbar-icon {
+      color: #ff5195;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .grow {
+    height: 103vh;
+    .grow-part {
+      padding-top: 10em;
+      .grow-title {
+        h2 {
+          @include fonts-maker(30px, 40px, 700);
+        }
+      }
     }
   }
 }

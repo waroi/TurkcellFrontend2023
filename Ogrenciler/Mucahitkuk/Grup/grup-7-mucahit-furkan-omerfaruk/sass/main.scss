@@ -3,44 +3,21 @@
   --button-secondary-color: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
   --icon-color: #fd4372;
   --site-background-color:#FFFEF9;
+  --card-bottom-color: linear-gradient(to left, #f9769d, #bb6df7);
 }
-
 .container {
-  padding-left: 10px;
-  padding-right: 10px;
+ padding: 0 10px;
 }
-
-@mixin transition {
-  moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
-}
-
 @mixin flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-@mixin row {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
-
-@mixin col50 {
+@mixin col50($w) {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: $w;
 }
-
-@mixin col25 {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-}
-
 // h2 margin padding ve font size
 @mixin title_h2_tag($font-size, $m, $p, $c,$fw) {
   font-size: $font-size;
@@ -69,15 +46,17 @@
   padding: $p;
 }
 // card yapıları 
-@mixin cards($w, $p, $m, $txt-align) {
-  display: flex;
-  flex-direction: column;
+@mixin cards-software($w,$h, $p, $m, $txt-align,$bg,$brad,$pos) {
   width: $w;
-  padding: $p;
+  height: $h;
+  padding: $p; 
   margin: $m;
   text-align: $txt-align;
+  background: $bg;
+  border-radius: $brad;
+  position: $pos;
 }
-@mixin button($d, $p, $bg, $tr, $pos, $ov) {
+@mixin button($d, $p, $bg, $tr, $pos, $ov, $top, $r, $b, $l, $tr-orgn, $trfm, $cnt) {
   display: $d;
   padding: $p;
   background: $bg;
@@ -85,18 +64,16 @@
   position: $pos;
   overflow: $ov;
   border: 0;
-  color: white;
-}
-
-@mixin h6 {
-  font-size: 18px;
-  font-weight: 700;
-  font-family: "roboto", sans-serif;
-  color: black;
-  text-transform: uppercase;
+  top: $top;
+  right: $r;
+  bottom: $b;
+  left: $l;
+  transform: $trfm;
+  content:$cnt;
+  transform-origin: $tr-orgn;
 }
 @mixin pcard {
-  padding: 30px;
+  padding: 30px; 
   border-radius: 5px;
   text-align: center;
   border: 1px solid rgba(128, 128, 128, 0.182);
@@ -107,36 +84,13 @@
     transform: translateY(-2px);
   }
 }
-
-@mixin perfect-card-logo {
-  padding-top: 15px;
-  //resimler tam oldu gibi sanki
-}
-
-@mixin h2 {
-  text-align: center;
-  font-size: 36px;
-  color: black;
-  font-weight: 700;
-  line-height: 48px;
-}
-
-@mixin h5 {
-  font-size: 20px;
-  color: black;
-  margin: 0;
-  text-transform: capitalize;
-  font-family: "roboto", sans-serif;
-}
-
-@mixin smart-paragraph {
-  font-family: "roboto", sans-serif;
-  font-size: 16px;
-  margin: 0;
-  color: #696969;
-  text-align: left;
-  line-height: 24px;
-}
+// @mixin smart-paragraph {
+//   font-size: 16px;
+//   margin: 0;
+//   color: #696969;
+//   text-align: left;
+//   line-height: 24px;
+// }
 @mixin profile-animation-bg($url) {
   content: url($url);
   position: absolute;
@@ -144,13 +98,6 @@
   top: -10px;
   left: -10px;
 }
-@mixin stars {
-  color: #e9ba17;
-  font-size: 13px;
-}
-
-//nav//
-
 .arrow-up{
   border-radius: 100%;
 background-color: #fd4372 ;
@@ -160,20 +107,17 @@ display: flex;
 justify-content: center;
 align-items: center;
 text-decoration: none;
-color: #ddd;
 position: fixed;
 bottom: 40px;
 right: 40px;
 z-index: 1040;
-animation: pulse-animation2 1.5s infinite, updown 8s infinite;
+animation: pulse-animation2 1s infinite, updown 8s infinite;
   a {
     color: white;
     text-align: center;
-    &:hover {
-      color: black;
-    }
   }
 }
+//nav//
 .dropdown {
   display: none;
   width: 100%;
@@ -198,12 +142,8 @@ animation: pulse-animation2 1.5s infinite, updown 8s infinite;
   padding-top: 20px;
   background: #fff;
   height: calc(100vh);
-  -webkit-transform: translateX(110%);
-  -ms-transform: translateX(-110%);
   transform: translateX(-110%);
-  -webkit-box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
   box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
-  -webkit-transition: 0.5s all ease-in-out;
   a {
     float: none;
     color: black;
@@ -217,16 +157,13 @@ animation: pulse-animation2 1.5s infinite, updown 8s infinite;
     }
   }
 }
-
 .dropdown:hover .dropdown-content {
   display: block;
   transform: translateX(0%);
 }
-
 header {
   position: relative;
 }
-
 .site-navbar {
   z-index: 1999;
   position: absolute;
@@ -235,7 +172,7 @@ header {
   border-radius: 4px;
   padding: 10px;
   .row {
-    @include row;
+    @include flex_area(row,inherit,center,inherit,inherit);
   }
   .col-1 {
     justify-content: center;
@@ -271,7 +208,6 @@ header {
   }
 }
 //nav//
-
 // Home //
 .home-section {
   background-color: #F9F2FF;
@@ -294,10 +230,10 @@ header {
     @include flex-center;
   }
   .row-grid {
-    @include row;
+    @include flex_area(row,inherit,center,inherit,inherit);
     flex-wrap: wrap;
     .col {
-     @include col50;
+     @include col50(50%);
       h2 {
         font-size: 60px;
         line-height: 72px;
@@ -336,11 +272,9 @@ header {
     }
   }
 }
-
 // Home //
 
 // Footer //
-
 .footer-bg-wrapper {
   background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
   background-size: cover;
@@ -352,9 +286,9 @@ header {
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
   .row{
-    @include row;
+    @include flex_area(row,inherit,center,inherit,inherit);
     .col {
-      @include col50;
+      @include col50(50%);
     }
     .header-style {
       max-width: 100%;
@@ -400,14 +334,12 @@ header {
     }
   }
 }
-
 .footer-padding {
   padding-top: 110px;
   padding-bottom: 95px; 
   h6 {
-    font-size: 18px;
-    color: #fff;
-    padding-bottom: 10px;
+   @include title_h2_tag(18px, inherit, 0 0 10px , #fff,700);
+   text-transform: uppercase;
   }
   li {
     padding-top: 1rem;
@@ -422,7 +354,7 @@ p {
   font-size: 1rem;
 }
 
-// ul li img area 
+// list sections
 .list-section {
   padding: 80px 0 55px;
   &.site-bg{
@@ -458,6 +390,75 @@ p {
     }
   }
 }
+//software cards area
+.card-section-software {
+  @include flex_area(column, center, center, inherit, 80px 30px 55px);
+  text-align: center;
+  .software-card {
+    @include button(inline-block, 0, inherit, transform .3s ease-in-out, relative, hidden,inherit,inherit,inherit,inherit,inherit,inherit,inherit);
+    margin: 15px 0;
+    box-shadow: 0 0 8px rgba(136, 136, 136, 0.2);
+    .software-inner-card{
+      padding: 70px 40px;
+    }
+    &::after {
+      @include button(0, inherit, var(--card-bottom-color), transform .3s ease-in-out, absolute, inherit,inherit,inherit,0,0,100% 50%, scaleX(0),"");  
+      width: 100%;
+      height: 5px;
+    }
+    &:hover {
+      &::after {
+        transform: scaleX(1);
+        transform-origin: 0% 50%;
+      }
+      .software-img{
+        &::after{
+          display: none;
+        }
+        &::before{
+          display: none;
+        }
+        animation: pulse-animation 1s infinite;
+      }
+    }
+    .software-img{
+      @include cards-software(80px,80px, 0, auto, inherit,linear-gradient(to top, #f9769d, #bb6df7),50%,relative);
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px 2px #fcd5e1;
+    line-height: 80px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &::before{
+      @include button(inline-block, 0, #bb6df7, inherit, absolute, inherit, 50%, inherit, inherit,50%,inherit, translate(-50%, -50%),"");
+      width:92px;
+      height: 92px;
+      opacity: 0.2;
+      border-radius: 100%;
+    }
+    &::after{
+      @include button(inline-block, 0, #bb6df7, inherit, absolute, inherit, 50%, inherit, inherit,50%,inherit, translate(-50%, -50%),"");
+      width:105px;
+      height: 105px;
+      opacity: 0.09;
+      border-radius: 100%;
+    }
+    }
+  }
+  .software-img2{
+    @extend .software-img;
+    background: linear-gradient(to top, #fd77b4, #ffbae7) !important;
+  }
+  .software-img3{
+    @extend .software-img;
+    background: linear-gradient(to top, #d17fff, #9982ff) !important;
+  }
+  h4 {
+    @include title_h2_tag(1.5rem, 0 0 5px, 0, #000, 700);
+  }
+}
+
 @media screen and (min-width:576px) {
   .ul-area{
     flex-direction: row !important;
@@ -497,20 +498,14 @@ p {
   }
 // button animation area 
 .btn-inner {
-  @include button(inline-block, 16px 25px, var(--button-primary-color), transform .3s ease-in-out, relative, hidden);
+  color: #000;
+  @include button(inline-block, 16px 25px, var(--button-primary-color), transform .3s ease-in-out, relative, hidden,inherit,inherit,inherit,inherit,inherit,inherit,inherit);
   border-radius: 4px;
-
   &::after {
-    @include button(inherit, inherit, var(--button-secondary-color), transform .3s ease-in-out, absolute, inherit);
-    content: "";
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    transform: scaleX(0);
-    transform-origin: 100% 50%;
+    @include button(inherit, inherit, var(--button-secondary-color), transform .3s ease-in-out, absolute, inherit,0,0,0,0,100% 50%,scaleX(0),"");
   }
   span {
+    color: white;
     z-index: 1;
     position: relative;
   }
@@ -521,7 +516,6 @@ p {
     }
   }
 }
-
 // marks area
 
 .marks-area{
@@ -535,6 +529,15 @@ p {
   }
 }
 @media screen and (min-width:576px) {
+  .card-section-software {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+
+    .software-card {
+      width: 45%;
+    }
+  }
   .ul-area{
     flex-direction: row !important;
   }
@@ -549,6 +552,14 @@ p {
   }
 }
 @media screen and (min-width:992px) {
+  .card-section-software {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 50px;
+    .software-card {
+      width: 33%;
+    }
+  }
   .list-section{
     padding: 110px 0 95px;
   }
@@ -585,20 +596,18 @@ p {
         }
     }
   }
-
 .perfect-card {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  @include grid_area(repeat(auto-fit, minmax(250px, 1fr)), inherit, inherit, inherit, 1.5rem);
   .pcard {
     @include pcard;
-    @include h6;
+    @include  title_h2_tag(18px, inherit, 15px, #000,700);
+    width: 100%;
+    text-transform: uppercase;
     img {
-      @include perfect-card-logo;
+     padding: 15px;
     }
   }
 }
-
 // ana section sınıfı
 .smart-pos {
   background-color: #fffef6;
@@ -614,13 +623,9 @@ p {
     text-align: center;
   }
 }
-
 //3 adet kartın kapsayıcısı
 .smart-card {
-  display: grid;
-  padding: 20px 0;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  @include grid_area(repeat(auto-fit, minmax(300px, 1fr)), inherit, inherit, 20px 0, 2rem); 
 }
 //Paragraflar
 //3 adet kartın iç kısımları
@@ -648,17 +653,18 @@ p {
     }
     .profile-title {
       h5 {
-        @include h5;
+        @include title_h2_tag(20px, 0, 0, #000,700);
+        text-transform: capitalize;
       }
       p {
-        @include smart-paragraph;
+        @include title_h2_tag(16px, 0,0,#696969,300);
       }
     }
   }
   .smart-card-title {
-    @include smart-paragraph;
+    @include title_h2_tag(16px, 0, 2rem 0 0 0,#696969,300);
+
     position: relative;
-    padding-top: 2rem;
     &::after {
       position: absolute;
       content: url("https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/01.png");
@@ -689,7 +695,8 @@ p {
 //Sarı yıldızlar
 .rating {
   i {
-    @include stars;
+    color: #e9ba17;
+    margin: 20px 0;
   }
 }
-
+// pulse animasyonu
