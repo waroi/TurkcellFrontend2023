@@ -17,6 +17,7 @@ ul {
   list-style-type: none;
 }
 body {
+  // overflow: hidden;
   // padding-top: 75px;
 }
 a {
@@ -75,10 +76,11 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
-  // background-color: white;
+  z-index: 999;
+  background-color: white;
 }
 #nav {
+  display: inline;
 }
 .btn {
   background: linear-gradient(to right, #ff5195, #ffb84b);
@@ -87,10 +89,14 @@ header {
   color: white;
   border-radius: 4px;
   @include fonts-maker(1em, 1.5em, 700);
+  cursor: pointer;
 }
 .header-title {
   @include flex(row, space-between, center, 0);
   height: 75px;
+  .navbar-icon {
+    display: none;
+  }
 }
 .navList {
   display: flex;
@@ -181,19 +187,6 @@ header {
 .perfect-pos-part {
   .perfect-cards {
     @include grid(350px);
-    .perfect-title {
-      @extend .cards-title;
-      max-width: 70%;
-      h3 {
-        margin-bottom: 20px;
-        @include fonts-maker(24px, 32px, 700);
-      }
-    }
-    .perfect-card {
-      box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
-      padding: 70px 40px;
-      margin: 15px;
-    }
   }
   .card-image {
     line-height: 100px;
@@ -252,105 +245,9 @@ header {
     }
   }
 }
-.world-cards {
-  @include grid(400px);
-  gap: 20px;
-  padding: 30px;
-  .world-card {
-    background-color: white;
-    .world-header {
-      img {
-        border-radius: 50%;
-      }
-      h5 {
-        @include fonts-maker(20px, 24px, 700);
-      }
-      padding: 30px;
-      @include flex(row, space-between, center, 0);
-      border-bottom: 1px solid #fff5f3;
-    }
-    .world-body {
-      padding: 30px;
-      p {
-        margin-bottom: 15px;
-      }
-    }
-  }
-}
-.sponsors {
-  .sponsor-logo {
-    @include flex(row, space-between, center, 0px);
-  }
-  .sponsor-logo a:hover img {
-    filter: grayscale(100%);
-  }
-}
-footer {
-  * {
-    color: white;
-  }
-  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
-  .footer-top {
-    padding: 110px 0 60px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-    @include flex(row, space-between, center, 0px);
-
-    .footer-top-title {
-      padding: 0 12px;
-      h2 {
-        @include fonts-maker(36px, 48px, 700);
-        margin-bottom: 5px;
-      }
-    }
-    .footer-cards {
-      @include flex(row, flex-end, center, 10px);
-
-      .footer-top-card {
-        padding: 10px 20px;
-        margin: 0 15px 0 0;
-        background-color: white;
-        img {
-          margin: 0 10px 0 0;
-        }
-        p {
-          color: gray;
-        }
-        span {
-          color: #c961fa;
-          text-transform: uppercase;
-        }
-        @include flex(row, space-between, center, 0px);
-      }
-    }
-  }
-
-  .footer-links {
-    padding: 110px 0 95px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    @include flex(row, space-around, left, 0px);
-    .footer-content {
-      @include flex(column, space-between, left, 0px);
-
-      .title {
-        margin-bottom: 30px;
-        h6 {
-          @include fonts-maker(18px, 30px, bold);
-        }
-      }
-      li {
-        padding: 8px 0;
-      }
-    }
-  }
-  .footer-bottom {
-    text-align: center;
-    padding: 35px 0;
-  }
-}
-
 .grow {
   background-color: #f9f2ff;
+  overflow: hidden;
   height: 114vh;
   .imageSection {
     position: relative;
@@ -362,11 +259,11 @@ footer {
         height: auto;
         max-width: 100%;
         left: 0;
-        // z-index: -1;
       }
     }
     .purpleSection {
       position: relative;
+
       img {
         position: absolute;
         right: 0;
@@ -376,7 +273,6 @@ footer {
   .grow-part {
     position: relative;
     display: flex;
-
     padding-top: 20em;
     z-index: 1;
   }
@@ -388,6 +284,121 @@ footer {
     p {
       @include fonts-maker(16px, 24px, 400);
       color: #696969;
+      margin-bottom: 2em;
+    }
+  }
+  .grow-img {
+    position: relative;
+
+    .main-img {
+      position: absolute;
+      max-width: none;
+      top: -50px;
+      left: 100px;
+    }
+    .woman-img {
+      position: absolute;
+      max-width: none;
+      top: 10px;
+      left: 350px;
+      animation: woman-animation 2s linear infinite alternate;
+    }
+    .post-img {
+      position: absolute;
+      max-width: none;
+      top: 50px;
+      left: 600px;
+      animation: post-animation 7s linear infinite alternate;
+    }
+    .view-img {
+      position: absolute;
+      max-width: none;
+      top: -45px;
+      left: 830px;
+      animation: view-animation 3.5s linear infinite alternate;
+    }
+    @keyframes woman-animation {
+      100% {
+        transform: translateY(30px);
+      }
+    }
+    @keyframes post-animation {
+      50% {
+        transform: translateX(-40px);
+      }
+      100% {
+        transform: translateY(-50px);
+      }
+    }
+    @keyframes view-animation {
+      0% {
+        transform: translateX(-30px);
+      }
+      100% {
+        transform: translateX(0);
+        transform: translatey(-50px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .grow {
+    display: block;
+    height: 160vh;
+
+    .imageSection {
+      display: none;
+    }
+    .grow-part {
+      padding-top: 14em;
+      display: block;
+
+      .grow-title {
+        width: 100%;
+        h2 {
+          @include fonts-maker(37px, 49px, 700);
+        }
+      }
+      .grow-img {
+        display: flex;
+        text-align: center;
+
+        .main-img {
+          width: 90%;
+          margin-top: 6em;
+          margin-left: -5em;
+        }
+      }
+    }
+
+    .img-wrap {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .navList {
+    display: none;
+  }
+  .nav-button {
+    display: none;
+  }
+  .header-title {
+    .navbar-icon {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .grow {
+    height: 103vh;
+    .grow-part {
+      padding-top: 10em;
+      .grow-title {
+        h2 {
+          @include fonts-maker(30px, 40px, 700);
+        }
+      }
     }
   }
 }
