@@ -605,6 +605,41 @@ footer {
     }
   }
 }
+#menu-toggle {
+	display: none;
+	&:checked {
+		~ {
+			nav.menu {
+				transform: translateX(0);
+			}
+			.container {
+				transform: translateX(300px);
+				.backdrop {
+					opacity: 1;
+					visibility: visible;
+				}
+				.hamburger-menu {
+					span {
+						background: transparent;
+						transition: var(--animation-speed) background-color;
+						&::before {
+							transform: rotate(-45deg);
+							bottom: 0;
+							background-color: $background-color_1;
+							transition: var(--animation-speed) var(--animation-speed) transform, var(--animation-speed) bottom;
+						}
+						&::after {
+							transform: rotate(45deg);
+							top: 0;
+							background-color: $background-color_1;
+							transition: var(--animation-speed) var(--animation-speed) transform, var(--animation-speed) top;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 #checkbox {
   display: none;

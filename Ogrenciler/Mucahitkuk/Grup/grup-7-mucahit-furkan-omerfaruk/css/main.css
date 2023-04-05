@@ -3,11 +3,31 @@
   --button-secondary-color: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
   --icon-color: #fd4372;
   --site-background-color:#FFFEF9;
+  --card-bottom-color: linear-gradient(to left, #f9769d, #bb6df7);
 }
 
 .container {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px;
+}
+
+.arrow-up {
+  border-radius: 100%;
+  background-color: #fd4372;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 1040;
+  animation: pulse-animation2 1s infinite, updown 8s infinite;
+}
+.arrow-up a {
+  color: white;
+  text-align: center;
 }
 
 .dropdown {
@@ -35,10 +55,7 @@
   padding-top: 20px;
   background: #fff;
   height: 100vh;
-  -webkit-transform: translateX(110%);
-  -ms-transform: translateX(-110%);
   transform: translateX(-110%);
-  -webkit-box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
   box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
   -webkit-transition: 0.5s all ease-in-out;
 }
@@ -74,8 +91,11 @@ header {
 }
 .site-navbar .row {
   display: flex;
-  align-items: center;
   flex-direction: row;
+  align-items: center;
+  justify-content: inherit;
+  margin: inherit;
+  padding: inherit;
 }
 .site-navbar .col-1 {
   justify-content: center;
@@ -135,8 +155,11 @@ header {
 }
 .home-section .row-grid {
   display: flex;
-  align-items: center;
   flex-direction: row;
+  align-items: center;
+  justify-content: inherit;
+  margin: inherit;
+  padding: inherit;
   flex-wrap: wrap;
 }
 .home-section .row-grid .col {
@@ -193,8 +216,11 @@ header {
 }
 .footer-bg-wrapper .row {
   display: flex;
-  align-items: center;
   flex-direction: row;
+  align-items: center;
+  justify-content: inherit;
+  margin: inherit;
+  padding: inherit;
 }
 .footer-bg-wrapper .row .col {
   display: flex;
@@ -244,14 +270,21 @@ header {
   color: #696969;
 }
 
+.footer-content i {
+  margin-right: 10px;
+}
+
 .footer-padding {
   padding-top: 110px;
   padding-bottom: 95px;
 }
 .footer-padding h6 {
   font-size: 18px;
+  font-weight: 700;
+  margin: inherit;
+  padding: 0 0 10px;
   color: #fff;
-  padding-bottom: 10px;
+  text-transform: uppercase;
 }
 .footer-padding li {
   padding-top: 1rem;
@@ -318,6 +351,138 @@ p {
   padding: 20px;
 }
 
+.card-section-software {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: inherit;
+  padding: 80px 30px 55px;
+  text-align: center;
+}
+.card-section-software .software-card {
+  display: inline-block;
+  padding: 0;
+  background: inherit;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  top: inherit;
+  right: inherit;
+  bottom: inherit;
+  left: inherit;
+  transform: inherit;
+  content: inherit;
+  transform-origin: inherit;
+  margin: 15px 0;
+  box-shadow: 0 0 8px rgba(136, 136, 136, 0.2);
+}
+.card-section-software .software-card .software-inner-card {
+  padding: 70px 40px;
+}
+.card-section-software .software-card::after {
+  display: 0;
+  padding: inherit;
+  background: var(--card-bottom-color);
+  transition: transform 0.3s ease-in-out;
+  position: absolute;
+  overflow: inherit;
+  border: 0;
+  top: inherit;
+  right: inherit;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  content: "";
+  transform-origin: 100% 50%;
+  width: 100%;
+  height: 5px;
+}
+.card-section-software .software-card:hover::after {
+  transform: scaleX(1);
+  transform-origin: 0% 50%;
+}
+.card-section-software .software-card:hover .software-img, .card-section-software .software-card:hover .software-img3, .card-section-software .software-card:hover .software-img2 {
+  animation: pulse-animation 1s infinite;
+}
+.card-section-software .software-card:hover .software-img::after, .card-section-software .software-card:hover .software-img3::after, .card-section-software .software-card:hover .software-img2::after {
+  display: none;
+}
+.card-section-software .software-card:hover .software-img::before, .card-section-software .software-card:hover .software-img3::before, .card-section-software .software-card:hover .software-img2::before {
+  display: none;
+}
+.card-section-software .software-card .software-img, .card-section-software .software-card .software-img3, .card-section-software .software-card .software-img2 {
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  margin: auto;
+  text-align: inherit;
+  background: linear-gradient(to top, #f9769d, #bb6df7);
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px 2px #fcd5e1;
+  line-height: 80px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-section-software .software-card .software-img::before, .card-section-software .software-card .software-img3::before, .card-section-software .software-card .software-img2::before {
+  display: inline-block;
+  padding: 0;
+  background: #bb6df7;
+  transition: inherit;
+  position: absolute;
+  overflow: inherit;
+  border: 0;
+  top: 50%;
+  right: inherit;
+  bottom: inherit;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  transform-origin: inherit;
+  width: 92px;
+  height: 92px;
+  opacity: 0.2;
+  border-radius: 100%;
+}
+.card-section-software .software-card .software-img::after, .card-section-software .software-card .software-img3::after, .card-section-software .software-card .software-img2::after {
+  display: inline-block;
+  padding: 0;
+  background: #bb6df7;
+  transition: inherit;
+  position: absolute;
+  overflow: inherit;
+  border: 0;
+  top: 50%;
+  right: inherit;
+  bottom: inherit;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  transform-origin: inherit;
+  width: 105px;
+  height: 105px;
+  opacity: 0.09;
+  border-radius: 100%;
+}
+.card-section-software .software-img2 {
+  background: linear-gradient(to top, #fd77b4, #ffbae7) !important;
+}
+.card-section-software .software-img3 {
+  background: linear-gradient(to top, #d17fff, #9982ff) !important;
+}
+.card-section-software h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 5px;
+  padding: 0;
+  color: #000;
+}
+
 @media screen and (min-width: 576px) {
   .ul-area {
     flex-direction: row !important;
@@ -350,6 +515,7 @@ p {
   }
 }
 .btn-inner {
+  color: #000;
   display: inline-block;
   padding: 16px 25px;
   background: var(--button-primary-color);
@@ -357,7 +523,13 @@ p {
   position: relative;
   overflow: hidden;
   border: 0;
-  color: white;
+  top: inherit;
+  right: inherit;
+  bottom: inherit;
+  left: inherit;
+  transform: inherit;
+  content: inherit;
+  transform-origin: inherit;
   border-radius: 4px;
 }
 .btn-inner::after {
@@ -368,16 +540,16 @@ p {
   position: absolute;
   overflow: inherit;
   border: 0;
-  color: white;
-  content: "";
-  left: 0;
   top: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   transform: scaleX(0);
+  content: "";
   transform-origin: 100% 50%;
 }
 .btn-inner span {
+  color: white;
   z-index: 1;
   position: relative;
 }
@@ -403,6 +575,14 @@ p {
 }
 
 @media screen and (min-width: 576px) {
+  .card-section-software {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+  .card-section-software .software-card {
+    width: 45%;
+  }
   .ul-area {
     flex-direction: row !important;
   }
@@ -417,6 +597,14 @@ p {
   }
 }
 @media screen and (min-width: 992px) {
+  .card-section-software {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 50px;
+  }
+  .card-section-software .software-card {
+    width: 33%;
+  }
   .list-section {
     padding: 110px 0 95px;
   }
@@ -448,6 +636,10 @@ p {
 .perfect-card {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: center;
+  justify-content: inherit;
+  margin: inherit;
+  padding: inherit;
   gap: 1.5rem;
 }
 .perfect-card .pcard {
@@ -459,8 +651,10 @@ p {
   transition: 0.3s ease;
   font-size: 18px;
   font-weight: 700;
-  font-family: "roboto", sans-serif;
-  color: black;
+  margin: inherit;
+  padding: 15px;
+  color: #000;
+  width: 100%;
   text-transform: uppercase;
 }
 .perfect-card .pcard:hover {
@@ -468,7 +662,7 @@ p {
   transform: translateY(-2px);
 }
 .perfect-card .pcard img {
-  padding-top: 15px;
+  padding: 15px;
 }
 
 .smart-pos {
@@ -495,9 +689,12 @@ p {
 
 .smart-card {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  justify-content: inherit;
+  margin: inherit;
   padding: 20px 0;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .smart-card-content {
@@ -524,28 +721,26 @@ p {
 }
 .smart-card-content .smart-card-header .profile-title h5 {
   font-size: 20px;
-  color: black;
+  font-weight: 700;
   margin: 0;
+  padding: 0;
+  color: #000;
   text-transform: capitalize;
-  font-family: "roboto", sans-serif;
 }
 .smart-card-content .smart-card-header .profile-title p {
-  font-family: "roboto", sans-serif;
   font-size: 16px;
+  font-weight: 300;
   margin: 0;
+  padding: 0;
   color: #696969;
-  text-align: left;
-  line-height: 24px;
 }
 .smart-card-content .smart-card-title {
-  font-family: "roboto", sans-serif;
   font-size: 16px;
+  font-weight: 300;
   margin: 0;
+  padding: 2rem 0 0 0;
   color: #696969;
-  text-align: left;
-  line-height: 24px;
   position: relative;
-  padding-top: 2rem;
 }
 .smart-card-content .smart-card-title::after {
   position: absolute;
@@ -584,7 +779,7 @@ p {
 
 .rating i {
   color: #e9ba17;
-  font-size: 13px;
+  margin: 20px 0;
 }
 
 /*# sourceMappingURL=main.css.map */
