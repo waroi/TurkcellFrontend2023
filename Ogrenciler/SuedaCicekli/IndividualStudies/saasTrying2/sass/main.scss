@@ -15,9 +15,16 @@ body {
   line-height: 1.5;
 }
 
-h2{
+h2 {
   font-size: 36px;
   color: black;
+}
+
+//width heigth için bir fonksiyon
+@mixin widthHeigt($width, $height , $border-radius: 0) {
+  width: $width;
+  height: $height;
+  border-radius: $border-radius;
 }
 
 // Flexbox için bir mixin tanımlıyoruz
@@ -60,6 +67,15 @@ h2{
   content: "";
 }
 
+//softwarecard width
+@mixin software-card-width($width, $height) {
+  width: $width;
+  height: $height;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+
 // Resim ve metinlerin yerleştirildiği alanlar için bir mixin tanımlıyoruz
 // $img-order, $content-order, $p-max-width, $gap ve $columns değişkenleri kullanılabilir
 @mixin content-layout($img-order, $content-order, $p-max-width, $gap, $columns) {
@@ -94,7 +110,7 @@ h2{
   }
 }
 
-.cream-color{
+.cream-color {
   background-color: #fffef9;
 }
 
@@ -151,48 +167,51 @@ header {
   position: relative;
   overflow: hidden;
 
-  .banner-title{
+  .banner-title {
     @include flexbox(start, start, row, wrap);
   }
-  .banner-image{
+
+  .banner-image {
     flex: 0 0 auto;
     width: 50%;
-    
-    .th-shape{
+
+    .th-shape {
       @include pos-shape;
       overflow: hidden;
       border-radius: 3px;
     }
 
-    .shape-1{
+    .shape-1 {
       right: -10%;
       top: 23%;
       animation: lab_sideeffect 15s linear infinite;
     }
 
-    .shape-2{
-      right:-40%;
+    .shape-2 {
+      right: -40%;
       top: 0;
       animation: lab_zoomin 5s linear infinite;
     }
 
-    .shape-3{
+    .shape-3 {
       left: 30%;
       bottom: 0;
       animation: lab_run_top_y 5s linear infinite;
     }
 
-    .banner-thumb{
+    .banner-thumb {
       margin-right: -120px;
       text-align: center;
       position: relative;
-      img{
+
+      img {
         vertical-align: middle;
         height: auto;
         max-width: none;
       }
     }
   }
+
   .banner-header {
     position: relative;
     @extend .banner-image;
@@ -206,47 +225,54 @@ header {
 
 // Animations
 @keyframes lab_sideeffect {
-  0% {
-      transform: translateY(0px);
-  }
-  25% {
-      transform: translateX(-60px);
-  }
-  50% {
-      transform: translateY(-60px);
-  }
-  75% {
-      transform: translateX(-60px);
-  }
+
+  0%,
   100% {
-      transform: translateY(0px);
+    transform: translateY(0px);
   }
+
+  25%,
+  75% {
+    transform: translateX(-60px);
+  }
+
+  50% {
+    transform: translateY(-60px);
+  }
+
 }
 
 @keyframes lab_zoomin {
-  0% {
-      transform: translateY(-20px) translateX(0px);
-  }
-  50% {
-      transform: translateY(0px) translateX(-20px);
-  }
+
+  0%,
   100% {
-      transform: translateY(-20px) translateX(0px);
+    transform: translateY(-20px) translateX(0px);
+  }
+
+  50% {
+    transform: translateY(0px) translateX(-20px);
+  }
+}
+
+@keyframes circle-2 {
+  100% {
+    width: 50%;
+    height: 50%;
+    opacity: 0;
   }
 }
 
 @keyframes lab_run_top_y {
-  0% {
-      transform: translateY(0px);
-  }
-  50% {
-      transform: translateY(-30px);
-  }
+
+  0%,
   100% {
-      transform: translateY(0px);
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-30px);
   }
 }
-
 
 
 .site-paragraph {
@@ -260,7 +286,6 @@ header {
   left: 0;
   @include pos-shape;
 
-
   .pos-shape-1 {
     left: -22%;
     @include pos-shape;
@@ -269,6 +294,7 @@ header {
   .pos-shape-2 {
     @include pos-shape;
     right: -5%;
+
     img {
       vertical-align: middle;
       height: auto;
@@ -276,7 +302,6 @@ header {
     }
   }
 }
-
 
 .section-area {
   @include flexbox(center, center, row, wrap);
@@ -310,51 +335,199 @@ header {
   overflow: hidden;
 }
 
-.center-header{
+.center-header {
   @include flexbox(center, center, column, nowrap);
   margin: 0 206px 60px;
-  h2{
+  text-align: center;
+
+  h2 {
     margin: -10px 0 20px;
   }
-  p{
+
+  p {
     max-width: 600px;
     margin: 0 51px;
     text-align: center;
   }
 }
 
-.perfect-section{
+.perfect-section {
   padding: 110px 0 95px 0;
 }
 
-.perfect-wrapper{
-  @include grid-layout(0px,4);
-  .image-item{
+.perfect-wrapper {
+  @include grid-layout(0px, 4);
+
+  .image-item {
     padding: 48px 45px;
     margin: 15px;
     box-shadow: 0 4px 4px rgba(58, 58, 58, 0.1);
     border-radius: 4px;
-    @include flexbox(center,center,column, nowrap);
-
+    @include flexbox(center, center, column, nowrap);
     position: relative;
     transition: all 0.3s ease;
 
-    img{
+    img {
       margin-bottom: 30px;
     }
-    &:hover{
+
+    &:hover {
       box-shadow: 0 0px 10px rgba(58, 58, 58, 0.1);
       transform: translateY(-5px);
       cursor: pointer;
     }
   }
 
-  h6{
+  h6 {
     text-transform: uppercase;
     font-size: 16px;
     line-height: 30px;
     color: black;
   }
+}
+
+@keyframes circle-2 {
+  0% {
+    transform: scale(0);
+    opacity: 100;
+  }
+
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.software-wrapper {
+  @include grid-layout(30px, 3);
+
+  .card-text {
+    margin-top: 30px;
+
+    p {
+      margin-top: 0;
+    }
+
+    h4 {
+      margin-bottom: 0
+    }
+  }
+
+  .card-img {
+    @include flexbox(center, center, column, nowrap);
+    @include widthHeigt(80px, 80px, 100%);
+    box-shadow: 0 0 10px 2px #fcd5e1;
+    color: #fff;
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 92px;
+      height: 92px;
+      position: absolute;
+      opacity: 0.2;
+      display: inline-block;
+      border-radius: 50%;
+      background: linear-gradient(to left, #f9769d, #bb6df7);
+      z-index: -1;
+    }
+
+    &:after {
+      content: "";
+      width: 105px;
+      height: 105px;
+      position: absolute;
+      opacity: 0.2;
+      display: inline-block;
+      border-radius: 50%;
+      background: linear-gradient(to left, #f9769d, #bb6df7);
+      z-index: -1;
+    }
+  }
+
+  .software-card {
+    @include flexbox(center, center, column, nowrap);
+    position: relative;
+    box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
+    text-align: center;
+    padding: 70px 40px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 5px;
+      left: 0;
+      bottom: 0;
+      transition: transform 0.3s ease-in-out;
+      transform: scaleX(0);
+      transform-origin: 100% 50%;
+      background: linear-gradient(to left, #f9769d, #bb6df7);
+    }
+
+    &:hover {
+
+      .card-img:before {
+        animation: circle-2 1.3s infinite;
+      }
+
+      .card-img:after {
+        display: none;
+      }
+
+      &::after {
+        transition: transform 0.3s ease-in-out;
+        transform: scaleX(1);
+        transform-origin: 0% 50%;
+      }
+    }
+  }
+
+
+  .gradiant-1 {
+    background: linear-gradient(to top, #f9769d, #bb6df7);
+  }
+
+  .gradiant-2 {
+    background: linear-gradient(to top, #fd77b4, #ffbae7);
+  }
+
+  .gradiant-3 {
+    background: linear-gradient(to top, #d17fff, #9982ff);
+    background-color: #bb6df7;
+  }
+
+
+
+  h4 {
+    font-size: 24px;
+    line-height: 32px;
+    color: black;
+    margin: 0 0 20px;
+  }
+
+}
+
+
+//Sponsor Container 
+
+.sponsor-wrapper {
+  @include flexbox(center, center, row, wrap);
+  gap: 7rem;
+  padding: 70px 0 0;
+
+  .sponsor-card {
+
+    a:hover {
+      outline: 0;
+      color: black;
+    }
+
+    img:hover {
+      filter: grayscale(100%);
+    }
+  }
+
 }
 
 @media screen and (max-width: 1400px) {
@@ -367,14 +540,17 @@ header {
   .container {
     max-width: 960px;
   }
-  .perfect-wrapper{
-    @include grid-layout(0px,3);
+
+  .perfect-wrapper {
+    @include grid-layout(0px, 3);
     justify-content: center;
   }
-  .thumb-shape{
+
+  .thumb-shape {
     display: none;
   }
-  .banner-title{
+
+  .banner-title {
     @include flexbox(start, start, column, wrap);
   }
 }
@@ -383,18 +559,23 @@ header {
   .container {
     max-width: 720px;
   }
-  .main-menu{
+
+  .main-menu {
     display: none;
   }
-  .perfect-wrapper{
-    @include grid-layout(0px,2);
+
+  .perfect-wrapper {
+    @include grid-layout(0px, 2);
   }
 
-  .right-image-section {
+  .right-image-section,
+  .left-image-section {
     @include content-layout(1, 2, 100%, 20px, 1);
   }
-  .left-image-section{
-    @include content-layout(1,2,100%, 20px, 1);
+
+  .center-header {
+    margin: 0;
+    text-align: center;
   }
 }
 
@@ -403,7 +584,11 @@ header {
     max-width: 540px;
   }
 
-  .perfect-wrapper{
-    @include grid-layout(0px,1);
+  .perfect-wrapper {
+    @include grid-layout(0px, 1);
+  }
+
+  .software-wrapper {
+    padding: 50px 30px;
   }
 }
