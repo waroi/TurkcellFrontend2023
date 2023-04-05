@@ -51,7 +51,8 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 999;
+  background-color: white;
 }
 
 .btn {
@@ -63,6 +64,7 @@ header {
   font-size: 1em;
   line-height: 1.5em;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .header-title {
@@ -72,6 +74,9 @@ header {
   align-items: center;
   gap: 0;
   height: 75px;
+}
+.header-title .navbar-icon {
+  display: none;
 }
 
 .navList {
@@ -222,6 +227,7 @@ header {
 
 .grow {
   background-color: #f9f2ff;
+  overflow: hidden;
   height: 114vh;
 }
 .grow .imageSection {
@@ -262,6 +268,116 @@ header {
   line-height: 24px;
   font-weight: 400;
   color: #696969;
+  margin-bottom: 2em;
+}
+.grow .grow-img {
+  position: relative;
+}
+.grow .grow-img .main-img {
+  position: absolute;
+  max-width: none;
+  top: -50px;
+  left: 100px;
+}
+.grow .grow-img .woman-img {
+  position: absolute;
+  max-width: none;
+  top: 10px;
+  left: 350px;
+  animation: woman-animation 2s linear infinite alternate;
+}
+.grow .grow-img .post-img {
+  position: absolute;
+  max-width: none;
+  top: 50px;
+  left: 600px;
+  animation: post-animation 7s linear infinite alternate;
+}
+.grow .grow-img .view-img {
+  position: absolute;
+  max-width: none;
+  top: -45px;
+  left: 830px;
+  animation: view-animation 3.5s linear infinite alternate;
+}
+@keyframes woman-animation {
+  100% {
+    transform: translateY(30px);
+  }
+}
+@keyframes post-animation {
+  50% {
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateY(-50px);
+  }
+}
+@keyframes view-animation {
+  0% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(0);
+    transform: translatey(-50px);
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .grow {
+    display: block;
+    height: 160vh;
+  }
+  .grow .imageSection {
+    display: none;
+  }
+  .grow .grow-part {
+    padding-top: 14em;
+    display: block;
+  }
+  .grow .grow-part .grow-title {
+    width: 100%;
+  }
+  .grow .grow-part .grow-title h2 {
+    font-size: 37px;
+    line-height: 49px;
+    font-weight: 700;
+  }
+  .grow .grow-part .grow-img {
+    display: flex;
+    text-align: center;
+  }
+  .grow .grow-part .grow-img .main-img {
+    width: 90%;
+    margin-top: 6em;
+    margin-left: -5em;
+  }
+  .grow .img-wrap {
+    display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  .navList {
+    display: none;
+  }
+  .nav-button {
+    display: none;
+  }
+  .header-title .navbar-icon {
+    display: flex;
+    align-items: center;
+  }
+  .grow {
+    height: 103vh;
+  }
+  .grow .grow-part {
+    padding-top: 10em;
+  }
+  .grow .grow-part .grow-title h2 {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 700;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

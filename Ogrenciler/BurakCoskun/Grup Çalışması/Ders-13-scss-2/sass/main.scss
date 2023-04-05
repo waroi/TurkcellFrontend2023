@@ -17,6 +17,7 @@ ul {
   list-style-type: none;
 }
 body {
+  // overflow: hidden;
   // padding-top: 75px;
 }
 a {
@@ -75,8 +76,8 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
-  // background-color: white;
+  z-index: 999;
+  background-color: white;
 }
 #nav {
 }
@@ -87,10 +88,14 @@ header {
   color: white;
   border-radius: 4px;
   @include fonts-maker(1em, 1.5em, 700);
+  cursor: pointer;
 }
 .header-title {
   @include flex(row, space-between, center, 0);
   height: 75px;
+  .navbar-icon {
+    display: none;
+  }
 }
 .navList {
   display: flex;
@@ -241,6 +246,7 @@ header {
 }
 .grow {
   background-color: #f9f2ff;
+  overflow: hidden;
   height: 114vh;
   .imageSection {
     position: relative;
@@ -252,7 +258,6 @@ header {
         height: auto;
         max-width: 100%;
         left: 0;
-        // z-index: -1;
       }
     }
     .purpleSection {
@@ -267,7 +272,6 @@ header {
   .grow-part {
     position: relative;
     display: flex;
-
     padding-top: 20em;
     z-index: 1;
   }
@@ -279,6 +283,121 @@ header {
     p {
       @include fonts-maker(16px, 24px, 400);
       color: #696969;
+      margin-bottom: 2em;
+    }
+  }
+  .grow-img {
+    position: relative;
+
+    .main-img {
+      position: absolute;
+      max-width: none;
+      top: -50px;
+      left: 100px;
+    }
+    .woman-img {
+      position: absolute;
+      max-width: none;
+      top: 10px;
+      left: 350px;
+      animation: woman-animation 2s linear infinite alternate;
+    }
+    .post-img {
+      position: absolute;
+      max-width: none;
+      top: 50px;
+      left: 600px;
+      animation: post-animation 7s linear infinite alternate;
+    }
+    .view-img {
+      position: absolute;
+      max-width: none;
+      top: -45px;
+      left: 830px;
+      animation: view-animation 3.5s linear infinite alternate;
+    }
+    @keyframes woman-animation {
+      100% {
+        transform: translateY(30px);
+      }
+    }
+    @keyframes post-animation {
+      50% {
+        transform: translateX(-40px);
+      }
+      100% {
+        transform: translateY(-50px);
+      }
+    }
+    @keyframes view-animation {
+      0% {
+        transform: translateX(-30px);
+      }
+      100% {
+        transform: translateX(0);
+        transform: translatey(-50px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .grow {
+    display: block;
+    height: 160vh;
+
+    .imageSection {
+      display: none;
+    }
+    .grow-part {
+      padding-top: 14em;
+      display: block;
+
+      .grow-title {
+        width: 100%;
+        h2 {
+          @include fonts-maker(37px, 49px, 700);
+        }
+      }
+      .grow-img {
+        display: flex;
+        text-align: center;
+
+        .main-img {
+          width: 90%;
+          margin-top: 6em;
+          margin-left: -5em;
+        }
+      }
+    }
+
+    .img-wrap {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .navList {
+    display: none;
+  }
+  .nav-button {
+    display: none;
+  }
+  .header-title {
+    .navbar-icon {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .grow {
+    height: 103vh;
+    .grow-part {
+      padding-top: 10em;
+      .grow-title {
+        h2 {
+          @include fonts-maker(30px, 40px, 700);
+        }
+      }
     }
   }
 }
