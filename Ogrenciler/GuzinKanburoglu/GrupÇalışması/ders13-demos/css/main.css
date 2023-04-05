@@ -114,7 +114,6 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
 }
 .section1 ul li, .section5 ul li, .section4 ul li, .section3 ul li, .section2 ul li {
   margin: 5px 0px;
@@ -233,6 +232,9 @@ img {
 }
 .smrat .card {
   background-color: #fff;
+}
+.smrat h5 {
+  color: black;
 }
 .smrat img {
   width: 60px;
@@ -359,6 +361,179 @@ img {
   margin-right: 30px;
 }
 
+header {
+  height: 100vh;
+  width: 100%;
+  background: #f9f2ff;
+  position: relative;
+}
+header .left-shape {
+  position: absolute;
+  background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape-1.png");
+  background-repeat: no-repeat;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+}
+header .right-shape {
+  position: absolute;
+  background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape-2.png");
+  background-repeat: no-repeat;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+}
+header .right-shape .images {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+header .right-shape .images .img1, header .right-shape .images .img4, header .right-shape .images .img3, header .right-shape .images .img2 {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/01.png");
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+header .right-shape .images .img2 {
+  background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape/02.png");
+  right: -75%;
+  top: 23%;
+  z-index: 2;
+  animation: img2 5s infinite;
+}
+@keyframes img2 {
+  0% {
+    transform: translateY(-20px) translateX(0px);
+  }
+  50% {
+    transform: translateY(0px) translateX(-20px);
+  }
+  100% {
+    transform: translateY(-20px) translateX(0px);
+  }
+}
+header .right-shape .images .img3 {
+  background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape/03.png");
+  right: -27%;
+  top: 35%;
+  z-index: 2;
+  animation: img3 5s linear infinite;
+}
+@keyframes img3 {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+header .right-shape .images .img4 {
+  background-image: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape/01.png");
+  right: -52%;
+  top: 35%;
+  z-index: 2;
+  animation: img4 15s linear infinite;
+}
+@keyframes img4 {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateX(-60px);
+  }
+  50% {
+    transform: translateY(-60px);
+  }
+  75% {
+    transform: translateX(-60px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+header .container {
+  position: relative;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+header .content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+header .title h2 {
+  font-size: 60px;
+  line-height: 72px;
+  color: black;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 100;
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar .menu {
+  position: relative;
+}
+.navbar #label-check {
+  z-index: 300;
+  margin-right: 1rem;
+  display: none;
+  color: #ff5195;
+}
+.navbar .menu-web {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.navbar .menu-web .lab-btn {
+  margin-top: 0;
+}
+.navbar .menu-web ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.navbar li:hover {
+  color: #ffb84b;
+  cursor: pointer;
+}
+
+.menu-mobile {
+  display: none;
+}
+
+#checkbox {
+  display: none;
+}
+
+.content-part2 {
+  display: none;
+}
+
 @media screen and (max-width: 740px) {
   .footer-row1-right {
     padding-top: 20px;
@@ -366,6 +541,84 @@ img {
   }
   .footer-row2 {
     padding-top: 40px !important;
+  }
+}
+@media screen and (max-width: 740px) {
+  .navbar .container {
+    max-width: 540px;
+  }
+  .navbar .container .menu-web {
+    display: none;
+  }
+  .navbar .container #label-check {
+    display: block;
+  }
+  .navbar .container #checkbox:checked + label {
+    color: black;
+    z-index: 1000;
+  }
+  .navbar .container #checkbox:checked ~ .menu-mobile {
+    position: absolute;
+    background: white;
+    padding: 5rem;
+    height: 100vh;
+    top: 1rem;
+    right: -2rem;
+    display: block;
+  }
+  .navbar .container #checkbox:checked ~ .menu-mobile li {
+    margin-bottom: 30px;
+    font-size: 18px;
+  }
+  .left-shape,
+  .right-shape {
+    display: none;
+  }
+  header {
+    height: 75vh;
+  }
+  header .navbar {
+    top: -2.8rem;
+  }
+  header .content {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+  header .content-part {
+    margin-bottom: 2rem;
+  }
+  header .title h2 {
+    font-size: 30px;
+    line-height: 1.4;
+  }
+  header .title p {
+    margin: 5px 0 30px;
+    margin-top: 5px;
+    margin-top: 10px;
+    color: #696969;
+    font-size: 15px;
+  }
+  .content-part2 {
+    display: block;
+  }
+  .section1 .container, .section2 .container, .section3 .container, .section4 .container, .section5 .container {
+    margin: 0;
+    flex-direction: column-reverse;
+  }
+  .section1 .left, .section2 .left, .section3 .left, .section4 .left, .section5 .left,
+  .section1 .right,
+  .section2 .right,
+  .section3 .right,
+  .section4 .right,
+  .section5 .right {
+    width: 100%;
+  }
+  .section1 ul, .section2 ul, .section3 ul, .section4 ul, .section5 ul {
+    gap: none;
+    flex-direction: column;
+  }
+  .section1 ul div, .section2 ul div, .section3 ul div, .section4 ul div, .section5 ul div {
+    width: 100%;
   }
 }
 
