@@ -91,11 +91,11 @@ nav {
   position: fixed;
   top: 0;
   background-color: #fff;
-  // width: 100%;
+  width: 100%;
 }
 .container {
   display: grid;
-  grid-template-columns: 1fr minmax(300px, 1140px) 1fr;
+  grid-template-columns: 1fr minmax(300px, 1200px) 1fr;
   > * {
     grid-column: 2;
     padding: 0 10px;
@@ -340,6 +340,11 @@ nav {
   }
   .logos-cnt {
     @extend .omni-cnt;
+    @include d-flex(center, center);
+    width: 100%;
+    .logos-img:not(:first-child) {
+      display: none;
+    }
   }
   .footer-cnt {
     .footer-head {
@@ -448,5 +453,167 @@ nav {
     100% {
       box-shadow: 0 0 0 30px rgba(36, 194, 255, 0);
     }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    .nav-bar-cnt {
+      padding: 20px 0;
+      justify-content: space-between;
+      .nav-right {
+        display: flex;
+        ul {
+          display: flex;
+          flex-wrap: nowrap;
+          flex-direction: row;
+          justify-content: end;
+          gap: 1rem;
+        }
+      }
+      .hamburger-menu {
+        display: none;
+      }
+    }
+
+    .banner-cnt {
+      margin-top: 150px;
+      grid-template-rows: none;
+      grid-template-columns: repeat(2, 1fr);
+
+      .left {
+        grid-template-rows: none;
+        h4 {
+          @include textCtor(60px, 700, 72px, black);
+        }
+      }
+      .right {
+        .mobil {
+          position: absolute;
+          right: 120px;
+          top: 290px;
+          scale: 1.4;
+        }
+        .desktop {
+          position: absolute;
+        }
+        .banner-img1 {
+          width: 161px;
+          right: 0;
+          top: 200px;
+          animation: card 8s linear infinite;
+
+          @keyframes card {
+            50% {
+              transform: translateX(-30px) translateY(30px);
+            }
+          }
+        }
+
+        .banner-img2 {
+          width: 200px;
+          right: 250px;
+          top: 320px;
+          animation: card2 16s ease-in-out infinite;
+          @keyframes card2 {
+            25% {
+              transform: translateX(50px);
+            }
+            50% {
+              transform: translateX(0);
+            }
+            75% {
+              transform: translateX(50px) translateY(-50px);
+            }
+          }
+        }
+        .banner-img3 {
+          width: 175px;
+          right: 400px;
+          top: 300px;
+          animation: card3 6s linear infinite;
+          @keyframes card3 {
+            50% {
+              transform: translateY(30px);
+            }
+          }
+        }
+      }
+    }
+    .omni-cnt {
+      @include d-grid(column, repeat(2, 1fr), space-between, center, 1em);
+      .bot {
+        order: -1;
+      }
+    }
+    .retail-cnt {
+      .top {
+        order: -1;
+      }
+    }
+    .perfect-cnt {
+      .card-list {
+        @include d-grid(column, repeat(4, 1fr), center, center, 2em);
+      }
+    }
+    .stores-cnt {
+      .top {
+        order: -1;
+      }
+    }
+
+    .software-cnt {
+      padding: 100px 0;
+      .card-list {
+        grid-template-rows: none;
+        @include d-grid(column, repeat(3, 1fr), center, center, 2em);
+      }
+    }
+
+    .logos-cnt {
+      display: flex;
+      .logos-img:not(:first-child) {
+        display: flex;
+      }
+      .logos-img {
+        transition: 0.7s;
+        &:hover {
+          filter: grayscale(1);
+          cursor: pointer;
+        }
+      }
+    }
+
+    .footer-cnt {
+      .footer-head {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        .footer-head-text {
+          text-align: left;
+        }
+
+        .footer-head-buttons {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          width: 50%;
+        }
+      }
+      .footer-body {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  nav {
+    background: transparent;
+  }
+  .banner {
+    background: url("../assets/img/banner/shape-2.png") right bottom no-repeat,
+      url("../assets/img/banner/shape-1.png") left top no-repeat;
   }
 }
