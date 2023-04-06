@@ -10,12 +10,20 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
       <div class="container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-transparent">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">
               <img
@@ -37,13 +45,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-link active" href="index.html">Home</a>
-                <a class="nav-link" href="quartermaster.html">Quartermaster</a>
-                <a class="nav-link" href="about.html"
+                <a class="nav-link active text-white" href="index.html">Home</a>
+                <a class="nav-link text-white" href="quartermaster.html"
+                  >Quartermaster</a
+                >
+                <a class="nav-link text-white" href="about.html"
                   >About your Dungeon Master</a
                 >
                 <a
-                  class="nav-link"
+                  class="nav-link text-white"
                   aria-current="page"
                   href="../../../Homeworks/05-grid_group/index.html"
                   target="_blank"
@@ -55,6 +65,372 @@
         </nav>
       </div>
     </header>
+
+    <section class="slider mb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="carouselExampleCaptions" class="carousel slide">
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://assets1.ignimgs.com/2019/05/29/dndmobile-br-1559158957902_160w.jpg?width=1280"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>
+                      Some representative placeholder content for the first
+                      slide.
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://miro.medium.com/v2/resize:fit:1400/0*RUSGLIjpQVY7kt4Y.jpg"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>
+                      Some representative placeholder content for the second
+                      slide.
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.ctfassets.net/swt2dsco9mfe/4GhYDHCEuhO6C9eJK3pBY1/c1712db014c5f9c7014bdfb07287d0ae/dnd_learntoplay_hero1.jpg?q=70&w=1920"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>
+                      Some representative placeholder content for the third
+                      slide.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="col-sm-12">
+              <a
+                target="_blank"
+                href="https://en.wikipedia.org/wiki/Editions_of_Dungeons_%26_Dragons#Original_Dungeons_&_Dragons"
+              >
+                <div class="card mb-3" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img
+                        src="https://www.dmsguild.com/images/44/110274.jpg"
+                        class="img-fluid rounded-start"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Original Dungeons & Dragons</h5>
+                        <p class="card-text">Lorem, ipsum dolor.</p>
+                        <p class="card-text">
+                          <small class="text-body-secondary"
+                            >Last updated 3 mins ago</small
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col-sm-12">
+              <a
+                target="_blank"
+                href="https://en.wikipedia.org/wiki/Editions_of_Dungeons_%26_Dragons#Original_Dungeons_&_Dragons"
+              >
+                <div class="card mb-3" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img
+                        src="https://www.dmsguild.com/images/44/110274.jpg"
+                        class="img-fluid rounded-start"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Advanced Dungeons & Dragons - 1st Edition
+                        </h5>
+                        <p class="card-text">Lorem, ipsum dolor.</p>
+                        <p class="card-text">
+                          <small class="text-body-secondary"
+                            >Last updated 3 mins ago</small
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col-sm-12">
+              <a
+                target="_blank"
+                href="https://en.wikipedia.org/wiki/Editions_of_Dungeons_%26_Dragons#Original_Dungeons_&_Dragons"
+              >
+                <div class="card mb-3" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img
+                        src="https://www.dmsguild.com/images/44/110274.jpg"
+                        class="img-fluid rounded-start"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Advanced Dungeons & Dragons 2nd Edition
+                        </h5>
+                        <p class="card-text">Lorem, ipsum dolor.</p>
+                        <p class="card-text">
+                          <small class="text-body-secondary"
+                            >Last updated 3 mins ago</small
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col-sm-12">
+              <a
+                target="_blank"
+                href="https://en.wikipedia.org/wiki/Editions_of_Dungeons_%26_Dragons#Original_Dungeons_&_Dragons"
+              >
+                <div class="card mb-3" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img
+                        src="https://www.dmsguild.com/images/44/110274.jpg"
+                        class="img-fluid rounded-start"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Dungeons & Dragons—3rd Edition
+                        </h5>
+                        <p class="card-text">Lorem, ipsum dolor.</p>
+                        <p class="card-text">
+                          <small class="text-body-secondary"
+                            >Last updated 3 mins ago</small
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col-sm-12">
+              <a
+                target="_blank"
+                href="https://en.wikipedia.org/wiki/Editions_of_Dungeons_%26_Dragons#Original_Dungeons_&_Dragons"
+              >
+                <div class="card mb-3" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img
+                        src="https://www.dmsguild.com/images/44/110274.jpg"
+                        class="img-fluid rounded-start"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Dungeons & Dragons—4th Edition
+                        </h5>
+                        <p class="card-text">Lorem, ipsum dolor.</p>
+                        <p class="card-text">
+                          <small class="text-body-secondary"
+                            >Last updated 3 mins ago</small
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col-sm-12">
+              <a
+                target="_blank"
+                href="https://en.wikipedia.org/wiki/Editions_of_Dungeons_%26_Dragons#Original_Dungeons_&_Dragons"
+              >
+                <div class="card mb-3" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img
+                        src="https://www.dmsguild.com/images/44/110274.jpg"
+                        class="img-fluid rounded-start"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Dungeons & Dragons—5th Edition
+                        </h5>
+                        <p class="card-text">Lorem, ipsum dolor.</p>
+                        <p class="card-text">
+                          <small class="text-body-secondary"
+                            >Last updated 3 mins ago</small
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <article class="text-white">
+              <h2>something</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Commodi voluptates natus veniam numquam rem. Molestiae molestias
+                tempore fugit cum facere sint voluptas excepturi minima alias
+                maiores praesentium et nam enim ratione temporibus voluptatem
+                assumenda explicabo, quos quibusdam consequatur repellat! Alias,
+                laboriosam corporis. Similique velit temporibus dolorum
+                explicabo sed quod recusandae iusto quos repudiandae, placeat
+                unde ipsam voluptatum sunt, reiciendis modi repellendus atque
+                non dolore adipisci quae! Autem sed itaque tempora veritatis
+                possimus nulla ipsam molestias quia sequi fuga. Amet delectus
+                repudiandae sequi unde temporibus minima assumenda quod
+                asperiores vitae labore quaerat, cupiditate esse magni beatae
+                doloribus earum quos corrupti eligendi consequatur? Eligendi
+                optio est eum aliquid a architecto quod autem dolorem voluptas
+                neque explicabo error in reiciendis aperiam id enim sint qui ut
+                esse, fugit aut, vitae, vel sunt itaque. Soluta ratione sapiente
+                omnis blanditiis. Optio deleniti blanditiis mollitia veritatis
+                maiores amet a! Nam facilis quos quam doloribus repellendus
+                architecto molestias deserunt cupiditate eum quia. Voluptate
+                aliquam consectetur cumque numquam quia nulla praesentium fugiat
+                temporibus ut perspiciatis adipisci, omnis magni unde eveniet
+                cum sequi mollitia odit. Ducimus eum id dolore nulla minus
+                consectetur laudantium ex quis itaque iure modi dolorum
+                aspernatur accusantium, cupiditate odio alias distinctio soluta
+                quisquam voluptatum quaerat?
+              </p>
+            </article>
+            <article class="text-white">
+              <h2>something</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+                facilis esse architecto beatae illo quod temporibus a. Omnis sed
+                veniam veritatis adipisci, facilis aperiam architecto optio et?
+                Suscipit minus iste eos! Suscipit facere enim sapiente tempore
+                saepe! Facere quas vel aspernatur hic minima cupiditate sequi
+                perferendis enim deleniti, cumque eveniet reprehenderit quasi
+                fugit eligendi quae tempore totam nihil? Nihil eaque provident
+                nostrum, hic impedit tempore repellendus rerum dolore commodi
+                minima nesciunt adipisci aspernatur! Fugit illo impedit, quidem
+                magni nobis deleniti commodi rem quisquam minus hic enim quam
+                rerum harum totam dolor aliquid accusamus reprehenderit
+                distinctio sequi omnis ad architecto veniam molestias
+                laudantium. Asperiores id magni numquam unde odit ullam suscipit
+                similique itaque architecto laudantium odio animi est
+                exercitationem porro, autem illum esse nobis, rerum quam?
+                Quidem, voluptatem obcaecati nisi repudiandae labore corrupti
+                laudantium rerum vel libero voluptatibus voluptas dignissimos
+                quibusdam, deleniti consectetur fuga laboriosam, consequuntur
+                aspernatur molestiae nemo autem magnam? Quo iusto ad sint aut
+                animi quibusdam dolorem laudantium, id esse facilis quia
+                dignissimos dolores alias consectetur? Maxime, dolor similique.
+              </p>
+            </article>
+            <div class="links my-5">
+              <div class="row text-center">
+                <div class="col-sm-6">
+                  <a target="_blank" href="https://company.wizards.com/en"
+                    ><i class="fa-brands fa-wizards-of-the-coast"></i
+                  ></a>
+                </div>
+                <div class="col-sm-6">
+                  <a target="_blank" href="https://critrole.com"
+                    ><i class="fa-brands fa-critical-role"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
