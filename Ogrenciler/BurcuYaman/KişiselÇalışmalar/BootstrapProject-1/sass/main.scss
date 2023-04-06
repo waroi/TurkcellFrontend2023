@@ -1,0 +1,48 @@
+$bck_primary: rgb(39, 10, 56);
+$bck_secondary: rgb(244, 226, 254);
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $bck_secondary;
+}
+
+.navbar {
+  background-color: $bck_primary;
+  .navbar-nav {
+    margin: auto;
+  }
+  .btn {
+    &:hover {
+      background-color: $bck_secondary;
+    }
+  }
+}
+.container {
+  .slide {
+    .carousel-item {
+      margin-top: 20px;
+      img {
+        max-height: 500px;
+        border-radius: 10px;
+      }
+    }
+  }
+  .content-header {
+    margin-top: 50px;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 1px solid $bck_primary;
+  }
+  .cards {
+    margin-top: 50px;
+  }
+}
