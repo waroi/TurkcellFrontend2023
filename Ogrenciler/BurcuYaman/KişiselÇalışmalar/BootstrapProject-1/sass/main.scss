@@ -49,16 +49,20 @@ body {
       }
     }
   }
-
   .content-header {
     margin-top: 50px;
-    font-weight: 600;
     text-align: center;
     border-bottom: 1px solid $bck_primary;
+    h2 {
+      font-weight: 700;
+    }
   }
   .cards {
     margin-top: 50px;
     .card {
+      h5 {
+        font-weight: 700;
+      }
       transition: 0.5s;
       &:hover {
         background-color: #ebe6ed;
@@ -75,9 +79,13 @@ body {
       border: none;
       float: right;
       transition: 0.5s;
+      font-weight: 700;
       &:hover {
         @include button-hover(#b290c5, #1a2741);
       }
     }
   }
+}
+footer {
+  margin-top: 100px;
 }
