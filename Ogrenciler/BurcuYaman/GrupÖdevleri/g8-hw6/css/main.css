@@ -32,11 +32,12 @@ nav {
   position: fixed;
   top: 0;
   background-color: #fff;
+  width: 100%;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 1fr minmax(300px, 1140px) 1fr;
+  grid-template-columns: 1fr minmax(300px, 1200px) 1fr;
 }
 .container > * {
   grid-column: 2;
@@ -309,6 +310,15 @@ nav {
   width: 50%;
   justify-self: end;
 }
+.container .logos-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.container .logos-cnt .logos-img:not(:first-child) {
+  display: none;
+}
 .container .footer-cnt .footer-head {
   padding: 80px 0;
   display: flex;
@@ -435,6 +445,161 @@ nav {
   }
   100% {
     box-shadow: 0 0 0 30px rgba(36, 194, 255, 0);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container .nav-bar-cnt {
+    padding: 20px 0;
+    justify-content: space-between;
+  }
+  .container .nav-bar-cnt .nav-right {
+    display: flex;
+  }
+  .container .nav-bar-cnt .nav-right ul {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: end;
+    gap: 1rem;
+  }
+  .container .nav-bar-cnt .hamburger-menu {
+    display: none;
+  }
+  .container .banner-cnt {
+    margin-top: 150px;
+    grid-template-rows: none;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container .banner-cnt .left {
+    grid-template-rows: none;
+  }
+  .container .banner-cnt .left h4 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 72px;
+    color: black;
+  }
+  .container .banner-cnt .right .mobil {
+    position: absolute;
+    right: 120px;
+    top: 290px;
+    scale: 1.4;
+  }
+  .container .banner-cnt .right .desktop {
+    position: absolute;
+  }
+  .container .banner-cnt .right .banner-img1 {
+    width: 161px;
+    right: 0;
+    top: 200px;
+    animation: card 8s linear infinite;
+  }
+  @keyframes card {
+    50% {
+      transform: translateX(-30px) translateY(30px);
+    }
+  }
+  .container .banner-cnt .right .banner-img2 {
+    width: 200px;
+    right: 250px;
+    top: 320px;
+    animation: card2 16s ease-in-out infinite;
+  }
+  @keyframes card2 {
+    25% {
+      transform: translateX(50px);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    75% {
+      transform: translateX(50px) translateY(-50px);
+    }
+  }
+  .container .banner-cnt .right .banner-img3 {
+    width: 175px;
+    right: 400px;
+    top: 300px;
+    animation: card3 6s linear infinite;
+  }
+  @keyframes card3 {
+    50% {
+      transform: translateY(30px);
+    }
+  }
+  .container .omni-cnt, .container .retail-cnt, .container .device-cnt, .container .stores-cnt, .container .smartpos-cnt, .container .logos-cnt {
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container .omni-cnt .bot, .container .retail-cnt .bot, .container .device-cnt .bot, .container .stores-cnt .bot, .container .smartpos-cnt .bot, .container .logos-cnt .bot {
+    order: -1;
+  }
+  .container .retail-cnt .top {
+    order: -1;
+  }
+  .container .perfect-cnt .card-list, .container .software-cnt .card-list, .container .world-cnt .card-list {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .container .stores-cnt .top {
+    order: -1;
+  }
+  .container .software-cnt, .container .world-cnt {
+    padding: 100px 0;
+  }
+  .container .software-cnt .card-list, .container .world-cnt .card-list {
+    grid-template-rows: none;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .container .logos-cnt {
+    display: flex;
+  }
+  .container .logos-cnt .logos-img:not(:first-child) {
+    display: flex;
+  }
+  .container .logos-cnt .logos-img {
+    transition: 0.7s;
+  }
+  .container .logos-cnt .logos-img:hover {
+    filter: grayscale(1);
+    cursor: pointer;
+  }
+  .container .footer-cnt .footer-head {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .container .footer-cnt .footer-head .footer-head-text {
+    text-align: left;
+  }
+  .container .footer-cnt .footer-head .footer-head-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 50%;
+  }
+  .container .footer-cnt .footer-body {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  nav {
+    background: transparent;
+  }
+  .banner {
+    background: url("../assets/img/banner/shape-2.png") right bottom no-repeat, url("../assets/img/banner/shape-1.png") left top no-repeat;
   }
 }
 

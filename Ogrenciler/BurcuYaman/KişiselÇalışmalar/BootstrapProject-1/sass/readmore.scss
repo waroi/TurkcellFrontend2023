@@ -1,0 +1,66 @@
+$bck_primary: rgb(0, 0, 0);
+$bck_secondary: rgb(215, 213, 216);
+$btn_color: #1a2741;
+
+.container {
+  padding-top: 100px;
+  .info-head {
+    margin-bottom: 50px;
+    border-bottom: 1px solid gray;
+    h3 {
+      font-weight: 700;
+    }
+  }
+  .img {
+    padding: 10px;
+  }
+  .text {
+    padding: 30px;
+  }
+  .properties {
+    padding: 50px 0;
+  }
+  .care {
+    padding: 50px 0;
+    h4 {
+      padding-bottom: 20px;
+      font-weight: 700;
+    }
+    .btn {
+      background-color: $btn_color;
+      width: 100px;
+      padding: 15px 10px;
+      i {
+        color: $bck_secondary;
+      }
+    }
+  }
+
+  .food {
+    padding: 50px 0;
+    h4 {
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    display: flex;
+    gap: 10px;
+    .card {
+      transition: 0.5s;
+      cursor: pointer;
+      &:hover {
+        background-color: #ebe6ed;
+        box-shadow: inset 0px 0px 26px 17px rgb(137, 150, 192);
+      }
+      .card-body {
+        margin-top: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .care {
+    display: flex;
+    flex-direction: column;
+  }
+}
