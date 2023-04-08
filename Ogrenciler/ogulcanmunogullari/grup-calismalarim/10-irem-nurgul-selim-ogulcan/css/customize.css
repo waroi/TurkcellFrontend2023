@@ -7,12 +7,16 @@ header {
   position: relative;
 }
 
+p, .card-commu-body blockquote {
+  color: #808080;
+}
+
 .header-info h1 {
   font-size: 32px;
   width: 90%;
   font-weight: 700;
 }
-.header-info p {
+.header-info p, .header-info .card-commu-body blockquote, .card-commu-body .header-info blockquote {
   color: #6c757d;
   font-size: 1rem;
   font-weight: 300;
@@ -40,7 +44,7 @@ header {
   font-size: 30px;
   padding-bottom: 15px;
 }
-.card-features-info p {
+.card-features-info p, .card-features-info .card-commu-body blockquote, .card-commu-body .card-features-info blockquote {
   font-size: 20px;
 }
 
@@ -57,9 +61,8 @@ header {
 .card h3 {
   font-size: 18px;
 }
-.card p {
+.card p, .card .card-commu-body blockquote, .card-commu-body .card blockquote {
   font-size: 16px;
-  color: #808080;
 }
 .card span {
   position: absolute;
@@ -80,6 +83,8 @@ header {
 }
 .card:hover h3,
 .card:hover p,
+.card:hover .card-commu-body blockquote,
+.card-commu-body .card:hover blockquote,
 .card:hover a {
   color: #fff;
 }
@@ -87,6 +92,25 @@ header {
   background-color: #fff;
   color: #4285f4;
   box-shadow: 0 0 20px 0 rgba(66, 133, 244, 0.3137254902);
+}
+
+.communicate-section {
+  margin-top: 7rem;
+}
+.communicate-section .commu-text {
+  margin-top: 5rem;
+}
+
+.card-commu-body {
+  border-left: 0.5em solid #4285f4;
+}
+.card-commu-body blockquote {
+  font-style: italic;
+}
+
+.commu-header div img {
+  height: 50px;
+  width: 50px;
 }
 
 .accordion-counter {

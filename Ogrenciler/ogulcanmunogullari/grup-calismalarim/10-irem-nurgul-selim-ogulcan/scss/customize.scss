@@ -1,9 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap%27");
+
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// @import "../node_modules/bootstrap/scss/bootstrap";
+// @import "../node_modules/bootstrap/scss/utilities";
+
+// $theme-colors: (
+//   "primary": #4285f4,
+// );
+
 * {
   font-family: "Nunito", sans-serif;
 }
 header {
   position: relative;
+}
+p{
+  color: #808080;
 }
 .header-info {
   h1 {
@@ -57,7 +71,7 @@ header {
   }
   p {
     font-size: 16px;
-    color: #808080;
+    
   }
   span {
     position: absolute;
@@ -87,6 +101,30 @@ header {
       box-shadow: 0 0 20px 0 #4285f450;
     }
   }
+}
+// Commucaiton section
+.communicate-section{
+  margin-top: 7rem;
+  .commu-text{
+    margin-top: 5rem;
+  }
+}
+
+.card-commu-body{
+  border-left:0.5em solid #4285f4 ;
+  blockquote{
+    @extend p;
+    font-style: italic;
+  }
+}
+
+.commu-header{
+  div{
+    img{
+    height: 50px;
+    width: 50px;
+  }
+}
 }
 
 //Ezmeler
