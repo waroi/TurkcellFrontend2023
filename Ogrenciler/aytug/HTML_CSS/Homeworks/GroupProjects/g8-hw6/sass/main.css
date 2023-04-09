@@ -1,0 +1,208 @@
+* {
+  font-family: "Nanum Gothic", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 2em 0;
+}
+
+main .banner {
+  background-color: rgb(249, 242, 255);
+}
+main .omni, main .logos, main .software, main .stores, main .device {
+  background-color: white;
+}
+main .retail, main .world, main .smartpos, main .perfect {
+  background-color: #fffcfa;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 1140px) 1fr;
+}
+.container > * {
+  grid-column: 2;
+  padding: 0 10px;
+}
+.container .banner-cnt {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  grid-template-rows: repeat(2, 1fr);
+}
+.container .banner-cnt .left {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  grid-template-rows: repeat(3, 1fr);
+}
+.container .banner-cnt .left h4 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 42px;
+  color: black;
+}
+.container .banner-cnt .left p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22.5px;
+  color: rgb(105, 105, 105);
+}
+.container .banner-cnt .right img {
+  width: 100%;
+  max-width: 570px;
+}
+.container .omni-cnt, .container .logos-cnt, .container .smartpos-cnt, .container .stores-cnt, .container .device-cnt, .container .retail-cnt {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+  grid-template-rows: 2fr, 1fr;
+}
+.container .omni-cnt .bot, .container .logos-cnt .bot, .container .smartpos-cnt .bot, .container .stores-cnt .bot, .container .device-cnt .bot, .container .retail-cnt .bot {
+  order: 2;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  grid-template-rows: 1fr, 1fr, 3fr;
+}
+.container .omni-cnt .bot h4, .container .logos-cnt .bot h4, .container .smartpos-cnt .bot h4, .container .stores-cnt .bot h4, .container .device-cnt .bot h4, .container .retail-cnt .bot h4 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33.6px;
+  color: black;
+}
+.container .omni-cnt .bot p, .container .logos-cnt .bot p, .container .smartpos-cnt .bot p, .container .stores-cnt .bot p, .container .device-cnt .bot p, .container .retail-cnt .bot p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22.5px;
+  color: rgb(105, 105, 105);
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgb(236, 240, 243);
+}
+.container .omni-cnt .bot ul, .container .logos-cnt .bot ul, .container .smartpos-cnt .bot ul, .container .stores-cnt .bot ul, .container .device-cnt .bot ul, .container .retail-cnt .bot ul {
+  margin-bottom: 40px;
+}
+.container .omni-cnt .bot ul li, .container .logos-cnt .bot ul li, .container .smartpos-cnt .bot ul li, .container .stores-cnt .bot ul li, .container .device-cnt .bot ul li, .container .retail-cnt .bot ul li {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(105, 105, 105);
+  padding: 10px 0;
+}
+.container .omni-cnt .bot ul li i, .container .logos-cnt .bot ul li i, .container .smartpos-cnt .bot ul li i, .container .stores-cnt .bot ul li i, .container .device-cnt .bot ul li i, .container .retail-cnt .bot ul li i {
+  margin: 0 0.5em;
+  color: rgb(253, 67, 114);
+}
+.container .omni-cnt .top img, .container .logos-cnt .top img, .container .smartpos-cnt .top img, .container .stores-cnt .top img, .container .device-cnt .top img, .container .retail-cnt .top img {
+  width: 100%;
+  max-width: 570px;
+}
+.container .perfect-cnt, .container .software-cnt, .container .world-cnt {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+  grid-template-rows: 1fr, 3fr;
+}
+.container .perfect-cnt .card-header, .container .software-cnt .card-header, .container .world-cnt .card-header {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  grid-template-rows: 1fr, 1fr, 3fr;
+  text-align: center;
+}
+.container .perfect-cnt .card-header h4, .container .software-cnt .card-header h4, .container .world-cnt .card-header h4 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33.6px;
+  color: black;
+}
+.container .perfect-cnt .card-header p, .container .software-cnt .card-header p, .container .world-cnt .card-header p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22.5px;
+  color: rgb(105, 105, 105);
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+.container .perfect-cnt .card-list, .container .software-cnt .card-list, .container .world-cnt .card-list {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  grid-template-rows: repeat(8, 1fr);
+}
+.container .perfect-cnt .card-list .card, .container .software-cnt .card-list .card, .container .world-cnt .card-list .card {
+  width: 100%;
+  text-align: center;
+  border: 1px solid black;
+  margin: 15px 0;
+  padding: 48px 45px;
+}
+.container .perfect-cnt .card-list .card img, .container .software-cnt .card-list .card img, .container .world-cnt .card-list .card img {
+  margin-bottom: 30px;
+}
+.container .perfect-cnt .card-list .card h6, .container .software-cnt .card-list .card h6, .container .world-cnt .card-list .card h6 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22.4px;
+  color: black;
+}
+.container .software-cnt .card-list, .container .world-cnt .card-list {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  grid-template-rows: repeat(3, 1fr);
+}
+.container .software-cnt .card-list .card h4, .container .world-cnt .card-list .card h4 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: black;
+  margin: 0.5em 0;
+}
+.container .software-cnt .card-list .card p, .container .world-cnt .card-list .card p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22.5px;
+  color: black;
+}
+.container .software-cnt .card-list .card img, .container .world-cnt .card-list .card img {
+  background-color: #ff5195;
+}
+.container .world-cnt .world-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .world-cnt .world-card-header img {
+  border-radius: 50%;
+}
+.container .world-cnt .world-card-header .world-card-name {
+  width: 50%;
+  justify-self: end;
+}
+.btn {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: white;
+  width: 180px;
+  padding: 16px 25px;
+  color: white;
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #ff5195, #ffb84b);
+  text-align: center;
+}/*# sourceMappingURL=main.css.map */
