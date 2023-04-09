@@ -48,9 +48,9 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="#features-section">Features</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item disabled-pc">
                 <div class="accordion">
                   <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -66,9 +66,9 @@
                     </h2>
                     <div
                       id="menu-1-container"
-                      class="accordion-collapse collapse show"
+                      class="accordion-collapse collapse ac-1"
                     >
-                      <div class="accordion-body">
+                      <div class="accordion-body ab-1">
                         <ul>
                           <li class="accordion-link">
                             <a class="" href="#">More Free Templates</a>
@@ -77,7 +77,7 @@
                             <a class="" href="#">Our Team</a>
                           </li>
                           <li class="accordion-link">
-                            <div class="accordion">
+                            <div class="accordion" id="accordion2">
                               <div class="accordion-item">
                                 <h2 class="accordion-header">
                                   <a class="nav-link" id="menu-2-link" href="#"
@@ -94,9 +94,10 @@
                                 </h2>
                                 <div
                                   id="menu-2-container"
-                                  class="accordion-collapse collapse show"
+                                  class="accordion-collapse collapse"
+                                  data-bs-parent="#accordion2"
                                 >
-                                  <div class="accordion-body">
+                                  <div class="accordion-body ab-2">
                                     <ul>
                                       <li class="accordion-link">
                                         <a class="" href="#">Menu One</a>
@@ -117,6 +118,46 @@
                       </div>
                     </div>
                   </div>
+                </div>
+              </li>
+              <li class="nav-item disabled-mobile">
+                <div class="btn-group">
+                  <a class="nav-link menu-link">About Us</a>
+                  <button
+                    class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-auto-close="outside"
+                  ></button>
+                  <ul class="dropdown-menu dm-1">
+                    <li class="dropdown-item">
+                      <a class="" href="#">More Free Templates</a>
+                    </li>
+                    <li class="dropdown-item">
+                      <a class="" href="#">Our Team</a>
+                    </li>
+                    <li class="dropdown-item">
+                      <div class="btn-group dropend">
+                        <a class="menu-link">More Links</a>
+                        <button
+                          class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        ></button>
+                        <ul class="dropdown-menu dm-2">
+                          <li class="dropdown-item">
+                            <a class="" href="#">Menu One</a>
+                          </li>
+                          <li class="dropdown-item">
+                            <a class="" href="#">Menu Two</a>
+                          </li>
+                          <li class="dropdown-item">
+                            <a class="" href="#">Menu Three</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </li>
               <li class="nav-item">
@@ -155,71 +196,9 @@
         </div>
       </div>
     </header>
-    <!-- Offcanvas -->
-    <div
-      class="offcanvas offcanvas-end w-75"
-      tabindex="-1"
-      id="offcanvasExample"
-      aria-labelledby="offcanvasExampleLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
 
-      <div class="offcanvas-body">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-
-          <div
-            class="nav-link accordion accordion-counter"
-            id="accordionPanelsStayOpenExample"
-          >
-            <div class="accordion-item accordion-counter">
-              <div class="row align-items-center">
-                <a
-                  class="me-5 col nav-link nav-link-counter"
-                  aria-current="page"
-                  href="#"
-                  >About Us</a
-                >
-                <button
-                  class="accordion-button col-1 accordion-button-counter"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#panelsStayOpen-collapseOne"
-                  aria-expanded="true"
-                  aria-controls="panelsStayOpen-collapseOne"
-                ></button>
-              </div>
-              <div
-                id="panelsStayOpen-collapseOne"
-                class="accordion-collapse collapse show accordion-counter"
-              >
-                <div class="accordion-body accordion-counter">
-                  <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <a class="nav-link" href="#">Pricing</a>
-        </div>
-      </div>
-    </div>
     <!-- Cards -->
-    <section class="card-features text-center">
+    <section class="card-features text-center" id="features-section">
       <div class="container">
         <div class="card-features-info py-5">
           <h2>Imagine Features</h2>
