@@ -35,26 +35,24 @@ body {
 .dropdown-menu {
   border: none;
   border-radius: 0;
-  &:first-child {
-    color: red !important;
-  }
 }
 
-
-.offcanvas-header{
-    text-align: right;
-}
+// .offcanvas-header {
+//   text-align: right;
+// }
 @media screen and (min-width: 1400px) {
   .container {
     max-width: 1140px !important;
   }
 }
 
-// @media screen and (max-width: 992px) {
-//   .dropend:hover > .dropdown-menu {
-//     position: relative;
-//     top: 0;
-//     bottom: 0;
-//     left: 0;
-//   }
-// }
+@media screen and (max-width: 992px) {
+  .dropdown > .dropdown-menu,
+  .dropend:hover > .dropdown-menu {
+    position: relative;
+    border-top: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
