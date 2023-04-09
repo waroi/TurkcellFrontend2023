@@ -36,10 +36,29 @@ body {
   border: none;
   border-radius: 0;
 }
+.contact {
+  background: url("https://preview.colorlib.com/theme/imagine/images/hero_1.jpg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+z-index: -999;
+  &::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(to right, #4286f4 0%, #42e2f4 100%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.7;
+  }
+}
 
-// .offcanvas-header {
-//   text-align: right;
-// }
+.contact-position{
+  position: relative;
+  z-index: 10;
+}
 @media screen and (min-width: 1400px) {
   .container {
     max-width: 1140px !important;
