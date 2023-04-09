@@ -2,3 +2,71 @@
   font-family: "Nunito", sans-serif;
   line-height: 27px;
 }
+a {
+  text-decoration: none;
+}
+#bussinessSection {
+  height: 84vh;
+}
+h1 {
+  font-weight: 700;
+}
+
+.mainContent h1 {
+  font-size: 56px;
+}
+.mainImage {
+  position: absolute;
+  top: -100px;
+  right: -200px;
+}
+.cardIcon i {
+  color: white;
+}
+.imagineCards {
+  background-color: #f1f1f1;
+}
+.imagineCards p {
+  color: #808080;
+}
+.customCard {
+  border: none;
+  transition: 0.5s all;
+}
+
+.customCard:hover .imagineCards {
+  background-color: rgb(66, 133, 244);
+}
+
+.customCard:hover .cardIcon {
+  background-color: white;
+}
+.customCard:hover .cardIcon i {
+  color: rgb(66, 133, 244);
+}
+.customCard:hover .imagineCards h4,
+.customCard:hover .imagineCards a,
+.customCard:hover .imagineCards p {
+  color: white;
+}
+
+.cardIcon {
+  position: absolute;
+  top: -40px;
+  left: 40%;
+  background-color: rgb(66, 133, 244);
+  width: 80px;
+  height: 80px;
+}
+
+@media screen and (max-width: 900px) {
+  .mainImage {
+    position: static;
+  }
+  .mainContent h1 {
+    font-size: 32px;
+  }
+  #bussinessSection {
+    height: 120vh;
+  }
+}
