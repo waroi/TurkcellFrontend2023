@@ -11,6 +11,10 @@ a {
 h1 {
   font-weight: 700;
 }
+p,
+i {
+  color: #808080;
+}
 
 .mainContent h1 {
   font-size: 56px;
@@ -26,16 +30,30 @@ h1 {
 .imagineCards {
   background-color: #f1f1f1;
 }
-.imagineCards p {
-  color: #808080;
+.carousel-item {
+  position: relative;
 }
-.customCard {
-  border: none;
+.container-carousel {
+  position: absolute;
+  bottom: 0;
+}
+.customCard .card-body,
+.customCard .cardIcon {
   transition: 0.5s all;
 }
 
 .customCard:hover .imagineCards {
   background-color: rgb(66, 133, 244);
+}
+.carousel-indicators button {
+  height: 10px !important;
+  width: 10px !important;
+  border-radius: 50%;
+  background-color: rgb(103, 102, 102) !important;
+  margin-right: 0.5em !important;
+}
+.carousel-indicators button:focus {
+  background-color: #4285f4 !important;
 }
 
 .customCard:hover .cardIcon {
@@ -49,6 +67,14 @@ h1 {
 .customCard:hover .imagineCards p {
   color: white;
 }
+#formSection {
+  background: url("https://preview.colorlib.com/theme/imagine/images/hero_1.jpg ");
+}
+.colorImage {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(35, 139, 230, 0.6);
+}
 
 .cardIcon {
   position: absolute;
@@ -58,7 +84,6 @@ h1 {
   width: 80px;
   height: 80px;
 }
-
 @media screen and (max-width: 900px) {
   .mainImage {
     position: static;
