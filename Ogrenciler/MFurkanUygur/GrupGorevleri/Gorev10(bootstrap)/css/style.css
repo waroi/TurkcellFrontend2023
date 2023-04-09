@@ -1,5 +1,56 @@
-h1 {
-  color: red;
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+.nav-link {
+  color: black;
+  margin: 15px 10px;
+}
+.nav-link:hover {
+  color: #4385f4;
+}
+
+.dropdown:hover > .dropdown-menu,
+.dropend:hover > .dropdown-menu {
+  display: block;
+  margin-top: 0.05em;
+}
+
+.dropend:hover > .dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+.dropdown > .dropdown-menu,
+.dropend > .dropdown-menu {
+  border-top: 2px solid #4385f4;
+}
+.dropdown > .dropdown-menu li:hover,
+.dropend > .dropdown-menu li:hover {
+  background-color: rgba(128, 128, 128, 0.437);
+}
+
+.more-link {
+  margin: 0 8px;
+}
+
+.dropdown-menu {
+  border: none;
+  border-radius: 0;
+}
+.dropdown-menu:first-child {
+  color: red !important;
+}
+
+.offcanvas-header {
+  text-align: right;
+}
+
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1140px !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
