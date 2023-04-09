@@ -116,27 +116,114 @@ p {
   }
 }
 
-//Ezmeler
-.accordion-counter {
-  border: unset !important;
-  box-shadow: unset !important;
-}
-.accordion-button-counter {
-  position: unset;
-  display: flex;
-  align-items: center;
-  width: unset;
-  font-size: 0.5rem !important;
-  color: var(--bs-accordion-btn-color);
-  text-align: unset;
-  background-color: unset !important;
-  border: unset !important;
-  border-radius: unset;
-  overflow-anchor: none;
-  transition: var(--bs-accordion-transition);
-}
-// Custom.scss
+// .accordion-counter {
+//   border: unset !important;
+//   box-shadow: unset !important;
+// }
+// .accordion-button-counter {
+//   position: unset;
+//   display: flex;
+//   align-items: center;
+//   width: unset;
+//   font-size: 0.5rem !important;
+//   color: var(--bs-accordion-btn-color);
+//   text-align: unset;
+//   background-color: unset !important;
+//   border: unset !important;
+//   border-radius: unset;
+//   overflow-anchor: none;
+//   transition: var(--bs-accordion-transition);
+// }
+
+// Custom Variables
 $primary: #4285f4;
+
+//Ezmeler
+nav {
+  a.navbar-brand {
+    font-size: 32px !important;
+    span {
+      color: $primary;
+    }
+  }
+  .navbar-toggler {
+    border: unset;
+  }
+  a {
+    &:hover {
+      color: $primary !important;
+    }
+  }
+}
+.offcanvas {
+  width: 90vw !important;
+  padding-left: 1em;
+}
+.offcanvas-header {
+  padding: 3em 2em 0 0 !important;
+  .btn-close {
+    margin-left: auto;
+  }
+}
+.nav-item {
+  .accordion-item {
+    border: unset !important;
+    box-shadow: unset !important;
+    .accordion-header {
+      position: unset;
+      display: flex;
+      align-items: center;
+      width: unset;
+      font-size: 0.5rem !important;
+      color: var(--bs-accordion-btn-color);
+      text-align: unset;
+      background-color: unset !important;
+      border: unset !important;
+      border-radius: unset;
+      overflow-anchor: none;
+      transition: var(--bs-accordion-transition);
+      a {
+        font-size: 20px;
+        flex: 2;
+      }
+      .accordion-button {
+        background: unset;
+        box-shadow: unset;
+        flex: 1;
+        padding: 0;
+      }
+    }
+  }
+}
+.nav-link {
+  font-size: 20px !important;
+}
+.accordion-body {
+  padding-left: 0 !important;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+.accordion-link {
+  padding: 0 !important;
+  list-style: none !important;
+  a {
+    text-decoration: none;
+    color: unset;
+    color: #808080;
+  }
+}
+#menu-2-link {
+  font-weight: unset;
+  font-size: 16px !important;
+}
+// .dropdown-edit {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
 
 // Import bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
