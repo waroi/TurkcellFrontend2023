@@ -1,8 +1,14 @@
 @media screen and (min-width: 990px) {
+  .container {
+    padding: 0 5em !important;
+  }
   header {
     height: 100vh;
     height: 100dvh;
     padding: 5em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .header-info {
     align-self: center;
@@ -116,5 +122,28 @@
 
   .navbar-nav {
     gap: 2em;
+  }
+
+  // Our Team Section
+  .our-team-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      font-size: 40px;
+    }
+    p {
+      width: 50%;
+    }
+  }
+  .our-team {
+    .card-container {
+      justify-content: space-between;
+      gap: 2em;
+      .card {
+        width: 31%;
+      }
+    }
   }
 }
