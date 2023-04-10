@@ -2,6 +2,7 @@
 
 // Custom Variables
 $primary: #4285f4;
+$gray-100: #f6f6f6;
 
 * {
   font-family: "Nunito", sans-serif;
@@ -120,7 +121,6 @@ p {
 .about-us {
   margin-top: 4em;
   padding: 2em 0;
-  background: #f6f6f6 !important;
   p {
     line-height: 27px;
     .btn {
@@ -149,6 +149,32 @@ p {
   font-size: 30px;
   font-weight: 700;
 }
+/* slider-img-irem*/
+figure {
+  img {
+    max-width: 100px;
+  }
+}
+.slider-text {
+  font-size: 24px;
+}
+.carousel-item {
+  transition-duration: 0.4s !important;
+}
+.carousel-indicators {
+  margin-bottom: -2rem !important;
+  button {
+    display: inline-block;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50%;
+    background-color: #dee2e6 !important;
+  }
+  .active {
+    background-color: $primary !important;
+  }
+}
+
 // Contact Us-Selim
 .contact-us {
   background-image: url("https://preview.colorlib.com/theme/imagine/images/hero_1.jpg.webp");
@@ -350,6 +376,11 @@ nav {
 #blog-section {
   padding: 3em 0;
 }
+//carousel ezmeleri
+// .carousel-indicators{
+//   width: 0;
+//   height: 0;
+// }
 
 // Import bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
