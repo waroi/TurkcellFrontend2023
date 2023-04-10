@@ -5,7 +5,9 @@
   list-style: none;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
+
 .navbar-nav .nav-link {
   color: black;
   margin-right: 35px;
@@ -31,6 +33,14 @@
 .more-free,
 .more-links ul {
   border-top: 3px solid #55adff !important;
+}
+
+.btn {
+  transition: 0.3s ease-in-out;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  background-color: #0c58c9 !important;
 }
 
 .card-con:hover > span {
@@ -59,28 +69,37 @@
   border: 1px solid #eee;
   border-left: 10px solid #4285f4;
 }
-.single-card:hover .ourteam-logo {
-  display: block !important;
-  align-items: center;
-  /* width: 80%; */
-}
+
 .ourteam-logo {
   position: absolute;
-  top: 90%;
+  /* top: -90%; */
+  bottom: -50px;
   left: 0%;
-  animation: logos 0.2s linear;
+  /* animation: logos 0.5s linear; */
+  transition: 0.3s ease-in-out;
+}
+.single-card:hover .ourteam-logo {
+  align-items: center;
+  bottom: 0;
+}
+.single-card img {
+  transition: 0.3s ease-in-out;
+}
+.single-card:hover img {
+  scale: 1.05;
 }
 .single-card:hover {
   transition: 0.3s ease-in-out;
 }
-@keyframes logos {
+
+/* @keyframes logos {
   0% {
     transform: translateY(10%);
   }
   100% {
     transform: translateY(-0%);
   }
-}
+} */
 @media screen and (min-width: 769px) {
   .dropend:hover > .dropdown-menu {
     position: absolute;
@@ -97,5 +116,11 @@
   .main-title {
     font-size: 40px;
     margin-top: 4rem;
+  }
+  .carousel-con {
+    width: 50%;
+  }
+  .corousel-img {
+    width: 200px !important;
   }
 }
