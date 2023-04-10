@@ -156,9 +156,12 @@ p {
   background-image: url("https://preview.colorlib.com/theme/imagine/images/hero_1.jpg.webp");
   background-size: cover;
   background-attachment: fixed;
-  position: relative; 
-  &::before{
+  position: relative;
+  z-index: 0;
+  height: 55em; 
+  .filter{
     content: "";
+    z-index: 1;
     position: absolute;
     top: 0;
     left: 0;
@@ -166,6 +169,10 @@ p {
     bottom: 0;
     opacity: .7;
     background: linear-gradient(to right, #4286f4 0%, #42e2f4 100%);
+  }
+  .contact-div{
+    position: relative;
+    z-index: 2;
   }
   .form-group{
     .btn{
