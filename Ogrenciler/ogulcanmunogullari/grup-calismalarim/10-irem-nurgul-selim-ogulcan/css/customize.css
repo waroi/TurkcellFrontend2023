@@ -3,6 +3,7 @@
 * {
   font-family: "Nunito", sans-serif;
   line-height: 30px;
+  list-style: none;
 }
 
 header {
@@ -113,6 +114,67 @@ p, .card-commu-body blockquote {
 .commu-header div img {
   height: 50px;
   width: 50px;
+}
+
+.about-us {
+  margin-top: 4em;
+  padding: 2em 0;
+  background: #f6f6f6 !important;
+}
+.about-us p, .about-us .card-commu-body blockquote, .card-commu-body .about-us blockquote {
+  line-height: 27px;
+}
+.about-us p .btn, .about-us .card-commu-body blockquote .btn, .card-commu-body .about-us blockquote .btn {
+  font-size: 16px;
+  border-radius: 30px;
+  padding: 10px 30px;
+}
+.about-us .about-list {
+  padding-left: 0 !important;
+}
+.about-us .about-list li p, .about-us .about-list li .card-commu-body blockquote, .card-commu-body .about-us .about-list li blockquote {
+  margin-left: 1em;
+  font-size: 16px;
+  line-height: 24px;
+}
+.about-us .about-list li img {
+  width: 20px;
+  height: 20px;
+}
+
+.center-headline {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.contact-us {
+  background-image: url("https://preview.colorlib.com/theme/imagine/images/hero_1.jpg.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+.contact-us::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.7;
+  background: linear-gradient(to right, #4286f4 0%, #42e2f4 100%);
+}
+.contact-us .form-group .btn {
+  font-size: 16px;
+  border-radius: 30px;
+  padding: 10px 30px;
+}
+
+footer .footer-text {
+  font-size: 16px;
+  line-height: 27px;
+}
+footer a {
+  text-decoration: none;
 }
 
 .disabled-pc {
@@ -11035,6 +11097,15 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+.bg-image {
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.filtre {
+  filter: opacity(30%) hue-rotate(234);
 }
 
 /*# sourceMappingURL=customize.css.map */

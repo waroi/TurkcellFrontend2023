@@ -3,6 +3,7 @@
 * {
   font-family: "Nunito", sans-serif;
   line-height: 30px;
+  list-style: none;
 }
 header {
   position: relative;
@@ -114,6 +115,75 @@ p {
       height: 50px;
       width: 50px;
     }
+  }
+}
+
+// About Us
+.about-us{
+  margin-top: 4em;
+  padding: 2em 0;
+  background: #f6f6f6 !important;
+  p{
+    line-height: 27px;
+    .btn{
+      font-size: 16px;
+      border-radius: 30px;
+      padding: 10px 30px;
+    }
+  }
+  .about-list{
+    padding-left: 0 !important;
+    li{
+      p{
+        margin-left: 1em;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      img{
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.center-headline{
+  font-size: 30px;
+  font-weight: 700;
+}
+// Contact Us-Selim
+.contact-us{
+  background-image: url("https://preview.colorlib.com/theme/imagine/images/hero_1.jpg.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative; 
+  &::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .7;
+    background: linear-gradient(to right, #4286f4 0%, #42e2f4 100%);
+  }
+  .form-group{
+    .btn{
+      font-size: 16px;
+      border-radius: 30px;
+      padding: 10px 30px;
+    }
+  }
+}
+
+// Footer
+footer{
+  .footer-text{
+    font-size: 16px;
+    line-height: 27px;
+  }
+  a{
+    text-decoration: none;
   }
 }
 
@@ -287,8 +357,3 @@ nav {
   // position: absolute;
   filter: opacity(30%) hue-rotate(234);
 }
-//Blog//
-
-
-
-
