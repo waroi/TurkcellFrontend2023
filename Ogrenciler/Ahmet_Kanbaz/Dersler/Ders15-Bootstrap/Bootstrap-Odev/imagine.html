@@ -38,7 +38,9 @@
     >
       <header class="bg-white">
         <div class="container d-flex justify-content-center">
-          <div class="site-mobile-menu p-3 top-0 d-md-none bg-white">
+          <div
+            class="site-mobile-menu p-3 top-0 d-md-none bg-white position-fixed w-100"
+          >
             <div class="d-flex align-items-center justify-content-between">
               <div class="logo">
                 <a href="#" class="text-black h2 mb-0">
@@ -155,7 +157,7 @@
             </div>
           </div>
           <div
-            class="site-web-menu p-3 top-0 bg-white d-none d-md-flex justify-content-between"
+            class="site-web-menu p-3 top-0 bg-white d-none d-md-flex justify-content-center position-fixed w-100"
           >
             <div class="logo">
               <a href="#" class="text-black h2 mb-0">
@@ -168,9 +170,7 @@
                 class="d-flex justify-content-center align-items-center gap-3"
               >
                 <li>
-                  <a
-                    class="list-group-item list-group-item-action"
-                    href="#index.html"
+                  <a class="list-group-item list-group-item-action" href="#hero"
                     >Home</a
                   >
                 </li>
@@ -241,7 +241,7 @@
         </div>
       </header>
 
-      <div class="site-blocks-cover">
+      <div class="site-blocks-cover" id="hero">
         <div class="container">
           <div class="row d-flex align-items center justify-content-center">
             <div class="col-md-12">
@@ -250,7 +250,7 @@
                 alt=""
                 class="img-fluid img-absolute"
               />
-              <div class="row mb-4" style="position: relative; top: -40%">
+              <div class="row mb-4 cover-txt">
                 <div class="col-lg-6 mr-auto">
                   <h1>Make Your Business More Profitable</h1>
                   <p class="mb-5">
@@ -595,7 +595,7 @@
         </div>
       </section>
 
-      <section class="py-5">
+      <section class="py-5" id="our-team-section">
         <div class="container">
           <div class="row justify-content-center mb-5">
             <div class="col-lg-7 text-center">
