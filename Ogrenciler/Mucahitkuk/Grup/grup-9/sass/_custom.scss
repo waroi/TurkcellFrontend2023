@@ -1,0 +1,105 @@
+
+@mixin gray-layer {
+  background-color: #FAFCFF;
+}
+@mixin open-sans{
+  font-family: open-sans;
+}
+
+@mixin section-title {
+  margin-top: 20px;
+  font-size: 36px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.top-menu .float-start a {
+  line-height: 40px;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-right: 50px;
+  -webkit-transition: all 300ms linear 0s;
+  -o-transition: all 300ms linear 0s;
+  transition: all 300ms linear 0s;
+}
+
+.top-menu .float-end a {
+  background: $primary;
+  color: #fff;
+  line-height: 40px;
+  display: block;
+  padding: 0px 40px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.h-25rem {
+  height: 2.5rem;
+}
+
+.nav-item {
+  margin-right: 45px;
+  font-size: 14px;
+  font-weight: 600;
+  span, a {
+    color: black;
+    position: relative;
+    left: 1px;
+  }
+  a:hover {
+    color: $primary !important;
+    transition: all 0.4s ease;
+  }
+}
+
+
+.main-menu .nav-item a.active {
+  color: $primary;
+}
+
+.home-section {
+  background-color: $primary;
+  .banner-inner {
+    overflow: hidden;
+    width: 100%;
+    padding: 225px 0px;
+    h2 {
+      @include section-title;
+    }
+    p {
+      color: #f9f9ff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    max-width: 405px;
+    margin-bottom: 35px;
+    opacity: .6;
+    }
+  }
+}
+
+.banner-btn {
+  padding: 0px 50px;
+  line-height: 50px;
+  background: $secondary;
+  color: #fff;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  -webkit-transition: all 300ms linear 0s;
+  -o-transition: all 300ms linear 0s;
+  transition: all 300ms linear 0s;
+}
