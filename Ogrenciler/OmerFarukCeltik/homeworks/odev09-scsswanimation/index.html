@@ -8,9 +8,8 @@
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/media.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/animation.css">
+  <script src="https://kit.fontawesome.com/5e36563075.js" crossorigin="anonymous"></script>
   <title>Grup 7</title>
 </head>
 
@@ -30,13 +29,10 @@
               </button>
               <div class="dropdown-content">
                 <a href="">Home</a>
-                <a href="">Ads</a>
-                <a href="">About</a>
+                <a href="">Pages</a>
+                <a href="">Portfolio</a>
                 <a href="">Blog</a>
-                <a href="">Pricing</a>
-                <a href="">Contact</a>
-                <a href="">Log In</a>
-                <button class=""></button>
+                <a href="">Shop</a>
               </div>
             </div>
           </div>
@@ -57,9 +53,11 @@
               <li>
                 <a>Shop</a>
               </li>
-              <div class="button">
-                <a class="btn-inner" href=""><span>Get Started</span></a>
-              </div>
+              <li>
+                <div style="width: 200px;" class="button">
+                  <a class="btn-inner" href=""><span style="color: white;">Get Started</span></a>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -67,12 +65,15 @@
       </div>
     </nav>
   </header>
-  <section>
+  <!-- Home -->
+  <section class="home-section" id="home">
     <div class="left-image">
       <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape-1.png">
     </div>
     <div class="right-image">
-      <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape-2.png">
+      <img style="    height: auto;
+      max-width: 100%;"
+        src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/shape-2.png">
     </div>
     <div class="banner-area">
       <div class="container">
@@ -81,10 +82,14 @@
             <h2>Grow Your Retail Faster With Smrat POS Software</h2>
             <p>Integer at lorem eget diam facilisis laci and ides massa Nulla facils Duis ornare facilisis exam awesome
               non porttitor.</p>
-            <button class="btn-inner"><span>Try POS For Free</span></button>
+            <div class="button" style="cursor: pointer;">
+              <a class="btn-inner"><span>Try pos for free</span></a>
+            </div>
           </div>
           <div class="col">
             <div class="section-wrapper">
+              <img class="laptop-image"
+                src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/banner/pos/01.png">
               <div class="right-images">
                 <div class="image-1">
                   <img
@@ -105,6 +110,7 @@
       </div>
     </div>
   </section>
+  <!-- List-section -->
   <section class="list-section">
     <div class="container">
       <div class="omnichanel">
@@ -210,7 +216,61 @@
       </div>
     </div>
   </section>
-
+  <section class="perfect-pos">
+    <div class="container">
+      <div class="perfect-title"></div>
+      <div class="perfect-card">
+        <div class="pcard">
+          <div class="pcard-image">
+            <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/service/pos/01.png" alt="">
+          </div>
+          <h6>Clothing Store</h6>
+        </div>
+        <div class="pcard">
+          <div class="pcard-image">
+            <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/service/pos/02.png" alt="">
+            <h6>Coffee shop</h6>
+          </div>
+        </div>
+        <div class="pcard">
+          <div class="pcard-image">
+            <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/service/pos/03.png" alt="">
+            <h6>furniture store</h6>
+          </div>
+        </div>
+        <div class="pcard">
+          <div class="pcard-image">
+            <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/service/pos/04.png" alt="">
+            <h6>Jewelry store</h6>
+          </div>
+        </div>
+        <div class="pcard">
+          <div class="pcard-image">
+            <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/service/pos/05.png" alt="">
+            <h6>food truck</h6>
+          </div>
+        </div>
+        <div class="pcard">
+          <div class="pcard-image">
+            <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/service/pos/06.png" alt="">
+            <h6>gift store</h6>
+          </div>
+        </div>
+        <div class="pcard">
+          <div class="pcard-image">
+            <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/service/pos/07.png" alt="">
+            <h6>pet store</h6>
+          </div>
+        </div>
+        <div class="pcard">
+          <div class="pcard-image">
+            <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/service/pos/08.png" alt="">
+            <h6>retail example</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="list-section section-reversed">
     <div class="container">
       <div class="omnichanel">
@@ -281,32 +341,14 @@
       </div>
     </div>
   </section>
-  <section class="marks">
+  <!-- Perfect-pos-software -->
+  <section style="padding: 100px 0;" class="cards-software">
     <div class="container">
-      <div class="marks-area">
-        <a href="">
-          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/17.png" alt="">
-        </a>
-        <a href="">
-          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/13.png" alt="">
-        </a>
-        <a class="d-none" href="">
-          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/14.png" alt="">
-        </a>
-        <a class="d-none" href="">
-          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/15.png" alt="">
-        </a>
-        <a class="d-none" href="">
-          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/16.png" alt="">
-        </a>
-        <a class="d-none" href="">
-          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/17.png" alt="">
-        </a>
+      <div class="smart-title">
+        <h2>Perfect POS Software For Most Retail Stores</h2>
+        <p>Etiam suscipit magna a leo fringilla ornare Integer congue porttitor sapien ac viverra.<br> Pellentesque
+          mollis posuere awesome.</p>
       </div>
-    </div>
-  </section>
-  <section class="cards-software">
-    <div class="container">
       <div class="card-section-software">
         <div class="software-card">
           <div class="software-inner-card">
@@ -347,6 +389,239 @@
       </div>
     </div>
   </section>
+  <!-- Smart-pos-last -->
+  <section class="smart-pos">
+    <div class="container">
+      <div class="smart-title">
+        <h2>SmartPOS Powers Retail Stores All Over The World</h2>
+        <p>Etiam suscipit magna a leo fringilla ornare Integer congue porttitor sapien ac viverra.<br> Pellentesque
+          mollis posuere awesome.</p>
+      </div>
+      <div class="smart-card">
+        <div class="smart-card-content">
+          <div class="smart-card-header">
+            <div class="profile">
+              <div class="profile-animation1"></div>
+              <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/01.jpg" alt="">
+            </div>
+            <div class="profile-title">
+              <h5>Shaprin taba</h5>
+              <p>C.T.O</p>
+            </div>
+            <div class="profile-logo">
+              <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/icon/01.png"
+                alt="">
+            </div>
+          </div>
+          <div class="smart-card-title">
+            <p>“Wollabora provide acces to high standadis schemas plug and play services nergistsca
+              orchestrate innovative internal ors "organic" sources without intermandatd total linkage
+              schemas plug and play services nergistsca Continually orchestrate.</p>
+            <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="smart-card-content">
+          <div class="smart-card-header">
+            <div class="profile">
+              <div class="profile-animation2"></div>
+              <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/02.jpg" alt="">
+            </div>
+            <div class="profile-title">
+              <h5>Japrin eshal</h5>
+              <p>C.E.O</p>
+            </div>
+            <div class="profile-logo">
+              <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/icon/02.png"
+                alt="">
+            </div>
+          </div>
+          <div class="smart-card-title">
+            <p>“Wollabora provide acces to high standadis schemas plug and play services nergistsca
+              orchestrate innovative internal ors "organic" sources without intermandatd total linkage
+              schemas plug and play services nergistsca Continually orchestrate.</p>
+            <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="smart-card-content">
+          <div class="smart-card-header">
+            <div class="profile">
+              <div class="profile-animation3"></div>
+              <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/03.jpg" alt="">
+            </div>
+            <div class="profile-title">
+              <h5>umme hafsa</h5>
+              <p>M.D</p>
+            </div>
+            <div class="profile-logo">
+              <img src="https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/icon/03.png"
+                alt="">
+            </div>
+          </div>
+          <div class="smart-card-title">
+            <p>“Wollabora provide acces to high standadis schemas plug and play services nergistsca
+              orchestrate innovative internal ors "organic" sources without intermandatd total linkage
+              schemas plug and play services nergistsca Continually orchestrate.</p>
+            <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="marks">
+    <div class="container">
+      <div class="marks-area">
+        <a href="">
+          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/17.png" alt="">
+        </a>
+        <a href="">
+          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/13.png" alt="">
+        </a>
+        <a class="d-none" href="">
+          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/14.png" alt="">
+        </a>
+        <a class="d-none" href="">
+          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/15.png" alt="">
+        </a>
+        <a class="d-none" href="">
+          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/16.png" alt="">
+        </a>
+        <a class="d-none" href="">
+          <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/sponsor/17.png" alt="">
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <div class="footer-bg-wrapper">
+    <div class="container">
+      <div class="border-bottom">
+        <div class="row">
+          <div class="col">
+            <div class="header-style">
+              <h2>Try SmratPOS Free For 14 Days</h2>
+              <p>Instant Access, No Credit Card, No Risk.</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="btn-group">
+              <a href="">
+                <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/vpn/app/01.png">
+                <div class="app-download">
+                  <p>Download on the</p>
+                  <span>Google Play</span>
+                </div>
+              </a>
+              <a href="">
+                <img src="http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/vpn/app/02.png">
+                <div class="app-download">
+                  <p>Download on the</p>
+                  <span>App Store</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="footer-content">
+                <h6>SmratPOS</h6>
+                <ul>
+                  <li><a href="">How Hike POS Works</a></li>
+                  <li><a href="">Retail POS system</a></li>
+                  <li><a href="">Partner program</a></li>
+                  <li><a href="">Terms of Use</a></li>
+                  <li><a href="">Privacy Policy</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col">
+              <div class="footer-content">
+                <h6>POS Software</h6>
+                <ul>
+                  <li><a href="">Cash Register Software</a></li>
+                  <li><a href="">Mobile POS System</a></li>
+                  <li><a href="">Cloud POS</a></li>
+                  <li><a href="">IPad POS</a></li>
+                  <li><a href="">Tablet POS</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col">
+              <div class="footer-content">
+                <h6>Social Contact</h6>
+                <ul>
+                  <li><a href="">
+                      <i class="fa fa-facebook"></i>Facebook
+                    </a></li>
+                  <li><a href="">
+                      <i class="fa fa-twitter"></i>Twitter
+                    </a></li>
+                  <li><a href="">
+                      <i class="fa fa-instagram"></i>Instagram
+                    </a></li>
+                  <li><a href="">
+                      <i class="fa fa-youtube"></i>YouTube
+                    </a></li>
+                  <li><a href="">
+                      <i class="fa fa-github"></i>Github
+                    </a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col">
+              <div class="footer-content">
+                <h6>Our Support
+                </h6>
+                <ul>
+                  <li><a href="">Help Center</a></li>
+                  <li><a href="">Paid with Mollie</a></li>
+                  <li><a href="">Status</a></li>
+                  <li><a href="">Changelog</a></li>
+                  <li><a href="">Contact Support</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding-top: 50px;" class="footer-bottom">
+          <div class="container">
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1);" class="top-border">
+              <p style="margin-top: 50px; text-align:center;">© 2021 All Rights Reserved. Designed by CodexCoder</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="arrow-up">
+        <a href="#home">
+          <i class="fa-sharp fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+    </footer>
+  </div>
 </body>
 
 </html>
