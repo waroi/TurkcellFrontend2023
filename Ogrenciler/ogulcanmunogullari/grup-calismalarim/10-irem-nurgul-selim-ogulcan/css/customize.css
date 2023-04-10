@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap%27");
 * {
   font-family: "Nunito", sans-serif;
+  line-height: 30px;
 }
 
 header {
@@ -49,23 +50,23 @@ p, .card-commu-body blockquote {
   font-size: 20px;
 }
 
-.card {
+.card-features .card {
   background: #f1f1f1;
   border: none;
   position: relative;
   transition: 0.3s all ease;
 }
-.card a {
+.card-features .card a {
   color: #4285f4;
   text-decoration: none;
 }
-.card h3, .card .h3 {
+.card-features .card h3, .card-features .card .h3 {
   font-size: 18px;
 }
-.card p, .card .card-commu-body blockquote, .card-commu-body .card blockquote {
+.card-features .card p, .card-features .card .card-commu-body blockquote, .card-commu-body .card-features .card blockquote {
   font-size: 16px;
 }
-.card span {
+.card-features .card span {
   position: absolute;
   top: -40px;
   right: 40%;
@@ -75,21 +76,21 @@ p, .card-commu-body blockquote {
   background: #4285f4;
   color: #fff;
 }
-.card span i {
+.card-features .card span i {
   font-size: 32px;
 }
-.card:hover {
+.card-features .card:hover {
   transform: translateY(-5px);
   background: #4285f4;
 }
-.card:hover h3, .card:hover .h3,
-.card:hover p,
-.card:hover .card-commu-body blockquote,
-.card-commu-body .card:hover blockquote,
-.card:hover a {
+.card-features .card:hover h3, .card-features .card:hover .h3,
+.card-features .card:hover p,
+.card-features .card:hover .card-commu-body blockquote,
+.card-commu-body .card-features .card:hover blockquote,
+.card-features .card:hover a {
   color: #fff;
 }
-.card:hover span {
+.card-features .card:hover span {
   background-color: #fff;
   color: #4285f4;
   box-shadow: 0 0 20px 0 rgba(66, 133, 244, 0.3137254902);
@@ -112,6 +113,14 @@ p, .card-commu-body blockquote {
 .commu-header div img {
   height: 50px;
   width: 50px;
+}
+
+.disabled-pc {
+  display: block;
+}
+
+.disabled-mobile {
+  display: none;
 }
 
 nav a.navbar-brand {
@@ -194,6 +203,67 @@ nav a:hover {
 #menu-2-link {
   font-weight: unset;
   font-size: 16px !important;
+}
+
+.our-team-info h2, .our-team-info .h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+.our-team-info p, .our-team-info .card-commu-body blockquote, .card-commu-body .our-team-info blockquote {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.our-team-info .card {
+  overflow: hidden;
+}
+
+.card {
+  border: unset !important;
+  cursor: pointer;
+}
+.card .card-img-container {
+  overflow: hidden;
+  position: relative;
+}
+.card .card-body {
+  padding: 1em 0;
+}
+.card .card-text {
+  margin-top: 1em;
+}
+.card .card-img-footer {
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  bottom: -46px;
+  left: 0;
+  width: 100%;
+  padding: 0.5em;
+  background-color: #4285f4;
+}
+.card .card-img-footer a i {
+  color: #fff;
+}
+.card:hover .card-img-footer {
+  bottom: 0;
+}
+.card .card-img-top {
+  transition: all 0.3s ease-in-out;
+}
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+.card h5, .card .h5 {
+  font-size: 18px;
+}
+.card h6, .card .h6 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #4285f4;
 }
 
 /*!

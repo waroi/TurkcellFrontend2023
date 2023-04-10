@@ -2,6 +2,7 @@
 
 * {
   font-family: "Nunito", sans-serif;
+  line-height: 30px;
 }
 header {
   position: relative;
@@ -47,7 +48,7 @@ p {
     font-size: 20px;
   }
 }
-.card {
+.card-features .card {
   background: #f1f1f1;
   border: none;
   position: relative;
@@ -116,29 +117,16 @@ p {
   }
 }
 
-// .accordion-counter {
-//   border: unset !important;
-//   box-shadow: unset !important;
-// }
-// .accordion-button-counter {
-//   position: unset;
-//   display: flex;
-//   align-items: center;
-//   width: unset;
-//   font-size: 0.5rem !important;
-//   color: var(--bs-accordion-btn-color);
-//   text-align: unset;
-//   background-color: unset !important;
-//   border: unset !important;
-//   border-radius: unset;
-//   overflow-anchor: none;
-//   transition: var(--bs-accordion-transition);
-// }
-
 // Custom Variables
 $primary: #4285f4;
 
 //Ezmeler
+.disabled-pc {
+  display: block;
+}
+.disabled-mobile {
+  display: none;
+}
 nav {
   a.navbar-brand {
     font-size: 32px !important;
@@ -219,11 +207,72 @@ nav {
   font-weight: unset;
   font-size: 16px !important;
 }
-// .dropdown-edit {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-// }
+// Our Team Section Ezmeleri
+
+.our-team-info {
+  h2 {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  p {
+    font-size: 20px;
+    font-weight: 300;
+  }
+}
+.our-team-info {
+  .card {
+    overflow: hidden;
+  }
+}
+.card {
+  border: unset !important;
+  cursor: pointer;
+  .card-img-container {
+    overflow: hidden;
+    position: relative;
+  }
+  .card-body {
+    padding: 1em 0;
+  }
+  .card-text {
+    margin-top: 1em;
+  }
+  .card-img-footer {
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    bottom: -46px;
+    left: 0;
+    width: 100%;
+    padding: 0.5em;
+    background-color: $primary;
+    a {
+      i {
+        color: #fff;
+      }
+    }
+  }
+  &:hover .card-img-footer {
+    bottom: 0;
+  }
+  .card-img-top {
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover .card-img-top {
+    transform: scale(1.05);
+  }
+  h5 {
+    font-size: 18px;
+  }
+  h6 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: $primary;
+  }
+}
 
 // Import bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
