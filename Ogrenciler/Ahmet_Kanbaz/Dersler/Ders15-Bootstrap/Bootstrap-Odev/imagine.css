@@ -14,6 +14,22 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+header {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  height: auto;
+  background-color: #8bc34a !important;
+}
+
+.site-web-menu {
+  gap: 25%;
+}
+
+.site-web-menu i {
+  padding: 0 0.75rem !important;
+}
+
 .site-blocks-cover {
   overflow: hidden;
 }
@@ -22,6 +38,10 @@ body {
   color: #000;
   font-weight: 700;
   font-size: 2rem;
+}
+
+.cover-txt {
+  top: 0;
 }
 
 .site-section {
@@ -154,17 +174,7 @@ body {
   background: transparent;
 }
 
-.site-web-menu {
-  position: fixed;
-  width: 1142px;
-}
-.site-mobile-menu,
-.site-mobile-web {
-  position: fixed;
-  width: 100%;
-}
-
-/* Ahmet */
+/* #region Ahmet */
 
 .success {
   color: #8bc34a;
@@ -248,7 +258,9 @@ body {
   font-style: italic;
 }
 
-/* Tahir */
+/* #endregion */
+
+/*#region Tahir */
 
 .baslik {
   color: #000;
@@ -286,18 +298,14 @@ body {
   color: white;
   padding-top: 80px;
 }
-/* .send-btn {
-  border-radius: 500px;
-}
-.send-btn:hover {
-  transform: translateY(-2px);
-} */
+
 .footer-top {
   cursor: pointer;
 }
 .footer-bottom p {
   color: gray;
 }
+/* #endregion */
 
 @media (min-width: 991.98px) {
   .img-absolute {
@@ -313,5 +321,10 @@ body {
 
   .site-blocks-cover h1 {
     font-size: 3.5rem;
+  }
+
+  .cover-txt {
+    position: relative;
+    top: -40%;
   }
 }
