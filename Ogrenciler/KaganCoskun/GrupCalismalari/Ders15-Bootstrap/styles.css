@@ -41,7 +41,6 @@ ul {
   color: #000;
 }
 
-
 .pd-5em {
   padding-top: 5em;
   padding-bottom: 2.5em;
@@ -85,14 +84,6 @@ ul {
 .unit-4 a {
   text-decoration: none;
 }
-
-@media screen and (min-width: 1400px) {
-  .container {
-    max-width: 1140px !important;
-  }
-}
-
-
 
 .little-box {
   box-shadow: 0 5px 15px -2px rgba(0, 0, 0, 0.1);
@@ -187,4 +178,66 @@ ul {
 .fa-check {
   color: #8bc34a;
   margin: 0 1rem 1rem 0;
+}
+
+.nav-link {
+  color: black;
+  margin: 15px 10px;
+}
+.nav-link:hover {
+  color: #4385f4;
+}
+
+.dropdown:hover > .dropdown-menu,
+.dropend:hover > .dropdown-menu {
+  display: block;
+  margin-top: 0.05em;
+}
+
+.dropend:hover > .dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+.dropdown > .dropdown-menu,
+.dropend > .dropdown-menu {
+  border-top: 2px solid #4385f4;
+}
+.dropdown > .dropdown-menu li:hover,
+.dropend > .dropdown-menu li:hover {
+  background-color: rgba(128, 128, 128, 0.437);
+}
+
+.more-link {
+  margin: 0 8px;
+}
+
+.dropdown-menu {
+  border: none;
+  border-radius: 0;
+}
+
+.contact {
+  background: url("https://preview.colorlib.com/theme/imagine/images/hero_1.jpg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  z-index: -999;
+}
+.contact::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(to right, #4286f4 0%, #42e2f4 100%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.7;
+}
+
+.contact-position {
+  position: relative;
+  z-index: 10;
 }
