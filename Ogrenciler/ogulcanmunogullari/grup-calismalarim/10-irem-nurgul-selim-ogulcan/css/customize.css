@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap%27");
 * {
   font-family: "Nunito", sans-serif;
+  line-height: 30px;
+  list-style: none;
 }
 
 header {
@@ -25,14 +27,10 @@ p, .card-commu-body blockquote {
 }
 .header-info button {
   padding: 13px 40px;
-  background: #4285f4;
-  color: #fff;
   transition: all 0.3s ease-in-out;
 }
 .header-info button:hover {
   transform: translateY(-3px);
-  background: #4285f4;
-  color: #fff;
   box-shadow: 0 0 20px 0 rgba(66, 134, 244, 0.3411764706);
 }
 
@@ -49,23 +47,22 @@ p, .card-commu-body blockquote {
   font-size: 20px;
 }
 
-.card {
+.card-features .card {
   background: #f1f1f1;
   border: none;
   position: relative;
   transition: 0.3s all ease;
 }
-.card a {
-  color: #4285f4;
+.card-features .card a {
   text-decoration: none;
 }
-.card h3, .card .h3 {
+.card-features .card h3, .card-features .card .h3 {
   font-size: 18px;
 }
-.card p, .card .card-commu-body blockquote, .card-commu-body .card blockquote {
+.card-features .card p, .card-features .card .card-commu-body blockquote, .card-commu-body .card-features .card blockquote {
   font-size: 16px;
 }
-.card span {
+.card-features .card span {
   position: absolute;
   top: -40px;
   right: 40%;
@@ -75,21 +72,21 @@ p, .card-commu-body blockquote {
   background: #4285f4;
   color: #fff;
 }
-.card span i {
+.card-features .card span i {
   font-size: 32px;
 }
-.card:hover {
+.card-features .card:hover {
   transform: translateY(-5px);
   background: #4285f4;
 }
-.card:hover h3, .card:hover .h3,
-.card:hover p,
-.card:hover .card-commu-body blockquote,
-.card-commu-body .card:hover blockquote,
-.card:hover a {
+.card-features .card:hover h3, .card-features .card:hover .h3,
+.card-features .card:hover p,
+.card-features .card:hover .card-commu-body blockquote,
+.card-commu-body .card-features .card:hover blockquote,
+.card-features .card:hover a {
   color: #fff;
 }
-.card:hover span {
+.card-features .card:hover span {
   background-color: #fff;
   color: #4285f4;
   box-shadow: 0 0 20px 0 rgba(66, 133, 244, 0.3137254902);
@@ -112,6 +109,82 @@ p, .card-commu-body blockquote {
 .commu-header div img {
   height: 50px;
   width: 50px;
+}
+
+.about-us {
+  margin-top: 4em;
+  padding: 2em 0;
+  background: #f6f6f6 !important;
+}
+.about-us p, .about-us .card-commu-body blockquote, .card-commu-body .about-us blockquote {
+  line-height: 27px;
+}
+.about-us p .btn, .about-us .card-commu-body blockquote .btn, .card-commu-body .about-us blockquote .btn {
+  font-size: 16px;
+  border-radius: 30px;
+  padding: 10px 30px;
+}
+.about-us .about-list {
+  padding-left: 0 !important;
+}
+.about-us .about-list li p, .about-us .about-list li .card-commu-body blockquote, .card-commu-body .about-us .about-list li blockquote {
+  margin-left: 1em;
+  font-size: 16px;
+  line-height: 24px;
+}
+.about-us .about-list li img {
+  width: 20px;
+  height: 20px;
+}
+
+.center-headline {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.contact-us {
+  background-image: url("https://preview.colorlib.com/theme/imagine/images/hero_1.jpg.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 0;
+  height: 55em;
+}
+.contact-us .filter {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.7;
+  background: linear-gradient(to right, #4286f4 0%, #42e2f4 100%);
+}
+.contact-us .contact-div {
+  position: relative;
+  z-index: 2;
+}
+.contact-us .form-group .btn {
+  font-size: 16px;
+  border-radius: 30px;
+  padding: 10px 30px;
+}
+
+footer .footer-text {
+  font-size: 16px;
+  line-height: 27px;
+}
+footer a {
+  text-decoration: none;
+}
+
+.disabled-pc {
+  display: block;
+}
+
+.disabled-mobile {
+  display: none;
 }
 
 nav a.navbar-brand {
@@ -194,6 +267,71 @@ nav a:hover {
 #menu-2-link {
   font-weight: unset;
   font-size: 16px !important;
+}
+
+.our-team-info h2, .our-team-info .h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+.our-team-info p, .our-team-info .card-commu-body blockquote, .card-commu-body .our-team-info blockquote {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.our-team-info .card {
+  overflow: hidden;
+}
+
+.card {
+  border: unset !important;
+  cursor: pointer;
+}
+.card .card-img-container {
+  overflow: hidden;
+  position: relative;
+}
+.card .card-body {
+  padding: 1em 0;
+}
+.card .card-text {
+  margin-top: 1em;
+}
+.card .card-img-footer {
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  bottom: -46px;
+  left: 0;
+  width: 100%;
+  padding: 0.5em;
+  background-color: #4285f4;
+}
+.card .card-img-footer a i {
+  color: #fff;
+}
+.card:hover .card-img-footer {
+  bottom: 0;
+}
+.card .card-img-top {
+  transition: all 0.3s ease-in-out;
+}
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+.card h5, .card .h5 {
+  font-size: 18px;
+}
+.card h6, .card .h6 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #4285f4;
+}
+
+#blog-section {
+  padding: 3em 0;
 }
 
 /*!
@@ -10965,6 +11103,15 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+.bg-image {
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.filtre {
+  filter: opacity(30%) hue-rotate(234);
 }
 
 /*# sourceMappingURL=customize.css.map */
