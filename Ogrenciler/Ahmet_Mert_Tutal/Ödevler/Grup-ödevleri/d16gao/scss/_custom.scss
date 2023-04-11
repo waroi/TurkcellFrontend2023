@@ -1,27 +1,14 @@
 * {
   font-family: "Roboto", sans-serif;
 }
-@media screen and (min-width: 992px) {
-  .container:not(.pancard.container) {
-    padding: 0 5em;
-  }
-  #looking-for-solution {
-    p {
-      width: 50%;
-    }
-  }
-  header {
-    h3 {
-      font-size: 36px !important;
-      line-height: 1.2;
-      font-weight: 600 !important;
-    }
+.material-symbols-outlined{
+  margin-top: 8px;
+  color: $secondary;
+
+  &:hover{
+    color: $danger !important;
   }
 }
-
-// header.py-5 {
-//     padding: 8em 0 !important;
-// }
 
 header {
   h3 {
@@ -43,7 +30,19 @@ header {
 .big-h {
   font-size: 36px !important;
 }
+
 //Bootstrap Class Overrides
+.active{
+  color: $danger !important;
+}
+.nav-link{
+  color: $info;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
+.nav-link:hover{
+  color: $danger;
+}
 .btn-primary {
   &:hover {
     background-color: $primary !important;
@@ -212,3 +211,5 @@ a {
     opacity: 1;
   }
 }
+
+
