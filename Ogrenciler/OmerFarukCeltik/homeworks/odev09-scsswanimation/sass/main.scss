@@ -2,30 +2,36 @@
   --button-primary-color: linear-gradient(to right, #ff5195, #ffb84b);
   --button-secondary-color: linear-gradient(to left, #ffab8b, #ff957d, #ff7d75, #ff6371, #fd4372);
   --icon-color: #fd4372;
-  --site-background-color:#FFFEF9;
+  --site-background-color: #FFFEF9;
   --card-bottom-color: linear-gradient(to left, #f9769d, #bb6df7);
 }
-.container {
- padding: 0 10px;
+
+p {
+  font-size: 1rem;
 }
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+// img display none
+.left-image {
+  display: none;
 }
-@mixin col50($w) {
-  display: flex;
-  flex-direction: column;
-  width: $w;
+
+.right-image {
+  display: none;
 }
+
+.site-navbar {
+  display: none;
+}
+
 // h2 margin padding ve font size
-@mixin title_h2_tag($font-size, $m, $p, $c,$fw) {
+@mixin title_h2_tag($font-size, $m, $p, $c, $fw) {
   font-size: $font-size;
   font-weight: $fw;
   margin: $m;
   padding: $p;
   color: $c;
 }
+
 // section ve ul li ler için grid area düzenlemesi
 @mixin grid_area($grid-column, $justify, $m, $p, $g) {
   display: grid;
@@ -36,6 +42,7 @@
   padding: $p;
   gap: $g;
 }
+
 // flex area
 @mixin flex_area($fl-dir, $justify, $algn-itm, $m, $p) {
   display: flex;
@@ -45,17 +52,19 @@
   margin: $m;
   padding: $p;
 }
+
 // card yapıları 
 @mixin cards-software($w,$h, $p, $m, $txt-align,$bg,$brad,$pos) {
   width: $w;
   height: $h;
-  padding: $p; 
+  padding: $p;
   margin: $m;
   text-align: $txt-align;
   background: $bg;
   border-radius: $brad;
   position: $pos;
 }
+
 @mixin button($d, $p, $bg, $tr, $pos, $ov, $top, $r, $b, $l, $tr-orgn, $trfm, $cnt) {
   display: $d;
   padding: $p;
@@ -72,322 +81,43 @@
   content:$cnt;
   transform-origin: $tr-orgn;
 }
-@mixin pcard {
-  padding: 30px; 
-  border-radius: 5px;
-  text-align: center;
-  border: 1px solid rgba(128, 128, 128, 0.182);
-  box-shadow: 0 4px 4px rgba(58, 58, 58, 0.1);
-  transition: 0.3s ease;
-  &:hover {
-    box-shadow: 0 -4px 4px rgba(58, 58, 58, 0.1);
-    transform: translateY(-2px);
-  }
-}
-// @mixin smart-paragraph {
-//   font-size: 16px;
-//   margin: 0;
-//   color: #696969;
-//   text-align: left;
-//   line-height: 24px;
-// }
-@mixin profile-animation-bg($url) {
-  content: url($url);
-  position: absolute;
-  animation: anime 5s linear infinite;
-  top: -10px;
-  left: -10px;
-}
-.arrow-up{
-  border-radius: 100%;
-background-color: #fd4372 ;
-height: 40px;
-width: 40px;
-display: flex;
-justify-content: center;
-align-items: center;
-text-decoration: none;
-position: fixed;
-bottom: 40px;
-right: 40px;
-z-index: 1040;
-animation: pulse-animation2 1s infinite, updown 8s infinite;
-  a {
-    color: white;
-    text-align: center;
-  }
-}
-//nav//
-.dropdown {
-  display: none;
-  width: 100%;
-  .dropbtn {
-    width: 100%;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: black;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    position: relative;
-  }
-}
-.dropdown-content {
-  width: 300px;
-  position: absolute;
-  left: 0;
-  z-index: 2000;
-  top: 100%;
-  padding-top: 20px;
-  background: #fff;
-  height: calc(100vh);
-  transform: translateX(-110%);
-  box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
-  -webkit-transition: 0.5s all ease-in-out;
-  a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    font-weight: 600;
-    &:hover {
-      color: blue;
-    }
-  }
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-  transform: translateX(0%);
-}
-header {
-  position: relative;
-}
-.site-navbar {
-  z-index: 1999;
-  position: absolute;
-  top: 20px;
-  width: 100%;
-  border-radius: 4px;
-  padding: 10px;
-  .row {
-    @include flex_area(row,inherit,center,inherit,inherit);
-  }
-  .col-1 {
-    justify-content: center;
-    display: flex;
-    align-items: center;
-  }
-  h1 {
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 900;
-  }
-  .col-2 {
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-  }
-  .site-navigation {
-    text-align: right;
-    align-items: center;
-    display: flex;
-    ul {
-      display: flex;
-      align-items: center;
-      a {
-        color: black;
-        text-decoration: none !important;
-        padding: 1rem 1.5rem;
-        display: inline-block;
-        font-size: 16px;
-        cursor: pointer;
-      }
-    }
-  }
-}
-//nav//
-// Home //
-.home-section {
-  background-color: #F9F2FF;
-  padding: 265px 0 134px;
-  position: relative;
-  .left-image {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  .right-image {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .banner-area {
-    z-index: 2;
-    position: relative;
-    height: 500px;
-    @include flex-center;
-  }
-  .row-grid {
-    @include flex_area(row,inherit,center,inherit,inherit);
-    flex-wrap: wrap;
-    .col {
-     @include col50(50%);
-      h2 {
-        font-size: 60px;
-        line-height: 72px;
-      }
-      p {
-        margin: 15px 0 30px;
-        color: #696969;
-        max-width: 80%;
-      }
-      .section-wrapper {
-        display: flex;
-        position: relative;
-      }
-      .right-images {
-        position: relative;
-        .image-1 {
-          right: 10rem;
-          top: 23%;
-          animation: sideffect 15s linear infinite;
-          position: absolute;
-        }
-        .image-2 {
-          animation: sideffect2 5s linear infinite;
-          position: absolute;
-          top: 0;
-          right: -40%;
-        }
-        .image-3 {
-          bottom: 0;
-          top: 5rem;
-          right: 29rem;
-          animation: updown 5s linear infinite;
-          position: absolute;
-        }
-      }
-    }
-  }
-}
-// Home //
 
-// Footer //
-.footer-bg-wrapper {
-  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding-top: 110px;
-    .border-bottom {
-      padding: 0 0 60px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-  .row{
-    @include flex_area(row,inherit,center,inherit,inherit);
-    .col {
-      @include col50(50%);
-    }
-    .header-style {
-      max-width: 100%;
-      margin-bottom: 0;
-      margin-left: 0;
-      text-align: left;
-      h2 {
-        margin-bottom: 5px;
-        color: #fff;
-        font-size: 36px;
-    line-height: 48px;
-      }
-      p {
-        color: #fff;
-        margin-bottom: 0;
-      }
-    }
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      flex-direction: row-reverse;
-      a {
-        width: 230px;
-    height: 70px;
-    padding: 10px 20px;
-    border-radius: 2px;
-    margin-bottom: 20px;
-    background: #fff;
-    display: flex;
-        img {
-          margin-right: 10px;
-        }
-        span {
-          text-transform: uppercase;
-          font-weight: 700;
-          color: #c961fa;
-        }
-        p {
-          margin-bottom: 0;
-          color: #696969;
-        }
-      }
-    }
-  }
-}
-.footer-content {
-  i {
-    margin-right: 10px;
-  }
-}
-
-.footer-padding {
-  padding-top: 110px;
-  padding-bottom: 95px; 
-  h6 {
-   @include title_h2_tag(18px, inherit, 0 0 10px , #fff,700);
-   text-transform: uppercase;
-  }
-  li {
-    padding-top: 1rem;
-  }
-  a {
-    font-size: 16px;
-    color: #fff;
-  }
-}
-// Footer //
-p {
-  font-size: 1rem;
-}
-
-// list sections
+// ul li img area 
 .list-section {
   padding: 80px 0 55px;
-  &.site-bg{
+
+  &.site-bg {
     background-color: var(--site-background-color);
   }
+
   .omnichanel {
     @include grid_area(1fr, flex-start, 10px, 10px, 40px);
+
     .list-area {
       order: 1;
+
       .title {
-        @include title_h2_tag(1rem, 0 0 40px, 0 0 30px, #696969,300);
+        @include title_h2_tag(1rem, 0 0 40px, 0 0 30px, #696969, 300);
         border-bottom: 1px solid #ecf0f3;
+
         h2 {
-          @include title_h2_tag(24px, -10px 0 20px, 0, #000,700)
+          @include title_h2_tag(24px, -10px 0 20px, 0, #000, 700)
         }
       }
+
       .ul-area {
         @include flex_area(column, flex-start, inherit, 0 0 20px, inherit);
+
         li {
           padding: 10px 10px;
+
           i {
             color: var(--icon-color);
           }
         }
       }
     }
+
     .list-img {
       img {
         order: -1;
@@ -397,7 +127,25 @@ p {
     }
   }
 }
-//software cards area
+// marks area
+.marks {
+  background-color: var(--site-background-color);
+}
+
+.marks-area {
+  @include flex_area(row, space-evenly, center, 30px, 0);
+  gap: 80px;
+
+  a {
+    transition: all .5s ease-in-out;
+  }
+
+  a:nth-child(n+3) {
+    display: none;
+  }
+}
+
+
 .card-section-software {
   @include flex_area(column, center, center, inherit, 80px 30px 55px);
   text-align: center;
@@ -466,43 +214,6 @@ p {
   }
 }
 
-@media screen and (min-width:576px) {
-  .ul-area{
-    flex-direction: row !important;
-  }
-}
-@media screen and (min-width:992px) {
-  .list-section{
-    padding: 110px 0 95px;
-  }
-  .omnichanel{
-    grid-template-columns: 1fr 1fr !important;
-    .title{
-      width: 80%;
-      h2{
-        font-size: 36px !important;
-      }
-    }
-  }
-    .list-area{
-      order: -1 !important;
-    }
-    .list-img {
-      img{
-      order: 1 !important;
-    }
-    }
-    .section-reversed{
-      .list-area{
-        order:1 !important;
-      }
-      .list-img {
-        img{
-        order:-1 !important;
-      }
-      }
-    }
-  }
 // button animation area 
 .btn-inner {
   color: #000;
@@ -512,7 +223,6 @@ p {
     @include button(inherit, inherit, var(--button-secondary-color), transform .3s ease-in-out, absolute, inherit,0,0,0,0,100% 50%,scaleX(0),"");
   }
   span {
-    color: white;
     z-index: 1;
     position: relative;
   }
@@ -523,18 +233,7 @@ p {
     }
   }
 }
-// marks area
 
-.marks-area{
-  @include flex_area(row, space-evenly, center, 30px, 0);
-  gap: 80px;
-  a{
-    transition: all .5s ease-in-out;
-  }
-  a:nth-child(n+3){
-  display: none;
-  }
-}
 @media screen and (min-width:576px) {
   .card-section-software {
     flex-direction: row;
@@ -545,17 +244,22 @@ p {
       width: 45%;
     }
   }
-  .ul-area{
+  .ul-area {
     flex-direction: row !important;
   }
-  .marks-area{
+
+  .marks-area {
     padding: 70px 0 55px;
-    a:nth-child(-n+3){
+
+    a:nth-child(-n+3) {
       display: block;
-      }
-      a:hover{
-        filter: grayscale(.9);
-      }
+    }
+  }
+
+  .marks-area {
+    a:hover {
+      filter: grayscale(.9);
+    }
   }
 }
 @media screen and (min-width:992px) {
@@ -563,147 +267,62 @@ p {
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 50px;
+
     .software-card {
       width: 33%;
     }
   }
-  .list-section{
+
+  .list-section {
     padding: 110px 0 95px;
   }
-  .omnichanel{
+
+  .omnichanel {
     grid-template-columns: 1fr 1fr !important;
-    .title{
+
+    .title {
       width: 80%;
-      h2{
+
+      h2 {
         font-size: 36px !important;
       }
     }
   }
-    .list-area{
-      order: -1 !important;
-    }
-    .list-img {
-      img{
+
+  .list-area {
+    order: -1 !important;
+  }
+
+  .list-img {
+    img {
       order: 1 !important;
     }
-    }
-    .section-reversed{
-      .list-area{
-        order:1 !important;
-      }
-      .list-img {
-        img{
-        order:-1 !important;
-      }
-      }
-    }
-    .marks-area{
-      a:nth-child(n){
-        display: block;
-        }
-    }
   }
-.perfect-card {
-  @include grid_area(repeat(auto-fit, minmax(250px, 1fr)), inherit, inherit, inherit, 1.5rem);
-  .pcard {
-    @include pcard;
-    @include  title_h2_tag(18px, inherit, 15px, #000,700);
-    width: 100%;
-    text-transform: uppercase;
-    img {
-     padding: 15px;
+
+  .section-reversed {
+    .list-area {
+      order: 1 !important;
     }
-  }
-}
-// ana section sınıfı
-.smart-pos {
-  background-color: #fffef6;
-  padding: 100px 0;
-}
-.smart-title {
-  h2 {
-    @include title_h2_tag(36px, -10px 0 20px, 0, #000,700);
-    text-align: center;
-  }
-  p {
-    @include title_h2_tag(1rem, 0 0 40px, 0 0 30px, #696969,300);
-    text-align: center;
-  }
-}
-//3 adet kartın kapsayıcısı
-.smart-card {
-  @include grid_area(repeat(auto-fit, minmax(300px, 1fr)), inherit, inherit, 20px 0, 2rem); 
-}
-//Paragraflar
-//3 adet kartın iç kısımları
-.smart-card-content {
-  background-color: white;
-  border-radius: 5px;
-  padding: 30px;
-  box-shadow: 0px 0px 5px 1px rgba(128, 128, 128, 0.319);
-  &:hover {
-    .profile-animation1,.profile-animation2,.profile-animation3  {
-      animation-play-state: paused;
-    }
-  }
-  .smart-card-header {
-    display: flex;
-    gap: 1rem;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.198);
-    justify-content: space-between;
-    .profile {
-      position: relative;
+
+    .list-img {
       img {
-        border-radius: 50%;
-      }
-    }
-    .profile-title {
-      h5 {
-        @include title_h2_tag(20px, 0, 0, #000,700);
-        text-transform: capitalize;
-      }
-      p {
-        @include title_h2_tag(16px, 0,0,#696969,300);
+        order: -1 !important;
       }
     }
   }
-  .smart-card-title {
-    @include title_h2_tag(16px, 0, 2rem 0 0 0,#696969,300);
 
-    position: relative;
-    &::after {
-      position: absolute;
-      content: url("https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/01.png");
-      bottom: 10px;
-      right: 25px;
-      width: 10px;
-      height: 5px;
-      transform: scale(0.7);
-      color: black;
+  .marks-area {
+    a:nth-child(n) {
+      display: block;
     }
   }
 }
-.profile-animation1 {
-  @include profile-animation-bg(
-    "https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-3.png"
-  );
-}
-.profile-animation2 {
-  @include profile-animation-bg(
-    "https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-2.png"
-  );
-}
-.profile-animation3{
-    @include profile-animation-bg(
-    "https://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-1.png"
-  );
-}
-//Sarı yıldızlar
-.rating {
-  i {
-    color: #e9ba17;
-    margin: 20px 0;
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px #b96bf554;
+  }
+
+  100% {
+    box-shadow: 0 0 0 30px rgba(36, 194, 255, 0);
   }
 }
-
