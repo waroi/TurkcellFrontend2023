@@ -31,7 +31,7 @@
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
-  --bs-dark: #212529;
+  --bs-dark: #04091e;
   --bs-primary-rgb: 98, 71, 234;
   --bs-secondary-rgb: 236, 157, 95;
   --bs-success-rgb: 250, 252, 255;
@@ -39,7 +39,7 @@
   --bs-warning-rgb: 255, 193, 7;
   --bs-danger-rgb: 220, 53, 69;
   --bs-light-rgb: 248, 249, 250;
-  --bs-dark-rgb: 33, 37, 41;
+  --bs-dark-rgb: 4, 9, 30;
   --bs-primary-text-emphasis: #271c5e;
   --bs-secondary-text-emphasis: #5e3f26;
   --bs-success-text-emphasis: #646566;
@@ -2130,7 +2130,7 @@ progress {
 
 .text-bg-dark {
   color: #fff !important;
-  background-color: RGBA(33, 37, 41, var(--bs-bg-opacity, 1)) !important;
+  background-color: RGBA(4, 9, 30, var(--bs-bg-opacity, 1)) !important;
 }
 
 .link-primary {
@@ -2201,8 +2201,8 @@ progress {
   text-decoration-color: RGBA(var(--bs-dark-rgb), var(--bs-link-underline-opacity, 1));
 }
 .link-dark:hover, .link-dark:focus {
-  color: RGBA(26, 30, 33, var(--bs-link-opacity, 1));
-  text-decoration-color: RGBA(26, 30, 33, var(--bs-link-underline-opacity, 1));
+  color: RGBA(3, 7, 24, var(--bs-link-opacity, 1));
+  text-decoration-color: RGBA(3, 7, 24, var(--bs-link-underline-opacity, 1));
 }
 
 .link-body-emphasis {
@@ -8932,6 +8932,10 @@ progress {
 
 body {
   font-family: "Roboto", sans-serif;
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #777777;
 }
 
 a {
@@ -8994,6 +8998,39 @@ a {
 
 .looking-p {
   margin-bottom: 35px;
+}
+
+.services {
+  overflow: hidden;
+  position: relative;
+}
+.services::before {
+  content: "";
+  background: url("https://preview.colorlib.com/theme/hosthub/img/map-bg.png.webp") no-repeat scroll center center;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.lg-item {
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  padding: 60px 30px;
+  transition: all 300ms linear 0s;
+}
+.lg-item h6, .lg-item .h6 {
+  border-radius: 3px;
+  background: #ec9d5f;
+  display: inline-block;
+  color: #fff;
+  line-height: 30px;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 0px 20px;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 1620px) {
