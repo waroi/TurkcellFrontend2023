@@ -1,3 +1,5 @@
+$primary:#6247ea;
+
 body {
 	font-family: "Roboto", sans-serif;
 	margin: 0;
@@ -13,6 +15,10 @@ ul {
 	list-style-type: none;
 }
 
+.bg-color{
+	background-color:#fafcff;
+}
+
 .container-xxl {
 	max-width: 1620px;
 	margin: auto;
@@ -23,7 +29,44 @@ ul {
 		font-size: 12px;
 		color: #fff;
 		&:hover {
-			color: #6247ea;
+			color: $primary;
+		}
+	}
+}
+
+.price-item{
+	border-top: 2px solid #fff;
+
+	.btn{
+		opacity: 0;
+		border-top-right-radius: 0px;
+		border-top-left-radius: 0px;
+		margin-bottom: -45px;
+		transition: all 0.3s ease-in-out;
+		z-index: 2;
+	}
+	&:hover{
+		border-color: $primary;
+		transition: all 0.3s ease-in-out;
+		.btn{
+			opacity: 1;
+			transition: all 0.3s ease-in-out;
+		}
+	}
+
+	.price-text{
+		padding-top: 75px;
+		padding-bottom: 75px;
+		padding-left: 45px;
+		position: relative;
+		&:before{
+			content: "";
+			width: 1px;
+			background: #eeeeee;
+			height: 336px;
+			position: absolute;
+			right: 0px;
+			bottom: 0px;
 		}
 	}
 }
