@@ -1,0 +1,155 @@
+@mixin font($size, $weight, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+  }
+  
+  @mixin flex($direction, $justify, $align, $gap, $wrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+    flex-wrap: $wrap;
+  }
+  
+  @media screen and (max-width: 390px) {
+    h2{
+      font-size: 24px;
+    }
+    p{
+      font-size: 15px;
+    }
+    .container {
+      max-width: 390px;
+      padding: 0 0.75rem;
+    }
+  
+    header{
+      padding: 10px;
+      background-color: white;
+      width: 100%;
+      // position: fixed;
+      .hamburger{
+        display: inline-block;
+      }
+      .main-area{
+        display: none;
+      }
+    }
+  
+    .banner{
+      padding: 100px 10px;
+      .banner-bg{
+        display: none;
+      }
+      .main-area{
+        @include flex(column,center ,center ,10px ,wrap);
+        .text{
+          padding: 0;
+          h2{
+            font-size: 30px;
+            line-height: 1.4;
+          }
+        }
+        .img{
+          width: 100%;
+          img{
+            max-width: 100%;
+          }
+        }
+        .animation{
+          display: none;
+        }
+      }
+    }
+    .section {
+      @include flex(column, center, center, 20px, nowrap);
+      padding-top: 50px;
+      padding-bottom: 50px;
+      .info {
+        width: 100%;
+      }
+      .img {
+        width: 100%;
+        margin-bottom: 50px;
+        img {
+          width: 100%;
+        }
+      }
+      ul {
+        @include flex(column, flex-start, flex-start, 0, wrap);
+      }
+      li {
+        width: 100%;
+      }
+    }
+    .header {
+      max-width: 100%;
+      h2 {
+        margin-bottom: 15px;
+      }
+      p {
+        margin-bottom: 15px;
+      }
+    }
+    .default{
+        padding-top: 80px;
+        padding-bottom: 55px;
+    
+        .down {
+          @include flex(column, center, center, 0, wrap);
+          .down-item {
+            width: 100%;
+          }
+        }
+    }
+    .store {
+      .wrapper {
+        @include flex(column, center, center, 0, wrap);
+        .wrapper-item {
+          width: 100%;
+        }
+      }
+    }
+    .person{
+      .logo{
+        display: none;
+      }
+    }
+    .logos{
+      .logos-inside{
+        .logos-item{
+          margin: 0 auto;
+        }
+        .none{
+          display: none;
+        }
+      }
+    }
+    footer{
+      .top{
+        padding-top: 80px;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        h2{
+          margin-bottom: 10px
+        }
+        .top-right{
+         @include flex(column,center ,center ,20px ,wrap);
+        }
+      }
+      .middle{
+        @include flex(column,center ,flex-start ,50px ,wrap );
+        .m-item{
+          // margin-top: 5 0px;
+          width: 100%;
+        }
+      }
+      .bottom{
+        @include flex(column,center ,center ,0 ,wrap);
+      }
+    }
+  }
+  
