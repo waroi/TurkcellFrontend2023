@@ -31,6 +31,10 @@ a {
   .float-start {
     a {
       margin-right: 50px;
+      color: #f9f9ff;
+      &:hover {
+        color: $primary;
+      }
     }
   }
   .float-end {
@@ -45,12 +49,20 @@ a {
 }
 
 .main-menu {
+  position: sticky;
+  z-index: 999;
+  top: 0;
   a {
     font: 500 12px/80px "Roboto", sans-serif;
     color: #222;
   }
   .nav-item {
     margin-right: 45px;
+    &:hover {
+      a {
+        color: $primary;
+      }
+    }
   }
 }
 
