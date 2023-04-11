@@ -5,6 +5,11 @@
   .container:not(.pancard.container) {
     padding: 0 5em;
   }
+  #looking-for-solution {
+    p {
+      width: 50%;
+    }
+  }
 }
 
 // header.py-5 {
@@ -28,15 +33,24 @@ header {
 .client-job {
   margin-top: -1rem !important;
 }
-.clients-say-head {
+.big-h {
   font-size: 36px !important;
 }
-
 //Bootstrap Class Overrides
 .btn-primary {
   &:hover {
     background-color: $primary !important;
     color: $danger !important;
+  }
+}
+#looking-for-solution {
+  button {
+    border: 1px solid $light !important;
+    &:hover {
+      // border: $light !important;
+      @extend .btn-primary;
+      background-color: #ffffff50 !important;
+    }
   }
 }
 .row {
