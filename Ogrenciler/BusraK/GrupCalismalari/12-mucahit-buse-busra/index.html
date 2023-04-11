@@ -8,7 +8,24 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-
+    <!-- Slick Slider CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <script
       src="https://kit.fontawesome.com/5e36563075.js"
       crossorigin="anonymous"
@@ -535,6 +552,42 @@
       </div>
     </section>
 
+    <section class="slider-section">
+      <div class="row">
+        <section class="customer-logos slider" data-arrows="true">
+          <div class="slide">
+            <img
+              src="https://preview.colorlib.com/theme/hosthub/img/clients-logo/c-logo-1.png"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://preview.colorlib.com/theme/hosthub/img/clients-logo/c-logo-2.png"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://preview.colorlib.com/theme/hosthub/img/clients-logo/c-logo-3.png"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://preview.colorlib.com/theme/hosthub/img/clients-logo/c-logo-4.png"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://preview.colorlib.com/theme/hosthub/img/clients-logo/c-logo-5.png"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://preview.colorlib.com/theme/hosthub/img/clients-logo/c-logo-2.png"
+            />
+          </div>
+        </section>
+      </div>
+    </section>
     <section class="footer-section">
       <div class="container">
         <div class="footer-section-main gap-2">
@@ -655,6 +708,33 @@
       const dropdownList = [...dropdownElementList].map(
         (dropdownToggleEl) => new bootstrap.Dropdown(dropdownToggleEl)
       );
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".customer-logos").slick({
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1000,
+          arrows: true,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+              },
+            },
+            {
+              breakpoint: 520,
+              settings: {
+                slidesToShow: 1,
+              },
+            },
+          ],
+        });
+      });
     </script>
   </body>
 </html>
