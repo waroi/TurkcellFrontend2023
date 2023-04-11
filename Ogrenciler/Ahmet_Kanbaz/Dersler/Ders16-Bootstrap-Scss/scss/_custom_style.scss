@@ -6,10 +6,37 @@ body {
   color: #777777;
 }
 
-
 .sectionTitle {
   p {
     max-width: 570px;
+  }
+}
+
+@mixin button ($display, $background, $padding, $marginBottom) {
+  text-align: center;
+  background: $background;
+  display: $display;
+  color: #FFFFFF;
+  padding: $padding;
+  transition: all .3s linear;
+  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: $marginBottom;
+  line-height: 3rem;
+  text-decoration: none;
+  border-radius: 0;
+}
+
+.someFeatures {
+  .card {
+    transition: all .3s linear;
+    &:hover {
+      box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
+		  border-color: #FFFFFF;
+    }
+    h4 {
+      font-size: 20px;
+    }
   }
 }
 
@@ -24,6 +51,14 @@ body {
 .cardChoose {
   border-top: 2px solid #FFFFFF;
   transition: all 0.3s ease;
+  h2 {
+    color: #000000;
+  }
+  span {
+    font-size: 12px;
+    color: #777777;
+    font-weight: 300;
+  }
   &:hover {
     border-top: 2px solid $primary;
   }
@@ -31,7 +66,8 @@ body {
     opacity: 1;
     background: $primary;
   }
-  &:hover .cardText h2 {
+  &:hover .cardText h2,
+  &:hover .cardText span {
     color: $primary;
   }
   &::before {
@@ -49,17 +85,9 @@ body {
 }
 
 .cardButton {
-  display: block;
-  text-align: center;
-  background: #6247ea;
-  line-height: 50px;
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  transition: all .3s ease-in-out;
-  font-weight: 500;
-  font-size: 12px;
+  @include button(block, #6247ea, 0 3rem, -50px);
+  border-radius: 0 0 10px 10px;
   opacity: 0;
-  margin-bottom: -50px;
   &:hover {
     background: $primary;
     opacity: 1;
@@ -70,8 +98,24 @@ body {
 }
 
 .looking p {
-  font-size: 14px;
   opacity: .6;
   max-width: 770px;
   margin: 0px auto 35px;
+}
+
+.p120 {
+  padding: 120px 0;
+}
+
+.whiteButton {
+  @include button(inline-block, #F9F9FF, 0 3rem, 0);
+  color: #000000;
+  &:hover {
+    background: $primary;
+    color: #FFFFFF;
+  }
+}
+
+.clientLeft {
+  max-width: 335px;
 }
