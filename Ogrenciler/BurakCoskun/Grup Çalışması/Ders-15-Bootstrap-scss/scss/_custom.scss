@@ -6,10 +6,6 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-h2 {
-  font-size: 36px;
-}
-
 a {
   text-decoration: none;
   color: white;
@@ -17,7 +13,6 @@ a {
 // Navbar
 .navbar-nav > li > a {
   color: black;
-
 }
 
 .hero {
@@ -44,6 +39,30 @@ a {
       border-radius: 10px;
       .card-title{
         margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+// Choose
+.choose{
+  .row{
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
+  }
+  .price-card{
+    border-top: 2px solid #fff;
+    .price-text{
+      padding-left: 45px;
+      &::before{
+        content: "";
+        width: 1px;
+        background: #eeeeee;
+        height: 336px;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
       }
     }
   }
