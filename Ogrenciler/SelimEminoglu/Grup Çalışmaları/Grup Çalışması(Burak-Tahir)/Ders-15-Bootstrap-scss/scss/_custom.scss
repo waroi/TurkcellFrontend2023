@@ -1,0 +1,250 @@
+* {
+  list-style: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #777777;
+}
+
+a {
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: black;
+}
+
+.header-top {
+  .d-flex {
+    a:hover {
+      color: $primary;
+    }
+  }
+}
+
+// Navbar
+.navbar-nav > li > a {
+  color: black;
+}
+
+.nav-item:hover {
+  a {
+    color: $primary;
+  }
+}
+
+.hero {
+  p {
+    color: #f9f9ff;
+  }
+  a:hover {
+    color: $primary !important;
+  }
+}
+
+.center-title {
+  p {
+    max-width: 570px;
+    font-weight: 300;
+  }
+}
+
+// Features
+.features {
+  .row {
+    margin-top: 75px;
+    .card {
+      padding: 60px 20px 60px 30px;
+      border: 1px solid #eeeeee;
+      border-radius: 10px;
+      .card-title {
+        margin-bottom: 25px;
+      }
+      &:hover {
+        box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
+        border-color: #fff;
+      }
+    }
+  }
+}
+
+// Choose
+.choose {
+  .row {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
+  }
+  .price-card {
+    border-top: 2px solid #fff;
+    .price-text {
+      padding-left: 45px;
+      &::before {
+        content: "";
+        width: 1px;
+        background: #eeeeee;
+        height: 336px;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+      }
+    }
+    &:hover {
+      border-top: 2px solid $primary;
+      .price-btn {
+        opacity: 1;
+      }
+    }
+  }
+  .price-btn {
+    margin-bottom: -50px;
+    line-height: 50px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    opacity: 0;
+  }
+}
+
+// Looking
+.looking-btn {
+  padding: 15px 50px;
+  background: #fff;
+  color: black;
+  &:hover {
+    color: white;
+    background: $primary;
+  }
+}
+.looking-p {
+  margin-bottom: 35px;
+}
+
+//What Our
+.what-our {
+  .card:hover {
+    box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
+    border-color: #fff;
+  }
+}
+
+//Services
+.services {
+  h4 {
+    color: #fff;
+  }
+  overflow: hidden;
+  position: relative;
+  &::before {
+    content: "";
+    background: url("https://preview.colorlib.com/theme/hosthub/img/map-bg.png.webp")
+      no-repeat scroll center center;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+  }
+  .service_item {
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 300ms linear 0s;
+    &:hover {
+      background-color: #fff;
+      h4 {
+        color: black;
+      }
+      p {
+        color: #777777 !important;
+        opacity: 1 !important;
+      }
+    }
+  }
+}
+
+// Latest
+.lg-item {
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  padding: 60px 30px;
+  transition: all 300ms linear 0s;
+  h6 {
+    border-radius: 3px;
+    background: #ec9d5f;
+    display: inline-block;
+    color: #fff;
+    line-height: 30px;
+    font-weight: 300;
+    font-size: 12px;
+    padding: 0px 20px;
+    margin-bottom: 20px;
+  }
+  &:hover {
+    box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
+    border-color: #fff;
+    h4 {
+      color: $primary !important;
+    }
+  }
+}
+
+//Logos
+.logos {
+  transition: all 300ms linear 0s;
+  img:hover {
+    opacity: 1 !important;
+  }
+}
+
+// Footer
+.input-div {
+  position: relative;
+  width: 100%;
+  display: block;
+  .footer-input {
+    max-width: 340px;
+    width: 100%;
+    border: 1px solid #333333;
+    font-size: 13px;
+    line-height: 40px;
+    padding-right: 40px;
+    height: 40px;
+    color: #999999;
+    border-radius: 20px;
+    background: #fff;
+    padding-left: 20px;
+  }
+  .sub-btn {
+    line-height: 38px;
+    font-size: 12px;
+    padding: 0px 38px;
+    position: absolute;
+    top: 0px;
+    right: -26px;
+    border-radius: 20px;
+    &:hover {
+      background: transparent !important;
+      color: $primary !important;
+    }
+  }
+}
+
+.insta-feed {
+  li {
+    margin: 5px;
+  }
+}
+
+@media (min-width: 1620px) {
+  .box-1620 {
+    max-width: 1620px;
+    margin: 0 auto;
+  }
+}
