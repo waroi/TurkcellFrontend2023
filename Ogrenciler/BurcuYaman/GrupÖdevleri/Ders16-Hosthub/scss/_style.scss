@@ -140,6 +140,48 @@ background-color: #FAFCFF;
   }
 }
 
+.top-services{
+  padding: 100px 0;
+  background: $secondary;
+  position: relative;
+  overflow: hidden;
+
+  &::before{
+    content: "";
+    background: url(../img/map-bg.png) no-repeat scroll center center;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .ts-top{
+    margin: auto;
+    text-align: center;
+    p{
+      color: #9C8AF3;
+    }
+  }
+
+  .ts-cards{
+    margin-top: 40px;
+    .ts-card{
+      padding: 40px 50px;
+      border: 1px solid #9C8AF3;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+     
+     
+
+      p{
+        color: #9C8AF3;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 720px) {
   .bannerimg {
     display: none;
