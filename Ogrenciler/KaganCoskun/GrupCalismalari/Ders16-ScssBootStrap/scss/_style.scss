@@ -82,6 +82,14 @@ a {
 	}
 }
 
+.card-hover {
+	transition: all 0.3s ease;
+	&:hover {
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		transition: all 0.3s ease;
+	}
+}
+
 .service {
 	background-color: $primary;
 	background-image: url("https://preview.colorlib.com/theme/hosthub/img/map-bg.png.webp") !important;
@@ -91,64 +99,59 @@ a {
 	}
 
 	.card {
+		transition: all 0.5s ease;
 		&:hover {
-			color: black;
+			color: black !important;
 			background-color: white !important;
+			transition: all 0.5s ease;
 		}
 	}
 }
 
-.blog{
+.blog {
 	margin: 100px 0;
-	.card{
+	.card {
 		border: none;
-		&:hover{
-			.card-body{
-				h4{
+		&:hover {
+			.card-body {
+				h4 {
 					color: #6247ea;
 				}
 			}
 		}
-		.card-body{
+		.card-body {
 			border-radius: 10px;
 			border: 1px solid #eeeeee;
 			padding: 60px 30px;
-			&:hover{
+			&:hover {
 				box-shadow: 0px 13px 22px 0px #d1cfdf;
-				border:none;
+				border: none;
 				transition: all 0.4s ease-in-out;
 			}
-			h6{
-				border-radius: 3px;
-				background: #ec9d5f;
-				display: inline-block;
-				color: #fff;
+			h6 {
 				line-height: 30px;
 				font-weight: 300;
-				font-size: 12px;
-				padding: 0px 20px;
-				font-family: "Roboto", sans-serif;
 				margin-bottom: 20px;
 			}
-			h4{
+			h4 {
 				color: black;
 			}
 		}
 	}
 }
 
-.logos{
+.logos {
 	padding: 100px 0;
 	background-color: #fafcff;
-	.row{
-		img{
+	.row {
+		img {
 			width: auto;
 			text-align: center;
 			display: block;
 			margin: auto;
 			line-height: 70px;
-			opacity: .5;
-			&:hover{
+			opacity: 0.5;
+			&:hover {
 				opacity: 1;
 				transition: all 0.4s ease-in-out;
 			}
@@ -156,29 +159,21 @@ a {
 	}
 }
 
-.footer{
+.footer {
 	background-color: #04091e;
-	.row{
+	.row {
 		padding: 100px 0;
-		h6{
+		h6 {
 			color: #fff;
-    		margin-bottom: 28px;
+			margin-bottom: 28px;
 		}
-		a{
-			color:#fff;
+		a {
+			color: #fff;
 		}
-		ul{
-			padding:0;
-		}
-		.newsletter{
-			p{
-				opacity: .6;
-				color:#fff;
-			}
-			.row{
-				padding:0px;
-			}
-			input{
+		
+		.newsletter {
+			
+			input {
 				max-width: 340px;
 				width: 100%;
 				border: 1px solid #333333;
@@ -191,40 +186,17 @@ a {
 				background: #fff;
 				padding-left: 20px;
 			}
-			button{
-				border-radius: 20px;
-				padding: 0px 38px;
-				line-height: 38px;
-			}
 		}
-		.insta-feed{
-			img{
+		.insta-feed {
+			img {
 				margin: 4px 3px;
 			}
 		}
 	}
-	.footer-end{
-		&.row{
-			padding-bottom:100px;
-			padding-top: 0px;
-		}
-		.footer-text{
-			p{
-				color:#fff;
-				opacity: .6;
-			}
-			i{
-				color: $primary;
-				opacity: .6;
-			}
-			a{
-				color: $primary;
-				opacity: .6;
-			}
-		}
-		.footer-social{
+	.footer-end {
+		.footer-social {
 			text-align: right;
-			a{
+			a {
 				font-size: 14px;
 				line-height: 30px;
 				color: #fff;
@@ -236,16 +208,8 @@ a {
 				text-align: center;
 				display: inline-block;
 				transition: all 300ms linear 0s;
-				&:hover{
+				&:hover {
 					background-color: #6247ea;
-				}
-				.fa{
-					display: inline-block;
-					font-size: inherit;
-					text-rendering: auto;
-				}
-				svg{
-					color:#fff;
 				}
 			}
 		}
