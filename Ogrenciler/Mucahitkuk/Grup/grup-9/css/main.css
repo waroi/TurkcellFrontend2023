@@ -11204,6 +11204,105 @@ a {
   font-size: 14px;
 }
 
+.slider-section {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 5em;
+}
+.slider-section .slick-slide img {
+  width: 50%;
+  filter: contrast(10%);
+}
+.slider-section .slick-slide img:hover {
+  filter: contrast(100%);
+}
+.slider-section .logo-carousel {
+  overflow: inherit;
+  border-top: 1px solid #353535;
+  border-bottom: 1px solid #353535;
+  margin-top: 32px;
+}
+.slider-section .slick-track {
+  padding: 1rem 0;
+}
+.slider-section .slick-track::before {
+  display: table;
+  content: "";
+}
+.slider-section .slick-track::after {
+  display: table;
+  content: "";
+  clear: both;
+}
+.slider-section .slick-loading .slick-track {
+  visibility: hidden;
+}
+.slider-section .slick-loading .slick-slide {
+  visibility: hidden;
+}
+.slider-section .slick-slide.dragging img {
+  pointer-events: none;
+}
+.slider-section .slick-arrow {
+  position: absolute;
+  top: 50%;
+  color: #fff;
+  filter: invert(77%) sepia(32%) saturate(1%) hue-rotate(344deg) brightness(105%) contrast(103%);
+  border: none;
+  width: 2rem;
+  height: 1.5rem;
+  text-indent: -10000px;
+  margin-top: -16px;
+  z-index: 99;
+}
+.slider-section .slick-arrow.slick-next {
+  right: -40px;
+  transform: rotate(180deg);
+}
+.slider-section .slick-arrow.slick-prev {
+  left: -40px;
+}
+.slider-section body {
+  background-color: #010101;
+}
+.slider-section .row {
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .slider-section .slick-arrow {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.footer-section {
+  color: white;
+  padding-top: 5em;
+  padding-bottom: 5em;
+  background: #04091e;
+}
+.footer-section li > a {
+  color: #eeeeee;
+}
+.footer-section p {
+  color: #777777 !important;
+}
+.footer-section .sub-btn {
+  background-color: #6247EA;
+  color: white;
+}
+.footer-section .footer-social {
+  padding-right: 3.9em;
+}
+.footer-section .footer-social a {
+  background-color: #1e2235;
+  padding: 4px;
+  color: #eeeeee;
+}
+.footer-section .footer-social a:hover {
+  background-color: #6247EA;
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
