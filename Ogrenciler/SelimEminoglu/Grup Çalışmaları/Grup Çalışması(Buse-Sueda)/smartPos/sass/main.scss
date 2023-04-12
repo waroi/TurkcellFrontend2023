@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
 * {
   list-style: none;
@@ -21,7 +21,7 @@ h2 {
 }
 
 //width heigth için bir fonksiyon
-@mixin widthHeigt($width, $height , $border-radius: 0) {
+@mixin widthHeigt($width, $height, $border-radius: 0) {
   width: $width;
   height: $height;
   border-radius: $border-radius;
@@ -29,7 +29,12 @@ h2 {
 
 // Flexbox için bir mixin tanımlıyoruz
 // varsayılan değerlerle birlikte $justify-content, $align-items, $flex-direction ve $flex-wrap değişkenleri kullanılabilir
-@mixin flexbox($justify-content: center, $align-items: center, $flex-direction: row, $flex-wrap: nowrap) {
+@mixin flexbox(
+  $justify-content: center,
+  $align-items: center,
+  $flex-direction: row,
+  $flex-wrap: nowrap
+) {
   display: flex;
   justify-content: $justify-content;
   align-items: $align-items;
@@ -75,10 +80,15 @@ h2 {
   border-radius: 50%;
 }
 
-
 // Resim ve metinlerin yerleştirildiği alanlar için bir mixin tanımlıyoruz
 // $img-order, $content-order, $p-max-width, $gap ve $columns değişkenleri kullanılabilir
-@mixin content-layout($img-order, $content-order, $p-max-width, $gap, $columns) {
+@mixin content-layout(
+  $img-order,
+  $content-order,
+  $p-max-width,
+  $gap,
+  $columns
+) {
   @include grid-layout($gap, $columns);
 
   img {
@@ -116,18 +126,23 @@ h2 {
 
 .container {
   width: 1320px;
-  padding-right: var(--bs-gutter-x, .75rem);
-  padding-left: var(--bs-gutter-x, .75rem);
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
 }
 
-//Header 
+//Header
 header {
-  margin-top: 20px;
+  padding: 20px 20px;
   position: fixed;
-  z-index: 999;
+  z-index: 3;
   width: 100%;
+  background-color: white;
+}
+
+.active{
+  background-color: white;
 }
 
 .header-btn {
@@ -158,6 +173,119 @@ header {
       }
     }
   }
+}
+
+// Hamburger Button
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 62px;
+}
+
+header .menu-items {
+  // display: flex;
+  display: none;
+}
+
+header .nav-container li {
+  list-style: none;
+}
+
+header .nav-container a:hover{
+    font-weight: bolder;
+}
+
+.nav-container {
+  display: block;
+  position: relative;
+  height: 60px;
+}
+
+.nav-container .checkbox {
+  position: absolute;
+  // display: block;
+  display: none;
+  height: 32px;
+  width: 32px;
+  top: 20px;
+  right: 20px;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.nav-container .hamburger-lines {
+  // display: block;
+  display: none;
+  height: 26px;
+  width: 32px;
+  position: absolute;
+  top: 17px;
+  right: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-container .hamburger-lines .line {
+  // display: block;
+  display: none;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: linear-gradient(to right, #ff5195, #ffb84b);
+}
+
+.nav-container .hamburger-lines .line1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line2 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+header .menu-items {
+  padding-top: 120px;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  height: 100vh;
+  width: 100%;
+  transform: translate(-150%);
+  display: flex;
+  flex-direction: column;
+  margin-left: -40px;
+  padding-left: 50px;
+  transition: transform 0.5s ease-in-out;
+  text-align: center;
+}
+
+header .menu-items li {
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items {
+  transform: translateX(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+  transform: rotate(45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+  transform: scaleY(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+  transform: rotate(-45deg);
 }
 
 //banner section
@@ -225,7 +353,6 @@ header {
 
 // Animations
 @keyframes lab_sideeffect {
-
   0%,
   100% {
     transform: translateY(0px);
@@ -239,11 +366,9 @@ header {
   50% {
     transform: translateY(-60px);
   }
-
 }
 
 @keyframes lab_zoomin {
-
   0%,
   100% {
     transform: translateY(-20px) translateX(0px);
@@ -263,7 +388,6 @@ header {
 }
 
 @keyframes lab_run_top_y {
-
   0%,
   100% {
     transform: translateY(0px);
@@ -273,7 +397,6 @@ header {
     transform: translateY(-30px);
   }
 }
-
 
 .site-paragraph {
   margin: 15px 0 30px;
@@ -331,14 +454,26 @@ header {
 }
 
 .navbar-btn {
-  @include button-gradient(132px);
+  display: block;
+  background: linear-gradient(to right, #ff5195, #ffb84b);
+  padding: 16px 25px;
+  border-radius: 4px;
+  font-weight: 700;
+  line-height: 24px;
+  width: 132px;
+  height: 55px;
   overflow: hidden;
+  margin-left: 20px;
+  .get-text{
+    color: white;
+  }
 }
 
 .center-header {
   @include flexbox(center, center, column, nowrap);
   margin: 0 206px 60px;
   text-align: center;
+  max-width: 100%;
 
   h2 {
     margin: -10px 0 20px;
@@ -398,6 +533,10 @@ header {
   }
 }
 
+.software, .powers {
+  padding: 110px 0px 95px;
+}
+
 .software-wrapper {
   @include grid-layout(30px, 3);
 
@@ -409,80 +548,78 @@ header {
     }
 
     h4 {
-      margin-bottom: 0
+      margin-bottom: 0;
     }
   }
+}
 
-  .card-img {
-    @include flexbox(center, center, column, nowrap);
-    @include widthHeigt(80px, 80px, 100%);
-    box-shadow: 0 0 10px 2px #fcd5e1;
-    color: #fff;
-    position: relative;
+.card-img {
+  @include flexbox(center, center, column, nowrap);
+  @include widthHeigt(80px, 80px, 100%);
+  box-shadow: 0 0 10px 2px #fcd5e1;
+  color: #fff;
+  position: relative;
 
-    &:before {
-      content: "";
-      width: 92px;
-      height: 92px;
-      position: absolute;
-      opacity: 0.2;
-      display: inline-block;
-      border-radius: 50%;
-      background: linear-gradient(to left, #f9769d, #bb6df7);
-      z-index: -1;
-    }
-
-    &:after {
-      content: "";
-      width: 105px;
-      height: 105px;
-      position: absolute;
-      opacity: 0.2;
-      display: inline-block;
-      border-radius: 50%;
-      background: linear-gradient(to left, #f9769d, #bb6df7);
-      z-index: -1;
-    }
+  &:before {
+    content: "";
+    width: 92px;
+    height: 92px;
+    position: absolute;
+    opacity: 0.2;
+    display: inline-block;
+    border-radius: 50%;
+    background: linear-gradient(to left, #f9769d, #bb6df7);
+    z-index: -1;
   }
 
-  .software-card {
-    @include flexbox(center, center, column, nowrap);
-    position: relative;
-    box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
-    text-align: center;
-    padding: 70px 40px;
+  &:after {
+    content: "";
+    width: 105px;
+    height: 105px;
+    position: absolute;
+    opacity: 0.2;
+    display: inline-block;
+    border-radius: 50%;
+    background: linear-gradient(to left, #f9769d, #bb6df7);
+    z-index: -1;
+  }
+}
+
+.software-card {
+  @include flexbox(center, center, column, nowrap);
+  position: relative;
+  box-shadow: 0 0 8px rgba(136, 136, 136, 0.08);
+  text-align: center;
+  padding: 70px 40px;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 5px;
+    left: 0;
+    bottom: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+    background: linear-gradient(to left, #f9769d, #bb6df7);
+  }
+
+  &:hover {
+    .card-img:before {
+      animation: circle-2 1.3s infinite;
+    }
+
+    .card-img:after {
+      display: none;
+    }
 
     &::after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 5px;
-      left: 0;
-      bottom: 0;
       transition: transform 0.3s ease-in-out;
-      transform: scaleX(0);
-      transform-origin: 100% 50%;
-      background: linear-gradient(to left, #f9769d, #bb6df7);
-    }
-
-    &:hover {
-
-      .card-img:before {
-        animation: circle-2 1.3s infinite;
-      }
-
-      .card-img:after {
-        display: none;
-      }
-
-      &::after {
-        transition: transform 0.3s ease-in-out;
-        transform: scaleX(1);
-        transform-origin: 0% 50%;
-      }
+      transform: scaleX(1);
+      transform-origin: 0% 50%;
     }
   }
-
 
   .gradiant-1 {
     background: linear-gradient(to top, #f9769d, #bb6df7);
@@ -497,38 +634,172 @@ header {
     background-color: #bb6df7;
   }
 
-
-
   h4 {
     font-size: 24px;
     line-height: 32px;
     color: black;
     margin: 0 0 20px;
   }
-
 }
 
+// POWERS//
 
-//Sponsor Container 
-
-.sponsor-wrapper {
-  @include flexbox(center, center, row, wrap);
-  gap: 7rem;
-  padding: 70px 0 0;
-
-  .sponsor-card {
-
-    a:hover {
-      outline: 0;
-      color: black;
+.powers-wrapper {
+  @include grid-layout(30px, 3);
+  .powers-card {
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(136, 136, 136, 0.1);
+    .power-header {
+      @include flexbox(space-between, center, row, nowrap);
+      padding: 30px;
+      h5 {
+        font-size: 20px;
+        color: black;
+      }
+      .person {
+        position: relative;
+        img {
+          @include widthHeigt(60px, 60px, 100%);
+        }
+        .power-animation {
+          width: 80px;
+          height: 80px;
+          left: -10px;
+          top: -10px;
+          background: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/round-3.png");
+          background-repeat: no-repeat !important;
+          animation: testi_round 7s linear infinite;
+          animation-play-state: running;
+          @include pos-shape();
+        }
+      }
     }
 
-    img:hover {
-      filter: grayscale(100%);
+    .powers-text {
+      padding: 30px;
+      position: relative;
+      &::after {
+        @include pos-shape();
+        bottom: 20px;
+        right: 30px;
+        width: 30px;
+        height: 20px;
+        background: url("http://demos.codexcoder.com/labartisan/html/smartsass/assets/images/testimonial/quote/01.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      p {
+        margin-bottom: 15px;
+        font-weight: 400px;
+      }
+      .fa-star {
+        color: #e9ba17;
+      }
+    }
+  }
+}
+
+@keyframes testi_round {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+//Sponsor Container
+
+.sponsor {
+  padding-bottom: 95px;
+  .sponsor-wrapper {
+    @include flexbox(center, center, row, wrap);
+    gap: 7rem;
+    padding: 70px 0 0;
+
+    .sponsor-card {
+      a:hover {
+        outline: 0;
+        color: black;
+      }
+
+      img:hover {
+        filter: grayscale(100%);
+      }
+    }
+  }
+}
+//FOOTER//
+
+.footer {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
+  overflow: hidden;
+  h2,
+  li,
+  a,
+  p,
+  h6 {
+    color: white;
+  }
+  .footer-wrapper {
+    .footer1,
+    .footer2-top {
+      padding: 110px 0px 60px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer1,
+    .footer1-logo,
+    .socialmedia {
+      @include flexbox(space-between, center, row, wrap);
+    }
+    .socialmedia {
+      background-color: white;
+      width: 230px;
+      height: 70px;
+      padding: 10px 20px;
+      border-radius: 2px;
+      margin-right: 15px;
+      span {
+        color: #c961fa;
+        font-weight: 700;
+      }
+      p {
+        color: #696969;
+      }
+    }
+    .footer2-top {
+      .row{
+        @include grid-layout(50px,4);
+      }
+      .row-content i{
+        margin-right: 10px;
+      }
+    
+      .row-title {
+        margin-bottom: 30px;
+        h6{
+          font-size: 18px;
+          line-height: 30px;
+        }
+      }
+      }
+    }
+    .footer2-bottom {
+      justify-content: center;
+      display: flex;
+      padding: 35px 0px;
     }
   }
 
-}
 
 @media screen and (max-width: 1400px) {
   .container {
@@ -553,6 +824,11 @@ header {
   .banner-title {
     @include flexbox(start, start, column, wrap);
   }
+
+  .software-wrapper,
+  .powers-wrapper {
+    @include grid-layout(30px, 2);
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -560,8 +836,26 @@ header {
     max-width: 720px;
   }
 
-  .main-menu {
+  .main-menu,.navbar-btn {
     display: none;
+  }
+
+  header{
+    .menu-items{
+      display: flex;
+    }
+  }
+
+  .nav-container{
+    .checkbox{
+      display: block;
+    }
+    .hamburger-lines{
+      display: flex;
+      .line{
+        display: block;
+      }
+    }
   }
 
   .perfect-wrapper {
@@ -577,6 +871,19 @@ header {
     margin: 0;
     text-align: center;
   }
+  .footer{
+    .footer-wrapper{
+      .footer2-top{
+        .row{
+          @include grid-layout(30px, 2);
+        }
+      }  
+    }
+  }
+  .footer1{
+    padding-top: 80px;
+    padding-bottom:55px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -584,47 +891,36 @@ header {
     max-width: 540px;
   }
 
+  .software-wrapper {
+    padding: 50px 30px;
+  }
+  
+  .software-wrapper,
+  .powers-wrapper,
   .perfect-wrapper {
     @include grid-layout(0px, 1);
   }
-
-  .software-wrapper {
-    padding: 50px 30px;
-  }
-<<<<<<< HEAD:Ogrenciler/BuseTurkmen/Grup Çalışmaları/smartpos/sass/main.scss
-
-  .software-wrapper {
-    padding: 50px 30px;
-  }
-
-
-}
-
-//FOOTER//
-
-.footer {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(http://demos.codexcoder.com/labartisan/html/smartsass/assets/css/bg-image/app-footer-bg.jpg);
-}
-
-.footer1 {
-  padding: 0 0 60px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  .footer1-logo {
-    display: flex;
-    flex-direction: row-reverse;
-  }
-    a {
-      box-shadow: 0 10px 10px rgba(136, 136, 136, 0.1);
+  .footer{
+    .footer-wrapper{
+      .footer2-top{
+        .row{
+          @include grid-layout(30px, 1);
+        }
+      }  
     }
+  }
 }
 
-.row {
-  gap: 10rem;
-  display: flex;
-  flex-wrap: wrap;
-=======
->>>>>>> a984c8153157b9be77737d48fd24d28ccc773d63:Ogrenciler/SelimEminoglu/Grup Çalışmaları/Grup Çalışması(Buse-Sueda)/smartPos/sass/main.scss
+@media screen and (max-width: 560px) {
+  .container{
+    width: 370px;
+  }
+  .sponsor-wrapper:nth-child(n-3){
+    display: none;
+  }
+
+  h2{
+    font-size: 24px;
+  }
+  
 }
