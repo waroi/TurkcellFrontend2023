@@ -4,12 +4,11 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   color: #777777;
+  box-sizing: border-box;
 }
 
-.sectionTitle {
-  p {
-    max-width: 570px;
-  }
+a {
+  text-decoration: none;
 }
 
 @mixin button ($display, $background, $padding, $marginBottom) {
@@ -20,7 +19,6 @@ body {
   padding: $padding;
   transition: all .3s linear;
   font-weight: 500;
-  font-size: 12px;
   margin-bottom: $marginBottom;
   line-height: 3rem;
   text-decoration: none;
@@ -33,6 +31,75 @@ body {
   background: $background;
   height: $height;
   position: absolute;
+}
+
+header {
+  .topHeaderLeft {
+    a {
+      color: #FFFFFF;
+      transition: all .3s linear;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+  .btn {
+    font-weight: 500;
+    transition: all .3s linear;
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
+}
+
+nav {
+  .list {
+    li {
+      .drop {
+        position: absolute;
+        top: 75px;
+        left: 48%;
+        visibility: hidden;
+        transition: all .3s ease-in-out;
+      }
+      .blog {
+        @extend .drop;
+        left: 60%;
+      }
+      a {
+        color: #000000;
+        &:hover {
+          color: $primary;
+        }  
+      }
+      &:hover .drop {
+        visibility: visible;
+        transform: translateY(-18px)
+      }
+    }
+  }
+}
+
+.webHosting {
+  p {
+    max-width: 405px;
+  }
+  a {
+    @include button(inline-block, $warning, 0 3rem, 0);
+    cursor: pointer;
+    span {
+      transition: all .3s linear;
+    }
+    &:hover span{
+      color: $primary;
+    }
+  }
+}
+
+.sectionTitle {
+  p {
+    max-width: 570px;
+  }
 }
 
 .someFeatures {
@@ -51,7 +118,6 @@ body {
 .choose {
   .row {
     box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
-    border-radius: 10px;
   }
 }
 
@@ -89,7 +155,6 @@ body {
 
 .cardButton {
   @include button(block, #6247ea, 0 3rem, -50px);
-  border-radius: 0 0 10px 10px;
   opacity: 0;
   &:hover {
     background: $primary;
@@ -104,10 +169,6 @@ body {
   opacity: .6;
   max-width: 770px;
   margin: 0px auto 35px;
-}
-
-.p120 {
-  padding: 120px 0;
 }
 
 .whiteButton {
@@ -140,7 +201,6 @@ body {
   }
   .servicesCard {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
     padding: 40px 60px 40px 40px;
     border: 1px solid #9381eb;
     margin-bottom: 30px;
@@ -186,10 +246,36 @@ body {
     width: 30px;
     height: 30px;
     background-color: #1e2235;
-    line-height: 30px;
     display: inline-block;
     &:hover {
       background-color: $primary;
     }
+  }
+}
+
+.inputForm {
+  @include button(inline-block, #FFFFFF, 0 40px 0 20px, 0);
+  max-width: 340px;
+  width: 100%;
+  border: 1px solid #333333;
+  line-height: 40px;
+  height: 40px;
+  text-align: left;
+  color: #999999;
+  &:focus {
+    outline: none;
+  }
+}
+
+.formButton {
+  @include button(inline-block, $primary, 0 38px, 0);
+  line-height: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid $primary;
+  &:hover {
+    background: transparent;
+    color: $primary;
   }
 }
