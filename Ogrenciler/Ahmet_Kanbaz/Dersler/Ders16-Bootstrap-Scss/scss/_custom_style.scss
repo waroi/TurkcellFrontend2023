@@ -6,10 +6,8 @@ body {
   color: #777777;
 }
 
-.sectionTitle {
-  p {
-    max-width: 570px;
-  }
+a {
+  text-decoration: none;
 }
 
 @mixin button ($display, $background, $padding, $marginBottom) {
@@ -33,6 +31,60 @@ body {
   background: $background;
   height: $height;
   position: absolute;
+}
+
+header {
+  .topHeaderLeft {
+    a {
+      color: #FFFFFF;
+      font-size: 12px;
+      transition: all .3s linear;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+  .btn {
+    font-size: 12px;
+    font-weight: 500;
+    transition: all .3s linear;
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
+}
+
+nav {
+  ul {
+    li {
+      transition: all .3s linear;
+      color: #6247ea;
+    }
+  }
+}
+
+.webHosting {
+  p {
+    opacity: .6;
+    max-width: 405px;
+  }
+  a {
+    @include button(inline-block, $warning, 0 3rem, 0);
+    cursor: pointer;
+    border-radius: 5px;
+    span {
+      transition: all .3s linear;
+    }
+    &:hover span{
+      color: $primary;
+    }
+  }
+}
+
+.sectionTitle {
+  p {
+    max-width: 570px;
+  }
 }
 
 .someFeatures {
@@ -104,10 +156,6 @@ body {
   opacity: .6;
   max-width: 770px;
   margin: 0px auto 35px;
-}
-
-.p120 {
-  padding: 120px 0;
 }
 
 .whiteButton {
