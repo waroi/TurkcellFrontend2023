@@ -4,6 +4,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   color: #777777;
+  box-sizing: border-box;
 }
 
 a {
@@ -18,7 +19,6 @@ a {
   padding: $padding;
   transition: all .3s linear;
   font-weight: 500;
-  font-size: 12px;
   margin-bottom: $marginBottom;
   line-height: 3rem;
   text-decoration: none;
@@ -37,7 +37,6 @@ header {
   .topHeaderLeft {
     a {
       color: #FFFFFF;
-      font-size: 12px;
       transition: all .3s linear;
       &:hover {
         color: $primary;
@@ -45,7 +44,6 @@ header {
     }
   }
   .btn {
-    font-size: 12px;
     font-weight: 500;
     transition: all .3s linear;
     &:hover {
@@ -55,23 +53,40 @@ header {
 }
 
 nav {
-  ul {
+  .list {
     li {
-      transition: all .3s linear;
-      color: #6247ea;
+      .drop {
+        position: absolute;
+        top: 75px;
+        left: 48%;
+        visibility: hidden;
+        transition: all .3s ease-in-out;
+      }
+      .blog {
+        @extend .drop;
+        left: 60%;
+      }
+      a {
+        color: #000000;
+        &:hover {
+          color: $primary;
+        }  
+      }
+      &:hover .drop {
+        visibility: visible;
+        transform: translateY(-18px)
+      }
     }
   }
 }
 
 .webHosting {
   p {
-    opacity: .6;
     max-width: 405px;
   }
   a {
     @include button(inline-block, $warning, 0 3rem, 0);
     cursor: pointer;
-    border-radius: 5px;
     span {
       transition: all .3s linear;
     }
@@ -103,7 +118,6 @@ nav {
 .choose {
   .row {
     box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
-    border-radius: 10px;
   }
 }
 
@@ -141,7 +155,6 @@ nav {
 
 .cardButton {
   @include button(block, #6247ea, 0 3rem, -50px);
-  border-radius: 0 0 10px 10px;
   opacity: 0;
   &:hover {
     background: $primary;
@@ -188,7 +201,6 @@ nav {
   }
   .servicesCard {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
     padding: 40px 60px 40px 40px;
     border: 1px solid #9381eb;
     margin-bottom: 30px;
@@ -234,10 +246,36 @@ nav {
     width: 30px;
     height: 30px;
     background-color: #1e2235;
-    line-height: 30px;
     display: inline-block;
     &:hover {
       background-color: $primary;
     }
+  }
+}
+
+.inputForm {
+  @include button(inline-block, #FFFFFF, 0 40px 0 20px, 0);
+  max-width: 340px;
+  width: 100%;
+  border: 1px solid #333333;
+  line-height: 40px;
+  height: 40px;
+  text-align: left;
+  color: #999999;
+  &:focus {
+    outline: none;
+  }
+}
+
+.formButton {
+  @include button(inline-block, $primary, 0 38px, 0);
+  line-height: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid $primary;
+  &:hover {
+    background: transparent;
+    color: $primary;
   }
 }
