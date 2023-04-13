@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selmar Spor</title>
+    <link rel="icon" type="image" href="./icons/running (1).png" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-transparent mt-2">
+          <div class="container-fluid">
+            <div class="logo-img">
+              <img src="./icons/running.png" alt="icon" />
+            </div>
+            <a class="navbar-brand" href="#">
+              <h1>Selmar Spor</h1>
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse justify-content-end"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active display-1 fw-medium"
+                    aria-current="page"
+                    href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link display-1 fw-medium" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle display-1 fw-medium"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    id="myDropdown"
+                  >
+                    Categories
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item display-1 fw-medium" href="#"
+                        >Special Product-1</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item display-1 fw-medium" href="#"
+                        >Special Product-2</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item display-1 fw-medium" href="#"
+                        >Special Product-3</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link display-1 fw-medium">Disabled</a>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2 display-1 fw-medium"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button
+                  class="btn btn-outline-success display-1 fw-medium"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const dropdownElementList = document.querySelectorAll(".dropdown-toggle");
+      const dropdownList = [...dropdownElementList].map(
+        (dropdownToggleEl) => new bootstrap.Dropdown(dropdownToggleEl)
+      );
+    </script>
+  </body>
+</html>
