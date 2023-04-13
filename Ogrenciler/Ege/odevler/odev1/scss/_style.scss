@@ -1,0 +1,160 @@
+@import "./bs_overrides";
+
+// .product-list {
+//   .sword-cards {
+//     .sword-card {
+//       position: relative;
+//       margin-top: 500px;
+//       .sword {
+//         position: absolute;
+//         z-index: -1;
+//         animation: sword 1s linear 1s 1 forwards;
+//       }
+
+//       .rock {
+//         position: absolute;
+//         opacity: 0;
+//         //   animation: rock 1s linear 1s 1 forwards;
+//       }
+
+//       img {
+//         max-width: 400px;
+//         max-height: 400px;
+//       }
+//     }
+//   }
+// }
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+// #region Homepage
+
+.carousel-inner {
+  img {
+    max-width: 300px;
+    max-height: 500px;
+    min-height: 300px;
+    margin: 0 auto;
+  }
+
+  .carousel-item {
+    background: $info;
+  }
+}
+
+.card {
+  // border: none;
+}
+
+.products-main {
+  .card {
+    background: transparent;
+    img {
+      max-width: 240px;
+      margin: 0 auto;
+    }
+  }
+  .products-popular {
+    .products {
+      .product {
+      }
+    }
+  }
+}
+
+// #endregion
+
+// #region Shared Components
+
+header {
+  .navbar {
+    .navbar-brand {
+      color: $secondary;
+    }
+    .nav-link {
+      color: $secondary;
+      &:hover {
+        color: $info;
+      }
+
+      &.active {
+        color: $info;
+      }
+    }
+  }
+}
+
+footer {
+  color: $secondary;
+  .footer-content {
+    a {
+      color: $secondary;
+    }
+  }
+
+  .input-wrap {
+    position: relative;
+    border-bottom: 2px solid $secondary;
+    input {
+      color: $secondary;
+      border: none;
+      outline: none;
+      border-radius: 1rem;
+      transition: 0.3s all;
+
+      &:focus + .focus-input1 {
+        width: 100%;
+      }
+      &::placeholder {
+        color: rgba(255, 255, 240, 0.623);
+      }
+    }
+    .focus-input1 {
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: $info;
+      left: 0;
+      bottom: -2px;
+      transition: 0.4s all;
+    }
+  }
+
+  .col-lg-4 {
+    border-left: 1px solid #777;
+    padding: 1rem 5rem;
+    &:first-child {
+      border-left: none;
+    }
+  }
+}
+
+// #endregion
+
+// Keyframes
+@keyframes sword {
+  0% {
+    transform: translateY(25%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes rock {
+  0% {
+    transform: translateY(25%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(75%);
+    opacity: 0;
+  }
+}
