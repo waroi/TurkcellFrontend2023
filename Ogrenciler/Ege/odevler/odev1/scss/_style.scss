@@ -39,10 +39,8 @@ a {
 
 .carousel-inner {
   img {
-    max-width: 300px;
-    max-height: 500px;
-    min-height: 300px;
     margin: 0 auto;
+    height: 90vh;
   }
 
   .carousel-item {
@@ -50,21 +48,27 @@ a {
   }
 }
 
-.card {
-  // border: none;
-}
-
 .products-main {
-  .card {
-    background: transparent;
-    img {
-      max-width: 240px;
-      margin: 0 auto;
+  .products-by-catgs {
+    .card {
+      background: transparent;
+      img {
+        max-width: 300px;
+        margin: 0 auto;
+      }
     }
   }
   .products-popular {
     .products {
       .product {
+        .card {
+          background: transparent;
+          img {
+            max-width: 300px;
+            height: 240px;
+            margin: 0 auto;
+          }
+        }
       }
     }
   }
@@ -72,9 +76,27 @@ a {
 
 // #endregion
 
+// #region F.A.Q
+.search {
+  input {
+    border-radius: 1rem;
+    border: 2px solid #7777777a;
+    padding: 5px 5px;
+    outline: none;
+  }
+  .something {
+    width: 100px;
+    height: 100px;
+    background: whitesmoke;
+  }
+}
+
 // #region Shared Components
 
 header {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
   .navbar {
     .navbar-brand {
       color: $secondary;
@@ -94,9 +116,20 @@ header {
 
 footer {
   color: $secondary;
+
+  .btn {
+    color: $info;
+    :hover {
+      color: $primary;
+    }
+  }
+
   .footer-content {
     a {
       color: $secondary;
+      &:hover {
+        color: $info;
+      }
     }
   }
 

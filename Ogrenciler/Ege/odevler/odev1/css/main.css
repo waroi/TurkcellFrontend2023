@@ -10730,21 +10730,45 @@ a {
 }
 
 .carousel-inner img {
-  max-width: 300px;
-  max-height: 500px;
-  min-height: 300px;
   margin: 0 auto;
+  height: 90vh;
 }
 .carousel-inner .carousel-item {
   background: #ffcc33;
 }
 
-.products-main .card {
+.products-main .products-by-catgs .card {
   background: transparent;
 }
-.products-main .card img {
-  max-width: 240px;
+.products-main .products-by-catgs .card img {
+  max-width: 300px;
   margin: 0 auto;
+}
+.products-main .products-popular .products .product .card {
+  background: transparent;
+}
+.products-main .products-popular .products .product .card img {
+  max-width: 300px;
+  height: 240px;
+  margin: 0 auto;
+}
+
+.search input {
+  border-radius: 1rem;
+  border: 2px solid rgba(119, 119, 119, 0.4784313725);
+  padding: 5px 5px;
+  outline: none;
+}
+.search .something {
+  width: 100px;
+  height: 100px;
+  background: whitesmoke;
+}
+
+header {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
 }
 header .navbar .navbar-brand {
   color: #fdf5e6;
@@ -10762,8 +10786,17 @@ header .navbar .nav-link.active {
 footer {
   color: #fdf5e6;
 }
+footer .btn {
+  color: #ffcc33;
+}
+footer .btn :hover {
+  color: #23297a;
+}
 footer .footer-content a {
   color: #fdf5e6;
+}
+footer .footer-content a:hover {
+  color: #ffcc33;
 }
 footer .input-wrap {
   position: relative;
