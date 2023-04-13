@@ -1,5 +1,6 @@
 // Font Ekleme
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Timmana&display=swap');
 
 
 *{
@@ -17,7 +18,51 @@ body{
 header{
     position: fixed;
     width: 100%;
-    height: 15%;
+    height: 100px;
     background: rgb(35,137,170);
     background: radial-gradient(circle, rgba(35,137,170,1) 0%, rgba(36,43,161,1) 65%, rgba(24,218,5,1) 94%);
+}
+
+// Navbar
+.logo-img{
+    animation:logo-animation 3s linear 0.5s infinite;
+    
+}
+
+.navbar-brand{
+    h1{
+        font-family: 'Timmana', sans-serif;
+        color:white;
+    }
+}
+
+.nav-item{
+    a{
+        color:white;
+    }
+    .nav-link.active{
+        color:rgb(14,229,20) !important;
+    }
+    &:hover{
+        transition: all 1s linear;
+        transform: scale(1.1);
+        background-color: white;
+        a{
+          color:$primary;
+        }
+    }
+}
+
+
+// Animations
+@keyframes logo-animation{
+    0%{
+        transform:translateX(-50px)
+    }
+    50%{
+        transform:translateX(-25px)
+    }
+    100%{
+        transform:translateX(0px)
+    }
 }
