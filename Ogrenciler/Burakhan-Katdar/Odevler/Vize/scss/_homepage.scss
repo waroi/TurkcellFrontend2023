@@ -5,8 +5,8 @@ $warning: #F0F0F0;
 
 /* ⁡⁢⁣⁢--- MIXINS ---⁡ */
 
-@mixin sectionPadding {
-    padding: 100px 0;
+@mixin sectionPadding ($bottom-top){
+    padding: $bottom-top 0;
 }
 
 /* ⁡⁢⁣⁢--- ANIMATIONS ---⁡ */
@@ -70,7 +70,7 @@ body {
 /* ⁡⁢⁣⁢--- BANNER ---⁡ */
 
 .banner {
-    @include sectionPadding();
+    @include sectionPadding(100px);
     background-image: url("../img/road.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -131,6 +131,48 @@ body {
         }
     }
 
+}
+
+/* ⁡⁢⁣⁢--- CARS ---⁡ */
+
+.cars{
+    @include sectionPadding(20px);
+
+    .cars-con{
+        margin-bottom: 30px;
+        .card{
+            position: relative;
+            width: 100% !important;
+            margin: 10px 0;
+            .card-body  {
+                button{
+                    &:hover{
+                        background-color: $secondary;
+                    color: $primary;
+                    }
+                }
+            }
+            .favorite{
+                display: flex;
+                position: absolute;
+                height: 30px;
+                width: 30px;        
+                background-color: $secondary;
+                color: white;
+                border-radius: 100%;
+                top: 1%;
+                right: 1%;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+    
+                &:hover{
+                    color: $danger;
+                }
+            }
+        }
+    }
+    
 }
 
 
