@@ -9,13 +9,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <title>Document</title>
+    <title>SCIMEA</title>
   </head>
   <body>
-    <!-- ^ -- NAVBAR -- ! -->
-    <nav class="navbar navbar-expand-lg bg-secondary text-light py-4 fixed-top">
+    <!-- * -- NAVBAR -- ! -->
+    <nav
+      class="navbar navbar-expand-lg bg-secondary text-light py-4 sticky-top"
+    >
       <div class="container">
-        <a class="text-light navbar-brand" href="#">Anasayfa</a>
+        <a class="text-light navbar-brand" href="#"
+          ><img class="logo" src="../img/logo.png"
+        /></a>
         <button
           class="navbar-toggler text-white"
           type="button"
@@ -28,7 +32,7 @@
           <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
             <li class="nav-item">
               <a
-                class="nav-link active text-light"
+                class="nav-link text-light active"
                 aria-current="page"
                 href="Homepage.html"
                 >Anasayfa</a
@@ -41,17 +45,25 @@
                 role="button"
                 data-bs-toggle="dropdown"
               >
-                Ürünler
+                Paketler
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="product1.html">Ürün 1</a>
+                  <a class="dropdown-item" href="product1.html"
+                    >Google Reklam</a
+                  >
                 </li>
+                <hr />
                 <li>
-                  <a class="dropdown-item" href="product2.html">Ürün 2</a>
+                  <a class="dropdown-item" href="product2.html"
+                    >İnstagram Reklam</a
+                  >
                 </li>
+                <hr />
                 <li>
-                  <a class="dropdown-item" href="product3.html">Ürün 2</a>
+                  <a class="dropdown-item" href="product3.html"
+                    >Facebook Reklam</a
+                  >
                 </li>
               </ul>
             </li>
@@ -70,26 +82,79 @@
               type="search"
               placeholder="Aramak istediğiniz ürün"
             />
-            <button
-              class="btn btn-outline-success bg-primary text-white"
-              type="submit"
-            >
-              Ara
-            </button>
+            <button class="btn btn-outline-success" type="submit">Ara</button>
           </form>
         </div>
       </div>
     </nav>
-    <!-- ^ -- FOOTER -- ! -->
-    <footer class="bg-secondary">
+    <!-- * -- CAROUSEL SECTİON -- ! -->
+    <section>
+      <div class="container">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="..." class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+              <img src="..." class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+              <img src="..." class="d-block w-100" alt="..." />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- * -- FOOTER -- ! -->
+    <footer class="bg-secondary pt-5">
       <div class="container">
         <div class="row justify-content-between">
           <div class="col-lg-3">
-            <h6 class="footer-title">Ürünler</h6>
+            <h6 class="footer-title">Paketler</h6>
             <ul class="list p-0">
-              <li class="mb-3"><a href="#">Ürün 1</a></li>
-              <li class="mb-3"><a href="#">Ürün 2</a></li>
-              <li class="mb-3"><a href="#">Ürün 3</a></li>
+              <li class="mb-3"><a href="product1.html">Google Reklam</a></li>
+              <li class="mb-3"><a href="product2.html">Instagram Reklam</a></li>
+              <li class="mb-3"><a href="product3.html">Facebook Reklam</a></li>
             </ul>
           </div>
           <div class="col-lg-5">
@@ -111,8 +176,10 @@
             <h6 class="footer-title">Şirket</h6>
             <ul class="list p-0">
               <li class="mb-3"><a href="AboutUs.html">Hakkımızda</a></li>
-              <li class="mb-3"><a href="FAQ.html">Sıkça Sorulan Sorular</a></li>
-              <li class="mb-3"><a href="#">İletişim</a></li>
+              <li class="mb-3">
+                <a href="FAQ.html">Sıkça Sorulan Sorular</a>
+              </li>
+              <li class="mb-3"><a href="AboutUs.html">İletişim</a></li>
             </ul>
           </div>
         </div>
