@@ -18,6 +18,15 @@ a {
 
 #newItems{
   .card{
+    img {
+        transform: scale(1);
+        transition: opacity .3s ease, transform 3s cubic-bezier(.25, .46, .45, .94);
+        filter: grayscale(100%);
+        &:hover {
+          transform: scale(1.1);
+          filter: grayscale(0);
+        }
+    }
     .card-body{
       background-color: #fff;
       margin: -3rem auto 0;
@@ -26,6 +35,6 @@ a {
       width: 85%;
       box-shadow: 0 5px 15px -2px rgba(101, 64, 183, 0.251);
       border-radius: 10px;
-    }
+      }
   }
 }

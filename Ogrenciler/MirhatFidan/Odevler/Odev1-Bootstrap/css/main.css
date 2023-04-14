@@ -10723,11 +10723,29 @@ body {
   font-family: "Nunito Sans", sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
 ::selection {
   background: red;
   color: yellow;
 }
 
+#newItems .card img {
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: grayscale(100%);
+}
+#newItems .card img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
 #newItems .card .card-body {
   background-color: #fff;
   margin: -3rem auto 0;
