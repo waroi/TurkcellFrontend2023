@@ -1,0 +1,108 @@
+$primary: #F9D949;
+$secondary: #3C486B;
+$danger: #F45050;
+$warning: #F0F0F0;
+
+/* ⁡⁢⁣⁢--- MIXINS ---⁡ */
+
+@mixin sectionPadding{
+    padding: 100px 0;
+}
+
+/* ⁡⁢⁣⁢--- ANIMATIONS ---⁡ */
+
+@keyframes MoveCar{
+    0%{
+      
+      
+      transform: translate(0, 0);
+    }
+    50%{
+      transform: translate(-100px, 0px) ;
+        width: 90%;
+    }
+    100%{
+     
+      transform: translate(0, 0);
+      width: 100%;
+
+    }
+  }
+
+/* ⁡⁢⁣⁢--- NAV ---⁡ */
+
+.navbar{
+    .nav-img{
+        width: 200px;
+    } 
+    .navbar-nav{
+        gap: 30px; 
+        margin-left: 30px;
+        .nav-item {
+            border-bottom: 3px solid $primary;
+            transition: 0.3s ease-in-out;
+        
+            padding: 15px 10px;
+            a{
+                font-size: 20px;
+                font-weight: 600;
+            }
+        
+            
+            &:hover{
+                border-bottom: 3px solid $secondary;
+                transition: 0.3s ease-in-out;
+            }
+        }
+    }
+}
+
+/* ⁡⁢⁣⁢--- BANNER ---⁡ */
+
+.banner{
+    @include sectionPadding();
+
+    .banner-left{
+        
+        img{
+           
+            width: 150%;
+        }
+    }
+
+    .banner-right{
+        position: relative;
+    
+        img{
+           width: 80%;
+            animation: MoveCar 10s forwards 1s ease-in-out infinite;
+            position: absolute;
+            left: 30%;
+        }
+    }
+}
+
+/* ⁡⁢⁣⁢--- FILTER ---⁡ */
+
+.filter{
+    @include sectionPadding();
+    background-color: $warning;
+}
+
+
+
+
+@media only screen and (max-width: 992px) {
+    .banner-left{
+        text-align: center;
+       
+        img{
+           
+            width: 100% !important;
+        }
+    }
+
+    .banner-right{
+        display: none;
+    }
+  }
