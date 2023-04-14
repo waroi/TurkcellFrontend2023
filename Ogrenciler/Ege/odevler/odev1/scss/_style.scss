@@ -123,6 +123,43 @@ a {
 
 // #endregion
 
+// #region Product Details
+.product-area {
+  padding: 120px 0;
+  img {
+    max-height: 600px;
+  }
+  .order-details {
+    .amount-controls {
+      div {
+        width: 45px;
+        height: 100%;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        border: 2px solid $primary;
+        text-align: center;
+        padding: 10px;
+        background: $primary;
+        color: white;
+        &:nth-child(2) {
+          background: $info;
+          margin: 0 -2px;
+          color: black;
+        }
+        &:nth-child(1) {
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+        }
+        &:nth-child(3) {
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+        }
+      }
+    }
+  }
+}
+
 // #region Shared Components
 
 header {
