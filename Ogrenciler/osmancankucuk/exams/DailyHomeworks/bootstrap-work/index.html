@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar bg-white">
+        <div class="container-fluid">
+          <div
+            class="w-100 px-3 d-flex justify-content-between align-items-center"
+          >
+            <a class="navbar-brand" href="#">
+              <h3>Mini Blog</h3>
+            </a>
+            <div class="d-flex nav-list">
+              <li class="nav-item dropdown text-dark">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Home
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="px-4"><a class="text-dark" href="">Politics</a></li>
+              <li><a href="" class="text-dark">Tech</a></li>
+              <li class="px-4">
+                <a href="" class="text-dark">Entertainment</a>
+              </li>
+              <li><a href="" class="text-dark">Travel</a></li>
+              <li class="px-4"><a href="" class="text-dark">Sports</a></li>
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="bottom"
+                  data-bs-title="Tooltip on bottom"
+                >
+                  <i
+                    class="fa-solid fa-magnifying-glass fa-lg d-flex align-items-center"
+                  ></i>
+                </button>
+              </form>
+            </div>
+            <div class="navBar-icon">
+              <i class="fa-solid fa-bars fa-lg"></i>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section id="collage-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-4">
+            <a href="./pages/first.html" class="">
+              <div class="first-col-first mini-image p-3">
+                <div class="image-text">
+                  <h4 class="text-white">
+                    The AI magically removes moving objects from videos.
+                  </h4>
+                  <p>July 19, 2019</p>
+                </div>
+              </div>
+            </a>
+            <a href="">
+              <div class="first-col-second mini-image p-4">
+                <div class="text">
+                  <div class="image-text">
+                    <h4 class="text-white">
+                      The AI magically removes moving objects from videos.
+                    </h4>
+                    <p>July 19, 2019</p>
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="col-12 col-lg-4">
+            <a href="">
+              <div class="second-col-first p-4">
+                <div>
+                  <h4 class="text-white">
+                    The AI magically removes moving objects from videos.
+                  </h4>
+                  <p>July 19, 2019</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-lg-4">
+            <a href="">
+              <div class="third-col-first mini-image p-4">
+                <div class="image-text">
+                  <h4 class="text-white">
+                    The AI magically removes moving objects from videos.
+                  </h4>
+                  <p>July 19, 2019</p>
+                </div>
+              </div>
+            </a>
+            <a href="">
+              <div class="third-col-second mini-image p-4">
+                <div class="image-text">
+                  <h4 class="text-white">
+                    The AI magically removes moving objects from videos.
+                  </h4>
+                  <p>July 19, 2019</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="carousel-section">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="0"
+            class="active"
+          ></li>
+          <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+          <a href="" class="carousel-item active carousel-image-1">
+            <div class="container container-carousel">
+              <h1>Example Headline</h1>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Similique enim, voluptatem tenetur impedit delectus illum!
+                Tenetur perferendis eum repellat perspiciatis.
+              </p>
+            </div>
+          </a>
+
+          <a href="" class="carousel-item carousel-image-2">
+            <div class="container container-carousel">
+              <h1>Kitty Cat</h1>
+              <p>KEDILER UZAZYLIDIR!</p>
+            </div>
+          </a>
+        </div>
+        <a
+          class="carousel-control-prev"
+          role="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          role="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </div>
+    </section>
+    <section class="text-center" id="cards-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <a href="./pages/card.html">
+              <div class="card my-3 w-100">
+                <img
+                  src="https://cdn.wallpapersafari.com/70/94/zmLqAS.jpg"
+                  class="card-img-top"
+                  height="250"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card my-3 w-100">
+              <img
+                src="https://cdn.pixabay.com/photo/2017/10/10/07/48/hills-2836301__340.jpg"
+                class="card-img-top"
+                height="250"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card my-3 w-100">
+              <img
+                src="https://images6.alphacoders.com/568/568500.jpg"
+                height="250"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 my-3">
+            <div class="card w-100">
+              <img
+                src="https://images.hdqwalls.com/wallpapers/autumn-nature-4k-vn.jpg"
+                height="250"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 my-3">
+            <div class="card w-100">
+              <img
+                src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fDRrJTIwbmF0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+                height="250"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 my-3">
+            <div class="card w-100">
+              <img
+                src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8NGslMjBuYXR1cmV8ZW58MHx8MHx8&w=1000&q=80"
+                height="250"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer">
+      <div class="container">
+        <div class="d-flex">
+          <div class="row">
+            <div class="col-md-4">
+              <h3>About Us</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Placeat reprehenderit magnam deleniti quasi saepe, consequatur
+                atque sequi delectus dolore veritatis obcaecati quae, repellat
+                eveniet omnis, voluptatem in. Soluta, eligendi, architecto.
+              </p>
+            </div>
+            <div
+              style="font-size: 20px"
+              class="col-md-3 d-flex justify-content-center footer-list"
+            >
+              <ul>
+                <li>About Us</li>
+                <li>Advertise</li>
+                <li>Careers</li>
+                <li>Subscribers</li>
+              </ul>
+              <ul>
+                <li>Travels</li>
+                <li>Lifetyle</li>
+                <li>Sports</li>
+                <li>Nature</li>
+              </ul>
+            </div>
+            <div class="col-md-4 text-center">
+              <div>
+                <h3>Connect With Us</h3>
+                <div class="my-4">
+                  <a href=""><i class="fa-brands fa-facebook fa-lg"></i></a>
+                  <a href=""><i class="fa-brands fa-twitter mx-4 fa-lg"></i></a>
+                  <a href=""><i class="fa-brands fa-instagram fa-lg"></i></a>
+                  <a href=""> <i class="fa-solid fa-rss mx-4 fa-lg"></i></a>
+                  <a href=""><i class="fa-solid fa-envelope fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="font-size: 1.5em" class="my-5 text-center">
+          Copyright © 2023 All rights reserved | This template is made by Osman
+          Can Kucuk
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

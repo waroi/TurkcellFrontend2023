@@ -1,0 +1,284 @@
+@media screen and (min-width: 1200px) {
+ @import '_mixin.scss';
+ @import '_variables.scss';
+ @import '_extends.scss';
+ .container {
+  width: 1140px;
+  margin: 0 auto;
+  padding: 0;
+ }
+ /* navbar*/
+
+ /* navbar-mobile */
+ .navbar {
+  box-shadow: unset;
+  .container {
+   .mobile-navbar {
+    display: none;
+   }
+   .pc-navbar {
+    @include flex-full(row, space-between, center);
+    .main-menu {
+     @include flex-full(row, end, center);
+     ul {
+      @include flex-row();
+      li {
+       padding: 2em 1em;
+       margin-right: 1em;
+       font-weight: 600;
+       &:hover {
+        a {
+         color: $white;
+         background: $primary-gradient;
+         padding: 0.5em;
+         border-radius: 5px;
+        }
+       }
+      }
+     }
+     .header-button {
+      @extend .extbutton;
+     }
+    }
+   }
+  }
+ }
+ /* navbar-pc */
+
+ /* header */
+ header {
+  overflow: hidden;
+  @include flex-full(column, center, center);
+  position: relative;
+  margin-top: 0;
+  .header-triangle {
+   pointer-events: none;
+   display: block;
+   position: absolute;
+   z-index: 0;
+   top: 0;
+   left: 0;
+   height: 45%;
+   background-color: $white;
+   transform: rotate(180deg);
+   opacity: 0.5;
+  }
+  .container {
+   z-index: 1;
+   .header-container {
+    flex-direction: row;
+    padding-top: 6em;
+
+    .header-text {
+     width: 60%;
+     padding-bottom: 5em;
+     h2 {
+      font-size: 52px;
+      line-height: 72px;
+     }
+     p {
+      width: 60%;
+     }
+    }
+    .header-image {
+     pointer-events: none;
+
+     width: 50%;
+     overflow: hidden;
+     @include absolute-full(144px, 0, auto, -8%);
+     .candle-card {
+      transform: scale(0.9);
+      @include absolute-full(2em, auto, auto, 7em);
+      animation: candle-card-animation 10s ease infinite;
+      display: block;
+     }
+     @keyframes candle-card-animation {
+      0% {
+       @include absolute-full(2em, auto, auto, 7em);
+      }
+      25% {
+       @include absolute-full(4.5em, auto, auto, 10em);
+      }
+      50% {
+       @include absolute-full(4.5em, auto, auto, 7em);
+      }
+      75% {
+       @include absolute-full(4.5em, auto, auto, 10em);
+      }
+      100% {
+       @include absolute-full(2em, auto, auto, 7em);
+      }
+     }
+
+     .woman-img {
+      display: block;
+      z-index: 10;
+      height: 45%;
+      @include absolute-full(6em, auto, 12em, auto);
+      animation: woman 5s ease-in-out infinite;
+     }
+
+     @keyframes woman {
+      0% {
+       @include absolute-full(6em, auto, 12em, auto);
+      }
+
+      50% {
+       @include absolute-full(3em, auto, 12em, auto);
+      }
+      100% {
+       @include absolute-full(6em, auto, 12em, auto);
+      }
+     }
+     .pos-man-img {
+      pointer-events: none;
+      transform: scale(1.1);
+      z-index: 5;
+      @include absolute-full(auto, auto, auto, 0);
+     }
+    }
+   }
+  }
+  .purple-img {
+   pointer-events: none;
+   display: block;
+   @include absolute-full(-10%, 0, auto, 0);
+  }
+ }
+ /*omnichannel*/
+ .omnichannel {
+  width: 100%;
+  .container {
+   .pos-section-container {
+    @include flex-full(row-reverse, space-between, start);
+    img {
+     align-self: end;
+     width: 50%;
+    }
+   }
+   .pos-section-left {
+    width: 45%;
+    h2 {
+     font-size: 36px;
+    }
+    ul {
+     flex-direction: row !important;
+     div {
+      width: 50%;
+      li {
+       padding: 1em 0;
+       width: 295px;
+      }
+     }
+    }
+   }
+  }
+ }
+ .all-in-one {
+  @extend .omnichannel;
+  .pos-section-container {
+   flex-direction: row !important;
+  }
+ }
+ //retail pos
+ .retail-pos {
+  @extend .omnichannel;
+ }
+ //retail cards
+ .retail-cards {
+  .header {
+   h3 {
+    font-size: 36px;
+   }
+  }
+ }
+ .retail-card-container {
+  @include flex-full(row, space-between, center);
+ }
+ .retail-card {
+  width: 22% !important;
+ }
+ //retail stores
+ .retail-stores {
+  @extend .omnichannel;
+  .pos-section-container {
+   flex-direction: row !important;
+  }
+ }
+ //extend power
+ .extend-power {
+  @extend .omnichannel;
+ }
+
+ /* upload */
+ .upload {
+  .container {
+   .upload-container {
+    h3 {
+     font-size: 36px !important;
+    }
+    .card-container {
+     width: 100%;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     .card {
+      width: 31%;
+     }
+    }
+   }
+  }
+ }
+
+ //smratpos-powers-retail Başlangıç
+ .smratpos-powers-retail-container > .header {
+  padding-bottom: 4em;
+  h3 {
+   @include font-full(36px, 600, 1.3em);
+  }
+  p {
+   @include font-full(16px, 400, 1.4em);
+  }
+ }
+ .card-container {
+  @include flex-row();
+  gap: 2em;
+ }
+ .card {
+  width: 31%;
+  display: block;
+ }
+ .card-header {
+  .person-company {
+   display: block;
+  }
+ }
+ //smratpos-powers-retail Bitiş
+
+ //sponsor logos
+ .sponsor-logos {
+  img {
+   display: block !important;
+  }
+ }
+ //footer
+ .footer-header-container {
+  @include flex-full(row, space-between, center);
+  padding: 3em 0;
+ }
+ .footer-header {
+  text-align: start;
+  h3 {
+   font-size: 36px;
+  }
+ }
+ .header-img-container {
+  @include flex-full(row, center, center);
+  div {
+   width: 120px;
+  }
+ }
+ .footer-nav-container {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+ }
+}
