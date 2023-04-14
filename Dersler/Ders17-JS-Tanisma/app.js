@@ -22,3 +22,4 @@ console.log("Merhaba Dünya");
 // console.log(firstNumber);
 // console.log(secondNumber);
 // console.log(firstNumber + secondNumber);
+
