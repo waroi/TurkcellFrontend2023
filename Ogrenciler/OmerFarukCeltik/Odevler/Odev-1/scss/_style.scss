@@ -1,0 +1,88 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@mixin gradient-mixin($bg,$pos,$w,$h,$cont) {
+  background: $bg;
+  position: $pos;
+  width: $w;
+  height: $h;
+  content: $cont;
+  overflow: hidden;
+}
+@mixin transition-mixin($tr,$b,$b-shw){
+  transition:$tr;
+  border:$b;
+  box-shadow: $b-shw;
+}
+h1 {
+  --x-offset: -0.0625em;
+  --y-offset: 0.0625em;
+  --stroke: 0.025em;
+  --background-color: #1d152d;
+  --stroke-color: #605B6C;
+  text-shadow: 
+    var(--x-offset)
+    var(--y-offset)
+    0px
+    var(--background-color), 
+    calc( var(--x-offset) - var(--stroke) )
+    calc( var(--y-offset) + var(--stroke) )
+    0px
+    var(--stroke-color);
+}
+.header-content{
+  @include gradient-mixin(url(../img/AnyFaithfulHylaeosaurus-size_restricted.gif),relative ,inherit ,inherit,inherit);
+  &::before{
+    @include gradient-mixin(linear-gradient(180deg, rgba(38, 25, 64, 0.5), rgba(0, 0, 0, 0)),absolute ,100% ,100%,"");
+  }
+}
+.middle-navbar{
+  @include transition-mixin(all 0.7s ease-in,1px solid var(--secondary-bg-color),0px 2px 12px 0px rgba(54, 54, 54, 0.75));
+  &:hover{
+    background: $primary !important;
+  }
+}
+.gallery{
+  @include gradient-mixin(linear-gradient(180deg, var(--black), rgb(14, 14, 14)),inherit ,100% ,100%,inherit);
+  img:hover{
+    @include transition-mixin(all 0.5s ease-in,inherit, 0px 2px 12px 0px rgba(54, 54, 54, 0.75));
+    scale: 1.02;
+    border-radius: 30px;
+  }
+}
+.marketplace{
+  @include gradient-mixin(linear-gradient(180deg, rgb(14, 14, 14), rgb(22, 22, 22)),inherit ,100% ,100%,inherit);
+}
+.jobs{
+  @include gradient-mixin(linear-gradient(180deg, rgb(34, 34, 34), rgb(78, 78, 78)),inherit ,100% ,100%,inherit);
+}
+.moto-card{
+  @extend .middle-navbar;
+}
+.gradient-bg-sec{
+  @include gradient-mixin(linear-gradient(180deg, rgb(78, 78, 78), var(--black)),inherit ,100% ,100%,inherit);
+}
+.moto-carousel{
+  &::before{
+    @include gradient-mixin(linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),absolute ,100% ,100%,"");
+  }
+}
+.form{
+  @include gradient-mixin(url(../img/AnyFaithfulHylaeosaurus-size_restricted.gif),relative ,inherit ,inherit,inherit);
+  & .form-area{
+    @extend .middle-navbar;
+  }
+}
+@media screen and (max-width:992px) {
+  .middle-navbar{
+    background: var(--bs-background-color);
+    border-radius: 10px !important;
+    li{
+      a{
+        color: $primary;
+      }
+    }
+  }
+}
