@@ -1,0 +1,2 @@
+<!-- new Date() fonksiyonu document. date den çeker yani tarayıcıdan, tarayıcı ise date i bilgisayardan çeker  -->
+<!-- js da 2 context vardır execution context çalıştırma aşamasıdır bu aşamada js ilk önce var vb okur içerisindeki verileri tutar ve aktarır fakat fonksiyonları yazdığın anda o şekilde tutar ve tuttuğu fonlsiyonu istediği yerde istediği zamanda kullandırır -->
