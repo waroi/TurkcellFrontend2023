@@ -8,14 +8,21 @@ body{
 
 a {
   text-decoration: none;
-  color: white;
+  color: white !important;
 }
 
 ::selection{
   background: red;
   color: yellow;
 }
-
+.intro-title {
+  &:hover {
+    color: $secondary;
+  }
+}
+#heroSlider{
+  top: 25px;
+}
 #newItems{
   .card{
     img {
@@ -36,5 +43,49 @@ a {
       box-shadow: 0 5px 15px -2px rgba(101, 64, 183, 0.251);
       border-radius: 10px;
       }
+  }
+}
+#designerItems{
+  .designer-wrap {
+      bottom: 25px;
+      left: 50%;
+      transform: translate(-50%, 0px);
+      opacity: 0;
+      transition: all .8s ease;
+    }
+  img{
+    border-top-right-radius: 60px;
+    border-bottom-left-radius: 60px;
+  
+  }
+  .col-lg-5:hover .designer-wrap {
+    opacity: 1;
+    transition: all .8s ease;
+    box-shadow: 0 5px 15px -2px rgba(220, 215, 231, 0.422);
+    transform: translate(-50%, -100px);
+
+  }
+}
+
+#newsLetter{
+  h3{
+    font-family: 'Sedgwick Ave Display', cursive;
+    transition: all .3s ease;
+    &:hover{
+      transform: scale(1.1);
+      transition: all .3s ease;
+    }
+  }
+}
+
+#aboutHero{
+  .hero{
+    background: url(../assets/a-hero.jpg) no-repeat;
+    background-size: cover;
+    background-position: 50% 60%;
+    background-attachment: fixed;
+    width: 100%;
+    height: 500px;
+
   }
 }

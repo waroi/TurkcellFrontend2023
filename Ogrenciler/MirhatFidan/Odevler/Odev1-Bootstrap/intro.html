@@ -41,7 +41,7 @@
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search" />
           <button class="btn btn-outline-light" type="submit">
             <i class="bi bi-search"></i>
           </button>
@@ -51,8 +51,8 @@
       </div>
     </div>
   </nav>
-  <section id="heroSlider" class="py-5">
-    <div class="container-xxl">
+  <section id="heroSlider" class="py-5 position-relative">
+    <div class="overflow-hidden">
       <div class="row">
         <div id="carousel-hero" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
@@ -62,13 +62,13 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100 img-fluid" src="https://cdn.shopify.com/s/files/1/0011/8574/2900/files/amd1_2000x.jpg?v=1679834286" alt="First slide">
+              <img class="d-block  img-fluid " src="https://cdn.shopify.com/s/files/1/0011/8574/2900/files/amd1_2000x.jpg?v=1679834286" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="https://cdn.shopify.com/s/files/1/0011/8574/2900/files/arc_2000x.jpg?v=1667834171" alt="Second slide">
+              <img class="d-block img-fluid" src="https://cdn.shopify.com/s/files/1/0011/8574/2900/files/arc_2000x.jpg?v=1667834171" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="https://cdn.shopify.com/s/files/1/0011/8574/2900/files/amd1_2000x.jpg?v=1679834286" alt="Third slide">
+              <img class="d-block img-fluid" src="https://cdn.shopify.com/s/files/1/0011/8574/2900/files/amd1_2000x.jpg?v=1679834286" alt="Third slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carousel-hero" role="button" data-slide="prev">
@@ -85,21 +85,20 @@
   </section>
   <section id="newItems">
     <div class="container">
+      <div class="intro-title">
+        <h2 class="fw-bold fs-2 mb-5">New Drop Alert!</h2>
+      </div>
       <div class="row">
-          <div class="new-item-title text-center">
-            <span>TİTLE</span>
-          </div>
           <div class="col-sm-12 col-lg-4">
             <div class="card border-0">
               <div class="img-wrap overflow-hidden">
                 <img class="card-img-top" src="assets/ni-2.webp">
               </div>
               <div class="card-body">
-                <h4>title</h4>
-                <h6>subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
+                <h4 class="fw-bold fs-5">NIKE</h4>
+                <h6 class="text-muted">Nike Air Max 1 Premium (Pecan | Yellow Ochre)</h6>
+                <p class="card-text fw-bold fs-6">$160</p>
+                <button class="btn btn-primary py-2 px-4">Shop Now</button>
               </div>
             </div>
           </div>
@@ -109,11 +108,10 @@
                 <img class="card-img-top" src="assets/ni-3.webp">
               </div>
               <div class="card-body">
-                <h4>title</h4>
-                <h6>subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
+                <h4 class="fw-bold fs-5">ADIDAS</h4>
+                <h6 class="pb-3 text-muted">Pharrell x Adidas NMD S1 (Ryat)</h6>
+                <p class="card-text fw-bold fs-6">$250</p>
+                <button class="btn btn-primary py-2 px-4">Shop Now</button>
               </div>
             </div>
           </div>
@@ -123,17 +121,92 @@
                 <img class="card-img-top" src="assets/ni-4.webp">
               </div>
               <div class="card-body">
-                <h4>title</h4>
-                <h6>subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
+                <h4 class="fw-bold fs-5">JORDAN</h4>
+                <h6 class="text-muted">W Air Jordan 1 Zoom Comfort 2 (Muslin | Blackened Blue)</h6>
+                <p class="card-text fw-bold fs-6">$150</p>
+                <button class="btn btn-primary py-2 px-4">Shop Now</button>
               </div>
             </div>
           </div>
       </div>
     </div>
   </section>
+  <section id="designerItems" class="py-5">
+    <div class="container">
+      <div class="intro-title fw-bold fs-2 pb-5">
+        <h2 class="fw-bold fs-2">Designer Sneakers</h2>
+      </div>
+      <div class="row justify-content-center g-5">
+        <div class="col-sm-12 col-lg-5 position-relative">
+          <img class="img-fluid" src="./assets/di-1.jpg" alt="">
+          <a href="">
+            <div class="position-absolute designer-wrap text-center w-75 border border-2 border-white pb-2">
+              <h3 class="text-white pt-1">Travis Scott X Jordan</h3>
+              <button class="btn btn-primary py-2 px-4">Shop Now</button>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-12 col-lg-5 position-relative">
+          <img class="img-fluid" src="./assets/di-2.jpg" alt="">
+          <a href="#">
+            <div class="position-absolute designer-wrap text-center w-75 border border-2 border-white pb-2">
+              <h3 class="text-white pt-1">Kanye West X Yeezy</h3>
+              <button class="btn btn-primary py-2 px-4">Shop Now</button>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section></section>
+  <section id="newsLetter" class="py-5 bg-success">
+    <div class="container">
+      <form action="#" class="row">
+        <div class="col-12 col-md-6">
+          <h3 class="fw-bold fs-1">SUBSCRIBE TO OUR NEWSLETTER</h3>
+          <p class="text-muted">We will inform you about upcoming launches, news and promotions!<p>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="col-12 pb-2">
+            <input class="form-control validate" name="mailing_name" type="text" minlength="3" placeholder="Your name">
+          </div>
+          <div class="col-12 pb-2">
+            <input class="form-control validate" name="mailing_name" type="text" minlength="3" placeholder="Enter your email">
+          </div>
+          <div class="col-12 pb-2">
+            <button class="btn btn-primary py-2 px-4 w-100 mb-4">Send</button>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+              <label class="form-check-label fs-7 text-muted" for="flexCheckChecked">
+                I consent to the processing of my personal data for the purposes and scope consistent with the implementation of the
+                newsletter service described in Privacy Policy.
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <footer class="bg-dark py-4 w-100">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-10 col-lg-3 mx-auto d-flex justify-content-center gap-3 pb-3 align-items-center">
+          <a href="#">Privacy policy</a>
+          <a href="#">Cookies</a>
+          <a href="#">Terms of service</a>
+        </div>
+        <div class="col-sm-10 col-lg-5 text-white d-flex justify-content-center align-items-center">
+          <p class="pb-sm-3 pb-md-0">Copyright © 2023 MirhatFidan. All Rights Reserved</p>
+        </div>
+        <div class="col-sm-10 col-lg-4 mx-auto d-flex justify-content-center gap-3">
+          <a href="#"><i class="bi bi-facebook fs-3"></i></a>
+          <a href="#"><i class="bi bi-twitter  fs-3"></i></a>
+          <a href="#"><i class="bi bi-twitch  fs-3"></i></a>
+          <a href="#"><i class="bi bi-instagram  fs-3"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
