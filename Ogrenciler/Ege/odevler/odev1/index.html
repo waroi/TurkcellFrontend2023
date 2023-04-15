@@ -93,6 +93,7 @@
       </div>
     </header>
     <!-- Navbar End -->
+
     <!-- Campaigns Start -->
     <section class="campaigns pb-5 overflow-hidden">
       <div class="row">
@@ -175,6 +176,7 @@
       </div>
     </section>
     <!-- Campaigns End -->
+
     <!-- Products Area Start -->
     <section class="products-main py-5">
       <div class="container">
@@ -438,6 +440,113 @@
       </div>
     </section>
     <!-- Products Area End -->
+
+    <!-- Contact Us Start -->
+    <section class="contact-us py-5">
+      <div class="container">
+        <div class="title text-center mb-5">
+          <h3>Contact Us</h3>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <iframe
+              class="rounded"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12602.216720565128!2d27.8440413!3d37.8473216!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b92b6f41eb1763%3A0x2f907b91000bb16!2zQXlkxLFuIEtlbnQgTWV5ZGFuxLE!5e0!3m2!1str!2str!4v1681569996072!5m2!1str!2str"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div class="col-md-6">
+            <form class="row needs-validation" novalidate>
+              <div class="col-12">
+                <label for="validationCustom01" class="form-label"
+                  >First name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please enter your first name.
+                </div>
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12">
+                <label for="validationCustom02" class="form-label"
+                  >Last name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom02"
+                  required
+                />
+                <div class="invalid-feedback">Please enter your last name.</div>
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12">
+                <label for="validationCustom02" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="validationCustom03"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please enter your mail address.
+                </div>
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-12">
+                <label for="validationCustom03" class="form-label"
+                  >Your Message</label
+                >
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="validationCustom04"
+                  style="height: 100px"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">Please write a comment.</div>
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="invalidCheck"
+                    required
+                  />
+                  <label class="form-check-label" for="invalidCheck">
+                    I have purchased and used this item.
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                  <div class="valid-feedback">
+                    You agreed before submitting.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 offset-md-3">
+                <button class="btn btn-primary" type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Us End -->
+
     <!-- Footer Start -->
     <footer class="bg-primary py-5">
       <div class="container">
@@ -494,11 +603,39 @@
       </div>
     </footer>
     <!-- Footer End -->
+
     <!-- Bootstrap Script -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Bootstrap Validation Script -->
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
   </body>
 </html>
