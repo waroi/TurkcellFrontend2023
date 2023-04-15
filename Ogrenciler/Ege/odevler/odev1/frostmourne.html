@@ -231,14 +231,171 @@
             </div>
           </div>
         </div>
-        <div class="row review">
+      </div>
+    </section>
+    <!-- Product Area End -->
+    <!-- Review Area Start -->
+    <section class="review-area">
+      <div class="container">
+        <div class="row border rounded review mt-5 py-5">
           <div class="title">
-            <h5 class="text-center">Reviews(1)</h5>
+            <h5 class="text-center">
+              <span class="me-1">Reviews</span> <span>(1)</span>
+            </h5>
+          </div>
+          <div class="reviews py-5">
+            <div class="row d-flex">
+              <div class="col-md-6 offset-md-3">
+                <div class="row reviewer">
+                  <div class="reviewer-img col-2">
+                    <img
+                      class="img-fluid rounded-circle"
+                      src="./assets/me.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="review col-10">
+                    <div
+                      class="review-info row justify-content-between align-items-center"
+                    >
+                      <div class="col-6">
+                        <div class="reviewer-name">
+                          <h4>Ege KARA</h4>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="reviewer-rating">
+                          <i class="fa-solid fa-star text-info"></i>
+                          <i class="fa-solid fa-star text-info"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row review-comment">
+                      <div class="col-12">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Enim at possimus eveniet tempore ipsum deserunt.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="new-review">
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                <div class="title">
+                  <h2>Add a review</h2>
+                  <p>
+                    All fields are required. Your email address won't be shared.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 offset-md-3">
+                <div class="your-rating d-flex justify-content-between">
+                  <h5>Your Rating:</h5>
+                  <div class="stars">
+                    <i class="fa-solid fa-star text-info"></i>
+                    <i class="fa-solid fa-star text-info"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form class="row g-3 needs-validation" novalidate>
+              <div class="col-md-6 offset-md-3">
+                <label for="validationCustom01" class="form-label"
+                  >First name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please enter your first name.
+                </div>
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-6 offset-md-3">
+                <label for="validationCustom02" class="form-label"
+                  >Last name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom02"
+                  required
+                />
+                <div class="invalid-feedback">Please enter your last name.</div>
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-6 offset-md-3">
+                <label for="validationCustom02" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="validationCustom03"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please enter your mail address.
+                </div>
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-6 offset-md-3">
+                <label for="validationCustom03" class="form-label"
+                  >Your Message</label
+                >
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="validationCustom04"
+                  style="height: 100px"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">Please write a comment.</div>
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-6 offset-md-3">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="invalidCheck"
+                    required
+                  />
+                  <label class="form-check-label" for="invalidCheck">
+                    I have purchased and used this item.
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                  <div class="valid-feedback">
+                    You agreed before submitting.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 offset-md-3">
+                <button class="btn btn-primary" type="submit">
+                  Submit form
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </section>
-    <!-- Product Area End -->
+    <!-- Review Area End -->
     <!-- Footer Start -->
     <footer class="bg-primary py-5">
       <div class="container">
@@ -301,5 +458,31 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <!-- Bootstrap Validation Script -->
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
   </body>
 </html>
