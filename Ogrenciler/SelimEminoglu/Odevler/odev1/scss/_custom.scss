@@ -15,6 +15,11 @@ body{
     background-color: rgba(35,137,170,1);
 }
 
+ul{
+    li{color: white;
+    }
+}
+
 // Header
 header{
     position: fixed;
@@ -27,7 +32,6 @@ header{
 // Navbar
 .logo-img{
     animation:logo-animation 3s linear 0.5s infinite;
-    
 }
 
 .navbar-brand{
@@ -61,6 +65,28 @@ header{
 // Section Week
 .sect-headline{
     border-bottom: 3px solid $secondary;
+}
+
+// Footer
+footer{
+    .icon-list{
+        li{
+            &:hover{
+                background-color: white;
+                i{
+                    color: $primary;
+                }
+            }
+        }
+    }
+    a{
+        i{
+            font-size: 3em;
+        }
+        &:hover{
+            text-decoration: underline !important;
+        }
+    }
 }
 
 
