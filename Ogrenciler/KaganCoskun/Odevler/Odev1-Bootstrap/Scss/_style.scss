@@ -17,19 +17,14 @@ body{
     .bg-shadow{
         background-color: rgba(0, 0, 0, 0.26);
         top: 0;
-        left: 0;
-        
+        left: 0;  
     }
 }
-
-
 #combine{
-    .card{
-            
+    .card{ 
         img:nth-child(2){
             display: none;
         }
-        
         .btn{
             transition: all .3s ease;        }
         &:hover{  
@@ -42,17 +37,71 @@ body{
                     display: block;
                 }
             }
-            
             .btn{
                 opacity: 1 !important;
                 transition: all .3s ease;
             }
         }
     }
-
     .voted{
         color: #f69f29;
     }
+}
+
+#products{
 
 
+    #motors:checked{
+        &~ .motors{
+            display: block !important;
+        }
+        &~ .clothes{
+            display: none !important;
+        }
+
+        .row .col-6{
+            .filter{
+                background-color: $primary !important;
+                transition: all .3s ease;
+            }
+        }
+    } 
+    #clothes:checked{
+        &~ .clothes{
+            display: block !important;
+        }
+        &~ .motors{
+            display: none !important;
+        }
+    } 
+
+
+    .col-6{
+        transition: all .3s ease;
+        &:hover{
+            .filter{
+                background-color: $primary !important;
+                transition: all .3s ease;
+            }
+        }
+    }
+
+    #motor2black:checked ~ .card img:nth-child(2){
+        opacity: 1 !important;
+    }
+
+    .motor-color{
+        width: 30px;
+        height: 30px;
+    &:hover{
+        --bs-border-width: 5px;
+    }
+    &::after{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 2px solid black;
+    }
+    }
 }

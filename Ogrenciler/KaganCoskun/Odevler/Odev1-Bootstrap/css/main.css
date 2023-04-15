@@ -11175,6 +11175,47 @@ body {
   color: #f69f29;
 }
 
+#products #motors:checked ~ .motors {
+  display: block !important;
+}
+#products #motors:checked ~ .clothes {
+  display: none !important;
+}
+#products #motors:checked .row .col-6 .filter {
+  background-color: #4D6772 !important;
+  transition: all 0.3s ease;
+}
+#products #clothes:checked ~ .clothes {
+  display: block !important;
+}
+#products #clothes:checked ~ .motors {
+  display: none !important;
+}
+#products .col-6 {
+  transition: all 0.3s ease;
+}
+#products .col-6:hover .filter {
+  background-color: #4D6772 !important;
+  transition: all 0.3s ease;
+}
+#products #motor2black:checked ~ .card img:nth-child(2) {
+  opacity: 1 !important;
+}
+#products .motor-color {
+  width: 30px;
+  height: 30px;
+}
+#products .motor-color:hover {
+  --bs-border-width: 5px;
+}
+#products .motor-color::after {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid black;
+}
+
 @media screen and (max-width: 767px) {
   #hero {
     height: 300px;
