@@ -12,27 +12,69 @@ section{
 .logo{
   width: 250px;
 }
-.title{
-  background-image: url("../../img/title-bg.jpg");
-  background-size: cover;
-  opacity: 0.8;
-}
+
+
+//! ------ HOMEPAGE  ------ //
 .banner-bg{
   position: absolute;
-  top: -10px;
-  left: 9%;
+  top: 130px;
+  left: 10%;
   background-image: url("../../img/balloon.png");
   background-repeat: no-repeat;
   opacity: 0.8;
   width: 800px;
   height: 800px;
+  z-index: -1;
 }
+.banner{
+  .banner-title{
+    h2{
+      margin-top: 25px ;
+      margin-bottom: 50px;
+      font-size: 48px;
+    }
+    p{
+      font-size: 24px;
+    }
+  }
+  a{
+    padding: 18px 24px;
+    border-radius: 25px;
+  }
+}
+.customers{
+  h2{
+    margin-bottom: 50px;
+  }
+  img{
+    width:25%;
+    height: 130px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all .2s ease-in-out;
+    &:hover{
+      filter: grayscale(0);
+      opacity: 1;
+    }
+  }
+}
+.fb-home{
+  height: 163px;
+}
+//! ------ ABOUT US ------ //
 .bg-all{
   background-image: url("../../img/slider-left-dec.png");
   background-repeat: no-repeat;
 }
 //! ------ PRODUCTS ------ //
+.title{
+  background-image: url("../../img/title-bg.jpg");
+  background-size: cover;
+  opacity: 0.8;
+}
 .card{
+  border: none;
+  box-shadow: 1px 2px 12px 0px rgba(26,188,156,0.79);
   position: relative;
   width: 22rem;
   .card-body{
