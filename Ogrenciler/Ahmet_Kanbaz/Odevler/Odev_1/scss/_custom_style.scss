@@ -1,0 +1,75 @@
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.transition {
+  transition: all .3s linear;
+}
+
+.iconDiv {
+  width: 75px;
+  height: 60px;
+}
+
+.trousersOne {
+  margin-top: 37.5%;
+}
+
+.topSection {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.8)
+  ), url("../images/bgSection.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  height: 600px;
+}
+
+.aboutUs {
+  @extend .topSection;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.6)
+  ), url("../images/bgaboutus.png");
+}
+
+.app {
+  position: relative;
+  background-color: aqua;
+  margin-top: 10rem;
+  .container {
+    position: absolute;
+    top: -150px;
+    margin: 0 auto;
+  }
+}
+
+footer {
+  ul {
+    padding: 0;
+    a {
+    color: #FFFFFF;
+    &:hover {
+      color: $primary;
+    }
+  }
+  }
+  
+  .socials {
+    a {
+      width: 33px;
+      height: 33px;
+      background-color: #1e2235;
+      display: inline-block;
+      &:hover {
+        background-color: $primary;
+      }
+    }
+  }
+}
