@@ -184,9 +184,20 @@ a {
 // #region Product Details
 .product-area {
   padding: 120px 0;
-  img {
-    max-height: 600px;
+  .product-img {
+    img {
+      max-height: 600px;
+      transition: 0.3s all;
+    }
+    &:hover {
+      img {
+        // filter: drop-shadow(30px 10px 4px rgba(95, 158, 160, 0.5));
+        filter: drop-shadow(0px 0px 10px rgba(95, 158, 160, 0.5));
+        transform: scale(1.15);
+      }
+    }
   }
+
   .order-details {
     .amount-controls {
       div {
@@ -247,7 +258,10 @@ header {
 
 footer {
   color: $secondary;
-
+  ul {
+    padding: 0;
+    margin: 0;
+  }
   .btn {
     color: $info;
     :hover {
@@ -320,5 +334,16 @@ footer {
   100% {
     transform: translateY(75%);
     opacity: 0;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  footer {
+    .col-lg-4 {
+      border: none;
+    }
+  }
+
+  iframe {
   }
 }

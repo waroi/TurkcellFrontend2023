@@ -10827,8 +10827,13 @@ a {
 .product-area {
   padding: 120px 0;
 }
-.product-area img {
+.product-area .product-img img {
   max-height: 600px;
+  transition: 0.3s all;
+}
+.product-area .product-img:hover img {
+  filter: drop-shadow(0px 0px 10px rgba(95, 158, 160, 0.5));
+  transform: scale(1.15);
 }
 .product-area .order-details .amount-controls div {
   width: 45px;
@@ -10880,6 +10885,10 @@ header .navbar .nav-link.active {
 
 footer {
   color: rgb(95, 158, 160);
+}
+footer ul {
+  padding: 0;
+  margin: 0;
 }
 footer .btn {
   color: #fcc200;
@@ -10943,6 +10952,11 @@ footer .col-lg-4:first-child {
   100% {
     transform: translateY(75%);
     opacity: 0;
+  }
+}
+@media screen and (max-width: 992px) {
+  footer .col-lg-4 {
+    border: none;
   }
 }
 
