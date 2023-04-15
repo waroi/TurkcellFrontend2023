@@ -1,7 +1,10 @@
+//general
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
+  list-style-type: none;
 }
 @mixin gradient-mixin($bg,$pos,$w,$h,$cont) {
   background: $bg;
@@ -47,6 +50,12 @@ h1 {
     background: $primary !important;
   }
 }
+.moto-card{
+  @extend .middle-navbar;
+}
+//general end
+
+//homepage
 .gallery{
   @include gradient-mixin(linear-gradient(180deg, var(--black), rgb(14, 14, 14)),inherit ,100% ,100%,inherit);
   img:hover{
@@ -54,15 +63,12 @@ h1 {
     scale: 1.02;
     border-radius: 30px;
   }
-}
+} 
 .marketplace{
   @include gradient-mixin(linear-gradient(180deg, rgb(14, 14, 14), rgb(22, 22, 22)),inherit ,100% ,100%,inherit);
 }
 .jobs{
   @include gradient-mixin(linear-gradient(180deg, rgb(34, 34, 34), rgb(78, 78, 78)),inherit ,100% ,100%,inherit);
-}
-.moto-card{
-  @extend .middle-navbar;
 }
 .gradient-bg-sec{
   @include gradient-mixin(linear-gradient(180deg, rgb(78, 78, 78), var(--black)),inherit ,100% ,100%,inherit);
@@ -78,14 +84,52 @@ h1 {
     @extend .middle-navbar;
   }
 }
+//homepage end
+//cafe racers page
+.caferacers-header-content{
+  @include gradient-mixin(url(https://images.pexels.com/photos/872732/pexels-photo-872732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1),relative ,inherit ,inherit,inherit);
+  background-position: center;
+  background-size: cover;
+  h2,h1{
+    z-index: 10;
+  }
+  &::before{
+    z-index: 1;
+    @include gradient-mixin(linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),absolute ,100% ,100%,"");
+  }
+}
+.caferacer-card{
+  @extend .moto-card;
+  border-radius: 0px;
+  &:hover{
+    background: var(--cafe-racer-card-bg) !important;
+  }
+  img{
+    overflow: hidden;
+  }
+}
+//cafe racers page end
+//aboutus start
+.logo-area{
+  img{
+    transition: all 0.7s ease-in;
+    filter: grayscale(0.8);
+    &:hover{
+      filter: grayscale(0);
+    }
+  }
+}
+.faq-section{
+
+}
 @media screen and (max-width:992px) {
   .middle-navbar{
     background: var(--bs-background-color);
-    border-radius: 10px !important;
     li{
       a{
         color: $primary;
       }
     }
   }
+ 
 }

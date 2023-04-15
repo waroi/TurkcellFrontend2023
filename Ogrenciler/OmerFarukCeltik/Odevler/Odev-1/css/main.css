@@ -6,6 +6,8 @@
   --bs-background-color:#1D152D;
   --secondary-bg-color: #4a4356;
   --black:#000;
+  --cafe-racer-card-bg: #29152d;
+  --accordion-button-bg:#605b6c;
 }
 
 :root {
@@ -11433,28 +11435,28 @@ textarea.form-control-lg {
 }
 
 .accordion {
-  --bs-accordion-color: #212529;
+  --bs-accordion-color: #000;
   --bs-accordion-bg: #fff;
   --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
-  --bs-accordion-border-color: var(--bs-border-color);
+  --bs-accordion-border-color: #0e002b;
   --bs-accordion-border-width: 1px;
   --bs-accordion-border-radius: 0.375rem;
   --bs-accordion-inner-border-radius: calc(0.375rem - 1px);
   --bs-accordion-btn-padding-x: 1.25rem;
   --bs-accordion-btn-padding-y: 1rem;
-  --bs-accordion-btn-color: #212529;
-  --bs-accordion-btn-bg: var(--bs-accordion-bg);
-  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-color: #000;
+  --bs-accordion-btn-bg: var(--accordion-button-bg);
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   --bs-accordion-btn-icon-width: 1.25rem;
   --bs-accordion-btn-icon-transform: rotate(-180deg);
   --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
-  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230d0027'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23a4a1ab'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   --bs-accordion-btn-focus-border-color: #878095;
   --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(14, 0, 43, 0.25);
   --bs-accordion-body-padding-x: 1.25rem;
   --bs-accordion-body-padding-y: 1rem;
-  --bs-accordion-active-color: #0d0027;
-  --bs-accordion-active-bg: #e7e6ea;
+  --bs-accordion-active-color: #a4a1ab;
+  --bs-accordion-active-bg: #0e002b;
 }
 
 .accordion-button {
@@ -18794,6 +18796,8 @@ textarea.form-control-lg {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
+  list-style-type: none;
 }
 
 h1, .h1 {
@@ -18825,12 +18829,12 @@ h1.styled-heading, .styled-heading.h1 {
   overflow: hidden;
 }
 
-.middle-navbar, .form .form-area, .moto-card {
+.middle-navbar, .form .form-area, .moto-card, .caferacer-card {
   transition: all 0.7s ease-in;
   border: 1px solid var(--secondary-bg-color);
   box-shadow: 0px 2px 12px 0px rgba(54, 54, 54, 0.75);
 }
-.middle-navbar:hover, .form .form-area:hover, .moto-card:hover {
+.middle-navbar:hover, .form .form-area:hover, .moto-card:hover, .caferacer-card:hover {
   background: #0e002b !important;
 }
 
@@ -18894,12 +18898,52 @@ h1.styled-heading, .styled-heading.h1 {
   content: inherit;
   overflow: hidden;
 }
+.caferacers-header-content {
+  background: url(https://images.pexels.com/photos/872732/pexels-photo-872732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  position: relative;
+  width: inherit;
+  height: inherit;
+  content: inherit;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+.caferacers-header-content h2, .caferacers-header-content .h2, .caferacers-header-content h1, .caferacers-header-content .h1 {
+  z-index: 10;
+}
+.caferacers-header-content::before {
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  overflow: hidden;
+}
+
+.caferacer-card {
+  border-radius: 0px;
+}
+.caferacer-card:hover {
+  background: var(--cafe-racer-card-bg) !important;
+}
+.caferacer-card img {
+  overflow: hidden;
+}
+
+.logo-area img {
+  transition: all 0.7s ease-in;
+  filter: grayscale(0.8);
+}
+.logo-area img:hover {
+  filter: grayscale(0);
+}
+
 @media screen and (max-width: 992px) {
-  .middle-navbar, .moto-card, .form .form-area {
+  .middle-navbar, .moto-card, .form .form-area, .caferacer-card {
     background: var(--bs-background-color);
-    border-radius: 10px !important;
   }
-  .middle-navbar li a, .moto-card li a, .form .form-area li a {
+  .middle-navbar li a, .moto-card li a, .form .form-area li a, .caferacer-card li a {
     color: #0e002b;
   }
 }
