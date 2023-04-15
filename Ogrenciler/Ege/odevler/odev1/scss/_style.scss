@@ -64,7 +64,18 @@ a {
   .products-by-catgs {
     .card {
       background: transparent;
+      overflow: hidden;
+      transition: 0.3s all;
+      border-color: rgba(95, 158, 160, 0.5);
+      &:hover {
+        border-color: rgba(95, 158, 160, 0);
+        box-shadow: 0px 0px 5px 5px rgba(95, 158, 160, 0.5);
+        img {
+          transform: scale(1.2);
+        }
+      }
       img {
+        transition: 0.5s all;
         max-width: 300px;
         margin: 0 auto;
       }
@@ -75,7 +86,19 @@ a {
       .product {
         .card {
           background: transparent;
+          overflow: hidden;
+          transition: 0.3s all;
+          border-color: rgba(95, 158, 160, 0.5);
+          &:hover {
+            border-color: rgba(95, 158, 160, 0);
+            box-shadow: 0px 0px 5px 5px rgba(95, 158, 160, 0.5);
+            img {
+              transform: scale(1.2);
+            }
+          }
           img {
+            transition: 0.5s all;
+
             max-width: 300px;
             height: 240px;
             margin: 0 auto;
@@ -102,6 +125,18 @@ a {
   .card {
     background: transparent;
     border-color: ghostwhite;
+  }
+}
+
+.faq-accordion {
+  .accordion-item {
+    .accordion-header {
+      button {
+        &:active {
+          background: transparent;
+        }
+      }
+    }
   }
 }
 

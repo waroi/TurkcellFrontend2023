@@ -4304,13 +4304,13 @@ textarea.form-control-lg {
   --bs-accordion-btn-icon-width: 1.25rem;
   --bs-accordion-btn-icon-transform: rotate(-180deg);
   --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
-  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23201e20'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='ghostwhite'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   --bs-accordion-btn-focus-border-color: #929092;
   --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(36, 33, 36, 0.25);
   --bs-accordion-body-padding-x: 1.25rem;
   --bs-accordion-body-padding-y: 1rem;
-  --bs-accordion-active-color: #201e20;
-  --bs-accordion-active-bg: #e9e9e9;
+  --bs-accordion-active-color: ghostwhite;
+  --bs-accordion-active-bg: transparent;
 }
 
 .accordion-button {
@@ -10744,15 +10744,37 @@ a {
 
 .products-main .products-by-catgs .card {
   background: transparent;
+  overflow: hidden;
+  transition: 0.3s all;
+  border-color: rgba(95, 158, 160, 0.5);
+}
+.products-main .products-by-catgs .card:hover {
+  border-color: rgba(95, 158, 160, 0);
+  box-shadow: 0px 0px 5px 5px rgba(95, 158, 160, 0.5);
+}
+.products-main .products-by-catgs .card:hover img {
+  transform: scale(1.2);
 }
 .products-main .products-by-catgs .card img {
+  transition: 0.5s all;
   max-width: 300px;
   margin: 0 auto;
 }
 .products-main .products-popular .products .product .card {
   background: transparent;
+  overflow: hidden;
+  transition: 0.3s all;
+  border-color: rgba(95, 158, 160, 0.5);
+}
+.products-main .products-popular .products .product .card:hover {
+  border-color: rgba(95, 158, 160, 0);
+  box-shadow: 0px 0px 5px 5px rgba(95, 158, 160, 0.5);
+}
+.products-main .products-popular .products .product .card:hover img {
+  transform: scale(1.2);
 }
 .products-main .products-popular .products .product .card img {
+  transition: 0.5s all;
   max-width: 300px;
   height: 240px;
   margin: 0 auto;
@@ -10768,6 +10790,10 @@ a {
 .faq-top3-cards .card {
   background: transparent;
   border-color: ghostwhite;
+}
+
+.faq-accordion .accordion-item .accordion-header button:active {
+  background: transparent;
 }
 
 .about-title {
