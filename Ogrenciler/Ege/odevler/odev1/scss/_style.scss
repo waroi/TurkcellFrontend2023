@@ -212,17 +212,23 @@ a {
         background: $primary;
         color: white;
         &:nth-child(2) {
-          background: $info;
+          background: $secondary;
           margin: 0 -2px;
           color: black;
         }
         &:nth-child(1) {
           border-top-left-radius: 15px;
           border-bottom-left-radius: 15px;
+          &:hover {
+            background: rgba(36, 33, 36, 0.5);
+          }
         }
         &:nth-child(3) {
           border-top-right-radius: 15px;
           border-bottom-right-radius: 15px;
+          &:hover {
+            background: rgba(36, 33, 36, 0.5);
+          }
         }
       }
     }
@@ -342,8 +348,5 @@ footer {
     .col-lg-4 {
       border: none;
     }
-  }
-
-  iframe {
   }
 }
