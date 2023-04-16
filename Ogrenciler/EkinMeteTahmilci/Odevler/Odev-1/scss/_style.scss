@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-*{
+
+* {
     box-sizing: border-box;
     text-decoration: none !important;
     list-style-type: none !important;
@@ -9,15 +10,21 @@
 @font-face {
     font-family: "MyOTFFont";
     src: url("../fonts/Anurati-Regular.otf");
-  }
+}
 
-.banner{
-    .container{
+@mixin font-anurati {
+    font-family: "MyOTFFont";
+}
+
+.banner {
+    .container {
         padding: 70px;
     }
+
     background-image: url(../assets/banner-2.jpg);
-    background-size: cover;
-    h1{
+    background-size:cover;
+
+    h1 {
         font-family: "MyOTFFont", sans-serif;
         text-align: center;
         font-size: 150px;
@@ -26,156 +33,119 @@
     }
 }
 
-.container .box{
+.container .box {
     position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 10px;
+    width: 185px;
+    height: 250px;
+    margin: 40px;
     transform-style: preserve-3d;
     perspective: 1000px;
-    cursor: pointer;
-    &:hover .body{
+
+    &:hover .body {
         transform: rotateY(180deg);
     }
-    .body{
+
+    .body {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         transform-style: preserve-3d;
-        transition: 0.9s ease;
-        .content{
+        transition: 0.7s ease;
+
+        .content {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgb(176, 176, 176);
+            background: red;
             backface-visibility: hidden;
             transform-style: preserve-3d;
             transform: rotateY(180deg);
             border-radius: 25px;
-            div{
+
+            div {
                 transform-style: preserve-3d;
                 padding: 20px;
-                background: rgb(217, 3, 3);
                 transform: translateZ(100px);
                 border-radius: 10px;
-                h3{
+                opacity: 1;
+
+                h3 {
                     letter-spacing: 1px;
                 }
             }
         }
-        .imgContainer{
+
+        .imgContainer {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             transform-style: preserve-3d;
-            img{
+
+            img {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                object-fit: fill;
                 border-radius: 25px;
             }
         }
     }
 }
 
-// .container{
-//     transform-style: preserve-3d;
-//     .box{
-//         position: relative;
-//         width: 300px;
-//         height: 300px;
-//         margin: 10px;
-//         transform-style: preserve-3d;
-//         perspective: 1000px;
-//         cursor: pointer;
-//     }
-// }
-
-// .container .box .body{
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     transform-style: preserve-3d;
-//     transition: 0.9s ease;
-// }
-
-// .container .box .body .imgContainer{
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     transform-style: preserve-3d;
-// }
-
-// .container .box .body .imgContainer img{
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     object-fit: cover;
-//     border-radius: 25px;
-// }
-
-// .container .box .body .content{
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     background: rgb(176, 176, 176);
-//     backface-visibility: hidden;
-//     transform-style: preserve-3d;
-//     transform: rotateY(180deg);
-//     border-radius: 25px;
-// }
-
-// .container .box:hover .body{
-//     transform: rotateY(180deg);
-// }
-
-// .container .box .body .content div{
-//     transform-style: preserve-3d;
-//     padding: 20px;
-//     background: rgb(217, 3, 3);
-//     transform: translateZ(100px);
-//     border-radius: 10px;
-// }
-
-// .container .box .body .content div h3{
-//     letter-spacing: 1px;
-// }
-
-.product-cards{
-    .box{
-        hr{
+.product-cards {
+    .box {
+        hr {
             margin: 0px;
             width: 200px;
-            background-color: rgb(31, 31, 31);
+            background-color: rgb(255, 255, 255);
             height: 5px;
         }
     }
 }
 
+footer {
+    background-color: #ECEFF1;
+
+    .footer-follow {
+        background-color: red;
+    }
+}
+
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+
+    &:hover,
+    &:focus {
+        background: #ddd;
+        text-decoration: none;
+        color: #555;
+    }
+}
 
 @media screen and (max-width: 992px) {
-    .banner{
-        .container{
-        h1{
-            font-size: 50px;
+    .banner {
+        .container {
+            h1 {
+                font-size: 50px;
+            }
         }
     }
-  }
 }
+
