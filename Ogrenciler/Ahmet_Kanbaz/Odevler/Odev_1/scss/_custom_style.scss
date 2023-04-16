@@ -23,7 +23,7 @@ ul {
   background: linear-gradient(
     rgba(0, 0, 0, 0.5), 
     rgba(0, 0, 0, 0.8)
-  ), url("../images/bgSection.jpg");
+  ), url("../images/background/bgSection.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -31,12 +31,39 @@ ul {
   height: 600px;
 }
 
+.tshirtTopSection {
+  @extend .topSection;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.6)
+  ), url("../images/tshirt/tshirtLogo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 400px;
+}
+
+.shoesTopSection {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4), 
+    rgba(0, 0, 0, 0.7)
+  ), url("../images/shoes/shoesLogo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 400px;
+}
+
+.thirdShoes {
+  background-color: #FAFAFA;
+}
+
 .aboutUs {
   @extend .topSection;
   background: linear-gradient(
     rgba(0, 0, 0, 0.5), 
     rgba(0, 0, 0, 0.6)
-  ), url("../images/bgaboutus.png");
+  ), url("../images/background/bgaboutus.png");
 }
 
 .app {
@@ -50,9 +77,19 @@ ul {
   }
 }
 
+.card {
+  img {
+    height: 300px;
+    object-fit: cover;
+  }
+  .cardDiscount {
+    right: 0;
+    bottom: 1rem;
+  }
+}
+
 footer {
   ul {
-    padding: 0;
     a {
     color: #FFFFFF;
     &:hover {
@@ -73,3 +110,4 @@ footer {
     }
   }
 }
+
