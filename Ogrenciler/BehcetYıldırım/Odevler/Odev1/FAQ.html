@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/media.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -82,7 +83,7 @@
               type="search"
               placeholder="Aramak istediğiniz ürün"
             />
-            <button class="btn btn-outline-success" type="submit">Ara</button>
+            <button class="btn btn-outline-primary" type="submit">Ara</button>
           </form>
         </div>
       </div>
@@ -144,7 +145,7 @@
                 data-bs-toggle="collapse"
                 data-bs-target="#question-three"
               >
-                Ürünleriniz marka çeşitliliği içeriyor mu?
+                Size istediğimiz saatte ulaşabiliyor muyuz?
               </button>
             </h2>
             <div
@@ -153,9 +154,8 @@
               data-bs-parent="#questions"
             >
               <div class="accordion-body">
-                Şirketimizde satılan ürünler ABB, Siemens, Schneider gibi
-                dünyaca ünlü firmalara ait kaliteli, çeşitli özellikleri
-                içermektedir.
+                Şirketimizde hizmet veren danışmanlarımıza günün her saatinde
+                ulaşabilirsiniz.
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@
                 data-bs-toggle="collapse"
                 data-bs-target="#question-four"
               >
-                Siparişlerimin durumunu nasıl görebilirim?
+                Kişisel olarak da reklam paketlerinden faydalanabiliyor muyuz?
               </button>
             </h2>
             <div
@@ -176,8 +176,7 @@
               data-bs-parent="#questions"
             >
               <div class="accordion-body">
-                Mail adresinizle sitemize kayıt olmanız halinde ürün kargoya
-                verildiği anda tarafınıza mail iletilir.
+                İşletmemizde şahsi ve şirket olarak hizmetlerimiz mevcuttur.
               </div>
             </div>
           </div>
@@ -189,7 +188,8 @@
                 data-bs-toggle="collapse"
                 data-bs-target="#question-five"
               >
-                Özel tasarım ürün üretiyor musunuz?
+                Web tasarım yaptırdıktan sonra güncellemeler için yardımcı
+                oluyor musunuz?
               </button>
             </h2>
             <div
@@ -198,19 +198,48 @@
               data-bs-parent="#questions"
             >
               <div class="accordion-body">
-                Müşterimizden böyle bir talep olması halinde özel olarak
-                tasarladığımız ürünleri satıyoruz.
+                Aldığınız pakete göre size paket süresi boyunca hizmetlerimiz
+                devam etmeketdir.
               </div>
             </div>
           </div>
         </div>
+        <div class="row">
+          <h3 class="mt-5">Aradığınız sorunun cevabını bulamadınız mı?</h3>
+          <div class="col-lg-7">
+            <form class="mt-1 needs-validation" novalidate>
+              <!-- <h3>Aradığınız sorunun cevabını bulamadınız mı?</h3> -->
+              <div class="mb-3">
+                <label for="Email" class="form-label">Email Adresiniz</label>
+                <div class="input-group has-validation">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="Email"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Lütfen e-postanızı giriniz. E-postanızı asla başka biriyle
+                    paylaşmayacağız.
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="question" class="form-label">Sorunuz</label>
+                <input type="password" class="form-control" id="question" />
+              </div>
+              <button type="submit" class="btn btn-primary">Gönder</button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
+
     <!-- ^ -- FOOTER -- ! -->
     <footer class="bg-secondary pt-5">
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col-lg-3">
+          <div class="col-lg-3 my-3 my-lg-0">
             <h6 class="footer-title">Paketler</h6>
             <ul class="list p-0">
               <li class="mb-3"><a href="product1.html">Google Reklam</a></li>
@@ -218,7 +247,7 @@
               <li class="mb-3"><a href="product3.html">Facebook Reklam</a></li>
             </ul>
           </div>
-          <div class="col-lg-5">
+          <div class="col-lg-5 my-3 my-lg-0">
             <h6 class="footer-title">Haberler</h6>
             <p class="text-white opacity-50">
               Haberleri kaçırmak istemiyorsanız abone olabilirsiniz.
@@ -233,7 +262,7 @@
               <button class="btn sub-btn">Subscribe</button>
             </div>
           </div>
-          <div class="col-lg-3 ig-feed">
+          <div class="col-lg-3 my-3 my-lg-0">
             <h6 class="footer-title">Şirket</h6>
             <ul class="list p-0">
               <li class="mb-3"><a href="AboutUs.html">Hakkımızda</a></li>
@@ -247,10 +276,10 @@
         <div
           class="row footer-bottom d-flex justify-content-center align-items-center gap-5"
         >
-          <p class="text-primary text-end opacity-50 col-3">
+          <p class="text-primary text-end opacity-50 col-lg-3 col-5">
             Sait Behçet Yıldırım
           </p>
-          <div class="col-3 text-start footer-socials">
+          <div class="col-lg-3 col-5 text-start footer-socials">
             <a href="#" target="_blank"
               ><i class="fa-brands fa-instagram"></i
             ></a>
