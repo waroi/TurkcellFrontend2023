@@ -10719,6 +10719,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+body {
+  background-color: #F0F0F0;
+}
+
 /* ⁡⁢⁣⁢--- MIXINS ---⁡ */
 /* ⁡⁢⁣⁢--- ANIMATIONS ---⁡ */
 @keyframes MoveCar {
@@ -10734,16 +10738,12 @@ textarea.form-control-lg {
     width: 100%;
   }
 }
-body {
-  background-color: #F0F0F0;
-}
-
 /* ⁡⁢⁣⁢--- NAV ---⁡ */
 .navbar .nav-img {
   width: 200px;
 }
 .navbar .navbar-nav {
-  gap: 30px;
+  gap: 20px;
   margin-left: 30px;
 }
 .navbar .navbar-nav .nav-item {
@@ -10779,6 +10779,7 @@ body {
   width: 80%;
   animation: MoveCar 10s forwards 1s ease-in-out infinite;
   position: absolute;
+  overflow: hidden;
   left: 30%;
 }
 
@@ -10813,13 +10814,12 @@ body {
 .cars {
   padding: 20px 0;
 }
-.cars .cars-con {
-  margin-bottom: 30px;
+.cars .cars-con, .cars .cars-con .card {
+  margin: 30px 0;
 }
 .cars .cars-con .card {
   position: relative;
   width: 100% !important;
-  margin: 10px 0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
 .cars .cars-con .card .card-body button:hover {
@@ -10874,6 +10874,14 @@ footer .footer-social {
   gap: 20px;
   font-size: 24px;
 }
+footer .footer-social a {
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+footer .footer-social a:hover {
+  color: #F45050;
+  transition: 0.3s ease-in-out;
+}
 
 @media only screen and (max-width: 992px) {
   .banner-left {
@@ -10885,6 +10893,104 @@ footer .footer-social {
   .banner-right {
     display: none;
   }
+}
+.car-detail {
+  padding: 30px 0;
+}
+.car-detail .car-detail-inner {
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  gap: 40px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+}
+.about {
+  padding: 30px 0;
+}
+.about .about-inner {
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  gap: 40px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+}
+.about .about-inner .about-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.about .about-inner .about-left img {
+  width: 100%;
+  border-radius: 10px;
+}
+.about .about-inner .about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.questions {
+  padding: 30px 0;
+}
+.questions .questions-inner {
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  gap: 40px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+}
+.questions .questions-inner .questions-info {
+  display: grid;
+  gap: 20px;
+}
+.questions .questions-inner .questions-info p {
+  font-size: 20px;
+  color: #837f7f;
+}
+
+.contact {
+  padding: 30px 0;
+}
+.contact .contact-inner {
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  gap: 40px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  gap: 0 !important;
+}
+.contact .contact-inner h2, .contact .contact-inner .h2 {
+  margin-bottom: 20px;
+}
+.contact .contact-inner .contact-top {
+  margin-bottom: 40px;
+}
+.contact .contact-inner .contact-bottom {
+  display: grid;
+  justify-content: center;
+}
+.contact .contact-inner .contact-bottom iframe {
+  width: 400px;
+  height: 300px;
+}
+
+@media only screen and (max-width: 768px) {
+  iframe {
+    width: 300px;
+    height: 400px;
+  }
+}
+.favorites {
+  padding: 30px 0;
+}
+.favorites .favorites-inner .favorite-car .card {
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  gap: 40px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  margin-bottom: 40px !important;
 }
 
 /*# sourceMappingURL=main.css.map */
