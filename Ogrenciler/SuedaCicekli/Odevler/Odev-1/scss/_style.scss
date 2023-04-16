@@ -2,19 +2,6 @@
   font-family: 'DM Sans', sans-serif;
 }
 
-@mixin card {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-
-  img {
-    transition: all ease 0.3s;
-    width: 100%;
-  }
-
-  img:hover {
-    transform: scale(1.1);
-  }
-}
-
 body {
   background-image: url("../Assets/squiggle-background\ 1.svg");
 }
@@ -59,7 +46,17 @@ a {
   background-image: url("../Assets/squiggle-background\ 1.svg");
 
   .card {
-    @include card;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+
+  img {
+    transition: all ease 0.3s;
+    width: 100%;
+  }
+
+  img:hover {
+    transform: scale(1.1);
+
   }
 }
 
@@ -141,6 +138,10 @@ footer {
 
 }
 
+//product 
+.product-description {
+  // background-image: url("../Assets/leaf-background.svg");
+}
 
 //about
 
@@ -237,6 +238,19 @@ footer {
       background: rgba(48, 48, 48, 0.496);
       display: none;
       border-radius: 7px;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    ::after {
+      left: 0;
+      display: block;
+    }
+
+    .card-body {
+      display: block;
     }
   }
 }
