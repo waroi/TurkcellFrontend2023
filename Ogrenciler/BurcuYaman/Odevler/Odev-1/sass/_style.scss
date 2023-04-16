@@ -4,13 +4,73 @@ $info: #1a00bb;
 $dark: #070a0e;
 $light: #f2f2f2;
 
-header {
-  .nav2 {
-    .navbar-nav {
-      .nav-item {
-        a {
-        }
+@mixin d-flex($justify, $iswrap) {
+  display: flex;
+  justify-content: $justify;
+  flex-wrap: wrap;
+}
+
+@mixin section-padding() {
+  padding: 80px 0;
+}
+
+@mixin card_style() {
+  color: $light;
+  border: none;
+  background: #000000;
+  background: -webkit-linear-gradient(to right, #434343, #000000);
+  background: linear-gradient(to right, #434343, #000000);
+}
+
+@mixin filter_style() {
+  padding: 15px;
+  margin: 3px 0px;
+  border-radius: 10px;
+  background-color: $dark;
+  border: 1px solid $dark;
+  color: $light;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+main {
+  .container {
+    .card {
+      @include card_style();
+      margin-bottom: 20px;
+      h5 {
+        text-align: left;
       }
+      p {
+        font-size: 12px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        color: #ff5400;
+      }
+      img {
+        border-radius: 0;
+      }
+    }
+    aside {
+      @include filter_style();
+      .marka,
+      .islemci,
+      .islemci-seri,
+      .ekrankarti,
+      .ekrankarti-seri,
+      .bellek,
+      .ssd,
+      .fiyat {
+        @include filter_style();
+      }
+    }
+    .urunler {
+      margin: auto;
+      margin-top: 0;
+      @include d-flex(space-around, wrap);
     }
   }
 }
