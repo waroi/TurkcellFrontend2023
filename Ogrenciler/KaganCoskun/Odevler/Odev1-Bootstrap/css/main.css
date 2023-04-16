@@ -5970,11 +5970,11 @@ textarea.form-control-lg {
   } ]
 } */
 .carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234D6772'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
 }
 
 .carousel-control-next-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234D6772'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .carousel-indicators {
@@ -11141,6 +11141,10 @@ body {
   width: 170px;
 }
 
+.voted {
+  color: #f69f29;
+}
+
 #hero {
   background-image: url("../Assets/hero1.jpg");
   width: 100%;
@@ -11161,59 +11165,66 @@ body {
 #combine .card .btn {
   transition: all 0.3s ease;
 }
+#combine .card:hover .btn {
+  opacity: 1 !important;
+  transition: all 0.3s ease;
+}
 #combine .card:hover img:nth-child(1) {
   display: none;
 }
 #combine .card:hover img:nth-child(2) {
   display: block;
 }
-#combine .card:hover .btn {
-  opacity: 1 !important;
-  transition: all 0.3s ease;
-}
-#combine .voted {
-  color: #f69f29;
-}
 
 #products #motors:checked ~ .motors {
-  display: block !important;
+  display: flex !important;
 }
 #products #motors:checked ~ .clothes {
   display: none !important;
 }
-#products #motors:checked .row .col-6 .filter {
-  background-color: #4D6772 !important;
-  transition: all 0.3s ease;
-}
-#products #clothes:checked ~ .clothes {
-  display: block !important;
-}
 #products #clothes:checked ~ .motors {
   display: none !important;
 }
-#products .col-6 {
+#products #clothes:checked ~ .clothes {
+  display: flex !important;
+}
+#products .col-5, #products .col-2 {
   transition: all 0.3s ease;
 }
-#products .col-6:hover .filter {
+#products .col-5:hover .filter, #products .col-2:hover .filter {
   background-color: #4D6772 !important;
   transition: all 0.3s ease;
 }
-#products #motor2black:checked ~ .card img:nth-child(2) {
+#products #motor1black:checked ~ .card img:nth-child(2) {
+  opacity: 1 !important;
+}
+#products #motor2blue:checked ~ .card img:nth-child(2) {
+  opacity: 1 !important;
+}
+#products #motor2yellow:checked ~ .card img:nth-child(3) {
+  opacity: 1 !important;
+}
+#products #motor3black:checked ~ .card img:nth-child(2) {
+  opacity: 1 !important;
+}
+#products #motor3gray:checked ~ .card img:nth-child(3) {
   opacity: 1 !important;
 }
 #products .motor-color {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
+  transition: transform 0.3s ease-in-out;
 }
 #products .motor-color:hover {
-  --bs-border-width: 5px;
+  transform: scale(1.3);
+  transition: transform 0.3s ease-in-out;
 }
-#products .motor-color::after {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: transparent;
-  border: 2px solid black;
+#products .clothes .card .btn {
+  transition: all 0.3s ease;
+}
+#products .clothes .card:hover .btn {
+  opacity: 1 !important;
+  transition: all 0.3s ease;
 }
 
 @media screen and (max-width: 767px) {

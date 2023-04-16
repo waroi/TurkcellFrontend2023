@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse flex-grow-0" id="hamburger">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="/">Anasayfa</a>
-        <a class="nav-link" href="#">Ürünler</a>
+        <a class="nav-link" href="#products">Ürünler</a>
         <a class="nav-link" href="#">Hakkımızda</a>
         <a class="nav-link me-3" href="#">S.S.S</a>
 
@@ -129,29 +129,33 @@
   </div>
 </section>
 
+<section id="banner">
+  
+</section>
 
 <section id="products">
-
-  
-  
 <div class="container">
-  <input class="form-check-input d-none" type="radio" name="inlineRadioOptions" id="motors" value="option1">
-  <input class="form-check-input d-none" type="radio" name="inlineRadioOptions" id="clothes" value="option2">
+  <input class="form-check-input d-none" type="radio" name="filter" id="motors" value="option1">
+  <input class="form-check-input d-none" type="radio" name="filter" id="clothes" value="option2">
+  <input class="form-check-input d-none" type="radio" name="filter" id="all" value="option3">
   <div class="row g-0 justify-content-center">
-    <div class="col-6">
+    <div class="col-5">
       <label for="motors" class="w-100 bg-secondary fs-5 py-1 py-3 text-center rounded-start text-white filter">Motorlar</label>
     </div>
-    <div class="col-6">
+    <div class="col-2">
+      <label for="all" class="w-100 bg-secondary fs-5 py-1 py-3 text-center text-white filter">X</label>
+    </div>
+    <div class="col-5">
       <label for="clothes"  class="w-100 bg-secondary fs-5 py-1 py-3 text-center rounded-end text-white filter">Giyisiler</label>
     </div>
   </div>
-  <div class="row motors g-1 mt-5">
+  <div class="row motors g-4 mt-5">
     <div class="col-lg-4">
-  <input class="form-check-input d-none" type="radio" name="inlineRadioOptions" id="motor1red" value="option1">
-  <input class="form-check-input d-none" type="radio" name="inlineRadioOptions" id="motor2black" value="option2">
+      <input class="form-check-input d-none" type="radio" name="motor1" id="motor1red" value="option1">
+      <input class="form-check-input d-none" type="radio" name="motor1" id="motor1black" value="option2">
       <div class="card ">
         <img src="./Assets/products/nightstar.webp" class="card-img-top" alt="...">
-        <img id="resim2" src="./Assets/products/nightstarBlack.webp" class="card-img-top position-absolute opacity-0" alt="...">
+        <img  src="./Assets/products/nightstarBlack.webp" class="card-img-top position-absolute opacity-0" alt="...">
         <div class="card-body">
           <h6>Kaganley Catelmet</h6>
             <h6>$29.999</h6>
@@ -161,7 +165,63 @@
                 <label for="motor1red" class="rounded-circle bg-danger motor-color p-2 border"></label>
               </div>
               <div class="form-check form-check-inline">
+                <label for="motor1black" class="rounded-circle bg-black motor-color p-2 border"></label>
+              </div>
+            </div>
+              
+           
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <input class="form-check-input d-none" type="radio" name="motor2" id="motor2black" value="option1">
+      <input class="form-check-input d-none" type="radio" name="motor2" id="motor2blue" value="option2">
+      <input class="form-check-input d-none" type="radio" name="motor2" id="motor2yellow" value="option3">
+      <div class="card ">
+        <img src="./Assets/products/motor2black.webp" class="card-img-top" alt="...">
+        <img src="./Assets/products/motor2blue.webp" class="card-img-top position-absolute opacity-0" alt="...">
+        <img src="./Assets/products/motor2yellow.webp" class="card-img-top position-absolute opacity-0 z-3" alt="...">
+        <div class="card-body">
+          <h6>Kaganley Catelmet</h6>
+            <h6>$29.999</h6>
+           
+            <div class="d-flex justify-content-center">
+              <div class="form-check form-check-inline">
                 <label for="motor2black" class="rounded-circle bg-black motor-color p-2 border"></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label for="motor2blue" class="rounded-circle bg-primary motor-color p-2 border"></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label for="motor2yellow" class="rounded-circle bg-warning motor-color p-2 border"></label>
+              </div>
+            </div>
+              
+           
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <input class="form-check-input d-none" type="radio" name="motor3" id="motor3black" value="option1">
+      <input class="form-check-input d-none" type="radio" name="motor3" id="motor3gray" value="option2">
+      <input class="form-check-input d-none" type="radio" name="motor3" id="motor3blue" value="option3">
+      <div class="card ">
+        <img  src="./Assets/products/motor3blue.webp" class="card-img-top" alt="...">
+        <img src="./Assets/products/motor3black.webp" class="card-img-top position-absolute opacity-0" alt="...">
+        <img  src="./Assets/products/motor3gray.webp" class="card-img-top position-absolute opacity-0" alt="...">
+        <div class="card-body">
+          <h6>Kaganley Catelmet</h6>
+            <h6>$29.999</h6>
+           
+            <div class="d-flex justify-content-center">
+              <div class="form-check form-check-inline">
+                <label for="motor3black" class="rounded-circle bg-black motor-color p-2 border"></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label for="motor3gray" class="rounded-circle bg-secondary motor-color p-2 border"></label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label for="motor3blue" class="rounded-circle bg-primary motor-color p-2 border"></label>
               </div>
             </div>
               
@@ -170,10 +230,164 @@
       </div>
     </div>
   </div>
-  <div class="row clothes mb-5">
-    <div class="col-lg-4"></div>
-    <div class="col-lg-4"></div>
-    <div class="col-lg-4"></div>
+  <div class="row clothes my-5">
+    <div class="col-lg-3">
+      <div class="card" >
+        <div id="clothe1" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./Assets/products/hat1.webp" class="card-img-top" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./Assets/products/hat2.webp" class="card-img-top" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./Assets/products/hat3.webp" class="card-img-top" alt="...">
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#clothe1" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#clothe1" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+        </div>
+
+
+        <div class="card-body">
+          <span class="fs-7 text-uppercase bg-primary px-2 text-white rounded-1">size özel</span>
+          <h6>Kaganley Pantolon</h6>
+          <div>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star"></i>
+            <span class="fs-7">1.777</span>
+          </div>
+          <h6>299$</h6>
+          <a class="btn btn-primary opacity-0 w-100" href="">Sepete Ekle</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="card" >
+        <div id="clothe2" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./Assets/products/womenhoodies1.webp" class="card-img-top" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./Assets/products/womenhoodies2.webp" class="card-img-top" alt="...">
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#clothe2" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#clothe2" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+        </div>
+
+
+        <div class="card-body">
+          <span class="fs-7 text-uppercase bg-primary px-2 text-white rounded-1">size özel</span>
+          <h6>Kaganley Pantolon</h6>
+          <div>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star"></i>
+            <span class="fs-7">1.777</span>
+          </div>
+          <h6>299$</h6>
+          <a class="btn btn-primary opacity-0 w-100" href="">Sepete Ekle</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="card" >
+        <div id="clothe3" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./Assets/products/mentshirt1.webp" class="card-img-top" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./Assets/products/mentshirt2.webp" class="card-img-top" alt="...">
+              </div>
+              
+              <button class="carousel-control-prev" type="button" data-bs-target="#clothe3" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#clothe3" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+        </div>
+        <div class="card-body">
+          <span class="fs-7 text-uppercase bg-primary px-2 text-white rounded-1">size özel</span>
+          <h6>Kaganley Pantolon</h6>
+          <div>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star"></i>
+            <span class="fs-7">1.777</span>
+          </div>
+          <h6>299$</h6>
+          <a class="btn btn-primary opacity-0 w-100" href="">Sepete Ekle</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="card" >
+        <div id="clothe4" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./Assets/products/bootprod1.webp" class="card-img-top" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./Assets/products/bootprod2.webp" class="card-img-top" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./Assets/products/bootprod3.webp" class="card-img-top" alt="...">
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#clothe4" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#clothe4" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+        </div>
+
+
+        <div class="card-body">
+          <span class="fs-7 text-uppercase bg-primary px-2 text-white rounded-1">size özel</span>
+          <h6>Kaganley Pantolon</h6>
+          <div>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star voted" ></i>
+            <i class="fa-solid fa-star"></i>
+            <span class="fs-7">1.777</span>
+          </div>
+          <h6>299$</h6>
+          <a class="btn btn-primary opacity-0 w-100" href="">Sepete Ekle</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </section>
