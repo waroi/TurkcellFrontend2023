@@ -123,5 +123,42 @@ a {
       text-decoration: underline;
     }
   }
+}
 
+#designerİtemone{
+  .title{
+    transition: all .3s ease;
+    &:hover {
+      color: $info;
+      transform: translateY(-10px);
+      transition: all .3s ease;
+    }
+  }
+  .number{
+    &:hover{
+      background-color: $warning;
+    }
+    &:focus{
+      background-color: $warning;
+    }
+    .line{
+      background-color: #000;
+      width: 100%;
+      height: 1px;
+      display: flex;
+      position: absolute;
+      transform: rotate(155deg);
+    }
+  }
+  .image-wrap{
+    img{
+      transition: all .3s ease;
+      filter: grayscale(60%);
+      &:hover{
+        filter: grayscale(0);
+        transition: all .3s ease;
+        box-shadow: 0 5px 15px -2px rgba(126, 129, 129, 0.799);
+      }
+    };
+  }
 }
