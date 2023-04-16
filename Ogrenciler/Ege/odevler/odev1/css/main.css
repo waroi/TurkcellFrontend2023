@@ -33,7 +33,7 @@
   --bs-primary: rgb(36, 33, 36);
   --bs-secondary: rgb(95, 158, 160);
   --bs-success: #198754;
-  --bs-info: #fcc200;
+  --bs-info: rgb(252, 194, 0);
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
@@ -2855,8 +2855,8 @@ textarea.form-control-lg {
 
 .btn-info {
   --bs-btn-color: #000;
-  --bs-btn-bg: #fcc200;
-  --bs-btn-border-color: #fcc200;
+  --bs-btn-bg: rgb(252, 194, 0);
+  --bs-btn-border-color: rgb(252, 194, 0);
   --bs-btn-hover-color: #000;
   --bs-btn-hover-bg: #fccb26;
   --bs-btn-hover-border-color: #fcc81a;
@@ -2866,8 +2866,8 @@ textarea.form-control-lg {
   --bs-btn-active-border-color: #fcc81a;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #000;
-  --bs-btn-disabled-bg: #fcc200;
-  --bs-btn-disabled-border-color: #fcc200;
+  --bs-btn-disabled-bg: rgb(252, 194, 0);
+  --bs-btn-disabled-border-color: rgb(252, 194, 0);
 }
 
 .btn-warning {
@@ -2990,19 +2990,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-info {
-  --bs-btn-color: #fcc200;
-  --bs-btn-border-color: #fcc200;
+  --bs-btn-color: rgb(252, 194, 0);
+  --bs-btn-border-color: rgb(252, 194, 0);
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #fcc200;
-  --bs-btn-hover-border-color: #fcc200;
+  --bs-btn-hover-bg: rgb(252, 194, 0);
+  --bs-btn-hover-border-color: rgb(252, 194, 0);
   --bs-btn-focus-shadow-rgb: 252, 194, 0;
   --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #fcc200;
-  --bs-btn-active-border-color: #fcc200;
+  --bs-btn-active-bg: rgb(252, 194, 0);
+  --bs-btn-active-border-color: rgb(252, 194, 0);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #fcc200;
+  --bs-btn-disabled-color: rgb(252, 194, 0);
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #fcc200;
+  --bs-btn-disabled-border-color: rgb(252, 194, 0);
   --bs-gradient: none;
 }
 
@@ -6618,7 +6618,7 @@ textarea.form-control-lg {
 }
 
 .link-info {
-  color: #fcc200 !important;
+  color: rgb(252, 194, 0) !important;
 }
 .link-info:hover, .link-info:focus {
   color: #fdce33 !important;
@@ -10763,6 +10763,27 @@ a {
 
 .quotes .quote-home {
   font-style: italic;
+  transition: all 0.3s ease;
+}
+.quotes .quote-home.quote-left {
+  border-radius: 10px;
+  border-right: 2px solid white;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+.quotes .quote-home.quote-left:hover {
+  border-color: rgb(252, 194, 0);
+  box-shadow: 0px 0px 5px 2px rgba(252, 194, 0, 0.5);
+}
+.quotes .quote-home.quote-right {
+  border-radius: 10px;
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+.quotes .quote-home.quote-right:hover {
+  border-color: rgb(252, 194, 0);
+  box-shadow: 0px 0px 5px 2px rgba(252, 194, 0, 0.5);
 }
 
 .product-categories h2, .product-categories .h2 {
@@ -10805,6 +10826,11 @@ a {
   background-size: cover;
 }
 
+.contact-us h2, .contact-us .h2 {
+  font-size: 42px;
+  padding: 10px;
+}
+
 .carousel-inner img {
   margin: 0 auto;
   height: 90vh;
@@ -10843,15 +10869,15 @@ a {
 }
 
 .quote {
-  border-right: 2px solid #fcc200;
-  color: #fcc200;
+  border-right: 2px solid rgb(252, 194, 0);
+  color: rgb(252, 194, 0);
   font-style: italic;
 }
 
 .flex-row-reverse .quote {
   border-right: none;
-  border-left: 2px solid #fcc200;
-  color: #fcc200;
+  border-left: 2px solid rgb(252, 194, 0);
+  color: rgb(252, 194, 0);
   font-style: italic;
 }
 
@@ -10915,10 +10941,10 @@ header .navbar .nav-link {
   color: rgb(95, 158, 160);
 }
 header .navbar .nav-link:hover {
-  color: #fcc200;
+  color: rgb(252, 194, 0);
 }
 header .navbar .nav-link.active {
-  color: #fcc200;
+  color: rgb(252, 194, 0);
 }
 
 footer {
@@ -10929,16 +10955,20 @@ footer ul {
   margin: 0;
 }
 footer .btn {
-  color: #fcc200;
+  color: rgb(252, 194, 0);
 }
 footer .btn :hover {
   color: rgb(36, 33, 36);
 }
 footer .footer-content a {
   color: rgb(95, 158, 160);
+  transition: 0.3s all;
 }
 footer .footer-content a:hover {
-  color: #fcc200;
+  color: rgb(252, 194, 0);
+}
+footer .footer-content button {
+  transition: 0.3s all;
 }
 footer .input-wrap {
   position: relative;
@@ -10961,7 +10991,7 @@ footer .input-wrap .focus-input1 {
   position: absolute;
   width: 0%;
   height: 2px;
-  background-color: #fcc200;
+  background-color: rgb(252, 194, 0);
   left: 0;
   bottom: -2px;
   transition: 0.4s all;
