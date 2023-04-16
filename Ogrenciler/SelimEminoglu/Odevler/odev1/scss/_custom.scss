@@ -54,6 +54,10 @@ header{
 }
 
 // Navbar
+.navbar-collapse{
+    text-align: end;
+}
+
 .logo-img{
     animation:logo-animation 3s linear 0.5s infinite;
 }
@@ -92,6 +96,7 @@ header{
 }
 
 .section-border{
+    box-shadow: 21px 20px 14px 3px rgba(0,0,0,0.75);
     border-radius: 10px;
     span{
         font-weight: 700;
@@ -99,7 +104,8 @@ header{
     .first-product{
         position: relative;
         .burst{
-            right: 70px;
+            top: 0;
+            right: -35px;
             @include burst-feature();
             &::before{
                 @include discount-product(30deg);
@@ -158,5 +164,15 @@ footer{
     }
     100%{
         transform:translateX(0px)
+    }
+}
+
+// Media
+
+@media (max-width: 1245px){
+    footer{
+        .mobil-list{
+            flex-direction: column;
+        }
     }
 }
