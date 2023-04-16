@@ -20,6 +20,30 @@ ul{
     }
 }
 
+// Mixin functions
+@mixin mobil-bg($bg-url){
+    background: url($bg-url) no-repeat 0 0;
+    width: 200px;
+    height: 58px;
+    display: list-item;
+}
+
+@mixin burst-feature(){
+    height: 80px;
+    width: 80px;
+    background: red;
+    position: absolute;
+}
+
+@mixin discount-product($deg){
+    @include burst-feature();
+    content: "";
+    top: 0;
+    left: 0;
+    transform: rotate($deg);
+}
+
+
 // Header
 header{
     position: fixed;
@@ -67,6 +91,31 @@ header{
     border-bottom: 3px solid $secondary;
 }
 
+.section-border{
+    border-radius: 10px;
+    span{
+        font-weight: 700;
+    }
+    .first-product{
+        position: relative;
+        .burst{
+            right: 70px;
+            @include burst-feature();
+            &::before{
+                @include discount-product(30deg);
+            }
+            &::after{
+                @include discount-product(60deg);
+            }
+        }
+        img{
+            width: 270px;
+            border: 1px solid white;
+            border-radius: 10px;
+        }
+    }
+}
+
 // Footer
 footer{
     .icon-list{
@@ -86,6 +135,15 @@ footer{
         &:hover{
             text-decoration: underline !important;
         }
+    }
+    .mobil-1{
+        @include mobil-bg("https://cdn.dsmcdn.com/web/production/huaweiV2.svg");
+    }
+    .mobil-2{
+        @include mobil-bg("https://cdn.dsmcdn.com/web/production/iosV2.svg");
+    }
+    .mobil-3{
+        @include mobil-bg("https://cdn.dsmcdn.com/web/production/googleV2.svg");
     }
 }
 
