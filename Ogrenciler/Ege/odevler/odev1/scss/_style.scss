@@ -1,34 +1,11 @@
 @import "./bs_overrides";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-// .product-list {
-//   .sword-cards {
-//     .sword-card {
-//       position: relative;
-//       margin-top: 500px;
-//       .sword {
-//         position: absolute;
-//         z-index: -1;
-//         animation: sword 1s linear 1s 1 forwards;
-//       }
-
-//       .rock {
-//         position: absolute;
-//         opacity: 0;
-//         //   animation: rock 1s linear 1s 1 forwards;
-//       }
-
-//       img {
-//         max-width: 400px;
-//         max-height: 400px;
-//       }
-//     }
-//   }
-// }
 
 * {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -50,14 +27,109 @@ a {
 
 // #region Homepage
 
+//#region New Home
+
+.popular-products {
+  .card {
+    background: transparent;
+    overflow: hidden;
+    transition: 0.3s all;
+    border-color: rgba(95, 158, 160, 0.5);
+    &:hover {
+      border-color: rgba(95, 158, 160, 0);
+      box-shadow: 0px 0px 5px 5px rgba(95, 158, 160, 0.5);
+      img {
+        transform: scale(1.2);
+      }
+    }
+    img {
+      transition: 0.5s all;
+
+      max-width: 300px;
+      height: 240px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.product-categories {
+  .col-lg-4 {
+    overflow: hidden;
+    transition: 0.3s all;
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 74px;
+      padding: 10px;
+    }
+
+    .cat {
+      overflow: hidden;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:first-child {
+      .cat {
+        background-image: linear-gradient(
+            to bottom,
+            rgba(253, 245, 230, 0.52),
+            rgba(35, 41, 122, 0.73)
+          ),
+          url(../assets/wow_bg.jpg);
+        height: 600px;
+        // background: url(../assets/wow_bg.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+    &:nth-child(2) {
+      .cat {
+        background-image: linear-gradient(
+            to bottom,
+            rgba(253, 245, 230, 0.52),
+            rgba(35, 41, 122, 0.73)
+          ),
+          url(../assets/skyrim_bg.jpg);
+        height: 600px;
+        // background: url(../assets/skyrim_bg.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+    &:last-child {
+      .cat {
+        background-image: linear-gradient(
+            to bottom,
+            rgba(253, 245, 230, 0.52),
+            rgba(35, 41, 122, 0.73)
+          ),
+          url(../assets/anime_bg.jpg);
+        height: 600px;
+        // background: url(../assets/anime_bg.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+  }
+}
+//#endregion New Home
+
 .carousel-inner {
   img {
     margin: 0 auto;
     height: 90vh;
   }
 
-  .carousel-item {
-    background: $info;
+  .carousel-caption {
+    h5 {
+      font-size: 32px;
+    }
   }
 }
 
@@ -186,7 +258,8 @@ a {
   padding: 120px 0;
   .product-img {
     img {
-      max-height: 600px;
+      max-height: 500px;
+      height: 600px;
       transition: 0.3s all;
     }
     &:hover {
@@ -238,6 +311,8 @@ a {
 .review-comment {
   max-width: 450px;
 }
+
+// #endregion
 
 // #region Shared Components
 
@@ -322,26 +397,6 @@ footer {
 }
 
 // #endregion
-
-// Keyframes
-@keyframes sword {
-  0% {
-    transform: translateY(25%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
-@keyframes rock {
-  0% {
-    transform: translateY(25%);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(75%);
-    opacity: 0;
-  }
-}
 
 @media screen and (max-width: 992px) {
   footer {

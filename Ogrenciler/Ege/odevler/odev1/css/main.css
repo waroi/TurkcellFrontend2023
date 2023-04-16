@@ -10724,6 +10724,7 @@ textarea.form-control-lg {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -10736,12 +10737,69 @@ a {
   text-decoration: none;
 }
 
+.popular-products .card {
+  background: transparent;
+  overflow: hidden;
+  transition: 0.3s all;
+  border-color: rgba(95, 158, 160, 0.5);
+}
+.popular-products .card:hover {
+  border-color: rgba(95, 158, 160, 0);
+  box-shadow: 0px 0px 5px 5px rgba(95, 158, 160, 0.5);
+}
+.popular-products .card:hover img {
+  transform: scale(1.2);
+}
+.popular-products .card img {
+  transition: 0.5s all;
+  max-width: 300px;
+  height: 240px;
+  margin: 0 auto;
+}
+
+.product-categories .col-lg-4 {
+  overflow: hidden;
+  transition: 0.3s all;
+}
+.product-categories .col-lg-4 h2, .product-categories .col-lg-4 .h2 {
+  text-transform: uppercase;
+  font-size: 74px;
+  padding: 10px;
+}
+.product-categories .col-lg-4 .cat {
+  overflow: hidden;
+}
+.product-categories .col-lg-4:hover {
+  transform: scale(1.05);
+}
+.product-categories .col-lg-4:first-child .cat {
+  background-image: linear-gradient(to bottom, rgba(253, 245, 230, 0.52), rgba(35, 41, 122, 0.73)), url(../assets/wow_bg.jpg);
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.product-categories .col-lg-4:nth-child(2) .cat {
+  background-image: linear-gradient(to bottom, rgba(253, 245, 230, 0.52), rgba(35, 41, 122, 0.73)), url(../assets/skyrim_bg.jpg);
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.product-categories .col-lg-4:last-child .cat {
+  background-image: linear-gradient(to bottom, rgba(253, 245, 230, 0.52), rgba(35, 41, 122, 0.73)), url(../assets/anime_bg.jpg);
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .carousel-inner img {
   margin: 0 auto;
   height: 90vh;
 }
-.carousel-inner .carousel-item {
-  background: #fcc200;
+.carousel-inner .carousel-caption h5, .carousel-inner .carousel-caption .h5 {
+  font-size: 32px;
 }
 
 .products-main .products-by-catgs .card {
@@ -10828,7 +10886,8 @@ a {
   padding: 120px 0;
 }
 .product-area .product-img img {
-  max-height: 600px;
+  max-height: 500px;
+  height: 600px;
   transition: 0.3s all;
 }
 .product-area .product-img:hover img {
@@ -10942,24 +11001,6 @@ footer .col-lg-4:first-child {
   border-left: none;
 }
 
-@keyframes sword {
-  0% {
-    transform: translateY(25%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
-@keyframes rock {
-  0% {
-    transform: translateY(25%);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(75%);
-    opacity: 0;
-  }
-}
 @media screen and (max-width: 992px) {
   footer .col-lg-4 {
     border: none;
