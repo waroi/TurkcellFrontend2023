@@ -64,6 +64,10 @@ ul {
     rgba(0, 0, 0, 0.5), 
     rgba(0, 0, 0, 0.6)
   ), url("../images/background/bgaboutus.png");
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .app {
@@ -111,3 +115,21 @@ footer {
   }
 }
 
+.contact {
+  div {
+    &:nth-child(odd) {
+      margin: 2.2rem 0;
+    }
+    span {
+      &:nth-child(odd) {
+        margin-right: 1rem;
+      }
+    }
+  }
+  a {
+    color: #000000;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
