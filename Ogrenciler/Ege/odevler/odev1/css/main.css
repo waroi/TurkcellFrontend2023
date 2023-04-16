@@ -4290,7 +4290,7 @@ textarea.form-control-lg {
 }
 
 .accordion {
-  --bs-accordion-color: ghostwhite;
+  --bs-accordion-color: white;
   --bs-accordion-bg: transparent;
   --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   --bs-accordion-border-color: var(--bs-border-color);
@@ -4299,18 +4299,18 @@ textarea.form-control-lg {
   --bs-accordion-inner-border-radius: calc(0.375rem - 1px);
   --bs-accordion-btn-padding-x: 1.25rem;
   --bs-accordion-btn-padding-y: 1rem;
-  --bs-accordion-btn-color: ghostwhite;
+  --bs-accordion-btn-color: white;
   --bs-accordion-btn-bg: var(--bs-accordion-bg);
-  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='ghostwhite'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   --bs-accordion-btn-icon-width: 1.25rem;
   --bs-accordion-btn-icon-transform: rotate(-180deg);
   --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
-  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='ghostwhite'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   --bs-accordion-btn-focus-border-color: #929092;
   --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(36, 33, 36, 0.25);
   --bs-accordion-body-padding-x: 1.25rem;
   --bs-accordion-body-padding-y: 1rem;
-  --bs-accordion-active-color: ghostwhite;
+  --bs-accordion-active-color: white;
   --bs-accordion-active-bg: transparent;
 }
 
@@ -10737,6 +10737,9 @@ a {
   text-decoration: none;
 }
 
+.popular-products h2, .popular-products .h2 {
+  font-size: 42px;
+}
 .popular-products .card {
   background: transparent;
   overflow: hidden;
@@ -10748,15 +10751,23 @@ a {
   box-shadow: 0px 0px 5px 5px rgba(95, 158, 160, 0.5);
 }
 .popular-products .card:hover img {
-  transform: scale(1.2);
+  filter: drop-shadow(30px 10px 4px rgba(95, 158, 160, 0.5));
 }
 .popular-products .card img {
   transition: 0.5s all;
   max-width: 300px;
   height: 240px;
   margin: 0 auto;
+  animation: pulse-popular 2s infinite;
 }
 
+.quotes .quote-home {
+  font-style: italic;
+}
+
+.product-categories h2, .product-categories .h2 {
+  font-size: 42px;
+}
 .product-categories .col-lg-4 {
   overflow: hidden;
   transition: 0.3s all;
@@ -11001,6 +11012,20 @@ footer .col-lg-4:first-child {
   border-left: none;
 }
 
+@keyframes pulse-popular {
+  0% {
+    transform: scale(0.98) translateY(-5px);
+    filter: drop-shadow(0 0 10px rgba(95, 158, 160, 0.5));
+  }
+  50% {
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 0 rgba(95, 158, 160, 0));
+  }
+  100% {
+    transform: scale(0.98) translateY(-5px);
+    filter: drop-shadow(0 0 10px rgba(95, 158, 160, 0.5));
+  }
+}
 @media screen and (max-width: 992px) {
   footer .col-lg-4 {
     border: none;
