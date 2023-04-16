@@ -1,0 +1,328 @@
+@mixin cardProperties($position, $width, $height, $left) {
+    position: $position;
+    width: $width;
+    height: $height;
+    left: $left;
+}
+
+@mixin waveFunc($z-index, $opacity, $bottom) {
+    z-index: $z-index;
+    opacity: $opacity;
+    bottom: $bottom;
+}
+*{
+    box-sizing: border-box;
+}
+nav {
+    background-color: $primary;
+    color: $light ;
+
+    ul li a {
+        color: $light !important;
+    }
+
+    button{
+        &:hover{
+            background-color: $primary !important;
+        }
+    }
+}
+
+h1 {
+    color: $secondary;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none !important;
+    color: $dark !important;
+}
+
+.gutter-delete {
+    --bs-gutter-x: 0;
+}
+
+/* Card */
+.created-card {
+    @include cardProperties(relative, 80%, 300px, 0%);
+    z-index: 0;
+    transition: z-index 0.5s;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0 auto;
+    box-shadow: rgba(100, 9, 71, 0.782) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.created-card-inline {
+    @include cardProperties(absolute, 90%, 65%, 5%);
+    transition: all 0.3s ease;
+    top: 5%;
+}
+
+.created-card-footer {
+    @include cardProperties(absolute, 100%, 60px, 0%);
+    bottom: 4%;
+    line-height: 60px;
+}
+
+.created-card-backward {
+    @include cardProperties(absolute, 100%, 60px, 0%);
+    line-height: 60px;
+    bottom: 4%;
+    background-color: $primary;
+    font-weight: 300;
+    color: #ededed;
+    transform: translateX(-95%);
+    transition: all 0.3s ease;
+}
+
+.created-card:hover {
+    z-index: 3;
+}
+
+.created-card:hover .created-card-inline {
+    transform: scale(1.2);
+}
+
+.created-card:hover .created-card-backward {
+    transform: translateX(0);
+}
+/*triple card*/
+.triple-card{
+    background-color: #EEEDE7;
+    .card-item{
+        box-shadow: 3px 3px 10px #EEEDE7;
+    }
+}
+/* footer*/
+footer {
+    position: relative;
+    width: 100%;
+    background-color: #3586ff;
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 200px;
+
+    .social-icon {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+        flex-wrap: wrap;
+
+        a {
+            font-size: 2em !important;
+            color: $light;
+            margin: 0 10px;
+            display: inline-block;
+            transition: 0.5s;
+            color: $light !important;
+
+            &:hover {
+                transform: translateY(-10px);
+            }
+        }
+    }
+
+    .menu {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+        flex-wrap: wrap;
+
+        a {
+            font-size: 1.2em !important;
+            color: $light !important;
+            margin: 0 10px;
+            display: inline-block;
+            transition: 0.5s;
+            opacity: 0.75;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    p {
+        color: $light;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+    }
+    .wave {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url("/Ogrenciler/GuzinKanburoglu/Odevler/odev1/images/wave.png");
+        background-size: cover;
+    }
+
+    #wave1 {
+        @include waveFunc(1000, 1, 0);
+        animation: animateWave 4s linear infinite ;
+    }
+
+    #wave2 {
+        @include waveFunc(999, 0.5, 10px);
+        animation: animateWave-2 4s linear infinite ;
+    }
+
+    #wave3 {
+        @include waveFunc(999, 0.7, 15px);
+        animation: animateWave 3s linear infinite ;
+
+    }
+
+    #wave4 {
+        @include waveFunc(999, 0.7, 20px);
+        animation: animateWave-2 3s linear infinite ;
+    }
+}
+
+@keyframes animateWave {
+    0% {
+        background-position-x: 1000px;
+    }
+
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animateWave-2 {
+    0% {
+        background-position-x: 0px;
+    }
+
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+/*About us Page */
+.material-symbols-outlined{
+    padding-right: 5px;
+ }
+ .telephone{
+     padding-bottom: 55px;
+ }
+ .telephone_area{
+     position: relative;
+ }
+ .message_box{
+     opacity: .25;
+ }
+
+ .images{
+    width: 100%;
+    .bottom-image{
+        bottom: -80px;
+        left: 170px;
+        width: 200px;
+        z-index: 2;
+    }
+    .top-image{
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 200px;
+    }
+    .second-image{
+top: 50px;
+    }
+    img{
+        width: 100%;
+    }
+ }
+ .team{
+    img{
+        width: 100%;
+        height: auto;
+    }
+ }
+
+ /*Product Detail Page */
+$basket-btn-color:#EFEBE0;
+$fav-btn-color:#FB8DA0;
+$btn_hover_color:#FB4570;
+
+@mixin button($borderRadius, $pX, $pY,$color){
+padding: $pX $pY;
+border-radius: $borderRadius;
+background-color: $color;
+}
+
+.btn-basket{
+    @include button(5px,10px,24px,$basket-btn-color);
+    border:none;
+    &:hover{
+        background-color: $btn_hover_color;
+    }
+}
+.btn-fav{
+    @include button(5px,10px,24px,$fav-btn-color);
+    border:none;
+    &:hover{
+        background-color: $btn_hover_color;
+    }
+}
+.size-item{
+    
+    position: relative;
+    border: 1px solid #d7d5d5;
+    text-align: center;
+    padding: 13px 16px;
+    border-radius: 4px;
+    color: #000;
+    box-shadow: 0 0 2px 0 rgba(50,50,50,0);
+
+    &:hover{
+        background-color: #FB8DA0;
+        cursor: pointer;
+    }
+}
+.mini-pictures{
+    ul li{
+        &:hover{
+            transition: all 0.3s ease-in-out;
+        transform: scale(1.2);
+        cursor: pointer;
+        }
+    }
+}
+.interested-products-mobil{
+    display: none;
+}
+@media screen and (max-width:992px) {
+    .mini-pictures{
+        display: none;
+    }
+    .interested-products{
+        display: none;
+    }
+    .interested-products-mobil{
+        display: flex;
+    }
+    .about{
+        flex-direction: column;  
+    }
+    .images{
+        width: 80%;
+    }
+    .vision-mission{
+        flex-direction: column;
+    } 
+}
