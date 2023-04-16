@@ -10749,6 +10749,9 @@ section {
   z-index: -1;
 }
 
+.banner .banner-title {
+  animation: fadeInLeft 1.5s ease-in-out;
+}
 .banner .banner-title h2, .banner .banner-title .h2 {
   margin-top: 25px;
   margin-bottom: 50px;
@@ -10794,9 +10797,27 @@ section {
 
 .card {
   border: none;
-  box-shadow: 1px 2px 12px 0px rgba(26, 188, 156, 0.79);
+  box-shadow: 1px 2px 12px 0px rgba(26, 188, 156, 0.3);
+  transition: all 0.3s ease;
   position: relative;
   width: 22rem;
+}
+.card:before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 6%;
+  width: 97%;
+  height: 94%;
+  transform: rotate(0);
+  border-radius: 10px;
+  transition: all 0.5s cubic-bezier(0.42, 0, 0.14, 1.02);
+  background-color: rgba(26, 188, 156, 0.7);
+  z-index: -1;
+}
+.card:hover::before {
+  transform: rotate(5deg);
+  height: 96%;
 }
 .card .card-body h5, .card .card-body .h5 {
   font-size: 25px;
@@ -10905,6 +10926,16 @@ footer .footer-bottom .footer-socials a {
 }
 footer .footer-bottom .footer-socials a:hover {
   background: #1ABC9C;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
