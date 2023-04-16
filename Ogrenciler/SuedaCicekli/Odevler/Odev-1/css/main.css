@@ -12658,6 +12658,28 @@ footer a:hover {
     transform: rotate(0deg);
   }
 }
+.marquee {
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee div {
+  display: block;
+  width: 200%;
+  position: absolute;
+  overflow: hidden;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
 .carousel {
   position: relative;
 }
