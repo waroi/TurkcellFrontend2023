@@ -9,13 +9,45 @@ $light: #f2f2f2;
 }
 
 .container {
-  .who-are-us {
+  .aboutus-breadcrumb {
+    margin-top: 40px;
+  }
+
+  .who-are-us,
+  .vision,
+  .address,
+  .values {
     @include section-padding();
-    .text {
-      padding-top: 80px;
+    .row {
+      min-height: 120px;
     }
-    p {
-      font-size: 20px;
+  }
+
+  .vision {
+    .vision-item {
+      width: 250px !important;
+      transition: 0.5s;
+      &:hover {
+        cursor: pointer;
+        box-shadow: inset 6px 6px 40px 0px $info;
+        transition: 0.5s;
+      }
+    }
+  }
+
+  .address {
+    .map {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      height: 400px;
+      iframe {
+        max-height: 100%;
+        max-width: 100%;
+        position: absolute;
+      }
     }
   }
 }

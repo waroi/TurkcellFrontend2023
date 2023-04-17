@@ -36,18 +36,18 @@
         </nav>
         <nav class="nav2 navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand w-25 ps-3" href="./index.html">
-                    <img src="./assets/logo.png" alt="TecHome" class="w-100" />
+                <a class=" logo navbar-brand w-25 ps-3" href="./index.html">
+                    <img src="./assets/logo.png" alt="TecHome" class="  w-100" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#subNav"
                     aria-controls="subNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="w-50 d-flex justify-content-center">
+                <div class="web-search w-50 d-flex justify-content-center">
                     <form class="d-flex justify-content-center w-75" role="search">
                         <input class="form-control me-2 bg-secondary" type="search" placeholder="Arama Yap"
                             aria-label="Search" />
-                        <button class="btn btn-outline-primary w-25  type=" submit">
+                        <button class="btn btn-outline-primary w-25 fw-bold" type="submit">
                             Ara
                         </button>
                     </form>
@@ -56,37 +56,147 @@
                 <div class="collapse navbar-collapse justify-content-around" id="subNav">
                     <ul class="navbar-nav justify-content-start">
 
-                        <li class="nav-item  px-1 me-4">
+                        <li class="nav-item  px-1 me-4" data-bs-toggle="modal" data-bs-target="#loginModal">
                             <div class="d-flex align-items-center pointer">
                                 <i class="fa-solid fa-circle-user fs-3 me-2 text-light"></i>
                                 <div class="text-light
-                                ">Giriş Yap
+                                  ">Giriş Yap
                                     <div class="text-info"><small>Kayıt Ol</small></div>
                                 </div>
 
                             </div>
-                            <!-- <a class="nav-link border border-secondary p-1  text-center" href="#"> Giriş Yap
-                                    <span><small> / Kayıt Ol</small></span>
-                                </a> -->
                         </li>
-                        <li class="nav-item px-1 ">
+                        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header text-center">
+                                        <h1 class="modal-title fs-5 text-dark " id="loginModalLabel"></h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-dark">
+                                        <h5 class="text-center">ÜYE GİRİŞİ</h5>
+                                        <form class="w-75 mx-auto ">
+
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label" for="formeleman1">Email</label>
+                                                <input type="email" id="formelean1" class="form-control" />
+
+                                            </div>
+
+
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label" for="formeleman2">Şifre</label>
+                                                <input type="password" id="formeleman2" class="form-control" />
+
+                                            </div>
+
+
+                                            <div class="row mb-4 text-center  ">
+                                                <div class="">
+
+                                                    <div class="form-check  w-25 mx-auto justify-content-center ">
+                                                        <input class="form-check-input " type="checkbox" value=""
+                                                            id="formeleman3" checked />
+                                                        <label class="form-check-label" for="formeleman3"> Hatırla
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+
+                                                    <a href="#!">Şifremi Unuttum?</a>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="text-center">
+                                                <button type="button " class="btn btn-primary btn-block mb-4 ">Giriş
+                                                    Yap</button>
+
+                                            </div>
+
+                                            <!-- Register buttons -->
+                                            <div class="text-center">
+                                                <p>Üye değil misin? <a href="#!">Kayıt Ol!</a></p>
+                                                <p>veya şununla giriş yap:</p>
+                                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                                    <i class="fab fa-facebook-f"></i>
+                                                </button>
+
+                                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                                    <i class="fab fa-google"></i>
+                                                </button>
+
+                                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                                    <i class="fab fa-twitter"></i>
+                                                </button>
+
+                                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                                    <i class="fab fa-github"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <li class="nav-item px-1" data-bs-toggle="modal" data-bs-target="#sepetModal">
                             <div class="d-flex align-items-center pointer">
                                 <i class="fa-solid fa-cart-shopping fs-3 me-2 text-light"></i>
-                                <div class="text-light
-                                ">Sepetim
+                                <div class="text-light">Sepetim
                                     <div class="text-info"><small>0.00 ₺</small></div>
                                 </div>
                             </div>
 
+                            <div class="modal fade" id="sepetModal" tabindex="-1" aria-labelledby="sepetModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5 text-dark" id="sepetMpdalLabel">SEPETİNİZ</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-center text-dark">
+                                            <h5>Sepetinizde Ürün Bulunmamaktadır.</h5>
+                                            <img src="./assets/empty.png" alt="" class="w-50 ">
+                                        </div>
+                                        <div class="modal-footer">
+
+                                            <button type="button" class="btn btn-primary"
+                                                data-bs-dismiss="modal">Tamam</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+
+                        <li class="nav-item mobile-search px-1 d-none">
+                            <div class=" d-flex justify-content-center">
+                                <form class="d-flex justify-content-center w-75" role="search">
+                                    <input class="form-control me-2 bg-secondary" type="search" placeholder="Arama Yap"
+                                        aria-label="Search" />
+                                    <button class="btn btn-outline-primary w-25" type="submit">
+                                        Ara
+                                    </button>
+                                </form>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <nav class="nav3 navbar navbar-expand-lg bg-dark py-0 border-top  border-info">
-            <div class=" menu container-fluid justify-content-center">
+            <div class=" container-fluid justify-content-center">
                 <div class="nav justify-content-center">
-                    <div class="dropdown">
+                    <div class=" nav3-item dropdown">
                         <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="nav-link text-light ">Bilgisayarlar <i class="fa-solid fa-chevron-down"></i></a>
                         </li>
@@ -97,7 +207,7 @@
                             <li><a class="dropdown-item" href="#">Oyun Bilgisayarları</a></li>
                         </ul>
                     </div>
-                    <div class="dropdown">
+                    <div class="nav3-item dropdown">
                         <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="nav-link text-light ">Hazır Sistemler <i class="fa-solid fa-chevron-down"></i></a>
                         </li>
@@ -110,7 +220,7 @@
                             <li><a class="dropdown-item" href="#">NVIDIA Studio Sistemler</a></li>
                         </ul>
                     </div>
-                    <div class="dropdown">
+                    <div class="nav3-item dropdown">
                         <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="nav-link text-light ">Bilgisayar Bileşenleri <i
                                     class="fa-solid fa-chevron-down"></i></a>
@@ -128,7 +238,7 @@
                         </ul>
                     </div>
 
-                    <div class="dropdown">
+                    <div class="nav3-item dropdown">
                         <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="nav-link text-light ">Çevre Birimleri <i class="fa-solid fa-chevron-down"></i></a>
                         </li>
@@ -142,7 +252,7 @@
                             <li><a class="dropdown-item" href="#">Ağ Ürünleri</a></li>
                         </ul>
                     </div>
-                    <div class="dropdown">
+                    <div class="nav3-item dropdown">
                         <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="nav-link text-light ">Oyuncu Ekipmanları <i
                                     class="fa-solid fa-chevron-down"></i></a>
@@ -158,50 +268,44 @@
 
                 </div>
         </nav>
-
-        </nav>
     </header>
 
     <main>
-        
-        <div class="row">
+        <div>
             <banner class="sss-banner d-flex align-items-center">
-                <div class="w-25">
+                <div class="w-25 ">
                     <h2>SIK SORULAN SORULAR</h2>
                 </div>
             </banner>
         </div>
 
         <div class="container">
-           <div class="row mt-5">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Ana Sayfa</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Sık Sorulan Sorular</li>
-                </ol>
-              </nav>
-           </div>
-
+            <div class=" sss-bread row ">
+                <nav aria-label="breadcrumb">
+                    <ol class="detail-breadcrumb breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Sık Sorulan Sorular</li>
+                    </ol>
+                </nav>
+            </div>
             <div class="row icons">
-                <div class=" col border border-dark text-center py-5 fs-4">
+                <div class=" sss-icon col-lg border border-dark text-center py-5 fs-4">
                     <i class="fa-regular fa-thumbs-up"></i>
-                    <p>MÜŞTERİ MEMNUNİYETİ</p>
+                    <p>MEMNUNİYET</p>
                 </div>
-                <div class="col border border-dark text-center py-5 fs-4">
+                <div class="sss-icon col-lg border border-dark text-center py-5 fs-4">
                     <i class="fa-solid fa-award"></i>
                     <p>%100 GARANTİ</p>
                 </div>
-                <div class="col border border-dark text-center py-5 fs-4">
+                <div class="sss-icon col-lg border border-dark text-center py-5 fs-4">
                     <i class="fa-solid fa-headset"></i>
                     <p>TEKNİK DESTEK</p>
                 </div>
-                <div class="col border border-dark text-center py-5 fs-4">
+                <div class="sss-icon col-lg border border-dark text-center py-5 fs-4">
                     <i class="fa-solid fa-truck"></i>
                     <p>KARGO HİZMETİ</p>
                 </div>
             </div>
-
-
             <div class="accordion" id="sss-accordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -399,73 +503,64 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false" aria-controls="panelsStayOpen-collapseEleven">
-                       11. Neden TC Kimlik numarası istiyorsunuz?
-                      </button>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseEleven">
+                            11. Neden TC Kimlik numarası istiyorsunuz?
+                        </button>
                     </h2>
                     <div id="panelsStayOpen-collapseEleven" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        Yasal olarak belli bir tutarın üzerindeki siparişlerde TC Kimlik numarası ile işlem yapmamız gerekmektedir.
-                        Ayrıca bazı kargo firmaları da ürün gönderiminde ve tesliminde bu bilgileri sorabilmektedir.
-                        Ay içinde kaç sipariş vereceğinizi ve tutarını bilemediğimizden bu bilgiyi ilk aşamada istemekteyiz.
-                        Bilgileriniz güvenli bir şekilde tutulur ve kimse ile paylaşılmaz. </div>
+                        <div class="accordion-body">
+                            Yasal olarak belli bir tutarın üzerindeki siparişlerde TC Kimlik numarası ile işlem yapmamız
+                            gerekmektedir.
+                            Ayrıca bazı kargo firmaları da ürün gönderiminde ve tesliminde bu bilgileri sorabilmektedir.
+                            Ay içinde kaç sipariş vereceğinizi ve tutarını bilemediğimizden bu bilgiyi ilk aşamada
+                            istemekteyiz.
+                            Bilgileriniz güvenli bir şekilde tutulur ve kimse ile paylaşılmaz. </div>
                     </div>
-                  </div>
-                  <div class="accordion-item">
+                </div>
+                <div class="accordion-item">
                     <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwelve" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwelve">
-                       12. Satılan ürünler orijinal mi?
-                      </button>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwelve" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseTwelve">
+                            12. Satılan ürünler orijinal mi?
+                        </button>
                     </h2>
                     <div id="panelsStayOpen-collapseTwelve" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        Sitemizde satılan tüm ürünler yetkili distribütörlerden tedarik edilmiş ve üretici firma tarafından da ve en az 24 ay süre ile garanti verilen ürünlerdir.
-                        Sitemizde ikinci el ya da orijinal olmayan ürünler satılmaz. </div>
+                        <div class="accordion-body">
+                            Sitemizde satılan tüm ürünler yetkili distribütörlerden tedarik edilmiş ve üretici firma
+                            tarafından da ve en az 24 ay süre ile garanti verilen ürünlerdir.
+                            Sitemizde ikinci el ya da orijinal olmayan ürünler satılmaz. </div>
                     </div>
-                  </div>
+                </div>
 
 
 
             </div>
         </div>
-
     </main>
 
     <footer class="text-center text-lg-start bg-dark text-muted">
 
-        <!-- Section: Social media -->
         <section class="mb-4 text-center pt-5">
-            <!-- Facebook -->
             <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
                     class="fab fa-facebook-f"></i></a>
-
-            <!-- Twitter -->
             <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
                     class="fab fa-twitter"></i></a>
-
-            <!-- Google -->
             <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
                     class="fab fa-google"></i></a>
-
-            <!-- Instagram -->
             <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
                     class="fab fa-instagram"></i></a>
-
-            <!-- Linkedin -->
             <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
                     class="fab fa-linkedin-in"></i></a>
-
-            <!-- Github -->
             <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
         </section>
 
-        <section class="">
+        <section>
             <div class="container text-center text-md-start mt-5">
-
-                <div class="row mt-3">
-
+                <div class=" row mt-3">
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-
                         <img src="./assets/logo.png" alt="" class="w-100">
                         <p>
                             Cumhuriyet Mah. Atatürk Cad. No:24/7 Tepebaşı/Eskişehir
@@ -473,21 +568,20 @@
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
                         <h6 class="text-uppercase fw-bold mb-4">
                             Ürünler
                         </h6>
                         <p>
-                            <a href="#!" class="text-reset">Bilgisayar</a>
+                            <a href="#" class="text-reset">Bilgisayar</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Hazır Sistemler</a>
+                            <a href="#" class="text-reset">Hazır Sistemler</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Bilgisayar Bileşenleri</a>
+                            <a href="#" class="text-reset">Bilgisayar Bileşenleri</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Çevre Birimleri</a>
+                            <a href="#" class="text-reset">Çevre Birimleri</a>
                         </p>
                         <p>
                             <a href="#!" class="text-reset">Oyuncu Ekipmanları</a>
@@ -495,43 +589,41 @@
                     </div>
 
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
                         <h6 class="text-uppercase fw-bold mb-4">
                             Kurumsal
                         </h6>
                         <p>
-                            <a href="#!" class="text-reset">KVKK ve Yasal Haklar</a>
+                            <a href="./about-us.html" class="text-reset">Hakkımızda</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Aydınlatma Metni</a>
+                            <a href="#" class="text-reset">KVKK ve Yasal Haklar</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Çerez Yönetimi</a>
+                            <a href="#" class="text-reset">Çerez Yönetimi</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Satış Sözleşmesi</a>
+                            <a href="#" class="text-reset">Satış Sözleşmesi</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Garanti Şartları</a>
+                            <a href="#" class="text-reset">Garanti Şartları</a>
                         </p>
                     </div>
 
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
                         <h6 class="text-uppercase fw-bold mb-4">
                             YARDIM
                         </h6>
                         <p>
-                            <a href="#!" class="text-reset">Çağrı Merkezi</a>
+                            <a href="./sss.html" class="text-reset">Sık Sorulan Sorular</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Sipariş ve Teslimat</a>
+                            <a href="#" class="text-reset">Sipariş ve Teslimat</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Üyelik / Hesabım</a>
+                            <a href="#" class="text-reset">Üyelik / Hesabım</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Ömür Boyu Bakım</a>
+                            <a href="#" class="text-reset">Ömür Boyu Bakım</a>
                         </p>
                     </div>
 
@@ -545,6 +637,6 @@
             <a class="text-reset fw-bold" href="#">TecHome.com</a>
         </div>
     </footer>
-</body>
 
+</body>
 </html>

@@ -16,13 +16,16 @@ $light: #f2f2f2;
   position: relative;
   height: 600px;
   h2 {
-    font-size: 60px;
-    text-align: center;
-    padding-left: 50px;
+    font-size: 80px;
+    text-align: left;
+    padding-left: 200px;
   }
 }
 
 .container {
+  .sss-bread {
+    margin-top: 50px;
+  }
   .accordion {
     margin-bottom: 100px;
     @include section-padding();
@@ -33,10 +36,16 @@ $light: #f2f2f2;
   }
   .icons {
     @include section-padding();
-    .col {
+    .sss-icon {
       margin: 5px;
       border-radius: 10px;
       background-color: $dark;
+      transition: 0.5s;
+      &:hover {
+        cursor: pointer;
+        box-shadow: inset 2px 6px 20px 0px $primary;
+        transition: 0.5s;
+      }
     }
     i {
       font-size: 50px;

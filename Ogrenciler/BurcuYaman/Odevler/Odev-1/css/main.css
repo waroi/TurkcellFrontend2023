@@ -4,6 +4,19 @@ small,
   font-size: 0.8rem !important;
 }
 
+.carousel-control-next,
+.carousel-control-prev {
+  filter: invert(100%);
+}
+
+.link-muted {
+  color: #aaa;
+}
+
+.link-muted:hover {
+  color: #1266f1;
+}
+
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -10724,30 +10737,75 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+a {
+  text-decoration: none;
+}
+
 .pointer {
   cursor: pointer;
 }
 
-main .container .card {
+header .nav1 .nav-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #ff5400;
+  transition: width 0.3s;
+}
+header .nav1 .nav-link:hover::after {
+  width: 100%;
+}
+header .nav2 .nav-item::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #1a00bb;
+  transition: width 0.3s;
+}
+header .nav2 .nav-item:hover::after {
+  width: 100%;
+}
+header .nav2 button {
+  transition: 0.5s;
+}
+
+main .aside a {
+  transition: 0.5s;
+}
+main .container .urunler .col-lg-4 {
+  transition: 0.5s;
+}
+main .container .urunler .col-lg-4 .card {
   color: #f2f2f2;
   border: none;
-  background: #000000;
-  background: -webkit-linear-gradient(to right, #434343, #000000);
-  background: linear-gradient(to right, #434343, #000000);
-  margin-bottom: 20px;
+  background-color: #070a0e;
+  transition: 0.5s;
 }
-main .container .card h5, main .container .card .h5 {
+main .container .urunler .col-lg-4 .card:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 10px 5px #1a00bb;
+  transition: 0.5s;
+}
+main .container .urunler .col-lg-4 .card img {
+  border-radius: 0;
+  border-bottom: 5px solid #1a00bb;
+  border-top: 5px solid #1a00bb;
+}
+main .container .urunler .col-lg-4 .card h5, main .container .urunler .col-lg-4 .card .h5 {
+  margin-top: 15px;
   text-align: left;
 }
-main .container .card p {
+main .container .urunler .col-lg-4 .card .card-text {
   font-size: 12px;
   text-align: center;
   font-size: 30px;
   font-weight: bold;
   color: #ff5400;
 }
-main .container .card img {
-  border-radius: 0;
+main .container .urunler .col-lg-4 .card .card-footer a {
+  transition: 0.5s;
 }
 main .container aside {
   padding: 15px;
@@ -10780,12 +10838,38 @@ main .container .urunler {
   flex-wrap: wrap;
 }
 
+footer .text-reset::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #1a00bb;
+  transition: width 0.3s;
+}
+footer .text-reset:hover::after {
+  width: 100%;
+}
+
 body {
   color: #f2f2f2;
 }
 
-main .container .detail {
-  padding: 80px 0;
+main .container .detail,
+main .container .prop {
+  padding: 80px 40px;
+  margin: 80px 0;
+}
+main .container .detail .detail-cnt {
+  padding: 0 50px;
+}
+main .container .comment .comment-cnt {
+  padding: 40px;
+}
+
+.container .card {
+  color: #f2f2f2;
+  border: none;
+  background-color: #070a0e;
 }
 
 .sss-banner {
@@ -10797,11 +10881,14 @@ main .container .detail {
   height: 600px;
 }
 .sss-banner h2, .sss-banner .h2 {
-  font-size: 60px;
-  text-align: center;
-  padding-left: 50px;
+  font-size: 80px;
+  text-align: left;
+  padding-left: 200px;
 }
 
+.container .sss-bread {
+  margin-top: 50px;
+}
 .container .accordion {
   margin-bottom: 100px;
   padding: 80px 0;
@@ -10813,10 +10900,16 @@ main .container .detail {
 .container .icons {
   padding: 80px 0;
 }
-.container .icons .col {
+.container .icons .sss-icon {
   margin: 5px;
   border-radius: 10px;
   background-color: #070a0e;
+  transition: 0.5s;
+}
+.container .icons .sss-icon:hover {
+  cursor: pointer;
+  box-shadow: inset 2px 6px 20px 0px #ff5400;
+  transition: 0.5s;
 }
 .container .icons i {
   font-size: 50px;
@@ -10824,14 +10917,157 @@ main .container .detail {
   color: #ff5400;
 }
 
-.container .who-are-us {
+.container .aboutus-breadcrumb {
+  margin-top: 40px;
+}
+.container .who-are-us,
+.container .vision,
+.container .address,
+.container .values {
   padding: 80px 0;
 }
-.container .who-are-us .text {
-  padding-top: 80px;
+.container .who-are-us .row,
+.container .vision .row,
+.container .address .row,
+.container .values .row {
+  min-height: 120px;
 }
-.container .who-are-us p {
-  font-size: 20px;
+.container .vision .vision-item {
+  width: 250px !important;
+  transition: 0.5s;
+}
+.container .vision .vision-item:hover {
+  cursor: pointer;
+  box-shadow: inset 6px 6px 40px 0px #1a00bb;
+  transition: 0.5s;
+}
+.container .address .map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  height: 400px;
+}
+.container .address .map iframe {
+  max-height: 100%;
+  max-width: 100%;
+  position: absolute;
+}
+
+@media screen and (max-width: 992px) {
+  header .nav1 .container-fluid .collapse, header .nav1 .container-sm .collapse, header .nav1 .container-md .collapse, header .nav1 .container-lg .collapse, header .nav1 .container-xl .collapse, header .nav1 .container-xxl .collapse {
+    justify-content: center !important;
+  }
+  header .nav2 .container-fluid .logo, header .nav2 .container-sm .logo, header .nav2 .container-md .logo, header .nav2 .container-lg .logo, header .nav2 .container-xl .logo, header .nav2 .container-xxl .logo {
+    width: 180px !important;
+  }
+  header .nav2 .container-fluid .web-search, header .nav2 .container-sm .web-search, header .nav2 .container-md .web-search, header .nav2 .container-lg .web-search, header .nav2 .container-xl .web-search, header .nav2 .container-xxl .web-search {
+    display: none !important;
+  }
+  header .nav2 .container-fluid .nav-item, header .nav2 .container-sm .nav-item, header .nav2 .container-md .nav-item, header .nav2 .container-lg .nav-item, header .nav2 .container-xl .nav-item, header .nav2 .container-xxl .nav-item {
+    margin: 10px auto !important;
+  }
+  header .nav2 .container-fluid .mobile-search, header .nav2 .container-sm .mobile-search, header .nav2 .container-md .mobile-search, header .nav2 .container-lg .mobile-search, header .nav2 .container-xl .mobile-search, header .nav2 .container-xxl .mobile-search {
+    display: flex !important;
+  }
+  header .nav3 .container-fluid .nav, header .nav3 .container-sm .nav, header .nav3 .container-md .nav, header .nav3 .container-lg .nav, header .nav3 .container-xl .nav, header .nav3 .container-xxl .nav {
+    justify-content: space-around !important;
+  }
+  header .nav3 .container-fluid .nav .nav3-item a, header .nav3 .container-sm .nav .nav3-item a, header .nav3 .container-md .nav .nav3-item a, header .nav3 .container-lg .nav .nav3-item a, header .nav3 .container-xl .nav .nav3-item a, header .nav3 .container-xxl .nav .nav3-item a {
+    font-size: 10px !important;
+  }
+  main .container .filter-order {
+    justify-content: space-between !important;
+  }
+  main .container .filter-button {
+    display: flex !important;
+  }
+  main .container .aside {
+    display: none !important;
+  }
+  main .container .urunler {
+    flex-wrap: wrap;
+  }
+  main .container .urunler .urunlist {
+    width: 90%;
+  }
+  main .container .pagination {
+    justify-content: center !important;
+  }
+  main .container .aboutus-breadcrumb {
+    margin-top: 10px !important;
+  }
+  main .container .who-are-us {
+    margin: 3px;
+  }
+  main .container .who-are-us .who-content {
+    flex-wrap: wrap;
+  }
+  main .container .who-are-us .who-content .img {
+    width: 100%;
+  }
+  main .container .who-are-us .who-content .img img {
+    width: 100%;
+  }
+  main .container .vision {
+    margin: 3px;
+  }
+  main .container .values {
+    margin: 3px;
+  }
+  main .container .values p {
+    display: none;
+  }
+  main .container .values h4, main .container .values .h4 {
+    text-align: center;
+  }
+  main .container .values img {
+    width: 30% !important;
+  }
+  main .container .address {
+    margin: 3px !important;
+  }
+  main .container .detail-breadcrumb {
+    font-size: 10px;
+  }
+  main .container .detail .detail-cnt {
+    text-align: center;
+    padding: 20px 10px !important;
+  }
+  main .container .detail .detail-cnt .fiyatbilgisi .buttons {
+    justify-content: center !important;
+  }
+  main .container .detail .detail-cnt .fiyatbilgisi .fav-text {
+    font-size: 12px !important;
+  }
+  main .container .prop {
+    padding: 40px 20px !important;
+  }
+  main .container .comment .comment-cnt {
+    padding: 3px;
+  }
+  main .container .comment .comment-cnt .card-body {
+    padding: 20px 3px !important;
+  }
+  main .container .sss-bread {
+    margin-top: 10px;
+  }
+  main .container .icons {
+    width: 80%;
+    margin: auto;
+  }
+  main .container .icons .sss-icon {
+    margin: 0px !important;
+    border-radius: 0px;
+    border-color: #ff5400 !important;
+    width: 50%;
+    font-size: 10px !important;
+  }
+  main .sss-banner h2, main .sss-banner .h2 {
+    font-size: 50px;
+    padding-left: 30px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

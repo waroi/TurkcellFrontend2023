@@ -17,9 +17,7 @@ $light: #f2f2f2;
 @mixin card_style() {
   color: $light;
   border: none;
-  background: #000000;
-  background: -webkit-linear-gradient(to right, #434343, #000000);
-  background: linear-gradient(to right, #434343, #000000);
+  background-color: $dark;
 }
 
 @mixin filter_style() {
@@ -31,27 +29,93 @@ $light: #f2f2f2;
   color: $light;
 }
 
+a {
+  text-decoration: none;
+}
+
 .pointer {
   cursor: pointer;
 }
 
+header {
+  .nav1 {
+    .nav-link {
+      &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $primary;
+        transition: width 0.3s;
+      }
+      &:hover::after {
+        width: 100%;
+        //transition: width .3s;
+      }
+    }
+  }
+  .nav2 {
+    .nav-item {
+      &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $info;
+        transition: width 0.3s;
+      }
+      &:hover::after {
+        width: 100%;
+        //transition: width .3s;
+      }
+    }
+    button {
+      transition: 0.5s;
+    }
+  }
+}
+
 main {
+  .aside {
+    a {
+      transition: 0.5s;
+    }
+  }
   .container {
-    .card {
-      @include card_style();
-      margin-bottom: 20px;
-      h5 {
-        text-align: left;
-      }
-      p {
-        font-size: 12px;
-        text-align: center;
-        font-size: 30px;
-        font-weight: bold;
-        color: #ff5400;
-      }
-      img {
-        border-radius: 0;
+    .urunler {
+      .col-lg-4 {
+        transition: 0.5s;
+        .card {
+          @include card_style();
+          transition: 0.5s;
+          &:hover {
+            cursor: pointer;
+            box-shadow: 5px 5px 10px 5px $info;
+            transition: 0.5s;
+          }
+          img {
+            border-radius: 0;
+            border-bottom: 5px solid $info;
+            border-top: 5px solid $info;
+          }
+
+          h5 {
+            margin-top: 15px;
+            text-align: left;
+          }
+          .card-text {
+            font-size: 12px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: #ff5400;
+          }
+          .card-footer {
+            a {
+              transition: 0.5s;
+            }
+          }
+        }
       }
     }
     aside {
@@ -71,6 +135,23 @@ main {
       margin: auto;
       margin-top: 0;
       @include d-flex(space-around, wrap);
+    }
+  }
+}
+
+footer {
+  .text-reset {
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: $info;
+      transition: width 0.3s;
+    }
+    &:hover::after {
+      width: 100%;
+      //transition: width .3s;
     }
   }
 }

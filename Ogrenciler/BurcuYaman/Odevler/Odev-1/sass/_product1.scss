@@ -8,20 +8,26 @@ body {
   color: $light;
 }
 
-@mixin d-flex($justify, $iswrap) {
-  display: flex;
-  justify-content: $justify;
-  flex-wrap: wrap;
-}
-
 @mixin section-padding() {
-  padding: 80px 0;
+  padding: 80px 40px;
+  margin: 80px 0;
 }
 
 main {
   .container {
-    .detail {
+    .detail,
+    .prop {
       @include section-padding();
+    }
+    .detail {
+      .detail-cnt {
+        padding: 0 50px;
+      }
+    }
+    .comment {
+      .comment-cnt {
+        padding: 40px;
+      }
     }
   }
 }
