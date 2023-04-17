@@ -1,3 +1,14 @@
+@mixin grid-layout($gap, $columns) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+}
+
+@mixin font-layout($size, $family) {
+    font-size: $size;
+    font-family: &$family;
+}
+
 body{
     background-color: #f7edcc;
 }
@@ -18,7 +29,7 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary.justify-content-center {
 }
 
 div#navbarSupportedContent {
-    margin-left: 100px;
+    margin-left: 80px;
 }
 
 ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
@@ -26,13 +37,12 @@ ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
 }
 
 ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
-    gap: 40px;
     font-size: 18px;
     font-family: 'Rambla', sans-serif;
+    gap: 40px;
 }
 
 form.d-flex {
-    margin-left: 60px;
     width: 500px;
 }
 
@@ -61,7 +71,7 @@ ul.navbar-nav {
 .nav-item:hover{
     transition: transform 1s ease-in-out;
     transform-origin: 100% 50%;
-    background: linear-gradient( #f5a6be, #d099fa);
+    background: linear-gradient( #fdebb9, #e5c6fc);
 }
 
 nav.navbar.navbar-expand-lg.bg-body-tertiary {
@@ -71,6 +81,12 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary {
 .carousel-caption.d-none.d-md-block {
     background-color: #80808054;
     margin-bottom: 50px;
+}
+
+.carousel-inner{
+    h5{
+        font-size: 30px;
+    }
 }
 
 section.kategoriler {
@@ -94,13 +110,18 @@ h2 {
 }
 
 .kategoriler-imgs {
-    display: grid;
-    justify-content: space-evenly;
+    @include grid-layout(auto, 6);
     padding-bottom: 30px;
-    grid-template-columns: repeat(6, 1fr);
 }
 
-.title {
+.urunler {
+    .title {
+    margin: 40px;
+    border-bottom: 2px solid #978ea8;
+    }
+}
+
+.title{
     padding: 40px;
 }
 
@@ -127,6 +148,7 @@ h3 {
     margin-top: 200px;
 }
 
+
 h4 {
     font-size: 40px;
 }
@@ -140,6 +162,13 @@ section.py-8.bg-light {
     text-align: center;
 }
 
+@media screen and (max-width: 1200px) {
+    .row.row-cols-1.row-cols-md-4.g-2.justify-content-center{
+        @include grid-layout(auto, 3);
+        justify-items: center;
+    }
+}
+
 @media screen and (max-width: 992px) {
     .kategoriler-imgs {
         display: grid;
@@ -147,5 +176,9 @@ section.py-8.bg-light {
         padding-bottom: 30px;
         grid-template-columns: 1fr 1fr;
     }
-  }
+    .row.row-cols-1.row-cols-md-4.g-2.justify-content-center{
+        @include grid-layout(auto, 2);
+        justify-items: center;
+    }
+}
 
