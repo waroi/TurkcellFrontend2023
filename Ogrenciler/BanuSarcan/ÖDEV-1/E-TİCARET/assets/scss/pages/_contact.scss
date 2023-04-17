@@ -1,0 +1,73 @@
+.contact-page {
+  .page-banner {
+    background-image: url(../../assets/img/banners/contact.png);
+  }
+  .contact-us {
+    .subtitle {
+      margin-bottom: 30px;
+    }
+    &-container {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      width: 100%;
+      background: #fff;
+      border-radius: $radius;
+      @include boxShadow($color: #00000005);
+    }
+    &-box {
+      margin-bottom: 18px;
+      @include flex($jc: flex-start);
+      @include mq() {
+        margin-bottom: 32.2px;
+      }
+      .icon-box {
+        width: 64px;
+        min-width: 64px;
+        height: 64px;
+        background: $bg-orange-color;
+        font-size: $bigger-size;
+        border-radius: 100%;
+        color: $orange-color;
+        margin-right: 10px;
+        @include flex();
+      }
+      .text-box {
+        @include flex($ai: flex-start, $direction: column);
+        a,
+        p {
+          margin-bottom: 0;
+          font-weight: $medium-bold;
+          font-size: $regular-size;
+          @include lineHeight($regular-size);
+        }
+        p {
+          @include mq() {
+            max-width: 80%;
+          }
+        }
+        small {
+          color: $dark-gray-color;
+        }
+      }
+    }
+    .box-img {
+      position: absolute;
+      @include mq("desktop") {
+        right: 0;
+        bottom: 0;
+        width: 180px;
+        height: 180px;
+        background: url(../../assets/img/contact/contact-us.svg) no-repeat center/contain;
+      }
+    }
+  }
+  .map {
+    margin-top: 50px;
+    width: 100%;
+    iframe {
+      width: 100%;
+      height: 300px;
+    }
+  }
+}
