@@ -275,7 +275,7 @@
             <div class="row my-3">
                 <nav aria-label="breadcrumb ">
                     <ol class="detail-breadcrumb breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item"><a href="./index.html">Ana Sayfa</a></li>
                         <li class="breadcrumb-item"><a href="#">Çevre Birimleri</a></li>
                         <li class="breadcrumb-item"><a href="#">Mouse</a></li>
                         <li class="breadcrumb-item active" aria-current="page">GamePower Renji 10.000DPI
@@ -344,7 +344,25 @@
                                 Ekle <br>
                                 <i class="fa-solid fa-share text-primary"></i> Paylaş
                             </div>
-                            <button class="btn btn-outline-primary fs-4">Sepete Ekle</button>
+                            <button class="btn btn-outline-primary fs-4" data-bs-toggle="modal" data-bs-target="#addtoCardModal">Sepete Ekle</button>
+                            <div class="modal fade" id="addtoCardModal" tabindex="-1" aria-labelledby="addtoCardModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h1 class="modal-title fs-5 text-dark" id="addtoCardModalLabel">HARİKA</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-dark">
+                                    Ürün başarıyla sepetinize eklendi.
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sepete Git</button>
+                                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Alışverişe Devam Et</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
                         </div>
                     </div>
                 </div>
