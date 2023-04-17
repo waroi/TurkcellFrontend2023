@@ -10720,6 +10720,13 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.catgs-bg-img-details, .product-categories .col-lg-4:last-child .cat, .product-categories .col-lg-4:nth-child(2) .cat, .product-categories .col-lg-4:first-child .cat {
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10739,6 +10746,7 @@ a {
 
 .popular-products h2, .popular-products .h2 {
   font-size: 42px;
+  text-transform: capitalize;
 }
 .popular-products .card {
   background: transparent;
@@ -10763,55 +10771,47 @@ a {
 
 .product-categories h2, .product-categories .h2 {
   font-size: 42px;
+  text-transform: capitalize;
 }
 .product-categories .col-lg-4 {
   overflow: hidden;
-  transition: 0.3s all;
 }
 .product-categories .col-lg-4 h2, .product-categories .col-lg-4 .h2 {
-  text-transform: uppercase;
   font-size: 74px;
+  text-transform: uppercase;
   padding: 10px;
 }
 .product-categories .col-lg-4 .cat {
   overflow: hidden;
+  transition: 0.3s all;
 }
-.product-categories .col-lg-4:hover {
+.product-categories .col-lg-4 .cat:hover {
   transform: scale(1.05);
 }
 .product-categories .col-lg-4:first-child .cat {
   background-image: linear-gradient(to bottom, rgba(253, 245, 230, 0.52), rgba(35, 41, 122, 0.73)), url(../assets/wow_bg.jpg);
-  height: 600px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 .product-categories .col-lg-4:nth-child(2) .cat {
   background-image: linear-gradient(to bottom, rgba(253, 245, 230, 0.52), rgba(35, 41, 122, 0.73)), url(../assets/skyrim_bg.jpg);
-  height: 600px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 .product-categories .col-lg-4:last-child .cat {
   background-image: linear-gradient(to bottom, rgba(253, 245, 230, 0.52), rgba(35, 41, 122, 0.73)), url(../assets/anime_bg.jpg);
-  height: 600px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .contact-us h2, .contact-us .h2 {
   font-size: 42px;
+  text-transform: capitalize;
   padding: 10px;
 }
 
 .carousel-inner img {
-  margin: 0 auto;
+  max-width: 100%;
   height: 90vh;
+  margin: 0 auto;
 }
 .carousel-inner .carousel-caption h5, .carousel-inner .carousel-caption .h5 {
   font-size: 32px;
+  text-transform: capitalize;
 }
 
 .search input {
@@ -10843,7 +10843,7 @@ a {
   text-indent: 1rem;
 }
 
-.quote {
+.quote, .flex-row-reverse .quote {
   border-right: 2px solid rgb(252, 194, 0);
   color: rgb(252, 194, 0);
   font-style: italic;
@@ -10852,12 +10852,10 @@ a {
 .flex-row-reverse .quote {
   border-right: none;
   border-left: 2px solid rgb(252, 194, 0);
-  color: rgb(252, 194, 0);
-  font-style: italic;
 }
 
 .product-area .product-img img {
-  max-height: 500px;
+  max-width: 100%;
   height: 600px;
   transition: 0.3s all;
 }
@@ -10966,7 +10964,7 @@ footer .input-wrap .focus-input1 {
   background-color: rgb(252, 194, 0);
   left: 0;
   bottom: -2px;
-  transition: 0.4s all;
+  transition: 0.3s all;
 }
 footer .col-lg-4 {
   border-left: 1px solid #777;
@@ -10996,6 +10994,10 @@ footer .col-lg-4:first-child {
   }
   .about-content article {
     max-width: 100%;
+  }
+  .carousel-inner img {
+    max-width: 100%;
+    height: 25vh;
   }
 }
 

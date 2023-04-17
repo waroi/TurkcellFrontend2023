@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+$grirenk: #343a40;
+body{
+    padding-top: 50px;
+    font-family: 'Raleway', sans-serif;
+}
+.resimSliderBoyut{
+    height: 600px;
+}
+.slideryazi{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.cizgi{
+    border: none;
+    border-top: 3px solid $grirenk;
+    max-width: 250px;
+    margin: 25px auto;
+}
+.kitaplogogri{
+    color: $grirenk;
+    position: relative;
+    top: -55px;
+    font-size: 40px;
+    border: 10px solid $primary;
+    background-color: $primary;
+}
+.kitaplogobeyaz{
+    color: $grirenk;
+    position: relative;
+    top: -55px;
+    font-size: 40px;
+    border: 10px solid $danger;
+    background-color: $danger;
+}
+.cardhover{
+    &:hover{
+        transform: scale(1.05);
+        transition: 0.5s;
+    }
+    
+}
+.coksatanlar{
+    &:hover{
+        transform: scale(1.1);
+        transition: 0.5s;
+        opacity: 0.8;
+    }
+}
+.videoboyut{
+    width: 100%;
+    height: 500px;
+    margin-top: 15px;
+    
+}
+.sosyalmedyaicon{
+    &:hover{
+        transform: scale(2.2);
+        transition: 0.5s;
+    }
+}
+@media screen and (max-width: 768px) {
+    .resimSliderBoyut{
+        height: 300px;
+    }
+
+}

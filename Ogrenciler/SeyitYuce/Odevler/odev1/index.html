@@ -16,7 +16,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-primary position-sticky top-0">
-      <div class="container">
+      <div class="container col-10">
         <a class="navbar-brand text-danger" href="./index.html"
           >Celestial Estate</a
         >
@@ -31,7 +31,10 @@
         >
           <span class="navbar-toggler-icon text-danger bg-danger"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNavDropdown"
+        >
           <ul class="navbar-nav">
             <li class="nav-item">
               <a
@@ -42,56 +45,29 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-danger" href="#">Features</a>
+              <a class="nav-link text-danger" href="#products">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-danger" href="#">Pricing</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle text-danger"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown link
-              </a>
-              <ul class="dropdown-menu bg-primary">
-                <li>
-                  <a class="dropdown-item text-danger" href="#">Action</a>
-                </li>
-                <li>
-                  <a class="dropdown-item text-danger" href="#"
-                    >Another action</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item text-danger" href="#"
-                    >Something else here</a
-                  >
-                </li>
-              </ul>
+              <a class="nav-link text-danger" href="#popular">Popular</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-primary btn btn-danger order-1" href="#"
-                >Sing In</a
+              <a class="nav-link text-danger" href="#planetary"
+                >Planetary Systems</a
               >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-danger" href="./singin.html">Sing In</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <header class="bg-secondary">
-      <div
-        id="carouselExampleCaptions"
-        class="carousel slide"
-        data-bs-ride="false"
-      >
+    <header class="bg-secondary" id="home">
+      <div id="carouselCaptions" class="carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
           <button
             type="button"
-            data-bs-target="#carouselExampleCaptions"
+            data-bs-target="#carouselCaptions"
             data-bs-slide-to="0"
             class="active"
             aria-current="true"
@@ -99,13 +75,13 @@
           ></button>
           <button
             type="button"
-            data-bs-target="#carouselExampleCaptions"
+            data-bs-target="#carouselCaptions"
             data-bs-slide-to="1"
             aria-label="Slide 2"
           ></button>
           <button
             type="button"
-            data-bs-target="#carouselExampleCaptions"
+            data-bs-target="#carouselCaptions"
             data-bs-slide-to="2"
             aria-label="Slide 3"
           ></button>
@@ -117,12 +93,6 @@
               class="d-block mx-auto"
               alt="..."
             />
-            <div class="carousel-caption d-block text-danger">
-              <h5>First slide label</h5>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
-            </div>
           </div>
           <div class="carousel-item">
             <img
@@ -130,9 +100,6 @@
               class="d-block mx-auto"
               alt="..."
             />
-            <div class="carousel-caption d-block text-danger">
-              <h4>Second slide label</h4>
-            </div>
           </div>
           <div class="carousel-item">
             <img
@@ -140,15 +107,12 @@
               class="d-block mx-auto"
               alt="..."
             />
-            <div class="carousel-caption d-block text-danger">
-              <h4>Third slide label</h4>
-            </div>
           </div>
         </div>
         <button
           class="carousel-control-prev"
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#carouselCaptions"
           data-bs-slide="prev"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -157,7 +121,7 @@
         <button
           class="carousel-control-next"
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#carouselCaptions"
           data-bs-slide="next"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -165,165 +129,195 @@
         </button>
       </div>
     </header>
-
-    <section class="bg-success solar-system">
+    <section class="bg-success solar-system" id="products">
       <ul class="row gap-2 gap-lg-4 justify-content-center gx-0 py-5 ps-0 mb-0">
-        <li
-          class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3 bg-primary"
-        >
-          <a href="./product1.html" class="text-decoration-none text-warning">
+        <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
+          <a href="./product1.html" class="">
             <img
               src="https://images.pexels.com/photos/12498795/pexels-photo-12498795.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
               alt="..."
             />
-            <div class="card-body text-warning">
+            <div class="card-body">
               <h5 class="card-title text-md-center">Mercury</h5>
               <p class="card-text pb-3">
                 The small and mighty planet - Mercury, where hot meets cold in a
                 cosmic dance!
               </p>
-              <a href="#" class="text-warning text-decoration-none">STC10</a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="STELLARCOIN"
+                >STC 10</a
+              >
             </div>
           </a>
         </li>
-
-        <li
-          class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3 bg-primary"
-        >
-          <a href="./product2.html" class="text-decoration-none text-warning">
+        <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
+          <a href="./product2.html">
             <img
               src="https://images.pexels.com/photos/5476413/pexels-photo-5476413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
               alt="..."
             />
-            <div class="card-body text-warning">
+            <div class="card-body">
               <h5 class="card-title text-md-center">Venus</h5>
               <p class="card-text pb-3">
                 Experience the beauty and mystery of Venus - Earth's enchanting
                 sister planet!
               </p>
-              <a href="#" class="text-warning text-decoration-none">STC25</a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="STELLARCOIN"
+                >STC 25</a
+              >
             </div>
           </a>
         </li>
-        <li
-          class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3 bg-primary"
-        >
-          <a href="./product3.html" class="text-decoration-none text-warning">
+        <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
+          <a href="./product3.html">
             <img
               src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
               alt="..."
             />
-            <div class="card-body text-warning">
+            <div class="card-body">
               <h5 class="card-title text-md-center">Earth</h5>
               <p class="card-text pb-3">
                 Home sweet home - Explore the wonders of Earth, the blue jewel
                 of the solar system!
               </p>
-              <a href="#" class="text-warning text-decoration-none">STC500</a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="STELLARCOIN"
+                >STC 500</a
+              >
             </div>
           </a>
         </li>
-        <li
-          class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3 bg-primary"
-        >
-          <a href="#" class="text-decoration-none text-warning">
+        <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
+          <a href="#">
             <img
               src="https://images.unsplash.com/photo-1630694093867-4b947d812bf0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1315&q=80"
               class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
               alt="..."
             />
-            <div class="card-body text-warning">
+            <div class="card-body">
               <h5 class="card-title text-md-center">Mars</h5>
               <p class="card-text pb-3">
                 Embark on an epic journey to the Red Planet - Mars, where
                 ancient secrets await!
               </p>
-              <a href="#" class="text-warning text-decoration-none">STC50</a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="STELLARCOIN"
+                >STC 50</a
+              >
             </div>
           </a>
         </li>
-        <li
-          class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3 bg-primary"
-        >
-          <#" class="text-decoration-none text-warning">
+        <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
+          <a href="#">
             <img
               src="https://images.unsplash.com/photo-1637984135921-301a7d39e3b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1315&q=80"
               class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
               alt="..."
             />
-            <div class="card-body text-warning">
+            <div class="card-body">
               <h5 class="card-title text-md-center">Jupiter</h5>
               <p class="card-text pb-3">
-                Get lost in the grandeur of Jupiter - The king of gas giants,
-                with moons aplenty!
+                Get lost in the awe-inspiring grandeur of Jupiter - The mighty
+                king of gas giants, with moons aplenty!
               </p>
-              <a href="#" class="text-warning text-decoration-none">STC500</a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="STELLARCOIN"
+                >STC 500</a
+              >
             </div>
           </a>
         </li>
-        <li
-          class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3 bg-primary"
-        >
-          <a href="#" class="text-decoration-none text-warning">
+        <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
+          <a href="#">
             <img
               src="https://images.unsplash.com/photo-1614732414444-096e5f1122d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
               class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
               alt="..."
             />
-            <div class="card-body text-warning">
+            <div class="card-body">
               <h5 class="card-title text-md-center">Saturn</h5>
               <p class="card-text pb-3">
                 Unleash your imagination with Saturn - The ringed wonder, a
                 celestial masterpiece!
               </p>
-              <a href="#" class="text-warning text-decoration-none">STC1000</a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="STELLARCOIN"
+                >STC 1000</a
+              >
             </div>
           </a>
         </li>
-        <li
-          class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3 bg-primary"
-        >
-          <a href="#" class="text-decoration-none text-warning">
+        <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
+          <a href="#">
             <img
               src="https://images.unsplash.com/photo-1614732484003-ef9881555dc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
               class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
               alt="..."
             />
-            <div class="card-body text-warning">
+            <div class="card-body">
               <h5 class="card-title text-md-center">Uranus</h5>
               <p class="card-text pb-3">
                 Discover the enigma of Uranus - The ice giant with a twist, a
                 world of surprises!
               </p>
-              <a href="#" class="text-warning text-decoration-none">STC250</a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="STELLARCOIN"
+                >STC 250</a
+              >
             </div>
           </a>
         </li>
-        <li
-          class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3 bg-primary"
-        >
-          <a href="#" class="text-decoration-none text-warning">
+        <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
+          <a href="#">
             <img
               src="https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
               class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
               alt="..."
             />
-            <div class="card-body text-warning">
+            <div class="card-body">
               <h5 class="card-title text-md-center">Neptune</h5>
               <p class="card-text pb-3">
                 Dive into the mysteries of Neptune - The blue jewel of the outer
                 realms, where secrets abound!
               </p>
-              <a href="#" class="text-warning text-decoration-none">STC300</a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="STELLARCOIN"
+                >STC 300</a
+              >
             </div>
           </a>
         </li>
       </ul>
     </section>
-    <section class="cta bg-danger text-primary py-5 text-center">
+    <section class="cta bg-danger text-primary py-5 text-center" id="popular">
       <div class="col-8 mx-auto">
         <h3 class="text-uppercase">Beyond Earth</h3>
         <p class="text-capitalize">
@@ -331,76 +325,84 @@
         </p>
       </div>
     </section>
-    <section class="bg-success text-primary py-5">
-      <h2 class="text-center">Popular planets</h2>
+    <section
+      class="bg-success text-primary py-5 popular-planets"
+      id="planetary"
+    >
+      <h2>Popular planets</h2>
       <div class="row container mx-auto gap-3">
         <div class="card mb-3 col">
-          <img
-            src="https://cdn.pixabay.com/photo/2019/07/03/12/14/saturn-4314403_1280.png"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Uranus</h5>
-            <p class="card-text">
-              Seventh planet from the Sun, and has the third-largest diameter in
-              our solar system
-            </p>
-          </div>
+          <a href="#" class="">
+            <img
+              src="https://images.unsplash.com/photo-1630839437035-dac17da580d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80"
+              class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Jupiter</h5>
+              <p class="card-text">
+                Get lost in the grandeur of Jupiter - The king of gas giants,
+                with moons aplenty!
+              </p>
+            </div>
+          </a>
         </div>
         <div class="card mb-3 col">
-          <img
-            src="https://cdn.pixabay.com/photo/2019/07/03/12/14/saturn-4314403_1280.png"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-          </div>
+          <a href="#">
+            <img
+              src="https://images.unsplash.com/photo-1614732414444-096e5f1122d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8U2F0dXJufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+              class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Saturn</h5>
+              <p class="card-text">
+                Unleash your imagination with Saturn - The ringed wonder, a
+                celestial masterpiece!
+              </p>
+            </div>
+          </a>
         </div>
         <div class="card mb-3 col d-none d-md-block">
-          <img
-            src="https://cdn.pixabay.com/photo/2019/07/03/12/14/saturn-4314403_1280.png"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text d-none d-md-block">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-          </div>
+          <a href="#">
+            <img
+              src="https://images.unsplash.com/photo-1639874897442-8b6d5a181cf3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1315&q=80"
+              class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Uranus</h5>
+              <p class="card-text d-none d-md-block">
+                Discover the enigma of Uranus - The ice giant with a twist, a
+                world of surprises!
+              </p>
+            </div>
+          </a>
         </div>
         <div class="card mb-3 col d-none d-lg-block">
-          <img
-            src="https://cdn.pixabay.com/photo/2019/07/03/12/14/saturn-4314403_1280.png"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text d-none d-md-block">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-          </div>
+          <a href="#">
+            <img
+              src="https://images.unsplash.com/photo-1614728423169-3f65fd722b7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+              class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container"
+              alt="Neptune as seen from Voyager II in 1989"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Neptune</h5>
+              <p class="card-text d-none d-md-block">
+                Dive into the mysteries of Neptune - The blue jewel of the outer
+                realms, where secrets abound!
+              </p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
     <section class="bg-secondary text-primary py-5 msps">
-      <h2 class="col-12 col-md-6 mx-auto text-center text-warning">
+      <h2 class="col-12 col-md-6 mx-auto">
         Most searched planetary systems
       </h2>
       <div class="row container mx-auto gap-3">
-        <a class="card mb-3 col" href="#">
+        <a class="card mb-3 col text-warning" href="#">
           <img
             src="https://www.nasa.gov/images/content/511895main_Kepler-11_IntroShot_full.jpg"
             class="card-img-top"
@@ -414,7 +416,7 @@
             </p>
           </div>
         </a>
-        <a class="card mb-3 col" href="#">
+        <a class="card mb-3 col text-warning" href="#">
           <img
             src="https://www.nasa.gov/sites/default/files/thumbnails/image/pia21751.jpg"
             class="card-img-top"
@@ -429,7 +431,7 @@
             </p>
           </div>
         </a>
-        <a class="card mb-3 col d-none d-md-block" href="#">
+        <a class="card mb-3 col text-warning d-none d-md-block" href="#">
           <img
             src="https://pbs.twimg.com/media/EXM4Z2jUcAAOgmM.jpg"
             class="card-img-top"
@@ -444,7 +446,7 @@
             </p>
           </div>
         </a>
-        <a class="card mb-3 col d-none d-lg-block" href="#">
+        <a class="card mb-3 col text-warning d-none d-lg-block" href="#">
           <img
             src="data:image/jpeg;base64,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"
             class="card-img-top"
@@ -470,10 +472,7 @@
             <ul class="list-unstyled ms-2">
               <li>
                 Phone:
-                <a
-                  href="tel:1-800-STARS-4U"
-                  class="text-warning text-decoration-none"
-                >
+                <a href="tel:1-800-STARS-4U" class="text-warning">
                   1-800-STARS-4U
                 </a>
               </li>
@@ -482,7 +481,7 @@
                 <a
                   href="mailto:info@celestialestate.com"
                   target="_blank"
-                  class="text-warning text-decoration-none"
+                  class="text-warning"
                 >
                   info@celestialestate.com
                 </a>
@@ -491,7 +490,7 @@
                 Address:
                 <a
                   href="https://www.google.com/maps/place/Rome,+Metropolitan+City+of+Rome+Capital,+Italy/@41.9100711,12.5359979,11z/data=!3m1!4b1!4m6!3m5!1s0x132f6196f9928ebb:0xb90f770693656e38!8m2!3d41.9027835!4d12.4963655!16zL20vMDZjNjI"
-                  class="text-warning text-decoration-none"
+                  class="text-warning"
                 >
                   1234 Stellar Way, Galaxy X, Universe 98765
                 </a>
@@ -502,30 +501,16 @@
             <h6 class="fw-bolder">Customer Service</h6>
             <ul class="list-unstyled ms-2">
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Shipping & Returns
-                </a>
+                <a href="#" class="text-warning">Shipping & Returns </a>
               </li>
               <li>
-                <a href="./faqs.html" class="text-warning text-decoration-none"
-                  >FAQs
-                </a>
+                <a href="./faqs.html" class="text-warning">FAQs </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Terms & Conditions
-                </a>
+                <a href="#" class="text-warning">Terms & Conditions </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Privacy Policy
-                </a>
+                <a href="#" class="text-warning">Privacy Policy </a>
               </li>
             </ul>
           </div>
@@ -533,39 +518,19 @@
             <h6 class="fw-bolder">About Celestial Estate</h6>
             <ul class="list-unstyled ms-2">
               <li>
-                <a
-                  href="./about-us.html"
-                  class="text-warning text-decoration-none"
-                  >About Us
-                </a>
+                <a href="./about-us.html" class="text-warning">About Us </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Meet the Team
-                </a>
+                <a href="#" class="text-warning">Meet the Team </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Blog
-                </a>
+                <a href="#" class="text-warning">Blog </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Careers
-                </a>
+                <a href="#" class="text-warning">Careers </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Press
-                </a>
+                <a href="#" class="text-warning">Press </a>
               </li>
             </ul>
           </div>
@@ -573,46 +538,22 @@
             <h6 class="fw-bolder">Shop Planets</h6>
             <ul class="list-unstyled ms-2">
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >All Planets
-                </a>
+                <a href="#" class="text-warning">All Planets </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >New Arrivals
-                </a>
+                <a href="#" class="text-warning">New Arrivals </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Best Sellers
-                </a>
+                <a href="#" class="text-warning">Best Sellers </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Gas Giants
-                </a>
+                <a href="#" class="text-warning">Gas Giants </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Potentially Habitable
-                </a>
+                <a href="#" class="text-warning">Potentially Habitable </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Galactic Getaways
-                </a>
+                <a href="#" class="text-warning">Galactic Getaways </a>
               </li>
             </ul>
           </div>
@@ -640,5 +581,11 @@
       integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
       crossorigin="anonymous"
     ></script>
+    <script>
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+    <script src="./script.js"></script>
   </body>
 </html>

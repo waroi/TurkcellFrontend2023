@@ -45,36 +45,41 @@
           </div>
           <button
             type="button"
-            class="navbar-toggler bg-white border-0"
+            class="navbar-toggler bg-primary border-0"
             data-bs-toggle="collapse"
             data-bs-target="#nav-list"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="nav-list">
-            <ul class="navbar-nav mx-auto text-center">
+            <ul class="navbar-nav mx-auto text-center ">
               <li class="nav-item p-2">
                 <a href="#header" class="nav-link text-uppercase text-light"
-                  >Anasayfa</a
+                  >Homepage</a
                 >
               </li>
               <li class="nav-item p-2">
-                <a href="#header" class="nav-link text-uppercase text-light"
-                  >Ürünler</a
+                <a href="#wand-shop" class="nav-link text-uppercase text-light"
+                  >magical wands</a
                 >
               </li>
               <li class="nav-item p-2">
-                <a href="#header" class="nav-link text-uppercase text-light"
-                  >Hakkımızda</a
+                <a href="#about-wand" class="nav-link text-uppercase text-light"
+                  >about wands</a
                 >
               </li>
               <li class="nav-item p-2">
-                <a href="#header" class="nav-link text-uppercase text-light"
-                  >Sıkça Sorulan Sorular</a
+                <a href="./faq.html" class="nav-link text-uppercase text-light"
+                  >FAQ</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a href="#contact-us" class="nav-link text-uppercase text-light"
+                  >contact us</a
                 >
               </li>
             </ul>
-            <div class="px-5">
+            <div class="px-5 text-center">
               <button type="button" class="btn">
                 <i class="fa-brands fa-searchengin text-light fs-3"></i>
               </button>
@@ -98,8 +103,7 @@
       </nav>
       <div class="transition position-absolute w-100 h-50 bottom-0"></div>
     </header>
-
-    <div class="background-img">
+    <div class="background-img position-absolute w-100">
       <section class="product-slider mt-7">
         <div class="container">
           <div>
@@ -139,7 +143,7 @@
                     alt="..."
                   />
                   <div
-                    class="carousel-caption d-none d-md-block position-relative"
+                    class="carousel-caption d-none d-md-block position-relative start-0 end-0"
                   >
                     <h5 class="pt-4 fw-bold">HONOURABLE</h5>
                   </div>
@@ -152,7 +156,7 @@
                     alt="..."
                   />
                   <div
-                    class="carousel-caption d-none d-md-block position-relative"
+                    class="carousel-caption d-none d-md-block position-relative start-0 end-0"
                   >
                     <h5 class="fw-bold">LOYAL</h5>
                   </div>
@@ -164,7 +168,7 @@
                     alt="..."
                   />
                   <div
-                    class="carousel-caption d-none d-md-block position-relative"
+                    class="carousel-caption d-none d-md-block position-relative star-0 end-0"
                   >
                     <h5 class="fw-bold">DEFİANT</h5>
                   </div>
@@ -211,41 +215,51 @@
           </div>
         </div>
       </section>
-      <section class="products py-7">
+      <section class="products py-7" id="wand-shop">
         <div class="container">
           <h2 class="text-center text-white pb-5 fs-1">Wand Shop</h2>
           <div class="products-card justify-content-center gap-4 row">
             <div class="card col-md-3 col-11 p-0">
-              <a href="#" class="text-decoration-none">
+              <a href="./product-1.html" class="text-decoration-none">
                 <div>
                   <div>
                     <div class="card-border"></div>
                     <div>
-                      <img class="w-100" src="./assets/honourable.jpg" alt="" />
+                      <a href="product-1.html">
+                        <img
+                          class="w-100"
+                          src="./assets/honourable.jpg"
+                          alt=""
+                        />
+                      </a>
                     </div>
                   </div>
                 </div>
               </a>
             </div>
             <div class="card col-md-3 col-11 p-0">
-              <a href="#" class="text-decoration-none">
+              <a href="product-2.html" class="text-decoration-none">
                 <div>
                   <div>
                     <div class="card-border"></div>
                     <div>
-                      <img class="w-100" src="./assets/loyal.jpg" alt="" />
+                      <a href="./product-2.html">
+                        <img class="w-100" src="./assets/loyal.jpg" alt=""
+                      /></a>
                     </div>
                   </div>
                 </div>
               </a>
             </div>
             <div class="card col-md-3 col-11 p-0">
-              <a href="#" class="text-decoration-none">
+              <a href="product-3.html" class="text-decoration-none">
                 <div>
                   <div>
                     <div class="card-border"></div>
                     <div>
-                      <img class="w-100" src="./assets/defiant.jpg" alt="" />
+                      <a href="./product-3.html">
+                        <img class="w-100" src="./assets/defiant.jpg" alt=""
+                      /></a>
                     </div>
                   </div>
                 </div>
@@ -254,7 +268,7 @@
           </div>
         </div>
       </section>
-      <section class="about-wand">
+      <section class="about-wand" id="about-wand">
         <div class="container position-relative">
           <div
             class="stick position-absolute rounded-5 bg-warning h-100 start-50"
@@ -276,7 +290,7 @@
               class="center about-img col-lg-8 col-sm-6 d-flex justify-content-end"
             >
               <img
-                src="./assets/about-img2.jpg"
+                src="./assets/about-img1.jpg"
                 alt=""
                 class="w-75 rounded-start rounded-3"
               />
@@ -285,7 +299,7 @@
           <div class="row flex-row-reverse mt-6 mb-5 align-items-center">
             <div class="center about-text text-white col-lg-4 col-sm-6">
               <h2 class="fs-1 pb-4 text-primary">
-                Learn more about wand woods
+                Learn more about wand cores
               </h2>
               <p class="text-info">
                 Discover what your wand wood means with this <br />
@@ -306,16 +320,136 @@
         <div class="parallax-section">
           <div class="review-slider">
             <div class="review">
-              <p>"İlk değerlendirme metni."</p>
-              <p class="author">- İlk Yazar</p>
+              <h2>Witch Reviews</h2>
+              <p>
+                "This wand is great, I just bought it, it's really original at
+                first glance. I like it very much, if you are a harry potter
+                fan, I recommend you to buy it. ✨"
+              </p>
+              <p class="author">- Hermione Granger</p>
             </div>
             <div class="review">
-              <p>"İkinci değerlendirme metni."</p>
-              <p class="author">- İkinci Yazar</p>
+              <h2>Witch Reviews</h2>
+              <p>
+                "I bought it as a gift for my friend, she loved it. It was very
+                carefully prepared, I loved it. I'll get one for myself too. No
+                need to even think about the quality it's great! Shipping was
+                also very fast… 👍 "
+              </p>
+              <p class="author">- Harry Potter</p>
             </div>
             <div class="review">
-              <p>"Üçüncü değerlendirme metni."</p>
-              <p class="author">- Üçüncü Yazar</p>
+              <h2>Witch Reviews</h2>
+              <p>
+                "I bought it early in the morning yesterday, it just arrived,
+                believe me, its great quality and originality can never be
+                questioned... My brother is very, very happy thanks to you. ❤️"
+              </p>
+              <p class="author">- Ron Weasley</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact-us mt-lg-7 mb-3" id="contact-us">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+              <h2 class="my-4 text-center text-white">Contact Us</h2>
+              <form class="custom-form faq-bg h-auto rounded-2 p-4 w-100">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="first-name" class="text-white fw-bold"
+                        >Name</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control rounded-1"
+                        id="first-name"
+                        placeholder="Enter your name"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="last-name" class="fw-bold text-white"
+                        >Surname</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="last-name"
+                        placeholder="Enter your surname"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="fw-bold text-white">E-Mail </label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter your E-Mail"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="fw-bold text-white"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phone"
+                    placeholder="Enter your Phone Number"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="subject" class="fw-bold text-white"
+                    >Subject</label
+                  >
+                  <select class="form-select" id="subject">
+                    <option selected>Choose...</option>
+                    <option value="general">General</option>
+                    <option value="support">Support</option>
+                    <option value="sales">Sales</option>
+                    <option value="wands">Wands</option>
+                    <option value="feedback">Feedback</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="text-white fw-bold"
+                    >Your Message</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    rows="6"
+                    placeholder="Enter your message"
+                    required
+                  ></textarea>
+                </div>
+                <div class="mb-3 form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="newsletter"
+                  />
+                  <label class="form-check-label text-white" for="newsletter"
+                    >Subscribe to our newsletter</label
+                  >
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-submit bg-warning text-white rounded-2"
+                >
+                  Submit
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -324,9 +458,8 @@
         class="page-footer font-small bg-dark text-light pt-4 w-100 h-100"
       >
         <div class="container text-center text-md-left">
-          <!-- Logo -->
           <img src="./assets/footer-logo.png" alt="Logo" height="100" />
-          <!-- Menü -->
+
           <div class="row mt-5 position-relative">
             <div class="col-md-4">
               <h5 class="fs-4">About Us</h5>
@@ -386,6 +519,9 @@
           </p>
         </div>
       </footer>
+      <a href="#" class="scroll-to-top text-white">
+        <img src="./assets/scrollup.png" alt="" class="w-100" />
+      </a>
     </div>
 
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>

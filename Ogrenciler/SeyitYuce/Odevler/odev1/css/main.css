@@ -10720,56 +10720,75 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+a {
+  text-decoration: none;
+}
+
 nav {
   z-index: 4;
 }
 
-.product-carousel img {
+x .product-carousel img {
   width: 300px;
 }
 
-#carouselExampleCaptions {
+#carouselCaptions {
   height: 300px;
 }
-#carouselExampleCaptions img {
+#carouselCaptions img {
   height: 300px;
 }
 
+.card {
+  background-color: #000000;
+}
+.card a {
+  color: #fcfffc;
+}
+
+.solar-system li img {
+  height: 150px;
+  width: 100px;
+  align-items: center;
+}
 .solar-system li :hover {
   color: #f9c80e;
 }
-.solar-system li img {
-  height: 100px;
-  aspect-ratio: 2/1;
-}
-.solar-system li img :hover {
-  scale: 1.05;
-}
 
-.bundle .bundle-btn {
-  border: 1px solid black;
-  margin-top: auto !important;
-  margin-bottom: auto !important;
-  background-color: #000000;
+.bundle img {
+  height: 50px;
+}
+.bundle a {
   color: #fcfffc;
 }
-.bundle .bundle-btn:hover {
+.bundle a :hover {
   color: #f9c80e;
 }
-
-.msps a {
-  text-decoration: none;
-  background-color: #000000;
-  color: #fcfffc;
+.bundle span {
+  font-weight: bolder;
+  font-size: 36px;
 }
-.msps a img {
+
+.popular-planets h2, .msps h2, .popular-planets .h2, .msps .h2 {
+  margin-bottom: 20px;
+  text-transform: capitalize;
+  text-align: center;
+}
+.popular-planets img, .msps img {
   padding-top: 10px;
   padding-bottom: 10px;
   height: 100px;
 }
-
-.newsletter button:hover {
+.popular-planets a, .msps a {
+  background-color: #000000;
+  color: #fcfffc;
+}
+.popular-planets a :hover, .msps a :hover {
   color: #f9c80e;
+}
+
+.msps h2, .msps .h2 {
+  color: #fcfffc;
 }
 
 footer {
@@ -10789,6 +10808,10 @@ footer ul li :hover {
   .product-carousel .product-info {
     height: 300px;
     overflow-y: scroll;
+  }
+  .solar-system li img {
+    width: 100%;
+    height: 100px;
   }
 }
 
