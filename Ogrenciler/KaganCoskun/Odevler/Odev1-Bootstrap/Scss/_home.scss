@@ -1,6 +1,9 @@
 body{
     font-family:'Inter', sans-serif;
 }
+a{
+    text-decoration: none;
+}
 
 .logo{
     width:170px
@@ -112,5 +115,22 @@ body{
         .card{
             @include cardButton();
         }
+    }
+}
+
+#banner{
+    background-image: url("../Assets/banner.webp");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#footer{
+    .btn{
+        border-top-right-radius: 0 !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-right-radius: 1rem !important;
+        border-bottom-left-radius:1rem !important;
     }
 }
