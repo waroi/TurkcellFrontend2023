@@ -18,6 +18,7 @@ Papatyatolyem, birkaç yıl önce benim el yapımı ürünlerimi ve farklı sana
 	 - Ürün 1 (Materials)
 	 - Ürün 2 (Macrames)
 	 - Ürün 3 (Patterns)
+	  - Ürün 4 (Best Seller 4. kart)
  - Hakkımızda (About Us) 
  - Sıkça Sorulan Sorular (FAQ) 
  - İletişim (Contact)
