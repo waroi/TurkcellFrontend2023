@@ -12561,7 +12561,6 @@ a {
 }
 .categories img {
   transition: all ease 0.3s;
-  width: 100%;
 }
 .categories img:hover {
   transform: scale(1.1);
@@ -12585,9 +12584,6 @@ a {
   display: block;
 }
 
-.carousel-item {
-  width: 100%;
-}
 .carousel-item .user-review {
   font-size: 20px;
 }
@@ -12602,6 +12598,7 @@ a {
   left: 15%;
   width: 70%;
   height: auto;
+  border-radius: 20px;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
@@ -12636,29 +12633,20 @@ footer a:hover {
 }
 
 @keyframes wave-animation {
-  0% {
+  10%, 30%, 50%, 100% {
     transform: rotate(0deg);
   }
-  10% {
-    transform: rotate(14deg);
-  }
-  20% {
-    transform: rotate(-8deg);
-  }
-  30% {
-    transform: rotate(14deg);
-  }
-  40% {
+  20%, 40% {
     transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(10deg);
   }
   60% {
     transform: rotate(0deg);
   }
-  100% {
-    transform: rotate(0deg);
+  10%, 30%, 50% {
+    transform: rotate(14deg);
+  }
+  20%, 40% {
+    transform: rotate(-8deg);
   }
 }
 .marquee {
@@ -12698,11 +12686,8 @@ footer a:hover {
   overflow: hidden;
   top: 0;
   left: -100%;
-  width: 100%;
-  height: 100%;
   background: rgba(48, 48, 48, 0.496);
   display: none;
-  border-radius: 7px;
 }
 .gallery-box:hover {
   cursor: pointer;
