@@ -43,14 +43,6 @@
   content:$cnt;
   transform-origin: $tr-orgn;
 }
-@mixin flex_area($fl-dir, $justify, $algn-itm, $m, $p) {
-  display: flex;
-  flex-direction: $fl-dir;
-  align-items: $algn-itm;
-  justify-content: $justify;
-  margin: $m;
-  padding: $p;
-}
 @mixin title_h2_tag($font-size, $m, $p, $c,$fw) {
   font-size: $font-size;
   font-weight: $fw;
@@ -78,20 +70,9 @@
   }
 
 }
-// .item1-black{
-//   &:active+input[type="checkbox"]+.item1-img2{
-//     z-index: 999;
-//   }
-// }
-
-
 .navbar .megamenu{ padding: 1rem; }
-
-
-
   .navbar .has-megamenu{position:static!important;}
   .navbar .megamenu{left:400px; right:0; width:100%; margin-top:0;  }
-
 .aboutUs-container{
 .omnichanel{
   .list-area{
@@ -116,8 +97,6 @@
         @extend .list-1;
       }
     }
-  
-   
   }
   .list-img{
     @extend .list-area;
@@ -251,13 +230,7 @@
       border: 1px solid #7b7b7b;
       border-radius: 5px;
     }
-     
-  
 
-
-
-
-/* ============ mobile view ============ */
 @media(max-width: 991px){
   *{
     margin: 0 !important;
