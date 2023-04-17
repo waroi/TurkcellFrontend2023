@@ -13,7 +13,19 @@ $socialsBg: #1e2235;
 }
 a {
   text-decoration: none;
-  transition: all .3s linear;
+  transition: all .3s ease-in-out;
+}
+.btn {
+  transition: all .3s ease-in-out;
+  border-radius: 20px;
+  .cardFirsat {
+    
+  }
+  padding: .5rem 1.5rem;
+  &:hover {
+    color: #FFFFFF;
+    background-color: #cd781c;
+  }
 }
 ul {
   list-style-type: none;
@@ -96,9 +108,7 @@ footer {
       margin: 2rem 0;
     }
     span {
-      &:nth-child(odd) {
-        margin-right: 1rem;
-      }
+      margin-right: 1rem;
     }
     li {
       @extend div;
@@ -111,6 +121,7 @@ footer {
 .trousersSection {
   a {
     &:hover {
+      color: $socialsBg;
       background-color: $secondary;
     }
   }
@@ -120,4 +131,12 @@ footer {
 }
 .accordion-body {
   background-color: $secondary;
+}
+.cardFirsat {
+  box-shadow: 0 .5rem 1rem rgba(#000000, .15);
+  transition: all .3s ease-in-out;
+  &:hover {
+    box-shadow: none;
+    transform: scale(1.05);
+  }
 }
