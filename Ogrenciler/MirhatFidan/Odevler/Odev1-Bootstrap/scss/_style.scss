@@ -1,0 +1,238 @@
+body{
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white !important;
+}
+
+.bg{
+  background-color: #d6e2e85f
+}
+
+nav{
+  .logo{
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-weight: 700;
+    transition: all .3s ease;
+    &:hover{
+      transform: scale(1.1);
+      transition: all .3s ease;
+    }
+  }
+  .navbar-nav{
+    a{
+      transition: all .5s ease;
+      &:hover{
+      box-shadow: 0 5px 15px -2px rgba(227, 226, 229, 0.326);
+       transition: all .5s ease;
+      }
+    }
+  }
+}
+
+::selection{
+  background: #A3EBB1;
+  color: #fff;
+}
+
+.intro-title {
+  &:hover {
+    color: $secondary;
+    transition: all .3s ease;
+  }
+}
+
+.all-items {
+  .card {
+    img {
+      transform: scale(1);
+      transition: opacity .3s ease, transform 3s cubic-bezier(.25, .46, .45, .94);
+      filter: grayscale(100%);
+
+      &:hover {
+        transform: scale(1.1);
+        filter: grayscale(0);
+      }
+    }
+
+    .card-body-wrap {
+      background-color: #fff;
+      margin: -3rem auto 0;
+      min-height: 200px;
+      position: relative;
+      width: 85%;
+      box-shadow: 0 5px 15px -2px rgba(101, 64, 183, 0.251);
+      border-radius: 10px;
+    }
+  }
+}
+
+#heroSlider{
+  top: 25px;
+}
+
+#designerItems{
+  .designer-wrap {
+      bottom: 25px;
+      left: 50%;
+      transform: translate(-50%, 0px);
+      opacity: 0;
+      transition: all .8s ease;
+    }
+  img{
+    border-top-right-radius: 60px;
+    border-bottom-left-radius: 60px;
+  
+  }
+  .col-lg-5:hover .designer-wrap {
+    opacity: 1;
+    transition: all .8s ease;
+    box-shadow: 0 5px 15px -2px rgba(220, 215, 231, 0.422);
+    transform: translate(-50%, -100px);
+
+  }
+}
+
+#saleItem{
+  img{
+    border-top-right-radius: 60px;
+    filter: none;
+  }
+
+}
+
+#newsLetter{
+  h3{
+    font-family: 'Sedgwick Ave Display', cursive;
+    transition: all .3s ease;
+    &:hover{
+      transform: scale(1.1);
+      transition: all .3s ease;
+    }
+  }
+}
+
+#aboutHero{
+  .hero{
+    background: url(../assets/a-hero.jpg) no-repeat;
+    background-size: cover;
+    background-position: 50% 60%;
+    background-attachment: fixed;
+    width: 100%;
+    height: 500px;
+
+    @include media-breakpoint-down(md) {
+        background-attachment: inherit;
+      }
+  }
+}
+#information{
+  @include media-breakpoint-down(md){
+    padding: 2rem 0 0 0 !important;
+  }
+  .main{
+    transition: all .3s ease;
+    &:hover{  
+      box-shadow: 10px 10px 10px 10px rgba(160, 167, 165, 0.265);
+      transition: all .3s ease;
+    }
+    @include media-breakpoint-down(md){
+      border: none !important;
+    }
+  }
+  .title{
+    transition: all .3s ease;
+    &:hover{
+      color: $info;
+      transform: translateY(-10px);
+      transition: all .3s ease;
+    }
+  }
+  img{
+    border-top-right-radius: 80px;
+  }
+  a{
+    &:hover{
+      color: $warning !important;
+      text-decoration: underline;
+    }
+  }
+}
+
+#accordion{
+  .title {
+      transition: all .3s ease;
+  
+      &:hover {
+        color: $info;
+        transition: all .3s ease;
+      }
+    }
+}
+
+#designerİtemone{
+  .title{
+    transition: all .3s ease;
+    &:hover {
+      color: $info;
+      transform: translateY(-10px);
+      transition: all .3s ease;
+    }
+  }
+  .number{
+    &:hover{
+      background-color: $warning;
+    }
+    &:focus{
+      background-color: $warning;
+    }
+    .line{
+      background-color: #000;
+      width: 100%;
+      height: 1px;
+      display: flex;
+      position: absolute;
+      transform: rotate(155deg);
+    }
+  }
+  .position-wrap{
+    position: sticky;
+    top: 90px;
+  }
+  .image-wrap{
+    img{
+      transition: all .3s ease;
+      filter: grayscale(60%);
+      &:hover{
+        filter: grayscale(0);
+        transition: all .3s ease;
+        box-shadow: 0 5px 15px -2px rgba(126, 129, 129, 0.799);
+      }
+    };
+  }
+}
+
+footer{
+  .left-side{
+    a{
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .right-side{
+    a{
+      transition: all .3s ease;
+      &:hover {
+        transform: translateY(-10px);
+        transition: all .3s ease;
+      }
+    }
+  }
+}
