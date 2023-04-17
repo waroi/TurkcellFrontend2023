@@ -12,17 +12,16 @@
         .contact-bottom{
            display: grid;
            justify-content: center;
+           position: relative;
+           overflow: hidden;
+           height: 0;
+           padding-bottom:56.25%;
            iframe{
-            width: 400px;
-            height: 300px;
+            position: absolute;
+            height: 100% !important;
+            width: 100% !important;
            }
         }
     }
 }
 
-@media only screen and (max-width: 768px) {
-    iframe{
-        width: 300px;
-        height: 400px;
-       }
-}

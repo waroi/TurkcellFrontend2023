@@ -1,0 +1,132 @@
+.blog-page {
+  .page-banner {
+    background-image: url(../../assets/img/banners/blog.png);
+  }
+}
+
+.blog-detail-page {
+  .main-content {
+    padding: 20px;
+    @include mq("desktop") {
+      padding: 30px;
+    }
+  }
+  .blog-detail {
+    &-img {
+      img {
+        width: 100%;
+        border-radius: $radius;
+      }
+    }
+    &-content {
+      .title {
+        font-weight: $bold;
+        font-size: $medium-size;
+        @include lineHeight($medium-size);
+        @include mq("desktop") {
+          font-size: $bigger-size;
+          @include lineHeight($bigger-size);
+        }
+      }
+      .icon-boxes {
+        @include flex($jc: flex-start);
+        .icon-text {
+          margin-right: 22px;
+          @include flex($jc: flex-start);
+          font-size: $regular-size;
+          color: $dark-gray-color;
+          span {
+            margin-left: 5px;
+            letter-spacing: 0.98px;
+          }
+          ion-icon {
+            font-size: $medium-size;
+          }
+        }
+      }
+    }
+  }
+  .share-social {
+    @include flex($jc: center);
+    @include mq("desktop") {
+      @include flex($jc: flex-end);
+    }
+    a {
+      @include flex();
+      color: $dark-gray-color;
+      font-size: $medium-size;
+      margin-right: 12px;
+      @include mq("desktop") {
+        font-size: $medium-size;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        color: $orange-color !important;
+      }
+    }
+  }
+  hr {
+    background: $dark-gray-color;
+  }
+
+  .subtitle {
+    font-size: $medium-size;
+    @include lineHeight($medium-size);
+    margin-bottom: 15px;
+  }
+
+  .blog-post-link {
+    &:hover {
+      .blog-post {
+        background: rgba(0, 0, 0, 0.048);
+      }
+    }
+    .blog-post {
+      transition: $transition;
+      border-radius: $radius;
+      // border-bottom: 1px solid $dark-gray-color;
+      margin-bottom: 10px;
+      @include flex($ai: flex-start);
+      &-img {
+        margin-right: 10px;
+        img {
+          width: 64px;
+          min-width: 64px;
+          height: 64px;
+          min-height: 64px;
+          border-radius: $radius;
+          object-fit: cover;
+        }
+      }
+      &-text {
+        h6,
+        p {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+        }
+        h6 {
+          -webkit-line-clamp: 1;
+          margin-bottom: 0;
+          font-size: $regular-size;
+          @include lineHeight($regular-size);
+        }
+        p {
+          -webkit-line-clamp: 2;
+          margin-bottom: 0;
+          color: $dark-gray-color;
+          font-size: $smaller-size;
+          @include lineHeight($smaller-size);
+        }
+      }
+    }
+  }
+  .top-100 {
+    top: 100px !important;
+  }
+  .footer {
+    margin-top: 120px;
+  }
+}

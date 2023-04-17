@@ -1,0 +1,135 @@
+.cargo-page {
+  .page-banner {
+    background-image: url(../../assets/img/banners/cargo.png);
+  }
+  .main-content {
+    /* KARGO SORGULAMA */
+    .input-text {
+      display: block;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: $smallest-size;
+    }
+    .btn {
+      @include flex();
+    }
+    /* CARGO STEP */
+    .cargo-steps {
+      position: relative;
+      @include flex($ai: flex-start, $direction: column);
+      @include mq() {
+        @include flex($jc: space-between);
+      }
+      &-box {
+        position: relative;
+        width: 100%;
+        @include flex($jc: flex-start, $ai: center);
+        margin-bottom: 25px;
+        @include mq() {
+          width: 25%;
+          margin-bottom: 0;
+          @include flex($direction: column);
+        }
+
+        p {
+          margin-top: 10px;
+          color: $dark-gray-color;
+          font-weight: $medium-bold;
+          margin-left: 10px;
+          @include mq() {
+            text-align: center;
+            margin-left: 0;
+          }
+          br {
+            display: none;
+            @include mq() {
+              display: block;
+            }
+          }
+        }
+        &.complated {
+          .icon-box {
+            background: $orange-color;
+            color: $white-color;
+          }
+          p {
+            color: $black-color;
+          }
+        }
+
+        .icon-box {
+          width: 64px;
+          height: 64px;
+          border-radius: 50rem;
+          background: $dark-gray-color;
+          color: $white-color;
+          font-size: $bigger-size;
+          @include flex();
+        }
+      }
+      .cs-progress {
+        position: absolute;
+        @include mq() {
+          height: 1px;
+          border-top: 3px dashed $dark-gray-color;
+          top: 25%;
+          left: 50%;
+          width: 80%;
+          transform: translate(-50%, -50%);
+        }
+        &-bar {
+          @include mq() {
+            background: $orange-color;
+            height: 5px;
+            position: absolute;
+            left: 0;
+            top: calc(-50% - 2px);
+            transform: translateY(-50%);
+            border-radius: $radius;
+          }
+        }
+      }
+    }
+
+    .cargo-number {
+      margin-bottom: 2.7rem;
+      @include flex($ai: flex-start, $direction: column);
+      @include mq() {
+        display: block;
+      }
+    }
+  }
+
+  .cargo-info {
+    &-box {
+      border-radius: $radius;
+      padding: 25px 20px;
+      background: #fff;
+      @include boxShadow();
+      .subtitle {
+        word-break: break-word;
+        font-size: $medium-size;
+        @include lineHeight($medium-size);
+      }
+      .description {
+        margin-bottom: 0;
+        word-break: break-word;
+        color: $dark-gray-color;
+        font-size: $smaller-size;
+        @include lineHeight($smaller-size);
+      }
+    }
+  }
+
+  /* input > number arttırma butonlarını gizlemek için */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}

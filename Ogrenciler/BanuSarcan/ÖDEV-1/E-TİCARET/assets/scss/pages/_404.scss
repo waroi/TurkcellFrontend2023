@@ -1,0 +1,14 @@
+.not-found {
+  .text-box {
+    height: 100%;
+    @include flex($direction: column, $jc: center, $ai: center);
+    text-align: center;
+    @include mq() {
+      @include flex($direction: column, $jc: center, $ai: flex-start);
+      text-align: left;
+    }
+    h1 {
+      font-weight: $bold;
+    }
+  }
+}
