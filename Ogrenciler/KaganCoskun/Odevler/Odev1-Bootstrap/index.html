@@ -28,6 +28,17 @@
         <a class="nav-link" href="#products">Ürünler</a>
         <a class="nav-link" href="./pages/about.html">Hakkımızda</a>
         <a class="nav-link me-3" href="./pages/about.html#faq">S.S.S</a>
+        <div class="nav-link dropdown p-0 ">
+          <button class="btn   dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            K.C
+          </button>
+          <ul class="dropdown-menu  dropdown-menu-lg-end ">
+            <li><a class="dropdown-item position-relative" href="#">Profil<i class="fa-solid fa-user fa-lg top-50 end-0 position-absolute translate-middle"></i></a></li>
+            <li><a class="dropdown-item position-relative" href="#">
+              Sepetim<span class="position-absolute top-50 end-0 translate-middle badge rounded-pill bg-danger">3<span class="visually-hidden">unread messages</span></span></a></li>
+            <li><a class="dropdown-item position-relative" href="#">Çıkış Yap<i class="fa-solid fa-right-from-bracket fa-lg top-50 end-0 position-absolute translate-middle"></i></a></li>
+          </ul>
+        </div>
 
       </div>
     </div>
@@ -422,15 +433,12 @@
         
       </div>
       <div class="col-lg-4">
-        <form class="row px-1 mx-1">
+        <form class="row px-1 mx-1 needs-validation" novalidate>
+          <input class="rounded-top form-control text-white bg-secondary border-0 p-2 text-center" id="getContact" required  type="text" placeholder="email@example.com">
+          <button class="btn btn-primary rounded-bottom " type="submit">Gönder</button>
           <div class="invalid-feedback">
             Lütfen Geçerli Bir Email Adresi Giriniz!
           </div>
-          <div class="valid-feedback">
-            Teşekkürler!
-          </div>
-          <input class="rounded-top text-white bg-secondary border-0 p-2 text-center" required  type="text" placeholder="email@example.com">
-          <button class="btn btn-primary rounded-bottom " type="submit">Gönder</button>
         </form>
       </div>
     </div>
@@ -444,7 +452,7 @@
             <a class="text-white me-2" href=""><i class="fa-brands fa-facebook-f fa-xl"></i></a>
             <a class="text-white me-2" href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
             <a class="text-white me-2" href=""><i class="fa-brands fa-youtube fa-xl"></i></a>
-            <div class="text-white mt-2 fs-7">&copy; 2023 Harley Davidson. Tüm Hakları Saklıdır.</div>
+            <div class="text-white mt-2 fs-7">&copy; 2023 Kaganley Davidson. Tüm Hakları Saklıdır.</div>
       </div>
    </div>
 
@@ -453,6 +461,25 @@
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
- 
+ <script>
+  (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+ </script>
 </body>
 </html>
