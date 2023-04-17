@@ -1,0 +1,58 @@
+.comments{
+    @include sectionPadding(30px);
+
+    .comments-inner{
+        @include innerStyle();
+        .comments-first{
+            img{
+                width: 25%;
+            }
+
+            p{
+                span{
+                    color: blue;
+                    font-weight: 600;
+                }
+            }
+
+            button{
+                margin: 10px;
+            }
+        }
+
+        .comments-second{
+            p{
+                font-size: 20px;
+                i{
+                    font-size: 24px;
+                }
+            }
+            h1{
+                font-size: 60px;
+            }
+
+           
+        }
+        
+        .comments-third{
+            margin: 10px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 992px) {
+    .comments-first{
+        img{
+            width: 100% !important;
+        }
+    }
+
+    .comments-second{
+       justify-content: center;
+       align-items: center;
+       td{
+        padding: 0 10px;
+       }
+    }
+}

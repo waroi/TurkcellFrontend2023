@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="icon" type="image/x-icon" href="../Assets/fav.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>KAGANLEY MOTORS</title>
+</head>
+<body>
+
+
+
+    <nav class="navbar navbar-expand-lg shadow p-3 mb-4 rounded">
+  <div class="container-fluid">
+    <a class="navbar-brand logo" href="/"> <img class="img-fluid" src="../Assets/logo.svg" alt=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger" aria-controls="hamburger" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse flex-grow-0" id="hamburger">
+      <div class="navbar-nav">
+        <a class="nav-link" aria-current="page" href="../">Anasayfa</a>
+        <a class="nav-link active" href="../#products">Ürünler</a>
+        <a class="nav-link" href="./about.html">Hakkımızda</a>
+        <a class="nav-link me-3" href="./about.html#faq">S.S.S</a>
+        <div class="nav-link dropdown p-0 ">
+          <button class="btn   dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            K.C
+          </button>
+          <ul class="dropdown-menu  dropdown-menu-lg-end ">
+            <li><a class="dropdown-item position-relative" href="#">Profil<i class="fa-solid fa-user fa-lg top-50 end-0 position-absolute translate-middle"></i></a></li>
+            <li><a class="dropdown-item position-relative" href="#">
+              Sepetim<span class="position-absolute top-50 end-0 translate-middle badge rounded-pill bg-danger">3<span class="visually-hidden">unread messages</span></span></a></li>
+            <li><a class="dropdown-item position-relative" href="#">Çıkış Yap<i class="fa-solid fa-right-from-bracket fa-lg top-50 end-0 position-absolute translate-middle"></i></a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section id="productDetail" class="py-section ">
+<div class="container">
+    <div class="row g-5 justify-content-center">
+        <div class="col-lg-5 col-sm-12  border-end ">
+            <div id="carouselExampleIndicators" class="carousel carousel-dark slide">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner ">
+                  <div class="carousel-item active">
+                    <img src="../Assets/products/menpanth.webp" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../Assets/products/menpanth2.webp" class="d-block w-100" alt="...">
+                  </div>                  
+                </div>
+                <button class="carousel-control-prev pe-5" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next ps-5" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+        <div class="col-lg-5 col-sm-12">
+            <h4 class="text-primary">Kaganley Davidson Korumalı Pantolon </h4>
+            <span class="fs-7 text-uppercase bg-primary px-2 text-white rounded-1">Kaganley</span>
+            <h3 class="my-5">$299</h3>
+            <span>Bedenler</span>
+            <div>
+                <button class="btn btn-outline-primary  px-4">S</button>
+                <button class="btn btn-outline-primary  px-4">M</button>
+                <button class="btn btn-outline-primary  px-4">L</button>
+                <button class="btn btn-outline-primary  px-4">XL</button>
+            </div>
+            <div class="my-5">
+                <a id="liveToastBtn" href="#" class="btn btn-primary px-5">Sepete Ekle</a>
+        </div>
+    
+    </div>
+</div>
+<div class="toast-container position-fixed top-0 start-50 translate-middle-x  p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Kaganley</strong>
+        <small>Şimdi</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Ürün Sepete Eklendi
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="recommended" class="py-section d-none d-lg-block">
+<div class="container">
+    <h3 class="text-center mb-3">Kullanıcılar Bunlarıda İnceledi</h3>
+    <div id="carouselExample" class="carousel carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row justify-content-center">
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+               
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+               
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card" >
+                        <img src="../Assets/products/gargoyle.webp" class="card-img-top card-img1" alt="...">
+                        <div class="card-body">
+                          <h6 class="fs-7">Kaganley Catelmet</h6>
+                          <div class="mb-2">
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs voted" ></i>
+                            <i class="fa-solid fa-star fa-xs"></i>
+                            <span class="fs-7">2.777</span>
+                          </div>
+                          <h6 class="fs-7 mb-5">$299</h6>
+                          <a class="btn btn-primary w-100" href="">Sepete Ekle</a>
+                        </div>
+                      </div>
+                </div>
+               
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+</div>
+</section>
+
+<section id="footer" class="bg-black py-5">
+  <footer class="container">
+
+    <div class="row g-5 justify-content-between">
+      <div class="col-lg-4 col-sm-12 flex-column ">
+        <h6 ><a class="text-white" href="../">ANASAYFA</a></h6>
+        <h6 ><a class="text-secondary" href="../#products">ÜRÜNLER</a></h6>
+        <h6 ><a class="text-secondary" href="./about.html">HAKKINMIZDA</a></h6>
+        <h6 ><a class="text-secondary" href="./about.html#faq">S.S.S</a></h6>
+      </div>
+      <div class="col-lg-4 col-sm-12 ">
+        <h6 class="text-white">İLETİŞİM</h6>
+        <p class="text-secondary mb-1">İstanbul / TÜRKİYE</p>
+        <a class="text-secondary" href="tel:0242 777 777">+90 242 777 777</a>
+        
+      </div>
+      <div class="col-lg-4 col-sm-12">
+        <form class="row px-1 mx-1 needs-validation" novalidate>
+          <input class="rounded-top form-control text-white bg-secondary border-0 p-2 text-center" id="getContact" required  type="text" placeholder="email@example.com">
+          <button class="btn btn-primary rounded-bottom " type="submit">Gönder</button>
+          <div class="invalid-feedback">
+            Lütfen Geçerli Bir Email Adresi Giriniz!
+          </div>
+        </form>
+      </div>
+    </div>
+      
+   <div class="row justify-content-between mt-5">
+      <div class="col-lg-4 col-sm-12 text-center">
+        <img src="../Assets/logo.svg" class="logo mb-3" alt="">
+      </div>
+
+      <div class="col-lg-4 col-sm-12 text-center">
+            <a class="text-white me-2" href=""><i class="fa-brands fa-facebook-f fa-xl"></i></a>
+            <a class="text-white me-2" href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
+            <a class="text-white me-2" href=""><i class="fa-brands fa-youtube fa-xl"></i></a>
+            <div class="text-white mt-2 fs-7">&copy; 2023 Kaganley Davidson. Tüm Hakları Saklıdır.</div>
+      </div>
+   </div>
+
+
+  </footer>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script>
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
+    
+    if (toastTrigger) {
+      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+      toastTrigger.addEventListener('click', () => {
+        toastBootstrap.show()
+      })
+    }
+
+
+    (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+    </script>
+ 
+</body>
+</html> 

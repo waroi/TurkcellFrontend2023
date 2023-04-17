@@ -1,0 +1,27 @@
+
+.about{
+    @include sectionPadding(30px);
+    .about-inner{
+        @include innerStyle();
+        
+        .about-info{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-left{
+            img{
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+        .about-right{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+    }
+}
+

@@ -1,0 +1,31 @@
+@mixin mq($width: "tablet") {
+  @if ($width == "tablet") {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if ($width == "desktop") {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+}
+
+// $jc: justify-content
+// $ai: align-items
+// $direction: flex-direction
+@mixin flex($display: flex, $jc: center, $ai: center, $direction: row) {
+  display: $display;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $direction;
+}
+
+// UI tasarım için ideal satır yükseliği hesaplaması
+// font büyüklüğünü  1.5 veya 1.6 ile çarparak ideal satır yükseliği bulunur
+@mixin lineHeight($fontSize) {
+  line-height: $fontSize * 1.5;
+}
+
+@mixin boxShadow($x: 0, $y: 0px, $blur: 6px, $color: $box-shadow-color) {
+  box-shadow: $x $y $blur $color !important;
+}

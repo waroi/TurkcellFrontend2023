@@ -1,0 +1,28 @@
+.blog-card {
+  margin-bottom: 50px;
+  &-img {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      transition: $transition;
+    }
+  }
+
+  .blog-title {
+    font-size: $medium-size;
+    @include lineHeight($medium-size);
+  }
+  .blog-description {
+    font-size: $smaller-size;
+    @include lineHeight($smaller-size);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  a:hover img {
+    transform: scale(0.95);
+    @include boxShadow($blur: 14px, $color: rgba(0, 0, 0, 0.178));
+  }
+}

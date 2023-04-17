@@ -35,6 +35,9 @@ nav {
 .p-120 {
   padding: 120px 0;
 }
+.pb-120 {
+  padding-bottom: 120px;
+}
 
 header {
   background-image: url("../hondaLogo.jpg");
@@ -87,11 +90,11 @@ section.contact {
 
 footer {
   .first-section {
-    background-color: #6351ce;
+    background-color: $secondary;
   }
   hr {
     @include width-height(60px, 2px);
-    background-color: #7c4dff;
+    background-color: $secondary;
   }
 }
 
@@ -108,5 +111,20 @@ section.vehicles-info {
 section.news {
   img {
     @include width-height(100%, 100%);
+  }
+}
+
+section.vehicles-details {
+  .info {
+    box-shadow: 0 0 20px $primary;
+  }
+  .col-lg-3 {
+    &:hover {
+      background-color: $primary;
+      color: white;
+    }
+  }
+  button {
+    width: 200px;
   }
 }

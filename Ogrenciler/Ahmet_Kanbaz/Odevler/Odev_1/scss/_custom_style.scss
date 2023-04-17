@@ -1,0 +1,142 @@
+$socialsBg: #1e2235;
+@mixin colorandHover ($color) {
+  color: $color;
+  &:hover {
+    color: $primary;
+  }
+}
+@mixin background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 400px;
+}
+a {
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+}
+.btn {
+  transition: all .3s ease-in-out;
+  border-radius: 20px;
+  .cardFirsat {
+    
+  }
+  padding: .5rem 1.5rem;
+  &:hover {
+    color: #FFFFFF;
+    background-color: #cd781c;
+  }
+}
+ul {
+  list-style-type: none;
+}
+textarea {
+  resize: none;
+}
+.iconDiv {
+  width: 75px;
+  height: 60px;
+}
+.topSection {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.8)
+  ), url("../images/background/bgSection.jpg");
+  background-attachment: fixed;
+  @include background;
+  height: 600px;
+}
+.tshirtTopSection {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.6)
+  ), url("../images/tshirt/tshirtLogo.png");
+  @include background;
+}
+.shoesTopSection {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4), 
+    rgba(0, 0, 0, 0.7)
+  ), url("../images/shoes/shoesLogo.jpg");
+  @include background;
+}
+.trousersTopSection {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.7)
+  ), url("../images/trousers/trousersLogo.png");
+  @include background;
+}
+.thirdShoes {
+  background-color: #FAFAFA;
+}
+.aboutUs {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.6)
+  ), url("../images/background/bgaboutus.png");
+  height: 600px;
+  @include background;
+}
+.card {
+  img {
+    height: 350px;
+    object-fit: cover;
+  }
+}
+footer {
+  ul {
+    a {
+      @include colorandHover(#FFFFFF);
+    }
+  }
+  .socials {
+    a {
+      width: 33px;
+      height: 33px;
+      background-color: $socialsBg;
+      display: inline-block;
+      &:hover {
+        background-color: $primary;
+      }
+    }
+  }
+}
+.contact {
+  div {
+    &:nth-child(odd) {
+      margin: 2rem 0;
+    }
+    span {
+      margin-right: 1rem;
+    }
+    li {
+      @extend div;
+    }
+  }
+  a {
+    @include colorandHover(#000000);
+  }
+}
+.trousersSection {
+  a {
+    &:hover {
+      color: $socialsBg;
+      background-color: $secondary;
+    }
+  }
+}
+.carousel {
+  height: 550px;
+}
+.accordion-body {
+  background-color: $secondary;
+}
+.cardFirsat {
+  box-shadow: 0 .5rem 1rem rgba(#000000, .15);
+  transition: all .3s ease-in-out;
+  &:hover {
+    box-shadow: none;
+    transform: scale(1.05);
+  }
+}

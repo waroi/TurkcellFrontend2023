@@ -1,0 +1,125 @@
+.products-page {
+  .page-banner {
+    background-image: url(../../assets/img/banners/products.png);
+  }
+  .banners {
+    .banner-box {
+      height: 266px;
+      background-position: center;
+    }
+  }
+  .product-card {
+    &-body {
+      @include mq("desktop") {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+      }
+    }
+    .sale-box {
+      left: 15px;
+    }
+  }
+  .main-content {
+    .dropdown {
+      &-item {
+        &.active {
+          background: $orange-color !important;
+        }
+        &:hover {
+          background: $bg-orange-color;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    .accordion {
+      &-item {
+        border-bottom: none;
+        &:first-child button {
+          border-top: 0;
+        }
+      }
+      &-button {
+        border-radius: 0;
+        box-shadow: none !important;
+        border: none;
+        border-top: 1px solid $light-gray-color;
+        &:hover {
+          color: $orange-color;
+        }
+        &:not(.collapsed) {
+          background: $bg-orange-color;
+          color: $orange-color;
+          border-radius: $radius;
+          border-color: transparent;
+
+          &:after {
+            background: none;
+          }
+        }
+        &,
+        &:not(.collapsed) {
+          &:after {
+            content: none;
+            background: none;
+          }
+        }
+      }
+      &-body {
+        .sidebar-list {
+          li {
+            a {
+              display: block;
+              padding: 4px;
+              border-radius: 6px;
+              &:hover {
+                padding-left: 8px;
+              }
+            }
+          }
+        }
+        .form-check {
+          margin-bottom: 5px;
+          & > * {
+            cursor: pointer;
+          }
+          &-input:checked {
+            background-color: $orange-color;
+            border-color: $orange-color;
+          }
+        }
+        &.size-boxes {
+          .form-check-label {
+            padding: 5px;
+            cursor: pointer;
+            transition: $transition;
+            &:hover,
+            .form-check-input:checked + span {
+              color: $orange-color;
+            }
+          }
+        }
+      }
+    }
+    .banner-image {
+      padding-top: 60px;
+      padding-bottom: 30px;
+      width: 100%;
+      height: 487px;
+      border-radius: $radius;
+      @include flex($direction: column, $jc: space-between, $ai: center);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      .banner-title {
+        text-align: center;
+        font-size: $big-size;
+        @include lineHeight($big-size);
+        color: $white-color;
+        font-weight: $bold;
+      }
+    }
+  }
+}

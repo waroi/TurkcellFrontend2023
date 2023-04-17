@@ -1,0 +1,62 @@
+$primary: #ff5400;
+$secondary: #393e46;
+$info: #1a00bb;
+$dark: #070a0e;
+$light: #f2f2f2;
+
+@mixin section-padding() {
+  padding: 80px 0;
+}
+
+.sss-banner {
+  background-image: url(../assets/sss.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 600px;
+  h2 {
+    font-size: 80px;
+    text-align: left;
+    padding-left: 200px;
+  }
+}
+
+.container {
+  .sss-bread {
+    margin-top: 50px;
+  }
+  .accordion {
+    margin-bottom: 100px;
+    @include section-padding();
+    font-size: 18px;
+    .accordion-button {
+      font-size: 20px;
+    }
+  }
+  .icons {
+    @include section-padding();
+    .sss-icon {
+      margin: 5px;
+      border-radius: 10px;
+      background-color: $dark;
+      transition: 0.5s;
+      &:hover {
+        cursor: pointer;
+        box-shadow: inset 2px 6px 20px 0px $primary;
+        transition: 0.5s;
+      }
+    }
+    i {
+      font-size: 50px;
+      padding-bottom: 10px;
+      color: $primary;
+    }
+  }
+
+  .contact {
+    @include section-padding();
+    padding-right: 80px;
+    padding-left: 80px;
+  }
+}

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Chocolate</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary bg-opacity-75">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html">
+          <img
+            src="https://www.pngkey.com/png/full/29-298422_chocolate-the-exhibition-chocolate-logo-png.png"
+            alt="logo"
+            width="150px"
+            height="50px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav d-flex gap-4">
+            <li class="nav-item">
+              <a
+                class="nav-link nav-menu active text-info fs-5"
+                aria-current="page"
+                href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-menu fs-5" href="./about.html">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle nav-menu fs-5"
+                href="#Products"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./contentDragee.html"
+                    >Dragee</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./contentTablet.html"
+                    >Tablet Chocolate</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./contentBonbon.html"
+                    >Bonbon Chocolate</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-menu fs-5" href="./faq.html">FAQ</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link nav-menu fs-5" href="#footer">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Banner -->
+    <div
+      id="carouselSlider"
+      class="carousel slide bg-primary bg-opacity-25"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="https://www.plan-it-all.com/wp-content/uploads/2022/03/FAQ-Banner.png"
+            class="position-relative w-100 banner-slider"
+            alt="..."
+          />
+        </div>
+      </div>
+    </div>
+    <!-- FAQ -->
+    <section>
+      <!-- Cargo -->
+      <div class="container my-5">
+        <h1 class="mb-3 text-info">Questions About Delivery and Cargo</h1>
+
+        <div class="accordion" id="accordionFAQ">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading1">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse1"
+                aria-expanded="false"
+                aria-controls="collapse1"
+              >
+                How long does delivery take?
+              </button>
+            </h2>
+            <div
+              id="collapse1"
+              class="accordion-collapse collapse"
+              aria-labelledby="heading1"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body">
+                Delivery times can vary depending on the shipping method and
+                your location. Typically, standard delivery can take anywhere
+                from 3-7 business days, while express delivery can arrive within
+                1-2 business days.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading2">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse2"
+                aria-expanded="false"
+                aria-controls="collapse2"
+              >
+                What are the shipping options?
+              </button>
+            </h2>
+            <div
+              id="collapse2"
+              class="accordion-collapse collapse"
+              aria-labelledby="heading2"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body">
+                We offer standard and express shipping options. Standard
+                shipping is the most cost-effective and typically arrives within
+                3-7 business days. Express shipping is available for an
+                additional fee and typically arrives within 1-2 business days.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading3">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse3"
+                aria-expanded="false"
+                aria-controls="collapse3"
+              >
+                How much does shipping cost?
+              </button>
+            </h2>
+            <div
+              id="collapse3"
+              class="accordion-collapse collapse"
+              aria-labelledby="heading3"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body">
+                Shipping costs can vary depending on your location, the weight
+                and dimensions of the package, and the shipping method you
+                choose. You can check the shipping cost at checkout.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading4">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse4"
+                aria-expanded="false"
+                aria-controls="collapse3"
+              >
+                Do you ship internationally?
+              </button>
+            </h2>
+            <div
+              id="collapse4"
+              class="accordion-collapse collapse"
+              aria-labelledby="heading4"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body">
+                Yes, we offer international shipping to select countries. You
+                can check if we ship to your country at checkout.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Returns -->
+
+      <div class="container my-5">
+        <h1 class="mb-3 text-info">Questions About Returns and Exchanges</h1>
+
+        <div class="accordion" id="accordionFAQ">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading1">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse5"
+                aria-expanded="false"
+                aria-controls="collapse1"
+              >
+                What is your return policy?
+              </button>
+            </h2>
+            <div
+              id="collapse5"
+              class="accordion-collapse collapse"
+              aria-labelledby="heading1"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body">
+                Our return policy allows for returns within 30 days of receipt
+                of the product. Items must be in their original condition and
+                packaging.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading2">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse6"
+                aria-expanded="false"
+                aria-controls="collapse2"
+              >
+                How do I initiate a return?
+              </button>
+            </h2>
+            <div
+              id="collapse6"
+              class="accordion-collapse collapse"
+              aria-labelledby="heading2"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body">
+                To initiate a return, please contact our customer service team.
+                We'll provide you with instructions on how to return the item.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading3">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse7"
+                aria-expanded="false"
+                aria-controls="collapse3"
+              >
+                Who pays for return shipping?
+              </button>
+            </h2>
+            <div
+              id="collapse7"
+              class="accordion-collapse collapse"
+              aria-labelledby="heading3"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body">
+                The customer is responsible for paying for return shipping
+                unless the item is defective or the wrong item was shipped.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading4">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse8"
+                aria-expanded="false"
+                aria-controls="collapse4"
+              >
+                How long does it take to process a return?
+              </button>
+            </h2>
+            <div
+              id="collapse8"
+              class="accordion-collapse collapse"
+              aria-labelledby="heading4"
+              data-bs-parent="#accordionFAQ"
+            >
+              <div class="accordion-body">
+                Once we receive the returned item, we'll process the return
+                within 5-7 business days. Refunds will be issued to the original
+                payment method.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-primary bg-opacity-75" id="footer">
+      <div class="container">
+        <div class="row mt-5 pt-5 pb-5 justify-content-between">
+          <div class="col-lg-2 col-md-4 text-center">
+            <h6 class="text-info fs-4 mb-4">Shortcuts</h6>
+            <ul class="list-unstyled m-0 p-0 footer-text">
+              <li class="mb-2">
+                <a class="text-decoration-none text-white" href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="mb-2">
+                <a class="text-decoration-none text-white" href="./about.html"
+                  >About</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  class="text-decoration-none text-white"
+                  href="./contentDragee.html"
+                  >Dragee</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  class="text-decoration-none text-white"
+                  href="./contentTablet.html"
+                >
+                  Tablet Chocolate</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  class="text-decoration-none text-white"
+                  href="./contentBonbon.html"
+                >
+                  Bonbon Chocolate</a
+                >
+              </li>
+              <li class="mb-2">
+                <a class="text-decoration-none text-white" href="./faq.html">
+                  FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-5 col-md-6 text-center my-4">
+            <h6 class="text-info fs-4 mb-4">Contact</h6>
+            <p class="text-white">
+              <i class="fa-solid fa-location-dot" style="color: #4a1b00"></i>
+              Adress: 78-900 Highway 111 La Quinta CA 92253 USA
+            </p>
+            <p class="text-white">
+              <i class="fa-solid fa-phone" style="color: #4a1b00"></i> Phone:
+              0850 555 55 55
+            </p>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h6 class="text-info fs-4 mb-4 ms-5">Gallery</h6>
+            <ul class="list-unstyled d-flex flex-wrap mx-5">
+              <li class="m-1">
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  data-bs-toggle="modal"
+                  data-bs-target="#img-modal"
+                >
+                  <img
+                    class="modal-img"
+                    src="https://images.pexels.com/photos/1854664/pexels-photo-1854664.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt=""
+                  />
+                </button>
+                <div
+                  class="modal fade"
+                  id="img-modal"
+                  data-bs-backdrop="true"
+                  data-bs-keyboard="true"
+                  tabindex="-1"
+                  aria-labelledby="img-modal"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <img
+                          class="img-fluid"
+                          src="https://images.pexels.com/photos/1854664/pexels-photo-1854664.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          alt=""
+                        />
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="m-1">
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  data-bs-toggle="modal"
+                  data-bs-target="#img-modal-2"
+                >
+                  <img
+                    class="modal-img"
+                    src="https://images.pexels.com/photos/4791265/pexels-photo-4791265.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt=""
+                  />
+                </button>
+                <div
+                  class="modal fade"
+                  id="img-modal-2"
+                  data-bs-backdrop="true"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="img-modal-2"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <img
+                          class="img-fluid"
+                          src="https://images.pexels.com/photos/4791265/pexels-photo-4791265.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          alt=""
+                        />
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="m-1">
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  data-bs-toggle="modal"
+                  data-bs-target="#img-modal-3"
+                >
+                  <img
+                    class="modal-img"
+                    src="https://images.pexels.com/photos/2373520/pexels-photo-2373520.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt=""
+                  />
+                </button>
+                <div
+                  class="modal fade"
+                  id="img-modal-3"
+                  data-bs-backdrop="true"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="img-modal-3"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <img
+                          class="img-fluid"
+                          src="https://images.pexels.com/photos/2373520/pexels-photo-2373520.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          alt=""
+                        />
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="m-1">
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  data-bs-toggle="modal"
+                  data-bs-target="#img-modal-4"
+                >
+                  <img
+                    class="modal-img"
+                    src="https://images.pexels.com/photos/3206433/pexels-photo-3206433.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt=""
+                  />
+                </button>
+                <div
+                  class="modal fade"
+                  id="img-modal-4"
+                  data-bs-backdrop="true"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="img-modal-4"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <img
+                          class="img-fluid"
+                          src="https://images.pexels.com/photos/3206433/pexels-photo-3206433.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          alt=""
+                        />
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="m-1">
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  data-bs-toggle="modal"
+                  data-bs-target="#img-modal-5"
+                >
+                  <img
+                    class="modal-img"
+                    src="https://images.pexels.com/photos/887850/pexels-photo-887850.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt=""
+                  />
+                </button>
+                <div
+                  class="modal fade"
+                  id="img-modal-5"
+                  data-bs-backdrop="true"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="img-modal-5"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <img
+                          class="img-fluid"
+                          src="https://images.pexels.com/photos/887850/pexels-photo-887850.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          alt=""
+                        />
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="m-1">
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  data-bs-toggle="modal"
+                  data-bs-target="#img-modal-6"
+                >
+                  <img
+                    class="modal-img"
+                    src="https://images.pexels.com/photos/4791299/pexels-photo-4791299.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt=""
+                  />
+                </button>
+                <div
+                  class="modal fade"
+                  id="img-modal-6"
+                  data-bs-backdrop="true"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="img-modal-6"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <img
+                          class="img-fluid"
+                          src="https://images.pexels.com/photos/4791299/pexels-photo-4791299.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          alt=""
+                        />
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-info"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

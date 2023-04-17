@@ -1,87 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOOKSHOP</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
 </head>
 <body>
-    <div class="minifooter">
-        <p>150 TL ve üzeri Alışverişler için Kargo ÜCRETSİZ!</p>
-    </div>
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">BookShop</a>
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex" role="Ara">
-            <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Kitap, Yazar, Yayınevi..."
-                aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-                Ara
-            </button>
-            </form>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Üye Ol</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Giriş Yap</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active">Sepetim</a>
-                </li>
-            </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="nav2">
-        <li><a class="dropdown-item" href="#">Hakkımızda</a></li>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary justify-content-center">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">BookShop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Kitap,Yazar,Yayınevi..." aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">ARA</button>
+      </form>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-right-to-bracket"></i> Üye Ol</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><i class="fa-solid fa-user"></i> Giriş Yap</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><i class="fa-solid fa-cart-shopping"></i> Sepetim</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./hakkımızda.html">Hakımızda</a>
+          </li>
           <li class="nav-item dropdown">
-            <a
-            class="nav-link dropdown-toggle active"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            >Kategoriler
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Kategoriler
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Çocuk Kitapları</a></li>
-                <li><a class="dropdown-item" href="#">Ders Kitapları</a></li>
-                <li><a class="dropdown-item" href="#">Edebiyat Kitapları</a></li>
-                <li><a class="dropdown-item" href="#">Hobi Ürünleri</a></li>
-                <li><a class="dropdown-item" href="#">Kişisel Gelişim</a></li>
-                <li><a class="dropdown-item" href="#">Klasikler</a></li>
-                <li><a class="dropdown-item" href="#">Korku Kitapları</a></li>
-                <li><a class="dropdown-item" href="#">Macera Kitapları</a></li>
+              <li><a class="dropdown-item" href="#">Çocuk Kitapları</a></li>
+              <li><a class="dropdown-item" href="#">Ders Kitapları</a></li>
+              <li><a class="dropdown-item" href="#">Edebiyat Kiatapları</a></li>
+              <li><a class="dropdown-item" href="#">Hobi Ürünleri</a></li>
+              <li><a class="dropdown-item" href="#">Kişisel Gelişim Kitapları</a></li>
+              <li><a class="dropdown-item" href="#">Macera Kitapları</a></li>
+              <li><a class="dropdown-item" href="#">Sanat Kitapları</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Kampanyalar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./sss.html">SSS</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Listelerim
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Favorilerim</a></li>
+              <li><a class="dropdown-item" href="#">Sepetim</a></li>
+              <li><a class="dropdown-item" href="#">Okuma Listem</a></li>
             </ul>
           </li>
         </ul>
-        <li><a class="dropdown-item" href="#">Ürünler</a></li>
-        <li><a class="dropdown-item" href="#">Kampanyalar</a></li>
-        <li><a class="dropdown-item" href="#">Listeler</a></li>
+      </div>
     </div>
-  </body>
+  </nav>
+
+  <div id="carouselDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="./resimler/carusel/1.1.jpg" class="d-block w-100 " alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>ALIŞVERİŞE BAŞLA</h2>
+          <button type="button" class="btn btn-secondary">Başla</button>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="./resimler/carusel/c2.webp" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>SEÇİLİ YAYINEVLERİNDE %15 İNDİRİM!</h5>
+          <button type="button" class="btn btn-secondary">İncele</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="./resimler/carusel/c3.png" class="d-block w-100 h-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>EN ÇOK SATANLAR</h5>
+          <button type="button" class="btn btn-secondary">İncele</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="./resimler/carusel/c4.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>EN YENİ ÇOCUK KİTAPLARI</h5>
+          <button type="button" class="btn btn-secondary">İncele</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <section class="kategoriler">
+    <div class="title">
+        <h3>KATEGORİLERİ</h3>
+    </div>
+    <div class="kategoriler-imgs">
+        <div class="minicards">
+            <h5>Bilim Kitapları</h5>
+            <img class="rounded-circle" alt="avatar1" src="./resimler/kategoriler/bilim.jpg" />
+        </div>
+        <div class="minicards">
+            <h5>Çocuk Kitapları</h5>
+            <img class="rounded-circle" alt="avatar2" src="./resimler/kategoriler/cocuk.jpg" /> 
+        </div>
+        <div class="minicards">
+            <h5>Fantastik Kitapları</h5>
+            <img class="rounded-circle" alt="avatar5" src="./resimler/kategoriler/fantastik.jpg" />
+        </div>
+        <div class="minicards">
+            <h5>Tarih Kitapları</h5>
+            <img class="rounded-circle" alt="avatar6" src="./resimler/kategoriler/tarih.jpg" />
+        </div>
+        <div class="minicards">
+          <h5>Korku Kitapları</h5>
+          <img class="rounded-circle" alt="avatar6" src="./resimler/kategoriler/korku.jpg" />
+        </div>
+        <div class="minicards">
+          <h5>Polisiye Kitapları</h5>
+          <img class="rounded-circle" alt="avatar6" src="./resimler/kategoriler/polisiye.jpg" />
+        </div>
+    </div>
+  </section>
+
+  <section class="urunler">
+   <div class="container">
+    <div class="title">
+        <h3>KİTAPLAR</h3>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-2 justify-content-center">
+        <div class="col">
+            <div class="card" style="width:300px">
+                <img class="card-img-top" src="./resimler/ürünler/451.jpg" alt="Card image">
+                <div class="card-body">
+                    <h6 class="card-title">Fahrenheit 451</h6>
+                    <p class="card-text"> Ray Bradbury</p>
+                    <p class="card-content">Edebiyat/Roman/Bilim Kurgu</p>
+                    <a href="./book1.html" class="btn btn-warning">Satın Al</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width:300px">
+                <img class="card-img-top" src="./resimler/ürünler/sabahattin ali.jpg" alt="Card image">
+                <div class="card-body">
+                    <h6 class="card-title">Kürk Mantolu Madonna</h6>
+                    <p class="card-text">Sabahattin Ali</p>
+                    <p class="card-content">Edebiyat/Roman/Türk Romanı</p>
+                    <a href="./book2.html" class="btn btn-warning">Satın Al</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width:300px">
+                <img class="card-img-top" src="./resimler/ürünler/nutuk.jpg" alt="Card image">
+                <div class="card-body">
+                    <h6 class="card-title">Nutuk</h6>
+                    <p class="card-text">Mustafa Kemal ATATÜRK</p>
+                    <p class="card-content">Araştırma/Tarih/Atatürk</p>
+                    <a href="./book3.html" class="btn btn-warning">Satın Al</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width:300px">
+                <img class="card-img-top" src="./resimler/ürünler/küçük prens.jpg" alt="Card image">
+                <div class="card-body">
+                    <h6 class="card-title">Küçük Prens</h6>
+                    <p class="card-text">Antonie de Saint-Exupery</p>
+                    <p class="card-content">Çocuk Kitabı</p>
+                    <a href="./book4.html" class="btn btn-warning">Satın Al</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width:300px">
+              <img class="card-img-top" src="./resimler/ürünler/dune.jpg" alt="Card image">
+              <div class="card-body">
+                  <h6 class="card-title">Dune</h6>
+                  <p class="card-text">Frank Herbert</p>
+                  <p class="card-content">Edebiyat/Roman/Bilim Kurgu</p>
+                  <a href="#" class="btn btn-warning">Satın Al</a>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width:300px">
+            <img class="card-img-top" src="./resimler/ürünler/sekerport.jpg" alt="Card image">
+            <div class="card-body">
+                <h6 class="card-title">Şeker Portakalı</h6>
+                <p class="card-text">AJose Mauro De Vasconcelos</p>
+                <p class="card-content">Edebiyat/Roman/Dünya Romanı</p>
+                <a href="#" class="btn btn-warning">Satın Al</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width:300px">
+          <img class="card-img-top" src="./resimler/ürünler/var mısın.jpg" alt="Card image">
+          <div class="card-body">
+              <h6 class="card-title">Var Mısın?</h6>
+              <p class="card-text">Doğan Cüceloğlu</p>
+              <p class="card-content">Kişisel Gelişim</p>
+              <a href="#" class="btn btn-warning">Satın Al</a>
+          </div>
+      </div>
+  </div>
+  <div class="col">
+      <div class="card" style="width:300px">
+        <img class="card-img-top" src="./resimler/ürünler/curume.jpg" alt="Card image">
+        <div class="card-body">
+            <h6 class="card-title">Çürümenin Kitabı</h6>
+            <p class="card-text">Emil Michel Cioran</p>
+            <p class="card-content">Felsefe Bilimi</p>
+            <a href="#" class="btn btn-warning">Satın Al</a>
+        </div>
+      </div>
+   </div>
+  </div>
+  </div>
+  </section>
+
+  <section id="infocards" style="padding: 4em 0 ">
+    <div class="container">
+      <ul class="row list-inline">
+        <li class="col-12 col-md-6 col-lg-4">
+          <div class="card" style="border: none">
+            <img
+              class="card-img-top"
+              src="./resimler/karısıkkartlar/kitapayrac.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body" style="padding: 2em 0">
+              <h5 class="card-title">Kitap Ayraçları</h5>
+              <span
+                style="
+                  font-size: 12px;
+                  font-weight: 700;
+                  letter-spacing: 0.1em;
+                "
+                class="text-primary b-block"></span>
+              <a href="#" class="btn btn-warning">Ürünleri İncele</a>
+            </div>
+          </div>
+        </li>
+        <li class="col-12 col-md-6 col-lg-4">
+          <div class="card" style="border: none">
+            <img
+              class="card-img-top"
+              src="./resimler/karısıkkartlar/kitapbagıs.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body" style="padding: 2em 0">
+              <h5 class="card-title">Kitap Bağışı</h5>
+              <span
+                style="
+                  font-size: 12px;
+                  font-weight: 700;
+                  letter-spacing: 0.1em;
+                "
+                class="text-primary b-block"></span>
+                <a href="#" class="btn btn-warning">Bağış Yap</a>
+            </div>
+          </div>
+        </li>
+        <li class="col-12 col-md-6 col-lg-4">
+          <div class="card" style="border: none">
+            <img
+              class="card-img-top"
+              src="./resimler/karısıkkartlar/app.png"
+              alt="Card image cap"
+            />
+            <div class="card-body" style="padding: 2em 0">
+              <h5 class="card-title">Mobil Uygulamalar</h5>
+              <span
+                style="
+                  font-size: 12px;
+                  font-weight: 700;
+                  letter-spacing: 0.1em;
+                "
+                class="text-primary b-block"></span>
+                <a href="#" class="btn btn-warning">İndir</a>
+            </div>
+          </div>
+        </li>
+        <li class="col-12 col-md-6 col-lg-4">
+          <div class="card" style="border: none">
+            <img
+              class="card-img-top"
+              src="./resimler/karısıkkartlar/yayınevi.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body" style="padding: 2em 0">
+              <h5 class="card-title">Yayınevlerimiz</h5>
+              <span
+                style="
+                  font-size: 12px;
+                  font-weight: 700;
+                  letter-spacing: 0.1em;
+                "
+                class="text-primary b-block"></span>
+                <a href="#" class="btn btn-warning">Bakınız</a>
+            </div>
+          </div>
+        </li>
+        <li class="col-12 col-md-6 col-lg-4">
+          <div class="card" style="border: none">
+            <img
+              class="card-img-top"
+              src="./resimler/karısıkkartlar/e-kitap-faydalari.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body" style="padding: 2em 0">
+              <h5 class="card-title">E-Kitap</h5>
+              <span
+                style="
+                  font-size: 12px;
+                  font-weight: 700;
+                  letter-spacing: 0.1em;
+                "
+                class="text-primary b-block"></span>
+                <a href="#" class="btn btn-warning">Bakınız</a>
+            </div>
+          </div>
+        </li>
+        <li class="col-12 col-md-6 col-lg-4">
+          <div class="card" style="border: none">
+            <img
+              class="card-img-top"
+              src="./resimler/karısıkkartlar/puzzle.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body" style="padding: 2em 0">
+              <h5 class="card-title">Hobi Ürünleri</h5>
+              <span
+                style="
+                  font-size: 12px;
+                  font-weight: 700;
+                  letter-spacing: 0.1em;
+                "
+                class="text-primary b-block"
+                ></span>
+                <a href="#" class="btn btn-warning">İncele</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="text-center text-lg-start bg-white text-muted">
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"style="background-color: #e7def9;">
+    <div class="me-5 d-none d-lg-block">
+      <span>Sodyal Medya Hesaplarımızdan Bizi Takip Edebilirsiniz:</span>
+    </div>
+    <div>
+      <a href="" class="me-4 link-secondary">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 link-secondary">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 link-secondary">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 link-secondary">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="footer-2" style="background-color: #e7def9;">
+    <div class="container text-center text-md-start">
+      <div class="row mt-0">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            </i>Mobil Uygulamalarımız
+          </h6>
+          <p>
+            <i class="fa-brands fa-google-play fa-lg"></i> Google Play
+          </p>
+          <p>
+            <i class="fa-brands fa-apple fa-2xl"></i> App Store
+          </p>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Yardım
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Siparişler</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Teslimat ve Kargo</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Kargo Takip</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">İade İşlemleri</a>
+          </p>
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Kurumsal
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Mağazalarımız</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Aydınlatma Metni</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Üyelik</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Kariyer</a>
+          </p>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">İletişim</h6>
+          <p><i class="fas fa-home me-3 text-secondary"></i>İstanbul</p>
+          <p>
+            <i class="fas fa-envelope me-3 text-secondary"></i>
+            info@example.com
+          </p>
+          <p><i class="fas fa-phone me-3 text-secondary"></i>0500 000 00 00</p>
+          <p><i class="fas fa-print me-3 text-secondary"></i> 0216 000 00 00</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="text-center p-4" style="background-color: #ccc2e0;">
+    © 2023 Copyright by BT
+  </div>
+  </footer>
+
+</body>
 </html>
