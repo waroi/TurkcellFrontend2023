@@ -52,10 +52,16 @@ div#navbarNavDropdown {
 }
 
 ul.navbar-nav {
-    gap: 200px;
+    gap: 100px;
     font-size: 18px;
     font-family: 'Rambla', sans-serif;
-    color:wheat
+    color:wheat       
+}
+
+.nav-item:hover{
+    transition: transform 1s ease-in-out;
+    transform-origin: 100% 50%;
+    background: linear-gradient( #f5a6be, #d099fa);
 }
 
 nav.navbar.navbar-expand-lg.bg-body-tertiary {
@@ -76,10 +82,22 @@ h2 {
     font-family: 'Convergence', sans-serif;
 }
 
-.kategoriler-imgs {
-    display: flex;
+.minicards {
+    display: grid;
     justify-content: space-around;
+    &:hover{
+        box-shadow: rgba(77, 3, 80, 0.1) 0px 0px 10px;
+        transform: translateY(-10px);
+        cursor: pointer;
+        background-color: #978ea8;
+    }
+}
+
+.kategoriler-imgs {
+    display: grid;
+    justify-content: space-evenly;
     padding-bottom: 30px;
+    grid-template-columns: repeat(6, 1fr);
 }
 
 .title {
@@ -96,6 +114,11 @@ h3 {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-around;
+    &:hover{
+        box-shadow: rgba(77, 3, 80, 0.1) 0px 0px 10px;
+        transform: translateY(-10px);
+        cursor: pointer;
+    }
 }
 
 .col-lg-6.mb-6 {
@@ -108,10 +131,21 @@ h4 {
     font-size: 40px;
 }
 
-
 section.py-8.bg-light {
     margin-top: 80px;
     padding-top: 80px;
 }
 
+.card-body {
+    text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+    .kategoriler-imgs {
+        display: grid;
+        justify-content: space-evenly;
+        padding-bottom: 30px;
+        grid-template-columns: 1fr 1fr;
+    }
+  }
 
