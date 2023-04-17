@@ -17,7 +17,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg bg-primary position-sticky top-0">
-      <div class="container">
+      <div class="container col-10">
         <a class="navbar-brand text-danger" href="./index.html"
           >Celestial Estate</a
         >
@@ -32,7 +32,10 @@
         >
           <span class="navbar-toggler-icon text-danger bg-danger"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNavDropdown"
+        >
           <ul class="navbar-nav">
             <li class="nav-item">
               <a
@@ -43,57 +46,36 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-danger" href="#">Features</a>
+              <a class="nav-link text-danger" href="#products">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-danger" href="#">Pricing</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle text-danger"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown link
-              </a>
-              <ul class="dropdown-menu bg-primary">
-                <li>
-                  <a class="dropdown-item text-danger" href="#">Action</a>
-                </li>
-                <li>
-                  <a class="dropdown-item text-danger" href="#"
-                    >Another action</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item text-danger" href="#"
-                    >Something else here</a
-                  >
-                </li>
-              </ul>
+              <a class="nav-link text-danger" href="#popular">Popular</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-primary btn btn-danger order-1" href="#"
-                >Sing In</a
+              <a class="nav-link text-danger" href="#planetary"
+                >Planetary Systems</a
               >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-danger" href="./singin.html">Sing In</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <header class="bg-secondary product-carousel">
-      <div class="d-flex flex-column flex-md-row col-12 col-md-10 mx-auto py-5">
+      <div
+        class="d-flex flex-column flex-md-row col-12 col-md-10 mx-auto py-2 py-md-5"
+      >
         <div
-          id="carouselExampleCaptions"
+          id="carouselCaptions"
           class="carousel slide col-11 col-md-6 mx-auto"
           data-bs-ride="false"
         >
           <div class="carousel-indicators">
             <button
               type="button"
-              data-bs-target="#carouselExampleCaptions"
+              data-bs-target="#carouselCaptions"
               data-bs-slide-to="0"
               class="active"
               aria-current="true"
@@ -101,13 +83,13 @@
             ></button>
             <button
               type="button"
-              data-bs-target="#carouselExampleCaptions"
+              data-bs-target="#carouselCaptions"
               data-bs-slide-to="1"
               aria-label="Slide 2"
             ></button>
             <button
               type="button"
-              data-bs-target="#carouselExampleCaptions"
+              data-bs-target="#carouselCaptions"
               data-bs-slide-to="2"
               aria-label="Slide 3"
             ></button>
@@ -119,38 +101,26 @@
                 class="d-block mx-auto w-100"
                 alt="..."
               />
-              <div class="carousel-caption d-block text-danger">
-                <h5>First slide label</h5>
-                <p>
-                  Some representative placeholder content for the first slide.
-                </p>
-              </div>
             </div>
             <div class="carousel-item">
               <img
-                src="https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fHNwYWNlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8RWFydGh8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60"
                 class="d-block mx-auto w-100"
                 alt="..."
               />
-              <div class="carousel-caption d-block text-danger">
-                <h4>Second slide label</h4>
-              </div>
             </div>
             <div class="carousel-item">
               <img
-                src="https://images.unsplash.com/photo-1592071666760-421c34665779?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fHNwYWNlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+                src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8RWFydGh8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60"
                 class="d-block mx-auto w-100"
                 alt="..."
               />
-              <div class="carousel-caption d-block text-danger">
-                <h4>Third slide label</h4>
-              </div>
             </div>
           </div>
           <button
             class="carousel-control-prev"
             type="button"
-            data-bs-target="#carouselExampleCaptions"
+            data-bs-target="#carouselCaptions"
             data-bs-slide="prev"
           >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -159,7 +129,7 @@
           <button
             class="carousel-control-next"
             type="button"
-            data-bs-target="#carouselExampleCaptions"
+            data-bs-target="#carouselCaptions"
             data-bs-slide="next"
           >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -169,8 +139,8 @@
         <div class="ps-3 text-warning container product-info">
           <h2 class="text-center display-5">Earth</h2>
           <div class="d-flex justify-content-between">
-            <p><span>STC</span> 500</p>
-            <ul class="list-unstyled d-flex text-danger">
+            <p class="fs-2"><span>STC</span> 500</p>
+            <ul class="list-unstyled d-flex text-danger my-2">
               <li><i class="fa fa-star"></i></li>
               <li><i class="fa fa-star"></i></li>
               <li><i class="fa fa-star"></i></li>
@@ -184,22 +154,22 @@
               Similar to real-world Earth, with a diameter of 12,742 kilometers.
             </li>
             <li>
-              <span class="fw-bold"> Atmosphere: </span>
+              <span class="fw-bold fs-4"> Atmosphere: </span>
               Composed mostly of nitrogen, oxygen, and traces of other gases,
               supporting diverse forms of life.
             </li>
             <li>
-              <span class="fw-bold"> Surface: </span>
+              <span class="fw-bold fs-4"> Surface: </span>
               Varied landscapes including mountains, forests, deserts, oceans,
               and more, with abundant water bodies.
             </li>
             <li>
-              <span class="fw-bold"> Resources: </span>
+              <span class="fw-bold fs-4"> Resources: </span>
               Rich in diverse flora and fauna, valuable minerals, fossil fuels,
               and renewable resources.
             </li>
             <li>
-              <span class="fw-bold"> Climate: </span>
+              <span class="fw-bold fs-4"> Climate: </span>
               Supports a wide range of climates, from polar to tropical, making
               it habitable for a diverse array of life forms.
             </li>
@@ -213,7 +183,9 @@
                 complimentary satellite to enhance your planetary ownership
                 experience.
               </p>
-              <a href="#" class="card-link btn btn-danger float-end"
+              <a
+                href="#"
+                class="card-link btn btn-danger text-primary float-end"
                 >Add to Basket</a
               >
             </div>
@@ -229,41 +201,41 @@
           <div class="row col-11 col-md-9 mx-auto justify-content-between mb-4">
             <a class="card py-2 col-3" href="#">
               <img
-                src="https://www.nasa.gov/images/content/511895main_Kepler-11_IntroShot_full.jpg"
+                src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 class="card-img-top"
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title fs-6">Kepler-11</h5>
+                <h5 class="card-title fs-6">Earth</h5>
               </div>
             </a>
             <span class="col-1 text-center my-auto fw-bolder display-2">+</span>
             <a class="card py-2 col-3" href="#">
               <img
-                src="https://www.nasa.gov/images/content/511895main_Kepler-11_IntroShot_full.jpg"
+                src="https://images.unsplash.com/photo-1614732414444-096e5f1122d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
                 class="card-img-top"
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title fs-6 wrap">Kepler-11</h5>
+                <h5 class="card-title fs-6 wrap">Saturn</h5>
               </div>
             </a>
             <span class="col-1 text-center my-auto fw-bolder display-2">+</span>
             <a class="card py-2 col-3" href="#">
               <img
-                src="https://www.nasa.gov/images/content/511895main_Kepler-11_IntroShot_full.jpg"
+                src="https://images.unsplash.com/photo-1614732484003-ef9881555dc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
                 class="card-img-top"
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title fs-6">Kepler-11</h5>
+                <h5 class="card-title fs-6">Uranus</h5>
               </div>
             </a>
           </div>
           <button
-            class="btn col-10 col-md-2 h-25 mx-auto my-auto bundle-btn mt-4 mt-md-0"
+            class="btn btn-danger w-100 mt-5 col col-md-2 h-25 my-auto bundle-btn mt-4 mt-md-0 my-auto"
           >
-            Add All
+            Buy All
           </button>
         </div>
       </div>
@@ -496,8 +468,8 @@
         </div>
       </div>
     </section>
-    <section class="newsletter">
-      <div class="my-5 text-center">
+    <section class="newsletter bg-primary">
+      <div class="py-5 text-center text-danger">
         <p>
           Subscribe to our newsletter to be informed about campaigns and
           discounts
@@ -505,14 +477,26 @@
         <div class="col-10 col-md-6 mx-auto">
           <div class="input-group">
             <span class="input-group-text">First and last name</span>
-            <input type="text" aria-label="First name" class="form-control" />
-            <input type="text" aria-label="Last name" class="form-control" />
+            <input
+              type="text"
+              aria-label="First name"
+              class="form-control bg-success"
+            />
+            <input
+              type="text"
+              aria-label="Last name"
+              class="form-control bg-success"
+            />
           </div>
           <div class="input-group mt-2">
             <span class="input-group-text">Email</span>
-            <input type="email" aria-label="Email" class="form-control" />
+            <input
+              type="email"
+              aria-label="Email"
+              class="form-control bg-success"
+            />
           </div>
-          <button class="btn btn-primary mt-2 px-5 py-3">Subscribe</button>
+          <button class="btn btn-danger mt-2 px-5 py-3">Subscribe</button>
         </div>
       </div>
     </section>
@@ -525,10 +509,7 @@
             <ul class="list-unstyled ms-2">
               <li>
                 Phone:
-                <a
-                  href="tel:1-800-STARS-4U"
-                  class="text-warning text-decoration-none"
-                >
+                <a href="tel:1-800-STARS-4U" class="text-warning">
                   1-800-STARS-4U
                 </a>
               </li>
@@ -537,7 +518,7 @@
                 <a
                   href="mailto:info@celestialestate.com"
                   target="_blank"
-                  class="text-warning text-decoration-none"
+                  class="text-warning"
                 >
                   info@celestialestate.com
                 </a>
@@ -546,7 +527,7 @@
                 Address:
                 <a
                   href="https://www.google.com/maps/place/Rome,+Metropolitan+City+of+Rome+Capital,+Italy/@41.9100711,12.5359979,11z/data=!3m1!4b1!4m6!3m5!1s0x132f6196f9928ebb:0xb90f770693656e38!8m2!3d41.9027835!4d12.4963655!16zL20vMDZjNjI"
-                  class="text-warning text-decoration-none"
+                  class="text-warning"
                 >
                   1234 Stellar Way, Galaxy X, Universe 98765
                 </a>
@@ -557,30 +538,16 @@
             <h6 class="fw-bolder">Customer Service</h6>
             <ul class="list-unstyled ms-2">
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Shipping & Returns
-                </a>
+                <a href="#" class="text-warning">Shipping & Returns </a>
               </li>
               <li>
-                <a href="./faqs.html" class="text-warning text-decoration-none"
-                  >FAQs
-                </a>
+                <a href="./faqs.html" class="text-warning">FAQs </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Terms & Conditions
-                </a>
+                <a href="#" class="text-warning">Terms & Conditions </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Privacy Policy
-                </a>
+                <a href="#" class="text-warning">Privacy Policy </a>
               </li>
             </ul>
           </div>
@@ -588,39 +555,19 @@
             <h6 class="fw-bolder">About Celestial Estate</h6>
             <ul class="list-unstyled ms-2">
               <li>
-                <a
-                  href="./about-us.html"
-                  class="text-warning text-decoration-none"
-                  >About Us
-                </a>
+                <a href="./about-us.html" class="text-warning">About Us </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Meet the Team
-                </a>
+                <a href="#" class="text-warning">Meet the Team </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Blog
-                </a>
+                <a href="#" class="text-warning">Blog </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Careers
-                </a>
+                <a href="#" class="text-warning">Careers </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Press
-                </a>
+                <a href="#" class="text-warning">Press </a>
               </li>
             </ul>
           </div>
@@ -628,46 +575,22 @@
             <h6 class="fw-bolder">Shop Planets</h6>
             <ul class="list-unstyled ms-2">
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >All Planets
-                </a>
+                <a href="#" class="text-warning">All Planets </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >New Arrivals
-                </a>
+                <a href="#" class="text-warning">New Arrivals </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Best Sellers
-                </a>
+                <a href="#" class="text-warning">Best Sellers </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Gas Giants
-                </a>
+                <a href="#" class="text-warning">Gas Giants </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Potentially Habitable
-                </a>
+                <a href="#" class="text-warning">Potentially Habitable </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="text-warning text-decoration-none text-decoration-none"
-                  >Galactic Getaways
-                </a>
+                <a href="#" class="text-warning">Galactic Getaways </a>
               </li>
             </ul>
           </div>
