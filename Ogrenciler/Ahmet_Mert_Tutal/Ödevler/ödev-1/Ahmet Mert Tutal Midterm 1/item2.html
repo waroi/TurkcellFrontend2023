@@ -167,8 +167,12 @@
       <div class="row">
           <div class="col-lg-5 mt-5">
               <div class="card mb-3">
-                  <img class="card-img img-fluid" src="./items/d-6.jpg" alt="Card image cap" id="product-detail">
-                  <img class="card-img img-fluid d-none" src="./items/d-6-1.jpg" alt="Card image cap" id="product-detail">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade  " id="black" role="" aria-labelledby="item1-black" tabindex="0"><img class="card-img img-fluid item1-img" src="https://cdn.shopify.com/s/files/1/0568/2574/1518/products/10216238_900x.jpg?v=1655707615" alt="Card image cap" id="product-detail"></div>
+                    <div class="tab-pane fade  " id="green" role="" aria-labelledby="item1-green" tabindex="0"><img class="card-img img-fluid item1-img" src="./items/d-6.1.jpg" alt="Card image cap" id="product-detail"></div>
+                    <div class="tab-pane fade show active " id="white" role="" aria-labelledby="item1-white" tabindex="0"><img class="card-img img-fluid item1-img" src="./items/d-6.jpg" alt="Card image cap" id="product-detail"></div>
+                
+            </div>
               </div>
               <div class="row">
 
@@ -294,12 +298,15 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <ul class="list-inline pb-3">
-                                        <li class="list-inline-item">Color :
-                                            <input type="hidden" name="product-size" id="product-size" value="S">
-                                        </li>
-                                        <li class="list-inline-item"><span class="btn btn-success btn-size"><input type="checkbox"> Black</span></li>
-                                        <li class="list-inline-item"><span class="btn btn-success btn-size">White</span></li>
-                                        <li class="list-inline-item"><span class="btn btn-success btn-size">Light Blue</span></li>
+                                        
+                                            
+                                    
+                                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                            <li class="list-inline-item"> Color :
+                                            <li class="nav-item" role="presentation"><button class="nav-link " id="item1-black" data-bs-toggle="pill" data-bs-target="#black" type="button" role="tab" aria-selected="true" aria-controls="pills-black">Black</button></li>
+                                            <li class="nav-item" role="presentation"><button class="nav-link active" id="item1-white" data-bs-toggle="pill" data-bs-target="#white" type="button" role="tab" aria-selected="false" aria-controls="pills-white">White</button></li>
+                                            <li class="nav-item" role="presentation"><button class="nav-link" id="item1-green" data-bs-toggle="pill" data-bs-target="#green" type="button" role="tab" aria-selected="false" aria-controls="pills-green">Wooden Light</button></li>
+                                        </ul>
                                         
                                     </ul>
                                 </div>
