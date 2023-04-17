@@ -1,3 +1,5 @@
+$triple-background: #EEEDE7;
+
 @mixin cardProperties($position, $width, $height, $left) {
     position: $position;
     width: $width;
@@ -10,9 +12,11 @@
     opacity: $opacity;
     bottom: $bottom;
 }
-*{
+
+* {
     box-sizing: border-box;
 }
+
 nav {
     background-color: $primary;
     color: $light ;
@@ -21,8 +25,8 @@ nav {
         color: $light !important;
     }
 
-    button{
-        &:hover{
+    button {
+        &:hover {
             background-color: $primary !important;
         }
     }
@@ -37,7 +41,7 @@ ul li {
 }
 
 a {
-    text-decoration: none !important;
+    text-decoration: none ;
     color: $dark !important;
 }
 
@@ -90,13 +94,19 @@ a {
 .created-card:hover .created-card-backward {
     transform: translateX(0);
 }
+.price{
+    font-size: 14px;
+}
 /*triple card*/
-.triple-card{
-    background-color: #EEEDE7;
-    .card-item{
-        box-shadow: 3px 3px 10px #EEEDE7;
+
+.triple-card {
+    background-color: $triple-background;
+
+    .card-item {
+        box-shadow: 3px 3px 10px $triple-background;
     }
 }
+
 /* footer*/
 footer {
     position: relative;
@@ -153,6 +163,7 @@ footer {
             }
         }
     }
+
     p {
         color: $light;
         text-align: center;
@@ -160,6 +171,7 @@ footer {
         margin-bottom: 10px;
         font-size: 1.1em;
     }
+
     .wave {
         position: absolute;
         top: -100px;
@@ -172,23 +184,23 @@ footer {
 
     #wave1 {
         @include waveFunc(1000, 1, 0);
-        animation: animateWave 4s linear infinite ;
+        animation: animateWave 4s linear infinite;
     }
 
     #wave2 {
         @include waveFunc(999, 0.5, 10px);
-        animation: animateWave-2 4s linear infinite ;
+        animation: animateWave-2 4s linear infinite;
     }
 
     #wave3 {
         @include waveFunc(999, 0.7, 15px);
-        animation: animateWave 3s linear infinite ;
+        animation: animateWave 3s linear infinite;
 
     }
 
     #wave4 {
         @include waveFunc(999, 0.7, 20px);
-        animation: animateWave-2 3s linear infinite ;
+        animation: animateWave-2 3s linear infinite;
     }
 }
 
@@ -213,116 +225,95 @@ footer {
 }
 
 /*About us Page */
-.material-symbols-outlined{
-    padding-right: 5px;
- }
- .telephone{
-     padding-bottom: 55px;
- }
- .telephone_area{
-     position: relative;
- }
- .message_box{
-     opacity: .25;
- }
-
- .images{
+.images {
     width: 100%;
-    .bottom-image{
-        bottom: -80px;
-        left: 170px;
-        width: 200px;
-        z-index: 2;
-    }
-    .top-image{
-        position: absolute;
-        top: -20px;
-        left: 0;
-        width: 200px;
-    }
-    .second-image{
-top: 50px;
-    }
-    img{
+
+    img {
         width: 100%;
     }
- }
- .team{
-    img{
+}
+
+.team {
+    img {
         width: 100%;
         height: auto;
     }
- }
-
- /*Product Detail Page */
-$basket-btn-color:#EFEBE0;
-$fav-btn-color:#FB8DA0;
-$btn_hover_color:#FB4570;
-
-@mixin button($borderRadius, $pX, $pY,$color){
-padding: $pX $pY;
-border-radius: $borderRadius;
-background-color: $color;
 }
 
-.btn-basket{
-    @include button(5px,10px,24px,$basket-btn-color);
-    border:none;
-    &:hover{
-        background-color: $btn_hover_color;
+/*Product Detail Page */
+@mixin button($borderRadius, $pX, $pY, $color) {
+    padding: $pX $pY;
+    border-radius: $borderRadius;
+    background-color: $color;
+}
+
+.btn-basket {
+    @include button(5px, 10px, 24px, $info);
+    border: none;
+
+    &:hover {
+        background-color: $primary;
     }
 }
-.btn-fav{
-    @include button(5px,10px,24px,$fav-btn-color);
-    border:none;
-    &:hover{
-        background-color: $btn_hover_color;
+
+.btn-fav {
+    @include button(5px, 10px, 24px, $secondary);
+    border: none;
+
+    &:hover {
+        background-color: $primary;
     }
 }
-.size-item{
-    
+
+.size-item {
+
     position: relative;
     border: 1px solid #d7d5d5;
     text-align: center;
     padding: 13px 16px;
     border-radius: 4px;
     color: #000;
-    box-shadow: 0 0 2px 0 rgba(50,50,50,0);
+    box-shadow: 0 0 2px 0 rgba(50, 50, 50, 0);
 
-    &:hover{
-        background-color: #FB8DA0;
+    &:hover {
+        background-color: $secondary;
         cursor: pointer;
     }
 }
-.mini-pictures{
-    ul li{
-        &:hover{
+
+.mini-pictures {
+    ul li {
+        &:hover {
             transition: all 0.3s ease-in-out;
-        transform: scale(1.2);
-        cursor: pointer;
+            transform: scale(1.2);
+            cursor: pointer;
         }
     }
 }
-.interested-products-mobil{
-    display: none;
-}
+
+
+
 @media screen and (max-width:992px) {
-    .mini-pictures{
+    .mini-pictures {
         display: none;
     }
-    .interested-products{
-        display: none;
-    }
-    .interested-products-mobil{
-        display: flex;
-    }
-    .about{
-        flex-direction: column;  
-    }
-    .images{
-        width: 80%;
-    }
-    .vision-mission{
+
+
+
+    .about {
         flex-direction: column;
-    } 
+    }
+
+    .images {
+        width: 70%;
+        margin: auto;
+
+        .top-image {
+            left: 25px;
+        }
+    }
+
+    .vision-mission {
+        flex-direction: column;
+    }
 }
