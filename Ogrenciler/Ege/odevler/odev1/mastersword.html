@@ -13,7 +13,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Ege's & Dragons</title>
+    <title>Master Sword</title>
   </head>
 
   <body>
@@ -24,7 +24,7 @@
           <div class="container-fluid">
             <a class="navbar-brand" href="index.html">Ege's & Dragons</a>
             <button
-              class="navbar-toggler"
+              class="navbar-toggler bg-secondary"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
@@ -37,9 +37,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="index.html"
-                    >Home</a
-                  >
+                  <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="faq.html">F.A.Q</a>
@@ -48,15 +46,14 @@
                   <a class="nav-link" href="about.html">About Us</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a
+                  <span
                     class="nav-link active"
-                    href="#"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Products
-                  </a>
+                  </span>
                   <ul class="dropdown-menu">
                     <li>
                       <a class="dropdown-item" href="frostmourne.html"
@@ -69,27 +66,25 @@
                       >
                     </li>
                     <li>
-                      <a class="dropdown-item active" href="#">Master Sword</a>
+                      <a
+                        class="dropdown-item active"
+                        aria-current="page"
+                        href="#"
+                        >Master Sword</a
+                      >
                     </li>
                   </ul>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link"
-                    ><i class="fa-regular fa-circle-user fa-xl"></i
-                  ></a>
-                </li>
               </ul>
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-secondary" type="submit">
-                  Search
-                </button>
-              </form>
+              <div class="navbar-nav mb-2 mb-lg-0 d-flex flex-row gap-2">
+                <a class="nav-link"
+                  ><i class="fa-regular fa-circle-user fa-xl"></i
+                ></a>
+                <a class="nav-link"
+                  ><i class="fa-solid fa-cart-shopping fa-xl"></i
+                ></a>
+                <a class="nav-link"><i class="fa-solid fa-heart fa-xl"></i></a>
+              </div>
             </div>
           </div>
         </nav>
@@ -98,7 +93,7 @@
     <!-- Navbar End -->
 
     <!-- Product Area Start -->
-    <section class="product-area">
+    <section class="product-area py-5">
       <div class="container">
         <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
           <ol class="breadcrumb">
@@ -113,7 +108,7 @@
             </li>
           </ol>
         </nav>
-        <div class="row align-items-center">
+        <div class="row align-items-center py-5">
           <div class="col-lg-7">
             <div class="product-img text-center">
               <img
@@ -123,11 +118,11 @@
               />
             </div>
           </div>
-          <div class="col-lg-5 px-5">
-            <div class="product-txt">
-              <h2>Frostmourne</h2>
-              <span>$69.99</span>
-              <p>
+          <div class="col-lg-5 p-5 py-lg-0">
+            <div class="product-txt mb-5">
+              <h2 class="mb-3">Master Sword</h2>
+              <span class="display-2">$279.99</span>
+              <p class="mt-3">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
                 asperiores vitae quod et deserunt voluptatibus laboriosam eum.
                 Officia aperiam minus quasi vel illum facilis voluptatibus!
@@ -238,7 +233,10 @@
                           aria-label="Close"
                         ></button>
                       </div>
-                      <div class="modal-body">...</div>
+                      <div class="modal-body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolor, officia?
+                      </div>
                       <div class="modal-footer">
                         <button
                           type="button"
@@ -412,7 +410,7 @@
               </div>
               <div class="col-md-6 offset-md-3">
                 <button class="btn btn-primary" type="submit">
-                  Submit form
+                  Send Review
                 </button>
               </div>
             </form>

@@ -1,64 +1,84 @@
+a {
+  text-decoration: none;
+}
+
+@mixin card-hover {
+  color: $danger;
+}
+@mixin bg-pr {
+  background-color: $primary;
+  a {
+    color: $warning;
+  }
+}
 nav {
   z-index: 4;
 }
-.product-carousel {
+x .product-carousel {
   img {
     width: 300px;
   }
 }
-#carouselExampleCaptions {
+#carouselCaptions {
   height: 300px;
   img {
     height: 300px;
   }
 }
+.card {
+  @include bg-pr;
+}
 .solar-system {
   li {
-    :hover {
-      color: $danger;
-    }
     img {
-      height: 100px;
-      aspect-ratio: 2/1;
-      :hover {
-        scale: 1.05;
-      }
+      height: 150px;
+      width: 100px;
+      align-items: center;
+    }
+    :hover {
+      @include card-hover;
     }
   }
 }
 .bundle {
-  .bundle-btn {
-    border: 1px solid black;
-    margin-top: auto !important;
-    margin-bottom: auto !important;
+  img {
+    height: 50px;
+  }
+
+  a {
+    color: $warning;
+    :hover {
+      @include card-hover;
+    }
+  }
+  span {
+    font-weight: bolder;
+    font-size: 36px;
+  }
+}
+.popular-planets {
+  h2 {
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    text-align: center;
+  }
+  img {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 100px;
+  }
+  a {
     background-color: $primary;
     color: $warning;
-    &:hover {
+    :hover {
       color: $danger;
     }
   }
-}
-
-.container a {
-  // background: url("https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80 center");
 }
 .msps {
-  a {
-    text-decoration: none;
-    background-color: $primary;
+  @extend .popular-planets;
+  h2 {
     color: $warning;
-    img {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      height: 100px;
-    }
-  }
-}
-.newsletter {
-  button {
-    &:hover {
-      color: $danger;
-    }
   }
 }
 footer {
@@ -80,6 +100,14 @@ footer {
     .product-info {
       height: 300px;
       overflow-y: scroll;
+    }
+  }
+  .solar-system {
+    li {
+      img {
+        width: 100%;
+        height: 100px;
+      }
     }
   }
 }

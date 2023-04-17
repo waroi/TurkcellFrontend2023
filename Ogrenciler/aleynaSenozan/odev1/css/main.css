@@ -10886,13 +10886,32 @@ body {
   margin-bottom: 20px;
 }
 .products .product-card .btn {
-  background-color: #000000;
+  background-color: #000;
   color: #fff;
-  text-decoration: none;
-  padding: 10px 20px;
+  border: 2px solid #000;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+.products .product-card .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  z-index: -1;
+}
+.products .product-card .btn:hover::before {
+  left: 0;
 }
 .products .product-card .btn:hover {
-  background-color: #545b62;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
 }
 
 .collection {

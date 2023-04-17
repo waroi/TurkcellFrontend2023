@@ -1,0 +1,248 @@
+* {
+  font-family: 'DM Sans', sans-serif;
+}
+
+body {
+  background-image: url("../Assets/squiggle-background\ 1.svg");
+}
+
+a {
+  text-decoration: none;
+}
+
+.lnr-heart:hover {
+  color: red;
+}
+
+// navbar
+.nav-item {
+  font-weight: 700;
+
+  &:hover {
+    font-weight: 900;
+    color: red;
+  }
+}
+
+.home-section {
+  background-image: url("../Assets/header.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  button {
+    box-shadow: #A9907E 5px 5px, #a9907eb4 10px 10px;
+    background-color: white;
+
+    &:hover {
+      border-color: #A9907E;
+    }
+  }
+}
+
+//width heigth için bir fonksiyon
+@mixin widthHeigt($width, $height , $border-radius: 0) {
+  width: $width;
+  height: $height;
+  border-radius: $border-radius;
+}
+
+//categories
+.categories {
+  @extend .home-section;
+  background-image: url("../Assets/squiggle-background\ 1.svg");
+
+  .card {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+
+  img {
+    transition: all ease 0.3s;
+  }
+
+  img:hover {
+    transform: scale(1.1);
+  }
+}
+
+//best seller
+.trending {
+  background-image: url("../Assets/squiggle-background\ 1.svg");
+}
+
+.best-card {
+  span {
+    display: none;
+  }
+
+  &:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+    img {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    span {
+      display: block;
+    }
+  }
+}
+
+//carousel
+.carousel-item {
+
+  .user-review {
+    font-size: 20px;
+  }
+}
+
+//best product
+
+.mac-magnet {
+  position: relative;
+
+}
+
+.mac-magnet img {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  @include widthHeigt(70%, auto, 10px);
+  transition: opacity .3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.mac-magnet img:nth-child(2) {
+  opacity: 0;
+  transform: scale(0.8);
+
+}
+
+.mac-magnet:hover img:first-child {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.mac-magnet:hover img:nth-child(2) {
+  opacity: 1;
+  transform: scale(1);
+}
+
+//footer
+footer {
+
+  a,
+  i {
+    color: white;
+  }
+
+  a:hover,
+  i:hover {
+    color: #eab28a;
+  }
+
+}
+
+//about
+
+.hand-wave {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+
+  10%,
+  30%,
+  50%,
+  100% {
+    transform: rotate(0.0deg);
+  }
+
+  20%,
+  40% {
+    transform: rotate(-4.0deg);
+  }
+
+  60% {
+    transform: rotate(0.0deg);
+  }
+
+  10%,
+  30%,
+  50% {
+    transform: rotate(14.0deg);
+  }
+
+  20%,
+  40% {
+    transform: rotate(-8.0deg);
+  }
+}
+
+// marque
+
+.marquee {
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee div {
+  display: block;
+  width: 200%;
+  position: absolute;
+  overflow: hidden;
+  animation: marquee 20s linear infinite;
+}
+
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: -100%;
+  }
+
+}
+
+.gallery-box {
+  .card-body {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    display: none;
+  }
+
+  .categories-img {
+    position: relative;
+
+    ::after {
+      content: "";
+      position: absolute;
+      overflow: hidden;
+      top: 0;
+      left: -100%;
+      background: rgba(48, 48, 48, 0.496);
+      display: none;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    ::after {
+      left: 0;
+      display: block;
+    }
+
+    .card-body {
+      display: block;
+    }
+  }
+}
