@@ -1,0 +1,228 @@
+// Font Ekleme
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Timmana&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration:none;
+}
+
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: rgba(35,137,170,1);
+}
+
+ul{
+    li{color: white;
+    }
+}
+
+// Mixin functions
+@mixin mobil-bg($bg-url){
+    background: url($bg-url) no-repeat 0 0;
+    width: 200px;
+    height: 58px;
+    display: list-item;
+}
+
+@mixin burst-feature(){
+    height: 80px;
+    width: 80px;
+    background: red;
+    position: absolute;
+}
+
+@mixin discount-product($deg){
+    @include burst-feature();
+    content: "";
+    top: 0;
+    left: 0;
+    transform: rotate($deg);
+}
+
+@mixin small-circle($rem,$bord-px){
+    width: $rem;
+    height: $rem;
+    border: $bord-px solid white;
+}
+
+
+// Header
+header{
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    background: rgb(35,137,170);
+    background: radial-gradient(circle, rgba(35,137,170,1) 0%, rgba(36,43,161,1) 65%, rgba(24,218,5,1) 94%);
+}
+
+// Navbar
+.navbar-collapse{
+    text-align: end;
+    background-color: transparent;
+}
+
+.logo-img{
+    animation:logo-animation 3s linear 0.5s infinite;
+}
+
+.navbar-brand{
+    h1{
+        font-family: 'Timmana', sans-serif;
+        color:white;
+    }
+}
+
+.nav-item{
+    border-radius: 10px;
+    a{
+        color:white;
+    }
+    .nav-link{
+        cursor: pointer;
+    }
+    .nav-link.active{
+        color:rgb(14,229,20) !important;
+    }
+    &:hover{
+        transition: all 1s linear;
+        transform: scale(1.1);
+        background-color: white;
+        a{
+          color:$primary;
+        }
+    }
+}
+
+// Section Week
+.sect-headline{
+    border-bottom: 3px solid $secondary;
+}
+
+.section-border{
+    box-shadow: 21px 20px 14px 3px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    span{
+        font-weight: 700;
+    }
+    .first-product{
+        position: relative;
+        .burst{
+            top: 0;
+            right: -35px;
+            @include burst-feature();
+            &::before{
+                @include discount-product(30deg);
+            }
+            &::after{
+                @include discount-product(60deg);
+            }
+        }
+        img{
+            width: 270px;
+            border: 1px solid white;
+            border-radius: 10px;
+        }
+    }
+}
+
+// Section Dağcılık
+.card{
+    img{
+        width: 10rem;
+    }
+}
+
+// Section ads
+.ads{
+    background-image: url("../Assets/images/ts-bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+// Değerlendirme
+.point{
+    @include small-circle(9rem, 4px);
+}
+
+.number{
+    @include small-circle(2rem,1px);
+}
+
+// Footer
+footer{
+    .icon-list{
+        li{
+            &:hover{
+                background-color: white;
+                i{
+                    color: $primary;
+                }
+            }
+        }
+    }
+    a{
+        i{
+            font-size: 3em;
+        }
+        &:hover{
+            text-decoration: underline !important;
+        }
+    }
+    .mobil-1{
+        @include mobil-bg("https://cdn.dsmcdn.com/web/production/huaweiV2.svg");
+    }
+    .mobil-2{
+        @include mobil-bg("https://cdn.dsmcdn.com/web/production/iosV2.svg");
+    }
+    .mobil-3{
+        @include mobil-bg("https://cdn.dsmcdn.com/web/production/googleV2.svg");
+    }
+}
+
+// About Us
+
+.material-symbols-outlined {
+    font-size: 100px !important;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.logo-div{
+    @include small-circle(10rem, 1px);
+}
+
+// Animations
+@keyframes logo-animation{
+    0%{
+        transform:translateX(-50px)
+    }
+    50%{
+        transform:translateX(-25px)
+    }
+    100%{
+        transform:translateX(0px)
+    }
+}
+
+// Media
+
+@media (max-width: 992px) {
+    .navbar-collapse{
+        background-color: $primary;
+    }
+}
+
+@media (max-width: 1245px){
+    footer{
+        .mobil-list{
+            flex-direction: column;
+        }
+    }
+}

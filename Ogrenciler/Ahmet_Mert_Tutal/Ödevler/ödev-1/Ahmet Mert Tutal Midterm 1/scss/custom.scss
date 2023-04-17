@@ -78,36 +78,20 @@
   }
 
 }
-.item1-black{
-  &:active+input[type="checkbox"]+.item1-img2{
-    z-index: 999;
-  }
-}
+// .item1-black{
+//   &:active+input[type="checkbox"]+.item1-img2{
+//     z-index: 999;
+//   }
+// }
 
 
 .navbar .megamenu{ padding: 1rem; }
 
-/* ============ desktop view ============ */
 
 
   .navbar .has-megamenu{position:static!important;}
   .navbar .megamenu{left:400px; right:0; width:100%; margin-top:0;  }
-  .card{
-    border:0 !important;
-    border-radius: 5px;
-    img{
-      border-radius: 5px 5px 0 0 !important;
-    }
-    
-  .card-items{
-    @include transition(0.3s, ease-in-out);
-    @include card-hover(absolute,flex,center,0.5em,-46px,0,100%,0.5em,-1,center);
-  }
-  &:hover .card-items{
-    z-index: 1;
-    bottom: 0;
-  }
-}
+
 .aboutUs-container{
 .omnichanel{
   .list-area{
@@ -177,11 +161,101 @@
   }
 }
 
+ .mega-right{
+  cursor: pointer;
+ }
+// hover-animation
+ .card-main{
+  box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.1);
+  &:hover{
+    box-shadow: 10px 10px 15px 15px rgba(0,0,0,0.1);
+    animation: card-animatiom 0.5s ease-in;
+  }
+  @keyframes card-animatiom {
+    0%{
+      transform: translateY(0px);
+    }
+    50%{
+      transform: translateY(-5px);
+    }
+    100%{
+      transform: translateY(0px);
+    }
+    
+  }
+ }
  
+ .card{
+  border:0 !important;
+  border-radius: 5px;
+  img{
+    border-radius: 5px 5px 0 0 !important;
+  }
+  
+.card-items{
+  @include transition(0.3s, ease-in-out);
+  @include card-hover(absolute,flex,center,0.5em,-26px,0,100%,0.5em,-1,center);
+}
+&:hover .card-items{
+  z-index: 1;
+  bottom: 0;
+}
+}
+
+.brand-img{
+  filter: grayscale(1);
+  &:hover{
+    filter: grayscale(0);
+    @include transition(0.3s, ease-in-out);
+  }
+}
+.text-reset {
+ 
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #3aea34;
+    transition: width 0.3s;
+  }
+  &:hover::after {
+    width: 25%;
+  }
+}
+
+  
+    .fa-facebook-f{
+      &:hover{
+        color: #3b5998;
+      }
+    }
+    .fa-twitter{
+      &:hover{
+        color: #1da1f2;
+      }
+    }
+    .fa-linkedin{
+      &:hover{
+        color: #0077b5;
+      }
+    }
+    .fa-instagram{
+      &:hover{
+        color: #e4405f;
+      }
+    }
+
+    .related-card{
+      box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.1);
+      border: 1px solid #7b7b7b;
+      border-radius: 5px;
+    }
+     
+  
 
 
 
-/* ============ desktop view .end// ============ */
 
 /* ============ mobile view ============ */
 @media(max-width: 991px){

@@ -1,0 +1,33 @@
+$primary: #ff5400;
+$secondary: #393e46;
+$info: #1a00bb;
+$dark: #070a0e;
+$light: #f2f2f2;
+
+body {
+  color: $light;
+}
+
+@mixin section-padding() {
+  padding: 80px 40px;
+  margin: 80px 0;
+}
+
+main {
+  .container {
+    .detail,
+    .prop {
+      @include section-padding();
+    }
+    .detail {
+      .detail-cnt {
+        padding: 0 50px;
+      }
+    }
+    .comment {
+      .comment-cnt {
+        padding: 40px;
+      }
+    }
+  }
+}

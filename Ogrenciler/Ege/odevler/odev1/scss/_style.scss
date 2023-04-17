@@ -1,6 +1,34 @@
 @import "./bs_overrides";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+// #region Mixin
+
+@mixin img-controls($max-width, $height) {
+  max-width: $max-width;
+  height: $height;
+}
+
+@mixin heading-controls($font-size, $transform) {
+  font-size: $font-size;
+  text-transform: $transform;
+}
+
+@mixin linear-gradient-controls($dir, $color1, $color2, $img) {
+  background-image: linear-gradient(to $dir, $color1, $color2), $img;
+}
+// #endregion
+
+// #region Extend
+
+.catgs-bg-img-details {
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+// #endregion
+
 // #region Global
 * {
   margin: 0;
@@ -32,7 +60,7 @@ a {
 
 .popular-products {
   h2 {
-    font-size: 42px;
+    @include heading-controls(42px, capitalize);
   }
   .card {
     background: transparent;
@@ -48,107 +76,65 @@ a {
     }
     img {
       transition: 0.5s all;
-      max-width: 300px;
-      height: 240px;
+      @include img-controls(300px, 240px);
       margin: 0 auto;
       animation: pulse-popular 2s infinite;
     }
   }
 }
 
-.quotes {
-  .quote-home {
-    font-style: italic;
-    transition: all 0.3s ease;
-
-    &.quote-left {
-      border-radius: 10px;
-      border-right: 2px solid white;
-      border-top: 2px solid white;
-      border-bottom: 2px solid white;
-      &:hover {
-        border-color: $info;
-        box-shadow: 0px 0px 5px 2px rgba(252, 194, 0, 0.5);
-      }
-    }
-    &.quote-right {
-      border-radius: 10px;
-      border-left: 2px solid white;
-      border-top: 2px solid white;
-      border-bottom: 2px solid white;
-      &:hover {
-        border-color: $info;
-        box-shadow: 0px 0px 5px 2px rgba(252, 194, 0, 0.5);
-      }
-    }
-  }
-}
-
 .product-categories {
   h2 {
-    font-size: 42px;
+    @include heading-controls(42px, capitalize);
   }
   .col-lg-4 {
     overflow: hidden;
-    transition: 0.3s all;
 
     h2 {
-      text-transform: uppercase;
-      font-size: 74px;
+      @include heading-controls(74px, uppercase);
       padding: 10px;
     }
 
     .cat {
       overflow: hidden;
-    }
+      transition: 0.3s all;
 
-    &:hover {
-      transform: scale(1.05);
+      &:hover {
+        transform: scale(1.05);
+      }
     }
 
     &:first-child {
       .cat {
-        background-image: linear-gradient(
-            to bottom,
-            rgba(253, 245, 230, 0.52),
-            rgba(35, 41, 122, 0.73)
-          ),
-          url(../assets/wow_bg.jpg);
-        height: 600px;
-        // background: url(../assets/wow_bg.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+        @include linear-gradient-controls(
+          bottom,
+          rgba(253, 245, 230, 0.52),
+          rgba(35, 41, 122, 0.73),
+          url(../assets/wow_bg.jpg)
+        );
+        @extend .catgs-bg-img-details;
       }
     }
     &:nth-child(2) {
       .cat {
-        background-image: linear-gradient(
-            to bottom,
-            rgba(253, 245, 230, 0.52),
-            rgba(35, 41, 122, 0.73)
-          ),
-          url(../assets/skyrim_bg.jpg);
-        height: 600px;
-        // background: url(../assets/skyrim_bg.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+        @include linear-gradient-controls(
+          bottom,
+          rgba(253, 245, 230, 0.52),
+          rgba(35, 41, 122, 0.73),
+          url(../assets/skyrim_bg.jpg)
+        );
+        @extend .catgs-bg-img-details;
       }
     }
     &:last-child {
       .cat {
-        background-image: linear-gradient(
-            to bottom,
-            rgba(253, 245, 230, 0.52),
-            rgba(35, 41, 122, 0.73)
-          ),
-          url(../assets/anime_bg.jpg);
-        height: 600px;
-        // background: url(../assets/anime_bg.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+        @include linear-gradient-controls(
+          bottom,
+          rgba(253, 245, 230, 0.52),
+          rgba(35, 41, 122, 0.73),
+          url(../assets/anime_bg.jpg)
+        );
+        @extend .catgs-bg-img-details;
       }
     }
   }
@@ -156,20 +142,20 @@ a {
 
 .contact-us {
   h2 {
-    font-size: 42px;
+    @include heading-controls(42px, capitalize);
     padding: 10px;
   }
 }
 
 .carousel-inner {
   img {
+    @include img-controls(100%, 90vh);
     margin: 0 auto;
-    height: 90vh;
   }
 
   .carousel-caption {
     h5 {
-      font-size: 32px;
+      @include heading-controls(32px, capitalize);
     }
   }
 }
@@ -209,12 +195,12 @@ a {
 
 // #region About Us
 .about-title {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(253, 245, 230, 0.52),
-      rgba(35, 41, 122, 0.73)
-    ),
-    url(../assets/maxresdefault.jpg);
+  @include linear-gradient-controls(
+    bottom,
+    rgba(253, 245, 230, 0.52),
+    rgba(35, 41, 122, 0.73),
+    url(../assets/maxresdefault.jpg)
+  );
   background-size: cover;
   padding: 10rem;
 }
@@ -236,10 +222,9 @@ a {
 
 .flex-row-reverse {
   .quote {
+    @extend .quote;
     border-right: none;
     border-left: 2px solid $info;
-    color: $info;
-    font-style: italic;
   }
 }
 
@@ -247,16 +232,13 @@ a {
 
 // #region Product Details
 .product-area {
-  padding: 120px 0;
   .product-img {
     img {
-      max-height: 500px;
-      height: 600px;
+      @include img-controls(100%, 600px);
       transition: 0.3s all;
     }
     &:hover {
       img {
-        // filter: drop-shadow(30px 10px 4px rgba(95, 158, 160, 0.5));
         filter: drop-shadow(0px 0px 10px rgba(95, 158, 160, 0.5));
         transform: scale(1.15);
       }
@@ -309,9 +291,9 @@ a {
 // #region Shared Components
 
 header {
-  position: fixed;
-  z-index: 100;
-  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 3;
   .navbar {
     .navbar-brand {
       color: $secondary;
@@ -380,7 +362,7 @@ footer {
       background-color: $info;
       left: 0;
       bottom: -2px;
-      transition: 0.4s all;
+      transition: 0.3s all;
     }
   }
 
@@ -395,7 +377,6 @@ footer {
 
 // #endregion
 
-// #region Keyframes
 @keyframes pulse-popular {
   0% {
     transform: scale(0.98) translateY(-5px);
@@ -413,12 +394,22 @@ footer {
   }
 }
 
-// #endregion
-
 @media screen and (max-width: 992px) {
   footer {
     .col-lg-4 {
       border: none;
+    }
+  }
+
+  .about-content {
+    article {
+      max-width: 100%;
+    }
+  }
+
+  .carousel-inner {
+    img {
+      @include img-controls(100%, 25vh);
     }
   }
 }

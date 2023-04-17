@@ -10723,6 +10723,14 @@ body {
   background-color: #F0F0F0;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+}
+
 /* ⁡⁢⁣⁢--- MIXINS ---⁡ */
 /* ⁡⁢⁣⁢--- ANIMATIONS ---⁡ */
 @keyframes MoveCar {
@@ -11060,6 +11068,49 @@ footer .footer-social a:hover {
   gap: 40px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
   margin-bottom: 40px !important;
+}
+
+.comments {
+  padding: 30px 0;
+}
+.comments .comments-inner {
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  gap: 40px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+}
+.comments .comments-inner .comments-first img {
+  width: 25%;
+}
+.comments .comments-inner .comments-first p span {
+  color: blue;
+  font-weight: 600;
+}
+.comments .comments-inner .comments-first button {
+  margin: 10px;
+}
+.comments .comments-inner .comments-second p {
+  font-size: 20px;
+}
+.comments .comments-inner .comments-second p i {
+  font-size: 24px;
+}
+.comments .comments-inner .comments-second h1, .comments .comments-inner .comments-second .h1 {
+  font-size: 60px;
+}
+
+@media only screen and (max-width: 992px) {
+  .comments-first img {
+    width: 100% !important;
+  }
+  .comments-second {
+    justify-content: center;
+    align-items: center;
+  }
+  .comments-second td {
+    padding: 0 10px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
