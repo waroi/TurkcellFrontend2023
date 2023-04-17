@@ -43,6 +43,12 @@ ul{
     transform: rotate($deg);
 }
 
+@mixin small-circle($rem,$bord-px){
+    width: $rem;
+    height: $rem;
+    border: $bord-px solid white;
+}
+
 
 // Header
 header{
@@ -56,6 +62,7 @@ header{
 // Navbar
 .navbar-collapse{
     text-align: end;
+    background-color: transparent;
 }
 
 .logo-img{
@@ -138,9 +145,11 @@ header{
 
 // Değerlendirme
 .point{
-    width: 7rem;
-    height: 7rem;
-    border: 4px solid white;
+    @include small-circle(9rem, 4px);
+}
+
+.number{
+    @include small-circle(2rem,1px);
 }
 
 // Footer
@@ -185,6 +194,9 @@ footer{
     'opsz' 48
 }
 
+.logo-div{
+    @include small-circle(10rem, 1px);
+}
 
 // Animations
 @keyframes logo-animation{
@@ -200,6 +212,12 @@ footer{
 }
 
 // Media
+
+@media (max-width: 992px) {
+    .navbar-collapse{
+        background-color: $primary;
+    }
+}
 
 @media (max-width: 1245px){
     footer{
