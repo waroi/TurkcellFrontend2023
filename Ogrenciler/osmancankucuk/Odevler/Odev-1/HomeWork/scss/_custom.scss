@@ -1,0 +1,407 @@
+$gray: rgb(226, 225, 225);
+$creme: rgb(255, 241, 230);
+
+$orange: #d58d06;
+* {
+  font-family: "Noto Sans", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+ul {
+  list-style-type: none;
+}
+body {
+  background-color: $gray;
+}
+
+@mixin fontSizeMaker($weight, $size, $lineheight) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lineheight;
+}
+@mixin imageMaker(
+  $backgroundUrl,
+  $height,
+  $backgroundSize,
+  $backgroundPosition
+) {
+  background: url($backgroundUrl);
+  height: $height;
+  background-size: $backgroundSize;
+  background-position: $backgroundPosition;
+}
+@mixin fontSizeMaker($fontWeight, $fontSize, $lineHeight) {
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+header {
+  @include fontSizeMaker(500, 0.8em, 3em);
+  i {
+    @include fontSizeMaker(400, 1em, 1em);
+  }
+}
+nav {
+  .lang {
+    color: white;
+
+    &:hover {
+      color: rgb(208, 203, 203);
+    }
+  }
+  .navLanguage {
+    a {
+      @include fontSizeMaker(400, 0.8em, 1em);
+      padding: 0 0.5em;
+    }
+  }
+  .navSections {
+    @include fontSizeMaker(700, 0.75em, 1em);
+    letter-spacing: 1px;
+  }
+  a {
+    &:hover {
+      color: orange;
+    }
+  }
+  .canvasNav {
+    border: 1px solid gray;
+  }
+  .canvasProfile {
+    .canvasImage {
+      img {
+        background-size: cover;
+        background-position: center;
+        height: 40px;
+        width: 40px;
+      }
+    }
+    .userInfo {
+      h6,
+      p {
+        line-height: 5px;
+      }
+    }
+  }
+  .navImg {
+    @include imageMaker("../images/osmancankucuk.jpg", 35px, cover, center);
+    width: 35px;
+    border-radius: 50%;
+  }
+}
+
+.offcanvas-body {
+  a {
+    &:hover {
+      border-bottom: 1px solid #d58d06;
+      color: #d58d06;
+    }
+  }
+}
+.carouselMan {
+  background-image: url("../images/man.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 35em;
+  h1 {
+    @include fontSizeMaker(800, 3em, 1em);
+  }
+}
+.carouselWoman {
+  background-image: url("../images/woman.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 35em;
+  h1 {
+    @include fontSizeMaker(800, 3em, 1em);
+  }
+}
+.carousel-inner {
+  h1 {
+    color: white;
+  }
+  :hover {
+    .menTag {
+      color: #d58d06;
+    }
+    .womenTag {
+      color: #c9a0dc;
+    }
+  }
+}
+//Carousel'i ozellestirmek icin important kullandim.
+.carousel-indicators {
+  button {
+    height: 13px !important;
+    width: 13px !important;
+    border-radius: 50%;
+    background-color: rgb(103, 102, 102) !important;
+    margin-right: 1.5em !important;
+  }
+  button:focus {
+    background-color: orange !important;
+  }
+}
+#collage-section {
+  width: 100%;
+  padding: 5em 0;
+}
+.mini-image,
+.big-image {
+  &:hover {
+    transition: all 150ms linear 0s;
+    box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.5);
+  }
+}
+.first-col-first {
+  @include imageMaker(
+    "https://img-phantomcolumbia.mncdn.com/static/test/essentialdesk.jpg",
+    350px,
+    cover,
+    center
+  );
+}
+.first-col-second {
+  @include imageMaker(
+    "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_800,w_800/trTR/Images/ss23-bape-campus-tease-non-confirmed-hp-tc-d_tcm201-1002673.jpg",
+    350px,
+    cover,
+    center
+  );
+}
+.second-col-first {
+  @include imageMaker("../images/womenshirt.jpg", 100%, cover, center);
+}
+.third-col-first {
+  @include imageMaker(
+    "https://preview.colorlib.com/theme/miniblog/images/img_3.jpg",
+    350px,
+    cover,
+    center
+  );
+}
+.third-col-second {
+  @include imageMaker(
+    "https://img-phantomcolumbia.mncdn.com/static/test/technologyD.jpg",
+    350px,
+    cover,
+    center
+  );
+}
+#joinClubSection {
+  @include imageMaker(
+    "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/trTR/Images/brand-ss22-membersweek-launch-eclp-statement-thecollective-3-d_tcm201-858212.jpg",
+    100%,
+    cover,
+    center
+  );
+}
+#chooseSizeSection {
+  background-color: #e3d5d5;
+  .womanFashion {
+    .chooseSize {
+      display: none;
+      position: absolute;
+      bottom: 3px;
+      left: 12px;
+      padding: 1em 3em;
+      animation: size-animation 0.5s ease-in-out forwards alternate;
+      li {
+        border: 1px solid gray;
+        height: 30px;
+        width: 30px;
+      }
+    }
+    &:hover {
+      .chooseSize {
+        display: block;
+        li:hover {
+          background-color: white;
+          color: rgb(34, 139, 34) !important;
+          border: none;
+        }
+      }
+    }
+  }
+  .womanFashion-2 {
+    @extend .womanFashion;
+  }
+}
+
+#formSection {
+  @include imageMaker("../images/formImage.jpg", 100%, cover, top);
+  background-attachment: fixed;
+  .colorImage {
+    background-color: rgba(44, 54, 63, 0.6);
+  }
+}
+#newsSection {
+  background-color: #f4ebdf;
+  .newsImageWoman {
+    @include imageMaker("../images/pexels-woman.jpg", 400px, cover, center);
+  }
+  .newsImageEyes {
+    @include imageMaker("../images/eyes.jpg", 200px, cover, center);
+  }
+  .palm {
+    @include imageMaker("../images/palm.jpg", 200px, cover, center);
+  }
+}
+.writerUser {
+  .userImage {
+    img {
+      background-size: cover;
+      background-position: center;
+      height: 40px !important;
+      width: 40px !important;
+    }
+  }
+  .userInfo {
+    h6,
+    p {
+      line-height: 5px;
+    }
+  }
+}
+footer {
+  // background: linear-gradient(0.25turn, #dcd6d6, #4c4949, #1b1a1a);
+  a {
+    color: rgb(230, 220, 220);
+  }
+  .footerTop {
+    border-bottom: 1px solid rgb(230, 220, 220);
+  }
+}
+
+//AboutUs Section
+
+.aboutUsPic {
+  height: 768px;
+  background-image: linear-gradient(
+    90deg,
+    rgb(24, 22, 22) 65%,
+    #d58d06 65%,
+    #d58d06 100%
+  );
+  .navBarAbout {
+    padding: 1em 0;
+    width: 100%;
+    position: fixed;
+    transition-duration: 500ms;
+    z-index: 2;
+  }
+  .aboutUsMain {
+    padding: 8em 0;
+
+    h1 {
+      font-size: 40px;
+    }
+    .animationText {
+      font-weight: 800;
+      font-size: 65px;
+      width: 100%;
+      white-space: nowrap;
+
+      overflow: hidden;
+      background: linear-gradient(
+        to right,
+        red 5%,
+        orange 30%,
+        yellow 45%,
+        green 60%,
+        cyan 75%,
+        blue 87.5%,
+        purple 100%
+      );
+      border-radius: 10px;
+
+      animation: typing 1.5s steps(13), cursor 1s step-end infinite alternate;
+    }
+  }
+  .navColored {
+    background-color: white;
+  }
+}
+.aboutLogo {
+  img {
+    animation: logo-animation 4s linear infinite alternate;
+  }
+}
+
+.faqList {
+  div {
+    font-size: 14px;
+    padding: 0.5em;
+    border-radius: 5px;
+    font-weight: 500;
+    &:hover {
+      background-color: #f3f3f3;
+    }
+  }
+  .activeItem {
+    background-color: $creme;
+  }
+}
+.faqTitle {
+  background-color: $creme;
+  border-radius: 5px;
+}
+.cardTextFont {
+  @include fontSizeMaker(500, 13px, 1.5em);
+}
+.modalComments {
+  height: 200px;
+}
+.modalChooseSize {
+  li {
+    border: 1px solid white;
+    height: 30px;
+    width: 30px;
+    &:hover {
+      background-color: white;
+      color: $orange !important;
+      border: none;
+    }
+  }
+}
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0%;
+  }
+}
+
+@keyframes size-animation {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-30px);
+  }
+}
+@keyframes logo-animation {
+  0% {
+    transform: translateX(45px);
+  }
+
+  100% {
+    transform: translateX(-25px);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .second-col-first {
+    height: 800px;
+    margin: 2em 0;
+  }
+  .animationText {
+    font-size: 50px !important;
+  }
+}
