@@ -168,15 +168,17 @@
     <section class="bg-light">
         <div class="container pb-5">
             <div class="row">
-                <div class="col-lg-5 mt-5">
+                <div class="col-lg-5 mt-5 ">
                     <div class="card mb-3">
-                        <img class="card-img img-fluid item1-img" src="./items/d-10.jpg" alt="Card image cap" id="product-detail">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade  " id="black" role="" aria-labelledby="item1-black" tabindex="0"><img class="card-img img-fluid item1-img" src="./items/d-10-2.jpg" alt="Card image cap" id="product-detail"></div>
+                            <div class="tab-pane fade  show active" id="green" role="" aria-labelledby="item1-green" tabindex="0"><img class="card-img img-fluid item1-img" src="./items/d-10.jpg" alt="Card image cap" id="product-detail"></div>
+                            <div class="tab-pane fade  " id="white" role="" aria-labelledby="item1-white" tabindex="0"><img class="card-img img-fluid item1-img" src="./items/hp-1.jpg" alt="Card image cap" id="product-detail"></div>
                         
-
-
                     </div>
+               
 
-                    <div class="row">
+                    <div class="row mt-4">
 
                         <div class="col-1 align-self-center">
                             <a href="#multi-item-example" role="button" data-bs-slide="prev">
@@ -241,6 +243,7 @@
 
                     </div>
                 </div>
+            </div>
 
                 <div class="col-lg-7 mt-5">
                     <div class="card">
@@ -299,17 +302,12 @@
                                                 <div class="row">
                                                     <div class="col-auto">
                                                         <ul class="list-inline pb-3">
-                                                            <li class="list-inline-item">Color :
-                                                                <input type="hidden" name="product-size" id="product-size" value="S">
-                                                            </li>
-                                                         
-                                                            <input type="checkbox" class="btn-check  item1-black" id="btn-check" autocomplete="off">
-                                                            <label class="btn btn-primary" for="btn-check">Black</label>
-                                                            <input type="checkbox" class="btn-check  item1-white" id="btn-check" autocomplete="off">
-                                                            <label class="btn btn-primary" for="btn-check">White</label>
-                                                            <input type="checkbox" class="btn-check  item1-green" id="btn-check" autocomplete="off">
-                                                            <label class="btn btn-primary" for="btn-check">Military Green</label>
-
+                                                            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                                                <li class="list-inline-item"> Color :
+                                                                <li class="nav-item" role="presentation"><button class="nav-link " id="item1-black" data-bs-toggle="pill" data-bs-target="#black" type="button" role="tab" aria-selected="true" aria-controls="pills-black">Black</button></li>
+                                                                <li class="nav-item" role="presentation"><button class="nav-link" id="item1-white" data-bs-toggle="pill" data-bs-target="#white" type="button" role="tab" aria-selected="false" aria-controls="pills-white">White</button></li>
+                                                                <li class="nav-item" role="presentation"><button class="nav-link active" id="item1-green" data-bs-toggle="pill" data-bs-target="#green" type="button" role="tab" aria-selected="false" aria-controls="pills-green">Military Green</button></li>
+                                                            </ul>
                                                         </ul>
                                                     </div>
                                                     <div class="col-auto">
