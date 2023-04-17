@@ -20,6 +20,7 @@
   box-shadow: $b-shw;
 }
 h1 {
+  z-index: 101;
   --x-offset: -0.0625em;
   --y-offset: 0.0625em;
   --stroke: 0.025em;
@@ -38,6 +39,22 @@ h1 {
       font-family: 'Alkatra', cursive;
      }
 }
+.header-hover-animation{
+position: relative;
+&::after{
+  @include gradient-mixin($danger,absolute ,100% ,3px ,"" );
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-out;  
+}
+&:hover::after{
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  background-color: $secondary;
+}
+}
 .header-content{
   @include gradient-mixin(url(../img/AnyFaithfulHylaeosaurus-size_restricted.gif),relative ,inherit ,inherit,inherit);
   &::before{
@@ -48,6 +65,11 @@ h1 {
   @include transition-mixin(all 0.7s ease-in,1px solid var(--secondary-bg-color),0px 2px 12px 0px rgba(54, 54, 54, 0.75));
   &:hover{
     background: $primary !important;
+  }
+}
+.pulse-animation{
+  &:hover{
+    animation: pulse-animation 2s infinite;
   }
 }
 .moto-card{
@@ -85,6 +107,7 @@ h1 {
   }
 }
 //homepage end
+
 //cafe racers page
 .caferacers-header-content{
   @include gradient-mixin(url(https://images.pexels.com/photos/872732/pexels-photo-872732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1),relative ,inherit ,inherit,inherit);
@@ -109,6 +132,7 @@ h1 {
   }
 }
 //cafe racers page end
+
 //aboutus start
 .logo-area{
   img{
@@ -119,15 +143,28 @@ h1 {
     }
   }
 }
-
+//about us end
 @media screen and (max-width:992px) {
   .middle-navbar{
     background: var(--bs-background-color);
+    border-radius: 20px !important;
     li{
       a{
-        color: $primary;
+        color: $primary ;
       }
     }
   }
- 
+}
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px $secondary;
+  }
+  50%{
+    transform: rotate(180deg);
+    box-shadow: 0px 0px 31px 15px $secondary;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 0 0 0 0px $secondary;
+  }
 }
