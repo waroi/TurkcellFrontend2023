@@ -11246,6 +11246,42 @@ a {
   border-bottom-left-radius: 1rem !important;
 }
 
+.scooter {
+  width: 300px;
+  animation: vespa 10s infinite linear;
+}
+.scooter .vespa {
+  z-index: 3;
+}
+.scooter .wheel {
+  width: 80px;
+  animation: wheel 1s infinite linear;
+}
+.scooter .rear {
+  left: 13px;
+  bottom: -24px;
+}
+.scooter .front {
+  left: 231px;
+  bottom: -24px;
+}
+
+@keyframes vespa {
+  0% {
+    transform: translateX(-330px);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+@keyframes wheel {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @media screen and (max-width: 992px) {
   #hero {
     height: 300px;
