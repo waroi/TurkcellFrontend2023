@@ -89,7 +89,6 @@ a {
   }
   .col-lg-4 {
     overflow: hidden;
-    transition: 0.3s all;
 
     h2 {
       @include heading-controls(74px, uppercase);
@@ -98,10 +97,11 @@ a {
 
     .cat {
       overflow: hidden;
-    }
+      transition: 0.3s all;
 
-    &:hover {
-      transform: scale(1.05);
+      &:hover {
+        transform: scale(1.05);
+      }
     }
 
     &:first-child {
@@ -409,7 +409,7 @@ footer {
 
   .carousel-inner {
     img {
-      @include img-controls(100%, 50vh);
+      @include img-controls(100%, 25vh);
     }
   }
 }

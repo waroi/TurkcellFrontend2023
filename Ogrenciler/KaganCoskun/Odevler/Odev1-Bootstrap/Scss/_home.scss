@@ -1,0 +1,193 @@
+body{
+    font-family:'Inter', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+
+.logo{
+    width:170px
+}
+
+.voted{
+    color: #f69f29;
+}
+
+@mixin cardButton(){
+    .btn{
+                transition: all .3s ease;
+            }
+
+            &:hover{           
+                 .btn{             
+                opacity: 1 !important;
+                transition: all .3s ease;
+                }
+            }
+}
+
+#hero{
+    background-image: url("../Assets/hero1.jpg");
+    width: 100%;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 65%;
+
+    .bg-shadow{
+        background-color: rgba(0, 0, 0, 0.26);
+        top: 0;
+        left: 0;  
+    }
+}
+#combine{
+    .card{ 
+        img:nth-child(2){
+            display: none;
+        }
+        @include cardButton();
+        &:hover{  
+            img{
+                &:nth-child(1){
+                    display: none;
+                }
+                &:nth-child(2){
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+#products{
+    @mixin productFilter($dmotor,$dclothes){
+        &:checked ~ .motors{
+            display: $dmotor !important;
+        }
+        &:checked ~ .clothes{
+            display: $dclothes !important;
+        }
+    }
+
+    #motors{
+        @include productFilter(flex,none);
+    }
+    #clothes{
+        @include productFilter(none,flex);
+    } 
+
+
+    .col-5,.col-2{
+        transition: all .3s ease;
+        &:hover{
+            .filter{
+                background-color: $primary !important;
+                transition: all .3s ease;
+            }
+        }
+    }
+
+    @mixin motorColor($child){
+        &:checked ~ .card img:nth-child(#{$child}){
+            opacity: 1 !important;
+        }
+    }
+
+    #motor1black{@include motorColor(2)}
+
+    #motor2blue{@include motorColor(2)}
+    #motor2yellow{@include motorColor(3)}
+
+    #motor3black{@include motorColor(2)}
+    #motor3gray{@include motorColor(3)}
+
+    .motor-color{
+        width: 25px;
+        height: 25px;
+        transition: transform .3s ease-in-out;
+    &:hover{
+        transform: scale(1.3);
+        transition: transform .3s ease-in-out;
+        }
+    }
+
+    .clothes{
+        .card{
+            @include cardButton();
+        }
+    }
+
+    .discount{
+        top: 30px;
+        right: 20px;
+        
+        animation: discount 1.5s infinite linear;
+    }
+
+    @keyframes discount {
+        0% {
+          transform: scale(1) rotate(30deg);
+        }
+        50% {
+           transform: scale(1.2) rotate(35deg);
+        }
+        100% {
+           transform: scale(1) rotate(30deg);
+        }
+      }
+}
+
+#banner{
+    background-image: url("../Assets/banner.webp");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#footer{
+    .btn{
+        border-top-right-radius: 0 !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-right-radius: 1rem !important;
+        border-bottom-left-radius:1rem !important;
+    }
+}
+
+.scooter{
+    width: 300px;
+    animation: vespa 10s infinite linear;
+    .vespa{
+        z-index: 3;
+    }
+    .wheel{
+        width: 80px;
+        animation: wheel 1s infinite linear;
+    }
+    .rear{
+        left: 13px;
+        bottom: -24px;
+    }
+    .front{
+        left: 231px;
+        bottom: -24px;
+    }
+}
+
+@keyframes vespa {
+    0% {
+      transform: translateX(-330px);
+    }
+    100% {
+      transform: translateX(100vw);
+    }
+  }
+  
+  @keyframes wheel {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

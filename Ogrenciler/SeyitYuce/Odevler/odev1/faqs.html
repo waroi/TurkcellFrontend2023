@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="./css/main.css" />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Document</title>
+    <title>FAQs</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-primary position-sticky top-0">
-      <div class="container">
+      <div class="container col-10">
         <a class="navbar-brand text-danger" href="./index.html"
           >Celestial Estate</a
         >
@@ -30,7 +31,10 @@
         >
           <span class="navbar-toggler-icon text-danger bg-danger"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNavDropdown"
+        >
           <ul class="navbar-nav">
             <li class="nav-item">
               <a
@@ -41,39 +45,18 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-danger" href="#">Features</a>
+              <a class="nav-link text-danger" href="#products">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-danger" href="#">Pricing</a>
+              <a class="nav-link text-danger" href="#popular">Popular</a>
             </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle text-danger"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+            <li class="nav-item">
+              <a class="nav-link text-danger" href="#planetary"
+                >Planetary Systems</a
               >
-                Dropdown link
-              </a>
-              <ul class="dropdown-menu bg-primary">
-                <li>
-                  <a class="dropdown-item text-danger" href="#">Action</a>
-                </li>
-                <li>
-                  <a class="dropdown-item text-danger" href="#"
-                    >Another action</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item text-danger" href="#"
-                    >Something else here</a
-                  >
-                </li>
-              </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-primary btn btn-danger order-1" href="#"
+              <a class="nav-link btn btn-danger" href="./singin.html"
                 >Sing In</a
               >
             </li>
@@ -81,18 +64,20 @@
         </div>
       </div>
     </nav>
-    <section>
+    <section class="bg-secondary">
       <div class="container">
-        <h2 class="text-center">Frequently Asked Questions (FAQs):</h2>
+        <h2 class="text-center text-warning">
+          Frequently Asked Questions (FAQs)
+        </h2>
         <input
-          class="form-control"
+          class="form-control my-5"
           id="myInput"
           type="text"
           placeholder="Search.."
         />
-        <br />
+
         <ul class="list-group" id="myList">
-          <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion" id="accordionOpen">
             <li class="accordion-item list-group-item">
               <h2 class="accordion-header">
                 <button
@@ -108,8 +93,8 @@
               </h2>
               <div
                 id="collapseOne"
-                class="accordion-collapse collapse show"
-                data-bs-parent="#accordionExample"
+                class="accordion-collapse"
+                data-bs-parent="#main-accordion"
               >
                 <div class="accordion-body">
                   Yes, at Celestial Estate, you can legally own a planet. We
@@ -135,7 +120,7 @@
               <div
                 id="collapseTwo"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#main-accordion"
               >
                 <div class="accordion-body">
                   Our team of experts carefully curates planets from trusted
@@ -148,7 +133,7 @@
             <li class="accordion-item list-group-item">
               <h2 class="accordion-header">
                 <button
-                  class="accordion-button collapsed h5"
+                  class="accordion-button collapse h5"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseThree"
@@ -161,7 +146,7 @@
               <div
                 id="collapseThree"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#main-accordion"
               >
                 <div class="accordion-body">
                   Each planet purchase includes a personalized deed of
@@ -187,7 +172,7 @@
               <div
                 id="collapseFour"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#main-accordion"
               >
                 <div class="accordion-body">
                   As of now, interstellar travel is not yet possible for humans.
@@ -213,7 +198,7 @@
               <div
                 id="collapseFive"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#main-accordion"
               >
                 <div class="accordion-body">
                   Yes, owning a planet can make a unique and thoughtful gift.
@@ -238,7 +223,7 @@
               <div
                 id="collapseSix"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#main-accordion"
               >
                 <div class="accordion-body">
                   Absolutely! We take the security of your transactions and
@@ -263,7 +248,7 @@
               <div
                 id="collapseEight"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#main-accordion"
               >
                 <div class="accordion-body">
                   Yes, we offer international shipping to most countries. Please
@@ -288,7 +273,7 @@
               <div
                 id="collapseSeven"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#main-accordion"
               >
                 <div class="accordion-body">
                   Due to the unique nature of owning a planet, we do not offer
@@ -314,7 +299,7 @@
               <div
                 id="collapseNine"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#main-accordion"
               >
                 <div class="accordion-body">
                   While you cannot officially change the name of a planet, as
@@ -342,7 +327,7 @@
               <div
                 id="collapseTen"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#main-accordion"
               >
                 <div class="accordion-body">
                   Yes, we are committed to promoting space education. We provide

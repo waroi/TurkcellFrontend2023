@@ -17,6 +17,34 @@ $product-card-max-width: 250px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3) !important;
   }
 }
+@mixin button-style {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #000;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+  }
+  &:hover::before {
+    left: 0;
+  }
+  &:hover {
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+  }
+}
 body {
   font-family: Arial, sans-serif;
 }
@@ -69,38 +97,12 @@ body {
         color: $tertiary-color;
       }
       .sbtn {
-        background-color: #000;
-        color: #fff;
-        border: 2px solid #000;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease-in-out;
-        z-index: 1;
+        @include button-style;
         border-radius: 5px;
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -100%;
-          height: 100%;
-          width: 100%;
-          background-color: #fff;
-          transition: all 0.3s ease-in-out;
-          z-index: -1;
-        }
-        &:hover::before {
-          left: 0;
-        }
-        &:hover {
-          background-color: #fff;
-          color: #000;
-          cursor: pointer;
-        }
       }
     }
   }
 }
-
 .products {
   padding: 60px 0;
   .product-card {
@@ -129,17 +131,10 @@ body {
       margin-bottom: 20px;
     }
     .btn {
-      background-color: $tertiary-color;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 20px;
-      &:hover {
-        background-color: darken($secondary-color, 10%);
-      }
+      @include button-style;
     }
   }
 }
-
 .collection {
   padding: 60px 0;
   display: flex;
@@ -395,48 +390,39 @@ body {
   margin: 1rem;
   max-width: $product-card-max-width;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
   .container {
     position: relative;
     display: inline-block;
-
     .image {
       display: block;
       width: 100%;
       height: auto;
       transition: transform 0.3s ease;
     }
-
     &:hover {
       .image {
         transform: scale(1.5);
       }
     }
   }
-
-
   .product-name {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
   }
-
   .product-description {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
   }
-
   .product-price {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
   }
-
   .product-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     .btn-add-to-cart {
       background-color: #000;
       color: #fff;
@@ -445,7 +431,6 @@ body {
       padding: 0.5rem 1rem;
       font-size: 1rem;
       transition: all 0.3s ease;
-
       &:hover {
         background-color: #fff;
         color: #000;
