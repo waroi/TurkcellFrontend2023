@@ -34,7 +34,7 @@
   </div>
 </nav>
 
-<section id="productDetail" class="p-section ">
+<section id="productDetail" class="py-section ">
 <div class="container">
     <div class="row g-5 justify-content-center">
         <div class="col-lg-5 col-sm-12  border-end ">
@@ -98,7 +98,7 @@
 </div>
 </section>
 
-<section id="recommended" class="p-section d-none d-lg-block">
+<section id="recommended" class="py-section d-none d-lg-block">
 <div class="container">
     <h3 class="text-center mb-3">Kullanıcılar Bunlarıda İnceledi</h3>
     <div id="carouselExample" class="carousel carousel slide">
@@ -364,15 +364,12 @@
         
       </div>
       <div class="col-lg-4">
-        <form class="row px-1 mx-1">
+        <form class="row px-1 mx-1 needs-validation" novalidate>
+          <input class="rounded-top form-control text-white bg-secondary border-0 p-2 text-center" id="getContact" required  type="text" placeholder="email@example.com">
+          <button class="btn btn-primary rounded-bottom " type="submit">Gönder</button>
           <div class="invalid-feedback">
             Lütfen Geçerli Bir Email Adresi Giriniz!
           </div>
-          <div class="valid-feedback">
-            Teşekkürler!
-          </div>
-          <input class="rounded-top text-white bg-secondary border-0 p-2 text-center" required  type="text" placeholder="email@example.com">
-          <button class="btn btn-primary rounded-bottom " type="submit">Gönder</button>
         </form>
       </div>
     </div>
@@ -405,6 +402,25 @@
         toastBootstrap.show()
       })
     }
+
+    (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
     </script>
  
 </body>
