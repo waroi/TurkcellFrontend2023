@@ -11,30 +11,57 @@ a {
   color: white !important;
 }
 
-::selection{
-  background: red;
-  color: yellow;
+.bg{
+  background-color: #d6e2e85f
 }
+
+nav{
+  .logo{
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-weight: 700;
+    transition: all .3s ease;
+    &:hover{
+      transform: scale(1.1);
+      transition: all .3s ease;
+    }
+  }
+  .navbar-nav{
+    a{
+      transition: all .5s ease;
+      &:hover{
+      box-shadow: 0 5px 15px -2px rgba(227, 226, 229, 0.326);
+       transition: all .5s ease;
+      }
+    }
+  }
+}
+
+::selection{
+  background: #A3EBB1;
+  color: #fff;
+}
+
 .intro-title {
   &:hover {
     color: $secondary;
+    transition: all .3s ease;
   }
 }
-#heroSlider{
-  top: 25px;
-}
-#newItems{
-  .card{
+
+.all-items {
+  .card {
     img {
-        transform: scale(1);
-        transition: opacity .3s ease, transform 3s cubic-bezier(.25, .46, .45, .94);
-        filter: grayscale(100%);
-        &:hover {
-          transform: scale(1.1);
-          filter: grayscale(0);
-        }
+      transform: scale(1);
+      transition: opacity .3s ease, transform 3s cubic-bezier(.25, .46, .45, .94);
+      filter: grayscale(100%);
+
+      &:hover {
+        transform: scale(1.1);
+        filter: grayscale(0);
+      }
     }
-    .card-body{
+
+    .card-body-wrap {
       background-color: #fff;
       margin: -3rem auto 0;
       min-height: 200px;
@@ -42,9 +69,14 @@ a {
       width: 85%;
       box-shadow: 0 5px 15px -2px rgba(101, 64, 183, 0.251);
       border-radius: 10px;
-      }
+    }
   }
 }
+
+#heroSlider{
+  top: 25px;
+}
+
 #designerItems{
   .designer-wrap {
       bottom: 25px;
@@ -65,6 +97,14 @@ a {
     transform: translate(-50%, -100px);
 
   }
+}
+
+#saleItem{
+  img{
+    border-top-right-radius: 60px;
+    filter: none;
+  }
+
 }
 
 #newsLetter{
@@ -125,6 +165,17 @@ a {
   }
 }
 
+#accordion{
+  .title {
+      transition: all .3s ease;
+  
+      &:hover {
+        color: $info;
+        transition: all .3s ease;
+      }
+    }
+}
+
 #designerİtemone{
   .title{
     transition: all .3s ease;
@@ -164,5 +215,14 @@ a {
         box-shadow: 0 5px 15px -2px rgba(126, 129, 129, 0.799);
       }
     };
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }

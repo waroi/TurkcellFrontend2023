@@ -11095,29 +11095,47 @@ a {
   color: white !important;
 }
 
+.bg {
+  background-color: rgba(214, 226, 232, 0.3725490196);
+}
+
+nav .logo {
+  font-family: "Sedgwick Ave Display", cursive;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+nav .logo:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+nav .navbar-nav a {
+  transition: all 0.5s ease;
+}
+nav .navbar-nav a:hover {
+  box-shadow: 0 5px 15px -2px rgba(227, 226, 229, 0.326);
+  transition: all 0.5s ease;
+}
+
 ::selection {
-  background: red;
-  color: yellow;
+  background: #A3EBB1;
+  color: #fff;
 }
 
 .intro-title:hover {
   color: #5885AF;
+  transition: all 0.3s ease;
 }
 
-#heroSlider {
-  top: 25px;
-}
-
-#newItems .card img {
+.all-items .card img {
   transform: scale(1);
   transition: opacity 0.3s ease, transform 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   filter: grayscale(100%);
 }
-#newItems .card img:hover {
+.all-items .card img:hover {
   transform: scale(1.1);
   filter: grayscale(0);
 }
-#newItems .card .card-body {
+.all-items .card .card-body-wrap {
   background-color: #fff;
   margin: -3rem auto 0;
   min-height: 200px;
@@ -11125,6 +11143,10 @@ a {
   width: 85%;
   box-shadow: 0 5px 15px -2px rgba(101, 64, 183, 0.251);
   border-radius: 10px;
+}
+
+#heroSlider {
+  top: 25px;
 }
 
 #designerItems .designer-wrap {
@@ -11143,6 +11165,11 @@ a {
   transition: all 0.8s ease;
   box-shadow: 0 5px 15px -2px rgba(220, 215, 231, 0.422);
   transform: translate(-50%, -100px);
+}
+
+#saleItem img {
+  border-top-right-radius: 60px;
+  filter: none;
 }
 
 #newsLetter h3, #newsLetter .h3 {
@@ -11201,6 +11228,14 @@ a {
   text-decoration: underline;
 }
 
+#accordion .title {
+  transition: all 0.3s ease;
+}
+#accordion .title:hover {
+  color: #67820D;
+  transition: all 0.3s ease;
+}
+
 #designerİtemone .title {
   transition: all 0.3s ease;
 }
@@ -11235,6 +11270,15 @@ a {
   filter: grayscale(0);
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px -2px rgba(126, 129, 129, 0.799);
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
