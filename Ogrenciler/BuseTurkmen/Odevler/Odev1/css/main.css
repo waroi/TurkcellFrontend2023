@@ -10739,7 +10739,7 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary.justify-content-center {
 }
 
 div#navbarSupportedContent {
-  margin-left: 100px;
+  margin-left: 80px;
 }
 
 ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
@@ -10747,13 +10747,12 @@ ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
 }
 
 ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
-  gap: 40px;
   font-size: 18px;
   font-family: "Rambla", sans-serif;
+  gap: 40px;
 }
 
 form.d-flex {
-  margin-left: 60px;
   width: 500px;
 }
 
@@ -10782,7 +10781,7 @@ ul.navbar-nav {
 .nav-item:hover {
   transition: transform 1s ease-in-out;
   transform-origin: 100% 50%;
-  background: linear-gradient(#f5a6be, #d099fa);
+  background: linear-gradient(#fdebb9, #e5c6fc);
 }
 
 nav.navbar.navbar-expand-lg.bg-body-tertiary {
@@ -10792,6 +10791,10 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary {
 .carousel-caption.d-none.d-md-block {
   background-color: rgba(128, 128, 128, 0.3294117647);
   margin-bottom: 50px;
+}
+
+.carousel-inner h5, .carousel-inner .h5 {
+  font-size: 30px;
 }
 
 section.kategoriler {
@@ -10816,9 +10819,14 @@ h2, .h2 {
 
 .kategoriler-imgs {
   display: grid;
-  justify-content: space-evenly;
-  padding-bottom: 30px;
   grid-template-columns: repeat(6, 1fr);
+  gap: auto;
+  padding-bottom: 30px;
+}
+
+.urunler .title {
+  margin: 40px;
+  border-bottom: 2px solid #978ea8;
 }
 
 .title {
@@ -10848,6 +10856,10 @@ h3, .h3 {
   margin-top: 200px;
 }
 
+.right-side-pro-detail h4, .right-side-pro-detail .h4 {
+  font-size: 24px;
+}
+
 h4, .h4 {
   font-size: 40px;
 }
@@ -10861,12 +10873,26 @@ section.py-8.bg-light {
   text-align: center;
 }
 
+@media screen and (max-width: 1200px) {
+  .row.row-cols-1.row-cols-md-4.g-2.justify-content-center {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: auto;
+    justify-items: center;
+  }
+}
 @media screen and (max-width: 992px) {
   .kategoriler-imgs {
     display: grid;
     justify-content: space-evenly;
     padding-bottom: 30px;
     grid-template-columns: 1fr 1fr;
+  }
+  .row.row-cols-1.row-cols-md-4.g-2.justify-content-center {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: auto;
+    justify-items: center;
   }
 }
 
