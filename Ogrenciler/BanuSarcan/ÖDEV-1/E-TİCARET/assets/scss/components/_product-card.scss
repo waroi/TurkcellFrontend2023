@@ -1,0 +1,110 @@
+/* SINGLE PRODUCT CARD */
+.product-card {
+  position: relative;
+  background: #fff;
+  border-radius: $radius;
+  overflow: hidden;
+  margin-bottom: 30px;
+  @include boxShadow();
+  &::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: 0;
+    background: $light-gray-color;
+    height: 300px;
+    width: 100%;
+    border-radius: 100%;
+    z-index: $z-index-1;
+  }
+  &:hover &-img img {
+    transform: scale(1) rotate(14deg);
+  }
+  .sale-box {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: $z-index-100;
+  }
+  &-img {
+    transition: $transition;
+    position: relative;
+    z-index: $z-index-50;
+    @include flex();
+    margin-top: 20px;
+    margin-bottom: 20px;
+    a {
+      width: 100%;
+      text-align: center;
+      img {
+        transition: $transition;
+        transform: scale(0.8);
+      }
+    }
+  }
+  &-body {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    &-title {
+      margin-bottom: 15px;
+      word-break: break-word;
+      h3 {
+        margin-bottom: 0;
+        font-size: $medium-size;
+        @include lineHeight($medium-size);
+      }
+      small {
+        color: $dark-gray-color;
+      }
+    }
+    &-size,
+    &-color {
+      margin-bottom: 15px;
+      p {
+        font-weight: $regular-bold;
+        margin-bottom: 0;
+      }
+    }
+
+    &-size {
+      a {
+        margin-right: 10px;
+        color: $dark-gray-color;
+        &:hover,
+        &.active {
+          color: $orange-color;
+        }
+      }
+    }
+    &-color {
+      .color-select {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50px;
+        border: 3px solid #fff;
+        @include boxShadow();
+
+        &:nth-child(2) {
+          background: #d90429;
+        }
+        &:nth-child(3) {
+          background: #83c5be;
+        }
+        &:nth-child(4) {
+          background: #8d99ae;
+        }
+        &:nth-child(5) {
+          background: #2b2d42;
+        }
+      }
+    }
+
+    .btn-orange-revert {
+      width: 100%;
+      font-weight: $regular-bold;
+      font-size: $medium-size;
+    }
+  }
+}

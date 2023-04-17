@@ -1,0 +1,151 @@
+.footer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 0.4rem;
+  background: $black-color;
+  margin-top: 150px;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 98px;
+    top: -96px;
+    left: 0;
+    background: url(../../assets/img/footer-wave.png) no-repeat center/cover;
+  }
+  &-logo {
+    @include flex($display: inline-flex, $jc: flex-start);
+    margin-bottom: 50px;
+    &:hover h5 {
+      color: $dark-gray-color;
+    }
+    img {
+      width: 60px;
+      height: auto;
+      margin-right: 14px;
+    }
+    h5 {
+      font-size: $bigger-size;
+      color: $white-color;
+      margin-bottom: 0;
+      font-weight: $semi-bold;
+      transition: $transition;
+    }
+  }
+  &-box {
+    margin-bottom: 20px;
+    @include mq("desktop") {
+      margin-bottom: 0;
+    }
+    h6 {
+      color: $light-gray-color;
+      font-weight: $regular-bold;
+      margin-bottom: 14px;
+      @include lineHeight($regular-size);
+    }
+    .text-box {
+      @include flex($display: inline-flex, $jc: flex-start, $ai: flex-start, $direction: column);
+      a {
+        display: inline-block;
+        &:hover {
+          color: $light-gray-color;
+        }
+      }
+    }
+  }
+  .text-box a,
+  &-text {
+    margin-bottom: 10px;
+    color: $dark-gray-color;
+    font-weight: $light-bold;
+    font-size: $smaller-size;
+    @include lineHeight($smaller-size);
+  }
+
+  .cs-input-box {
+    position: relative;
+    margin-bottom: 55px;
+    @include mq("desktop") {
+      margin-bottom: 0;
+    }
+
+    input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 10px 40px 10px 10px;
+      color: $dark-gray-color;
+      border-radius: $radius;
+      border: 1px solid $dark-gray-color;
+      overflow: hidden;
+      font-size: $smaller-size;
+      transition: $transition;
+      &:focus,
+      &:hover {
+        border-color: $white-color;
+        @include boxShadow($color: #ffffff2d);
+      }
+    }
+    button {
+      color: $dark-gray-color;
+      border: none;
+      background: transparent;
+      position: absolute;
+      right: 0;
+      top: 0px;
+      font-size: $big-size;
+      padding: 10px;
+      @include flex();
+      height: 43px;
+      border-top-right-radius: $radius;
+      border-bottom-right-radius: $radius;
+      transition: $transition;
+
+      &:hover {
+        color: $white-color;
+        background: #ffffff23;
+      }
+    }
+  }
+
+  hr {
+    background: $light-gray-color;
+    border-radius: $radius;
+  }
+  &-bottom {
+    font-size: $smaller-size;
+    text-align: center;
+    @include mq("desktop") {
+      text-align: initial;
+    }
+    &,
+    a {
+      color: $dark-gray-color !important;
+    }
+    &.navigate {
+      @include flex();
+    }
+    &.social-media {
+      @include flex($jc: center);
+      @include mq("desktop") {
+        @include flex($jc: flex-end);
+      }
+      a {
+        font-size: $medium-size;
+        margin-right: 12px;
+        @include mq("desktop") {
+          font-size: $medium-size;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        &:hover {
+          color: $light-gray-color !important;
+        }
+      }
+    }
+  }
+}
