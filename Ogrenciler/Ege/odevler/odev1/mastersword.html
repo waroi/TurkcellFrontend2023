@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <!-- Navbar Start -->
+    <!-- Navbar without search Start -->
     <header class="bg-primary">
       <div class="container">
         <nav class="navbar navbar-expand-lg">
@@ -37,9 +37,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="index.html"
-                    >Home</a
-                  >
+                  <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="faq.html">F.A.Q</a>
@@ -48,15 +46,14 @@
                   <a class="nav-link" href="about.html">About Us</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a
+                  <span
                     class="nav-link active"
-                    href="#"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Products
-                  </a>
+                  </span>
                   <ul class="dropdown-menu">
                     <li>
                       <a class="dropdown-item" href="frostmourne.html"
@@ -69,33 +66,39 @@
                       >
                     </li>
                     <li>
-                      <a class="dropdown-item active" href="#">Master Sword</a>
+                      <a
+                        class="dropdown-item active"
+                        aria-current="page"
+                        href="#"
+                        >Master Sword</a
+                      >
                     </li>
                   </ul>
                 </li>
+              </ul>
+              <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
                   <a class="nav-link"
                     ><i class="fa-regular fa-circle-user fa-xl"></i
                   ></a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link"
+                    ><i class="fa-solid fa-cart-shopping fa-xl"></i
+                  ></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"
+                    ><i class="fa-solid fa-heart fa-xl"></i
+                  ></a>
+                </li>
               </ul>
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-secondary" type="submit">
-                  Search
-                </button>
-              </form>
             </div>
           </div>
         </nav>
       </div>
     </header>
-    <!-- Navbar End -->
+    <!-- Navbar without search End -->
 
     <!-- Product Area Start -->
     <section class="product-area">
@@ -115,7 +118,7 @@
         </nav>
         <div class="row align-items-center">
           <div class="col-lg-7">
-            <div class="product-img text-center">
+            <div class="product-img text-center p-3">
               <img
                 src="./assets/BotW_Master_Sword_Artwork (Küçük).png"
                 alt=""
@@ -125,7 +128,7 @@
           </div>
           <div class="col-lg-5 px-5">
             <div class="product-txt">
-              <h2>Frostmourne</h2>
+              <h2>Master Sword</h2>
               <span>$69.99</span>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
@@ -412,7 +415,7 @@
               </div>
               <div class="col-md-6 offset-md-3">
                 <button class="btn btn-primary" type="submit">
-                  Submit form
+                  Send Review
                 </button>
               </div>
             </form>
