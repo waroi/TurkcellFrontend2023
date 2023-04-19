@@ -1,9 +1,9 @@
 // String Methodları
 
 let value;
-const firstName = "Varol";
-const lastName = "Maksutoğlu";
-const age = 37;
+const firstName = "Kağan";
+const lastName = "COŞKUN";
+const age = 23;
 const department = "Bilişim";
 
 // value = firstName + " " + lastName;
