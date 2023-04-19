@@ -88,15 +88,16 @@
 
 // Kullanıcıdan değer almak
 
-let value =prompt("değer girin");
+
 
 let num=Math.floor(Math.random()*100);
 let say=0;
-// let puan;
-
 console.log(num);
+let puan;
+let value =prompt("değer girin");
 
 for(;;){
+    console.log(parseInt(num));
     if(value>num){
         console.log("değeriniz büyük");
         value=prompt("tekrar");
@@ -106,18 +107,18 @@ for(;;){
         console.log("değeriniz doğru");
         say+=1;
 
-        // if(say>0 && say<=3){
-        //    puan=100;
-        //    alert("tebrikler knks "+ say +" denemenizde bildiniz " + puan+ " kazandınız");
-        // }
-        // else if(say>3 && say<=5){
-        //     puan=80;
-        //     alert("tebrikler knks "+ say +" denemenizde bildiniz " + puan+ " kazandınız");
-        // }
-        // else{
-        //     puan=30;
-        //    alert("şansına küs "+ say +" denemenizde bildiniz " + puan+ " kazandınız");
-        // }
+        if(say>0 && say<=3){
+           puan=100;
+           alert("tebrikler knks "+ say +" denemenizde bildiniz " + puan+ " kazandınız");
+        }
+        else if(say>3 && say<=5){
+            puan=80;
+            alert("tebrikler knks "+ say +" denemenizde bildiniz " + puan+ " kazandınız");
+        }
+        else{
+            puan=30;
+           alert("şansına küs "+ say +" denemenizde bildiniz " + puan+ " kazandınız");
+        }
 
         break;
     }
@@ -126,5 +127,4 @@ for(;;){
         value=prompt("tekrar");
         say+=1;
     }
-
 }
