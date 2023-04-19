@@ -11046,18 +11046,17 @@ footer .footer-social a:hover {
 .contact .contact-inner .contact-bottom {
   display: grid;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 56.25%;
 }
 .contact .contact-inner .contact-bottom iframe {
-  width: 400px;
-  height: 300px;
+  position: absolute;
+  height: 100% !important;
+  width: 100% !important;
 }
 
-@media only screen and (max-width: 768px) {
-  iframe {
-    width: 300px;
-    height: 400px;
-  }
-}
 .favorites {
   padding: 30px 0;
 }
@@ -11098,6 +11097,9 @@ footer .footer-social a:hover {
 }
 .comments .comments-inner .comments-second h1, .comments .comments-inner .comments-second .h1 {
   font-size: 60px;
+}
+.comments .comments-inner .comments-third {
+  margin: 10px;
 }
 
 @media only screen and (max-width: 992px) {

@@ -1,0 +1,296 @@
+nav.nav {
+  width: 100%;
+  background: $light-gray-color;
+  position: sticky;
+  top: 0;
+  z-index: $z-index-200;
+  .navbar {
+    width: 100%;
+    background: $light-gray-color;
+    z-index: $z-index-50;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    @include flex($jc: space-between);
+    @include mq("desktop") {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    &-left {
+      padding-left: 20px;
+      @include flex($jc: flex-start);
+
+      img {
+        width: 50px;
+        margin-right: 30px;
+      }
+      &-menu {
+        display: none;
+        @include mq("desktop") {
+          &,
+          .navbar-link {
+            @include flex($jc: flex-start);
+          }
+          .navbar-link {
+            margin-right: 22px;
+            position: relative;
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -3px;
+              left: 50%;
+              transform: translateX(-50%);
+              height: 2px;
+              width: 0;
+              background: $orange-color;
+              transition: $transition;
+            }
+            &:hover,
+            &.active {
+              color: $orange-color;
+              &::before {
+                width: 90%;
+              }
+            }
+            &.active {
+              font-weight: $semi-bold;
+            }
+          }
+        }
+      }
+    }
+    &-right {
+      @include flex($jc: flex-end);
+      @include mq("desktop") {
+        padding-right: 20px;
+        position: relative;
+      }
+
+      .btn-nav-link {
+        @include flex($jc: flex-end);
+        position: relative;
+        font-size: $big-size;
+        border-radius: $radius;
+        padding: 5px;
+        margin-right: 8px;
+        @include mq("desktop") {
+          padding: 5px;
+          margin-right: 12px;
+          font-size: $medium-size;
+        }
+        &:hover {
+          color: $orange-color;
+        }
+        .counter {
+          width: 15px;
+          height: 15px;
+          position: absolute;
+          top: 2px;
+          left: 94%;
+          background: $orange-color;
+          color: $white-color;
+          font-size: $extra-small-size;
+          @include flex();
+          @include mq("desktop") {
+            width: 15px;
+            height: 15px;
+            font-size: $extra-small-size;
+          }
+        }
+      }
+      .btn-mobile {
+        display: flex;
+        @include mq("desktop") {
+          display: none;
+        }
+      }
+      &-login {
+        display: none;
+        @include mq("desktop") {
+          @include flex();
+          margin-left: 5px;
+          padding-left: 15px;
+          border-left: 1px solid #dcdcdc;
+        }
+      }
+      .search-box {
+        @include flex();
+        width: 0;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        padding: 0;
+        font-size: $regular-size;
+        border: 1px solid #ced4da;
+        border-radius: $radius;
+        color: $black-color;
+        z-index: -$z-index-1;
+        transition: $transition;
+        opacity: 0;
+        pointer-events: none;
+        background-color: #fff !important;
+        @include mq("desktop") {
+          width: auto;
+          top: 70px;
+        }
+        input {
+          font-size: $smaller-size;
+          border: none;
+          padding: 0 10px;
+          color: $black-color;
+        }
+      }
+    }
+  }
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.349);
+  z-index: -1;
+  opacity: 0;
+}
+
+.mobile-menu-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+  background: $light-gray-color;
+  z-index: $z-index-300;
+  padding-top: 85px;
+  padding-bottom: 65px;
+  transition: $transition;
+  .btn-close-menu {
+    @include flex();
+    position: absolute;
+    top: 10px;
+    left: -25px;
+    width: 48px;
+    height: 48px;
+    background: $light-gray-color;
+    border-radius: 100%;
+    font-size: $bigger-size;
+    cursor: pointer;
+  }
+  .mobile-menu-list {
+    @include flex($ai: flex-start, $direction: column);
+    a {
+      @include flex($jc: flex-start);
+      padding: 8px 16px 8px 25px;
+      border-top-right-radius: $radius;
+      border-bottom-right-radius: $radius;
+      margin-bottom: 8px;
+      &:hover,
+      &.active {
+        background: $blue-color;
+        color: $white-color;
+      }
+    }
+  }
+}
+
+/* Search Box Open Class */
+.open-search-box-overlay {
+  transition: $transition;
+  opacity: 1 !important ;
+  z-index: 199 !important;
+}
+.open-search-box {
+  transition: $transition;
+  opacity: 1 !important ;
+  z-index: 200 !important;
+}
+
+/* Mobile Menu Overlay Open Class */
+.open-overlay {
+  display: block !important;
+  z-index: $z-index-250;
+  opacity: 1;
+  @include mq("desktop") {
+    display: none !important;
+    z-index: -1 !important;
+    opacity: 0;
+  }
+}
+
+/* Mobile Menu  Open Class */
+.open-mobile-menu {
+  width: 250px !important;
+  overflow: visible !important;
+  transition: $transition;
+  @include mq("desktop") {
+    width: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
+.navbar {
+  .dropdown {
+    position: static !important;
+    &-toggle::after {
+      content: none;
+    }
+    &-menu {
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding-top: 20px;
+      transform: translateY(33px);
+      background-color: transparent;
+      border: none;
+      color: $black-color;
+      padding: 14px;
+      display: block;
+      opacity: 0;
+      transition: $transition;
+      z-index: -$z-index-1;
+      pointer-events: none;
+    }
+    &-content {
+      padding: 24px;
+      background: white;
+      border-radius: $radius;
+      @include boxShadow();
+      .list-title {
+        margin-bottom: 5px;
+        font-size: $regular-size;
+        @include lineHeight($regular-size);
+      }
+      .sub-menu {
+        li {
+          transition: $transition;
+          border-radius: $radius;
+          &:hover {
+            background: $bg-orange-color;
+            a {
+              color: $orange-color !important;
+            }
+          }
+          a {
+            padding: 8px;
+            color: $dark-gray-color;
+            display: block;
+            font-size: $smaller-size;
+            @include lineHeight($smaller-size);
+            @include flex($jc: flex-start);
+          }
+        }
+      }
+    }
+  }
+
+  /* Hover olduğunda dropdown menü gözükmesi için */
+  .navbar-item.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1 !important;
+    z-index: $z-index-150 !important;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+}
