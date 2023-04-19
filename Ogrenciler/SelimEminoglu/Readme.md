@@ -22,6 +22,10 @@ Front-end eğitimi kapsamında oluşturmuş olduğum klasörün bilgilerini içe
 
 > Eğtimi süreci boyunca öğreneceğim konularla kendim için oluşturduğum portfolyo projemin bulunduğu klasördür. Eğitim süreci boyunca geliştirilmeye devam edecektir.
 
+5-Odevler --> [Tıklayınız](/Ogrenciler/SelimEminoglu/Odevler/)
+
+> Eğitim sürecinde verilen sınavlar için açılmış klasördür.
+
 ---
 
 ## Sosyal Medya Hesaplarım
