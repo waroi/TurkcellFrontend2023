@@ -23,3 +23,15 @@
 // var 1yas; //Yanlış tanımlama. Değişken isimleri rakam ile başlayamaz.
 // var yas1; //Doğru tanımlama
 
+//var while; //Yanlış tanımlama. Değişken isimleri keyword (komutlar) olamaz.
+
+// var ad soyad; //Yanlış tanımlama. Değişken isimleri boşluk içeremez.
+// var adSoyad; //Doğru tanımlama
+
+//var diğerAd; //Yanlış tanımlama. Değişken isimleri Türkçe karakter içeremez.
+//var digerAd; //Doğru tanımlama
+
+// const emailAdress = "ahmetkanbaz@gmail.com";
+// console.log(emailAdress);
+// emailAdress = "kanba@gmail.com"; //Yanlış tanımlama. const ile tanımlanan değişkenlerin değeri değiştirilemez.
+// console.log(emailAdress);
