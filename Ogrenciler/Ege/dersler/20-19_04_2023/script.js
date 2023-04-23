@@ -199,3 +199,5 @@ for (let i = 0; i <= 9; i++) {
   else if (userNum < myNum) alert(`${userNum} asıl sayıdan düşük. Çık `);
   if (i == 9) alert(`10 denemede bulamadın.`);
 }
+
+// Behçet YILDIRIM Ege KARA Seyit YÜCE
