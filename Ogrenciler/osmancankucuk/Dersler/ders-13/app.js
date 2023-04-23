@@ -7,7 +7,6 @@ for (let index = 0; index < 10; index++) {
   let value = prompt(`Bir deger giriniz${random}`);
   if (random > value) {
     value = prompt(`Kucuk bir sayi girdiniz.Buyuk bir sayi giriniz ${random}`);
-
     count += 1;
   } else if (random < value) {
     value = alert("Buyuk bir sayi girdiniz.Kucuk bir sayi giriniz");
