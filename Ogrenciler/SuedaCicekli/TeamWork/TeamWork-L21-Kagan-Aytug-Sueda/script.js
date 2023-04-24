@@ -58,6 +58,8 @@ function mukemmelSayi(number) {
   } return "Mükemmel sayı değil."
 }
 
+
+
 // var sonuc = 1;
 // function faktoriyel(number) {
 //   console.log(number);
@@ -69,4 +71,12 @@ function mukemmelSayi(number) {
 //   console.log(sonuc);
 //   faktoriyel(number - 1);
 
+// }
+
+// function faktoriyel(n) {
+//   if (n === 0 || n === 1) {
+//     return 1;
+//   } else {
+//     return n * faktoriyel(n - 1);
+//   }
 // }
