@@ -100,3 +100,4 @@ s = Math.floor(Math.random() * 100); //0 ile 100 arasında rastgele sayı
 
 
 console.log(s, typeof s);
+
