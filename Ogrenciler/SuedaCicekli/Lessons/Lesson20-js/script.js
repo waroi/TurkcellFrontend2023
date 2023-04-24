@@ -190,8 +190,51 @@
 //   console.log("A B'ye eşittir");
 // }
 
-// TODO :  buraya Swithc Case yazılacak
+// Switch  Case yazılacak
+//  Switch Case yazılacak
 
+// const islem = 2;
+// switch (islem) {
+//   case 1:
+//     console.log("İşlem 1 seçildi ");
+//     break;
+//   case 2:
+//     console.log("İşlem 2 seçildi ");
+//     break;
+//   case 3:
+//     console.log("İşlem 3 seçildi ");
+//     break;
+//   default:
+//     console.log("Geçersiz işlem");
+
+// }
+// break yapmazsan hepsini tek tek çalıştırıcak 
+
+// let sayi = prompt("Lütfen bir sayı giriniz:");
+// switch (parseInt(sayi)) {
+//   case 1:
+//   case 2:
+//   case 12:
+//     console.log("Kış");
+//     break;
+//   case 3:
+//   case 4:
+//   case 5:
+//     console.log("İlkbahar");
+//     break;
+//   case 6:
+//   case 7:
+//   case 8:
+//     console.log("Yaz");
+//     break;
+//   case 9:
+//   case 10:
+//   case 11:
+//     console.log("Sonbahar");
+//     break;
+//   default:
+//     console.log("Geçersiz sayı");
+// }
 // Döngüler 
 // for döngüsü
 
