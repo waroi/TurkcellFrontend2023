@@ -1,6 +1,6 @@
 const number = Number(prompt("Bir sayı giriniz"));
 let secenek = Number(prompt("Lütfen bir işlem seçiniz: \n 1-Faktoriyel \n 2-Asal mı değil mi  \n 3-Çift mi Tek mi \n 4-Mükemmel Sayı"));
-
+islemler();
 function islemler() {
   switch (secenek) {
     case 1:
@@ -13,11 +13,11 @@ function islemler() {
       alert(ciftTek(number));
       break;
     case 4:
-      mukemmel(number);
+      alert(mukemmelSayi(number));
       break;
     default:
       secenek = Number(prompt("Lütfen geçerli bir işlem seçiniz: \n 1-Faktoriyel \n 2-Asal mı değil mi  \n 3-Çift mi Tek mi \n 4-Mükemmel Sayı"));
-
+      islemler();
   }
 }
 
@@ -43,6 +43,19 @@ function ciftTek(number) {
     return "Sayı çifttir."
   } return "Sayi tektir."
 
+}
+
+function mukemmelSayi(number) {
+  let toplam = 0;
+  for (let i = 1; i < number; i++) {
+    if (number % i == 0) {
+      toplam += i;
+    }
+
+  }
+  if (toplam == number) {
+    return "Mükemmel Sayı"
+  } return "Mükemmel sayı değil."
 }
 
 // var sonuc = 1;
