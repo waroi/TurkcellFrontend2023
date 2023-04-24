@@ -168,7 +168,23 @@
 //   console.log("A B'ye eşit");
 // }
 
-// TODO:Switch Case gelecek
+// Switch Case:
+
+const islem = 1;
+
+switch (islem) {
+  case 1:
+    console.log("İşlem 1 Seçildi");
+    break;
+  case 2:
+    console.log("İşlem 2 Seçildi");
+    break;
+  case 3:
+    console.log("İşlem 3 Seçildi");
+    break;
+  default:
+    console.log("Geçersiz İşlem");
+}
 
 // Döngüler
 
@@ -182,6 +198,6 @@
 
 // Kullanıcıdan değer almak
 
-let value = prompt("Bir değer giriniz");
+// let value = prompt("Bir değer giriniz");
 
-console.log(value);
+// console.log(value);
