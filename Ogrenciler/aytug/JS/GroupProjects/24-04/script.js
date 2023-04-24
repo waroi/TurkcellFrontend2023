@@ -5,7 +5,7 @@ const getNumbers = () => {
 };
 
 const result = (resultNumber) => {
-	document.getElementById("result").innerHTML = `SONUÇ : ${resultNumber}`;
+	document.getElementById("result").innerHTML = `${resultNumber}`;
 };
 
 const sum = () => {
@@ -26,6 +26,14 @@ const divide = () => {
 const multi = () => {
 	const numbers = getNumbers();
 	result(numbers.num1 * numbers.num2);
+};
+const power = () => {
+	const numbers = getNumbers();
+	result(Math.pow(numbers.num1, numbers.num2));
+};
+const root = () => {
+	const numbers = getNumbers();
+	result(Math.pow(numbers.num1, 1 / numbers.num2));
 };
 
 const reset = () => {
