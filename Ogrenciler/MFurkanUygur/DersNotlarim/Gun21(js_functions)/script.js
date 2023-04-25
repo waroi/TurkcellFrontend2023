@@ -53,6 +53,7 @@ function mukemmel(value) {
 }
 
 console.log(typeof operation)
+
 switch (operation) {
     case "1":
         console.log(faktoriyel(value));
