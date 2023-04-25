@@ -1,0 +1,219 @@
+$size: 14px;
+$line-height: 24px;
+$weight: 300;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  color: #777777;
+  transition: all 0.3s ease 0s;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+}
+
+@mixin fonts-maker($size, $line-height, $weight) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}
+
+.p_120 {
+  padding: 120px 0;
+}
+
+// #navbarSupportedContent .nav-item:hover a {
+//   color: $primary;
+// }
+.nav-item {
+  a {
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+footer ul .nav-item:hover a {
+  color: $primary !important;
+}
+.bestseller-cards {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.card_area {
+  background: linear-gradient(
+    90deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  .main-title {
+    p {
+      color: #fff;
+      opacity: 0.6;
+      @include fonts-maker(14px, 24px, 300);
+    }
+  }
+
+  .card_item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 40px;
+    border: 1px solid white;
+    margin-bottom: 30px;
+    transition: all 300ms linear 0s;
+    h4 {
+      color: white;
+    }
+    p {
+      color: #fff;
+    }
+    &:hover {
+      background: #fff;
+      color: #fff;
+      h4 {
+        color: black;
+      }
+      p {
+        color: #777777;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.cupcake_area {
+  @extend .card_area;
+  background: none;
+  .card_item {
+    &:hover {
+      background: #fff;
+      color: #fff;
+      img {
+        transform: scale(1.1);
+        transition: all 300ms linear 0s;
+      }
+      h4 {
+        color: $primary;
+      }
+      p {
+        color: #777777;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.blog_area {
+  background: linear-gradient(
+    90deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  .l_blog_item {
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    padding: 60px 30px;
+    transition: all 300ms linear 0s;
+
+    &:hover {
+      box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
+      border-color: #fff;
+
+      h4 {
+        color: white;
+      }
+    }
+
+    h6 {
+      span {
+        border-radius: 3px;
+        padding: 7px 20px;
+        @include fonts-maker(12px, 30px, 300);
+      }
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      color: white;
+      margin-bottom: 20px;
+      transition: all 300ms linear 0s;
+      @include fonts-maker(20px, 30px, 300);
+    }
+
+    p {
+      margin-bottom: 25px;
+    }
+
+    .view_text {
+      a {
+        font-size: 14px;
+        color: #aaa;
+        margin-right: 25px;
+      }
+    }
+  }
+}
+#numbers {
+  background: linear-gradient(
+    180deg,
+    rgba(148, 187, 233, 1) 100%,
+    rgba(238, 174, 202, 1) 0%
+  );
+}
+
+#cupcake_img {
+  text-align: center;
+  img {
+    height: 290px;
+    width: 290px;
+  }
+}
+
+#cake_img {
+  text-align: center;
+  img {
+    height: 290px;
+    width: 290px;
+  }
+}
+
+#cookies_img {
+  text-align: center;
+  img {
+    width: 260px;
+    height: 320px;
+  }
+}
+
+#bestseller {
+  text-align: center;
+  img {
+    width: 334px;
+    height: 334px;
+  }
+}
+#register {
+  border: 1px solid #9381eb;
+  color: #9381eb;
+  border-radius: 10px;
+  transition: all 300ms linear 0s;
+  &:hover {
+    background-color: #9381eb;
+    border: 1px solid #9381eb;
+    color: white;
+  }
+}
+
+#menu1 {
+  color: $primary;
+}

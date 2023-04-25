@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="icon" type="image/x-icon" href="../images/dolcepng.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-light bg-white">
+      <div class="container">
+        <div class="row w-100 align-items-center text-lg-center">
+          <div class="d-none d-lg-block col-lg-5">
+            <div class="d-inline d-flex navLanguage">
+              <a href=""> EN <i class="fa-solid fa-chevron-down fa-xs"></i> </a>
+              <a href="">|</a>
+              <a href=""> TUR <i class="fa-solid fa-chevron-down fa-xs"></i></a>
+            </div>
+          </div>
+          <div class="col-6 col-lg-2">
+            <img src="./images/dolcepng.png" height="90" alt="" />
+          </div>
+          <div class="d-none d-md-block col-6 col-lg-3">
+            <div class="navSections">
+              <div
+                class="d-flex justify-content-end justify-content-lg-between"
+              >
+                <a href="./Home.html" class="me-4"
+                  ><i class="fa-solid fa-house fa-sm me-1"></i>HOME
+                </a>
+                <a href="./AboutUs.html" class="me-4"
+                  ><i class="fa-solid fa-building fa-sm me-1"></i>ABOUT
+                </a>
+                <a href="./faq.html"
+                  ><i class="fa-solid fa-circle-question fa-sm me-1"></i>FAQ
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="d-none d-lg-block col-lg-2">
+            <div class="dropdown float-end">
+              <button
+                class="btn btn-warning dropdown-toggle d-flex align-items-center"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="navImg float-start me-3"></div>
+              </button>
+
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">My Profile</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Purchases</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="d-block d-md-none col-6 d-flex justify-content-end">
+            <i
+              class="fa-solid fa-bars fa-xl"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#sideBar"
+            ></i>
+            <div
+              class="offcanvas offcanvas-end bg-info"
+              tabindex="-1"
+              id="sideBar"
+            >
+              <div class="offcanvas-header bg-warning">
+                <button
+                  type="button"
+                  class="btn-close text-reset"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+                <a href="">
+                  <div class="canvasProfile d-flex">
+                    <div class="canvasImage">
+                      <img
+                        class="img-fluid rounded-circle"
+                        src="./images/osmancankucuk.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="userInfo mt-2 ms-2">
+                      <h6>Osman Can Kucuk</h6>
+                      <p><sub>Premium</sub></p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="offcanvas-body mt-2">
+                <div class="d-flex justify-content-evenly rounded-4 bg-light">
+                  <div class="py-3">
+                    <div class="mb-2">
+                      <a href="" class="py-1"
+                        >HOME <i class="fa-solid fa-house fa-sm ms-1"></i
+                      ></a>
+                    </div>
+                    <div class="mb-2">
+                      <a href="" class="py-1"
+                        >ABOUT US <i class="fa-solid fa-building fa-sm ms-1"></i
+                      ></a>
+                    </div>
+
+                    <div class="mb-2">
+                      <a href="./faq.html" class="py-1"
+                        >FAQ
+                        <i class="fa-solid fa-circle-question fa-sm ms-1"></i
+                      ></a>
+                    </div>
+                    <div class="mb-2">
+                      <a href="" class="py-1"
+                        >WOMEN <i class="fa-solid fa-person-dress fa-sm"></i
+                      ></a>
+                    </div>
+                    <div class="mb-2">
+                      <a href="" class="py-1"
+                        >MEN <i class="fa-solid fa-person fa-sm"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="rounded-4 py-3">
+                    <div class="mb-2">
+                      <a href="" class="py-1"
+                        >CHILD <i class="fa-solid fa-children fa-sm"></i
+                      ></a>
+                    </div>
+                    <div class="mb-2">
+                      <a href="" class="py-1"
+                        >TREND <i class="fa-solid fa-arrow-trend-up fa-sm"></i
+                      ></a>
+                    </div>
+
+                    <div class="mb-2">
+                      <a href="" class="py-1"
+                        >SPECIAL <i class="fa-regular fa-star fa-sm"></i
+                      ></a>
+                    </div>
+                    <div class="mb-2">
+                      <a href="" class="py-1"
+                        >PERFUME
+                        <i class="fa-solid fa-wand-magic-sparkles fa-sm"></i
+                      ></a>
+                    </div>
+                    <div>
+                      <a href="" class="py-1"
+                        >NEW <i class="fa-solid fa-fire fa-sm"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="dropdown mt-3">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-bs-toggle="dropdown"
+                  >
+                    <i class="fa-solid fa-cart-shopping fa-sm"></i>
+                    Purchases
+                  </button>
+
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="mt-2">
+      <!-- HER BOLUMDEKI ILK URUN MODAL ILE DETAYLANDIRILDI -->
+      <div class="container py-5">
+        <h2>Shirts</h2>
+        <div class="row g-2">
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a data-bs-toggle="modal" data-bs-target="#modal-woman" href="">
+              <div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty182/product/media/images/20210924/13/136114939/235687959/1/1_org_zoom.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+
+                  <div class="modal fade" id="modal-woman" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1
+                            class="modal-title fs-5 cardTextFont"
+                            id="exampleModalLabel"
+                          >
+                            Lorem, ipsum dolor sit amet consectetur adipisicing.
+                          </h1>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="text-center">
+                            <div
+                              id="womanCarousel"
+                              class="carousel slide"
+                              data-ride="carousel"
+                            >
+                              <div class="carousel-indicators">
+                                <button
+                                  data-bs-target="#womanCarousel"
+                                  data-bs-slide-to="0"
+                                  class="active"
+                                ></button>
+                                <button
+                                  data-bs-target="#womanCarousel"
+                                  data-bs-slide-to="1"
+                                ></button>
+                                <button
+                                  data-bs-target="#womanCarousel"
+                                  data-bs-slide-to="2"
+                                ></button>
+                                <button
+                                  data-bs-target="#womanCarousel"
+                                  data-bs-slide-to="3"
+                                ></button>
+                              </div>
+                              <div class="carousel-inner">
+                                <a href="" class="carousel-item active">
+                                  <img
+                                    src="https://cdn.dsmcdn.com/ty182/product/media/images/20210924/13/136114939/235687959/1/1_org_zoom.jpg"
+                                    alt=""
+                                    class="img-fluid w-75 rounded-1"
+                                  />
+                                </a>
+
+                                <a href="" class="carousel-item">
+                                  <img
+                                    src="https://cdn.dsmcdn.com/ty182/product/media/images/20210924/13/136114939/235687959/3/3_org_zoom.jpg"
+                                    alt=""
+                                    class="img-fluid w-75 rounded-1"
+                                  />
+                                </a>
+                                <a href="" class="carousel-item">
+                                  <img
+                                    src="https://cdn.dsmcdn.com/ty181/product/media/images/20210924/13/136114939/235687959/4/4_org_zoom.jpg"
+                                    alt=""
+                                    class="img-fluid w-75 rounded-1"
+                                  />
+                                </a>
+                                <a href="" class="carousel-item">
+                                  <img
+                                    src="https://cdn.dsmcdn.com/ty185/product/media/images/20210927/14/136763509/235687959/1/1_org_zoom.jpg"
+                                    alt=""
+                                    class="img-fluid w-75 rounded-1"
+                                  />
+                                </a>
+                              </div>
+                              <button
+                                class="carousel-control-prev bg-success"
+                                role="button"
+                                data-bs-target="#womanCarousel"
+                                data-bs-slide="prev"
+                              >
+                                <span
+                                  class="carousel-control-prev-icon"
+                                  aria-hidden="true"
+                                ></span>
+                                <span class="sr-only">Previous</span>
+                              </button>
+                              <button
+                                class="carousel-control-next bg-primary"
+                                role="button"
+                                data-bs-target="#womanCarousel"
+                                data-bs-slide="next"
+                              >
+                                <span
+                                  class="carousel-control-next-icon"
+                                  aria-hidden="true"
+                                ></span>
+                                <span class="sr-only">Previous</span>
+                              </button>
+                            </div>
+                          </div>
+
+                          <div
+                            class="modalChooseSize bg-warning rounded-1 w-75 m-auto mt-3 py-2"
+                          >
+                            <h5 class="text-center text-white">
+                              Please Choose Size
+                            </h5>
+                            <ul
+                              class="list-inline d-flex justify-content-center"
+                            >
+                              <a href="">
+                                <li
+                                  class="border-circle text-white rounded-circle text-center me-2"
+                                >
+                                  S
+                                </li></a
+                              >
+                              <a href=""
+                                ><li
+                                  class="border-circle text-white rounded-circle text-center mx-2"
+                                >
+                                  M
+                                </li></a
+                              >
+                              <a href="">
+                                <li
+                                  class="border-circle text-white rounded-circle text-center mx-2"
+                                >
+                                  L
+                                </li></a
+                              >
+                              <a href=""
+                                ><li
+                                  class="border-circle text-white rounded-circle text-center ms-2"
+                                >
+                                  XL
+                                </li></a
+                              >
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <div class="border w-100 rounded-1 p-3">
+                            <h4>
+                              Comments
+                              <span class="fs-6">(120)</span>
+                            </h4>
+                            <hr />
+                            <div class="overflow-auto modalComments">
+                              <div class="rounded-1 p-2 bg-info">
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur,
+                                  adipisicing elit. Hic reiciendis odit vitae
+                                  vel. Corporis, id asperiores quia quasi
+                                  repellendus iure.
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                  <div class="">
+                                    <i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star-half text-warning fa-sm"
+                                    ></i>
+                                    <a href="">(157)</a>
+                                  </div>
+                                  <div class="writerUser d-flex">
+                                    <div class="userImage">
+                                      <img
+                                        class="img-fluid rounded-2"
+                                        src="https://media.istockphoto.com/id/888836942/photo/black-and-white-portrait-of-a-young-woman-laughing-looking-to-the-side-holding-hands-together.jpg?s=612x612&w=0&k=20&c=sWd0O6Ea6cw5hSsfLQslpqZA_rOc1OdvOgoFkRSBPZ8="
+                                        alt=""
+                                      />
+                                    </div>
+                                    <div class="userInfo mt-2 ms-2">
+                                      <h6>Marina Sherof</h6>
+                                      <p><sub>Premium</sub></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="rounded-1 p-2 bg-info mt-3">
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur,
+                                  adipisicing elit. Hic reiciendis odit vitae
+                                  vel. Corporis, id asperiores quia quasi
+                                  repellendus iure.
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                  <div class="">
+                                    <i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star-half text-warning fa-sm"
+                                    ></i>
+                                    <a href="">(157)</a>
+                                  </div>
+                                  <div class="writerUser d-flex">
+                                    <div class="userImage">
+                                      <img
+                                        class="img-fluid rounded-2"
+                                        src="https://media.istockphoto.com/id/888836942/photo/black-and-white-portrait-of-a-young-woman-laughing-looking-to-the-side-holding-hands-together.jpg?s=612x612&w=0&k=20&c=sWd0O6Ea6cw5hSsfLQslpqZA_rOc1OdvOgoFkRSBPZ8="
+                                        alt=""
+                                      />
+                                    </div>
+                                    <div class="userInfo mt-2 ms-2">
+                                      <h6>Marina Sherof</h6>
+                                      <p><sub>Premium</sub></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="rounded-1 p-2 bg-info mt-3">
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur,
+                                  adipisicing elit. Hic reiciendis odit vitae
+                                  vel. Corporis, id asperiores quia quasi
+                                  repellendus iure.
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                  <div class="">
+                                    <i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star-half text-warning fa-sm"
+                                    ></i>
+                                    <a href="">(157)</a>
+                                  </div>
+                                  <div class="writerUser d-flex">
+                                    <div class="userImage">
+                                      <img
+                                        class="img-fluid rounded-2"
+                                        src="https://media.istockphoto.com/id/888836942/photo/black-and-white-portrait-of-a-young-woman-laughing-looking-to-the-side-holding-hands-together.jpg?s=612x612&w=0&k=20&c=sWd0O6Ea6cw5hSsfLQslpqZA_rOc1OdvOgoFkRSBPZ8="
+                                        alt=""
+                                      />
+                                    </div>
+                                    <div class="userInfo mt-2 ms-2">
+                                      <h6>Marina Sherof</h6>
+                                      <p><sub>Premium</sub></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="rounded-1 p-2 bg-info mt-3">
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur,
+                                  adipisicing elit. Hic reiciendis odit vitae
+                                  vel. Corporis, id asperiores quia quasi
+                                  repellendus iure.
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                  <div class="">
+                                    <i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star-half text-warning fa-sm"
+                                    ></i>
+                                    <a href="">(157)</a>
+                                  </div>
+                                  <div class="writerUser d-flex">
+                                    <div class="userImage">
+                                      <img
+                                        class="img-fluid rounded-2"
+                                        src="https://media.istockphoto.com/id/888836942/photo/black-and-white-portrait-of-a-young-woman-laughing-looking-to-the-side-holding-hands-together.jpg?s=612x612&w=0&k=20&c=sWd0O6Ea6cw5hSsfLQslpqZA_rOc1OdvOgoFkRSBPZ8="
+                                        alt=""
+                                      />
+                                    </div>
+                                    <div class="userInfo mt-2 ms-2">
+                                      <h6>Marina Sherof</h6>
+                                      <p><sub>Premium</sub></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <nav class="mt-4 d-flex justify-content-center">
+                              <ul class="pagination">
+                                <li class="page-item">
+                                  <a class="page-link" href="#"
+                                    ><i
+                                      class="fa-solid fa-backward text-warning"
+                                    ></i
+                                  ></a>
+                                </li>
+                                <li class="page-item">
+                                  <a
+                                    class="page-link text-warning text-dark"
+                                    href="#"
+                                    >1</a
+                                  >
+                                </li>
+                                <li class="page-item">
+                                  <a
+                                    class="page-link text-warning text-dark"
+                                    href="#"
+                                    >2</a
+                                  >
+                                </li>
+                                <li class="page-item">
+                                  <a class="page-link text-dark" href="#">3</a>
+                                </li>
+                                <li class="page-item">
+                                  <a class="page-link" href="#"
+                                    ><i
+                                      class="fa-solid fa-forward text-warning"
+                                    ></i
+                                  ></a>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty658/product/media/images/20221222/23/244488682/320312610/2/2_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty788/product/media/images/20230318/13/306947592/477376780/1/1_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty293/product/media/images/20220110/17/24524038/313804062/2/2_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty739/product/media/images/20230221/17/285868600/864018108/1/1_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty431/product/media/images/20220513/17/110555893/478398989/1/1_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href="">
+              <div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty770/product/media/images/20230308/15/299217708/132307904/1/1_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty512/product/media/images/20220818/13/162289167/286929112/2/2_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
+      <section id="joinClubSection">
+        <div class="text-center py-5">
+          <h2 class="fw-bold">JOIN DOLCE-CLUB & GET 15 % OFF</h2>
+          <p class="fs-5">
+            Join now to get instant access to Dolce-Club privileges!
+          </p>
+          <button class="btn btn-warning buttonAnimation text-light fs-4">
+            Join Free
+            <i class="fa-solid fa-arrow-right-long text-light ps-2 fa-lg"></i>
+          </button>
+        </div>
+      </section>
+      <div class="container py-5">
+        <h2>Pants</h2>
+        <div class="row g-2">
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="">
+              <div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty395/product/media/images/20220412/10/88986437/172244894/2/2_org_zoom.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+
+                  <div
+                    class="modal fade"
+                    id="exampleModal"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1
+                            class="modal-title fs-5 cardTextFont"
+                            id="exampleModalLabel"
+                          >
+                            Lorem, ipsum dolor sit amet consectetur adipisicing.
+                          </h1>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="text-center">
+                            <div
+                              id="mainCarousel"
+                              class="carousel slide"
+                              data-ride="carousel"
+                            >
+                              <div class="carousel-indicators">
+                                <button
+                                  data-bs-target="#mainCarousel"
+                                  data-bs-slide-to="0"
+                                  class="active"
+                                ></button>
+                                <button
+                                  data-bs-target="#mainCarousel"
+                                  data-bs-slide-to="1"
+                                ></button>
+                                <button
+                                  data-bs-target="#mainCarousel"
+                                  data-bs-slide-to="2"
+                                ></button>
+                                <button
+                                  data-bs-target="#mainCarousel"
+                                  data-bs-slide-to="3"
+                                ></button>
+                              </div>
+                              <div class="carousel-inner">
+                                <a href="" class="carousel-item active">
+                                  <img
+                                    src="https://cdn.dsmcdn.com/ty395/product/media/images/20220412/10/88986437/172244894/2/2_org_zoom.jpg"
+                                    alt=""
+                                    class="img-fluid w-75 rounded-1"
+                                  />
+                                </a>
+
+                                <a href="" class="carousel-item">
+                                  <img
+                                    src="https://cdn.dsmcdn.com/ty393/product/media/images/20220412/10/88986471/172244894/2/2_org_zoom.jpg"
+                                    alt=""
+                                    class="img-fluid w-75 rounded-1"
+                                  />
+                                </a>
+                                <a href="" class="carousel-item">
+                                  <img
+                                    src="https://cdn.dsmcdn.com/ty394/product/media/images/20220412/10/88986506/172244894/2/2_org_zoom.jpg"
+                                    alt=""
+                                    class="img-fluid w-75 rounded-1"
+                                  />
+                                </a>
+                                <a href="" class="carousel-item">
+                                  <img
+                                    src="https://cdn.dsmcdn.com/ty394/product/media/images/20220412/10/88986598/172244894/2/2_org_zoom.jpg"
+                                    alt=""
+                                    class="img-fluid w-75 rounded-1"
+                                  />
+                                </a>
+                              </div>
+                              <button
+                                class="carousel-control-prev bg-success"
+                                role="button"
+                                data-bs-target="#mainCarousel"
+                                data-bs-slide="prev"
+                              >
+                                <span
+                                  class="carousel-control-prev-icon"
+                                  aria-hidden="true"
+                                ></span>
+                                <span class="sr-only">Previous</span>
+                              </button>
+                              <button
+                                class="carousel-control-next bg-primary"
+                                role="button"
+                                data-bs-target="#mainCarousel"
+                                data-bs-slide="next"
+                              >
+                                <span
+                                  class="carousel-control-next-icon"
+                                  aria-hidden="true"
+                                ></span>
+                                <span class="sr-only">Previous</span>
+                              </button>
+                            </div>
+                          </div>
+
+                          <div
+                            class="modalChooseSize bg-warning rounded-1 w-75 m-auto mt-3 py-2"
+                          >
+                            <h5 class="text-center text-white">
+                              Please Choose Size
+                            </h5>
+                            <ul
+                              class="list-inline d-flex justify-content-center"
+                            >
+                              <a href="">
+                                <li
+                                  class="border-circle text-white rounded-circle text-center me-2"
+                                >
+                                  S
+                                </li></a
+                              >
+                              <a href=""
+                                ><li
+                                  class="border-circle text-white rounded-circle text-center mx-2"
+                                >
+                                  M
+                                </li></a
+                              >
+                              <a href="">
+                                <li
+                                  class="border-circle text-white rounded-circle text-center mx-2"
+                                >
+                                  L
+                                </li></a
+                              >
+                              <a href=""
+                                ><li
+                                  class="border-circle text-white rounded-circle text-center ms-2"
+                                >
+                                  XL
+                                </li></a
+                              >
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <div class="border w-100 rounded-1 p-3">
+                            <h4>
+                              Comments
+                              <span class="fs-6">(120)</span>
+                            </h4>
+                            <hr />
+                            <div class="overflow-auto modalComments">
+                              <div class="rounded-1 p-2 bg-info">
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur,
+                                  adipisicing elit. Hic reiciendis odit vitae
+                                  vel. Corporis, id asperiores quia quasi
+                                  repellendus iure.
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                  <div class="">
+                                    <i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star-half text-warning fa-sm"
+                                    ></i>
+                                    <a href="">(157)</a>
+                                  </div>
+                                  <div class="writerUser d-flex">
+                                    <div class="userImage">
+                                      <img
+                                        class="img-fluid rounded-2"
+                                        src="https://media.istockphoto.com/id/888836942/photo/black-and-white-portrait-of-a-young-woman-laughing-looking-to-the-side-holding-hands-together.jpg?s=612x612&w=0&k=20&c=sWd0O6Ea6cw5hSsfLQslpqZA_rOc1OdvOgoFkRSBPZ8="
+                                        alt=""
+                                      />
+                                    </div>
+                                    <div class="userInfo mt-2 ms-2">
+                                      <h6>Marina Sherof</h6>
+                                      <p><sub>Premium</sub></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="rounded-1 p-2 bg-info mt-3">
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur,
+                                  adipisicing elit. Hic reiciendis odit vitae
+                                  vel. Corporis, id asperiores quia quasi
+                                  repellendus iure.
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                  <div class="">
+                                    <i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star-half text-warning fa-sm"
+                                    ></i>
+                                    <a href="">(157)</a>
+                                  </div>
+                                  <div class="writerUser d-flex">
+                                    <div class="userImage">
+                                      <img
+                                        class="img-fluid rounded-2"
+                                        src="https://media.istockphoto.com/id/888836942/photo/black-and-white-portrait-of-a-young-woman-laughing-looking-to-the-side-holding-hands-together.jpg?s=612x612&w=0&k=20&c=sWd0O6Ea6cw5hSsfLQslpqZA_rOc1OdvOgoFkRSBPZ8="
+                                        alt=""
+                                      />
+                                    </div>
+                                    <div class="userInfo mt-2 ms-2">
+                                      <h6>Marina Sherof</h6>
+                                      <p><sub>Premium</sub></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="rounded-1 p-2 bg-info mt-3">
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur,
+                                  adipisicing elit. Hic reiciendis odit vitae
+                                  vel. Corporis, id asperiores quia quasi
+                                  repellendus iure.
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                  <div class="">
+                                    <i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star-half text-warning fa-sm"
+                                    ></i>
+                                    <a href="">(157)</a>
+                                  </div>
+                                  <div class="writerUser d-flex">
+                                    <div class="userImage">
+                                      <img
+                                        class="img-fluid rounded-2"
+                                        src="https://media.istockphoto.com/id/888836942/photo/black-and-white-portrait-of-a-young-woman-laughing-looking-to-the-side-holding-hands-together.jpg?s=612x612&w=0&k=20&c=sWd0O6Ea6cw5hSsfLQslpqZA_rOc1OdvOgoFkRSBPZ8="
+                                        alt=""
+                                      />
+                                    </div>
+                                    <div class="userInfo mt-2 ms-2">
+                                      <h6>Marina Sherof</h6>
+                                      <p><sub>Premium</sub></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="rounded-1 p-2 bg-info mt-3">
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur,
+                                  adipisicing elit. Hic reiciendis odit vitae
+                                  vel. Corporis, id asperiores quia quasi
+                                  repellendus iure.
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                  <div class="">
+                                    <i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star text-warning fa-sm"
+                                    ></i
+                                    ><i
+                                      class="fa-solid fa-star-half text-warning fa-sm"
+                                    ></i>
+                                    <a href="">(157)</a>
+                                  </div>
+                                  <div class="writerUser d-flex">
+                                    <div class="userImage">
+                                      <img
+                                        class="img-fluid rounded-2"
+                                        src="https://media.istockphoto.com/id/888836942/photo/black-and-white-portrait-of-a-young-woman-laughing-looking-to-the-side-holding-hands-together.jpg?s=612x612&w=0&k=20&c=sWd0O6Ea6cw5hSsfLQslpqZA_rOc1OdvOgoFkRSBPZ8="
+                                        alt=""
+                                      />
+                                    </div>
+                                    <div class="userInfo mt-2 ms-2">
+                                      <h6>Marina Sherof</h6>
+                                      <p><sub>Premium</sub></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <nav class="mt-4 d-flex justify-content-center">
+                              <ul class="pagination">
+                                <li class="page-item">
+                                  <a class="page-link" href="#"
+                                    ><i
+                                      class="fa-solid fa-backward text-warning"
+                                    ></i
+                                  ></a>
+                                </li>
+                                <li class="page-item">
+                                  <a
+                                    class="page-link text-warning text-dark"
+                                    href="#"
+                                    >1</a
+                                  >
+                                </li>
+                                <li class="page-item">
+                                  <a
+                                    class="page-link text-warning text-dark"
+                                    href="#"
+                                    >2</a
+                                  >
+                                </li>
+                                <li class="page-item">
+                                  <a class="page-link text-dark" href="#">3</a>
+                                </li>
+                                <li class="page-item">
+                                  <a class="page-link" href="#"
+                                    ><i
+                                      class="fa-solid fa-forward text-warning"
+                                    ></i
+                                  ></a>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty293/product/media/images/20220110/10/23989630/158816518/2/2_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+
+          <!-- HER BOLUMDEKI ILK URUN MODAL ILE DETAYLANDIRILDI -->
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href="">
+              <div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty289/product/media/images/20220107/18/23137314/332798494/2/2_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty160/product/media/images/20210819/16/120151286/123408601/5/5_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty286/product/media/images/20220104/14/21552165/321802674/2/2_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty340/product/media/images/20220222/12/55980663/126539771/2/2_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty665/product/media/images/20221225/23/246710409/660323110/1/1_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href=""
+              ><div class="card">
+                <img
+                  src="https://cdn.dsmcdn.com/ty161/product/media/images/20210817/13/119196558/147823512/1/1_org.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="cardTextFont">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </p>
+                  <div class="">
+                    <i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star text-warning fa-sm"></i
+                    ><i class="fa-solid fa-star-half text-warning fa-sm"></i>
+                    <a href="">(157)</a>
+                    <p class="text-warning mt-2">149,90 TL</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href=""
+                      ><span class="badge text-bg-primary"
+                        ><i class="fa-solid fa-tag"></i> Coupon</span
+                      ></a
+                    >
+                    <a href=""
+                      ><span class="badge text-bg-warning"
+                        ><i class="fa-solid fa-money-check"></i> Permium</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark">
+      <div class="footerTop py-4">
+        <h2 class="text-center pb-2 text-warning">You can find us at</h2>
+        <div class="text-center">
+          <a href=""
+            ><i class="fa-brands fa-square-facebook fa-2xl text-warning"></i
+          ></a>
+          <a href=""
+            ><i class="fa-brands fa-linkedin fa-2xl text-warning mx-2"></i
+          ></a>
+          <a href=""
+            ><i class="fa-brands fa-square-twitter fa-2xl text-warning me-2"></i
+          ></a>
+          <a href=""
+            ><i class="fa-brands fa-square-youtube fa-2xl text-warning"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <div class="d-flex flex-column gap-3">
+              <h2 class="text-light">Dolce De Qua</h2>
+              <div><a href="">Who We Are</a></div>
+              <div><a href="">Career</a></div>
+              <div><a href="">Communication</a></div>
+              <div><a href="">Sell on DolceDeQua</a></div>
+              <div><a href="">Who We Are</a></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <div class="d-flex flex-column gap-3">
+              <h2 class="text-light">Useful Links</h2>
+              <div><a href="">Your Account</a></div>
+              <div><a href="">Become an Affiliate</a></div>
+              <div><a href="">Shipping Rates</a></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <div class="d-flex flex-column gap-3">
+              <h2 class="text-light">Campaign</h2>
+              <div><a href="">Active Campaign</a></div>
+              <div><a href="">Elite membership</a></div>
+              <div><a href="">Gift Ideas</a></div>
+              <div><a href="">DolceDeQua Deals</a></div>
+              <div><a href="">Who We Are</a></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <div class="d-flex flex-column gap-3">
+              <h2 class="text-light">Help</h2>
+              <div><a href="">FAQ</a></div>
+              <div><a href="">Live Help</a></div>
+              <div><a href="">How can i return product</a></div>
+              <div><a href="">operation guide</a></div>
+              <div><a href="">Who We Are</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

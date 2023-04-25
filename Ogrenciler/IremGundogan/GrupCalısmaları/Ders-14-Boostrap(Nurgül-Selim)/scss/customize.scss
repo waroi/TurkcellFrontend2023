@@ -1,0 +1,400 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap%27");
+
+// Custom Variables
+$primary: #4285f4;
+$gray-100: #f6f6f6;
+
+* {
+  font-family: "Nunito", sans-serif;
+  line-height: 30px;
+  list-style: none;
+}
+header {
+  position: relative;
+}
+p {
+  color: #808080;
+}
+.header-info {
+  h1 {
+    font-size: 32px;
+    width: 90%;
+    font-weight: 700;
+  }
+  p {
+    color: #6c757d;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7em;
+  }
+  button {
+    padding: 13px 40px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px 0 #4286f457;
+    }
+  }
+}
+.card-features {
+  padding-top: 3em;
+}
+.card-features-info {
+  h2 {
+    font-weight: 700;
+    font-size: 30px;
+    padding-bottom: 15px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+.card-features .card {
+  background: #f1f1f1;
+  border: none;
+  position: relative;
+  transition: 0.3s all ease;
+  a {
+    text-decoration: none;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 16px;
+  }
+  span {
+    position: absolute;
+    top: -40px;
+    right: 35%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: $primary;
+    color: #fff;
+    i {
+      font-size: 32px;
+    }
+  }
+  &:hover {
+    transform: translateY(-5px);
+    background: $primary;
+
+    h3,
+    p,
+    a {
+      color: #fff;
+    }
+    span {
+      background-color: #fff;
+      color: $primary;
+      box-shadow: 0 0 20px 0 #4285f450;
+    }
+  }
+}
+// Commucaiton section
+.communicate-section {
+  margin-top: 7rem;
+  .commu-text {
+    margin-top: 5rem;
+  }
+}
+
+.card-commu-body {
+  border-left: 0.5em solid $primary;
+  blockquote {
+    @extend p;
+    font-style: italic;
+  }
+}
+
+.commu-header {
+  div {
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
+
+// About Us
+.about-us {
+  margin-top: 4em;
+  padding: 3em 0;
+  p {
+    line-height: 27px;
+    .btn {
+      font-size: 16px;
+      border-radius: 30px;
+      padding: 10px 30px;
+    }
+  }
+  .about-list {
+    padding-left: 0 !important;
+    li {
+      p {
+        margin-left: 1em;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.center-headline {
+  font-size: 30px;
+  font-weight: 700;
+}
+/* slider-img-irem*/
+.slider-section {
+  padding: 7rem 0;
+  figure {
+    img {
+      max-width: 100px;
+    }
+  }
+  .slider-text {
+    font-size: 24px;
+  }
+
+  .carousel-item {
+    transition-duration: 0.4s !important;
+  }
+  .carousel-indicators {
+    margin-bottom: -2rem !important;
+    button {
+      display: inline-block;
+      width: 10px !important;
+      height: 10px !important;
+      border-radius: 50%;
+      background-color: #dee2e6 !important;
+    }
+    .active {
+      background-color: $primary !important;
+    }
+  }
+}
+
+// Contact Us-Selim
+.contact-us {
+  background-image: url("https://preview.colorlib.com/theme/imagine/images/hero_1.jpg.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 0;
+  height: 55em;
+  .filter {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.7;
+    background: linear-gradient(to right, #4286f4 0%, #42e2f4 100%);
+  }
+  .contact-div {
+    position: relative;
+    z-index: 2;
+  }
+  .form-group {
+    .btn {
+      font-size: 16px;
+      border-radius: 30px;
+      padding: 10px 30px;
+    }
+  }
+}
+
+// Footer
+footer {
+  .footer-text {
+    font-size: 16px;
+    line-height: 27px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+//Ezmeler
+.disabled-pc {
+  display: block;
+}
+.disabled-mobile {
+  display: none;
+}
+nav {
+  a.navbar-brand {
+    font-size: 32px !important;
+    span {
+      color: $primary;
+    }
+  }
+  .navbar-toggler {
+    border: unset;
+    outline: none !important;
+  }
+  a {
+    &:hover {
+      color: $primary !important;
+    }
+  }
+}
+.offcanvas {
+  width: 90vw !important;
+  padding-left: 1em;
+}
+.offcanvas-header {
+  padding: 3em 2em 0 0 !important;
+  .btn-close {
+    margin-left: auto;
+  }
+}
+.nav-item {
+  .accordion-item {
+    border: unset !important;
+    box-shadow: unset !important;
+    .accordion-header {
+      position: unset;
+      display: flex;
+      align-items: center;
+      width: unset;
+      font-size: 0.5rem !important;
+      color: var(--bs-accordion-btn-color);
+      text-align: unset;
+      background-color: unset !important;
+      border: unset !important;
+      border-radius: unset;
+      overflow-anchor: none;
+      transition: var(--bs-accordion-transition);
+      a {
+        font-size: 20px;
+        flex: 2;
+      }
+      .accordion-button {
+        background: unset;
+        box-shadow: unset;
+        flex: 1;
+        padding: 0;
+      }
+    }
+  }
+}
+.nav-link {
+  font-size: 20px !important;
+}
+.accordion-body {
+  padding-left: 0 !important;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+.accordion-link {
+  padding: 0 !important;
+  list-style: none !important;
+  a {
+    text-decoration: none;
+    color: unset;
+    color: #808080;
+  }
+}
+#menu-2-link {
+  font-weight: unset;
+  font-size: 16px !important;
+}
+// Our Team Section Ezmeleri
+.our-team {
+  padding: 5em 0;
+}
+
+.our-team-info {
+  h2 {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  p {
+    font-size: 20px;
+    font-weight: 300;
+  }
+}
+.our-team-info {
+  .card {
+    overflow: hidden;
+  }
+}
+.card {
+  border: unset !important;
+  cursor: pointer;
+  .card-img-container {
+    overflow: hidden;
+    position: relative;
+  }
+  .card-body {
+    padding: 1em 0;
+  }
+  .card-text {
+    margin-top: 1em;
+  }
+  .card-img-footer {
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    bottom: -46px;
+    left: 0;
+    width: 100%;
+    padding: 0.5em;
+    background-color: $primary;
+    a {
+      i {
+        color: #fff;
+      }
+    }
+  }
+  &:hover .card-img-footer {
+    bottom: 0;
+  }
+  .card-img-top {
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover .card-img-top {
+    transform: scale(1.05);
+  }
+  h5 {
+    font-size: 18px;
+  }
+  h6 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: $primary;
+  }
+}
+
+//Blog Section
+#blog-section {
+  padding: 3em 0;
+}
+
+// Import bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+//Content//
+.bg-image {
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  // background: linear-gradient(to right, #4286f4 0%, #42e2f4 100%) !important;
+}
+.filtre {
+  // position: absolute;
+  filter: opacity(30%) hue-rotate(234);
+}

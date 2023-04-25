@@ -1,0 +1,27 @@
+#helper {
+ right: 15px;
+ bottom: 15px;
+ @include square(50px);
+ cursor: pointer;
+ i {
+  animation: zoom 3s infinite linear;
+  font-size: 56px;
+ }
+ &:hover {
+  i {
+   animation: none;
+  }
+ }
+}
+
+@keyframes zoom {
+ 0% {
+  font-size: 56px;
+ }
+ 50% {
+  font-size: 72px;
+ }
+ 100% {
+  font-size: 56px;
+ }
+}

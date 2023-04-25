@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/th.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Ana Sayfa</title>
+</head>
+
+<body class="bg-secondary">
+
+  <header>
+    <nav class="nav1 navbar navbar-expand-lg bg-dark py-0">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse justify-content-end" id="supNavbar">
+          <div class="navbar-nav text-light">
+            <a class="nav-link text-primary fs-6" aria-current="page" href="#"><small>SİPARİŞ TAKİBİ</small>
+            </a>
+            <a class="nav-link text-primary fs-6" aria-current="page" href="#"><small>TEKNİK SERVİS</small>
+            </a>
+            <a class="nav-link text-primary" href="sss.html"><small>SIK SORULAN SORULAR</small></a>
+            <a class="nav-link text-primary" href="about-us.html"><small>HAKKIMIZDA</small></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <nav class="nav2 navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class=" logo navbar-brand w-25 ps-3" href="./index.html">
+          <img src="./assets/logo.png" alt="TecHome" class="  w-100" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#subNav"
+          aria-controls="subNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="web-search w-50 d-flex justify-content-center">
+          <form class="d-flex justify-content-center w-75" role="search">
+            <input class="form-control me-2 bg-secondary" type="search" placeholder="Arama Yap" aria-label="Search" />
+            <button class="btn btn-outline-primary w-25 fw-bold" type="submit">
+              Ara
+            </button>
+          </form>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-around" id="subNav">
+          <ul class="navbar-nav justify-content-start">
+            <li class="nav-item  px-1 me-4" data-bs-toggle="modal" data-bs-target="#loginModal">
+              <div class="d-flex align-items-center pointer">
+                <i class="fa-solid fa-circle-user fs-3 me-2 text-light"></i>
+                <div class="text-light
+                            ">Giriş Yap
+                  <div class="text-info"><small>Kayıt Ol</small></div>
+                </div>
+              </div>
+            </li>
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header text-center">
+                    <h1 class="modal-title fs-5 text-dark " id="loginModalLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-dark">
+                    <h5 class="text-center">ÜYE GİRİŞİ</h5>
+                    <form class="w-75 mx-auto ">
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="formeleman1">Email</label>
+                        <input type="email" id="formelean1" class="form-control" />
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="formeleman2">Şifre</label>
+                        <input type="password" id="formeleman2" class="form-control" />
+                      </div>
+
+                      <div class="row mb-4 text-center  ">
+                        <div class="">
+                          <div class="form-check  w-25 mx-auto justify-content-center ">
+                            <input class="form-check-input " type="checkbox" value="" id="formeleman3" checked />
+                            <label class="form-check-label" for="formeleman3"> Hatırla </label>
+                          </div>
+                        </div>
+
+                        <div class="">
+                          <a href="#!">Şifremi Unuttum?</a>
+                        </div>
+                      </div>
+
+                      <div class="text-center">
+                        <button type="button " class="btn btn-primary btn-block mb-4 ">Giriş Yap</button>
+                      </div>
+
+                      <div class="text-center">
+                        <p>Üye değil misin? <a href="#!">Kayıt Ol!</a></p>
+                        <p>veya şununla giriş yap:</p>
+                        <button type="button" class="btn btn-link btn-floating mx-1">
+                          <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button type="button" class="btn btn-link btn-floating mx-1">
+                          <i class="fab fa-google"></i>
+                        </button>
+                        <button type="button" class="btn btn-link btn-floating mx-1">
+                          <i class="fab fa-twitter"></i>
+                        </button>
+                        <button type="button" class="btn btn-link btn-floating mx-1">
+                          <i class="fab fa-github"></i>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <li class="nav-item px-1" data-bs-toggle="modal" data-bs-target="#sepetModal">
+              <div class="d-flex align-items-center pointer">
+                <i class="fa-solid fa-cart-shopping fs-3 me-2 text-light"></i>
+                <div class="text-light">Sepetim
+                  <div class="text-info"><small>0.00 ₺</small></div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="sepetModal" tabindex="-1" aria-labelledby="sepetModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5 text-dark" id="sepetMpdalLabel">SEPETİNİZ</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center text-dark">
+                      <h5>Sepetinizde Ürün Bulunmamaktadır.</h5>
+                      <img src="./assets/empty.png" alt="" class="w-50 ">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tamam</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item just-mobile  px-1 me-4 d-none">
+              <div class="d-flex align-items-center pointer">
+                <i class="fa-solid fa-circle-question fs-3 me-2 text-light"></i>
+                <a href="./sss.html" class="text-light
+                            ">Sık Sorulan Sorular
+                </a>
+              </div>
+            </li>
+            <li class="nav-item just-mobile  px-1 me-4 d-none">
+              <div class="d-flex align-items-center pointer">
+                <i class="fa-solid fa-address-card fs-3 me-2 text-light"></i>
+                <a href="./about-us.html " class="text-light
+                            ">Hakkımızda
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item mobile-search px-1 d-none">
+              <div class=" d-flex justify-content-center">
+                <form class="d-flex justify-content-center w-75" role="search">
+                  <input class="form-control me-2 bg-secondary" type="search" placeholder="Arama Yap"
+                    aria-label="Search" />
+                  <button class="btn btn-outline-primary w-25" type="submit">
+                    Ara
+                  </button>
+                </form>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <nav class="nav3 navbar navbar-expand-lg bg-dark py-0 border-top  border-info">
+      <div class=" container-fluid justify-content-center">
+        <div class="nav justify-content-center">
+          <div class=" nav3-item dropdown">
+            <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link text-light ">Bilgisayarlar <i class="fa-solid fa-chevron-down"></i></a>
+            </li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Notebooklar</a></li>
+              <li><a class="dropdown-item" href="#">Masaüstü Bilgisayarlar</a></li>
+              <li><a class="dropdown-item" href="#">Hazır Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">Oyun Bilgisayarları</a></li>
+            </ul>
+          </div>
+          <div class="nav3-item dropdown">
+            <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link text-light ">Hazır Sistemler <i class="fa-solid fa-chevron-down"></i></a>
+            </li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">ASUS Hazır Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">MSI Hazır Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">GIGABYTE Hazır Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">GeForce RTX Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">Özelleştirilebilir Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">NVIDIA Studio Sistemler</a></li>
+            </ul>
+          </div>
+          <div class="nav3-item dropdown">
+            <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link text-light ">Bilgisayar Bileşenleri <i class="fa-solid fa-chevron-down"></i></a>
+            </li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">İşlemci</a></li>
+              <li><a class="dropdown-item" href="#">Ana Kart</a></li>
+              <li><a class="dropdown-item" href="#">Ekran Kartı</a></li>
+              <li><a class="dropdown-item" href="#">Ram</a></li>
+              <li><a class="dropdown-item" href="#">SSD</a></li>
+              <li><a class="dropdown-item" href="#">Hard Disk</a></li>
+              <li><a class="dropdown-item" href="#">Kasa</a></li>
+              <li><a class="dropdown-item" href="#">Güç Kaynağı</a></li>
+              <li><a class="dropdown-item" href="#">Soğutma Sistemleri</a></li>
+            </ul>
+          </div>
+
+          <div class="nav3-item dropdown">
+            <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link text-light ">Çevre Birimleri <i class="fa-solid fa-chevron-down"></i></a>
+            </li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Monitör</a></li>
+              <li><a class="dropdown-item" href="#">Klavye</a></li>
+              <li><a class="dropdown-item" href="#">Kulaklık</a></li>
+              <li><a class="dropdown-item" href="#">Mouse</a></li>
+              <li><a class="dropdown-item" href="#">Mouse Pad</a></li>
+              <li><a class="dropdown-item" href="#">Mikrofon</a></li>
+              <li><a class="dropdown-item" href="#">Ağ Ürünleri</a></li>
+            </ul>
+          </div>
+          <div class="nav3-item dropdown">
+            <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link text-light ">Oyuncu Ekipmanları <i class="fa-solid fa-chevron-down"></i></a>
+            </li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Oyuncu Koltukları</a></li>
+              <li><a class="dropdown-item" href="#">Gamepad</a></li>
+              <li><a class="dropdown-item" href="#">Kulaklık Standları</a></li>
+              <li><a class="dropdown-item" href="#">Yayıncı Aksesuarları</a></li>
+            </ul>
+          </div>
+          </ul>
+
+        </div>
+    </nav>
+
+  </header>
+
+  <banner>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="2000">
+          <img
+            src="https://www.gaming.gen.tr/wp-content/uploads/2023/03/amd-ryzen-7000-x3d-banner-20230307.jpg?extend_cdn"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img
+            src="https://www.gaming.gen.tr/wp-content/uploads/2023/01/amd-star-wars-jedi-survivor-bundle-banner-20230125.jpg?extend_cdn"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://www.gaming.gen.tr/wp-content/uploads/2023/02/asus-pba-sistemler-banner-20230213.jpg?extend_cdn"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://www.gaming.gen.tr/wp-content/uploads/2022/09/nvidia-geforce-rtx-studio-pcler-banner-20220907.jpg?extend_cdn"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://www.gaming.gen.tr/wp-content/uploads/2023/04/iyzico-arti-taksit-kampanya-banner-20230404.jpg?extend_cdn"
+            class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </banner>
+
+  <main class="mb-5">
+    <section class="breadcrumb bg-dark py-2 text-light">
+      <div class="container ">
+        <div class="row align-items-center">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page"><a href="./index.html">Ana Sayfa</a></li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <div class="container ">
+      <div class="row mt-5 ">
+        <div class="filter-order dropdown d-flex justify-content-end ">
+          <div class="filter-button d-none"><button class="btn btn-dark" data-bs-toggle="modal"
+              data-bs-target="#filterModal">Filtrele</button></div>
+          <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModal" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content bg-dark">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5 text-light" id="filterModal">ÖZELLEŞTİR</h1>
+                  <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                  <aside class="ms-0 mt-5">
+                    <div class="marka">
+                      <h6 class="border-bottom border-info pb-2">MARKA</h6>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Asus
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Dell
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Geforce RTX PC
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          HP
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Lenovo
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          MSI
+                        </label>
+                      </div>
+                    </div>
+                    <div class="islemci">
+                      <h6 class="border-bottom border-info pb-2">İŞLEMCİ</h6>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          AMD
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          İntel
+                        </label>
+                      </div>
+                    </div>
+                    <div class="islemci-seri">
+                      <h6 class="border-bottom border-info pb-2">İŞLEMCİ SERİ</h6>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Core i3
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Core i5
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Core i7
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Core i9
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Ryzen 3
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Ryzen 5
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Ryzen 7
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Ryzen 9
+                        </label>
+                      </div>
+                    </div>
+                    <div class="ekrankarti">
+                      <h6 class="border-bottom border-info pb-2">EKRAN KARTI</h6>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          AMD Radeon
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          AMD VEGA </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          NVIDIA </label>
+                      </div>
+                    </div>
+                    <div class="ekrankarti-seri">
+                      <h6 class="border-bottom border-info pb-2">EKRAN KARTI SERİ</h6>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          AMD VEGA
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          NVIDIA RTX3000 Serisi </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+
+                          NVIDIA RTX4000 Serisi </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+
+                          Radeon RX </label>
+                      </div>
+                    </div>
+                    <div class="bellek">
+                      <h6 class="border-bottom border-info pb-2">BELLEK</h6>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          64 GB
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          32 GB
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          16 GB
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          8 GB
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="ssd">
+                      <h6 class="border-bottom border-info pb-2">SSD Kapasitesi</h6>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          1 TB
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          512 GB
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          480 GB
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          240 GB
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          120GB
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="fiyat">
+                      <label class="form-label border-bottom border-info pb-2 w-100" for="customRange1">Fiyat
+                        Aralığı</label>
+                      <div class="range w-100">
+                        <input type="range" class="form-range" id="customRange1" min="0" max="100000" />
+                      </div>
+                    </div>
+                  </aside>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Temizle</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Filtrele</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-dark dropdown-toggle px-5 text-start" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Sırala: Önerilen
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Önerilen</a></li>
+            <li><a class="dropdown-item" href="#">Çok Satan</a></li>
+            <li><a class="dropdown-item" href="#">Değerlendirme Sayısı</a></li>
+            <li><a class="dropdown-item" href="#">Fiyata Göre: Artan</a></li>
+            <li><a class="dropdown-item" href="#">Fiyata Göre: Azalan</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class=" row">
+        <div class="aside col-3">
+          <aside class="   ms-0 mt-5">
+            <h5 class="text-center mb-4 ">Özellik Seçimi</h5>
+            <div class="marka">
+              <h6 class="border-bottom border-info pb-2">MARKA</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Asus
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Dell
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Geforce RTX PC
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  HP
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Lenovo
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  MSI
+                </label>
+              </div>
+            </div>
+            <div class="islemci">
+              <h6 class="border-bottom border-info pb-2">İŞLEMCİ</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  AMD
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  İntel
+                </label>
+              </div>
+            </div>
+            <div class="islemci-seri">
+              <h6 class="border-bottom border-info pb-2">İŞLEMCİ SERİ</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Core i3
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Core i5
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Core i7
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Core i9
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Ryzen 3
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Ryzen 5
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Ryzen 7
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Ryzen 9
+                </label>
+              </div>
+            </div>
+            <div class="ekrankarti">
+              <h6 class="border-bottom border-info pb-2">EKRAN KARTI</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  AMD Radeon
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  AMD VEGA </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  NVIDIA </label>
+              </div>
+            </div>
+            <div class="ekrankarti-seri">
+              <h6 class="border-bottom border-info pb-2">EKRAN KARTI SERİ</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  AMD VEGA
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  NVIDIA RTX3000 Serisi </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+
+                  NVIDIA RTX4000 Serisi </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+
+                  Radeon RX </label>
+              </div>
+            </div>
+            <div class="bellek">
+              <h6 class="border-bottom border-info pb-2">BELLEK</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  64 GB
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  32 GB
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  16 GB
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  8 GB
+                </label>
+              </div>
+            </div>
+
+            <div class="ssd">
+              <h6 class="border-bottom border-info pb-2">SSD Kapasitesi</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  1 TB
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  512 GB
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  480 GB
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  240 GB
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  120GB
+                </label>
+              </div>
+            </div>
+
+            <div class="fiyat">
+              <label class="form-label border-bottom border-info pb-2 w-100" for="customRange1">Fiyat Aralığı</label>
+              <div class="range w-100">
+                <input type="range" class="form-range" id="customRange1" min="0" max="100000" />
+              </div>
+            </div>
+
+            <a href="#" class="btn btn-outline-primary w-100 mt-3 fw-bold">Filtrele</a>
+          </aside>
+        </div>
+
+        <div class="col-lg-9 mt-5 ">
+          <section class="urunler ">
+            <div class="row urunlist">
+
+              <div class="col-lg-4 mb-5">
+                <div class="  card h-100">
+                  <span class="text-center  my-3 bg-primary w-50 rounded-end">Çok Satıyor</span>
+                  <div id="detailCarousel2" class="carousel slide rounded">
+                    <div class="carousel-indicators ">
+                      <button type="button" data-bs-target="#detailCarousel2" data-bs-slide-to="0" class="active "
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#detailCarousel2" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#detailCarousel2" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                      <div class="carousel-item active">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202002/5e50d750c23aa6.86466330_nlhfpkqoiegmj_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202002/5e50d750d3d835.60706547_lfipmqghejonk_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202002/5e50d751c57671.70989847_gehlimqjkofpn_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+
+                    </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#detailCarousel2"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#detailCarousel2"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">GamePower Renji 10.000DPI 9 Tuş RGB Profesyonel Optik Gaming Mouse</h5>
+
+                  </div>
+                  <div class="card-footer mb-4">
+                    <p class="card-text">329,00 ₺</p>
+                    <a href="./product-2.html" class="btn btn-outline-info w-100 fw-bold">Ürüne Git</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class=" col-lg-4 mb-5">
+                <div class="card h-100 ">
+                  <span class="text-center  my-3 bg-info w-50 rounded-end">Fiyat Düştü</span>
+                  <div id="detailCarousel1" class="carousel slide rounded">
+                    <div class="carousel-indicators ">
+                      <button type="button" data-bs-target="#detailCarousel1" data-bs-slide-to="0" class="active "
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#detailCarousel1" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#detailCarousel1" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                      <div class="carousel-item active">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202302/63e212270b7c53.80281962_iohgejnkpmfql_500.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202302/63e21225abafd5.93946777_eohmplgfkiqjn_500.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202302/63e21227c968a6.01215472_enigohjqklfmp_500.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+
+                    </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#detailCarousel1"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#detailCarousel1"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">GeForce Ray Tracing Warrior Silver | Intel i5-12400F | 2 x 8 GB DDR4 | RTX
+                      3060 Ti 8 GB | 512 GB SSD Oyuncu Bilgisayarı</h5>
+                  </div>
+                  <div class="card-footer mb-4">
+                    <p class="card-text">19.799,00 ₺</p>
+                    <a href="./product-1.html" class="btn btn-outline-info w-100 fw-bold">Ürüne Git</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 mb-5">
+                <div class="  card h-100">
+                  <span class="text-center  my-3 bg-info w-50 rounded-end">Popüler Ürün</span>
+                  <div id="detailCarousel3" class="carousel slide rounded">
+                    <div class="carousel-indicators ">
+                      <button type="button" data-bs-target="#detailCarousel3" data-bs-slide-to="0" class="active "
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#detailCarousel3" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#detailCarousel3" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                      <div class="carousel-item active">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202103/60540233aa9c42.20342742_fhjoegqmnpilk_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202103/60540234ead345.79345838_okilgnjqmefhp_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202103/6054023342f302.10037601_fgmhkleioqjnp_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+
+                    </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#detailCarousel3"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#detailCarousel3"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">MSI HS01 Gaming Kulaklık Standı</h5>
+
+                  </div>
+                  <div class="card-footer mb-4">
+                    <p class="card-text">777,35 ₺</p>
+                    <a href="./product-3.html" class="btn btn-outline-info w-100 fw-bold">Ürüne Git</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 mb-5">
+                <div class="  card h-100">
+                  <span class="text-center  my-3 bg-primary w-50 rounded-end">Çok Satıyor</span>
+                  <div id="detailCarousel5" class="carousel slide rounded">
+                    <div class="carousel-indicators ">
+                      <button type="button" data-bs-target="#detailCarousel5" data-bs-slide-to="0" class="active "
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#detailCarousel5" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#detailCarousel5" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                      <div class="carousel-item active">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202002/5e50d750c23aa6.86466330_nlhfpkqoiegmj_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202002/5e50d750d3d835.60706547_lfipmqghejonk_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202002/5e50d751c57671.70989847_gehlimqjkofpn_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+
+                    </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#detailCarousel5"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#detailCarousel5"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">GamePower Renji 10.000DPI 9 Tuş RGB Profesyonel Optik Gaming Mouse</h5>
+
+                  </div>
+                  <div class="card-footer mb-4">
+                    <p class="card-text">329,00 ₺</p>
+                    <a href="./product-2.html" class="btn btn-outline-info w-100 fw-bold">Ürüne Git</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class=" col-lg-4 mb-5">
+                <div class="card h-100 ">
+                  <span class="text-center  my-3 bg-info w-50 rounded-end">Fiyat Düştü</span>
+                  <div id="detailCarousel4" class="carousel slide rounded">
+                    <div class="carousel-indicators ">
+                      <button type="button" data-bs-target="#detailCarousel4" data-bs-slide-to="0" class="active "
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#detailCarousel4" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#detailCarousel4" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                      <div class="carousel-item active">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202302/63e212270b7c53.80281962_iohgejnkpmfql_500.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202302/63e21225abafd5.93946777_eohmplgfkiqjn_500.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202302/63e21227c968a6.01215472_enigohjqklfmp_500.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+
+                    </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#detailCarousel4"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#detailCarousel4"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">GeForce Ray Tracing Warrior Silver | Intel i5-12400F | 2 x 8 GB DDR4 | RTX
+                      3060 Ti 8 GB | 512 GB SSD Oyuncu Bilgisayarı</h5>
+                  </div>
+                  <div class="card-footer mb-4">
+                    <p class="card-text">19.799,00 ₺</p>
+                    <a href="./product-1.html" class="btn btn-outline-info w-100 fw-bold">Ürüne Git</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 mb-5">
+                <div class="  card h-100">
+                  <span class="text-center  my-3 bg-info w-50 rounded-end">Popüler Ürün</span>
+                  <div id="detailCarousel6" class="carousel slide rounded">
+                    <div class="carousel-indicators ">
+                      <button type="button" data-bs-target="#detailCarousel6" data-bs-slide-to="0" class="active "
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#detailCarousel6" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#detailCarousel6" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                      <div class="carousel-item active">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202103/60540233aa9c42.20342742_fhjoegqmnpilk_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202103/60540234ead345.79345838_okilgnjqmefhp_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202103/6054023342f302.10037601_fgmhkleioqjnp_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+
+                    </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#detailCarousel6"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#detailCarousel6"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">MSI HS01 Gaming Kulaklık Standı</h5>
+
+                  </div>
+                  <div class="card-footer mb-4">
+                    <p class="card-text">777,35 ₺</p>
+                    <a href="./product-3.html" class="btn btn-outline-info w-100 fw-bold">Ürüne Git</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 mb-5">
+                <div class="  card h-100">
+                  <span class="text-center  my-3 bg-primary w-50 rounded-end">Çok Satıyor</span>
+                  <div id="detailCarousel8" class="carousel slide rounded">
+                    <div class="carousel-indicators ">
+                      <button type="button" data-bs-target="#detailCarousel8" data-bs-slide-to="0" class="active "
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#detailCarousel8" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#detailCarousel8" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                      <div class="carousel-item active">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202002/5e50d750c23aa6.86466330_nlhfpkqoiegmj_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202002/5e50d750d3d835.60706547_lfipmqghejonk_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202002/5e50d751c57671.70989847_gehlimqjkofpn_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+
+                    </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#detailCarousel8"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#detailCarousel8"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">GamePower Renji 10.000DPI 9 Tuş RGB Profesyonel Optik Gaming Mouse</h5>
+
+                  </div>
+                  <div class="card-footer mb-4">
+                    <p class="card-text">329,00 ₺</p>
+                    <a href="./product-2.html" class="btn btn-outline-info w-100 fw-bold">Ürüne Git</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class=" col-lg-4 mb-5">
+                <div class="card h-100 ">
+                  <span class="text-center  my-3 bg-info w-50 rounded-end">Fiyat Düştü</span>
+                  <div id="detailCarousel7" class="carousel slide rounded">
+                    <div class="carousel-indicators ">
+                      <button type="button" data-bs-target="#detailCarousel7" data-bs-slide-to="0" class="active "
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#detailCarousel7" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#detailCarousel7" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                      <div class="carousel-item active">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202302/63e212270b7c53.80281962_iohgejnkpmfql_500.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202302/63e21225abafd5.93946777_eohmplgfkiqjn_500.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202302/63e21227c968a6.01215472_enigohjqklfmp_500.jpg"
+                          class="d-block w-100" alt="...">
+                      </div>
+
+                    </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#detailCarousel7"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#detailCarousel7"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">GeForce Ray Tracing Warrior Silver | Intel i5-12400F | 2 x 8 GB DDR4 | RTX
+                      3060 Ti 8 GB | 512 GB SSD Oyuncu Bilgisayarı</h5>
+                  </div>
+                  <div class="card-footer mb-4">
+                    <p class="card-text">19.799,00 ₺</p>
+                    <a href="./product-1.html" class="btn btn-outline-info w-100 fw-bold">Ürüne Git</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 mb-5">
+                <div class="  card h-100">
+                  <span class="text-center  my-3 bg-info w-50 rounded-end">Popüler Ürün</span>
+                  <div id="detailCarousel9" class="carousel slide rounded">
+                    <div class="carousel-indicators ">
+                      <button type="button" data-bs-target="#detailCarousel3" data-bs-slide-to="0" class="active "
+                        aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#detailCarousel9" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#detailCarousel9" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                      <div class="carousel-item active">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202103/60540233aa9c42.20342742_fhjoegqmnpilk_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202103/60540234ead345.79345838_okilgnjqmefhp_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="https://www.incehesap.com/resim/urun/202103/6054023342f302.10037601_fgmhkleioqjnp_500.jpg"
+                          class="d-block w-100 bg-light" alt="...">
+                      </div>
+
+                    </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#detailCarousel9"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#detailCarousel9"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">MSI HS01 Gaming Kulaklık Standı</h5>
+
+                  </div>
+                  <div class="card-footer mb-4">
+                    <p class="card-text">777,35 ₺</p>
+                    <a href="./product-3.html" class="btn btn-outline-info w-100 fw-bold">Ürüne Git</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <nav class=" mt-5" aria-label="Pagenav ">
+        <ul class="pagination  justify-content-end">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </main>
+
+  <footer class="text-center text-lg-start bg-dark text-muted">
+
+    <section class="mb-4 text-center pt-5">
+      <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+          class="fab fa-facebook-f"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+          class="fab fa-twitter"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+          class="fab fa-google"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+          class="fab fa-instagram"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+          class="fab fa-linkedin-in"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+    </section>
+
+    <section>
+      <div class="container text-center text-md-start mt-5">
+        <div class=" row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <img src="./assets/logo.png" alt="" class="w-100">
+            <p>
+              Cumhuriyet Mah. Atatürk Cad. No:24/7 Tepebaşı/Eskişehir
+            </p>
+          </div>
+
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Ürünler
+            </h6>
+            <p>
+              <a href="#" class="text-reset">Bilgisayar</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Hazır Sistemler</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Bilgisayar Bileşenleri</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Çevre Birimleri</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Oyuncu Ekipmanları</a>
+            </p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Kurumsal
+            </h6>
+            <p>
+              <a href="./about-us.html" class="text-reset">Hakkımızda</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">KVKK ve Yasal Haklar</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Çerez Yönetimi</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Satış Sözleşmesi</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Garanti Şartları</a>
+            </p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              YARDIM
+            </h6>
+            <p>
+              <a href="./sss.html" class="text-reset">Sık Sorulan Sorular</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Sipariş ve Teslimat</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Üyelik / Hesabım</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Ömür Boyu Bakım</a>
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2023 Copyright:
+      <a class="text-reset fw-bold" href="#">TecHome.com</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>

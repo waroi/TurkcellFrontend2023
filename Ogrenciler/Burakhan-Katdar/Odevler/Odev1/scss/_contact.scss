@@ -1,0 +1,27 @@
+.contact{
+    @include sectionPadding(30px);
+    .contact-inner{
+        @include innerStyle();
+        h2{
+            margin-bottom: 20px;
+        }
+        gap: 0 !important;
+        .contact-top{
+            margin-bottom: 40px;
+        }
+        .contact-bottom{
+           display: grid;
+           justify-content: center;
+           position: relative;
+           overflow: hidden;
+           height: 0;
+           padding-bottom:56.25%;
+           iframe{
+            position: absolute;
+            height: 100% !important;
+            width: 100% !important;
+           }
+        }
+    }
+}
+

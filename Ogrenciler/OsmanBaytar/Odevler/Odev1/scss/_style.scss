@@ -1,0 +1,130 @@
+@mixin width-height($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  box-shadow: 5px 5px 5px 5px $secondary;
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 700;
+  img {
+    @include width-height(150px, 74px);
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+  }
+  button {
+    color: $secondary;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #nav-item-home {
+    padding-top: 20px;
+  }
+  .box {
+    margin-bottom: 2rem;
+  }
+}
+
+.p-120 {
+  padding: 120px 0;
+}
+.pb-120 {
+  padding-bottom: 120px;
+}
+
+header {
+  background-image: url("../hondaLogo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  @include width-height(100%, 700px);
+  .header-inner {
+    background-color: $primary;
+    opacity: 0.6;
+    @include width-height(100%, 700px);
+    p {
+      font-size: 1.2rem;
+    }
+    button {
+      width: 150px;
+    }
+  }
+}
+
+section.vehicles {
+  .box {
+    background-color: white;
+    border: 3px solid $secondary;
+    border-radius: 10px;
+    transition: 0.8 all ease-in-out;
+    box-shadow: 0px 0px 5px 3px $secondary;
+    img {
+      @include width-height(100%, 250px);
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      border: none;
+    }
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+      background-color: $primary;
+      color: $light;
+    }
+  }
+}
+
+section.contact {
+  button {
+    width: 200px;
+  }
+}
+
+footer {
+  .first-section {
+    background-color: $secondary;
+  }
+  hr {
+    @include width-height(60px, 2px);
+    background-color: $secondary;
+  }
+}
+
+section.vehicles-info {
+  img {
+    @include width-height(300px, 400px);
+  }
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+section.news {
+  img {
+    @include width-height(100%, 100%);
+  }
+}
+
+section.vehicles-details {
+  .info {
+    box-shadow: 0 0 20px $primary;
+  }
+  .col-lg-3 {
+    &:hover {
+      background-color: $primary;
+      color: white;
+    }
+  }
+  button {
+    width: 200px;
+  }
+}

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GENOMI</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png" />
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <!--navbar-->
+    <div class="top-menu row m-0 bg-primary sticky-top">
+      <div class="container"></div>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../assets/mainPage/logo.png"
+            alt="Bootstrap"
+            width="90px"
+            height="90px"
+            href="../pages/main.html"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul
+            class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-md-center gap-5"
+          >
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/main.html">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../pages/products/product1.html"
+                    >Zoro!</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../pages/products/product2.html"
+                    >Younai!</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../pages/products/product3.html"
+                    >Kotobukiya!</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/faq.html">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/aboutUs.html">About Us</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              class="bi bi-search-heart"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              <i class="bi bi-search-heart"></i>
+            </button>
+          </form>
+          <i class="bi bi-person-fill p-4 fs-2"></i>
+          <i class="bi bi-basket2-fill p-2 fs-2"></i>
+        </div>
+      </div>
+    </nav>
+    <!--navbar finish-->
+
+    <!--questions-->
+    <div class="faq mt-5">
+      <div class="container">
+        <div class="d-md-flex align-items-start gap-5">
+          <div
+            class="nav flex-column nav-pills me-3"
+            id="v-pills-tab"
+            role="tablist"
+            aria-orientation="vertical"
+          >
+            <button
+              class="nav-link active"
+              id="v-pills-home-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#v-pills-home"
+              type="button"
+              role="tab"
+              aria-controls="v-pills-home"
+              aria-selected="true"
+            >
+              Popular Questions
+            </button>
+            <button
+              class="nav-link"
+              id="v-pills-profile-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#v-pills-profile"
+              type="button"
+              role="tab"
+              aria-controls="v-pills-profile"
+              aria-selected="false"
+            >
+              My Account
+            </button>
+            <button
+              class="nav-link"
+              id="v-pills-disabled-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#v-pills-disabled"
+              type="button"
+              role="tab"
+              aria-controls="v-pills-disabled"
+              aria-selected="false"
+            >
+              Shipping and Delivery
+            </button>
+
+            <button
+              class="nav-link"
+              id="v-pills-settings-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#v-pills-settings"
+              type="button"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+            >
+              Contact
+            </button>
+          </div>
+          <div class="tab-content" id="v-pills-tabContent">
+            <!--popular question-->
+            <div
+              class="tab-pane fade show active"
+              id="v-pills-home"
+              role="tabpanel"
+              aria-labelledby="v-pills-home-tab"
+              tabindex="0"
+            >
+              <div class="accordion col-md-9" id="accordionPanelsStayOpenFaq">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      data-parent="#accordion"
+                      data-toggle="collapse"
+                      href="#collapse1"
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseOne"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseOne"
+                    >
+                      <i class="bi bi-patch-question-fill m-2"></i>
+
+                      How can I return the products I bought?
+                    </button>
+                  </h2>
+                  <div
+                    id="panelsStayOpen-collapseOne"
+                    class="accordion-collapse collapse show"
+                    id="collapse1"
+                    role="tabpanel"
+                  >
+                    <div class="accordion-body">
+                      1. Follow “My Account” > “My Orders” > “Order detail”.
+                      <br />
+                      2. Click the Generate Return Shipping Code button.
+                      <br />3. Select the item to be returned and the reason for
+                      the return. If you have purchased more than one product of
+                      the same product, you must also select the number of
+                      products to be returned. <br />4. Choose one of the
+                      suggested return methods according to the suitability of
+                      the products you want to return.<br />
+                      5. In case of more than one shipping option, select your
+                      cargo. <br />6. Take note of the return shipping code that
+                      appears on the screen. You can also find your return
+                      shipping code on the My Orders page. <br />
+                      7. Put the products with the same return code in the same
+                      package with the invoice and make sure that the package is
+                      intact.<br />
+                      8. Products with different return codes should be given in
+                      different packages, even if they are given to the same
+                      cargo.<br />
+                      9. According to the return method you choose, deliver your
+                      package to the cargo branch within 7 days or deliver it to
+                      the officer who will come to your address on the day of
+                      your appointment. <br />10. If you pass 7 days, you will
+                      need to get the return shipping code again.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseTwo"
+                    >
+                      <i class="bi bi-patch-question-fill m-2"></i>
+                      When will my order arrive?
+                    </button>
+                  </h2>
+                  <div
+                    id="panelsStayOpen-collapseTwo"
+                    class="accordion-collapse collapse"
+                  >
+                    <div class="accordion-body">
+                      • The products you purchase are delivered within the
+                      delivery date range specified on the product detail page.
+                      You can also find the delivery date of the products you
+                      purchased on the "My Orders" page in the "My Account"
+                      section. <br />• If there is a text “Delivered in 24
+                      hours” on the product, your order will be shipped within
+                      24 hours. These products are “FAST DELIVERY” products.<br />
+                      • When the order is delivered, you will be informed by the
+                      cargo company via SMS.<br />
+                      • After shipping, you can track the shipping stages of
+                      your order from the <code>"Where is my Cargo?"</code> link
+                      in the "My Orders" tab in the "My Account" section. ,
+                      though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseThree"
+                      aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseThree"
+                    >
+                      <i class="bi bi-patch-question-fill m-2"></i>
+                      How can I cancel my order?
+                    </button>
+                  </h2>
+                  <div
+                    id="panelsStayOpen-collapseThree"
+                    class="accordion-collapse collapse"
+                  >
+                    <div class="accordion-body">
+                      If you have ordered the wrong product or changed your
+                      mind, you can easily cancel your products before the cargo
+                      preparations begin, as follows. <br />
+                      1. By following the steps “My Orders” > “Details/Order
+                      Detail” > “Cancel Order”. <br />2. By clicking "Connect to
+                      Live Help" from the "Help" step in the "My Account"
+                      section, selecting "Cancellation and Refund" on the page
+                      that opens. If your products have started to be prepared
+                      for shipping (your invoice has been issued) or if they
+                      have been shipped, they cannot be cancelled. In this case,
+                      you can return the product when you receive it.
+                      <br />
+                      <code>
+                        CLUE: Fee refunds are completed within 2 business days.
+                        You will be notified by e-mail when your return is
+                        completed and your return is made to your bank.</code
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--my account-->
+            <div
+              class="tab-pane fade"
+              id="v-pills-profile"
+              role="tabpanel"
+              aria-labelledby="v-pills-profile-tab"
+              tabindex="0"
+            >
+              <div class="accordion col-md-9" id="accordionPanelsStayOpenFaq">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      data-parent="#accordion"
+                      data-toggle="collapse"
+                      href="#collapse1"
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseOne"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseOne"
+                    >
+                      <i class="bi bi-patch-question-fill m-2"></i>
+
+                      How can I change my password?
+                    </button>
+                  </h2>
+                  <div
+                    id="panelsStayOpen-collapseOne"
+                    class="accordion-collapse collapse show"
+                    id="collapse1"
+                    role="tabpanel"
+                  >
+                    <div class="accordion-body">
+                      After logging in to the site to change your password, you
+                      can create a new password using the “My User Information”
+                      tab in the “My Account” section.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseTwo"
+                    >
+                      <i class="bi bi-patch-question-fill m-2"></i>
+                      How can I change my e-mail address?
+                    </button>
+                  </h2>
+                  <div
+                    id="panelsStayOpen-collapseTwo"
+                    class="accordion-collapse collapse"
+                  >
+                    <div class="accordion-body">
+                      To change your e-mail address, you can update your e-mail
+                      address by using the "My User Information" tab in the "My
+                      Account" section after logging in to the site.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--shopping-->
+            <div
+              class="tab-pane fade"
+              id="v-pills-disabled"
+              role="tabpanel"
+              aria-labelledby="v-pills-disabled-tab"
+              tabindex="0"
+            >
+              <div class="accordion col-md-9" id="accordionPanelsStayOpenFaq">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      data-parent="#accordion"
+                      data-toggle="collapse"
+                      href="#collapse1"
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseOne"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseOne"
+                    >
+                      <i class="bi bi-patch-question-fill m-2"></i>
+
+                      Is there a delivery free?
+                    </button>
+                  </h2>
+                  <div
+                    id="panelsStayOpen-collapseOne"
+                    class="accordion-collapse collapse show"
+                    id="collapse1"
+                    role="tabpanel"
+                  >
+                    <div class="accordion-body">
+                      • Free shipping on orders of 100 TL or more for our Elite
+                      members.
+
+                      <br />
+                      • Boutique-specific “Free Shipping” campaigns are also
+                      organize
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseTwo"
+                    >
+                      <i class="bi bi-patch-question-fill m-2"></i>
+                      My order came when I was not at my address.
+                    </button>
+                  </h2>
+                  <div
+                    id="panelsStayOpen-collapseTwo"
+                    class="accordion-collapse collapse"
+                  >
+                    <div class="accordion-body">
+                      • If you cannot be found at your address, the courier
+                      company leaves a note stating that you can pick up your
+                      package from your branch. • If you do not receive your
+                      package from the specified branch within 3 days, your
+                      order will be returned to genimo. • If you want the cargo
+                      returned to genimo to be shipped again, you can contact us
+                      through the following channels. "Genimo Assistant" button
+                      in the "My Account" section •Horoz, Ceva and Genimo
+                      companies do not have a branch pick-up process.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseThree"
+                      aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseThree"
+                    >
+                      <i class="bi bi-patch-question-fill m-2"></i>
+                      How can I cancel my order?
+                    </button>
+                  </h2>
+                  <div
+                    id="panelsStayOpen-collapseThree"
+                    class="accordion-collapse collapse"
+                  >
+                    <div class="accordion-body">
+                      If you have ordered the wrong product or changed your
+                      mind, you can easily cancel your products before the cargo
+                      preparations begin, as follows. <br />
+                      1. By following the steps “My Orders” > “Details/Order
+                      Detail” > “Cancel Order”. <br />2. By clicking "Connect to
+                      Live Help" from the "Help" step in the "My Account"
+                      section, selecting "Cancellation and Refund" on the page
+                      that opens. If your products have started to be prepared
+                      for shipping (your invoice has been issued) or if they
+                      have been shipped, they cannot be cancelled. In this case,
+                      you can return the product when you receive it.
+                      <br />
+                      <code>
+                        CLUE: Fee refunds are completed within 2 business days.
+                        You will be notified by e-mail when your return is
+                        completed and your return is made to your bank.</code
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--contact-->
+            <div
+              class="tab-pane fade"
+              id="v-pills-messages"
+              role="tabpanel"
+              aria-labelledby="v-pills-messages-tab"
+              tabindex="0"
+            >
+              ...
+            </div>
+            <div
+              class="tab-pane fade"
+              id="v-pills-settings"
+              role="tabpanel"
+              aria-labelledby="v-pills-settings-tab"
+              tabindex="0"
+            >
+              <div class="accordion col-md-9" id="accordionPanelsStayOpenFaq">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      data-parent="#accordion"
+                      data-toggle="collapse"
+                      href="#collapse1"
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseOne"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseOne"
+                    >
+                      <i class="bi bi-patch-question-fill m-2"></i>
+
+                      How can I reach Trendyol contact information?
+                    </button>
+                  </h2>
+                  <div
+                    id="panelsStayOpen-collapseOne"
+                    class="accordion-collapse collapse show"
+                    id="collapse1"
+                    role="tabpanel"
+                  >
+                    <div class="accordion-body">
+                      Tel: 0 212 33* * *** <br />
+                      Fax: 0 *** *** ** **<br />
+                      Mail Address: help@genimo.com
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5 m-5" id="helpLego">
+        <form
+          action=""
+          class="was-validated mt-5 align-items-center p-5 rounded-4 border border-warning border-4"
+        >
+          <div class="form-group">
+            <label for="faqInputEmail1">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="faqInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              placeholder="Enter userne"
+              name="faqInputEmail1"
+              required
+            />
+
+            <div class="valid-feedback form-invalid-color-dark">nice</div>
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="uname" class="form-label">Username:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="uname"
+              placeholder="Enter username"
+              name="uname"
+              required
+            />
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="mb-3">
+            <label for="validationTextarea" class="form-label">Textarea</label>
+            <textarea
+              class="form-control"
+              id="validationTextarea"
+              placeholder="Required FAQ textarea"
+              required
+            ></textarea>
+            <div class="invalid-feedback">
+              Please enter a message in the textarea.
+            </div>
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="myCheck"
+              name="remember"
+              required
+            />
+            <label class="form-check-label" for="myCheck"
+              >I agree on blabla.</label
+            >
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Check this checkbox to continue.</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div class="col-md-9"></div>
+        <div class="col-md-2 m-5 p-3">
+          <img src="../assets/faqPage/hello-lego.png" class="img-fluid" />
+          <p class="text-center w-100 rounded-4 border border-4">
+            ask your assistant It's here for you 24/7
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--footer -->
+    <footer class="text-center text-lg-start bg-black text-white">
+      <!-- Section: Links  -->
+      <section class="text-white">
+        <div class="container text-center text-md-start mt-5 pt-4">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <div class="logo mx-auto mb-4 position-relative">
+              <a href="../pages/main.html">
+                <img
+                  src="../assets/mainPage/logo.png"
+                  class="w-25 position-absolute end-100 bottom-25"
+                />
+              </a>
+            </div>
+
+            <!-- Grid column -->
+
+            <div class="col-md-3 col-lg-4 col-xl-3 mb-4 align-items-center">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">About Us</h6>
+              <p>
+                <a href="#!" class="text-reset">Log in</a>
+              </p>
+              <p>
+                <a href="../pages/aboutUs.html" class="text-reset">About Us</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Reviews</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Discount Scheme</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">My Account</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Help</h6>
+              <p>
+                <a href="../pages/faq.html" class="text-reset"
+                  >FAQS, Delivery & Returns</a
+                >
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Pre Order Updates</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Terms & Conditions</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Privacy Policy</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Cookie Policy</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Contact Us</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Follow Us</h6>
+              <p>
+                <a href="#!" class="text-reset">help@genomi.com</a>
+              </p>
+              <p>
+                <a href="https://github.com/busra4" class="text-reset">
+                  <i class="bi bi-github me-2"></i>Github</a
+                >
+              </p>
+              <p>
+                <a href="#!" class="text-reset"
+                  ><i class="bi bi-twitter me-2"></i>Twitter</a
+                >
+              </p>
+              <p>
+                <a href="linkedin.com/in/busrakosnak4" class="text-reset"
+                  ><i class="bi bi-linkedin me-2"></i>LinkedIn</a
+                >
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">We Accept</h6>
+              <div class="row mt-5 row-gap-5">
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+              </div>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2023 Copyright:
+        <a class="text-reset fw-bold"
+          >We made <i class="bi bi-arrow-through-heart"></i> it
+        </a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!--footer  finish-->
+
+    <button id="myBtn">
+      <a href="#top">
+        <img
+          href="#top"
+          src="../assets/mainPage/top-punch.png "
+          class="img-fluid"
+      /></a>
+    </button>
+  </body>
+</html>

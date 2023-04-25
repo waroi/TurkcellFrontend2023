@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Midterm1-Home</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary py-3">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html"
+          ><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwgDnUEjHJVHBgjWguHBHW8jKdId9B28urfQ&usqp=CAU"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNavDropdown"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item" id="nav-item-home">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="index.html"
+                style="color: rgba(168, 33, 21, 0.821)"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="about.html"
+                style="color: rgba(168, 33, 21, 0.821)"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="faq.html"
+                style="color: rgba(168, 33, 21, 0.821)"
+                >FAQ</a
+              >
+            </li>
+            <li
+              class="nav-item dropdown"
+              style="color: rgba(168, 33, 21, 0.821)"
+            >
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style="color: rgba(168, 33, 21, 0.821)"
+              >
+                Automobiles
+              </a>
+              <ul class="dropdown-menu bg-primary">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="car1.html"
+                    style="color: rgba(168, 33, 21, 0.821)"
+                    >CITY</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="car2.html"
+                    style="color: rgba(168, 33, 21, 0.821)"
+                    >CIVIC</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="car3.html"
+                    style="color: rgba(168, 33, 21, 0.821)"
+                    >HR-V/e:HEV</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="car4.html"
+                    style="color: rgba(168, 33, 21, 0.821)"
+                    >ACCORD</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style="color: rgba(168, 33, 21, 0.821)"
+              >
+                Motorcycles
+              </a>
+              <ul class="dropdown-menu bg-primary">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="motor1.html"
+                    style="color: rgba(168, 33, 21, 0.821)"
+                    >CBR1000RR-R</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="motor2.html"
+                    style="color: rgba(168, 33, 21, 0.821)"
+                    >X-ADV</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="motor3.html"
+                    style="color: rgba(168, 33, 21, 0.821)"
+                    >MSX125</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="motor4.html"
+                    style="color: rgba(168, 33, 21, 0.821)"
+                    >CB250R</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="container">
+          <div class="row text-center p-120 justify-content-center">
+            <div class="col-lg-7">
+              <div class="info">
+                <h1 class="text-white p-3">Powered by Honda</h1>
+                <p class="text-white">
+                  Honda will be the Power supporting people around the world
+                  taking their own initiatives, and will help people reach their
+                  potential.
+                </p>
+              </div>
+              <form class="form-control mt-5">
+                <h1 class="p-3">What are you looking for?</h1>
+                <input
+                  class="form-control mb-3"
+                  list="vehicles"
+                  placeholder="Type to search..."
+                />
+                <datalist id="vehicles">
+                  <option value="CITY"></option>
+                  <option value="CIVIC"></option>
+                  <option value="HR-V/e:HEV"></option>
+                  <option value="ACCORD"></option>
+                  <option value="CBR1000RR-R"></option>
+                  <option value="X-ADV"></option>
+                  <option value="MSX125"></option>
+                  <option value="CB250R"></option>
+                </datalist>
+                <button type="button" class="btn btn-secondary">Search</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="vehicles p-120 bg-light">
+      <div class="container">
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-7">
+            <div class="info">
+              <h1 class="p-3">Automobiles Powered by Honda</h1>
+              <p>
+                Every Honda vehicle is designed and engineered to unlock a world
+                of driving excitement. Discover The Power of Dreams today.
+              </p>
+            </div>
+          </div>
+          <div class="row p-120">
+            <div class="col-lg-3 col-sm-6 px-3">
+              <div class="box text-start">
+                <img
+                  src="https://www.honda.com.tr/assets/img/city/city-banner.webp"
+                />
+                <h3 class="ps-3 pt-3">CITY</h3>
+                <p class="rate ps-3">7.1/10</p>
+                <span class="ms-3 p-1 px-3 bg-secondary text-white"
+                  >For You</span
+                >
+                <div class="d-flex align-items-center">
+                  <p class="price ps-3 font-weight-bold fs-4 mt-1">35200 $</p>
+                  <p class="text-decoration-line-through ms-4 fs-5">38300 $</p>
+                </div>
+
+                <button type="button" class="btn btn-secondary">
+                  <a class="text-white" href="car1.html">View Details</a>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-3">
+              <div class="box text-start">
+                <img
+                  src="https://www.honda.com.tr/assets/img/civic/home-banner.webp"
+                />
+                <h3 class="ps-3 pt-3">CIVIC</h3>
+                <p class="rate ps-3">7.9/10</p>
+                <span class="ms-3 p-1 px-3 bg-secondary text-white"
+                  >For You</span
+                >
+                <div class="d-flex align-items-center">
+                  <p class="price ps-3 font-weight-bold fs-4 mt-1">53950 $</p>
+                  <p class="text-decoration-line-through ms-4 fs-5">58100 $</p>
+                </div>
+                <button type="button" class="btn btn-secondary">
+                  <a class="text-white" href="car2.html">View Details</a>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-3">
+              <div class="box text-start">
+                <img
+                  src="https://www.honda.com.tr/assets/img/hrv/hrv-banner.webp"
+                />
+                <h3 class="ps-3 pt-3">HR-V/e:HEV</h3>
+                <p class="rate ps-3">8.1/10</p>
+                <span class="ms-3 p-1 px-3 bg-secondary text-white"
+                  >For You</span
+                >
+                <div class="d-flex align-items-center">
+                  <p class="price ps-3 font-weight-bold fs-4 mt-1">60750 $</p>
+                  <p class="text-decoration-line-through ms-4 fs-5">65100 $</p>
+                </div>
+                <button type="button" class="btn btn-secondary">
+                  <a class="text-white" href="car3.html">View Details</a>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-3">
+              <div class="box text-start">
+                <img
+                  src="https://www.honda.com.tr/assets/img/accord/home-banner.webp"
+                />
+                <h3 class="ps-3 pt-3">ACCORD</h3>
+                <p class="rate ps-3">7.9/10</p>
+                <span class="ms-3 p-1 px-3 bg-secondary text-white"
+                  >For You</span
+                >
+                <div class="d-flex align-items-center">
+                  <p class="price ps-3 font-weight-bold fs-4 mt-1">72375 $</p>
+                  <p class="text-decoration-line-through ms-4 fs-5">77450 $</p>
+                </div>
+                <button type="button" class="btn btn-secondary">
+                  <a class="text-white" href="car4.html">View Details</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vehicles-info p-120 bg-primary">
+      <div class="container">
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-7">
+            <div class="info">
+              <h1 class="p-3 text-secondary">
+                REIMAGINE YOUR NEW POSSIBILITIES
+              </h1>
+              <p class="text-secondary">
+                Reimagine Your New Possibilities with the Turbo, the next level
+                of a city car that goes beyond any expectations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vehicles p-120 bg-light">
+      <div class="container">
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-7">
+            <div class="info">
+              <h1 class="p-3">Motorcyles Powered by Honda</h1>
+              <p>
+                We know that for most riders, motorcycles are a way of life.
+                View the new motorbike range from Honda and find the right bike
+                for you.
+              </p>
+            </div>
+          </div>
+          <div class="row p-120">
+            <div class="col-lg-3 col-sm-6 px-3">
+              <div class="box text-start">
+                <img
+                  src="https://www.honda.com.tr/assets/img/models/0HPlyNynRP1652267554805.webp"
+                />
+                <h3 class="ps-3 pt-3">CBR1000RR-R</h3>
+                <p class="rate ps-3">8.7/10</p>
+                <span class="ms-3 p-1 px-3 bg-secondary text-white"
+                  >For You</span
+                >
+                <div class="d-flex align-items-center">
+                  <p class="price ps-3 font-weight-bold fs-4 mt-1">46510 $</p>
+                  <p class="text-decoration-line-through ms-4 fs-5">50450 $</p>
+                </div>
+                <button type="button" class="btn btn-secondary">
+                  <a class="text-white" href="motor1.html">View Details</a>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-3">
+              <div class="box text-start">
+                <img
+                  src="https://www.honda.com.tr/assets/img/models/ahItCVG03e1678447555622.jpg"
+                />
+                <h3 class="ps-3 pt-3">X-ADV</h3>
+                <p class="rate ps-3">7.7/10</p>
+                <span class="ms-3 p-1 px-3 bg-secondary text-white"
+                  >For You</span
+                >
+                <div class="d-flex align-items-center">
+                  <p class="price ps-3 font-weight-bold fs-4 mt-1">21380 $</p>
+                  <p class="text-decoration-line-through ms-4 fs-5">24250 $</p>
+                </div>
+                <button type="button" class="btn btn-secondary">
+                  <a class="text-white" href="motor2.html">View Details</a>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-3">
+              <div class="box text-start">
+                <img
+                  src="https://www.honda.com.tr/assets/img/models/WsVAKH05Lg1647461981885.webp"
+                />
+                <h3 class="ps-3 pt-3">MSX125</h3>
+                <p class="rate ps-3">7.5/10</p>
+                <span class="ms-3 p-1 px-3 bg-secondary text-white"
+                  >For You</span
+                >
+                <div class="d-flex align-items-center">
+                  <p class="price ps-3 font-weight-bold fs-4 mt-1">4500 $</p>
+                  <p class="text-decoration-line-through ms-4 fs-5">4980 $</p>
+                </div>
+                <button type="button" class="btn btn-secondary">
+                  <a class="text-white" href="motor3.html">View Details</a>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-3">
+              <div class="box text-start">
+                <img
+                  src="https://www.honda.com.tr/assets/img/models/lhS8eYqBnT1653024466935.webp"
+                />
+                <h3 class="ps-3 pt-3">CB250R</h3>
+                <p class="rate ps-3">7.6/10</p>
+                <span class="ms-3 p-1 px-3 bg-secondary text-white"
+                  >For You</span
+                >
+                <div class="d-flex align-items-center">
+                  <p class="price ps-3 font-weight-bold fs-4 mt-1">7000 $</p>
+                  <p class="text-decoration-line-through ms-4 fs-5">7650 $</p>
+                </div>
+                <button type="button" class="btn btn-secondary">
+                  <a class="text-white" href="motor4.html">View Details</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vehicles-info p-120 bg-primary">
+      <div class="container">
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-7">
+            <div class="info">
+              <h1 class="p-3 text-secondary">Explore the 2023 Passport</h1>
+              <p class="text-secondary">
+                A bold, adventure-ready design and the rugged TrailSport edition
+                with AWD give the Passport a more commanding presence than ever.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact p-120 bg-light">
+      <div class="contact-inner">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 text-center">
+              <h2 class="mb-5">CONTACT US</h2>
+            </div>
+            <div class="col-lg-7">
+              <form class="form-control p-5">
+                <h4 class="mb-5">Contact Form</h4>
+                <div class="row form-group">
+                  <div class="col-md-6 mb-3">
+                    <label class="mb-3" for="fname">First Name</label>
+                    <input class="form-control" id="fname" type="text" />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="mb-3" for="lname">Last Name</label>
+                    <input class="form-control" id="lname" type="text" />
+                  </div>
+                </div>
+                <div class="row form-group mb-3">
+                  <div class="col-12">
+                    <label class="mb-3" for="email">Email</label>
+                    <input class="form-control" id="email" type="email" />
+                  </div>
+                </div>
+                <div class="row form-group mb-3">
+                  <div class="col-12">
+                    <label class="mb-3" for="phone">Phone</label>
+                    <input class="form-control" id="phone" type="tel" />
+                  </div>
+                </div>
+                <div class="row form-group mb-3">
+                  <div class="col-12">
+                    <label class="mb-3" for="subject">Message Subject</label>
+                    <input class="form-control" id="subject" type="text" />
+                  </div>
+                </div>
+                <div class="row form-group mb-3">
+                  <div class="col-12">
+                    <label class="mb-3" for="message">Your Message</label>
+                    <textarea
+                      name="message"
+                      id="message"
+                      cols="30"
+                      rows="10"
+                      class="form-control"
+                      placeholder="Leave your message here..."
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="row form-group mt-5 justify-content-center">
+                  <button class="btn btn-primary">SUBMIT</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center text-lg-start text-white bg-primary">
+      <section class="d-flex justify-content-between p-4 first-section">
+        <div class="me-5">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <div>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </section>
+      <section>
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold">
+                <a href="index.html" class="text-white">HONDA</a>
+              </h6>
+              <hr class="mb-4 mt-0 d-inline-block mx-auto" />
+              <p>
+                Aiming to become the Power to support people in achieving their
+                goals
+              </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold">Automobiles</h6>
+              <hr class="mb-4 mt-0 d-inline-block mx-auto" />
+              <p>
+                <a href="car1.html" class="text-white">CITY</a>
+              </p>
+              <p>
+                <a href="car2.html" class="text-white">CIVIC</a>
+              </p>
+              <p>
+                <a href="car3.html" class="text-white">HR-V/e:HEV</a>
+              </p>
+              <p>
+                <a href="car4.html" class="text-white">ACCORD</a>
+              </p>
+            </div>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold">Motorcyles</h6>
+              <hr class="mb-4 mt-0 d-inline-block mx-auto" />
+              <p>
+                <a href="motor1.html" class="text-white">CBR1000RR-R</a>
+              </p>
+              <p>
+                <a href="motor2.html" class="text-white">X-ADV</a>
+              </p>
+              <p>
+                <a href="motor3.html" class="text-white">MSX125</a>
+              </p>
+              <p>
+                <a href="motor4.html" class="text-white">CB250R</a>
+              </p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 class="text-uppercase fw-bold">Contact</h6>
+              <hr class="mb-4 mt-0 d-inline-block mx-auto" />
+              <p>
+                <i class="fas fa-home mr-3"></i> 2-1-1 Minami-Aoyama, Minato-ku,
+                Tokyo, 107-8556, Japan
+              </p>
+              <p>
+                <i class="fas fa-envelope mr-3"></i>
+                customer_relations@hondacarindia.com
+              </p>
+              <p><i class="fas fa-phone mr-3"></i> + 1800 0103 3121</p>
+              <p><i class="fas fa-print mr-3"></i> + 0124 426 3121</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © Honda Motor Co., Ltd. and its subsidiaries and affiliates. All Rights
+        Reserved.
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
