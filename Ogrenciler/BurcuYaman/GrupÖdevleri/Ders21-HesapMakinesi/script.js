@@ -20,6 +20,7 @@ function bolme(sayi1, sayi2) {
 }
 
 
+
 let rule = true;
 do {
     let answer = prompt("devam etmek ister misin?");
@@ -27,15 +28,11 @@ do {
     if (answer == "evet") {
         console.log("devam");
 
-        let sayi1 = Number(prompt("İlk sayı giriniz:"));
-        let sayi2 = Number(prompt("İkinci sayı giriniz:"));
-        let operation = prompt("Bu sayı ile ne yapmak istediğinizi seçiniz?\n1:Toplama\n2:Çıkarma\n3:Çarpma\n4:Bölme")
+        let sayi1 = document.getElementsById("sayi1").value;
+        let sayi2 = document.getElementsById("sayi2").value;
+        let operation = document.getElementsById("opeator").value;
 
-
-
-        if (isNaN(sayi1) || isNaN(sayi2)) {
-            alert("Hata: Lütfen geçerli bir sayı girin.");
-        } else {
+        function hesapla() {
             switch (operation) {
                 case "1":
                     console.log(toplama(sayi1, sayi2));
@@ -51,6 +48,10 @@ do {
                     break;
             }
         }
+
+
+
+
     }
     else {
         console.log("dur");
