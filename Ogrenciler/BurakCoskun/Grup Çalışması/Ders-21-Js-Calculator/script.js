@@ -15,6 +15,10 @@ calculation();
 function calculation() {
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
+      if (calculate == false) {
+        display.innerText = "";
+        calculate = true;
+      }
       display.innerText += button.innerText;
     });
   });
