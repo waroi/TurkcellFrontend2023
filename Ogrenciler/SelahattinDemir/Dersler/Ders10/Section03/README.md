@@ -341,4 +341,5 @@ The following example lets the `<div>` element retain the style values from the 
 
 ## Example Website
 
-![alt text](https://github.com/waroi/TurkcellFrontend2023/blob/main/Ogrenciler/SelahattinDemir/Dersler/Ders10/Section03/photos/media.gif)
+![alt text](https://github.com/waroi/TurkcellFrontend2023/blob/develop/Ogrenciler/SelahattinDemir/Dersler/Ders10/Section03/photos/media.gif)
+
