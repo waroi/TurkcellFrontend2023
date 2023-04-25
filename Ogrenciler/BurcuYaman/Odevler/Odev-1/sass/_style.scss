@@ -1,0 +1,161 @@
+$primary: #ff5400;
+$secondary: #393e46;
+$info: #1a00bb;
+$dark: #070a0e;
+$light: #f2f2f2;
+
+@mixin d-flex($justify, $iswrap) {
+  display: flex;
+  justify-content: $justify;
+  flex-wrap: wrap;
+}
+
+@mixin section-padding() {
+  padding: 80px 0;
+}
+
+@mixin card_style() {
+  color: $light;
+  border: none;
+  background-color: $dark;
+}
+
+@mixin filter_style() {
+  padding: 15px;
+  margin: 3px 0px;
+  border-radius: 10px;
+  background-color: $dark;
+  border: 1px solid $dark;
+  color: $light;
+}
+
+a {
+  text-decoration: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+header {
+  .nav1 {
+    .nav-link {
+      &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $primary;
+        transition: width 0.3s;
+      }
+      &:hover::after {
+        width: 100%;
+        //transition: width .3s;
+      }
+    }
+  }
+  .nav2 {
+    .nav-item {
+      &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $info;
+        transition: width 0.3s;
+      }
+      &:hover::after {
+        width: 100%;
+        //transition: width .3s;
+      }
+    }
+    button {
+      transition: 0.5s;
+    }
+  }
+}
+
+main {
+  .aside {
+    a {
+      transition: 0.5s;
+    }
+  }
+  .container {
+    .urunler {
+      .col-lg-4 {
+        transition: 0.5s;
+        .card {
+          @include card_style();
+          transition: 0.5s;
+          &:hover {
+            cursor: pointer;
+            box-shadow: 5px 5px 10px 5px $info;
+            transition: 0.5s;
+          }
+          img {
+            border-radius: 0;
+            border-bottom: 5px solid $info;
+            border-top: 5px solid $info;
+          }
+
+          h5 {
+            margin-top: 15px;
+            text-align: left;
+          }
+          .card-text {
+            font-size: 12px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: #ff5400;
+          }
+          .card-footer {
+            a {
+              transition: 0.5s;
+            }
+          }
+        }
+      }
+    }
+    aside {
+      @include filter_style();
+      .marka,
+      .islemci,
+      .islemci-seri,
+      .ekrankarti,
+      .ekrankarti-seri,
+      .bellek,
+      .ssd,
+      .fiyat {
+        @include filter_style();
+      }
+    }
+    .urunler {
+      margin: auto;
+      margin-top: 0;
+      @include d-flex(space-around, wrap);
+    }
+  }
+  .card {
+    @include card_style();
+  }
+}
+
+footer {
+  margin-top: 100px;
+  .text-reset {
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: $info;
+      transition: width 0.3s;
+    }
+    &:hover::after {
+      width: 100%;
+      //transition: width .3s;
+    }
+  }
+}

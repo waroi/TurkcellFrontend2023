@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-lg fixed-top bg-white py-3">
+        <div class="container navbar-inner d-flex w-100">
+          <button
+            class="navbar-toggler d-lg-none border-0"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasMenu"
+            aria-controls="navbarOffcanvas"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="hamburger-menu-icon">
+              <img src="assets/Nav_Icon_Menu.svg" alt="Hamburger Icon" />
+            </span>
+          </button>
+          <a
+            href="./index.html"
+            class="navbar-brand text-light - fw-bolder fs-3"
+          >
+            <img
+              class="img-fluid"
+              src="assets/logo-no-background.png"
+              alt="Anime Attic Logo"
+            />
+          </a>
+
+          <ul class="d-flex p-0 m-0 align-items-center">
+            <div class="search me-8 d-none d-lg-block align-items-center">
+              <div class="site-search me-0 position-relative">
+                <input
+                  type="text"
+                  class="search-input p-0 ps-4 border-primary border-end-0"
+                  placeholder="Search Store..."
+                />
+                <button
+                  class="search-icon border-primary border-start-0 text-center bg-white position-absolute"
+                >
+                  <i class="fa-solid fa-magnifying-glass text-primary"></i>
+                </button>
+              </div>
+            </div>
+            <li class="d-lg-none ms-4">
+              <i class="fa-solid fa-magnifying-glass text-primary fa-xl"></i>
+            </li>
+            <li class="wishlist ms-4 d-none d-lg-block">
+              <a href="#" class="position-relative"
+                ><i class="fa-regular fa-heart fa-xl text-primary"></i
+                ><span
+                  class="count text-white bg-danger text-center position-absolute rounded-circle"
+                  >0</span
+                ></a
+              >
+            </li>
+            <li class="user ms-4 d-none d-lg-block">
+              <a href="#"
+                ><i class="fa-regular fa-user fa-xl text-primary"></i
+              ></a>
+            </li>
+            <li class="minicart ms-4">
+              <a href="#" class="position-relative"
+                ><i class="fa-solid fa-cart-shopping fa-xl text-primary"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">
+      <div class="offcanvas-header bg-primary p-3">
+        <h5 class="offcanvas-title text-light fs-3">Menu</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body p-3 bg-white">
+        <div class="d-flex flex-column align-items-center mb-5">
+          <a href="/index.html" class="navbar-brand text-dark fw-bolder fs-3"
+            ><img
+              class="img-fluid"
+              src="./assets/logo-no-background.png"
+              alt="Anime Attic Logo"
+          /></a>
+        </div>
+        <h6 class="text-uppercase mb-3">Categories</h6>
+        <ul class="list-unstyled mb-4">
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >New Releases</a
+            >
+          </li>
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >Manga</a
+            >
+          </li>
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >Figures</a
+            >
+          </li>
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >Apparel</a
+            >
+          </li>
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >Accessories</a
+            >
+          </li>
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >Pre-Orders</a
+            >
+          </li>
+        </ul>
+        <hr />
+        <h6 class="text-uppercase mb-3">Customer Service</h6>
+        <ul class="list-unstyled mb-4">
+          <li class="mb-2">
+            <a
+              class="d-block p-2 bg-primary text-white rounded"
+              href="./faq.html"
+              >FAQ</a
+            >
+          </li>
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >Shipping &amp; Returns</a
+            >
+          </li>
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >Contact Us</a
+            >
+          </li>
+          <li class="mb-2">
+            <a
+              class="d-block p-2 bg-primary text-white rounded"
+              href="./about-us.html"
+              >About Us</a
+            >
+          </li>
+        </ul>
+        <hr class="border-top border-dark my-3" />
+        <h6 class="text-uppercase mb-3">Account</h6>
+        <ul class="list-unstyled mb-4">
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >Sign In</a
+            >
+          </li>
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >Register</a
+            >
+          </li>
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >Wishlist</a
+            >
+          </li>
+          <li class="mb-2">
+            <a class="d-block p-2 bg-primary text-white rounded" href="#"
+              >Order History</a
+            >
+          </li>
+        </ul>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-primary btn-lg text-white">Shop Now</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="faq py-8 opacity-75">
+      <div class="container mt-8">
+        <div class="card">
+          <div class="card-header bg-light mb-3 border-0">
+            <h1 class="display-3 text-center mb-4 fw-bold">FAQ</h1>
+            <p class="text-center fw-bold">
+              We want to make sure you have the best experience possible with
+              Anime Attic. That's why we've compiled a list of frequently asked
+              questions to help answer any concerns or queries you may have. If
+              you can't find the answer you're looking for, please don't
+              hesitate to contact us.
+            </p>
+          </div>
+          <div class="accordion bg-transparent" id="faqAccordion">
+            <div class="accordion-item border-0">
+              <h2 class="accordion-header" id="headingOne">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  Do you ship internationally?
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingOne"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Yes, we ship worldwide. However, shipping costs may vary
+                  depending on your location.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  What payment methods do you accept?
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  We accept all major credit cards, as well as PayPal and Apple
+                  Pay.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  How long will it take for my order to arrive?
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingThree"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Delivery times may vary depending on your location and the
+                  shipping method you choose. Generally, orders within the US
+                  take 3-5 business days, while international orders may take up
+                  to 3 weeks.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour"
+                  aria-expanded="false"
+                  aria-controls="collapseFour"
+                >
+                  What is your return policy?
+                </button>
+              </h2>
+              <div
+                id="collapseFour"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFour"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  We offer a 30-day return policy for all unused and undamaged
+                  items. Please contact us if you wish to initiate a return.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive"
+                  aria-expanded="false"
+                  aria-controls="collapseFive"
+                >
+                  Do you offer any discounts?
+                </button>
+              </h2>
+              <div
+                id="collapseFive"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFive"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  We occasionally offer promotions and discounts through our
+                  website and social media channels. Be sure to follow us for
+                  updates!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSix">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseSix"
+                  aria-expanded="false"
+                  aria-controls="collapseSix"
+                >
+                  How can I track my order?
+                </button>
+              </h2>
+              <div
+                id="collapseSix"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingSix"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Once your order has shipped, you will receive a tracking
+                  number via email. You can use this number to track your order
+                  on our website or on the shipping carrier's website.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 footer-card p-3 p-lg-0">
+            <h2 class="text-info fs-5">HELP & CUSTOMER SERVICE</h2>
+            <ul class="footer-list p-0 text-light">
+              <li class="footer-list-item mb-2">
+                <a href="./faq.html">FAQ</a>
+              </li>
+              <li class="footer-list-item mb-2">
+                <a href="#">Shipping & Returns</a>
+              </li>
+              <li class="footer-list-item mb-2"><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-card p-3 p-lg-0">
+            <h2 class="text-info fs-5">About Anime Attic</h2>
+            <ul class="footer-list p-0 text-light">
+              <li class="footer-list-item mb-2">
+                <a href="#">Copyright Policy</a>
+              </li>
+              <li class="footer-list-item mb-2">
+                <a href="#">Terms of Service</a>
+              </li>
+              <li class="footer-list-item mb-3">
+                <a href="./about-us.html">About Us</a>
+              </li>
+
+              <li>
+                <a href="#" class="me-4">
+                  <i class="fa-brands fa-twitter fa-xl"></i>
+                </a>
+
+                <a href="#" class="me-4">
+                  <i class="fa-brands fa-twitter fa-xl"></i>
+                </a>
+                <a href="#">
+                  <i class="fa-brands fa-instagram fa-xl"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-card p-3 p-lg-0">
+            <h2 class="text-info fs-5">Shop</h2>
+            <ul class="footer-list p-0 text-light">
+              <li class="footer-list-item mb-2"><a href="#">Gift</a></li>
+              <li class="footer-list-item mb-2">
+                <a href="#">Fan Art</a>
+              </li>
+              <li class="footer-list-item mb-2"><a href="#">New Works</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 d-none d-md-block">
+            <div class="footer-logo position-relative">
+              <img
+                src="assets/zoro.png"
+                alt="Roronao Zoro"
+                class="normal-image position-absolute bottom-0 w-100"
+              />
+              <img
+                src="assets/zoro2.png"
+                class="hover-image invisible opacity-0 position-absolute bottom-0 w-100"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row"></div>
+      </div>
+    </footer>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

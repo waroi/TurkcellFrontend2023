@@ -1,0 +1,107 @@
+.car-detail {
+    @include sectionPadding(30px);
+
+    .car-detail-inner {
+
+
+        @include innerStyle();
+
+        .car-info-top {
+            .cit-left {
+                .cit-l {
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .cit-left-imgs {
+                    display: flex !important;
+                    justify-content: space-between !important;
+
+                    .cit-left-img {
+                        cursor: pointer;
+
+                        img {
+                            width: 70%;
+
+
+                            background-repeat: no-repeat;
+                            background: cover;
+                            border-radius: 10px;
+                            @include boxShadow();
+                        }
+
+                    }
+                }
+
+            }
+
+            .cit-right {
+                margin-bottom: 40px;
+                button{
+                    margin: 5px;
+                }
+                p{
+                    font-size: 18px;
+                    
+                }
+                span{
+                    font-size: 20px;
+                }
+            }
+
+            .cit-gallery{
+                img{
+                    width: 50%;
+                }
+                a{
+                    text-decoration: none;
+                    font-weight: 700;
+                    color: blue;
+                }
+            }
+        }
+        .car-info-bottom{
+            .cib-first{
+                margin: 10px;
+                i{
+                    font-size: 24px;
+                }
+                h6{
+                    font-size: 20px;
+                }
+                p{
+                    font-size: 18px;
+                }
+            }
+            .cib-second{
+                @include sectionPadding(30px);
+                i{
+                    font-size: 24px;
+                    margin-bottom: 20px
+                }
+                td{
+                @include sectionPadding(10px);
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    // .cit-left-img{
+    //     img{
+    //         width: 150px;
+    //     }
+    // }
+
+    .cit-right{
+        margin-top: 20px;
+        .cit-right-btn{
+            
+            
+            justify-content: center !important;
+        }
+    }
+}

@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- bootstrap-icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
+    <title>Audio</title>
+  </head>
+  <body class="main-page">
+    <header class="mb-5 pt-3 header-bg position-relative">
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top py-3">
+        <div class="container">
+          <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-earbuds fs-3 text-light"></i>
+            <span class="fs-3 text-light">Audio</span>
+          </div>
+          <button
+            class="navbar-toggler bg-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 float-end mb-lg-0">
+              <li class="nav-item">
+                <a
+                  aria-current="page"
+                  class="nav-link ms-3 fw-bold text-light"
+                  href="about.html"
+                  >Hakkımızda</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ms-3 fw-bold text-light" href="faq.html"
+                  >Sıkça Sorulan Sorular</a
+                >
+              </li>
+              <li class="nav-item ms-3 d-flex mt-3 mt-md-0">
+                <img
+                  alt="profil"
+                  class="img-fluid rounded-circle"
+                  src="https://lh3.googleusercontent.com/a-/AOh14Gir42XJEEekD0LpqxV2t8FHAq5r6SV-WkimCkeM%3Ds96-c"
+                />
+                <div class="dropdown mt-2 ms-2">
+                  <i
+                    class="bi bi-chevron-down fs-5 text-light"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  ></i>
+                  <ul class="dropdown-menu bg-dark position-absolute">
+                    <li>
+                      <a class="dropdown-item text-light" href="#"
+                        >Siparişlerim</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-light" href="#">Adresim</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-light" href="#">Cüzdanım</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-light" href="#"
+                        >Aboneliklerim</a
+                      >
+                    </li>
+                    <hr class="text-light" />
+                    <li>
+                      <a class="dropdown-item text-light" href="#">Çıkış Yap</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item ms-3 mt-3 mt-lg-1">
+                <i class="bi bi-cart-check text-light fs-3"></i>
+                <span class="badge bg-success fs-6"> 0 </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="position-absolute">
+        <span class="fs-4 opacity-75 text-light">Soundbeam ERD - 3083</span>
+        <h1 class="text-light mt-3 mb-4 fs-1 w-75">
+          Ses Deneyimini Yeniden Keşfet
+        </h1>
+        <a
+          href="#main"
+          class="btn btn-outline-light fs-5 opacity-75 py-2 px-4 text-light"
+        >
+          Şimdi Al
+        </a>
+      </div>
+    </header>
+    <main class="mt-5 p-5" id="main">
+      <div class="container">
+        <div class="row">
+          <aside class="col-lg-3 fiter-bar">
+            <h3>Filtrele</h3>
+            <button
+              class="btn btn-success my-3 w-100 d-lg-none"
+              data-bs-toggle="collapse"
+              data-bs-target="#aside_filter"
+            >
+              Filtreyi göster
+            </button>
+            <div id="aside_filter" class="collapse card d-lg-block my-md-4">
+              <!-- ===== Category filter ===== -->
+              <details open class="border-bottom-1 border-success">
+                <summary class="card-header category">Kategoriler</summary>
+                <div class="collapse show" id="collapse_aside1">
+                  <div class="card-body">
+                    <ul class="list-menu list-unstyled m-0">
+                      <li>
+                        <label class="form-check category mb-2">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            value="all"
+                            name="category"
+                            checked
+                          />
+                          <span class="form-check-label"> Tüm Ürünler </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="form-check category mb-2">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            value="food"
+                            name="category"
+                          />
+                          <span class="form-check-label"> Kulak Üstü</span>
+                        </label>
+                      </li>
+                      <label class="form-check category mb-2">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          value="food"
+                          name="category"
+                        />
+                        <span class="form-check-label"> Kulak İçi </span>
+                      </label>
+                    </ul>
+                  </div>
+                  <!-- card-body.// -->
+                </div>
+                <!-- collapse.// -->
+              </details>
+              <!-- Brand Filter // -->
+              <details open class="border-bottom-1 border-success">
+                <summary class="card-header category">Markalar</summary>
+                <div class="collapse show" id="collapse_aside_brands">
+                  <div class="card-body">
+                    <label class="form-check category mb-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="omentum"
+                      />
+                      <span class="form-check-label"> Momentum </span>
+                    </label>
+                    <label class="form-check category mb-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="hd"
+                      />
+                      <span class="form-check-label"> HD</span>
+                    </label>
+                    <label class="form-check category mb-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="adabt"
+                      />
+                      <span class="form-check-label"> Adabt</span>
+                    </label>
+                    <label class="form-check category mb-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="cx"
+                      />
+                      <span class="form-check-label">CX </span>
+                    </label>
+                    <!-- form-check end.// -->
+                  </div>
+                  <!-- card-body .// -->
+                </div>
+                <!-- collapse.// -->
+              </details>
+              <!-- Price Filter-->
+              <details open class="border-bottom-1 border-success">
+                <summary class="card-header category">Fiyat</summary>
+                <div class="collapse show" id="collapse_aside2">
+                  <div class="card-body">
+                    <div class="row mb-3">
+                      <div class="col-6">
+                        <label class="category" for="min" class="form-label"
+                          >Min</label
+                        >
+                        <input
+                          class="form-control"
+                          id="min"
+                          placeholder="0 TL"
+                          type="number"
+                        />
+                      </div>
+                      <!-- col end.// -->
+                      <div class="col-6">
+                        <label class="category" for="max" class="form-label"
+                          >Max</label
+                        >
+                        <input
+                          class="form-control"
+                          id="max"
+                          placeholder="100 TL"
+                          type="number"
+                        />
+                      </div>
+                      <!-- col end.// -->
+                    </div>
+                    <!-- row end.// -->
+                    <button class="btn btn-light w-100 mb-2" type="button">
+                      Uygula
+                    </button>
+                    <button class="btn btn-light w-100" type="button">
+                      Sıfırla
+                    </button>
+                  </div>
+                  <!-- card-body.// -->
+                </div>
+                <!-- collapse.// -->
+              </details>
+              <!-- Ratings Filter-->
+              <details open class="border-bottom-1 border-success">
+                <summary class="card-header category">
+                  Derecelendirmeler
+                </summary>
+                <div class="collapse show" id="collapse_aside4">
+                  <form class="card-body">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault1"
+                        value="4"
+                      />
+                      <span>
+                        <ul class="list-unstyled">
+                          <li>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <strong class="category"> & Yukarı</strong>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault1"
+                        value="3"
+                      />
+                      <span>
+                        <ul class="list-unstyled">
+                          <li>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <strong class="category"> & Yukarı</strong>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault2"
+                        value="2"
+                      />
+                      <span>
+                        <ul class="list-unstyled">
+                          <li>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <strong class="category">& Yukarı</strong>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault2"
+                        value="1"
+                      />
+                      <span>
+                        <ul class="list-unstyled">
+                          <li>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <strong class="category">& Yukarı</strong>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                    <!-- form-check end.// -->
+                  </form>
+                  <!-- card-body.// -->
+                </div>
+                <!-- collapse.// -->
+              </details>
+              <!-- filter-group // -->
+            </div>
+            <!-- card.// -->
+            <!-- ===== Card for sidebar filter .// ===== -->
+            <!-- Filter Section Ends -->
+          </aside>
+          <article class="col-lg-9 products">
+            <header class="mb-2">
+              <div class="d-flex justify-content-md-between px-5 flex-wrap">
+                <h5 class="fw-bold mt-2">Sonuç: 6 Ürün Bulundu</h5>
+                <!-- search bar -->
+                <form class="form-inline col-md-6 mx-auto">
+                  <input
+                    class="form-control mr-sm-2"
+                    type="text"
+                    placeholder="Ürün Ara"
+                    aria-label="Search"
+                    name="search"
+                  />
+                </form>
+                <div class="btn-group btn-group-toggle mb-2 d-none d-md-block">
+                  <label class="btn btn-success" for="option1">
+                    <i class="bi bi-justify fs-4"></i>
+                  </label>
+                  <label class="btn btn-success" for="option2">
+                    <i class="bi bi-grid-3x3-gap-fill fs-4"></i>
+                  </label>
+                </div>
+              </div>
+            </header>
+            <!-- Header Section End -->
+            <section>
+              <!-- All Product Start  -->
+              <input
+                type="radio"
+                class="btn-check2 d-none"
+                name="options"
+                id="option2"
+                autocomplete="off"
+              />
+              <input
+                type="radio"
+                class="btn-check d-none"
+                name="options"
+                id="option1"
+                autocomplete="off"
+              />
+              <div class="row viewGrid">
+                <div class="col-lg-4 col-md-6">
+                  <figure class="card card-product-grid">
+                    <div
+                      class="position-relative overflow-hidden d-block pt-2 text-center img-wrap"
+                    >
+                      <a href="detail1.html">
+                        <img
+                          class="img-fluid"
+                          src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/686-50f39da048f34f609278cfb2d48d909d_400x.jpg?v=1590713807"
+                        />
+                      </a>
+                      <ul
+                        class="list-group list-group-horizontal d-none position-absolute"
+                      >
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+                    <figcaption class="overflow-hidden p-3 border-top">
+                      <div class="d-flex justify-content-between">
+                        <div class="price-wrap">
+                          <strong class="price fs-5 fw-bold">$150</strong>
+                          <del class="text-decoration-line-through ms-2"
+                            >$160</del
+                          >
+                        </div>
+                        <p class="text-success">Ücretsiz kargo</p>
+                      </div>
+                      <!-- price-wrap.// -->
+                      <a href="#" class="text-dark fs-5"
+                        >Momentum Wireless Kulaklık</a
+                      >
+                      <p class="grid-title my-2 overflow-hidden">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Repudiandae, sequi.
+                      </p>
+                      <div class="text-center">
+                        <a type="button" class="btn btn-outline-dark">
+                          Sepete Ekle
+                        </a>
+                        <a
+                          href="detail1.html"
+                          type="button"
+                          class="btn btn-outline-dark ms-0 ms-md-3 mt-2 mt-md-0"
+                        >
+                          Ürün Detayı
+                        </a>
+                      </div>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <figure class="card card-product-grid">
+                    <div
+                      class="position-relative overflow-hidden d-block pt-2 text-center img-wrap"
+                    >
+                      <a href="detail2.html">
+                        <img
+                          class="img-fluid"
+                          src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/momentum_4_isofront_v1_1080x1080_1c02df69-e0e4-41ce-8965-6c752e3fde7e_400x.jpg?v=1660893495"
+                        />
+                      </a>
+                      <ul
+                        class="list-group list-group-horizontal d-none position-absolute"
+                      >
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+                    <figcaption class="overflow-hidden p-3 border-top">
+                      <div class="d-flex justify-content-between">
+                        <div class="price-wrap">
+                          <strong class="price fs-5 fw-bold">$100</strong>
+                          <del class="text-decoration-line-through ms-2"
+                            >$110</del
+                          >
+                        </div>
+                        <p class="text-success">Ücretsiz kargo</p>
+                      </div>
+                      <!-- price-wrap.// -->
+                      <a href="#" class="text-dark fs-5"
+                        >HD 559 Hi Fi Kulaklık</a
+                      >
+                      <p class="grid-title my-2 overflow-hidden">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Repudiandae, sequi.
+                      </p>
+                      <div class="text-center">
+                        <a type="button" class="btn btn-outline-dark">
+                          Sepete Ekle
+                        </a>
+                        <a
+                          href="detail2.html"
+                          type="button"
+                          class="btn btn-outline-dark ms-0 ms-md-3 mt-2 mt-md-0"
+                        >
+                          Ürün Detayı
+                        </a>
+                      </div>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <figure class="card card-product-grid">
+                    <div
+                      class="position-relative overflow-hidden d-block pt-2 text-center img-wrap"
+                    >
+                      <a href="detail3.html">
+                        <img
+                          class="img-fluid"
+                          src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/pc-7-usb_a1_3d-view2_400x.jpg?v=1590713485"
+                        />
+                      </a>
+                      <ul
+                        class="list-group list-group-horizontal d-none position-absolute"
+                      >
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+                    <figcaption class="overflow-hidden p-3 border-top">
+                      <div class="d-flex justify-content-between">
+                        <div class="price-wrap">
+                          <strong class="price fs-5 fw-bold">$200</strong>
+                          <del class="text-decoration-line-through ms-2"
+                            >$219</del
+                          >
+                        </div>
+                        <p class="text-success">Ücretsiz kargo</p>
+                      </div>
+                      <!-- price-wrap.// -->
+                      <a href="#" class="text-dark fs-5"
+                        >ADAPT 660 UC Kulaklık</a
+                      >
+                      <p class="grid-title my-2 overflow-hidden">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Repudiandae, sequi.
+                      </p>
+                      <div class="text-center">
+                        <a type="button" class="btn btn-outline-dark">
+                          Sepete Ekle
+                        </a>
+                        <a
+                          href="detail3.html"
+                          type="button"
+                          class="btn btn-outline-dark ms-0 ms-md-3 mt-2 mt-md-0"
+                        >
+                          Ürün Detayı
+                        </a>
+                      </div>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <figure class="card card-product-grid">
+                    <div
+                      class="position-relative overflow-hidden d-block pt-2 text-center img-wrap"
+                    >
+                      <a href="#">
+                        <img
+                          class="img-fluid"
+                          src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/momentum_1_1024jpg-036247300-1539678967_400x.jpg?v=1590713196"
+                        />
+                      </a>
+                      <ul
+                        class="list-group list-group-horizontal d-none position-absolute"
+                      >
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+                    <figcaption class="overflow-hidden p-3 border-top">
+                      <div class="d-flex justify-content-between">
+                        <div class="price-wrap">
+                          <strong class="price fs-5 fw-bold">$50</strong>
+                          <del class="text-decoration-line-through ms-2"
+                            >$60</del
+                          >
+                        </div>
+                        <p class="text-success">Ücretsiz kargo</p>
+                      </div>
+                      <!-- price-wrap.// -->
+                      <a href="#" class="text-dark fs-5"
+                        >Momentum In Ear Kulak İçi Kulaklık</a
+                      >
+                      <p class="grid-title my-2 overflow-hidden">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Repudiandae, sequi.
+                      </p>
+                      <div class="text-center">
+                        <a type="button" class="btn btn-outline-dark">
+                          Sepete Ekle
+                        </a>
+                        <a
+                          href="#"
+                          type="button"
+                          class="btn btn-outline-dark ms-0 ms-md-3 mt-2 mt-md-0"
+                        >
+                          Ürün Detayı
+                        </a>
+                      </div>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <figure class="card card-product-grid">
+                    <div
+                      class="position-relative overflow-hidden d-block pt-2 text-center img-wrap"
+                    >
+                      <img
+                        class="img-fluid"
+                        src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/cx_tw_case_black_open_2_final_1024x1024_2x_600x600_b8443576-d23b-446f-8dc7-ed057bd206b9_400x.jpg?v=1627543364"
+                      />
+                      <ul
+                        class="list-group list-group-horizontal d-none position-absolute"
+                      >
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+                    <figcaption class="overflow-hidden p-3 border-top">
+                      <div class="d-flex justify-content-between">
+                        <div class="price-wrap">
+                          <strong class="price fs-5 fw-bold">$100</strong>
+                          <del class="text-decoration-line-through ms-2"
+                            >$110</del
+                          >
+                        </div>
+                        <p class="text-success">Ücretsiz kargo</p>
+                      </div>
+                      <!-- price-wrap.// -->
+                      <a href="#" class="text-dark fs-5"
+                        >CX True Kulak İçi Bluetooth Kulaklık</a
+                      >
+                      <p class="grid-title my-2 overflow-hidden">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Repudiandae, sequi.
+                      </p>
+                      <div class="text-center">
+                        <a type="button" class="btn btn-outline-dark">
+                          Sepete Ekle
+                        </a>
+                        <a
+                          href="#"
+                          type="button"
+                          class="btn btn-outline-dark ms-0 ms-md-3 mt-2 mt-md-0"
+                        >
+                          Ürün Detayı
+                        </a>
+                      </div>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <figure class="card card-product-grid">
+                    <div
+                      class="position-relative overflow-hidden d-block pt-2 text-center img-wrap"
+                    >
+                      <img
+                        class="img-fluid"
+                        src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/1124-b3b36358953e49dba7664b9ca7028f81_400x.jpg?v=1590713823"
+                      />
+                      <ul
+                        class="list-group list-group-horizontal d-none position-absolute"
+                      >
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star-fill text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+                    <figcaption class="overflow-hidden p-3 border-top">
+                      <div class="d-flex justify-content-between">
+                        <div class="price-wrap">
+                          <strong class="price fs-5 fw-bold">$90</strong>
+                          <del class="text-decoration-line-through ms-2"
+                            >$100</del
+                          >
+                        </div>
+                        <p class="text-success">Ücretsiz kargo</p>
+                      </div>
+                      <!-- price-wrap.// -->
+                      <a href="#" class="text-dark fs-5"
+                        >CX 150BT Kulak İçi Bluetooth Kulaklık</a
+                      >
+                      <p class="grid-title my-2 overflow-hidden">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Repudiandae, sequi.
+                      </p>
+                      <div class="text-center">
+                        <a type="button" class="btn btn-outline-dark">
+                          Sepete Ekle
+                        </a>
+                        <a
+                          href="#"
+                          type="button"
+                          class="btn btn-outline-dark ms-0 ms-md-3 mt-2 mt-md-0"
+                        >
+                          Ürün Detayı
+                        </a>
+                      </div>
+                    </figcaption>
+                  </figure>
+                </div>
+                <!-- col end.// -->
+              </div>
+              <!-- row end.// -->
+              <div class="row viewList d-none">
+                <!-- products -->
+                <div class="card card-product-list">
+                  <div class="row">
+                    <div class="col-xl-4 col-md-4">
+                      <a
+                        href="#"
+                        class="d-block pt-2 grid text-center overflow-hidden"
+                      >
+                        <img
+                          class="img-fluid"
+                          src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/686-50f39da048f34f609278cfb2d48d909d_400x.jpg?v=1590713807"
+                        />
+                      </a>
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-5 col-md-5 col-sm-7">
+                      <div class="card-body mt-3">
+                        <a href="#" class="title text-dark fs-5 fw-bold"
+                          >Momentum Wireless Kulaklık
+                        </a>
+                        <div class="rating-wrap my-4">
+                          <ul class="list-group list-group-horizontal title">
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- rating-wrap.// -->
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Nostrum ducimus assumenda voluptas eligendi sed
+                          quaerat laudantium nisi ipsa optio maxime suscipit
+                          repellendus, quia numquam ad, est veritatis tenetur,
+                          sequi deserunt!
+                        </p>
+                      </div>
+                      <!-- card-body.// -->
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-3 col-md-3 col-sm-5">
+                      <div class="p-4 h-100 info-aside">
+                        <div class="price-wrap mb-2">
+                          <span class="price fs-5 fw-bold">$150</span>
+                          <del class="price-old text-decoration-line-through">
+                            $160</del
+                          >
+                        </div>
+                        <!-- info-price-detail // -->
+                        <p class="text-success">Ücretsiz kargo</p>
+                        <br />
+                        <div class="mb-3">
+                          <a type="button" class="btn btn-outline-dark">
+                            Sepete Ekle
+                          </a>
+                          <a
+                            href="detail.html"
+                            type="button"
+                            class="btn btn-outline-dark mt-3"
+                          >
+                            Ürün Detayı
+                          </a>
+                        </div>
+                      </div>
+                      <!-- info.// -->
+                    </div>
+                    <!-- col.// -->
+                  </div>
+                </div>
+                <div class="card card-product-list mt-3">
+                  <div class="row">
+                    <div class="col-xl-4 col-md-4">
+                      <a
+                        href="#"
+                        class="d-block pt-2 grid text-center overflow-hidden"
+                      >
+                        <img
+                          class="img-fluid"
+                          src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/momentum_4_isofront_v1_1080x1080_1c02df69-e0e4-41ce-8965-6c752e3fde7e_400x.jpg?v=1660893495"
+                        />
+                      </a>
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-5 col-md-5 col-sm-7">
+                      <div class="card-body mt-3">
+                        <a href="#" class="title text-dark fs-5 fw-bold"
+                          >HD 559 Hi Fi Kulaklık
+                        </a>
+                        <div class="rating-wrap my-4">
+                          <ul class="list-group list-group-horizontal title">
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- rating-wrap.// -->
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Nostrum ducimus assumenda voluptas eligendi sed
+                          quaerat laudantium nisi ipsa optio maxime suscipit
+                          repellendus, quia numquam ad, est veritatis tenetur,
+                          sequi deserunt!
+                        </p>
+                      </div>
+                      <!-- card-body.// -->
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-3 col-md-3 col-sm-5">
+                      <div class="p-4 h-100 info-aside">
+                        <div class="price-wrap mb-2">
+                          <span class="price fs-5 fw-bold">$100</span>
+                          <del class="price-old text-decoration-line-through">
+                            $110</del
+                          >
+                        </div>
+                        <!-- info-price-detail // -->
+                        <p class="text-success">Ücretsiz kargo</p>
+                        <br />
+                        <div class="mb-3">
+                          <a type="button" class="btn btn-outline-dark">
+                            Sepete Ekle
+                          </a>
+                          <a
+                            href="detail.html"
+                            type="button"
+                            class="btn btn-outline-dark mt-3"
+                          >
+                            Ürün Detayı
+                          </a>
+                        </div>
+                      </div>
+                      <!-- info.// -->
+                    </div>
+                    <!-- col.// -->
+                  </div>
+                </div>
+                <div class="card card-product-list mt-3">
+                  <div class="row">
+                    <div class="col-xl-4 col-md-4">
+                      <a
+                        href="#"
+                        class="d-block pt-2 grid text-center overflow-hidden"
+                      >
+                        <img
+                          class="img-fluid"
+                          src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/x1_desktop_Sennheiser_HD_820_Headset_01_600x600_resultjpg-081446800-1566818334_400x.jpg?v=1590713391"
+                        />
+                      </a>
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-5 col-md-5 col-sm-7">
+                      <div class="card-body mt-3">
+                        <a href="#" class="title text-dark fs-5 fw-bold"
+                          >HD 660S Hi Fi Kulaklık
+                        </a>
+                        <div class="rating-wrap my-4">
+                          <ul class="list-group list-group-horizontal title">
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- rating-wrap.// -->
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Nostrum ducimus assumenda voluptas eligendi sed
+                          quaerat laudantium nisi ipsa optio maxime suscipit
+                          repellendus, quia numquam ad, est veritatis tenetur,
+                          sequi deserunt!
+                        </p>
+                      </div>
+                      <!-- card-body.// -->
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-3 col-md-3 col-sm-5">
+                      <div class="p-4 h-100 info-aside">
+                        <div class="price-wrap mb-2">
+                          <span class="price fs-5 fw-bold">$200</span>
+                          <del class="price-old text-decoration-line-through">
+                            $219</del
+                          >
+                        </div>
+                        <!-- info-price-detail // -->
+                        <p class="text-success">Ücretsiz kargo</p>
+                        <br />
+                        <div class="mb-3">
+                          <a type="button" class="btn btn-outline-dark">
+                            Sepete Ekle
+                          </a>
+                          <a
+                            href="detail.html"
+                            type="button"
+                            class="btn btn-outline-dark mt-3"
+                          >
+                            Ürün Detayı
+                          </a>
+                        </div>
+                      </div>
+                      <!-- info.// -->
+                    </div>
+                    <!-- col.// -->
+                  </div>
+                </div>
+                <div class="card card-product-list mt-3">
+                  <div class="row">
+                    <div class="col-xl-4 col-md-4">
+                      <a
+                        href="#"
+                        class="d-block pt-2 grid text-center overflow-hidden"
+                      >
+                        <img
+                          class="img-fluid"
+                          src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/momentum_1_1024jpg-036247300-1539678967_400x.jpg?v=1590713196"
+                        />
+                      </a>
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-5 col-md-5 col-sm-7">
+                      <div class="card-body mt-3">
+                        <a href="#" class="title text-dark fs-5 fw-bold"
+                          >Momentum In Ear Kulak İçi Kulaklık
+                        </a>
+                        <div class="rating-wrap my-4">
+                          <ul class="list-group list-group-horizontal title">
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- rating-wrap.// -->
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Nostrum ducimus assumenda voluptas eligendi sed
+                          quaerat laudantium nisi ipsa optio maxime suscipit
+                          repellendus, quia numquam ad, est veritatis tenetur,
+                          sequi deserunt!
+                        </p>
+                      </div>
+                      <!-- card-body.// -->
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-3 col-md-3 col-sm-5">
+                      <div class="p-4 h-100 info-aside">
+                        <div class="price-wrap mb-2">
+                          <span class="price fs-5 fw-bold">$50</span>
+                          <del class="price-old text-decoration-line-through">
+                            $60</del
+                          >
+                        </div>
+                        <!-- info-price-detail // -->
+                        <p class="text-success">Ücretsiz kargo</p>
+                        <br />
+                        <div class="mb-3">
+                          <a type="button" class="btn btn-outline-dark">
+                            Sepete Ekle
+                          </a>
+                          <a
+                            href="detail.html"
+                            type="button"
+                            class="btn btn-outline-dark mt-3"
+                          >
+                            Ürün Detayı
+                          </a>
+                        </div>
+                      </div>
+                      <!-- info.// -->
+                    </div>
+                    <!-- col.// -->
+                  </div>
+                </div>
+                <div class="card card-product-list mt-3">
+                  <div class="row">
+                    <div class="col-xl-4 col-md-4">
+                      <a
+                        href="#"
+                        class="d-block pt-2 grid text-center overflow-hidden"
+                      >
+                        <img
+                          class="img-fluid"
+                          src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/cx_tw_case_black_open_2_final_1024x1024_2x_600x600_b8443576-d23b-446f-8dc7-ed057bd206b9_400x.jpg?v=1627543364"
+                        />
+                      </a>
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-5 col-md-5 col-sm-7">
+                      <div class="card-body mt-3">
+                        <a href="#" class="title text-dark fs-5 fw-bold"
+                          >CX True Kulak İçi Bluetooth Kulaklık
+                        </a>
+                        <div class="rating-wrap my-4">
+                          <ul class="list-group list-group-horizontal title">
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- rating-wrap.// -->
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Nostrum ducimus assumenda voluptas eligendi sed
+                          quaerat laudantium nisi ipsa optio maxime suscipit
+                          repellendus, quia numquam ad, est veritatis tenetur,
+                          sequi deserunt!
+                        </p>
+                      </div>
+                      <!-- card-body.// -->
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-3 col-md-3 col-sm-5">
+                      <div class="p-4 h-100 info-aside">
+                        <div class="price-wrap mb-2">
+                          <span class="price fs-5 fw-bold">$100</span>
+                          <del class="price-old text-decoration-line-through">
+                            $110</del
+                          >
+                        </div>
+                        <!-- info-price-detail // -->
+                        <p class="text-success">Ücretsiz kargo</p>
+                        <br />
+                        <div class="mb-3">
+                          <a type="button" class="btn btn-outline-dark">
+                            Sepete Ekle
+                          </a>
+                          <a
+                            href="detail.html"
+                            type="button"
+                            class="btn btn-outline-dark mt-3"
+                          >
+                            Ürün Detayı
+                          </a>
+                        </div>
+                      </div>
+                      <!-- info.// -->
+                    </div>
+                    <!-- col.// -->
+                  </div>
+                </div>
+                <div class="card card-product-list mt-3">
+                  <div class="row">
+                    <div class="col-xl-4 col-md-4">
+                      <a
+                        href="#"
+                        class="d-block pt-2 grid text-center overflow-hidden"
+                      >
+                        <img
+                          class="img-fluid"
+                          src="https://cdn.shopify.com/s/files/1/0322/8962/0101/products/1124-b3b36358953e49dba7664b9ca7028f81_400x.jpg?v=1590713823"
+                        />
+                      </a>
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-5 col-md-5 col-sm-7">
+                      <div class="card-body mt-3">
+                        <a href="#" class="title text-dark fs-5 fw-bold"
+                          >CX 150BT Kulak İçi Bluetooth Kulaklık
+                        </a>
+                        <div class="rating-wrap my-4">
+                          <ul class="list-group list-group-horizontal title">
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star-fill text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                            <li class="list-group-item">
+                              <i class="bi bi-star text-warning"></i>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- rating-wrap.// -->
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Nostrum ducimus assumenda voluptas eligendi sed
+                          quaerat laudantium nisi ipsa optio maxime suscipit
+                          repellendus, quia numquam ad, est veritatis tenetur,
+                          sequi deserunt!
+                        </p>
+                      </div>
+                      <!-- card-body.// -->
+                    </div>
+                    <!-- col.// -->
+                    <div class="col-xl-3 col-md-3 col-sm-5">
+                      <div class="p-4 h-100 info-aside">
+                        <div class="price-wrap mb-2">
+                          <span class="price fs-5 fw-bold">$90</span>
+                          <del class="price-old text-decoration-line-through">
+                            $100</del
+                          >
+                        </div>
+                        <!-- info-price-detail // -->
+                        <p class="text-success">Ücretsiz kargo</p>
+                        <br />
+                        <div class="mb-3">
+                          <a type="button" class="btn btn-outline-dark">
+                            Sepete Ekle
+                          </a>
+                          <a
+                            href="detail.html"
+                            type="button"
+                            class="btn btn-outline-dark mt-3"
+                          >
+                            Ürün Detayı
+                          </a>
+                        </div>
+                      </div>
+                      <!-- info.// -->
+                    </div>
+                    <!-- col.// -->
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
+    </main>
+    <footer class="py-5 mt-4 bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 my-auto pb-4">
+            <i class="bi bi-earbuds fs-3 text-light me-2"></i>
+            <span class="fs-3 text-light">Audio</span>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h4 class="footer-title text-light mb-3">Kullanıcı Bilgileri</h4>
+            <ul class="list p-0 list-unstyled">
+              <li class="mb-3">
+                <a class="text-light" href="#">Üyelik Sözleşmesi</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#"
+                  >İptal ve İade Koşulları Politikası</a
+                >
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#"
+                  >Garanti ve Teknik Servis Süreçleri</a
+                >
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#"
+                  >Gizlilik Sözleşmesi ve Çerez Politikası</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h4 class="footer-title text-light mb-3">Hakkımızda</h4>
+            <ul class="list p-0 list-unstyled">
+              <li class="mb-3">
+                <a class="text-light" href="faq.html">Sıkça Sorulan Sorular</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#">Sipariş Takip</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#">Mesafeli Satış Sözleşmesi</a>
+              </li>
+              <li>
+                <p class="text-light">Teslimat Koşulları</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h4 class="footer-title text-light mb-3">İletişim</h4>
+            <ul class="list p-0 list-unstyled">
+              <li class="mb-2">
+                <a class="text-light" href="#"
+                  >500 Terry Francine Street San Francisco, CA 94158</a
+                >
+              </li>
+              <li class="mb-2">
+                <a class="text-light" href="mailto:info@mysite.com"
+                  >info@mysite.com</a
+                >
+              </li>
+              <li class="mb-2">
+                <a class="text-light" href="#">123-456-7890</a>
+              </li>
+              <li>
+                <p class="text-light">Mon - Fri: 9am - 9pm</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col-md-9">
+            <h5 class="text-light">Ödeme Yöntemleri</h5>
+            <div class="d-flex gap-3 my-3 align-items-center flex-wrap">
+              <img
+                src="https://static.wixstatic.com/media/c837a6_e0547a35fd3b42eb8fc45f9f73b77246~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Visa.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_ad29ff701fee45629d63f3e4f3f2894b~mv2.png/v1/fill/w_63,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Master%20Card.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_f73858b81fdb40388c28ec8a78c7d69f~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/American%20Express.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_1947c7dbf840480ea8638b9b0c29c030~mv2.png/v1/fill/w_46,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/JCB.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_0164b1a8ce80423890095a8b3d8a62eb~mv2.png/v1/crop/x_0,y_0,w_176,h_109/fill/w_57,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Discover.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_e0d5f0c365864fda9b7d65df15eecaf5~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/PayPal.png"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5 class="text-light mb-4">Bizi Takipte Kalın</h5>
+            <a href="#" class="text-light me-4"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a href="#" class="text-light me-4"
+              ><i class="bi bi-twitter"></i
+            ></a>
+            <a href="#" class="text-light me-4"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a href="#" class="text-light"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

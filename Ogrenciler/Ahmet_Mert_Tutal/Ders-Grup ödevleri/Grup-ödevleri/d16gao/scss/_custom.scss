@@ -1,0 +1,260 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+ul li {
+  list-style-type: none;
+}
+ul {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+a {
+  text-decoration: none;
+}
+.material-symbols-outlined {
+  margin-top: 8px;
+  color: $secondary;
+
+  &:hover {
+    color: $danger !important;
+  }
+}
+
+header {
+  h3 {
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+}
+.features {
+  margin-right: -0.75rem !important;
+  margin-left: -0.75rem !important;
+}
+.card-container.gy-2 {
+  --bs-gutter-y: 2rem;
+}
+.client-job {
+  margin-top: -1rem !important;
+}
+.big-h {
+  font-size: 36px !important;
+}
+
+//Bootstrap Class Overrides
+.active {
+  color: $danger !important;
+}
+#offcanvasNavbar{
+  height: 50vh !important;
+ 
+}
+.offcanvas-body{
+  overflow-y: scroll !important;
+ 
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+ 
+  &::-webkit-scrollbar-track {
+  
+    
+  }
+   
+ 
+  &::-webkit-scrollbar-thumb {
+    background: rgba(138, 138, 138, 0.654); 
+  
+  }
+}
+
+.nav-link {
+  color: $info;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
+.nav-link:hover {
+  color: $danger;
+}
+.btn-primary {
+  &:hover {
+    background-color: $primary !important;
+    color: $danger !important;
+  }
+}
+#looking-for-solution {
+  button {
+    border: 1px solid $light !important;
+    &:hover {
+      // border: $light !important;
+      @extend .btn-primary;
+      background-color: #ffffff50 !important;
+    }
+  }
+}
+.row {
+  --bs-gutter-x: 1rem;
+}
+.card {
+  border: 1px solid #eeeeee;
+  transition: all 0.3s linear;
+  &:hover {
+    box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
+    border-color: #fff;
+  }
+}
+
+.main-title {
+  h3 {
+    font-size: 36px;
+    color: #222222;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    line-height: 24px;
+    color: #777777;
+    margin-bottom: 0px;
+    max-width: 570px;
+    font-weight: 300;
+    margin: auto;
+  }
+}
+.price-text {
+  padding-top: 75px;
+  padding-bottom: 75px;
+  padding-left: 45px;
+  position: relative;
+  h2 {
+    margin-bottom: 40px;
+  }
+  h3 {
+    font-size: 20px;
+    color: #222222;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  h5 {
+    font-size: 14px;
+    color: #777777;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  span {
+    font-weight: 300;
+    font-size: 14px;
+    color: #777777;
+  }
+
+  a {
+    color: #777777 !important;
+    font-size: 14px;
+  }
+}
+
+.inner {
+  box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
+  .item {
+    --bs-gutter-x: 0 !important;
+    h3 {
+      font-weight: 600 !important;
+    }
+    .price-text {
+      h2 {
+        font-size: 36px;
+      }
+    }
+  }
+  .item:hover {
+    .price-text {
+      h2,
+      span {
+        color: $danger;
+      }
+    }
+  }
+
+  .price-text::before {
+    content: "";
+    width: 1px;
+    background: #eeeeee;
+    height: 336px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+}
+.price_btn {
+  display: block;
+  text-align: center;
+  background: #6247ea;
+  line-height: 30px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  opacity: 0;
+  margin-bottom: -50px;
+  border-radius: 0 0 10px 10px !important;
+  transition: all 0.3s linear;
+}
+
+.border {
+  border-top: 2px solid $danger !important;
+  opacity: 0;
+}
+
+.price-area {
+  background-color: #fafcff;
+  .price-text {
+    background-color: #fff;
+  }
+}
+
+.logo-area {
+  background: #fafcff;
+  .item {
+    opacity: 0.5;
+  }
+  .item:hover {
+    opacity: 1;
+  }
+}
+
+.top-services {
+  background-image: url("https://preview.colorlib.com/theme/hosthub/img/map-bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  .top-services-card-container {
+    .top-services-card {
+      border: 1px solid #9381eb;
+      border-radius: 10px;
+      padding-bottom: 2em !important;
+      background-color: #ffffff15;
+      transition: all 0.3s linear;
+      &:hover {
+        h5,
+        p,
+        span {
+          color: $info !important;
+        }
+        background: #ffffff;
+        box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
+      }
+    }
+  }
+}
+
+.latest-posts {
+  .features {
+    h4 {
+      &:hover {
+        color: $danger !important;
+        cursor: pointer;
+      }
+    }
+  }
+}

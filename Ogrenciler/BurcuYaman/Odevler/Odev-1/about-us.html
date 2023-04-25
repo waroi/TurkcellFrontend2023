@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="./assets/th.png" />
+  <title>Hakkımızda</title>
+</head>
+
+<body class="bg-secondary">
+
+  <header>
+    <nav class="nav1 navbar navbar-expand-lg bg-dark py-0">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse justify-content-end" id="supNavbar">
+          <div class="navbar-nav text-light">
+            <a class="nav-link text-primary fs-6" aria-current="page" href="#"><small>SİPARİŞ TAKİBİ</small>
+            </a>
+            <a class="nav-link text-primary fs-6" aria-current="page" href="#"><small>TEKNİK SERVİS</small>
+            </a>
+            <a class="nav-link text-primary" href="sss.html"><small>SIK SORULAN SORULAR</small></a>
+            <a class="nav-link text-primary" href="about-us.html"><small>HAKKIMIZDA</small></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <nav class="nav2 navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class=" logo navbar-brand w-25 ps-3" href="./index.html">
+          <img src="./assets/logo.png" alt="TecHome" class="  w-100" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#subNav"
+          aria-controls="subNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="web-search w-50 d-flex justify-content-center">
+          <form class="d-flex justify-content-center w-75" role="search">
+            <input class="form-control me-2 bg-secondary" type="search" placeholder="Arama Yap" aria-label="Search" />
+            <button class="btn btn-outline-primary w-25 fw-bold" type="submit">
+              Ara
+            </button>
+          </form>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-around" id="subNav">
+          <ul class="navbar-nav justify-content-start">
+            <li class="nav-item  px-1 me-4" data-bs-toggle="modal" data-bs-target="#loginModal">
+              <div class="d-flex align-items-center pointer">
+                <i class="fa-solid fa-circle-user fs-3 me-2 text-light"></i>
+                <div class="text-light">Giriş Yap
+                  <div class="text-info"><small>Kayıt Ol</small></div>
+                </div>
+              </div>
+            </li>
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header text-center">
+                    <h1 class="modal-title fs-5 text-dark " id="loginModalLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-dark">
+                    <h5 class="text-center">ÜYE GİRİŞİ</h5>
+                    <form class="w-75 mx-auto ">
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="formeleman1">Email</label>
+                        <input type="email" id="formelean1" class="form-control" />
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="formeleman2">Şifre</label>
+                        <input type="password" id="formeleman2" class="form-control" />
+                      </div>
+
+                      <div class="row mb-4 text-center  ">
+                        <div class="">
+                          <div class="form-check  w-25 mx-auto justify-content-center ">
+                            <input class="form-check-input " type="checkbox" value="" id="formeleman3" checked />
+                            <label class="form-check-label" for="formeleman3"> Hatırla </label>
+                          </div>
+                        </div>
+                        <div class="">
+                          <a href="#!">Şifremi Unuttum?</a>
+                        </div>
+                      </div>
+
+                      <div class="text-center">
+                        <button type="button " class="btn btn-primary btn-block mb-4 ">Giriş Yap</button>
+                      </div>
+
+                      <div class="text-center">
+                        <p>Üye değil misin? <a href="#!">Kayıt Ol!</a></p>
+                        <p>veya şununla giriş yap:</p>
+
+                        <button type="button" class="btn btn-link btn-floating mx-1">
+                          <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button type="button" class="btn btn-link btn-floating mx-1">
+                          <i class="fab fa-google"></i>
+                        </button>
+                        <button type="button" class="btn btn-link btn-floating mx-1">
+                          <i class="fab fa-twitter"></i>
+                        </button>
+                        <button type="button" class="btn btn-link btn-floating mx-1">
+                          <i class="fab fa-github"></i>
+                        </button>
+
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <li class="nav-item px-1" data-bs-toggle="modal" data-bs-target="#sepetModal">
+              <div class="d-flex align-items-center pointer">
+                <i class="fa-solid fa-cart-shopping fs-3 me-2 text-light"></i>
+                <div class="text-light">Sepetim
+                  <div class="text-info"><small>0.00 ₺</small></div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="sepetModal" tabindex="-1" aria-labelledby="sepetModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5 text-dark" id="sepetMpdalLabel">SEPETİNİZ</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center text-dark">
+                      <h5>Sepetinizde Ürün Bulunmamaktadır.</h5>
+                      <img src="./assets/empty.png" alt="" class="w-50 ">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tamam</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item just-mobile  px-1 me-4 d-none">
+              <div class="d-flex align-items-center pointer">
+                <i class="fa-solid fa-circle-question fs-3 me-2 text-light"></i>
+                <a href="./sss.html" class="text-light
+                                  ">Sık Sorulan Sorular
+                </a>
+              </div>
+            </li>
+            <li class="nav-item just-mobile  px-1 me-4 d-none">
+              <div class="d-flex align-items-center pointer">
+                <i class="fa-solid fa-address-card fs-3 me-2 text-light"></i>
+                <a href="./about-us.html " class="text-light
+                                  ">Hakkımızda
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item mobile-search px-1 d-none">
+              <div class=" d-flex justify-content-center">
+                <form class="d-flex justify-content-center w-75" role="search">
+                  <input class="form-control me-2 bg-secondary" type="search" placeholder="Arama Yap"
+                    aria-label="Search" />
+                  <button class="btn btn-outline-primary w-25" type="submit">
+                    Ara
+                  </button>
+                </form>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <nav class="nav3 navbar navbar-expand-lg bg-dark py-0 border-top  border-info">
+      <div class=" container-fluid justify-content-center">
+        <div class="nav justify-content-center">
+          <div class=" nav3-item dropdown">
+            <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link text-light ">Bilgisayarlar <i class="fa-solid fa-chevron-down"></i></a>
+            </li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Notebooklar</a></li>
+              <li><a class="dropdown-item" href="#">Masaüstü Bilgisayarlar</a></li>
+              <li><a class="dropdown-item" href="#">Hazır Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">Oyun Bilgisayarları</a></li>
+            </ul>
+          </div>
+          <div class="nav3-item dropdown">
+            <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link text-light ">Hazır Sistemler <i class="fa-solid fa-chevron-down"></i></a>
+            </li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">ASUS Hazır Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">MSI Hazır Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">GIGABYTE Hazır Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">GeForce RTX Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">Özelleştirilebilir Sistemler</a></li>
+              <li><a class="dropdown-item" href="#">NVIDIA Studio Sistemler</a></li>
+            </ul>
+          </div>
+          <div class="nav3-item dropdown">
+            <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link text-light ">Bilgisayar Bileşenleri <i class="fa-solid fa-chevron-down"></i></a>
+            </li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">İşlemci</a></li>
+              <li><a class="dropdown-item" href="#">Ana Kart</a></li>
+              <li><a class="dropdown-item" href="#">Ekran Kartı</a></li>
+              <li><a class="dropdown-item" href="#">Ram</a></li>
+              <li><a class="dropdown-item" href="#">SSD</a></li>
+              <li><a class="dropdown-item" href="#">Hard Disk</a></li>
+              <li><a class="dropdown-item" href="#">Kasa</a></li>
+              <li><a class="dropdown-item" href="#">Güç Kaynağı</a></li>
+              <li><a class="dropdown-item" href="#">Soğutma Sistemleri</a></li>
+            </ul>
+          </div>
+
+          <div class="nav3-item dropdown">
+            <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link text-light ">Çevre Birimleri <i class="fa-solid fa-chevron-down"></i></a>
+            </li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Monitör</a></li>
+              <li><a class="dropdown-item" href="#">Klavye</a></li>
+              <li><a class="dropdown-item" href="#">Kulaklık</a></li>
+              <li><a class="dropdown-item" href="#">Mouse</a></li>
+              <li><a class="dropdown-item" href="#">Mouse Pad</a></li>
+              <li><a class="dropdown-item" href="#">Mikrofon</a></li>
+              <li><a class="dropdown-item" href="#">Ağ Ürünleri</a></li>
+            </ul>
+          </div>
+          <div class="nav3-item dropdown">
+            <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link text-light ">Oyuncu Ekipmanları <i class="fa-solid fa-chevron-down"></i></a>
+            </li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Oyuncu Koltukları</a></li>
+              <li><a class="dropdown-item" href="#">Gamepad</a></li>
+              <li><a class="dropdown-item" href="#">Kulaklık Standları</a></li>
+              <li><a class="dropdown-item" href="#">Yayıncı Aksesuarları</a></li>
+            </ul>
+          </div>
+          </ul>
+        </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="row ">
+        <div class=" aboutus-breadcrumb row">
+          <nav aria-label="breadcrumb">
+            <ol class=" breadcrumb">
+              <li class="breadcrumb-item"><a href="./index.html">Ana Sayfa</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Hakkımızda</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row who-are-us  ">
+        <div class=" who-content bg-dark d-flex align-item-center justify-content-center rounded-3">
+          <div class=" text ps-4 pt-5">
+            <h2>BİZ KİMİZ?</h2>
+            <p class="fs-5 pt-3">
+              Türkiye'nin Bilgisayarcısı TecHome.com olarak Toplama Bilgisayar, Gaming Notebooklar ve
+              Gaming
+              Ürünlerin perakende satışını gerçekleştirmek amacıyla yenilikçi mağazacılık anlayışı ve
+              gelişmiş
+              web sitesi özellikleriyle kullanıcılarımıza teknolojik çözümler sunan bir marka olarak 2016
+              yılında yola çıktık. Logomuza renk veren turuncu dinamik yapımızı ve mutlu ekip mutlu
+              müşteri
+              prensibimizi temsil eder.
+            </p>
+          </div>
+          <div class=" img ">
+            <img src="./assets/aboutus1.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="row vision">
+        <div class="div bg-dark text-center py-5 rounded-3">
+          <h2>VİZYONUMUZ</h2>
+          <p class="fs-5 pt-3">Müşteri beklentilerine uygun yenilikçi ürünler ve dağıtım altyapısı ile müşteri
+            deneyimini Türkiye’nin her noktasında artırmak.</p>
+          <h2 class="pt-5">MİSYONUMUZ</h2>
+          <p class="fs-5 py-3">Müşteri deneyimlerini artırmak amaçlı iş modellerimiz, yenilikçi ürün gamımız
+            ve
+            pek çok alanda geniş ürün yelpazemiz ile müşterilerimizin kaliteli zaman geçirmelerini
+            destekleriz.
+          </p>
+
+          <div class="row justify-content-around pt-5 gap-4 px-5 ">
+            <div class=" vision-item border border-info  text-primary fs-4 py-5 rounded-5"> <i
+                class=" fs-1 fa-solid fa-people-group "></i>
+              <p>200+ <br> KİŞİLİK EKİP</p>
+            </div>
+            <div class=" vision-item border border-info text-primary fs-4 py-5 rounded-5"> <i
+                class=" fs-1  fa-solid fa-user"></i>
+              <p>7,500 M² <br> TESİS BÜYÜKLÜĞÜ</p>
+            </div>
+            <div class=" vision-item border border-info  text-primary fs-4 py-5 rounded-5"> <i
+                class=" fs-1 fa-solid fa-building"></i>
+              <p>1 MİLYON+<br> KAYITLI ÜYE</p>
+            </div>
+            <div class=" vision-item border border-info  text-primary fs-4 py-5 rounded-5"><i
+                class=" fs-1 fa-solid fa-truck"></i>
+              <p>2000/GÜN <br>SİPARİŞ KAPASİTESİ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row values">
+        <div class="div bg-dark py-5 rounded-3">
+          <h2 class="text-center mb-5">DEĞERLERİMİZ</h2>
+          <div class="row mt-4  border-bottom border-info mx-3">
+            <div class="col-lg-2">
+              <div class=" d-flex justify-content-center align-item-center"><img src="./assets/values-1.png" alt=""
+                  class="w-50 "></div>
+            </div>
+            <div class="col-lg-10  pt-2">
+              <h4 class="text-primary">Mükemmellik İçin Çabalıyoruz </h4>
+              <p>Değişime ve gelişime açığız, sürekli olarak kendimizi yenileriz. Dijital dönüşüme öncülük
+                eder, teknoloji, ürün ve çözümler geliştiririz.</p>
+            </div>
+          </div>
+          <div class="row mt-4  border-bottom border-info mx-3">
+            <div class="col-lg-2">
+              <div class=" d-flex justify-content-center align-item-center"><img src="./assets/values-2.png" alt=""
+                  class="w-50 "></div>
+            </div>
+            <div class="col-lg-10   pt-2">
+              <h4 class="text-primary">Teknoloji ve Çözüm Odaklıyız </h4>
+              <p>Problemlere çözüm odaklı yaklaşırız. Teknolojik gelişmeleri takip eder ve tüm
+                faaliyetlerimize uygularız.</p>
+            </div>
+          </div>
+          <div class="row mt-4  border-bottom border-info mx-3 ">
+            <div class="col-lg-2">
+              <div class=" d-flex justify-content-center align-item-center"><img src="./assets/values-3.png" alt=""
+                  class="w-50 "></div>
+            </div>
+            <div class="col-lg-10  pt-2">
+              <h4 class="text-primary">Sürdürülebilirlik </h4>
+              <p>Başarının yolunun sürdürülebilir çevre ve sosyal yaşam olduğunun farkındayız.</p>
+            </div>
+          </div>
+          <div class="row mt-4  border-bottom border-info mx-3 ">
+            <div class="col-lg-2">
+              <div class=" d-flex justify-content-center align-item-center"><img src="./assets/values-4.png" alt=""
+                  class="w-50 "></div>
+            </div>
+            <div class="col-lg-10  pt-2">
+              <h4 class="text-primary">Girişimci ve Yenilikçiyiz </h4>
+              <p>Tüm faaliyetlerimizde girişimcilik ruhuyla hareket eder, yenilikçi ve yaratıcı bakış
+                açımızla
+                değer katarız.</p>
+            </div>
+          </div>
+          <div class="row mt-4  border-bottom border-info mx-3 ">
+            <div class="col-lg-2">
+              <div class=" d-flex justify-content-center align-item-center"><img src="./assets/values-5.png" alt=""
+                  class="w-50 "></div>
+            </div>
+            <div class="col-lg-10  pt-2">
+              <h4 class="text-primary">Müşteri Odaklıyız </h4>
+              <p>Müşteri beklentilerine önem verir, ihtiyaçların hızlı ve doğru algılar, değişen
+                beklentileri
+                analiz eder ve müşteri ihtiyaçlarına yönelik ürün ve hizmet sağlarız.</p>
+            </div>
+          </div>
+          <div class="row mt-4  border-bottom border-info mx-3 ">
+            <div class="col-lg-2">
+              <div class=" d-flex justify-content-center align-item-center"><img src="./assets/values-6.png" alt=""
+                  class="w-50 "></div>
+            </div>
+            <div class="col-lg-10  pt-2">
+              <h4 class="text-primary">Çalışanlarımıza Değer Katarız </h4>
+              <p>Takım çalışmasına, deneyimlerle öğrenmeye önem veririz. Çalışanlarımızla bağ kurar, açık
+                iletişim sağlar, onların kişisel gelişimine önem veririz.</p>
+            </div>
+          </div>
+          <div class="row mt-4   mx-3 ">
+            <div class="col-lg-2">
+              <div class=" d-flex justify-content-center align-item-center"><img src="./assets/values-7.png" alt=""
+                  class="w-50 "></div>
+            </div>
+            <div class="col-lg-10  pt-2">
+              <h4 class="text-primary">Bütünlük </h4>
+              <p>Saygınlığa, güvenilirliğe, dürüstlüğe, adil ve hoşgörülü davranmaya, etik kurallara önem
+                veririz.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row address">
+        <div class=" address-cnt bg-dark py-5 rounded-3 px-5">
+
+          <div class=" address-info text-center ">
+            <h2 class="py-4 text-primary"> ŞİRKET BİLGİLERİMİZ </h2>
+            <h5 class="py-2">TECHOME ONLİNE ELEKTRONİK TİC.HİZ.A.Ş.</h5>
+            <p class="py-2 text-center"> <i class=" fs-4 fa-solid fa-map-location-dot pe-2 text-primary"></i>
+              Cumhuriyet Mah. Atatürk Cad. No:24/7 Tepebaşı/Eskişehir </p>
+            <p> 0222 233 33 33</p>
+          </div>
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196279.019517971!2d30.404730377605865!3d39.76525880143579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cc3e08220c0e5f%3A0xbc89395938049a08!2sEski%C5%9Fehir!5e0!3m2!1str!2str!4v1681654728853!5m2!1str!2str"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center text-lg-start bg-dark text-muted">
+
+    <section class="mb-4 text-center pt-5">
+      <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+          class="fab fa-facebook-f"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+          class="fab fa-twitter"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+          class="fab fa-google"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+          class="fab fa-instagram"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+          class="fab fa-linkedin-in"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+    </section>
+
+    <section>
+      <div class="container text-center text-md-start mt-5">
+        <div class=" row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <img src="./assets/logo.png" alt="" class="w-100">
+            <p>
+              Cumhuriyet Mah. Atatürk Cad. No:24/7 Tepebaşı/Eskişehir
+            </p>
+          </div>
+
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Ürünler
+            </h6>
+            <p>
+              <a href="#" class="text-reset">Bilgisayar</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Hazır Sistemler</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Bilgisayar Bileşenleri</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Çevre Birimleri</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Oyuncu Ekipmanları</a>
+            </p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Kurumsal
+            </h6>
+            <p>
+              <a href="./about-us.html" class="text-reset">Hakkımızda</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">KVKK ve Yasal Haklar</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Çerez Yönetimi</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Satış Sözleşmesi</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Garanti Şartları</a>
+            </p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              YARDIM
+            </h6>
+            <p>
+              <a href="./sss.html" class="text-reset">Sık Sorulan Sorular</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Sipariş ve Teslimat</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Üyelik / Hesabım</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">Ömür Boyu Bakım</a>
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2023 Copyright:
+      <a class="text-reset fw-bold" href="#">TecHome.com</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>

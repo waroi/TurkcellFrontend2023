@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="icon" href="./assets/th.png" />
+    <title>MSI Kulaklık & Mouse Standı</title>
+</head>
+
+<body class="bg-secondary">
+  
+    <header>
+        <nav class="nav1 navbar navbar-expand-lg bg-dark py-0">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse justify-content-end" id="supNavbar">
+                    <div class="navbar-nav text-light">
+                        <a class="nav-link text-primary fs-6" aria-current="page" href="#"><small>SİPARİŞ TAKİBİ</small>
+                        </a>
+                        <a class="nav-link text-primary fs-6" aria-current="page" href="#"><small>TEKNİK SERVİS</small>
+                        </a>
+                        <a class="nav-link text-primary" href="sss.html"><small>SIK SORULAN SORULAR</small></a>
+                        <a class="nav-link text-primary" href="about-us.html"><small>HAKKIMIZDA</small></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="nav2 navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+              <a class=" logo navbar-brand w-25 ps-3" href="./index.html">
+                <img src="./assets/logo.png" alt="TecHome" class="  w-100" />
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#subNav"
+                aria-controls="subNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="web-search w-50 d-flex justify-content-center">
+                <form class="d-flex justify-content-center w-75" role="search">
+                  <input class="form-control me-2 bg-secondary" type="search" placeholder="Arama Yap" aria-label="Search" />
+                  <button class="btn btn-outline-primary w-25 fw-bold" type="submit">
+                    Ara
+                  </button>
+                </form>
+              </div>
+              <div class="collapse navbar-collapse justify-content-around" id="subNav">
+                <ul class="navbar-nav justify-content-start">    
+                  <li class="nav-item  px-1 me-4" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <div class="d-flex align-items-center pointer">
+                      <i class="fa-solid fa-circle-user fs-3 me-2 text-light"></i>
+                      <div class="text-light
+                                  ">Giriş Yap
+                        <div class="text-info"><small>Kayıt Ol</small></div>
+                      </div>
+                    </div>
+                  </li>
+                  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header text-center">
+                          <h1 class="modal-title fs-5 text-dark " id="loginModalLabel"></h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-dark">
+                          <h5 class="text-center">ÜYE GİRİŞİ</h5>
+                          <form class="w-75 mx-auto ">
+                            <div class="form-outline mb-4">
+                              <label class="form-label" for="formeleman1">Email</label>
+                              <input type="email" id="formelean1" class="form-control" />
+                            </div>
+      
+                            <div class="form-outline mb-4">
+                              <label class="form-label" for="formeleman2">Şifre</label>
+                              <input type="password" id="formeleman2" class="form-control" />
+                            </div>
+      
+                            <div class="row mb-4 text-center  ">
+                              <div class="">
+                                <div class="form-check  w-25 mx-auto justify-content-center ">
+                                  <input class="form-check-input " type="checkbox" value="" id="formeleman3" checked />
+                                  <label class="form-check-label" for="formeleman3"> Hatırla </label>
+                                </div>
+                              </div>
+                              <div class="">
+                                <a href="#!">Şifremi Unuttum?</a>
+                              </div>
+                            </div>
+      
+                            <div class="text-center">
+                              <button type="button " class="btn btn-primary btn-block mb-4 ">Giriş Yap</button>
+                            </div>
+      
+                            <div class="text-center">
+                              <p>Üye değil misin? <a href="#!">Kayıt Ol!</a></p>
+                              <p>veya şununla giriş yap:</p>
+                              <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                              </button>    
+                              <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-google"></i>
+                              </button>      
+                              <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-twitter"></i>
+                              </button>    
+                              <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-github"></i>
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <li class="nav-item px-1" data-bs-toggle="modal" data-bs-target="#sepetModal">
+                    <div class="d-flex align-items-center pointer">
+                      <i class="fa-solid fa-cart-shopping fs-3 me-2 text-light"></i>
+                      <div class="text-light">Sepetim       
+                        <div class="text-info"><small>0.00 ₺</small></div>
+                      </div>                   
+                    </div>
+      
+                    <div class="modal fade" id="sepetModal" tabindex="-1" aria-labelledby="sepetModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5 text-dark" id="sepetMpdalLabel">SEPETİNİZ</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body text-center text-dark">
+                            <h5>Sepetinizde Ürün Bulunmamaktadır.</h5>
+                            <img src="./assets/empty.png" alt="" class="w-50 ">
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tamam</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="nav-item just-mobile  px-1 me-4 d-none" >
+                    <div class="d-flex align-items-center pointer">
+                      <i class="fa-solid fa-circle-question fs-3 me-2 text-light"></i>
+                      <a href="./sss.html" class="text-light
+                                  ">Sık Sorulan Sorular
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-item just-mobile  px-1 me-4 d-none">
+                    <div class="d-flex align-items-center pointer">
+                      <i class="fa-solid fa-address-card fs-3 me-2 text-light"></i>
+                      <a href="./about-us.html " class="text-light
+                                  ">Hakkımızda         
+                      </a>
+                    </div>
+                  </li>
+      
+                  <li class="nav-item mobile-search px-1 d-none">
+                    <div class=" d-flex justify-content-center">
+                      <form class="d-flex justify-content-center w-75" role="search">
+                        <input class="form-control me-2 bg-secondary" type="search" placeholder="Arama Yap"
+                          aria-label="Search" />
+                        <button class="btn btn-outline-primary w-25" type="submit">
+                          Ara
+                        </button>
+                      </form>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <nav class="nav3 navbar navbar-expand-lg bg-dark py-0 border-top  border-info">
+            <div class=" container-fluid justify-content-center">
+                <div class="nav justify-content-center">
+                    <div class=" nav3-item dropdown">
+                        <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link text-light ">Bilgisayarlar <i class="fa-solid fa-chevron-down"></i></a>
+                        </li>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Notebooklar</a></li>
+                            <li><a class="dropdown-item" href="#">Masaüstü Bilgisayarlar</a></li>
+                            <li><a class="dropdown-item" href="#">Hazır Sistemler</a></li>
+                            <li><a class="dropdown-item" href="#">Oyun Bilgisayarları</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav3-item dropdown">
+                        <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link text-light ">Hazır Sistemler <i class="fa-solid fa-chevron-down"></i></a>
+                        </li>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">ASUS Hazır Sistemler</a></li>
+                            <li><a class="dropdown-item" href="#">MSI Hazır Sistemler</a></li>
+                            <li><a class="dropdown-item" href="#">GIGABYTE Hazır Sistemler</a></li>
+                            <li><a class="dropdown-item" href="#">GeForce RTX Sistemler</a></li>
+                            <li><a class="dropdown-item" href="#">Özelleştirilebilir Sistemler</a></li>
+                            <li><a class="dropdown-item" href="#">NVIDIA Studio Sistemler</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav3-item dropdown">
+                        <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link text-light ">Bilgisayar Bileşenleri <i
+                                    class="fa-solid fa-chevron-down"></i></a>
+                        </li>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">İşlemci</a></li>
+                            <li><a class="dropdown-item" href="#">Ana Kart</a></li>
+                            <li><a class="dropdown-item" href="#">Ekran Kartı</a></li>
+                            <li><a class="dropdown-item" href="#">Ram</a></li>
+                            <li><a class="dropdown-item" href="#">SSD</a></li>
+                            <li><a class="dropdown-item" href="#">Hard Disk</a></li>
+                            <li><a class="dropdown-item" href="#">Kasa</a></li>
+                            <li><a class="dropdown-item" href="#">Güç Kaynağı</a></li>
+                            <li><a class="dropdown-item" href="#">Soğutma Sistemleri</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav3-item dropdown">
+                        <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link text-light ">Çevre Birimleri <i class="fa-solid fa-chevron-down"></i></a>
+                        </li>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Monitör</a></li>
+                            <li><a class="dropdown-item" href="#">Klavye</a></li>
+                            <li><a class="dropdown-item" href="#">Kulaklık</a></li>
+                            <li><a class="dropdown-item" href="#">Mouse</a></li>
+                            <li><a class="dropdown-item" href="#">Mouse Pad</a></li>
+                            <li><a class="dropdown-item" href="#">Mikrofon</a></li>
+                            <li><a class="dropdown-item" href="#">Ağ Ürünleri</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav3-item dropdown">
+                        <li class="nav-item pointer" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link text-light ">Oyuncu Ekipmanları <i
+                                    class="fa-solid fa-chevron-down"></i></a>
+                        </li>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Oyuncu Koltukları</a></li>
+                            <li><a class="dropdown-item" href="#">Gamepad</a></li>
+                            <li><a class="dropdown-item" href="#">Kulaklık Standları</a></li>
+                            <li><a class="dropdown-item" href="#">Yayıncı Aksesuarları</a></li>
+                        </ul>
+                    </div>
+                    </ul>
+                </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row my-3">
+                <nav aria-label="breadcrumb ">
+                    <ol class="detail-breadcrumb breadcrumb">
+                        <li class="breadcrumb-item"><a href="./index.html">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item"><a href="#">Oyuncu Ekipmanları</a></li>
+                        <li class="breadcrumb-item"><a href="#">Kulaklık Standları</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">MSI Kulaklık & Mouse Standı
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row detail bg-dark rounded">
+                <div class="col-lg-4">
+                    <div id="detailCarousel" class="carousel slide rounded">
+                        <div class="carousel-indicators ">
+                            <button type="button" data-bs-target="#detailCarousel" data-bs-slide-to="0" class="active "
+                                aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#detailCarousel" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#detailCarousel" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner rounded">
+                            <div class="carousel-item active">
+                                <img src="https://www.incehesap.com/resim/urun/202103/60540233aa9c42.20342742_fhjoegqmnpilk_500.jpg"
+                                    class="d-block w-100 bg-light" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://www.incehesap.com/resim/urun/202103/60540234ead345.79345838_okilgnjqmefhp_500.jpg"
+                                    class="d-block w-100 bg-light" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://www.incehesap.com/resim/urun/202103/6054023342f302.10037601_fgmhkleioqjnp_500.jpg"
+                                    class="d-block w-100 bg-light" alt="...">
+                            </div>
+
+                        </div>
+                        <button class="carousel-control-prev " type="button" data-bs-target="#detailCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#detailCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="detail-cnt col-lg-8 px-5">
+
+                    <h3>MSI HS01 Gaming Kulaklık Standı</h3>
+                    <div class="degerlendirme">
+                        <span class="text-primary"><i class="fa-solid fa-star"></i></span>
+                        <span class="text-primary"><i class="fa-solid fa-star"></i></span>
+                        <span class="text-primary"><i class="fa-solid fa-star"></i></span>
+                        <span class="text-primary"><i class="fa-solid fa-star"></i></span>
+                        <span class="text-primary"><i class="fa-solid fa-star"></i></span>
+                    </div>
+
+                    <div class="fiyatbilgisi">
+                        <p class="fs-2 mt-4 fw-bold text-primary mb-0 ">777,35 ₺</p>
+                        <span class="text-info  ">6 x 131,53 TL Taksitle</span>
+
+                        <div class=" col-lg-2 miktar mt-4 ">
+                          <select class="form-select bg-dark text-light" aria-label="Default select example">
+                              <option selected>Adet</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                            </select>
+                      </div>
+
+                        <div class="buttons mt-5 d-flex gap-4 align-item-center justify-content-end">
+                            <div class="fav-text fs-6 mt-2 pointer"> <i class="  fa-regular fa-heart text-primary"></i>
+                                Favorilerine
+                                Ekle <br>
+                                <i class="fa-solid fa-share text-primary"></i> Paylaş
+                            </div>
+                            <button class="btn btn-outline-danger fs-4" data-bs-toggle="modal" data-bs-target="#addtoCardModal">Stokta Yok</button>
+                           
+                            <div class="modal fade" id="addtoCardModal" tabindex="-1" aria-labelledby="addtoCardModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h1 class="modal-title fs-5 text-dark" id="addtoCardModalLabel">ÜZGÜNÜZ!</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-dark">
+                                    Maalesef incelediğiniz ürün stokta bulunmamaktadır.
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Gelince Haber Ver!</button>
+                                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Alışverişe Devam Et</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>                     
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row prop bg-dark rounded">
+
+                <h5 class="text-center my-3">MSI HS01 Gaming Kulaklık Standı Özellikleri</h5>
+                <table class=" table table-secondary table-striped  my-3 text-center">
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                Stand Tipi</th>
+                            <td>Kulaklık Standı</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Renk</th>
+                            <td>Renk</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Kaydırmazlık</th>
+                            <td> Kauçuk Taban</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="row prop bg-dark rounded">
+               <div class="row comment">
+                <h4 class="text-primary p-4">YORUMLAR</h4>
+                <div class="comment-cnt  col-lg ">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-start w-100">
+                                <img class="rounded-circle shadow-1-strong me-3"
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp" alt="avatar"
+                                    width="65" height="65" />
+                                <div class="w-100">
+                                    <h5>YORUM YAP</h5>
+                                    <div class="pointer">
+                                        <span class="text-primary "><i class="fa-regular fa-star"></i></span>
+                                        <span class="text-primary "><i class="fa-regular fa-star"></i></span>
+                                        <span class="text-primary "><i class="fa-regular fa-star"></i></span>
+                                        <span class="text-primary "><i class="fa-regular fa-star"></i></span>
+                                        <span class="text-primary "><i class="fa-regular fa-star"></i></span>
+                                    </div>
+
+                                    <div class="form-outline mt-4">
+                                        <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-3">
+
+                                        <button type="button" class="btn btn-primary">
+                                            Gönder <i class="fas fa-long-arrow-alt-right ms-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-start mb-4">
+                        <img class="rounded-circle shadow-1-strong me-3"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65"
+                            height="65" />
+                        <div class="card w-100">
+                            <div class="card-body p-4">
+                                <div class="">
+                                    <h5>Johny Cash</h5>
+                                    <p class="small text-start text-info">3 hours ago</p>
+                                    <p class="fs-6 text-start fw-light text-light">
+                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                                        ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+                                        viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                                        Donec lacinia congue felis in faucibus ras purus odio, vestibulum in
+                                        vulputate at, tempus viverra turpis.
+                                    </p>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <a href="#!" class="link-muted me-2"><i
+                                                    class="fas fa-thumbs-up me-1"></i>132</a>
+                                            <a href="#!" class="link-muted"><i
+                                                    class="fas fa-thumbs-down me-1"></i>15</a>
+                                        </div>
+                                        <a href="#!" class="link-primary"><i class="fas fa-reply me-1"></i> Reply</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-start mb-4">
+                        <img class="rounded-circle shadow-1-strong me-3"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65"
+                            height="65" />
+                        <div class="card w-100">
+                            <div class="card-body p-4">
+                                <div class="">
+                                    <h5>Johny Cash</h5>
+                                    <p class="small text-start text-info">3 hours ago</p>
+                                    <p class="fs-6 text-start fw-light text-light">
+                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                                        ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+                                        viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                                        Donec lacinia congue felis in faucibus ras purus odio, vestibulum in
+                                        vulputate at, tempus viverra turpis.
+                                    </p>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <a href="#!" class="link-muted me-2"><i
+                                                    class="fas fa-thumbs-up me-1"></i>132</a>
+                                            <a href="#!" class="link-muted"><i
+                                                    class="fas fa-thumbs-down me-1"></i>15</a>
+                                        </div>
+                                        <a href="#!" class="link-primary"><i class="fas fa-reply me-1"></i> Reply</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-start mb-4">
+                        <img class="rounded-circle shadow-1-strong me-3"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65"
+                            height="65" />
+                        <div class="card w-100">
+                            <div class="card-body p-4">
+                                <div class="">
+                                    <h5>Johny Cash</h5>
+                                    <p class="small text-start text-info">3 hours ago</p>
+                                    <p class="fs-6 text-start fw-light text-light">
+                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                                        ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+                                        viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                                        Donec lacinia congue felis in faucibus ras purus odio, vestibulum in
+                                        vulputate at, tempus viverra turpis.
+                                    </p>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <a href="#!" class="link-muted me-2"><i
+                                                    class="fas fa-thumbs-up me-1"></i>132</a>
+                                            <a href="#!" class="link-muted"><i
+                                                    class="fas fa-thumbs-down me-1"></i>15</a>
+                                        </div>
+                                        <a href="#!" class="link-primary"><i class="fas fa-reply me-1"></i> Reply</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                    <button class="btn btn-outline-info">Daha Fazla Yorum</button></div>
+                </div>
+            </div>
+
+            </div>
+        </div>  
+    </main>
+
+    <footer class="text-center text-lg-start bg-dark text-muted">
+        <section class="mb-4 text-center pt-5">
+          <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+              class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+              class="fab fa-twitter"></i></a>
+          <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+              class="fab fa-google"></i></a>
+          <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+              class="fab fa-instagram"></i></a>
+          <a class="btn btn-outline-light btn-floating m-1 text-muted " href="#!" role="button"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+        </section>
+    
+        <section >
+          <div class="container text-center text-md-start mt-5">
+            <div class=" row mt-3">
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <img src="./assets/logo.png" alt="" class="w-100">
+                <p>
+                  Cumhuriyet Mah. Atatürk Cad. No:24/7 Tepebaşı/Eskişehir
+                </p>
+              </div>
+    
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Ürünler
+                </h6>
+                <p>
+                  <a href="#" class="text-reset">Bilgisayar</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Hazır Sistemler</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Bilgisayar Bileşenleri</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Çevre Birimleri</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Oyuncu Ekipmanları</a>
+                </p>
+              </div>
+    
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Kurumsal
+                </h6>
+                <p>
+                  <a href="./about-us.html" class="text-reset">Hakkımızda</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">KVKK ve Yasal Haklar</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Çerez Yönetimi</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Satış Sözleşmesi</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Garanti Şartları</a>
+                </p>
+              </div>
+    
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4">
+                  YARDIM
+                </h6>
+                <p>
+                  <a href="./sss.html" class="text-reset">Sık Sorulan Sorular</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Sipariş ve Teslimat</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Üyelik / Hesabım</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Ömür Boyu Bakım</a>
+                </p>
+              </div>
+    
+            </div>
+    
+          </div>
+        </section>
+    
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+          © 2023 Copyright:
+          <a class="text-reset fw-bold" href="#">TecHome.com</a>
+        </div>
+      </footer>
+
+</body>
+</html>
