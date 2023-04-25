@@ -1,4 +1,4 @@
-// Matematiksel Fonksiyonşar
+// Matematiksel Fonksiyonlar
 // Grup Çalışması(İrem-Mücahit-Selahattin)
 
 let sayi = parseInt(prompt("Bir sayi giriniz:"));
