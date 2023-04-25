@@ -1,5 +1,5 @@
-const display = document.querySelector('.calculator-input');
-const keys = document.querySelector('.calculator-keys');
+const display = document.querySelector('.calculatorInput');
+const buttons = document.querySelector('.buttons');
 
 let displayValue = '0';
 let firstValue = null;
@@ -12,7 +12,7 @@ function updateDisplay() {
     display.value = displayValue;
 }
 
-keys.addEventListener('click', function(e) {
+buttons.addEventListener('click', function(e) {
     const element = e.target;
     const value = element.value;
 
@@ -24,24 +24,24 @@ keys.addEventListener('click', function(e) {
         case '*':
         case '/':
         case '=':
-            handleOperator(value);
+            operators(value);
             break;
         case '.':
-            inputDecimal();
+            decimal();
             break;
         case 'clear':
             clear();
             break;
         case 'delete':
-            deleteNumber();
+            deleteNumb();
             break;
         default:
-            inputNumber(element.value);        
+            inputNumb(element.value);        
     }
     updateDisplay();
 });
 
-function handleOperator(nextOperator) {
+function operators(nextOperator) {
     const value = parseFloat(displayValue);
 
     if(operator && waitingForSecondValue) {
@@ -54,7 +54,7 @@ function handleOperator(nextOperator) {
     } else if (operator) {
         const result = calculate(firstValue, value, operator);
 
-        displayValue = `${parseFloat(result.toFixed(2))}`;
+        displayValue = `${parseFloat(result.toFixed(2))}`;//noktadan sonra 2 basamak
         firstValue = result;
     }
 
@@ -72,23 +72,22 @@ function calculate(first, second, operator) {
     } else if (operator === '*') {
         return first * second
     } else if (operator === '/') {
+        
         return first / second;
     }
     return second;
 }
 
-function inputNumber(num) {
+function inputNumb(num) {
     if(waitingForSecondValue) {
         displayValue = num;
         waitingForSecondValue = false;
     } else {
         displayValue = displayValue === '0'? num: displayValue + num;
     }
-
-    console.log(displayValue, firstValue, operator, waitingForSecondValue);
 }
 
-function inputDecimal() {
+function decimal() {
     if (!displayValue.includes('.')) {
         displayValue += '.';
     }
@@ -98,7 +97,7 @@ function clear() {
     displayValue = '0';
 }
 
-function deleteNumber() {
+function deleteNumb() {
     displayValue = displayValue.slice(0, -1);
     if (displayValue === '') {
         displayValue = '0';
