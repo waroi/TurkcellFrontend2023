@@ -26,11 +26,19 @@ const updateDisplay = (num) => {
 const setOperator = (op) => {
     if (!currentNumber) return;
     if (!firstNumber) {
-        firstNumber = parseFloat(currentNumber);
+      firstNumber = parseFloat(currentNumber);
     }
     operator = op;
-    currentNumber = '';
-};
+    if (op === '%') {
+      result = percentage(firstNumber);
+      calculatorInput.value = result;
+      firstNumber = result;
+      currentNumber = '';
+      operator = null;
+    } else {
+      currentNumber = '';
+    }
+  };
 
 const add = (num1, num2) => num1 + num2;
 
@@ -39,6 +47,8 @@ const subtract = (num1, num2) => num1 - num2;
 const multiply = (num1, num2) => num1 * num2;
 
 const divide = (num1, num2) => num1 / num2;
+
+const percentage = (num1) => num1 / 100;
 
 const calculate = () => {
     if (!firstNumber || !currentNumber || !operator) return;
@@ -60,6 +70,7 @@ switch (operator) {
     case '/':
         result = divide(firstNumber, secondNumber);
         break;
+
 }
 
     calculatorInput.value = result;
