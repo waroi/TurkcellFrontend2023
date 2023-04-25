@@ -26,10 +26,12 @@ do {
 
     if (answer == "evet") {
         console.log("devam");
-        let operation = prompt("Bu sayı ile ne yapmak istediğinizi seçiniz?\n1:Toplama\n2:Çıkarma\n3:Çarpma\n4:Bölme")
 
         let sayi1 = Number(prompt("İlk sayı giriniz:"));
         let sayi2 = Number(prompt("İkinci sayı giriniz:"));
+        let operation = prompt("Bu sayı ile ne yapmak istediğinizi seçiniz?\n1:Toplama\n2:Çıkarma\n3:Çarpma\n4:Bölme")
+
+
 
         if (isNaN(sayi1) || isNaN(sayi2)) {
             alert("Hata: Lütfen geçerli bir sayı girin.");
