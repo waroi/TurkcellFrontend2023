@@ -28,6 +28,9 @@ while (rule) {
     else if (operation == "") {
         alert("boş geçme");
     }
+    else if (operation !== "1" && operation !== "2" && operation !== "3" && operation !== "4" && operation !== "5") {
+        alert("düzgün işlem gir")
+    }
     else {
         let sayi1 = Number(prompt("İlk sayı giriniz:"));
         let sayi2 = Number(prompt("İkinci sayı giriniz:"));
@@ -39,16 +42,16 @@ while (rule) {
         }
         switch (operation) {
             case "1":
-                console.log(toplama(sayi1, sayi2));
+                alert(toplama(sayi1, sayi2));
                 break;
             case "2":
-                console.log(cikarma(sayi1, sayi2));
+                alert(cikarma(sayi1, sayi2));
                 break;
             case "3":
-                console.log(carpma(sayi1, sayi2));
+                alert(carpma(sayi1, sayi2));
                 break;
             case "4":
-                console.log(bolme(sayi1, sayi2));
+                alert(bolme(sayi1, sayi2));
                 break;
         }
         let answer = prompt("devam etmek ister misin?");
@@ -57,7 +60,6 @@ while (rule) {
             answer = prompt("devam etmek ister misin?");
         }
         if (answer == "hayır") {
-            console.log("dur");
             rule = false;
         }
     }
