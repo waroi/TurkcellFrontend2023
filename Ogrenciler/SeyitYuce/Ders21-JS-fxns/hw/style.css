@@ -1,0 +1,169 @@
+body {
+    background: hsla(192, 80%, 51%, 1);
+    background: radial-gradient(
+      circle,
+      hsla(192, 80%, 51%, 1) 0%,
+      hsla(355, 85%, 63%, 1) 100%
+    );
+    background: -moz-radial-gradient(
+      circle,
+      hsla(192, 80%, 51%, 1) 0%,
+      hsla(355, 85%, 63%, 1) 100%
+    );
+    background: -webkit-radial-gradient(
+      circle,
+      hsla(192, 80%, 51%, 1) 0%,
+      hsla(355, 85%, 63%, 1) 100%
+    );
+  }
+  #calculator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 50px 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .left-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+  
+    padding: 50px 20px;
+    margin: 10px 0;
+    height: 185px;
+    border-radius: 10px;
+  }
+  .left-col input,
+  select {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15.3px);
+    -webkit-backdrop-filter: blur(15.3px);
+    border: 1px solid rgba(255, 255, 255, 1);
+  }
+  #result{
+    background: rgba(255, 255, 255, .1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15.3px);
+    -webkit-backdrop-filter: blur(15.3px);
+    border: 1px solid rgba(255, 255, 255, 1);
+  }
+  #operation option {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
+  
+    text-align: center;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .right-col {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+  }
+  
+  .buttons-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+  }
+  
+  .button-numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .button-numbers button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .button-numbers button:hover {
+    background-color: #e6e6e6;
+  }
+  
+  #decimal-btn,
+  #btn-0 {
+    align-self: center;
+    justify-content: center;
+  }
+  
+  #decimal-btn {
+    font-size: 32px;
+  }
+  
+  #btn-0 {
+    font-size: 24px;
+  }
+  
+  button[type="button"] {
+    font-size: 20px;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+    border: 1px solid rgba(255, 255, 255, 1);
+  
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  #btn-equal {
+    grid-column: span 2;
+  }
+  
+  button[type="button"]:hover {
+    background: linear-gradient(
+      90deg,
+      hsla(192, 80%, 51%, 1) 0%,
+      hsla(355, 85%, 63%, 1) 100%
+    );
+  }
+  
