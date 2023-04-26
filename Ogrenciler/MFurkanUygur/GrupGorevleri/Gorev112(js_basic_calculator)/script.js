@@ -20,23 +20,24 @@ function bolme(sayi1, sayi2) {
 }
 
 let rule = true;
+let operations = ["1", "2", "3", "4", "5"]
 while (rule) {
     let operation = prompt("Bu sayı ile ne yapmak istediğinizi seçiniz?\n1:Toplama\n2:Çıkarma\n3:Çarpma\n4:Bölme\n5:Çıkış")
     if (operation == "5") {
         rule = false
     }
-    else if (operation == "") {
-        alert("boş geçme");
-    }
-    else if (operation !== "1" && operation !== "2" && operation !== "3" && operation !== "4" && operation !== "5") {
-        alert("düzgün işlem gir")
+    // else if (operation !== "1" && operation !== "2" && operation !== "3" && operation !== "4" && operation !== "5") {
+    //     alert("düzgün işlem gir")
+    // }
+    else if (!operations.includes(operation)) {
+        alert("Geçerli işlem giriniz.")
     }
     else {
         let sayi1 = Number(prompt("İlk sayı giriniz:"));
         let sayi2 = Number(prompt("İkinci sayı giriniz:"));
 
         while (sayi1 == "" || sayi2 == "" || isNaN(sayi1) || isNaN(sayi2)) {
-            alert("Lütfen tüm sayıları sayı olarak giriniz");
+            alert("Lütfen tüm sayıları adam gibi giriniz.");
             sayi1 = Number(prompt("İlk sayı giriniz:"));
             sayi2 = Number(prompt("İkinci sayı giriniz:"));
         }
@@ -54,12 +55,12 @@ while (rule) {
                 alert(bolme(sayi1, sayi2));
                 break;
         }
-        let answer = prompt("devam etmek ister misin?");
+        let answer = prompt("Devam etmek ister misin?\n Çıkış için 'h'\n Yeni işlem için 'e");
         while (answer == "") {
             alert("Bir cevap giriniz?")
-            answer = prompt("devam etmek ister misin?");
+            answer = prompt("Devam etmek ister misin?\n Çıkış için 'h'\n Yeni işlem için 'e");
         }
-        if (answer == "hayır") {
+        if (answer == "h") {
             rule = false;
         }
     }
