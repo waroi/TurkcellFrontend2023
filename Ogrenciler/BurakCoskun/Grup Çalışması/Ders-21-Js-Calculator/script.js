@@ -1,4 +1,5 @@
 let display = document.getElementById("display");
+let buttonsDiv = document.querySelector(".buttons");
 let buttons = Array.from(document.getElementsByClassName("button"));
 let operators = Array.from(document.getElementsByClassName("operator"));
 const equals = document.getElementById("equal");
@@ -11,6 +12,7 @@ let operator1 = "";
 let result = "";
 
 calculation();
+
 
 function calculation() {
   buttons.forEach((button) => {
@@ -62,6 +64,8 @@ function calculation() {
         operator1 = "";
         result = "";
         display.innerText = "Thank you for using our calculator";
+        buttonsDiv.style.display = "none";
+        equals.style.display = "none";
       }
     }, 500);
   });
