@@ -30,3 +30,6 @@
 - [JavaScript’in Tarihçesi](https://medium.com/frontend-development-with-js/javascriptin-tarih%C3%A7esi-1789284fc09c)
 - [Execution Context, Lexical Environment, Scope ve Clousure Anlamak](https://medium.com/frontend-development-with-js/execution-context-lexical-environment-scope-ve-clousure-anlamak-407d1dba185c)
 - [JavaScript’te this Ne Anlama Geliyor ?](https://medium.com/frontend-development-with-js/javascript-this-ne-anlama-geliyor-77d548e969ae)
+
+- [execution context/ek kaynak](https://serbestemre.medium.com/execution-stack-ve-execution-context-nedir-ee99dd9ed925)
+- [Variable ve Lexical Environment Nedir? Scope Chain Bu İşin Neresinde?](https://serbestemre.medium.com/variable-ve-lexical-environment-nedir-scope-chain-bu-i̇şin-neresinde-f85cccc343af)
