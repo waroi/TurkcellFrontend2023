@@ -40,4 +40,36 @@ document.querySelectorAll("p:nth-child(even)").forEach(function (item) {
 });
 document.querySelector("p").style.border = "5px solid blue";
 
+// Element oluşturma
+const button = document.createElement("a");
+button.id = "test-button-id";
+button.className = "btn btn-danger";
+button.href = "https://www.google.com/";
+button.target = "_blank";
+const text = document.createTextNode("Bana Tıkla");
+button.appendChild(text);
+value = document.getElementById("section");
+value.appendChild(button);
+
+value = document.getElementById("testButton");
+
+value.addEventListener("click", testFonk);
+
+function testFonk(event) {
+  console.log("Butona tıklandı", event.target);
+  if (value.children[0].children[1] === event.target) {
+    console.log("Başarılı");
+  }
+}
+
+const textInput = document.getElementById("text-input");
+textInput.addEventListener("keyup", function () {
+  console.log(textInput.value);
+});
+textInput.addEventListener("focus", clearValue);
+
+function clearValue() {
+  textInput.value = "";
+}
+
 console.log(value);
