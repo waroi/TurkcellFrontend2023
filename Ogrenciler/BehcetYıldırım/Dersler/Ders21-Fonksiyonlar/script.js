@@ -31,13 +31,6 @@
 // const sonuc = cube(5) + 10;
 // console.log(sonuc);
 
-// /**
-//  * Rastgele Başlık xD
-//  * @param {string} x
-//  */
-// function test(x) {
-// }
-// test();
 
 // const database = {
 //   host: "localhost",
@@ -113,7 +106,8 @@ const langs = ["Python", "Java", "C++", "C#"];
 // });
 
 langs.map((x) => console.log(x));
+
 const lengths = langs.map((x) => x.length);
 console.log(lengths);
 
-langs.map((x, i) => console.log(i, x));
+// langs.map((x, i) => console.log(i, x));
