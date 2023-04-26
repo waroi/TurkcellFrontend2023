@@ -55,10 +55,10 @@ while (rule) {
                 alert(bolme(sayi1, sayi2));
                 break;
         }
-        let answer = prompt("Devam etmek ister misin?\n Çıkış için 'h'\n Yeni işlem için 'e");
+        let answer = prompt("Devam etmek ister misin?\n Çıkış için 'h'\n Yeni bir işlem için herhangi bir tuşa basınız");
         while (answer == "") {
-            alert("Bir cevap giriniz?")
-            answer = prompt("Devam etmek ister misin?\n Çıkış için 'h'\n Yeni işlem için 'e");
+            alert("Doğru bir cevap giriniz?")
+            answer = prompt("Devam etmek ister misin?\n Çıkış için 'h'\n Yeni bir işlem için herhangi bir tuşa basınız");
         }
         if (answer == "h") {
             rule = false;
