@@ -104,3 +104,17 @@ ExecutionContext siline bile onu çevreleyen {} blockta bu değişkenlere ihtiya
 
 ---
 
+
+### js içerisinde global execution context ve functional execution context compiler düzenlemesi ve bytecode oluşumu zamanında mı oluşturulur?
+
+#### compiler zamanında variable ve functionların js tarafından ayrı ayrı tutulduğunu öğrenmiştik. çalışma zamanına göre execution contextler stack üzerinde lifo sistemi ile tutuluyordu. peki variablelar nerede tutuluyor?
+
+özet 
+
+1. text tabanlı js kodları ilk olarak **parser** kısmına girer ve parse edilir.
+2. işlem sonucu elde edilen veri bir **abstract syntax tree** ye dönüştürülür ve js motoruna gönderilir.
+3. js motorları **sadece interpreter** içerikli ise **abstract syntax tree** yi direkt okur. 
+4. **interpreter ve compiler** içerikliyse abstract syntax treeden gelen veriyi ilk olarak **bytcode** a dönüştürür.
+5. **bytecode** a dönüştürülen veri **profiling data** yı alarak **optimizing compiler** a gelir. 
+6. **optimize edilen kod**  deoptimize edilerek tekrar **bytecode** a dönüştürülür ve js motorları tarafından kullanılır.
+7. js kodları işlendiğinde **functions ve variables** olarak okunur ve makina koduna çevrilir.
