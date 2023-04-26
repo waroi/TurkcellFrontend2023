@@ -1,4 +1,4 @@
-//Functions
+// Functions
 // merhaba();
 // function merhaba() {
 //   console.log("Merhaba");
