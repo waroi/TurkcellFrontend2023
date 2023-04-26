@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Makinesi</title>
+</head>
+<body>
+    
+    <label>İlk Sayı : </label>
+    <input type="number" id="sayi1">
+
+    <select id="islem">
+        <option value="topla">+</option>
+        <option value="cikar">-</option>
+        <option value="carp">*</option>
+        <option value="bol">/</option>
+    </select>
+
+    <label>İkinci sayı : </label>
+    <input type="number" id="sayi2">
+
+    <button id="buton">Hesapla</button>
+
+    <div id="sonuc"></div>
+    
+    <script>
+        let sonuc;
+        function hesapla(){
+            let sayi1=document.getElementById("sayi1").value;
+            let sayi2=document.getElementById("sayi2").value;
+            let islem=document.getElementById("islem").value;
+    
+            let s1 = Number(sayi1);
+            let s2 = Number(sayi2);
+
+            if(islem == 'topla')
+                sonuc = s1 + s2;
+            else if(islem == 'cikar')
+                sonuc = s1 - s2;
+            else if(islem == 'carp')
+                sonuc = s1 * s2;
+            else if(islem == 'bol')
+                sonuc = s1 / s2;
+                
+            document.getElementById("sonuc").innerHTML = "Sonuc : " + sonuc;
+        }
+
+        let hesapla=document.getElementById("buton");
+        hesapla.onclick=hesapla;
+
+    </script>
+</body>
+</html>
