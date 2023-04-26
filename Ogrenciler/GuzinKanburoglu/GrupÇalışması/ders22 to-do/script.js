@@ -1,20 +1,19 @@
 let form = document.getElementById("todoForm");
-let todos = [];
 form.addEventListener("submit", addTodo);
 
 function addTodo(e){
     let input = document.getElementById("entryTodo").value;
-    console.log(e);
     e.preventDefault();
     addItem(input);
 }
 
 function addItem(input){
 const item = document.createElement("li");
-item.className = "d-flex justify-content-between todoItem";
+item.className = "d-flex justify-content-between todoItem my-1";
 const deleteButton = document.createElement("button");
 deleteButton.appendChild(document.createTextNode("X"));
 deleteButton.className = "deleteItemButton btn btn-primary";
+deleteButton.addEventListener("click", function () {item.remove();})
 const text = document.createTextNode(input);
 item.appendChild(text);
 item.appendChild(deleteButton);
@@ -29,16 +28,4 @@ function deleteAllItem(){
   value.forEach((item)=>{
     item.remove();
   })
-}
-
-// let deleteItemButton = document.getElementsByClassName("deleteItemButton");
-// console.log(deleteItemButton);
-// deleteItemButton.addEventListener("click",deleteItem);
-
-function deleteItem(){
-
-    // let value = document.querySelector(".todoItem");
-    // value.remove();
-
-console.log("dkfjdkfsldf");
 }
