@@ -1,3 +1,4 @@
+import { todoFunc } from './todoComponent.js';
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 let todo = {};
 let filter = '';
@@ -21,28 +22,8 @@ searchInput.addEventListener('input', function (e) {
 });
 function todoScreen() {
  todoContainer.innerHTML = todos
-  .filter((todo) => {
-   return todo.text.toLowerCase().includes(filter.toLowerCase());
-  })
-  .map((todo) => {
-   return `<li id="${
-    todo.id
-   }" class="list-group-item d-flex align-items-center">
-  <input
-   type="checkbox"
-   id="checkbox-${todo.id}"
-   name="todosCheck"
-   ${todo.isCompleted ? 'checked' : ''}
-   class="d-none" />
-  <label for="checkbox-${
-   todo.id
-  }" class="todo-text align-self-center w-100 label-fc">
-   ${todo.text}
-  </label>
-  <a class="btn btn-danger ms-auto delete">X</a>
-  <a class="btn btn-warning ms-1 change">Değiştir</a>
- </li>`;
-  })
+  .filter((todo) => todo.text.toLowerCase().includes(filter.toLowerCase()))
+  .map((todo) => todoFunc(todo))
   .join('');
  localStorage.setItem('todos', JSON.stringify(todos));
 }
