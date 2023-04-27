@@ -17,12 +17,13 @@ addTodoForm.addEventListener('submit', function (e) {
  }
 });
 searchInput.addEventListener('input', function (e) {
- filter = e.target.value;
+ filter = e.target.value.toLocaleLowerCase();
+ console.log(filter);
  todoScreen();
 });
 function todoScreen() {
  todoContainer.innerHTML = todos
-  .filter((todo) => todo.text.toLowerCase().includes(filter.toLowerCase()))
+  .filter((todo) => todo.text.toLocaleLowerCase().includes(filter))
   .map((todo) => todoFunc(todo))
   .join('');
  localStorage.setItem('todos', JSON.stringify(todos));
@@ -47,11 +48,9 @@ todoContainer.addEventListener('click', function (event) {
   todo.isCompleted = !todo.isCompleted;
  }
  todoScreen();
- localStorage.setItem('todos', JSON.stringify(todos));
 });
 clearAllTodos.addEventListener('click', function (e) {
  e.preventDefault();
  todos = [];
  todoScreen();
- localStorage.setItem('todos', JSON.stringify(todos));
 });
