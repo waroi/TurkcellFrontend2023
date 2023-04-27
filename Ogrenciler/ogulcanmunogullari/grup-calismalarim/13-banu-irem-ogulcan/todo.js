@@ -16,7 +16,6 @@ addTodoForm.addEventListener('submit', function (e) {
  }
 });
 searchInput.addEventListener('input', function (e) {
- e.preventDefault();
  filter = e.target.value;
  todoScreen();
 });
