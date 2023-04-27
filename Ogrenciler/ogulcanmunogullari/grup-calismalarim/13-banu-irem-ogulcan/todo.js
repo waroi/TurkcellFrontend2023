@@ -22,7 +22,7 @@ searchInput.addEventListener('input', function (e) {
 function todoScreen() {
  todoContainer.innerHTML = todos
   .filter((todo) => {
-   return todo.text.includes(filter);
+   return todo.text.toLowerCase().includes(filter.toLowerCase());
   })
   .map((todo) => {
    return `<li id="${
