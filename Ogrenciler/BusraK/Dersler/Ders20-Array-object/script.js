@@ -133,6 +133,21 @@
 // }
 
 //switch case gelecek
+const islem = 2;
+
+switch (islem) {
+  case 1:
+    console.log("islem 1 secildi");
+    break;
+  case 2:
+    console.log("islem 2 secildi");
+    break;
+  case 3:
+    console.log("islem 3 secildi");
+    break;
+  default:
+    console.log("gecersiz islem yapma kardes");
+}
 
 //donguler
 
