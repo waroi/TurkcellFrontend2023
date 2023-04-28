@@ -5,59 +5,59 @@ let submit = document.getElementById("submit");
 let textInputItem = document.getElementById("textInputItem");
 
 form1.addEventListener("submit", addItem);
-
+textInputItem.addEventListener("click", clearText);
 
 let todoItems = [];
 
+function addItem(e) {
+  e.preventDefault();
 
-function addItem (e){
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "btn btn-danger";
+  deleteButton.innerText = "Delete";
+  deleteButton.addEventListener("click", deleteItem);
+
+  const listP = document.createElement("p");
+  listP.innerHTML = textInputItem.value;
+
+  const listItem = document.createElement("li");
+  listItem.className = "text-black";
+  listItem.appendChild(deleteButton);
+  listItem.appendChild(listP);
+
+  items.appendChild(listItem);
+
+  todoItems.push(textInputItem.value);
+
+  localStorage.setItem("todoItems", JSON.stringify(todoItems));
+  console.log("Gönderildi");
+  let usersLocal = JSON.parse(localStorage.getItem("todoItems"));
+
+  console.log("Local Storage before deleting:\n" + usersLocal);
+
+  function deleteItem(e) {
     e.preventDefault();
+    let check = todoItems.find(checkItem);
 
-    itemID = todoItems;
-    const deleteButton = document.createElement("button");
-    deleteButton.className = "btn btn-danger";
-    deleteButton.innerText = "Delete";
-    deleteButton.id = `${itemID}`;
-    deleteButton.addEventListener("click", deleteItem);
+    function checkItem(item) {
+      return item == listP.innerText;
+    }
+    let deletingItem = todoItems.indexOf(check);
 
-    const listItem = document.createElement("li");
-    listItem.id = deleteButton.id;
-   
-    listItem.className = "text-black";
-    listItem.innerText = textInputItem.value;
-    listItem.appendChild(deleteButton)
-    
-    console.log("listItem ID " + listItem.id);
-    console.log("deleteButton ID " + deleteButton.id);
-
-
-    items.appendChild(listItem);
-
-    todoItems.push(textInputItem.value);
-
+    todoItems.splice(deletingItem, 1);
 
     localStorage.setItem("todoItems", JSON.stringify(todoItems));
-    console.log("Gönderildi")
-    let usersLocal = JSON.parse(localStorage.getItem("todoItems"))
+    let usersLocal = JSON.parse(localStorage.getItem("todoItems"));
 
-    console.log(usersLocal);
+    console.log("Local Storage after deleting\n" + usersLocal);
+    listItem.remove(e.target);
+  }
 
-    function deleteItem (e){
-        e.preventDefault();
 
-        console.log(todoItems.find(checkItem));
-        
-
-        function checkItem (item){
-            item === listItem.value;
-        }
-    //    listItem.remove(e.target);
-     
-       
-    }
 }
 
+function clearText(e){
+    e.preventDefault();
 
-
-
-
+    textInputItem.value = ''
+  }
