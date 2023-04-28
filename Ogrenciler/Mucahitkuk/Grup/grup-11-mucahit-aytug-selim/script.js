@@ -61,24 +61,12 @@ function renderTodo(todo) {
 }
 
 
-function searchTodos(e) {
-  const searchTerm = e.target.value.toLowerCase();
-  const todos = list.getElementsByTagName("li");
-  Array.from(todos).forEach(todo => {
-    const todoText = todo.querySelector("span").textContent.toLowerCase();
-    if (todoText.includes(searchTerm)) {
-      todo.style.display = "block";
-    } else {
-      todo.style.display = "none";
-    }
-  });
-}
 
 function searchTodos(e) {
   const searchTerm = e.target.value.toLowerCase();
   const todos = list.getElementsByTagName("li");
   Array.from(todos).forEach(todo => {
-    const todoText = todo.innerText;
+    const todoText = todo.innerText.toLowerCase();
     if (todoText.includes(searchTerm)) {
       todo.style.display = "block";
     } else {
