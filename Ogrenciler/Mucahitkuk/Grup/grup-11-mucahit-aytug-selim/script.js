@@ -8,8 +8,23 @@ const searchTodo = document.querySelector("#search-todo");
 addBtn.addEventListener("click", addTodo);
 removeBtn.addEventListener("click", clearTodoList);
 searchTodo.addEventListener("input", searchTodos);
+ 
 
 let list = document.getElementById("todo-list");
+let toDoLocalList=[];
+
+if (localStorage.getItem("todolist")) {
+  toDoLocalList = JSON.parse(localStorage.getItem("todolist"));
+}
+else{
+  localStorage.setItem("todolist", JSON.stringify(toDoLocalList));
+}
+
+function removeLocal(){
+  toDoLocalList=[];
+  localStorage.setItem("todolist", JSON.stringify(toDoLocalList));
+}
+
 
 function addTodo() {
   if (todoInput.value.trim("") == "") {
@@ -35,6 +50,8 @@ function addTodo() {
   );
   newButton.classList.add("bg-transparent", "me-3", "border-0", "delete-todo");
   newTodo.innerText = todoInput.value;
+  toDoLocalList.push(newTodo.innerText);
+  localStorage.setItem("todolist", JSON.stringify(toDoLocalList));
   newButton.classList.add("bi", "bi-x-square-fill", "text-white");
   list.appendChild(newTodo);
   newTodo.appendChild(newButton);
@@ -43,7 +60,9 @@ function addTodo() {
     deleteTodo.addEventListener("click", clearTodo);
   });
   todoInput.value = "";
+  ListTodos();
 }
+
 
 function searchTodos(searchTodo) {
   example = document.querySelectorAll("li");
@@ -58,11 +77,39 @@ function searchTodos(searchTodo) {
 
 function clearTodoList() {
   list.innerHTML = "";
+  removeLocal();
+  ListTodos();
 }
 
+let newLocal=[];
+
 function clearTodo() {
+  newLocal = JSON.parse(localStorage.getItem("todolist"));
+  let den=document.querySelector("li").innerText;
+  toDoLocalList = newLocal.filter(number => number!= den);
+
+  localStorage.setItem("todolist", JSON.stringify(toDoLocalList));
+  ListTodos();
   return document.querySelector("li").remove();
 }
+
+function ListTodos(){
+  toDoLocalList=JSON.parse(localStorage.getItem("todolist"));
+  toDoLocalList.map((item)=>{
+    console.log(item);
+    // const htmlItem=document.createElement("li");
+    // htmlItem.innerText=item;
+    // list.appendChild(htmlItem);
+    addTodo(item);
+
+
+
+  })
+
+
+
+}
+
 
 
 const clockTodo = document.querySelector("#date");
@@ -71,6 +118,8 @@ function clock() {
   let date = new Date().toString().slice(16, 25);
   clockTodo.innerText = date;
 }
+
+ListTodos();
 
 clockTodo.addEventListener("change", clock);
 
