@@ -8,6 +8,11 @@ let list_item = document.querySelectorAll("li");
 let item = todo_list.children;
 let local_value = JSON.parse(localStorage.getItem("todos"));
 let list_array = [];
+if (local_value !== null) {
+  list_array = [...local_value];
+}else{
+  list_array =[];
+}
 // console.log(local_value);
 function local_list() {
 if(local_value){
@@ -26,8 +31,8 @@ if(local_value){
 local_list();
 
 function addfunc(e){
-  let value = todo_value.value;
-  if(value.value !== " "){
+  let value = todo_value.value.trim();
+  if(value !== " "){
     list_array = [...list_array,{value:value,isDone: false}];
     let listItem = document.createElement("li");
     listItem.classList = "list-group-item d-flex justify-content-between align-items-center";
@@ -37,12 +42,38 @@ function addfunc(e){
     tag.classList = "fa-solid fa-x fs-6 text-secondary"
     listItem.appendChild(tag);
   todo_value.value = "";
-  saveTodo();
 }else{ 
   alert("please add todo");
 }
+saveTodo();
 }
-console.log(list_item);
+todo_list.addEventListener("click", (e) => {
+  let item_inner = e.target.innerText;
+  let local = local_value.find((e)=> e.value == item_inner);
+  if(e.target.tagName == "LI"){
+    e.target.classList.toggle("bg-success");
+    // console.log(item_inner);
+    // console.log(local_value);
+    // if(e.target.classList.contains("bg-success")){
+      //   local.isDone == true;
+      //   console.log(local);
+      // }else{
+//   local.isDone == false;
+// }
+// if (local.isDone == false) {
+  //   e.target.classList.remove("bg-success");
+  // }else{
+    //   e.target.classList.add("bg-success");
+    //  }
+  }
+  if(e.target.tagName =='SPAN'){
+    e.target.classList.remove("bg-success");
+    e.target.parentElement.remove();
+    saveTodo();
+  }
+}
+)
+
 add_button.addEventListener("click", addfunc);
 todo_value.addEventListener("keypress",(e) => {
   e.key == "Enter" ? addfunc() : " ";
@@ -65,17 +96,6 @@ search_input.addEventListener("keyup", (e) => {
       item[i].style.display = "none";
     }
   }
-  // list_array.forEach((item) => {
-  //   // console.log(text);
-  //   let include = item.toLowerCase().indexOf(search.toLowerCase());
-  //   console.log(include);
-  //   if(include > -1){
-      
-  //   }
-  //   else{
-  //     item.style.display ="none";
-  //   }
-  // })
 })
 clear_all.addEventListener("click", () => {
   todo_list.innerHTML= " ";
