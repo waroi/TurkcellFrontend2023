@@ -1,6 +1,7 @@
 let form = document.getElementById("todoForm");
 let deletedItem = document.getElementById("deleteAll");
 let search = document.getElementById("search");
+let deleteDone = document.getElementById("deleteDone");
 
 eventListener();
 
@@ -13,15 +14,16 @@ function eventListener() {
     delStorage();
   });
   search.addEventListener("keyup", searchTodo);
+  deleteDone.addEventListener("click", deleteDoneItems);
 }
 
 function addTodo(e) {
-  let todo
+  let todo;
   let input = document.getElementById("entryTodo").value;
-  document.getElementById("entryTodo").value = '';
+  document.getElementById("entryTodo").value = "";
   e.preventDefault();
-  getStorage() != null ? todo = getStorage() : todo = [];
-  todo.push(input);
+  getStorage() != null ? (todo = getStorage()) : (todo = []);
+  todo.push({ input: input, done: false });
   addStorage(todo);
   console.log(getStorage());
   render();
@@ -33,6 +35,13 @@ function render() {
   todos.map((todo, index) => {
     const item = document.createElement("li");
     item.className = "todoItem d-flex justify-content-between my-1";
+    item.setAttribute("style", "cursor:pointer");
+    todo.done
+      ? item.setAttribute(
+          "style",
+          "text-decoration: line-through;cursor:pointer"
+        )
+      : "";
     const deleteButton = document.createElement("button");
     let deleteIcon = document.createElement("i");
     deleteIcon.setAttribute("class", "fa-solid fa-trash");
@@ -44,19 +53,28 @@ function render() {
       todos.splice(index, 1);
       addStorage(todos);
       render();
-    })
-    const text = document.createTextNode(todo);
+    });
+    item.addEventListener("click", function () {
+      todos[index].done === false
+        ? (todos[index].done = true)
+        : (todos[index].done = false);
+      addStorage(todos);
+      render();
+    });
+
+    const text = document.createTextNode(todo.input);
+
     item.appendChild(text);
     item.appendChild(deleteButton);
     document.getElementById("todoItems").appendChild(item);
-  })
+  });
 }
 
 function deleteAllItem() {
   let value = document.querySelectorAll(".todoItem");
   value.forEach((item) => {
     item.remove();
-  })
+  });
 }
 
 function searchTodo(e) {
@@ -77,15 +95,18 @@ function searchTodo(e) {
 
 function addStorage(storageArray) {
   localStorage.setItem("data", JSON.stringify(storageArray));
-
 }
 
 function getStorage() {
   return JSON.parse(localStorage.getItem("data"));
-
 }
 
 function delStorage() {
   localStorage.clear();
 }
+// function deleteDoneItems() {
+//   let todos = getStorage();
+//   todos.filter((todo)=>{
 
+//   })
+// }
