@@ -13,16 +13,24 @@
     <div class="card-header bg-secondary fs-3">Todo List</div>
     <div class="card-body">
      <div id="addSection">
-      <form class="row g-3" id="addTodoForm">
+      <div class="row g-3" id="addTodoForm">
        <input
         type="text"
         id="addTodoInput"
         class="w-100 rounded-3 p-2"
         placeholder="Bir Todo Girin" />
-       <button type="submit" id="addTodo" class="btn btn-danger w-50">
-        Todo Ekleyin
-       </button>
-      </form>
+       <div class="d-flex gap-1 justify-content-between">
+        <button type="submit" id="addTodo" class="btn btn-success flex-grow-1">
+         Todo Ekleyin
+        </button>
+        <button
+         type="button"
+         id="changedTodoButton"
+         class="btn btn-warning flex-grow-1 d-none">
+         Onayla
+        </button>
+       </div>
+      </div>
       <hr />
      </div>
     </div>

@@ -1,10 +1,10 @@
 import { todoFunc } from './todoComponent.js';
+let selectedTodo = null;
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 let todo = {};
 let filter = '';
 todoScreen();
-addTodoForm.addEventListener('submit', function (e) {
- e.preventDefault();
+addTodo.addEventListener('click', function () {
  todo = {
   id: Math.floor(Math.random() * 1_000_000_000),
   text: addTodoInput.value,
@@ -18,7 +18,6 @@ addTodoForm.addEventListener('submit', function (e) {
 });
 searchInput.addEventListener('input', function (e) {
  filter = e.target.value.toLocaleLowerCase();
- console.log(filter);
  todoScreen();
 });
 function todoScreen() {
@@ -37,9 +36,10 @@ todoContainer.addEventListener('click', function (event) {
   let todo = todos.find((todo) => {
    return todo.id == event.target.parentElement.id;
   });
-  let text = prompt('Değiştirmek istediğiniz metni giriniz', todo.text);
-  todo.isCompleted = false;
-  todo.text = text;
+  selectedTodo = todo;
+  addTodoInput.value = todo.text;
+  addTodo.classList.add('d-none');
+  changedTodoButton.classList.remove('d-none');
  }
  if (event.target.classList.contains('label-fc')) {
   let todo = todos.find((todo) => {
@@ -52,5 +52,15 @@ todoContainer.addEventListener('click', function (event) {
 clearAllTodos.addEventListener('click', function (e) {
  e.preventDefault();
  todos = [];
+ todoScreen();
+});
+changedTodoButton.addEventListener('click', function (e) {
+ e.preventDefault();
+ selectedTodo.text = addTodoInput.value;
+ selectedTodo.isCompleted = false;
+ addTodo.classList.remove('d-none');
+ changedTodoButton.classList.add('d-none');
+ addTodoInput.value = '';
+ selectedTodo = null;
  todoScreen();
 });
