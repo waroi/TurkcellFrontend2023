@@ -50,20 +50,14 @@ function deleteAllTodo() {
 
 function deleteTodo(e) {
   if (e.target.className === "bi bi-x") {
-    e.target.parentElement.parentElement.parentElement.remove();
+    e.target.closest(".list-group-item").remove();
   }
 }
 
 todoList.addEventListener("click", (e) => {
   if (e.target.classList.contains("bi-calendar2-check")) {
-    e.target.parentElement.parentElement.parentElement.classList.toggle(
-      "checked"
-    );
+    e.target.closest(".list-group-item").classList.toggle("checked");
   }
-});
-
-secretInput.addEventListener("input", (e) => {
-  e.target.parentElement.children[0].innerHTML = secretInput.value;
 });
 
 function filterTodos(e) {
