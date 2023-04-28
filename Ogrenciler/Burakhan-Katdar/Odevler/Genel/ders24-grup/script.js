@@ -25,14 +25,24 @@ function addItem(e) {
   const listP = document.createElement("p");
   listP.innerHTML = textInputItem.value;
 
+  const liTagStyle = {
+    listStyleType: "none",
+    padding: "15px",
+   
+  }
   // li elementin oluşturulması
   const listItem = document.createElement("li");
   listItem.className = "text-black";
+  listItem.style.listStyleType  = liTagStyle.listStyleType;
+  listItem.style.padding  = liTagStyle.padding;
+
+  
 
 
-  // li tag'i içerisine önceden oluşturulmuş elementlerin eklenmesi
-  listItem.appendChild(deleteButton);
+  // li tag'i içerisine önceden oluşturulmuş "p ve button" elementlerinin eklenmesi
   listItem.appendChild(listP);
+  listItem.appendChild(deleteButton);
+
 
 
   // li elementinin ul içine eklenmesi
