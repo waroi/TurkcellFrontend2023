@@ -1,3 +1,12 @@
+//PWA
+if ('serviceWorker' in navigator) {
+ window.addEventListener('load', function () {
+  navigator.serviceWorker
+   .register('./serviceWorker.js')
+   .then((res) => console.log('service worker registered'))
+   .catch((err) => console.log('service worker not registered', err));
+ });
+}
 import { todoFunc } from './todoComponent.js';
 let selectedTodo = null;
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
