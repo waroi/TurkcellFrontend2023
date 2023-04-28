@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width= , initial-scale=1.0" />
+		<title>Sueda - Kagan - Aytug</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="wrap">
+
+			<div class="result">
+				<h4 id="result" class="resultNumber"></h4>
+			</div>
+			<div  class="down">
+				<div class="inputs">
+					
+					<div class="num1">
+						<input type="number" id="num1" placeholder="Sayı 1"/>
+					</div>
+					<div class="num2">
+						<input type="number" id="num2" placeholder="Sayı 2"/>
+					</div>
+					<div class="operations not-column">
+						<button class="btn-oprt" id="sum" onclick="power()">x<sup>y</sup></button>
+						<button class="btn-oprt" id="sub" onclick="root()"><sup>y</sup>&#8730;</button>
+					</div>
+					<button class="btn-reset" id="reset" onclick="reset()">Sıfırla</button>
+	
+				</div>
+				<div class="operations">
+					<button class="btn-oprt" id="sum" onclick="sum()">+</button>
+					<button class="btn-oprt" id="sub" onclick="sub()">-</button>
+					<button class="btn-oprt" id="divide" onclick="divide()">/</button>
+					<button class="btn-oprt" id="multi" onclick="multi()">x</button>
+				</div>
+			</div>
+			
+		</div>
+		<script src="./script.js"></script>
+	</body>
+</html>

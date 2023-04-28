@@ -1,0 +1,133 @@
+/* f18c04  Turunuc*/
+/* a5a5a5 Gri */
+/* 333333 Açık siyah */
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+input[type="number"]{
+  width: 100%;
+  padding: 12px 5px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+
+input[type="number"]:focus{
+    outline: none;
+}
+
+.wrap{
+    max-width: 350px;
+    min-width: 250px;
+    background-color: #a5a5a5;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+}
+
+.result{
+    height: 100px;
+    width: 90%;
+    background-color: #333;
+    border-radius: 20px;
+    margin: 20px 0;
+    color: white;
+}
+
+.resultNumber{
+    text-align: end;
+    margin-right: 20px;
+    vertical-align: bottom;
+    font-size: 32px;
+}
+
+
+.down{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.inputs{
+    /* margin: auto 0; */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    justify-content: end    ;
+}
+
+#sub{
+    padding-bottom: 5px;
+    
+}
+
+.operations{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-oprt{
+    background-color: #f18c04;
+    border: none;
+    width: 50px;
+    height: 50px;
+    color: white;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 100;
+    cursor: pointer;
+
+}
+
+
+.btn-reset{
+    width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.not-column{
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-around;
+}
+
+.not-column button{
+    background-color: #333;
+    width: 100%;
+    border-radius: 20px;
+    margin: 0 10px;
+}
