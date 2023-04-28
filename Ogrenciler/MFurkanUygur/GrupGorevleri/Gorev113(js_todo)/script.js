@@ -6,7 +6,7 @@ const listGroup = document.getElementById("listGrup");
 const clearTodo = document.getElementById("clearTodo");
 //filtre input
 const filterTodoInput = document.getElementById("filterTodo");
-
+let ourArray = [];
 
 todoAddBtn.addEventListener("click", addTodoFunc);
 function addTodoFunc() {
@@ -17,25 +17,37 @@ function addTodoFunc() {
         alert("Lütfen bir todo gir.");
     }
     else {
-        console.log(todoInput);
-        document.getElementById("todoInput").value = "";
-        //i etiketi oluşturma
-        let iTag = document.createElement("i");
-        iTag.setAttribute("class", "bi bi-x");
-        //a etiketi oluşturma
-        let aTag = document.createElement("a");
-        aTag.setAttribute("href", "#");
-        //li etiketi oluşturma
-        let liTag = document.createElement("li");
-        liTag.innerText = todoInput;
-        // listItem.innerHTML = todoInput + '<a href="#" class=""><i class="bi bi-x"></i></a>';
-        liTag.setAttribute("class", "list-group-item mb-2 border border-1 d-flex justify-content-between")
-
-        aTag.appendChild(iTag);
-        liTag.appendChild(aTag);
-        listGroup.appendChild(liTag);
+        ourArray = [...ourArray, todoInput];
+        localStorage.setItem("ourArray", JSON.stringify(ourArray));
+        createTag(todoInput);
     }
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+    getItem = JSON.parse(localStorage.getItem("ourArray"));
+    ourArray = [...getItem];
+    for (let i = 0; i < getItem.length; i++) {
+        createTag(getItem[i]);
+    }
+});
+
+//Create elements
+function createTag(todoInput) {
+    let iTag = document.createElement("i");
+    iTag.setAttribute("class", "bi bi-x");
+    let aTag = document.createElement("a");
+    aTag.setAttribute("href", "#");
+    let liTag = document.createElement("li");
+    liTag.setAttribute("class", "list-group-item mb-2 border border-1 d-flex justify-content-between")
+    liTag.innerText = todoInput;
+    aTag.appendChild(iTag);
+    liTag.appendChild(aTag);
+    listGroup.appendChild(liTag);
+    document.getElementById("todoInput").value = "";
+}
+
+
+
 
 //filtreleme
 filterTodoInput.addEventListener("keyup", filterItem);
@@ -53,19 +65,7 @@ function filterItem(e) {
     })
 }
 
-// function filterTodos(e) {
-//     const filterValue = e.target.value.toLowerCase();
-//     const listItem = document.querySelectorAll(".list-group-item");
-//     listItem.forEach(function (listItem) {
-//         const text = listItem.textContent.toLocaleLowerCase();
-//         if (text.indexOf(filterValue) === -1) {
-//             // listItem.appendChild(message);
-//             console.log(listItem);
-//         } else {
-//             listItem.setAttribute("style", "display:block; background-color: red;");
-//         }
-//     });
-// }
+
 filterTodoInput.addEventListener("focus", () => { filterTodoInput.value = "" })
 
 //--------------Delete items one by one-----------
@@ -102,6 +102,7 @@ listItem.addEventListener("click", (e) => {
 //---------------Clear All li Elements-------------------
 clearTodo.addEventListener("click", clearMen);
 function clearMen() {
+    localStorage.clear();
     let clearList = document.getElementsByClassName("list-group-item");
     while (clearList.length > 0) {//null kontrolü 
         listGroup.removeChild(clearList[0]);

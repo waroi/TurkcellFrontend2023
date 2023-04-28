@@ -4,8 +4,6 @@ const addTaskInput = document.getElementById('taskName');
 const taskList = document.getElementById('taskList');
 const deleteAllButton = document.getElementById('deleteAll');
 
-let listgroupItem = document.getElementsByClassName("list-group-item list-group-item-secondary");
-
 const searchInput = document.getElementById("searchTask");
 let items;
 loadItems();
@@ -16,13 +14,6 @@ function addEventListener() {
   taskList.addEventListener('click', deleteTask);
   deleteAllButton.addEventListener('click', deleteallTasks);
   searchInput.addEventListener('keyup', filter);
-  taskList.addEventListener('click', function(e){
-      if(e.target.className ==="list-group-item list-group-item-secondary done"){
-        e.target.classList ("list-group-item list-group-item-secondary notdone");
-      }
-      e.target.classList ("list-group-item list-group-item-secondary done");
-  }
-  );
 }
 
 function addNewToDoTask(e) {
@@ -84,7 +75,6 @@ function filter(e) {
     }
   })
 }
-
 function loadItems() {
   items = getItemsFromLS();
  items.forEach(function (item) {
@@ -101,13 +91,11 @@ function getItemsFromLS(){
   }
   return items;  
 }
-
 function setItemsToLS(text){
   items=getItemsFromLS();
   items.push(text);
   localStorage.setItem('items',JSON.stringify(items));
 }
-
 function deletefromLS(text){
   items=getItemsFromLS();
   items.forEach(function(item,index){
@@ -117,4 +105,3 @@ function deletefromLS(text){
   });
   localStorage.setItem('items',JSON.stringify(items));
 }
-
