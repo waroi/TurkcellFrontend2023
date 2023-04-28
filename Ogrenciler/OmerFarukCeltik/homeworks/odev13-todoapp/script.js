@@ -6,37 +6,43 @@ let clear_all = document.querySelector("#clear_all");
 let list_item = document.querySelectorAll("li");
 
 let item = todo_list.children;
-let list_array = [];
 let local_value = JSON.parse(localStorage.getItem("todos"));
+let list_array = [];
 // console.log(local_value);
 function local_list() {
 if(local_value){
-  for (let i = 0; i < local_value.length; i++) {
+  for (let i = 0; i < local_value.length; i++) 
+  {
     let listItem = document.createElement("li");
-    listItem.classList = "list-group-item";
-    listItem.innerText = local_value[i];
+    listItem.classList = "list-group-item d-flex justify-content-between align-items-center";
+    listItem.innerText = local_value[i].value;
     todo_list.appendChild(listItem);
+    let tag = document.createElement("span");
+    tag.classList = "fa-solid fa-x fs-6 text-secondary"
+    listItem.appendChild(tag);
+   }
   }
- }
 }
 local_list();
 
 function addfunc(e){
   let value = todo_value.value;
-  if(value !== " "){
-    list_array.push(value);
+  if(value.value !== " "){
+    list_array = [...list_array,{value:value,isDone: false}];
     let listItem = document.createElement("li");
-    listItem.classList = "list-group-item";
+    listItem.classList = "list-group-item d-flex justify-content-between align-items-center";
     listItem.innerText = value;
     todo_list.appendChild(listItem);
+    let tag = document.createElement("span");
+    tag.classList = "fa-solid fa-x fs-6 text-secondary"
+    listItem.appendChild(tag);
   todo_value.value = "";
   saveTodo();
 }else{ 
   alert("please add todo");
 }
 }
-
-
+console.log(list_item);
 add_button.addEventListener("click", addfunc);
 todo_value.addEventListener("keypress",(e) => {
   e.key == "Enter" ? addfunc() : " ";
@@ -70,7 +76,6 @@ search_input.addEventListener("keyup", (e) => {
   //     item.style.display ="none";
   //   }
   // })
-
 })
 clear_all.addEventListener("click", () => {
   todo_list.innerHTML= " ";
