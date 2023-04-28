@@ -4,36 +4,41 @@ let search = document.getElementById("search");
 
 eventListener();
 
-function eventListener(){
+function eventListener() {
   form.addEventListener("submit", addTodo);
   deletedItem.addEventListener("click", deleteAllItem);
-  search.addEventListener("keyup",searchTodo);
+  search.addEventListener("keyup", searchTodo);
 }
 
-function addTodo(e){
-    let input = document.getElementById("entryTodo").value;
-    e.preventDefault();
-    addItem(input);
+function addTodo(e) {
+  let todo
+  let input = document.getElementById("entryTodo").value;
+  e.preventDefault();
+  getStorage() != null ? todo = getStorage() : todo = [];
+  todo.push(input);
+  addStorage(todo);
+  console.log(getStorage());
+  addItem(input);
 }
 
-function addItem(input){
-const item = document.createElement("li");
-item.className = "todoItem d-flex justify-content-between my-1";
-const deleteButton = document.createElement("button");
-let deleteIcon =document.createElement("i");
-deleteIcon.setAttribute("class","fa-solid fa-trash");
-deleteButton.appendChild(deleteIcon);
-deleteButton.className = "deleteItemButton btn btn-danger";
-deleteButton.addEventListener("click", function () {item.remove();})
-const text = document.createTextNode(input);
-item.appendChild(text);
-item.appendChild(deleteButton);
-document.getElementById("todoItems").appendChild(item);
+function addItem(input) {
+  const item = document.createElement("li");
+  item.className = "todoItem d-flex justify-content-between my-1";
+  const deleteButton = document.createElement("button");
+  let deleteIcon = document.createElement("i");
+  deleteIcon.setAttribute("class", "fa-solid fa-trash");
+  deleteButton.appendChild(deleteIcon);
+  deleteButton.className = "deleteItemButton btn btn-danger";
+  deleteButton.addEventListener("click", function () { item.remove(); })
+  const text = document.createTextNode(input);
+  item.appendChild(text);
+  item.appendChild(deleteButton);
+  document.getElementById("todoItems").appendChild(item);
 }
 
-function deleteAllItem(){
+function deleteAllItem() {
   let value = document.querySelectorAll(".todoItem");
-  value.forEach((item)=>{
+  value.forEach((item) => {
     item.remove();
   })
 }
@@ -54,3 +59,14 @@ function searchTodo(e) {
     }
   });
 }
+
+function addStorage(storageArray) {
+  localStorage.setItem("data", JSON.stringify(storageArray));
+
+}
+
+function getStorage() {
+  return JSON.parse(localStorage.getItem("data"));
+
+}
+
