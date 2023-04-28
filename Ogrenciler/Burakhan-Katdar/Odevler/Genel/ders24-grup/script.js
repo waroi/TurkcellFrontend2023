@@ -25,6 +25,8 @@ function addItem(e) {
   const listP = document.createElement("p");
   listP.innerHTML = textInputItem.value;
 
+
+  // li tag'i için style bilgilerinin object olarak oluşturulması
   const liTagStyle = {
     listStyleType: "none",
     padding: "15px",
@@ -33,6 +35,8 @@ function addItem(e) {
   // li elementin oluşturulması
   const listItem = document.createElement("li");
   listItem.className = "text-black";
+
+  // li elementinin stillendirmesinin liTagStyle object yapısından çekilmesi 
   listItem.style.listStyleType  = liTagStyle.listStyleType;
   listItem.style.padding  = liTagStyle.padding;
 
