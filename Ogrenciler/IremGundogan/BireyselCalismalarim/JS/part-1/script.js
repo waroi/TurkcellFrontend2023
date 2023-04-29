@@ -127,11 +127,38 @@ Test data:§Data1: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg an
 GOOD LUCK 😀
 */
 
-const massMark = 78;
-const heightMark = 1.69;
-const massJohn = 92;
-const heightJohn = 1.95;
+// const massMark = 78;
+// const heightMark = 1.69;
+// const massJohn = 92;
+// const heightJohn = 1.95;
+// const massMark = 95;
+// const heightMark = 1.88;
+// const massJohn = 85;
+// const heightJohn = 1.76;
 
-const BMIMark = massMark / heightMark ** 2;
-const BMIJohn = massJohn / heightJohn ** 2;
-console.log();
+// const BMIMark = massMark / heightMark ** 2;
+// const BMIJohn = massJohn / heightJohn ** 2;
+// console.log(BMIMark, BMIJohn);
+
+// const markHigherBMI = BMIMark > BMIJohn;
+// console.log(markHigherBMI);
+
+// //console.log(BMIMark, BMIJohn,markHigherBMI ); */
+
+const firstName = "irem";
+const job = "student";
+const birhtYear = "2001";
+const year = 2023;
+
+const irem =
+  "'I'm '" +
+  firstName +
+  ", a " +
+  (year - birhtYear) +
+  " years old " +
+  job +
+  "!";
+console.log(irem);
+
+const iremNew = ` I'm ${firstName}, a ${year - birhtYear} year old ${job}`;
+console.log(iremNew);
