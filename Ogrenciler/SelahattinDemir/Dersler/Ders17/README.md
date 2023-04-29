@@ -58,8 +58,8 @@
 
 #### Result:
 
-Turn on the light .... Turn off the light
-![alt text](https://www.w3schools.com/js/pic_bulbon.gif) ........ ![alt text](https://www.w3schools.com/js/pic_bulboff.gif)
+Turn on the light   ![alt text](https://www.w3schools.com/js/pic_bulbon.gif)
+---![alt text](https://www.w3schools.com/js/pic_bulboff.gif) Turn off the light 
 
 ### JavaScript Can Change HTML Styles (CSS)
 
