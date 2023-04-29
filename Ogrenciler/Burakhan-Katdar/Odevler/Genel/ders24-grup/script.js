@@ -4,8 +4,12 @@ let items = document.getElementById("items");
 let submit = document.getElementById("submit");
 let textInputItem = document.getElementById("textInputItem");
 
-form1.addEventListener("submit", addItem);
+
 textInputItem.addEventListener("click", clearText);
+
+
+form1.addEventListener("submit", addItem);
+
 
 let todoItems = [];
 
@@ -15,7 +19,7 @@ function addItem(e) {
   // Delete button elementinin oluşturulması
   const deleteButton = document.createElement("button");
   deleteButton.className = "btn btn-danger";
-  deleteButton.innerText = "Delete";
+  deleteButton.innerHTML = "Sil";
 
   // Delete button'un click eventinde çalışacak fonskiyon
   deleteButton.addEventListener("click", deleteItem);
@@ -30,8 +34,9 @@ function addItem(e) {
   const liTagStyle = {
     listStyleType: "none",
     padding: "15px",
-   
+    
   }
+
   // li elementin oluşturulması
   const listItem = document.createElement("li");
   listItem.className = "text-black";
@@ -39,7 +44,6 @@ function addItem(e) {
   // li elementinin stillendirmesinin liTagStyle object yapısından çekilmesi 
   listItem.style.listStyleType  = liTagStyle.listStyleType;
   listItem.style.padding  = liTagStyle.padding;
-
   
 
 
@@ -48,9 +52,12 @@ function addItem(e) {
   listItem.appendChild(deleteButton);
 
 
-
-  // li elementinin ul içine eklenmesi
+  // ul içine önceden oluşturulmuş li elementinin eklenmesi
   items.appendChild(listItem);
+
+
+
+  // ⁡⁣⁣⁢---- a͟r͟r͟a͟y i͟ş͟l͟e͟m͟l͟e͟r͟i ----
 
   // text input'tan gelen elementin todoItems içine eklenmesi
   todoItems.push(textInputItem.value);
@@ -76,6 +83,7 @@ function addItem(e) {
 
     // silinecek olan itemin todoItems içindeki indexi
     let deletingItem = todoItems.indexOf(check);
+    console.log("silinen itemin indexi " + deletingItem);
 
     // - todoItems içinde yer alan spesifik bir elemanı silmek için splice metodu kullanıyoruz. 
     // Splice metodu içindeki ilk değer silinecek olan elemanın indexini, ikinci değer ise o indexten itibaren silinecek eleman sayısını belirtir.
