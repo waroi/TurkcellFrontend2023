@@ -1,0 +1,31 @@
+$bgColor:red;
+$x150:150px;
+$x100:100px;
+
+@mixin fonksiyon($color, $w, $h){
+  background-color: $color;
+  width: $w;
+  height: $h;
+}
+.container{
+  display: flex;
+  &:hover{
+    background-color: yellow;
+  }
+  .box1{
+    @include fonksiyon($bgColor, $x150, $x100);
+  }
+  .box2{
+    @include fonksiyon(orange, $x100, $x150);
+  }
+  .box3{
+    @extend .box1;
+    width: 300px;
+  }
+  .box4{
+    @include fonksiyon(green, $x100, $x150 * 4);
+    &.deneme{
+      background-color: purple;
+    }
+  }
+}
