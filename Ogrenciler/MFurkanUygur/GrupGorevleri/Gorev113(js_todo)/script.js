@@ -8,8 +8,9 @@ const listGroup = document.getElementById("listGrup");
 const clearTodo = document.getElementById("clearTodo");
 //filtre input
 const filterTodoInput = document.getElementById("filterTodo");
-//Li item
-const listItem = document.querySelectorAll(".list-group-item");
+// //Li item
+// const listItem = document.querySelectorAll(".list-group-item");
+// console.log(listItem)
 let ourArray = [];
 
 todoAddBtn.addEventListener("click", addTodoFunc);
@@ -37,23 +38,20 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
-//checked 
-// listItem.addEventListener("click", (e) => {
-
-// })
-
 //filtreleme
 filterTodoInput.addEventListener("keyup", filterItem);
 function filterItem(e) {
+    //Sor burayı
+    const listItem = document.querySelectorAll(".list-group-item");
     const filterValue = e.target.value.toLowerCase();
-    listItem.forEach((listItem) => {
-        const listText = listItem.textContent.toLowerCase();
+    listItem.forEach((listTodo) => {
+        const listText = listTodo.textContent.toLowerCase();
         if (listText.indexOf(filterValue) == -1) {
-            listItem.setAttribute("style", "display:none !important");
-        } else {
-            listItem.setAttribute("style", "display:block !important");
+            listTodo.setAttribute("class", "d-none");
         }
-        //Üzerine kafa yorup iyice anlamak lazım//
+        else {
+            listTodo.setAttribute("class", "d-block");
+        }
     })
 }
 filterTodoInput.addEventListener("focus", () => { filterTodoInput.value = "" })
@@ -67,14 +65,19 @@ filterTodoInput.addEventListener("focus", () => { filterTodoInput.value = "" })
 const listGroupItem = document.querySelector(".list-group");
 
 listGroupItem.addEventListener("click", (e) => {
-    let findItem = ourArray.indexOf(e.target.parentElement.parentElement.innerText);
-    console.log(findItem);
+    console.log(e.target)
+    let findItem;
+    ourArray.forEach((arr) => {
+        if (arr.todo === e.target.parentElement.parentElement.innerText) {
+            findItem = ourArray.indexOf(arr);
+        }
+    });
+    // console.log(findItem);
     if (e.target.className === "bi bi-x") {
         e.target.parentElement.parentElement.remove();
         ourArray.splice(findItem, 1);
         localStorage.setItem("ourArray", JSON.stringify(ourArray));
         console.log(ourArray);
-        
         console.log("todo başarıyla silindi");
     }
 });
@@ -103,7 +106,7 @@ function createTag(todoInput) {
     aTag.setAttribute("href", "#");
     let liTag = document.createElement("li");
     liTag.setAttribute("class", "list-group-item mb-2 border border-1 d-flex justify-content-between checked")
-    liTag.innerText = todoInput.todo;
+    liTag.innerText = todoInput;
     aTag.appendChild(iTag);
     liTag.appendChild(aTag);
     listGroup.appendChild(liTag);
