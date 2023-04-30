@@ -6,7 +6,7 @@ const addButton = document.getElementById("todo-add");
 const cardBodyOne = document.querySelectorAll(".card-body")[0];
 const cardBodyTwo = document.querySelectorAll(".card-body")[1];
 const filter = document.getElementById("filter");
-const secretInput = document.createElement("input");
+
 
 //eventListener
 addButton.addEventListener("click", addTodo);
@@ -14,8 +14,10 @@ clearButton.addEventListener("click", deleteAllTodo);
 cardBodyTwo.addEventListener("click", deleteTodo);
 filter.addEventListener("keyup", filterTodos);
 document.addEventListener("DOMContentLoaded", loadTodosUI);
+form.addEventListener("submit", addTodo);
+document.addEventListener("keypress", handleKeyPress);
 
-function todoUI(todoInputText) {
+function todoUI(todo) {
   let listGroup = document.createElement("ul");
   todoInput.value = "";
   listGroup.className = "list-group";
@@ -27,22 +29,23 @@ function todoUI(todoInputText) {
     "<a> <i class='m-2 bi bi-calendar2-check todo-check'></i></a> <a> <i class='bi bi-x'></i></a> ";
   const textSpan = document.createElement("span");
   textSpan.className = "text-span";
-  textSpan.appendChild(document.createTextNode(todoInputText));
+  textSpan.appendChild(document.createTextNode(todo.name));
   listItem.appendChild(textSpan);
   listItem.appendChild(removeBtn);
   listItem.className =
     "list-group-item mb-2 border border-1 d-flex justify-content-between";
+  if (todo.state) {
+    listItem.classList.add("checked");
+  }
   todoList.appendChild(listItem);
-
 }
 
 function loadTodos() {
   let todos;
   if (localStorage.getItem("todos") === null) {
     todos = [];
-  }
-  else {
-    todos = JSON.parse(localStorage.getItem("todos"))
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
   }
   return todos;
 }
@@ -55,26 +58,48 @@ function addLocalTodo(todoInputText) {
 
 function loadTodosUI() {
   let todos = loadTodos();
-  todos.forEach(function (todo) { todoUI(todo) })
+  todos.forEach(function (todo) {
+    todoUI(todo);
+  });
 }
 
-
 function addTodo(e) {
-  const todoInputText = todoInput.value.trim();
-  if (todoInputText == "") {
-    alert("todo gir güzel kardeşim");
-  } else {
-    addLocalTodo(todoInputText);
-    todoUI(todoInputText);
+  let found = false;
+  let todos = loadTodos();
+  todos.forEach((todo) => {
+    if (todo.name == todoInput.value.trim()) {
+      found = true;
+      alert("bu todo zaten var");
+    }
+  });
 
+  if (!found) {
+    const newTodo = {
+      state: false,
+      name: todoInput.value.trim(),
+    };
+
+    if (newTodo.name == "") {
+      alert("todo gir güzel kardeşim");
+    } else {
+      addLocalTodo(newTodo);
+      todoUI(newTodo);
+    }
   }
   e.preventDefault();
 }
+function handleKeyPress(e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    addTodo();
+  }
+}
+
+
 
 function deleteAllTodo() {
   while (todoList.firstChild != null) {
     todoList.removeChild(todoList.firstChild);
-    
   }
   localStorage.removeItem("todos");
 }
@@ -84,6 +109,11 @@ function deleteTodo(e) {
     const listItem = e.target.closest(".list-group-item");
     const todoText = listItem.querySelector(".text-span").textContent;
     deleteStorage(todoText);
+
+    let todos = loadTodos();
+    todos = todos.filter((todo) => todo.name !== todoText);
+    localStorage.setItem("todos", JSON.stringify(todos));
+
     listItem.remove();
   }
 }
@@ -91,14 +121,29 @@ function deleteTodo(e) {
 function deleteStorage(willDeleted) {
   let todos = loadTodos();
   todos = todos.filter((todo) => todo !== willDeleted);
+  if (todos.length == 0) {
+  localStorage.removeItem("todos");
+  } else {
   localStorage.setItem("todos", JSON.stringify(todos));
-}
-
+  }
+  }
 
 todoList.addEventListener("click", (e) => {
+  let todos = loadTodos();
+
   if (e.target.classList.contains("bi-calendar2-check")) {
     e.target.closest(".list-group-item").classList.toggle("checked");
+    todos.forEach((todo) => {
+      if (
+        e.target.closest(".list-group-item").firstChild.textContent == todo.name
+      ) {
+        todo.state = !todo.state;
+        console.log(todo);
+      }
+    });
   }
+
+  localStorage.setItem("todos", JSON.stringify(todos));
 });
 
 function filterTodos(e) {
