@@ -8,16 +8,12 @@ const listGroup = document.getElementById("listGrup");
 const clearTodo = document.getElementById("clearTodo");
 //filtre input
 const filterTodoInput = document.getElementById("filterTodo");
-// //Li item
-// const listItem = document.querySelectorAll(".list-group-item");
-// console.log(listItem)
+
 let ourArray = [];
 
 todoAddBtn.addEventListener("click", addTodoFunc);
 function addTodoFunc() {
-    //todo input değerini alma
     let todoInput = document.getElementById("todoInput").value;
-    //boş geçme şartı
     if (todoInput == "") {
         alert("Lütfen bir todo gir.");
     }
@@ -37,7 +33,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 //filtreleme
 filterTodoInput.addEventListener("keyup", filterItem);
 function filterItem(e) {
@@ -47,10 +42,10 @@ function filterItem(e) {
     listItem.forEach((listTodo) => {
         const listText = listTodo.textContent.toLowerCase();
         if (listText.indexOf(filterValue) == -1) {
-            listTodo.setAttribute("class", "d-none");
+            listTodo.setAttribute("style", "display:none !important");
         }
         else {
-            listTodo.setAttribute("class", "d-block");
+            listTodo.setAttribute("style", "display:block !important");
         }
     })
 }
@@ -72,7 +67,6 @@ listGroupItem.addEventListener("click", (e) => {
             findItem = ourArray.indexOf(arr);
         }
     });
-    // console.log(findItem);
     if (e.target.className === "bi bi-x") {
         e.target.parentElement.parentElement.remove();
         ourArray.splice(findItem, 1);
