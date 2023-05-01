@@ -145,6 +145,7 @@ GOOD LUCK 😀
 
 // //console.log(BMIMark, BMIJohn,markHigherBMI ); */
 
+/* 17.video
 const firstName = "irem";
 const job = "student";
 const birhtYear = "2001";
@@ -160,5 +161,14 @@ const irem =
   "!";
 console.log(irem);
 
-const iremNew = ` I'm ${firstName}, a ${year - birhtYear} year old ${job}`;
+const iremNew = ` I'm ${firstName}, a ${year - birhtYear} year old ${job}!`;
 console.log(iremNew);
+
+console.log(`just a regular string...`);
+
+console.log("string with \n multiple \n lines");
+
+console.log(`String 
+multiple 
+lines`);
+*/

@@ -4,14 +4,16 @@ let search_input = document.querySelector("#search_todo");
 let todo_list = document.querySelector("#todo_list");
 let clear_all = document.querySelector("#clear_all");
 let list_item = document.querySelectorAll("li");
-let local_value = JSON.parse(localStorage.getItem("todos")) || [];
+
+let item = todo_list.children;
+let local_value = JSON.parse(localStorage.getItem("todos"));
 let list_array = [];
 if (local_value !== null) {
   list_array = [...local_value];
 }else{
   list_array =[];
 }
-
+// console.log(local_value);
 function local_list() {
 if(local_value){
   for (let i = 0; i < local_value.length; i++) 
@@ -84,19 +86,22 @@ todo_value.addEventListener("focus", () => {
 search_input.addEventListener("keyup", (e) => {
   let search = e.target.value;
   console.log(list_item);
-  for (let i = 0; i < local_value.length; i++) {
-    const text = local_value[i].value.textContent;
+  for (let i = 0; i < item.length; i++) {
+    const text = item[i].textContent;
     let include = text.toLowerCase().indexOf(search.toLowerCase());
     if (include > -1) {
-      local_value[i].style.display = "";
+      item[i].style.display = "";
     }
     else {
-      local_value[i].style.display = "none";
+      item[i].style.display = "none";
     }
   }
 })
 clear_all.addEventListener("click", () => {
   todo_list.innerHTML= " ";
+  // for (let i = 0; i < item.length; i++) {
+  //   item[i].remove();
+  // }
  localStorage.removeItem("todos");
 })
 
