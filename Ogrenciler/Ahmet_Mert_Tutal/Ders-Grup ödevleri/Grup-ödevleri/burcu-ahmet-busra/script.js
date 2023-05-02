@@ -13,14 +13,32 @@ clearButton.addEventListener("click", deleteAllTodo);
 filter.addEventListener("keyup", filterTodos);
 document.addEventListener("DOMContentLoaded", loadTodosUI);
 form.addEventListener("keypress", handleKeyPress);
+
+let counter = 0;
+
+function times() {
+  const currentTime = new Date();
+  let date = currentTime.getFullYear() + "-" + (currentTime.getMonth() + 1) + "-" + currentTime.getDate();
+  let time = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+  let dateTime = date + " " + time;
+  counter++;
+  let variableName = "dateTime" + counter;
+  window[variableName] = dateTime;
+  return dateTime;
+}
+
 function todoUI(todo) {
+  
+
   todoInput.value = "";
   let listItem = document.createElement("li");
   let removeBtn = document.createElement("span");
   removeBtn.href = "#";
   removeBtn.className = "delete-item";
   removeBtn.innerHTML =
-    "<a> <i onclick='checkedbutton(event)' class='m-2 bi bi-calendar2-check todo-check'></i></a> <a> <i onclick='editbutton(event)' class='m-2 bi bi-pencil-square'></i> </a> <a> <i onclick='deleteTodo2(event)' class='bi bi-x'></i></a> ";
+    "<a> <i onclick='checkedbutton(event)' class='m-2 bi bi-calendar2-check todo-check'></i></a> <a> <i onclick='editbutton(event)' class='m-2 bi bi-pencil-square'></i> </a> <a> <i class='m-2 bi bi-alarm'>" +
+    todo.time+
+    "</i></a> <a> <i onclick='deleteTodo2(event)' class='bi bi-x'></i></a>  ";
   const textSpan = document.createElement("span");
   textSpan.className = "text-span";
   textSpan.appendChild(document.createTextNode(todo.name));
@@ -30,13 +48,13 @@ function todoUI(todo) {
   textinput.className = "textinput d-none";
   listItem.appendChild(textinput);
   listItem.appendChild(removeBtn);
-  listItem.className =
-    "list-group-item mb-2 border border-1 d-flex justify-content-between";
+  listItem.className = "list-group-item mb-2 border border-1 d-flex justify-content-between";
   if (todo.state) {
     listItem.classList.add("checked");
   }
   todoList.appendChild(listItem);
 }
+
 function loadTodos() {
   let todos;
   if (localStorage.getItem("todos") === null) {
@@ -71,6 +89,7 @@ function addTodo(e) {
     const newTodo = {
       state: false,
       name: todoInput.value.trim(),
+      time: times(),
     };
 
     if (newTodo.name == "") {
@@ -140,7 +159,7 @@ function editbutton(e) {
       todos.forEach((todo) => {
         if (editedValue == todo.name && e.target.closest(".list-group-item").firstChild.nextSibling.value !== "") {
           todo.name = e.target.closest(".list-group-item").firstChild.nextSibling.value;
-
+          todo.time = times();
           localStorage.setItem("todos", JSON.stringify(todos)); // değişiklikler burada kaydediliyor
           while (todoList.firstChild != null) {
             todoList.removeChild(todoList.firstChild);
