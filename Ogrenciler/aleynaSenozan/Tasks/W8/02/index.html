@@ -9,6 +9,12 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <title>To-do App</title>
+    <style>
+        .done {
+            text-decoration: line-through;
+            background-color: limegreen;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,14 +29,13 @@
             <div class="my-3">
                 <label for="search-todo" class="form-label"
                     style="background-color: rgba(242, 193, 78, 0.3)">Search</label>
-                    <input type="text" class="form-control" id="search-todo" placeholder="🔍 Search To Do">
+                <input type="text" class="form-control" id="search-todo" placeholder="🔍 Search To Do">
                 <ul class="list-group my-3" id="list-todo">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item"><input type="checkbox" class="done-checkbox"> An item <span class="delete-item">&times;</span></li>
                 </ul>
             </div>
             <hr>
-            <div id="clear-all" class="btn btn-success my-3">Clear All To Do</div>
+            <div id="clear-all" class="btn btn-success my-3">Clear All To Dos</div>
         </div>
     </div>
 

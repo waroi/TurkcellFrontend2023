@@ -33,6 +33,15 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// const checkTodo= document.getElementsByClassName("checked");
+// listGroup.addEventListener("click",()=>{
+//     ("class","bg-success")
+// })
+// console.log(checkTodo[0])
+// checkTodo[0].addEventListener("click",()=>{
+//     console.log("red")
+// })
+
 //filtreleme
 filterTodoInput.addEventListener("keyup", filterItem);
 function filterItem(e) {
