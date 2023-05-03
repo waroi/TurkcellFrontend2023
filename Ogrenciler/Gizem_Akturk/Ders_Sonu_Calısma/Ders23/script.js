@@ -1,5 +1,7 @@
 var todoitems = [];
 
+document.getElementById("searchtodo").addEventListener("keyup", filtertodoitem);
+
 function loadtodos() {
   var storeditems = localStorage.getItem("todoitems");
   if (storeditems != null) {
@@ -18,27 +20,31 @@ function newElement() {
   if (inputValue === "") {
     alert("Boş bırakmayınız");
   } else {
-    if (todoitems.includes(inputValue)) {
+    if (todoitems.forEach((e) => e.text === inputValue)) {
       alert("Bu eleman zaten var");
       return;
     }
-    var li = createTodoItem(inputValue);
-    todoitems.push(inputValue);
+    createTodoItem(inputValue);
+    todoitems.push({ text: inputValue, checked: false });
+    document.getElementById("todos").value = "";
+
+    displaytodos(todoitems);
     storetolocalstorage();
   }
-  document.getElementById("todos").value = "";
-
-  displaytodos(todoitems);
 }
 
 function createTodoItem(item) {
   var li = document.createElement("li");
-  var text = document.createTextNode(item);
+  var text = document.createTextNode(item.text);
   li.appendChild(text);
   li.appendChild(deletelistitem());
   li.addEventListener("click", function () {
     this.classList.toggle("checked");
+    storetolocalstorage();
   });
+  if (item.checked) {
+    li.classList.add("checked");
+  }
   return li;
 }
 
@@ -51,8 +57,6 @@ function deletelistitem() {
   span.addEventListener("click", function () {
     var div = this.parentElement;
     div.style.display = "none";
-    var index = todoitems.indexOf(div.innerText.replace("\u00D7", ""));
-    todoitems.splice(index, 1);
     storetolocalstorage();
   });
 
@@ -65,13 +69,12 @@ function displaytodos(listofitems) {
     document.getElementById("myUl").appendChild(createTodoItem(listofitems[i]));
   }
 }
-document.getElementById("searchtodo").addEventListener("keyup", filtertodoitem);
 
 function filtertodoitem() {
   var filterValue = document.getElementById("searchtodo").value;
 
-  var filteredlist = todoitems.filter(function (item) {
-    return item.innerText.includes(filterValue);
+  var filteredlist = todoitems.filter((item) => {
+    return item.text.includes(filterValue);
   });
   document.getElementById("myUl").innerHTML = "";
   displaytodos(filteredlist);
@@ -86,8 +89,25 @@ function deleteall() {
 }
 
 function storetolocalstorage() {
-  var todoobjects = todoitems.map((item) => {
-    return { text: item, checked: false };
+  var todoobjects = checkIfChecked();
+  localStorage.setItem("todoitems", JSON.stringify(todoobjects));
+}
+
+function checkIfChecked() {
+  var todos = [...document.getElementsByTagName("li")];
+  todos = filterDeletedItems(todos);
+  var todoobjects = todos.map((item) => {
+    return {
+      text: item.innerText.replace("\n\u00D7", ""),
+      checked: item.classList.contains("checked"),
+    };
   });
-  localStorage.setItem("todoitems", JSON.stringify(todoitems));
+  return todoobjects;
+}
+function filterDeletedItems(todos) {
+  todos = todos.filter((item) => {
+    // remove the display none items from the array
+    return item.style.display != "none";
+  });
+  return todos;
 }
