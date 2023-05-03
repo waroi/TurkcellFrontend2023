@@ -6,7 +6,7 @@ document.addEventListener("keypress",run); // "run" çağırdığımız fonksiyo
 
 function run(e){
     // console.log(e.which); // klavyede hangi tuşa bastığımızı ASCII tablosunda gösterir
-    console.log(e.key); // hangi tuşa bastığımızı gösterir
+    // console.log(e.key); // hangi tuşa bastığımızı gösterir
     // console.log("naber");
 };
 
@@ -15,7 +15,7 @@ function run(e){
 document.addEventListener("keydown",run); 
 
 function run(e){
-    console.log(e.key); 
+    // console.log(e.key); 
     
 };
 
@@ -24,7 +24,7 @@ function run(e){
 document.addEventListener("keyup",run); 
 
 function run(e){
-    console.log(e.key); 
+    // console.log(e.key); 
     
 };
 // ---------------------------------------------------------------------------------------------------------
