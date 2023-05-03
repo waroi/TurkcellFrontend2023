@@ -1,75 +1,137 @@
 const todoInput = document.querySelector("#todo-input");
 const addBtn = document.querySelector("#add-todo");
-const todoList = document.querySelector("#todo-list");
+const todolist = document.querySelector("#todo-list");
 const removeBtn = document.querySelector("#delete-all");
 const errorText = document.querySelector("#error-text");
 const searchTodo = document.querySelector("#search-todo");
 
-addBtn.addEventListener("click", addTodo);
-removeBtn.addEventListener("click", clearTodoList);
+addBtn.addEventListener("click", inputCheck);
+removeBtn.addEventListener("click", removeLocal);
 searchTodo.addEventListener("input", searchTodos);
 
 let list = document.getElementById("todo-list");
 
-function addTodo() {
-  if (todoInput.value.trim("") == "") {
-    return (errorText.innerText = "Lütfen Bir Todo Giriniz.");
+function inputCheck(e) {
+  e.preventDefault();
+  if (todoInput.value.trim() === "") {
+    errorText.textContent = "Please enter a task.";
   } else if (todoInput.value.length > 50) {
-    return (errorText.innerText = "Lütfen 50 Karakteri Aşmayınız");
+    (errorText.textContent = "Lütfen 50 Karakteri Aşmayınız");
   }
-  errorText.innerText = "";
-  const newTodo = document.createElement("li");
-  const newButton = document.createElement("button");
-  newTodo.classList.add(
-    "d-flex",
-    "justify-content-between",
-    "align-items-center",
-    "relative",
-    "l-0",
-    "bg-danger",
-    "p-2",
-    "rounded",
-    "outline-0",
-    "mb-2",
-    "text-white"
-  );
-  newButton.classList.add("bg-transparent", "me-3", "border-0", "delete-todo");
-  newTodo.innerText = todoInput.value;
-  newButton.classList.add("bi", "bi-x-square-fill", "text-white");
-  list.appendChild(newTodo);
-  newTodo.appendChild(newButton);
-  const deleteTodos = document.querySelectorAll(".delete-todo");
-  deleteTodos.forEach((deleteTodo) => {
-    deleteTodo.addEventListener("click", clearTodo);
-  });
+  else {
+    errorText.textContent = "";
+    addTodo();
+  }
+}
+
+function addTodo() {
+  const todo = {
+    id: Date.now(),
+    text: todoInput.value.trim(),
+    completed: false
+  };
+  saveToLocalStorage(todo);
+  renderTodo(todo);
   todoInput.value = "";
 }
 
-function searchTodos(searchTodo) {
-  example = document.querySelectorAll("li");
-  example.forEach((i) => {
-    if (i.innerText.includes(searchTodo.target.value)) {
-      i.classList.remove("d-none");
+function renderTodo(todo) {
+  const newTodo = document.createElement("li");
+    const newButton = document.createElement("button");
+    newTodo.classList.add(
+        "d-flex",
+        "justify-content-between",
+        "align-items-center",
+        "relative",
+        "l-0",
+        "bg-danger",
+        "p-2",
+        "rounded",
+        "outline-0",
+        "mb-2",
+        "text-white"
+    );
+    newButton.classList.add("bg-transparent", "me-3", "border-0", "delete-todo");
+    newTodo.innerText = todo.text;
+    newButton.classList.add("bi", "bi-x-square-fill", "text-white");
+    list.appendChild(newTodo);
+    newTodo.appendChild(newButton);
+		newTodo.querySelector(".delete-todo").addEventListener("click", deleteTodo);
+    todoInput.value = "";
+}
+
+
+
+function searchTodos(e) {
+  const searchTerm = e.target.value.toLowerCase();
+  const todos = list.getElementsByTagName("li");
+  Array.from(todos).forEach(todo => {
+    const todoText = todo.innerText.toLowerCase();
+    if (todoText.includes(searchTerm)) {
+      todo.style.display = "block";
     } else {
-      i.classList.add("d-none");
+      todo.style.cssText = "display:none !important";
     }
   });
 }
 
-function clearTodoList() {
+
+function saveToLocalStorage(todo) {
+  let todos = getTodosFromLocalStorage();
+  todos.push(todo);
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function getTodosFromLocalStorage() {
+  let todos = localStorage.getItem("todos");
+  return todos ? JSON.parse(todos) : [];
+}
+
+function toggleCompleted(e) {
+  const li = e.target.parentElement;
+  const id = li.getAttribute("data-id");
+  let todos = getTodosFromLocalStorage();
+
+  todos = todos.map(todo => {
+    if (todo.id.toString() === id) {
+      return { ...todo, completed: !todo.completed };
+    }
+    return todo;
+  });
+
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function deleteTodo(e) {
+  const li = e.target.closest("li");
+  const text = li.innerText;
+
+  let todos = getTodosFromLocalStorage();
+  todos = todos.filter(todo => todo.text !== text);
+  localStorage.setItem("todos", JSON.stringify(todos));
+
+  li.remove();
+}
+
+
+ function removeLocal() {
   list.innerHTML = "";
+ 	todos = [];
+ 	localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-function clearTodo() {
-  return document.querySelector("li").remove();
+function loadTodosFromLocalStorage() {
+  const todos = getTodosFromLocalStorage();
+  todos.forEach(todo => renderTodo(todo));
 }
 
+loadTodosFromLocalStorage();
 
 const clockTodo = document.querySelector("#date");
 
 function clock() {
-  let date = new Date().toString().slice(16, 25);
-  clockTodo.innerText = date;
+    let date = new Date().toString().slice(16, 25);
+    clockTodo.innerText = date;
 }
 
 clockTodo.addEventListener("change", clock);
