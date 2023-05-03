@@ -10,7 +10,7 @@ const department = "Bilişim";
 // value = firstName;
 // value += " " + lastName;
 
-// value = firstName.length;
+// value = firstName.length; //uzunluğu//
 // value = firstName.toLowerCase();
 // value = firstName.toUpperCase();
 // value = firstName[0];
@@ -30,7 +30,7 @@ const department = "Bilişim";
 //   age +
 //   " " +
 //   "\nBölüm: " +
-//   department;
+//   department;  //sıralı yazım//
 
 // Template Literal
 // value = `İsim: ${firstName}
