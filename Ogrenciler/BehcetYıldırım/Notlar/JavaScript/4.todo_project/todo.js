@@ -13,7 +13,11 @@ function eventListener(){ // Tüm event listener'lar
 
 }
 function addTodo(e){
+    const newTodo= todoInput.value;
 
+    console.log(newTodo);
 
+    
+    
     e.preventDefault();
 }

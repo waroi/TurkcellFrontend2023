@@ -45,14 +45,13 @@ function createTodo(todo) {
   tag.classList = "fa-solid fa-x fs-6 text-secondary"
   todo_list.appendChild(listItem);
   listItem.appendChild(tag);
-
 }
 function filterTodos(e){
   let search = e.target.value;
   for (let i = 0; i < todo_list.children.length; i++) {
     const text = todo_list.children[i].innerText;
     let include = text.toLowerCase().indexOf(search.toLowerCase());
-    console.log(include);
+    // console.log(include);
     // console.log(local_value[i]);
     if (include > -1) {
       console.log(todo_list.children[i]);
@@ -66,7 +65,7 @@ function filterTodos(e){
 }
 function removeTodo(e) {
   if(e.target.tagName == "SPAN"){
-    console.log(e.target.parentElement.id);
+    // console.log(e.target.parentElement.id);
     e.target.parentElement.classList.add("d-none");
     let todo_id = e.target.parentElement.id;
     let inner_id = local_value.findIndex((e) => e.id == todo_id);
@@ -78,7 +77,7 @@ function removeTodo(e) {
     e.target.classList.toggle("bg-success");
     let inner_id = local_value.findIndex((e) => e.id == todo_id);
     local_value[inner_id].isDone == false ? local_value[inner_id].isDone = true : local_value[inner_id].isDone = false;
-    console.log(local_value[inner_id]);
+    // console.log(local_value[inner_id]);
     localStorage.setItem("todos",JSON.stringify(local_value));
   }
 }
