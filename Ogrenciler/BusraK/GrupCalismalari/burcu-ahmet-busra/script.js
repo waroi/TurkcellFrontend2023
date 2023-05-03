@@ -39,10 +39,17 @@ function todoUI(todo) {
 }
 
 function loadTodos() {
-  let todos;
-  if (localStorage.getItem("todos") === null) {
-    todos = [];
-  } else {
+  // let todos;
+  // if (localStorage.getItem("todos") === null) {
+  //   todos = [];
+  // } else {
+  //   todos = JSON.parse(localStorage.getItem("todos"));
+  // }
+  // return todos;
+
+  //refactoring
+  let todos = [];
+  if (localStorage.getItem("todos")) {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
   return todos;
@@ -78,11 +85,11 @@ function addTodo(e) {
     };
 
     if (newTodo.name == "") {
-      alert("todo gir güzel kardeşim");
-    } else {
-      addLocalTodo(newTodo);
-      todoUI(newTodo);
+      return alert("todo gir güzel kardeşim");
     }
+
+    addLocalTodo(newTodo);
+    todoUI(newTodo);
   }
   e.preventDefault();
 }
@@ -99,18 +106,19 @@ function deleteTodo(e) {
     const listItem = e.target.closest(".list-group-item");
     const todoText = listItem.querySelector(".text-span").textContent;
     deleteStorage(todoText);
-    listItem.remove();
+    return listItem.remove();
   }
+
+  return console.log("yanlış class gönderildi");
 }
 
 function deleteStorage(willDeleted) {
   let todos = loadTodos();
   todos = todos.filter((todo) => todo !== willDeleted);
   if (todos.length == 0) {
-    localStorage.removeItem("todos");
-  } else {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    return localStorage.removeItem("todos");
   }
+  return localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 todoList.addEventListener("click", (e) => {

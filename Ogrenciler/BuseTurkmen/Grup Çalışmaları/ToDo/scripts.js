@@ -87,9 +87,9 @@ function filter(e) {
 
 function loadItems() {
   items = getItemsFromLS();
- items.forEach(function (item) {
-   createnewElement(item);
- })
+  items.forEach(function (item) {
+    createnewElement(item);
+  })
 }
 
 function getItemsFromLS(){
@@ -116,5 +116,13 @@ function deletefromLS(text){
     }
   });
   localStorage.setItem('items',JSON.stringify(items));
+}
+
+let listGroupItems = document.querySelectorAll(".list-group-item-secondary");
+
+for(let i = 0; i < listGroupItems.length; i++){
+  listGroupItems[i].addEventListener("click" , function(){
+    this.classList.toggle("done");
+  });
 }
 

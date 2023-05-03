@@ -6,6 +6,7 @@ body{
     justify-content: center;
     gap: 15px;
     min-height: 100vh;
+    max-width: 50vh;
     overflow: hidden;
 
 }
@@ -15,6 +16,10 @@ body{
     border: 4px solid rgb(211, 156, 203);
     padding: 10px;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 100%; */
 }
 
 h3{
@@ -22,7 +27,19 @@ h3{
     text-align: center;
 }
 
-.form{
+.password-container{
+    background-color: rgb(227, 214, 228);    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:30px;
+    border-radius:10px;
+    height: 40px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.selection-container{
     font-size: 25px;
     gap: 20px;
     display: flex;
@@ -31,4 +48,9 @@ h3{
 
 .password{
     background-color: rgb(155, 111, 149);
+}
+
+button#generatePassword {
+    margin-top: 25px;
+    font-size: 20px;
 }
