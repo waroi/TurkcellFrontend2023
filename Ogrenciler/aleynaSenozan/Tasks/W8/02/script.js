@@ -33,8 +33,7 @@ add_button.addEventListener("click", () => {
 
   updateEventListeners(list_item_todo);
 });
-
-list_items.forEach(updateEventListeners);
+// list_items.forEach(updateEventListeners);
 
 window.addEventListener("load", () => {
   const savedList = localStorage.getItem("todoList");
