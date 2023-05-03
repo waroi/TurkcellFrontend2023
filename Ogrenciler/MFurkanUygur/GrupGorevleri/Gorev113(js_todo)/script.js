@@ -1,12 +1,6 @@
-//Main input
-// let todoInput = document.getElementById("todoInput");
-//todo ekle butonu
 const todoAddBtn = document.getElementById("addTodo");
-//ul elemanı
 const listGroup = document.getElementById("listGrup");
-//Tüm todoları silme butonu
 const clearTodo = document.getElementById("clearTodo");
-//filtre input
 const filterTodoInput = document.getElementById("filterTodo");
 
 let ourArray = [];
@@ -33,19 +27,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// const checkTodo= document.getElementsByClassName("checked");
-// listGroup.addEventListener("click",()=>{
-//     ("class","bg-success")
-// })
-// console.log(checkTodo[0])
-// checkTodo[0].addEventListener("click",()=>{
-//     console.log("red")
-// })
-
-//filtreleme
 filterTodoInput.addEventListener("keyup", filterItem);
 function filterItem(e) {
-    //Sor burayı
     const listItem = document.querySelectorAll(".list-group-item");
     const filterValue = e.target.value.toLowerCase();
     listItem.forEach((listTodo) => {
@@ -60,14 +43,7 @@ function filterItem(e) {
 }
 filterTodoInput.addEventListener("focus", () => { filterTodoInput.value = "" })
 
-//--------------Delete items one by one-----------
-//ya alttakine 0 dicen sonuna ya da listItem'ın 0. elemanı şeklinde gidicez.
-//className üzeriden yapılabiliyor mu sormak lazım
-
-//Diğer seçenek
-// const listItem = document.querySelectorAll(".list-group")[0];
 const listGroupItem = document.querySelector(".list-group");
-
 listGroupItem.addEventListener("click", (e) => {
     console.log(e.target)
     let findItem;
@@ -85,23 +61,15 @@ listGroupItem.addEventListener("click", (e) => {
     }
 });
 
-//---------------Clear All li Elements-------------------
 clearTodo.addEventListener("click", clearMen);
 function clearMen() {
     localStorage.clear();
     let clearList = document.getElementsByClassName("list-group-item");
-    while (clearList.length > 0) {//null kontrolü 
+    while (clearList.length > 0) {
         listGroup.removeChild(clearList[0]);
     }
-
-    //2.Yol
-    // listGroup.innerHTML = "";
-    // ourArray = [];
-    // localStorage.setItem("ourArray", JSON.stringify(ourArray));
-
 }
 
-//Create elements
 function createTag(todoInput) {
     let iTag = document.createElement("i");
     iTag.setAttribute("class", "bi bi-x");
