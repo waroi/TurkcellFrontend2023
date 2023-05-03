@@ -1,58 +1,93 @@
-const todoitems =[];
+var todoitems = [];
 
-function newElement(){
-    var li = document.createElement("li");
-    var inputValue = document.getElementById("todos").value;
-    var text = document.createTextNode(inputValue);
-    li.appendChild(text);
-    if(inputValue === ""){
-        alert("Boş bırakmayınız");
-    }else{
-        todoitems.push(li);
-    }
-    document.getElementById("todos").value = "";
-   
-    displaytodos(todoitems);
-    deletelistitem(li);
+function loadtodos() {
+  var storeditems = localStorage.getItem("todoitems");
+  if (storeditems != null) {
+    todoitems = JSON.parse(storeditems);
+  }
 }
 
-function deletelistitem(li) {
-    var span = document.createElement("span");
-    var text2 = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(text2);
-    li.appendChild(span);
+window.onload = function () {
+  loadtodos();
+  displaytodos(todoitems);
+};
 
-    var close = document.getElementsByClassName("close");
-    var i;
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-            var div = this.parentElement;
-            div.style.display = "none";
-        };
+function newElement() {
+  var inputValue = document.getElementById("todos").value;
+
+  if (inputValue === "") {
+    alert("Boş bırakmayınız");
+  } else {
+    if (todoitems.includes(inputValue)) {
+      alert("Bu eleman zaten var");
+      return;
     }
+    var li = createTodoItem(inputValue);
+    todoitems.push(inputValue);
+    storetolocalstorage();
+  }
+  document.getElementById("todos").value = "";
+
+  displaytodos(todoitems);
 }
 
-function displaytodos(listofitems){
-    for(var i=0; i<listofitems.length; i++){
-        document.getElementById("myUl").appendChild(listofitems[i]);
-    }
+function createTodoItem(item) {
+  var li = document.createElement("li");
+  var text = document.createTextNode(item);
+  li.appendChild(text);
+  li.appendChild(deletelistitem());
+  li.addEventListener("click", function () {
+    this.classList.toggle("checked");
+  });
+  return li;
+}
+
+function deletelistitem() {
+  var span = document.createElement("span");
+  var text2 = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(text2);
+
+  span.addEventListener("click", function () {
+    var div = this.parentElement;
+    div.style.display = "none";
+    var index = todoitems.indexOf(div.innerText.replace("\u00D7", ""));
+    todoitems.splice(index, 1);
+    storetolocalstorage();
+  });
+
+  return span;
+}
+
+function displaytodos(listofitems) {
+  document.getElementById("myUl").innerHTML = "";
+  for (var i = 0; i < listofitems.length; i++) {
+    document.getElementById("myUl").appendChild(createTodoItem(listofitems[i]));
+  }
 }
 document.getElementById("searchtodo").addEventListener("keyup", filtertodoitem);
 
-function filtertodoitem(){
-    var filterValue = document.getElementById("searchtodo").value;
+function filtertodoitem() {
+  var filterValue = document.getElementById("searchtodo").value;
 
-    var filteredlist = todoitems.filter(function(item){
+  var filteredlist = todoitems.filter(function (item) {
     return item.innerText.includes(filterValue);
-    });
-    document.getElementById("myUl").innerHTML = "";
-    displaytodos(filteredlist);
-    deletelistitem(li);
-
+  });
+  document.getElementById("myUl").innerHTML = "";
+  displaytodos(filteredlist);
 }
 
-function deleteall(){
+function deleteall() {
+  var alert = confirm("Tüm elemanları silmek istediğinize emin misiniz?");
+  if (alert) {
     document.getElementById("myUl").innerHTML = "";
     todoitems.length = 0;
+  }
+}
+
+function storetolocalstorage() {
+  var todoobjects = todoitems.map((item) => {
+    return { text: item, checked: false };
+  });
+  localStorage.setItem("todoitems", JSON.stringify(todoitems));
 }
