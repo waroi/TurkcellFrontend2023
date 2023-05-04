@@ -41,6 +41,7 @@ form.addEventListener("submit", (e) => {
   saveFilmToLocalStorage(newFilm);
   showFilmsFromLocalStorage(); //değerleri local storage'dan aldığımız için parametresiz çalıştırdık.
   localStorage.setItem("id", ++id);
+  form.reset();
 });
 
 
