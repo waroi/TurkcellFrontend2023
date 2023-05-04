@@ -24,12 +24,12 @@
       <form id="form" class="d-flex gap-2 mb-5 mt-3">
         <div class="d-flex flex-column">
           <label for="filmName">Film Name</label>
-          <input type="text" id="filmName" />
+          <input type="text" id="filmName" placeholder="Prestige" />
         </div>
 
         <div class="d-flex flex-column">
           <label for="director">Director Name</label>
-          <input type="text" id="director" />
+          <input type="text" id="director" placeholder="Christopher Nolan" />
         </div>
 
         <div class="d-flex flex-column">
@@ -52,9 +52,14 @@
 
         <div class="d-flex flex-column">
           <label for="url">Film Url</label>
-          <input type="text" id="url" />
+          <input
+            type="url"
+            id="url"
+            placeholder="https://upload.wikimedia.org/wikipedia/tr/thumb/f/fc/Prestij_f_1.jpg/800px-Prestij_f_1.jpg"
+          />
         </div>
         <button id="submitBtn">Submit</button>
+        <button id="editBtn" class="d-none">Edit</button>
       </form>
 
       <div id="cards" class="row gap-4">

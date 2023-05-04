@@ -5,11 +5,32 @@ const genres = document.getElementById("genres");
 const filmUrl = document.getElementById("url");
 const form = document.getElementById("form");
 const cards = document.getElementById("cards");
+const submitBtn = document.getElementById("submitBtn");
+const editBtn = document.getElementById("editBtn");
+
+let editedIndex = 0;
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+const resetInputs = () => {
+  filmName.value = "";
+  directorName.value = "";
+  year.value = "";
+  genres.value = "";
+  filmUrl.value = "";
+};
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  addFilms();
+  if (submitBtn.classList.contains("d-none")) {
+    editFilm();
+  } else {
+    addFilms();
+  }
 });
+
 let films = [];
 
 if (localStorage.getItem("films")) {
@@ -18,10 +39,10 @@ if (localStorage.getItem("films")) {
 }
 
 function addFilms() {
-  const filmText = filmName.value;
-  const directorText = directorName.value;
+  const filmText = capitalizeFirstLetter(filmName.value);
+  const directorText = capitalizeFirstLetter(directorName.value);
   const yearText = year.value;
-  const options = genres.value;
+  const options = capitalizeFirstLetter(genres.value);
   const urlText = filmUrl.value;
 
   const film = {
@@ -36,6 +57,7 @@ function addFilms() {
 
   localStorage.setItem("films", JSON.stringify(films));
   showFilms();
+  resetInputs();
 }
 
 function showFilms() {
@@ -114,5 +136,33 @@ function updateFilm(index) {
   year.value = films[index].year;
   genres.value = films[index].genres;
   filmUrl.value = films[index].url;
+  submitBtn.classList.add("d-none");
+  editBtn.classList.add("d-block");
+  editBtn.classList.remove("d-none");
+  editedIndex = index;
 }
 
+function editFilm() {
+  const filmText = filmName.value;
+  const directorText = directorName.value;
+  const yearText = year.value;
+  const options = genres.value;
+  const urlText = filmUrl.value;
+  const updatedFilm = {
+    name: filmText,
+    director: directorText,
+    year: yearText,
+    genres: options,
+    url: urlText,
+  };
+
+  films[editedIndex] = updatedFilm;
+
+  localStorage.setItem("films", JSON.stringify(films));
+  showFilms();
+  submitBtn.classList.add("d-block");
+  submitBtn.classList.remove("d-none");
+  editBtn.classList.add("d-none");
+  editBtn.classList.remove("d-block");
+  resetInputs();
+}
