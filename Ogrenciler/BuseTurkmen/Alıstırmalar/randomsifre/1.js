@@ -1,4 +1,4 @@
-const keys = {
+const charates = {
     upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     lowerCase: "abcdefghijklmnopqrstuvwxyz",
     number: "0123456789",
@@ -6,16 +6,16 @@ const keys = {
 }
 const getKey = [
     function upperCase() {
-      return keys.upperCase[Math.floor(Math.random() * keys.upperCase.length)];
+      return charates.upperCase[Math.floor(Math.random() * charates.upperCase.length)];
     },
     function lowerCase() {
-      return keys.lowerCase[Math.floor(Math.random() * keys.lowerCase.length)];
+      return charates.lowerCase[Math.floor(Math.random() * charates.lowerCase.length)];
     },
     function number() {
-      return keys.number[Math.floor(Math.random() * keys.number.length)];
+      return charates.number[Math.floor(Math.random() * charates.number.length)];
     },
     function symbol() {
-      return keys.symbol[Math.floor(Math.random() * keys.symbol.length)];
+      return charates.symbol[Math.floor(Math.random() * charates.symbol.length)];
     }
 ];
 function generatePassword(){
@@ -26,7 +26,7 @@ function generatePassword(){
     let upperCase = document.getElementById("upperCase").checked;
     let lowerCase = document.getElementById("lowerCase").checked;
     
-    if(!length && !symbol && !number && !upperCase && !lowerCase){
+    if(!symbol && !number && !upperCase && !lowerCase){
         alert("Kriterleri belirtiniz.");
         return;
     }
@@ -35,6 +35,11 @@ function generatePassword(){
         alert("Karakter sayısı belirtiniz.");
         return;
     }
+
+    if(length < 1 ){
+      alert("Karakter sayısı 0'dan büyük seçilmelidir.");
+      return;
+  }
     // if (length && symbol && number && upperCase && lowerCase === ""){
     //     alert("Kriterlerden birini seçiniz.");
     //     return;
