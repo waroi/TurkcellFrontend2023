@@ -1,31 +1,39 @@
 let form = document.getElementById("form");
 let movieUI = document.getElementById("movieUI");
-// let saveBtn = document.getElementById("saveBtn");
-// let createBtn = document.getElementById("createBtn");
+let saveBtn = document.getElementById("saveBtn");
+let createBtn = document.getElementById("createBtn");
 
-let isEdit = false;
-isEdit ? form.addEventListener("submit", editLocalStorage) : form.addEventListener("submit", getData);
+let tempMovieData;
 
-// createBtn.addEventListener("click", getData());
-// saveBtn.addEventListener("click", editLocalStorage);
+form.removeAttribute('novalidate');
 
-function getData(e) {
-	const newMovie = Object.fromEntries(new FormData(e.target).entries());
-	e.preventDefault();
-	addMovie(newMovie);
+createBtn.addEventListener("click", addMovie);
+ saveBtn.addEventListener("click", editLocalStorage)
+
+
+function getData() {
+	// const newMovie = Object.fromEntries(new FormData(e.target).entries());
+	let name = document.getElementById("name").value;
+	let director = document.getElementById("director").value;
+	let year = document.getElementById("year").value;
+	let cover = document.getElementById("cover").value;
+	const newMovie = {name, director, year, cover}
+	return newMovie;
 }
 
-function addMovie(newMovie) {
+function addMovie(e) {
+	let newMovie = getData()
 	let localData;
 	getLocalStorage() ? (localData = getLocalStorage()) : (localData = []);
 	localData.push(newMovie);
 	setLocalStrorage(localData);
 	addBox(newMovie);
+	e.preventDefault();
 }
 
 function addBox(movie) {
 	let card = `<div class='card'>
-										<div class='mx-auto' style='width:100%; height:300px; '>
+					<div class='mx-auto' style='width:100%; height:300px; '>
                   		<img src='${movie.cover}' class='card-img-top' alt='${movie.cover}' style='width:100%; height:300px; '/>
 										</div>
                     <div class='card-body'>
@@ -85,19 +93,43 @@ function editMovie(movie) {
 	document.forms["form"]["saveBtn"].classList.replace("d-none", "d-block");
 	document.forms["form"]["createBtn"].classList.replace("d-block", "d-none");
 
-	isEdit = true;
-	form.addEventListener("submit", editLocalStorage);
+	tempMovieData = movie;
 }
 
-function editLocalStorage(e) {
-	const newMovie = Object.fromEntries(new FormData(e.target).entries());
-	e.preventDefault();
+function editLocalStorage() {
+	let newMovie = getData()
 	let localData = getLocalStorage();
-	let index = localData.indexOf(localData.find((item) => item.name === e.name));
+	let index = localData.indexOf(localData.find((item) => item.name === tempMovieData.name));
+	console.log("idx",index)
+	console.log("lcldata",localData)
+	console.log("newMov",newMovie)
 	localData[index] = newMovie;
+	console.log(localData)
 
 	document.forms["form"]["saveBtn"].classList.replace("d-block", "d-none");
 	document.forms["form"]["createBtn"].classList.replace("d-none", "d-block");
 
-	isEdit = false;
+	setLocalStrorage(localData);
+	window.location.reload();
+
 }
+
+
+// (() => {
+// 	'use strict'
+  
+// 	// Fetch all the forms we want to apply custom Bootstrap validation styles to
+// 	const forms = document.querySelectorAll('.needs-validation')
+  
+// 	// Loop over them and prevent submission
+// 	Array.from(forms).forEach(form => {
+// 	  form.addEventListener('submit', event => {
+// 		if (!form.checkValidity()) {
+// 		  event.preventDefault()
+// 		  event.stopPropagation()
+// 		}
+  
+// 		form.classList.add('was-validated')
+// 	  }, false)
+// 	})
+//   })()
