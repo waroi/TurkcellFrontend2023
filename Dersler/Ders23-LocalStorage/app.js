@@ -30,14 +30,14 @@
 // // Local Storage'dan okuma
 // let userLocal = JSON.parse(localStorage.getItem("Kullanıcı"))
 
-// console.log(userLocal);
+// // console.log(userLocal);
 
-let users= ["Varol","Yusuf","Mehmet"]
+// let users= ["Varol","Yusuf","Mehmet"]
 
-// Local Storage'a kaydetme
-localStorage.setItem("Kullanıcı", JSON.stringify(users));
+// // Local Storage'a kaydetme
+// localStorage.setItem("Kullanıcı", JSON.stringify(users));
 
-// Local Storage'dan okuma
-let usersLocal = JSON.parse(localStorage.getItem("Kullanıcı"))
+// // Local Storage'dan okuma
+// let usersLocal = JSON.parse(localStorage.getItem("Kullanıcı"))
 
-console.log(usersLocal);
+// console.log(usersLocal);
