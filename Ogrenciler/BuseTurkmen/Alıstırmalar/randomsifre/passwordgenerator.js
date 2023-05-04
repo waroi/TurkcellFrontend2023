@@ -39,7 +39,7 @@ function generatePassword(){
     if(length < 1 ){
       alert("Karakter sayısı 0'dan büyük seçilmelidir.");
       return;
-  }
+    }
     // if (length && symbol && number && upperCase && lowerCase === ""){
     //     alert("Kriterlerden birini seçiniz.");
     //     return;
@@ -47,10 +47,10 @@ function generatePassword(){
 
     let password = "";
     while (length > password.length) {
-        let keyToAdd = getKey[Math.floor(Math.random() * getKey.length)];
-        let isChecked = document.getElementById(keyToAdd.name).checked;
-        if (isChecked) {
-            password += keyToAdd();
+        let passwordAdd = getKey[Math.floor(Math.random() * getKey.length)];
+        let checked = document.getElementById(passwordAdd.name);
+        if (checked) {
+            password += passwordAdd();
         }
     }
     passwordBox.innerHTML = password;
