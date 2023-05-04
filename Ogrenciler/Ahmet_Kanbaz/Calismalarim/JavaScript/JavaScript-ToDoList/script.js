@@ -32,14 +32,17 @@ function loadItems() {
 }
 
 function createNewElement(item) {
-  const newItemLi = `<li liId=${item.id} liStatus=${
-    item.status
-  } class="list-group-item list-group-item-secondary"><input type="checkbox" id=${item.id} value="${item.id}" class="me-3" ${
-    item.status === "completed" ? "active" : null
-  }>${item.task}<a href="#" class="float-end">
-  <span class="fa-solid fa-xmark"></span>
-</a></li>`;
-  taskListUl.innerHTML += newItemLi;
+const newItemLi = document.createElement('li');
+newItemLi.id = item.id;
+newItemLi.className = `list-group-item list-group-item-secondary itemLi ${item.status}`;
+const itemContext = document.createTextNode(item.task);
+newItemLi.appendChild(itemContext);
+const itemDeleteIcon = document.createElement('a');
+itemDeleteIcon.classList = 'deleteButton float-end';
+itemDeleteIcon.href = '#';
+itemDeleteIcon.innerHTML = '<span class="fa-solid fa-xmark"></span>';
+newItemLi.appendChild(itemDeleteIcon);
+taskListUl.appendChild(newItemLi);
 }
 
 function updateListCount() {
@@ -48,32 +51,30 @@ function updateListCount() {
 
 function addTask(e) {
   const value = taskInput.value;
-  if(value === ""){
+  if (value === "") {
     alert("Lütfen New Task İnput Kısmını Doldurunuz!!!");
-  }
-  else{
+  } else {
     setItemsToLS(value);
   }
 
   e.preventDefault();
 }
 
-function setItemsToLS(value){
+function setItemsToLS(value) {
   myToDo = {
     id: Date.now(),
     task: value,
-    status: "active",
-  }
+    status: "",
+  };
 
   toDoList.push(myToDo);
-  console.log(toDoList)
+  console.log(toDoList);
   localStorage.setItem("toDoList", JSON.stringify(toDoList));
 
-  if(toDoList.length === 0) {
+  if (toDoList.length === 0) {
     deleteAllButton.style.display = "none";
     displayEmptyListMessage();
-  }
-  else {
+  } else {
     deleteAllButton.style.display = "inline-block";
     createNewElement(myToDo);
     taskInput.value = "";
@@ -82,27 +83,23 @@ function setItemsToLS(value){
 }
 
 function updateTaskStatus(e) {
-  if(e.target.type === "checkbox"){
-    const li = e.target.parentElement;
-    const liId = li.getAttribute("liId");
-    const liStatus = li.getAttribute("liStatus");
-
-    if(liStatus === "active"){
-      li.setAttribute("liStatus", "completed");
-      updateTaskStatusInLS(liId, "completed");
+  if(e.target.classList.contains("itemLi")) {
+    e.target.classList.toggle("done");
+    if(e.target.classList.contains("done")) {
+      updateTaskStatusInLS(e.target.id, "done");
     }
-    else{
-      li.setAttribute("liStatus", "active");
-      updateTaskStatusInLS(liId, "active");
+    else {
+      updateTaskStatusInLS(e.target.id, "");
     }
   }
   e.preventDefault();
 }
 
-function updateTaskStatusInLS(liId, status){
+function updateTaskStatusInLS(id, status) {
   toDoList = toDoList.map((item) => {
-    if(item.id == liId){
+    if(item.id == id) {
       item.status = status;
+      console.log(status);
     }
     return item;
   });
