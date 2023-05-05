@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HD Film Cehennemi</title>
+  <link rel="stylesheet" href="./css/main.css" />
+ </head>
+ <body>
+  <input type="search" name="search" id="inputSearch" />
+  <form action="">
+   <label for="filmAdi">Film Adı:</label>
+   <input type="text" name="x" id="filmAdi" required />
+   <label for="filmTuru">Film Türü:</label>
+   <input type="text" name="x" id="filmTuru" required />
+   <label for="filmYili">Film Yılı:</label>
+   <input type="text" name="x" id="filmYili" required />
+   <label for="filmPuani">Film Puanı:</label>
+   <input type="text" name="x" id="filmPuani" required />
+   <label for="filmResmi">Film Resmi:</label>
+   <input type="text" name="x" id="filmResmi" required />
+   <label for="filmAciklamasi">Film Açıklaması:</label>
+   <input type="text" name="x" id="filmAciklamasi" required />
+   <button type="submit" id="ekleButton">Ekle</button>
+   <button class="d-none" type="submit" id="degistirButton">Değiştir</button>
+  </form>
+  <div class="d-flex">
+   <ul id="filmlerContainer" class="col-10 d-flex flex-wrap"></ul>
+   <ul class="filter col-2" id="filtreContainer"></ul>
+  </div>
+
+  <script src="./app.js" type="module"></script>
+ </body>
+</html>
