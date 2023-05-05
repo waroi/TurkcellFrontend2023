@@ -27,6 +27,7 @@ game.addEventListener('click', (e) => {
   }
 });
 
+//burada aslında kazandı kontrolü yapılması lazım ???
 function degistir() {
   return false;
 }
