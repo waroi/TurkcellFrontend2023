@@ -1,13 +1,13 @@
 const game = document.getElementById('game');
 const board = Array(9).fill(null);
-let currentPlayer = 'X';
+let player = 'X';
 
 
-for (let i = 0; i < 9; i++) {
-    const kutu = document.createElement('div');
-    kutu.className = 'kutu';
-    game.appendChild(kutu);
-}
+Array.from({ length: 9 }).forEach(() => {
+  const kutu = document.createElement('div');
+  kutu.className = 'kutu';
+  game.appendChild(kutu);
+});
   
 
 game.addEventListener('click', (e) => {
@@ -15,19 +15,18 @@ game.addEventListener('click', (e) => {
   const index = Array.from(game.children).indexOf(kutu);
 
   if (board[index] === null) {
-    board[index] = currentPlayer;
-    kutu.textContent = currentPlayer;
+    board[index] = player;
+    kutu.textContent = player;
 
     if (degistir()) {
-      alert(`${currentPlayer} Kazandı!`);
-      location.reload();
+      player = player === 'X' ? 'O' : 'X';
     } else {
-      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      alert(`${player} Kazandı!`);
+      location.reload();
     }
   }
 });
 
 //burada aslında kazandı kontrolü yapılması lazım ???
-function degistir() {
-  return false;
-}
+const degistir = () => true;
+
