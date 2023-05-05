@@ -12,7 +12,7 @@ const movies = localStorage.getItem("movieStorage")
   : [];
 
 addMovieButton.addEventListener("click", (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   addMovie(
     movieNameInp.value,
     movieDirectorInp.value,
@@ -20,6 +20,7 @@ addMovieButton.addEventListener("click", (e) => {
     movieGenreInp.value,
     movieBannerInp.value
   );
+  // resetInputs();
 });
 
 updateDisplay();
@@ -30,18 +31,30 @@ function addMovie(
   movieDirector,
   movieYear,
   movieGenre,
-  movieBannerURL
+  movieBannerURL,
+  e
 ) {
-  movies.push({
-    movieName: movieName,
-    movieDirector: movieDirector,
-    movieYear: movieYear,
-    movieGenre: movieGenre,
-    movieBannerURL: movieBannerURL,
-  });
-  localStorage.setItem("movieStorage", JSON.stringify(movies));
-  updateDisplay();
-  resetInputs();
+  if (
+    movieNameInp.value === "" ||
+    movieDirectorInp.value === "" ||
+    movieYearInp.value === "" ||
+    movieGenreInp.value === "" ||
+    movieBannerInp.value === ""
+  ) {
+    alert("Tüm değerleri eksiksiz giriniz");
+  } else {
+    movies.push({
+      movieName: movieName,
+      movieDirector: movieDirector,
+      movieYear: movieYear,
+      movieGenre: movieGenre,
+      movieBannerURL: movieBannerURL,
+    });
+    localStorage.setItem("movieStorage", JSON.stringify(movies));
+    updateDisplay();
+  }
+
+  // resetInputs();
 }
 
 // Diziyi gösterm
@@ -49,7 +62,7 @@ function updateDisplay() {
   movieCollectionRow.innerHTML = "";
   movies.map((movie, i) => {
     let movieDisplay = document.createElement("div");
-    movieDisplay.classList.add("col-md-3");
+    movieDisplay.classList.add("col-md-4");
     movieDisplay.innerHTML = createCard(movie);
     movieCollectionRow.appendChild(movieDisplay);
     movieDisplay
@@ -97,22 +110,32 @@ function editMovie(movieIndex) {
   movieGenreInp.value = movies[movieIndex].movieGenre;
   movieBannerInp.value = movies[movieIndex].movieBannerURL;
   editMovieButton.addEventListener("click", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     submitEdit(movieIndex);
   });
 }
 
 function submitEdit(movieIndex) {
-  movies[movieIndex].movieName = movieNameInp.value;
-  movies[movieIndex].movieDirector = movieDirectorInp.value;
-  movies[movieIndex].movieYear = movieYearInp.value;
-  movies[movieIndex].movieGenre = movieGenreInp.value;
-  movies[movieIndex].movieBannerURL = movieBannerInp.value;
-  updateDisplay();
-  localStorage.setItem("movieStorage", JSON.stringify(movies));
-  editMovieButton.style.display = "none";
-  addMovieButton.style.display = "block";
-  resetInputs();
+  if (
+    movieNameInp.value === "" ||
+    movieDirectorInp.value === "" ||
+    movieYearInp.value === "" ||
+    movieGenreInp.value === "" ||
+    movieBannerInp.value === ""
+  ) {
+    alert("Tüm değerleri eksiksiz giriniz");
+  } else {
+    movies[movieIndex].movieName = movieNameInp.value;
+    movies[movieIndex].movieDirector = movieDirectorInp.value;
+    movies[movieIndex].movieYear = movieYearInp.value;
+    movies[movieIndex].movieGenre = movieGenreInp.value;
+    movies[movieIndex].movieBannerURL = movieBannerInp.value;
+    localStorage.setItem("movieStorage", JSON.stringify(movies));
+    updateDisplay();
+    editMovieButton.style.display = "none";
+    addMovieButton.style.display = "block";
+    // resetInputs();
+  }
 }
 
 function resetInputs() {
