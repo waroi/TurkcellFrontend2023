@@ -16,29 +16,31 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-10 mx-auto my-5">
-					<form class="" id="form" method="post">
+					<form  id="form" name="form" aria-required="true">
 						<div class="row">
 							<div class="col-6">
 								<div class="mb-3">
-									<label for="exampleInputEmail1" class="form-label">Movie Name</label>
+									<label for="name" class="form-label">Movie Name</label>
 									<input
 										type="text"
 										class="form-control"
-										id="exampleInputEmail1"
+										id="name"
 										aria-describedby="emailHelp"
 										name="name"
-									/>
+										required
+										/>
 								</div>
 							</div>
 							<div class="col-6">
 								<div class="mb-3">
-									<label for="exampleInputEmail1" class="form-label">Director</label>
+									<label for="director" class="form-label">Director</label>
 									<input
 										type="text"
 										class="form-control"
-										id="exampleInputEmail1"
+										id="director"
 										aria-describedby="emailHelp"
 										name="director"
+										required
 									/>
 								</div>
 							</div>
@@ -46,31 +48,34 @@
 						<div class="row">
 							<div class="col-6">
 								<div class="mb-3">
-									<label for="exampleInputEmail1" class="form-label">Year</label>
+									<label for="year" class="form-label">Year</label>
 									<input
-										type="text"
+										type="number"
 										class="form-control"
-										id="exampleInputEmail1"
+										id="year"
 										aria-describedby="emailHelp"
 										name="year"
+										required
 									/>
 								</div>
 							</div>
 							<div class="col-6">
 								<div class="mb-3">
-									<label for="exampleInputEmail1" class="form-label">Cover Url</label>
+									<label for="cover" class="form-label">Cover Url</label>
 									<input
 										type="text"
 										class="form-control"
-										id="exampleInputEmail1"
+										id="cover"
 										aria-describedby="emailHelp"
 										name="cover"
+										required
 									/>
 								</div>
 							</div>
 						</div>
 
-						<button type="submit" class="btn btn-primary w-100 mt-3">Create</button>
+						<button type="submit" class="btn btn-success w-100 mt-3 d-none" name="saveBtn" id="saveBtn">Save</button>
+						<button type="submit" class="btn btn-primary w-100 mt-3 d-block" name="createBtn" id="createBtn">Create</button>
 					</form>
 				</div>
 			</div>

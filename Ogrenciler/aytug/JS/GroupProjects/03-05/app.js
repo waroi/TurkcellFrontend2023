@@ -1,28 +1,44 @@
 let form = document.getElementById("form");
 let movieUI = document.getElementById("movieUI");
+let saveBtn = document.getElementById("saveBtn");
+let createBtn = document.getElementById("createBtn");
 
-form.addEventListener("submit", getData);
+let tempMovieData;
 
-function getData(e) {
-	const newMovie = Object.fromEntries(new FormData(e.target).entries());
-	e.preventDefault();
-	addMovie(newMovie);
+form.removeAttribute('novalidate');
+
+createBtn.addEventListener("click", addMovie);
+ saveBtn.addEventListener("click", editLocalStorage)
+
+
+function getData() {
+	// const newMovie = Object.fromEntries(new FormData(e.target).entries());
+	let name = document.getElementById("name").value;
+	let director = document.getElementById("director").value;
+	let year = document.getElementById("year").value;
+	let cover = document.getElementById("cover").value;
+	const newMovie = {name, director, year, cover}
+	return newMovie;
 }
 
-function addMovie(newMovie) {
+function addMovie(e) {
+	let newMovie = getData()
 	let localData;
 	getLocalStorage() ? (localData = getLocalStorage()) : (localData = []);
 	localData.push(newMovie);
 	setLocalStrorage(localData);
 	addBox(newMovie);
+	e.preventDefault();
 }
 
 function addBox(movie) {
 	let card = `<div class='card'>
-                  <img src='${movie.cover}' class='card-img-top' alt='${movie.cover}' />
+					<div class='mx-auto' style='width:100%; height:300px; '>
+                  		<img src='${movie.cover}' class='card-img-top' alt='${movie.cover}' style='width:100%; height:300px; '/>
+										</div>
                     <div class='card-body'>
                       <h5 class='card-title'>${movie.name}</h5>
-                      <p class='card-text'> ${movie.director}/${movie.year}</p>
+                      <p class='card-text'> ${movie.director} - ${movie.year}</p>
                         <div class='d-flex justify-content-center gap-3'>
                           <button class='btn btn-success' id='e-${movie.name}'>Edit</button>
                           <button class='btn btn-danger' id='d-${movie.name}'>Delete</button>
@@ -30,16 +46,20 @@ function addBox(movie) {
                       </div>
                 </div>`;
 	let cardWrap = document.createElement("div");
-	cardWrap.className = "col-sm-12 col-md-6";
+	cardWrap.className = "col-sm-6 col-md-4";
 	cardWrap.innerHTML = card;
-	// let deleteBtn = document.getElementById(`d-asdasd`);
-	// console.log(deleteBtn);
-	// deleteBtn &&
-	// 	deleteBtn.addEventListener("click", function () {
-	// 		console.log("sildi");
-	// 		cardWrap.remove();
-	// 	});
 	movieUI.appendChild(cardWrap);
+
+	let deleteBtn = document.getElementById(`d-${movie.name}`);
+	deleteBtn.addEventListener("click", function () {
+		cardWrap.remove();
+		deleteLocalStorage(movie.name);
+	});
+
+	let editBtn = document.getElementById(`e-${movie.name}`);
+	editBtn.addEventListener("click", function () {
+		editMovie(movie);
+	});
 }
 
 function loadUI() {
@@ -49,8 +69,6 @@ function loadUI() {
 
 document.addEventListener("DOMContentLoaded", loadUI);
 
-function deleteMovie(movie) {}
-
 function getLocalStorage() {
 	return JSON.parse(localStorage.getItem("movieList"));
 }
@@ -58,3 +76,60 @@ function getLocalStorage() {
 function setLocalStrorage(localData) {
 	localStorage.setItem("movieList", JSON.stringify(localData));
 }
+
+function deleteLocalStorage(name) {
+	let localData = getLocalStorage();
+	let index = localData.indexOf(localData.find((item) => item.name === name));
+	localData.splice(index, 1);
+	setLocalStrorage(localData);
+}
+
+function editMovie(movie) {
+	document.forms["form"]["name"].value = movie.name;
+	document.forms["form"]["director"].value = movie.director;
+	document.forms["form"]["year"].value = movie.year;
+	document.forms["form"]["cover"].value = movie.cover;
+
+	document.forms["form"]["saveBtn"].classList.replace("d-none", "d-block");
+	document.forms["form"]["createBtn"].classList.replace("d-block", "d-none");
+
+	tempMovieData = movie;
+}
+
+function editLocalStorage() {
+	let newMovie = getData()
+	let localData = getLocalStorage();
+	let index = localData.indexOf(localData.find((item) => item.name === tempMovieData.name));
+	console.log("idx",index)
+	console.log("lcldata",localData)
+	console.log("newMov",newMovie)
+	localData[index] = newMovie;
+	console.log(localData)
+
+	document.forms["form"]["saveBtn"].classList.replace("d-block", "d-none");
+	document.forms["form"]["createBtn"].classList.replace("d-none", "d-block");
+
+	setLocalStrorage(localData);
+	window.location.reload();
+
+}
+
+
+// (() => {
+// 	'use strict'
+  
+// 	// Fetch all the forms we want to apply custom Bootstrap validation styles to
+// 	const forms = document.querySelectorAll('.needs-validation')
+  
+// 	// Loop over them and prevent submission
+// 	Array.from(forms).forEach(form => {
+// 	  form.addEventListener('submit', event => {
+// 		if (!form.checkValidity()) {
+// 		  event.preventDefault()
+// 		  event.stopPropagation()
+// 		}
+  
+// 		form.classList.add('was-validated')
+// 	  }, false)
+// 	})
+//   })()
