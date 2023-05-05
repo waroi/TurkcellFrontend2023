@@ -18,7 +18,7 @@ game.addEventListener('click', (e) => {
     board[index] = currentPlayer;
     kutu.textContent = currentPlayer;
 
-    if (checkWin()) {
+    if (degistir()) {
       alert(`${currentPlayer} Kazandı!`);
       location.reload();
     } else {
@@ -27,3 +27,6 @@ game.addEventListener('click', (e) => {
   }
 });
 
+function degistir() {
+  return false;
+}
