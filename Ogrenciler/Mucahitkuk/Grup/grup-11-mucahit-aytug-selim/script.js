@@ -52,15 +52,15 @@ function renderTodo(todo) {
 	newButton.classList.add("bg-transparent", "me-3", "border-0", "delete-todo");
 	newTodo.innerText = todo.text;
 	newButton.classList.add("bi", "bi-x-square-fill", "text-white");
+	if (todo.completed) {
+		newTodo.classList.add("bg-success", "text-decoration-line-through");
+	} else {
+		newTodo.classList.add("bg-danger");	
+	}
 	list.appendChild(newTodo);
 	newTodo.appendChild(newButton);
-	if (todo.completed) {
-		newTodo.classList.add("bg-success");
-	} else {
-		newTodo.classList.add("bg-danger");
-	}
+	newButton.addEventListener("click", deleteTodo);
 	newTodo.addEventListener("click", toggleCompleted);
-	newTodo.querySelector(".delete-todo").addEventListener("click", deleteTodo);
 	todoInput.value = "";
 }
 
@@ -88,26 +88,27 @@ function getTodosFromLocalStorage() {
 	return todos ? JSON.parse(todos) : [];
 }
 
+
 function toggleCompleted(e) {
-	console.log("complete fonksiyonu çalıştı");
-	const li = e.target;
-	const text = li.innerText;
-	let todos = getTodosFromLocalStorage();
-
-	todos = todos.map((todo) => {
-		if (todo.text.toString() == text) {
-			li.classList.replace("bg-danger", "bg-success");
-			return { ...todo, completed: !todo.completed };
-		}
-		li.classList.replace("bg-success", "bg-danger");
-		return todo;
-	});
-
-	localStorage.setItem("todos", JSON.stringify(todos));
-
-	// Toggle completed class on the todo item
-	li.classList.toggle("completed");
+  console.log(e.target.innerText)
+  const li = e.currentTarget;
+  li.getAttribute("data-id");
+  let todos = getTodosFromLocalStorage();
+  let x = todos.find(todo => todo.text === e.target.innerText);
+  let index = todos.indexOf(x);
+  todos[index].completed =  !todos[index].completed;
+  console.log(todos)
+  if(todos[index].completed) {
+    li.classList.add("bg-success", "text-decoration-line-through");
+    li.classList.remove("bg-danger");
+  } else {
+    li.classList.add("bg-danger");
+    li.classList.remove("bg-success", "text-decoration-line-through");
+  }
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+
 
 function deleteTodo(e) {
 	const li = e.target.closest("li");
