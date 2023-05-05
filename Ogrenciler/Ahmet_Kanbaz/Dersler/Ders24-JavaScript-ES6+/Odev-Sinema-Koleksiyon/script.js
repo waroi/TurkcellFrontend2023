@@ -8,6 +8,21 @@ const movieList = document.getElementById('movieList');
 
 const addMovie = document.getElementById('addMovieButton');
 
+
+const modalBody = document.getElementById('modalBody');
+const modalImg = document.getElementById('modalImg');
+const modalimgUrl = document.getElementById('modalimgUrl');
+const modalfilmAdi = document.getElementById('modalfilmAdi');
+const modalfilmTur = document.getElementById('modalfilmTur');
+const modalfilmTarih = document.getElementById('modalfilmTarih');
+const modalfilmYonetmen = document.getElementById('modalfilmYonetmen');
+const modalfilmTanitim = document.getElementById('modalfilmTanitim');
+const saveChanges = document.getElementById('saveChanges');
+
+
+const toastMessage = document.getElementById('liveToast');
+const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastMessage);
+
 let movies;
 
 addEventListeners();
@@ -16,17 +31,25 @@ loadItems();
 function addEventListeners() {
   addMovie.addEventListener('click', filmEkle);
   movieList.addEventListener('click', editMovie);
+  movieList.addEventListener('click', deleteMovie);
+  saveChanges.addEventListener('click', saveChangesFunc);
 }
 
 function filmEkle(e) {
-
-  // if(movieUrl.value === '' || movieName.value === '' || movieType.value === '' || movieYear.value === '' || movieDirector.value === '' || movieContext.value === '') {
-  //   alert('Lütfen tüm alanları eksiksiz doldurunuz.');
-  // }
-  // else {
+  if(movieUrl.value === '' || movieName.value === '' || movieType.value === '' || movieYear.value === '' || movieDirector.value === '' || movieContext.value === '') {
+    alert('Lütfen tüm alanları eksiksiz doldurunuz.');
+  }
+  else {
     addMovieCard(movieUrl.value, movieName.value, movieType.value, movieYear.value, movieDirector.value, movieContext.value);
     newLocalStorageAdd(movieUrl.value, movieName.value, movieType.value, movieYear.value, movieDirector.value, movieContext.value);
-  // }
+    movieUrl.value = '';
+    movieName.value = '';
+    movieType.value = '';
+    movieYear.value = '';
+    movieDirector.value = '';
+    movieContext.value = '';
+    toastBootstrap.show();
+  }
   e.preventDefault();
 }
 
@@ -34,12 +57,12 @@ function loadItems() {
   movies = getMoviesFromLocalStorage();
   movies.forEach(function (movie) {
     addMovieCard(movie.url, movie.name, movie.type, movie.date, movie.director, movie.context);
-  })
+  });
 }
 
 function addMovieCard(url, name, type, date, director, context) {
   const movieCol = document.createElement('div');
-  movieCol.className = 'col-lg-3';
+  movieCol.className = 'col-lg-3 col-sm-6 my-3';
   const movieCard = document.createElement('div');
   movieCard.className = 'card shadow';
   const movieImg = document.createElement('img');
@@ -50,19 +73,18 @@ function addMovieCard(url, name, type, date, director, context) {
   movieBody.className = 'card-body';
   const cardBodyItems = `<h5 class="card-title text-center">${name}</h5>
   <h6 class="text-center text-success">${type}</h6>
-  <p class="card-text">${context}</p>
+  <p class="card-text text-truncate">${context}</p>
   <h6 class="text-end">${date}</h6>
   <h6 class="text-end">${director}</h6>
-  <div class="d-flex justify-content-around my-2">
-    <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="fa-solid fa-pen-to-square fa-xl"></span></a>
-    <a href="#"><span class="fa-solid fa-trash fa-xl"></span></a>
+  <div class="d-flex justify-content-around my-3">
+    <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="fa-solid fa-pen-to-square fa-lg"></span></a>
+    <a href="#"><span class="fa-solid fa-trash fa-lg"></span></a>
   </div>`;
   movieBody.innerHTML = cardBodyItems;
   movieCard.appendChild(movieImg);
   movieCard.appendChild(movieBody);
   movieCol.appendChild(movieCard);
   movieList.appendChild(movieCol);
-  movieUrl.value, movieName.value, movieType.value, movieYear.value, movieDirector.value, movieContext.value = "";
 }
 
 function newLocalStorageAdd(url, name, type, date, director, context) {
@@ -90,49 +112,63 @@ function getMoviesFromLocalStorage() {
 }
 
 function editMovie(e) {
-  if(e.target.className === 'fa-solid fa-pen-to-square fa-xl') {
-    updateMovie(movieUrl.value, movieName.value, movieType.value, movieYear.value, movieDirector.value, movieContext.value);
+  if(e.target.className === 'fa-solid fa-pen-to-square fa-lg') {
+    const movie = e.target.parentElement.parentElement.parentElement.parentElement;
+    const movieImgUrl = movie.children[0].getAttribute('src');
+    movies = getMoviesFromLocalStorage();
+    updateMovie(movies, movieImgUrl);
   }
+  e.preventDefault();
 }
 
-function updateMovie(url, name, type, date, director, context) {
+function updateMovie(movies, movieImgUrl) {
+  movies.forEach(function (movie) {
+    if(movie.url === movieImgUrl) {
+      modalImg.setAttribute('src', movie.url);
+      modalimgUrl.value = movie.url;
+      modalfilmAdi.value = movie.name;
+      modalfilmTur.value = movie.type;
+      modalfilmTarih.value = movie.date;
+      modalfilmYonetmen.value = movie.director;
+      modalfilmTanitim.value = movie.context;
+    }
+  });
+}
+
+function saveChangesFunc(e) {
   movies = getMoviesFromLocalStorage();
   movies.forEach(function (movie) {
-    if(movie.url === url) {
-      movie.url = url;
-      movie.name = name;
-      movie.type = type;
-      movie.date = date;
-      movie.director = director;
-      movie.context = context;
+    if(movie.url === modalimgUrl.value) {
+      movie.url = modalimgUrl.value;
+      movie.name = modalfilmAdi.value;
+      movie.type = modalfilmTur.value;
+      movie.date = modalfilmTarih.value;
+      movie.director = modalfilmYonetmen.value;
+      movie.context = modalfilmTanitim.value;
     }
-    
   });
-  // const movieForm = document.createElement('form');
-  //   movieForm.innerHTML = `<div class="my-2">
-  //   <label for="imgUrl" class="form-label">Filmin Afiş Url'i</label>
-  //   <input type="text" class="form-control" id="imgUrl" placeholder="https://..." value = ${url}>
-  //   </div>
-  //   <div class="mb-2">
-  //     <label for="filmAdi" class="form-label">Filmin Adı</label>
-  //     <input type="text" class="form-control" id="filmAdi" placeholder="" value= ${name}>
-  //   </div>
-  //   <div class="mb-2">
-  //     <label for="filmTur" class="form-label">Filmin Türü</label>
-  //     <input type="text" class="form-control" id="filmTur" placeholder="Korku, Aksiyon, Eğlenceli vb..." value= ${type}>
-  //   </div>
-  //   <div class="mb-2">
-  //     <label for="filmTarih" class="form-label">Filmin Çıkış Tarihi</label>
-  //     <input type="date" class="form-control" id="filmTarih" value= ${date}>
-  //   </div>
-  //   <div class="mb-2">
-  //     <label for="filmYonetmen" class="form-label">Filmin Yönetmeni</label>
-  //     <input type="text" class="form-control" id="filmYonetmen" placeholder="" value= ${director}>
-  //   </div>
-  //   <div class="mb-3">
-  //     <label for="filmTanitim" class="form-label">Filmin Özeti</label>
-  //     <textarea class="form-control" id="filmTanitim" rows="3" value= ${context}></textarea>
-  //   </div>`;
-  //   const modalBody = document.querySelector('.modal-body');
-  //   modalBody.appendChild(movieForm);
+  localStorage.setItem('movies', JSON.stringify(movies));
+  window.location.reload();
+  e.preventDefault();
+}
+
+function deleteMovie(e) {
+  if(e.target.className === 'fa-solid fa-trash fa-lg') {
+    const movie = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+    if(confirm('Bu filmi silmek istediğinize emin misiniz?')) {
+      movie.remove();
+      deleteMovieFromLocalStorage(movie);
+    }
+  }
+  e.preventDefault();
+}
+
+function deleteMovieFromLocalStorage(movie) {
+  movies = getMoviesFromLocalStorage();
+  movies.forEach(function (movieItem, index) {
+    if(movieItem.url === movie.children[0].children[0].getAttribute('src')) {
+      movies.splice(index, 1);
+    }
+  });
+  localStorage.setItem('movies', JSON.stringify(movies));
 }

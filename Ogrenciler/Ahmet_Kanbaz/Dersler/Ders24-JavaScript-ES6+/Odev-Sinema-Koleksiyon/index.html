@@ -14,7 +14,7 @@
 
 <body>
   <div class="container">
-    <div>
+    <div class="mb-5">
       <form>
         <div class="my-2">
           <label for="imgUrl" class="form-label">Filmin Afiş Url'i</label>
@@ -26,7 +26,7 @@
         </div>
         <div class="mb-2">
           <label for="filmTur" class="form-label">Filmin Türü</label>
-          <input type="text" class="form-control" id="filmTur" placeholder="Korku, Aksiyon, Eğlenceli vb...">
+          <input type="text" class="form-control" id="filmTur" placeholder="Korku, Aksiyon, Eğlence vb...">
         </div>
         <div class="mb-2">
           <label for="filmTarih" class="form-label">Filmin Çıkış Tarihi</label>
@@ -43,7 +43,6 @@
         <button type="button" class="btn btn-primary" id="addMovieButton">Filmi Ekle</button>
       </form>
     </div>
-    <hr>
     <div class="row mb-4" id="movieList">
       <!-- Buraya JavaScript ile film listesi gelmektedir. -->
     </div>
@@ -55,12 +54,50 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="modalBody">
+          <div class="my-3 d-flex justify-content-center">
+            <img src="" alt="" id="modalImg" class="img-fluid">
+          </div>
+          <div class="my-2">
+            <label for="modalimgUrl" class="form-label">Filmin Afiş Url'i</label>
+            <input type="text" class="form-control" id="modalimgUrl" placeholder="https://...">
+            </div>
+            <div class="mb-2">
+              <label for="modalfilmAdi" class="form-label">Filmin Adı</label>
+              <input type="text" class="form-control" id="modalfilmAdi"/>
+            </div>
+            <div class="mb-2">
+              <label for="modalfilmTur" class="form-label">Filmin Türü</label>
+              <input type="text" class="form-control" id="modalfilmTur" placeholder="Korku, Aksiyon, Eğlence vb...">
+            </div>
+            <div class="mb-2">
+              <label for="modalfilmTarih" class="form-label">Filmin Çıkış Tarihi</label>
+              <input type="date" class="form-control" id="modalfilmTarih">
+            </div>
+            <div class="mb-2">
+              <label for="modalfilmYonetmen" class="form-label">Filmin Yönetmeni</label>
+              <input type="text" class="form-control" id="modalfilmYonetmen" placeholder="">
+            </div>
+            <div class="mb-3">
+            <label for="modalfilmTanitim" class="form-label">Filmin Özeti</label>
+            <textarea class="form-control" id="modalfilmTanitim" rows="3"></textarea>
+            </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+          <button type="button" class="btn btn-primary" id="saveChanges">Değişiklikleri Kaydet</button>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header d-flex justify-content-between">
+        <strong class="me-auto">Sinema Koleksiyonu</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Film Başarıyla Eklendi.
       </div>
     </div>
   </div>
