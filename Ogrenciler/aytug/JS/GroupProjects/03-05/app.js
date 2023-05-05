@@ -99,15 +99,10 @@ function editLocalStorage() {
 	let newMovie = getData()
 	let localData = getLocalStorage();
 	let index = localData.indexOf(localData.find((item) => item.name === tempMovieData.name));
-	console.log("idx",index)
-	console.log("lcldata",localData)
-	console.log("newMov",newMovie)
 	localData[index] = newMovie;
-	console.log(localData)
-
 	document.forms["form"]["saveBtn"].classList.replace("d-block", "d-none");
 	document.forms["form"]["createBtn"].classList.replace("d-none", "d-block");
-
+	
 	setLocalStrorage(localData);
 	window.location.reload();
 
