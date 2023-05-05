@@ -31,8 +31,7 @@ function addMovie(
   movieDirector,
   movieYear,
   movieGenre,
-  movieBannerURL,
-  e
+  movieBannerURL
 ) {
   if (
     movieNameInp.value === "" ||
