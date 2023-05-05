@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <link
+   rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+ </head>
+ <body class="bg-body1 vh-100 d-flex justify-content-center align-items-center">
+  <main
+   class="bg-device-bg-dark row col-12 col-md-8 col-lg-6 col-xl-4 p-4 rounded-4">
+   <div class="row bg-device-bg-light rounded-3">
+    <div class="col-12 bg-device-bg-dark rounded-2 px-1 pb-2">
+     <label
+      id="calculator_screen"
+      class="p-1 bg-screen col-12 rounded-2"></label>
+    </div>
+    <div class="row g-1 p-2">
+     <div class="col-9">
+      <div class="row flex-wrap-reverse g-1">
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn-light-button w-100"
+         onclick="numberEntry('0')">
+         0
+        </button>
+       </div>
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn btn-light-button w-100"
+         onclick="numberEntry('00')">
+         00
+        </button>
+       </div>
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn btn-light-button w-100"
+         id="nokta"
+         onclick="numberEntry('.')">
+         <i class="bi bi-dot"></i>
+        </button>
+       </div>
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn btn-light-button w-100"
+         onclick="numberEntry('1')">
+         1
+        </button>
+       </div>
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn btn-light-button w-100"
+         onclick="numberEntry('2')">
+         2
+        </button>
+       </div>
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn btn-light-button w-100"
+         onclick="numberEntry('3')">
+         3
+        </button>
+       </div>
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn btn-light-button w-100"
+         onclick="numberEntry('4')">
+         4
+        </button>
+       </div>
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn btn-light-button w-100"
+         onclick="numberEntry('5')">
+         5
+        </button>
+       </div>
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn btn-light-button w-100"
+         onclick="numberEntry('6')">
+         6
+        </button>
+       </div>
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn btn-light-button w-100"
+         onclick="numberEntry('7')">
+         7
+        </button>
+       </div>
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn btn-light-button w-100"
+         onclick="numberEntry('8')">
+         8
+        </button>
+       </div>
+       <div class="col-4">
+        <button
+         type="button"
+         class="btn btn btn-light-button w-100"
+         onclick="numberEntry('9')">
+         9
+        </button>
+       </div>
+      </div>
+     </div>
+     <div class="col-1 flex-grow-1">
+      <div class="row g-1">
+       <div class="col-12">
+        <button
+         type="button"
+         class="btn btn-delete w-100"
+         id="sifirla"
+         onclick="calculator.clear()">
+         C
+        </button>
+       </div>
+       <div class="col-12">
+        <button
+         type="button"
+         class="btn btn-dark-button w-100"
+         id="bolme"
+         onclick="calculator.divide()">
+         <i class="bi bi-slash-lg"></i>
+        </button>
+       </div>
+       <div class="col-auto w-100">
+        <button
+         type="button"
+         class="btn btn-dark-button w-100 custom-height"
+         id="toplama"
+         onclick="calculator.add()">
+         <i class="bi bi-plus-lg"></i>
+        </button>
+       </div>
+      </div>
+     </div>
+     <div class="col-1 flex-grow-1">
+      <div class="row g-1">
+       <div class="col-12">
+        <button
+         type="button"
+         class="btn btn-manual w-100"
+         id="manual"
+         onclick="calculator.manual()">
+         MI
+        </button>
+       </div>
+       <div class="col-12">
+        <button
+         type="button"
+         class="btn btn-dark-button w-100"
+         id="carpma"
+         onclick="calculator.multiply()">
+         <i class="bi bi-x-lg"></i>
+        </button>
+       </div>
+       <div class="col-12">
+        <button
+         type="button"
+         class="btn btn-dark-button w-100"
+         id="cikarma"
+         onclick="calculator.subtract()">
+         <i class="bi bi-dash-lg"></i>
+        </button>
+       </div>
+       <div class="col-12">
+        <button
+         type="button"
+         class="btn btn-dark-button w-100"
+         id="esittir"
+         onclick="calculator.result()">
+         =
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+
+  <script src="./calculator.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+ </body>
+</html>

@@ -1,257 +1,161 @@
-// Javascript Giriş
-// console.log("Deneme Mesajı");
-
 // Variables - Değişkenler
 
-// number = sayısal ifadeler
-
-// var firstNumber = 20;
-// var secondNumber = 30;
-// console.log(firstNumber + secondNumber);
+// Number - Sayısal Değer
+// var firstNumber = 10;
+// console.log(firstNumber + 10);
 // console.log(typeof firstNumber);
 
-// String = Karakter Dizisi
-
+// String - Metinsel Değer
 // var userName = "Varol";
 // console.log(userName);
 // console.log(typeof userName);
 
-// Boolean = Karşılaştırma değerleri (True-False)
-// var a = true;
-// console.log(a);
-// console.log(typeof a);
+// Boolean - Mantıksal Değer(true/false)
+// var isOnline = true;
+// console.log(isOnline);
+// console.log(typeof isOnline);
 
-// null = boş
-// var b = null;
-// console.log(b);
-// console.log(typeof b);
+// Undefined - Tanımsız Değer
+// var isUndefined;
+// console.log(isUndefined);
+// console.log(typeof isUndefined);
+
+// Null - Boş Değer
+// var isNull = null;
+// console.log(isNull);
+// console.log(typeof isNull);
 
 // Object - Nesne
-// var user = {
-//   name: "Varol",
-//   age: 36,
-// };
+// var user = { name: "Varol", age: 25 };
 // console.log(user);
 // console.log(typeof user);
-// console.log(user.name, user.age);
+// console.log(user.age);
 
-// Array = Diziler
-// var users = ["varol", "erdem", "şafak", 10];
-// console.log(users);
-// console.log(typeof users);
-// console.log(users[1]);
+// Array - Dizi
+// var students = ["Varol", "Ali", "Veli", 10];
+// console.log(students);
+// console.log(typeof students);
+// console.log(students[1]);
 
-// Date Metodu
+// Date - Tarih
 // var date = new Date();
 // console.log(date);
 // console.log(typeof date);
 
+// var a = 10;
+// var b = a;
+// console.log("1- ", a, b);// 10 10
+// a = 20;
+// console.log("2- ", a, b);// 20 10
+
+// var a = [10];
+// var b = a;
+// console.log("1- ", a, b);// 10 10
+// a = [20];
+// console.log("2- ", a, b);// 20 10
+
+// var a = [10, 20, 30, 40, 50];
+// var b = a;
+// console.log("1- ", a, b);// 10 10
+// a = [20, 30, 40, 50, 60];
+// console.log("2- ", a, b);// 20 10
+
+// var c = [10, 20];
+// var d = c;
+// console.log("1- ", c, d);// 10 10
+// c = [30, 40];
+// console.log("2- ", c, d);// 20 10
+
+// let a = [10];
+// let b = a;
+// console.log('1', a, b);
+// a.push(20);
+// console.log('2', a, b);
+
+// function - Fonksiyonlar
+// merhaba()
 // var merhaba = function () {
 //   console.log("Merhaba");
 // };
-// console.log(merhaba);
-// console.log(typeof merhaba);
+// function merhaba (name) {
+//   console.log("Merhaba ", name);
+// };
+// merhaba("Varol");
+// merhaba("Oğulcan");
 
-// console.log(this);
-
-// var a = 10;
-// var b = a;
-// console.log("1- ", a, b); // 10-10 mertcan
-// a = 20;
-// console.log("2- ", a, b); // 20-10 mertcan
-
-// Scope
-
+// Scope - Kapsam
 // var a = 10; // function scope
 // let b = 20; // block scope
 // const c = 30; // block scope
-// // global scope
-// // deneme();
-// {
-//   // block scope
-//   var d = "merhaba";
-//   // console.log("1- ", d);
-//   // var b = 40;
-//   console.log("1- ", c + b);
+// function test() {
+//   var a = 40;
+//   let b = 50;
+//   const c = 60;
+//   console.log("Function Scope: ", a, b, c);
 // }
-
-// // function deneme() { // functional scope
-// //   var b = 40;
-// //   console.log("1- ", c + b); // Okan 70-20, Batuhan 70-40
+// // {
+// //   var a = 70;
+// //   let b = 80;
+// //   const c = 90;
 // // }
-
-// console.log("2- ", b);
-// // console.log("2- ", d);
-
-// {
-//   let a = 5;
-//   var b = 10;
+// if (true){
+//   var a = 80;
+//   let b = 90;
+//   const c = 100;
+//   console.log("Block Scope: ", a, b, c);
 // }
-// console.log(a, b);
+// test();
+// console.log("Global Scope: ", a, b, c);
 
-// Tip Dönüşümü
-
-// var a = "string";
-// console.log(a);
+// Tip Dönüşümleri
+// var a = "deneme";
+// console.log(a, typeof a);
 // a = 5;
-// console.log(a);
+// console.log(a, typeof a);
 
 // var a = 5;
-// console.log(a);
-// console.log(typeof a);
+// console.log(a, typeof a);
 // a = String(a);
-// console.log(a);
-// console.log(typeof a);
+// console.log(a, typeof a);
 
 // var a = "5";
-// console.log(a);
-// console.log(typeof a);
+// console.log(a, typeof a);
 // a = Number(a);
-// console.log(a);
-// console.log(typeof a);
+// console.log(a, typeof a);
 
-// var a = "deneme";
-// console.log(a);
-// console.log(typeof a);
+// var a = "Deneme";
+// console.log(a, typeof a);
 // a = Number(a);
-// console.log(a);
-// console.log(typeof a);
+// console.log(a, typeof a);
+
+// console.log(typeof NaN);
 
 // var a = 5 + "2";
-// console.log(a);
-// console.log(typeof a);
+// console.log(a, typeof a);
+
+// var a = 5 - "2";
+// console.log(a, typeof a);
 
 // Operatorler
 // const a = 10;
 // const b = 4;
 // let s;
 
-// // s = a + b; // Toplama Operatörü
-// // s = a - b; // Çıkarma Operatörü
-// // s = a * b; // Çarpma Operatörü
-// // s = a / b; // Bölme Operatörü
-// // s = a % b; // MOD Operatörü
+// // Aritmetik Operatorler
+// // console.log(a + b); // Toplama Operatorü
+// // console.log(a - b); // Çıkarma Operatorü
+// // console.log(a * b); // Çarpma Operatorü
+// // console.log(a / b); // Bölme Operatorü
+// // console.log(a % b); // Mod Alma Operatorü
+// // console.log(a ** b); // Üs Alma Operatorü
 
-// // s = Math.PI;
-// // s = Number(Math.PI.toFixed(4));
-// // s = Math.round(a / b);
-// // s = Math.ceil(a / b);
-// // s = Math.floor(a / b);
-// // s = Math.sqrt(16);
-// // s = Math.pow(4, 3);
-// // s = Math.floor(Math.random() * 80 + 20);
-// console.log(s);
+// // Math Fonksiyonları
+// s = Math.PI;
+// s = Math.random()*100;
+// s = Math.round(3.5);
+// s = Math.ceil(3.2);
+// s = Math.floor(3.9);
+// s = Math.pow(2, 3);
+// s = Math.floor(Math.random()*100);
 
-// String Metodları
-
-// let value;
-// const firstName = "Varol";
-// const lastName = "Maksutoğlu";
-// const department = "Yazılım";
-// const salary = "5000";
-
-// value = firstName + " " + lastName;
-// value = firstName;
-// value += " " + lastName;
-
-// value = firstName.length;
-// value = firstName.toLowerCase();
-// value = firstName.toUpperCase();
-// value = firstName[2];
-// value = firstName[firstName.length - 1];
-// value = firstName.indexOf("a");
-// value = firstName.includes("r");
-// value = firstName.concat(" ", lastName, " Deneme");
-// value =
-//   "isim: " +
-//   firstName +
-//   "\nSoyisim: " +
-//   lastName +
-//   "\nMaaş: " +
-//   salary +
-//   "\nDepartman: " +
-//   department;
-
-// Template Literal
-
-// value = `İsim: ${firstName}
-// Soyisim: ${lastName}
-// Maaş: ${salary}
-// Deraptman: ${department}
-// `;
-
-// value =
-//   "<ul>" + "<li>" + firstName + "</li>" + "<li>" + lastName + "</li>" + "</ul>";
-// value = `
-// <ul>
-//   <li>${firstName}</li>
-//   <li>${lastName}</li>
-//   <li>${salary}</li>
-//   <li>${department}</li>
-// </ul>
-// `;
-// document.body.innerHTML = value;
-// value = console.log(value);
-
-// Array Özellikleri
-
-// let value;
-// const numbers = [45, 78, 34, 79, 5];
-// const lang = ["Python", "C++", "Javascript"];
-
-// // value = numbers.length;
-// // value = numbers[3];
-// // value = numbers[numbers.length - 1];
-// // numbers.push(200);
-// // value = numbers;
-// // value = numbers.indexOf(5);
-// // value = numbers.includes(23);
-// // numbers.pop();
-// // numbers.shift();
-// numbers[1] = 3;
-// console.log(numbers);
-// let a = ["deneme", "bir", "üç", "beş"];
-// a.sort();
-// console.log(a);
-// // value = numbers.sort(function (x, y) {
-// //   return x - y;
-// // });
-// // value = numbers.sort(function (x, y) {
-// //   return y - x;
-// // });
-// console.log(value);
-
-// Obje Özellikleri
-// let value;
-// const user = {
-//   name: "Varol Maksutoğlu",
-//   age: 36,
-//   email: "varolmaksutoglu@yandex.com",
-//   langs: ["Python", "C++", "Javascript"],
-//   adress: {
-//     city: "İstanbul",
-//     street: "Şahika",
-//   },
-//   work: function () {
-//     console.log("Çalışıyor");
-//   },
-// };
-
-// // value = user.adress.city;
-// // value = user.work();
-// value = user["name"];
-// console.log(value);
-// console.log(typeof value);
-
-// Zaman Objesi
-
-// let value;
-// let now = new Date();
-
-// // value = now.getFullYear();
-// // value = now.getMonth();
-// // value = now.getDay();
-// // value = now.getDate();
-// value = `${now.getDate()}/${now.getMonth()}/${now.getFullYear()}`;
-
-// console.log(value);
+// console.log(s, typeof s);

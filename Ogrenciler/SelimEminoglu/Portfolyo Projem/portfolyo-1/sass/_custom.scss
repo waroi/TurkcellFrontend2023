@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+}
+
+// Mixin Functions
+@mixin bg-shape{
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    height: 100%;
+}
+
+// header
+
+header{
+    h1{
+        font-family: "Delicious Handrawn",cursive;
+    }
+    .nav-link{
+        color: black;
+        &:hover{
+            color: #0f93c1;
+            border: 1px solid black;
+        }
+    }
+}
+
+// Background Shapes
+.bg-shape-1{
+    @include bg-shape();
+    width: 30%;
+    left: 0;
+    background-color: #0f93c1;
+}
+
+.bg-shape-2{
+    @include bg-shape();
+    width: 70%;
+    right: 0;
+    background-color: #992727;
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ToDo App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <body class="bg-secondary">
+   <div class="container">
+    <div class="row">
+      <div class="my-3 col-6">
+        <label for="add_todo" class="form-label text-light">ToDo:</label>
+        <input type="text" class="form-control" id="add_todo" placeholder="Bir Todo girin">
+        <div id="add_button" class="btn btn-danger my-3">Add Todo</div>
+      </div>
+      <hr>
+      <div class="my-3 col-6">
+        <input type="text" class="form-control" id="search_todo" placeholder="Bir Todo Arayın">
+        <ul class="list-group my-3" id="todo_list">
+          <li class="list-group-item d-flex justify-content-between align-items-center">An item
+            <span class="fa-solid fa-x text-secondary"></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            A second item
+            <span class="fa-solid fa-x text-secondary"></span>
+          </li>
+        </ul>
+      </div>
+      <hr>
+    </div>
+    <div id="clear_all" class="btn btn-danger my-3">Clear All Todos!</div>
+   </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

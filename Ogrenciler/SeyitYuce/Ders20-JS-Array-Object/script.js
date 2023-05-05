@@ -113,3 +113,21 @@ for (let i = 0; true; i++) {
   } else if (guess > random) console.log(`${guess} Düş`);
   else console.log(`${guess} çık`);
 }
+
+//Switch Case
+
+const result = 2;
+
+switch(result){
+  case 1:
+    console.log("işlem 1")
+    break;
+  case 2:
+    console.log("işlem 2")
+    break;
+  case 3:
+    console.log("işlem 3")
+    break;
+  default:
+    console.log("geçersiz işlem")
+}
