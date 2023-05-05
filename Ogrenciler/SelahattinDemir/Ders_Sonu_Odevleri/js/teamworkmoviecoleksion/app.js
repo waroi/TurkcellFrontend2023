@@ -8,7 +8,7 @@ function Film(id, title, director, imageUrl, score, year, kind) {
     this.year = year;
     this.kind = kind;
     this.imageUrl = imageUrl;
-    this.score = score;
+    this.score = score
 }
 
 let id = checkandgetID();
@@ -125,8 +125,6 @@ function editItem(id) {
             }
         }
     });
-
-
 }
 
 // Local storage'dan filmleri getir
@@ -173,3 +171,4 @@ function deleteFilmToLocalStorage(movie) {
     });
     localStorage.setItem("films", JSON.stringify(films));
 }
+
