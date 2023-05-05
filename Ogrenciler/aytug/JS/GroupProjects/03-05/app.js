@@ -2,7 +2,6 @@ let form = document.getElementById("form");
 let movieUI = document.getElementById("movieUI");
 let saveBtn = document.getElementById("saveBtn");
 let createBtn = document.getElementById("createBtn");
-
 let tempMovieData;
 
 form.removeAttribute('novalidate');
@@ -115,21 +114,3 @@ function editLocalStorage() {
 }
 
 
-// (() => {
-// 	'use strict'
-  
-// 	// Fetch all the forms we want to apply custom Bootstrap validation styles to
-// 	const forms = document.querySelectorAll('.needs-validation')
-  
-// 	// Loop over them and prevent submission
-// 	Array.from(forms).forEach(form => {
-// 	  form.addEventListener('submit', event => {
-// 		if (!form.checkValidity()) {
-// 		  event.preventDefault()
-// 		  event.stopPropagation()
-// 		}
-  
-// 		form.classList.add('was-validated')
-// 	  }, false)
-// 	})
-//   })()
