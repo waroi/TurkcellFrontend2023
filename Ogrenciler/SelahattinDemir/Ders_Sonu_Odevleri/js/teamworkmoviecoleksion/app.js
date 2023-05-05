@@ -1,6 +1,7 @@
 const form = document.querySelector("#film-form");
 const filmList = document.querySelector("#film-list");
 
+// Fillm objesi
 function Film(id, title, director, imageUrl, score, year, kind) {
     this.id = id;
     this.title = title;
@@ -8,9 +9,10 @@ function Film(id, title, director, imageUrl, score, year, kind) {
     this.year = year;
     this.kind = kind;
     this.imageUrl = imageUrl;
-    this.score = score
+    this.score = score;
 }
 
+// Local storage'dan id değerini al (silme ve düzenleme işlerinde id'ye göre filtre yapıyoruz.)
 let id = checkandgetID();
 
 function checkandgetID() {
@@ -23,26 +25,78 @@ function checkandgetID() {
     }
     return id;
 }
-
-
+// Local storage'dan filmleri getir
 showFilmsFromLocalStorage();
+
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     id = checkandgetID();
-    const button = document.getElementById("addOrEditButton")
+    const button = document.getElementById("addOrEditButton");
     let filmUrl = document.getElementById("filmUrl").value;
     let filmName = document.getElementById("filmName").value;
     let director = document.getElementById("director").value;
     let filmType = document.getElementById("filmCategory").value;
     let filmYear = document.getElementById("filmYear").value;
     let filmScore = document.getElementById("filmScore").value;
-    console.log(button.className.includes("btn-warning"), button.className);
+
+    // Form validasyonları
+    if (!filmName) {
+        document.getElementById("filmNameError").innerHTML =
+            "Lütfen bir film adı girin.";
+        return;
+    } else {
+        document.getElementById("filmNameError").innerHTML = "";
+    }
+    if (!director) {
+        document.getElementById("directorError").innerHTML =
+            "Lütfen bir yönetmen adı girin.";
+        return;
+    } else {
+        document.getElementById("directorError").innerHTML = "";
+    }
+    if (!filmType) {
+        document.getElementById("filmCategoryError").innerHTML =
+            "Lütfen bir tür adı girin.";
+        return;
+    } else {
+        document.getElementById("filmCategoryError").innerHTML = "";
+    }
+    if (!filmYear) {
+        document.getElementById("filmYearError").innerHTML =
+            "Lütfen geçerli bir yıl girin.";
+        return;
+    } else {
+        document.getElementById("filmYearError").innerHTML = "";
+    }
+    if (!filmScore) {
+        document.getElementById("filmScoreError").innerHTML =
+            "Lütfen geçerli bir puan girin.";
+        return;
+    } else {
+        document.getElementById("filmScoreError").innerHTML = "";
+    }
+    if (!filmUrl || !isValidImageUrl(filmUrl)) {
+        document.getElementById("filmUrlError").innerHTML =
+            "Lütfen geçerli bir url girin.";
+        return;
+    } else {
+        document.getElementById("filmUrlError").innerHTML = "";
+    }
+
     if (button.className.includes("btn-warning")) {
         button.innerHTML = "Ekle";
-        button.className = "btn btn-primary w-25"
+        button.className = "btn btn-primary w-25";
     } else {
-        let newFilm = new Film(id, filmName, director, filmUrl, filmScore, filmYear, filmType);
+        let newFilm = new Film(
+            id,
+            filmName,
+            director,
+            filmUrl,
+            filmScore,
+            filmYear,
+            filmType
+        );
         saveFilmToLocalStorage(newFilm);
     }
     showFilmsFromLocalStorage(); //değerleri local storage'dan aldığımız için parametresiz çalıştırdık.
@@ -50,18 +104,17 @@ form.addEventListener("submit", (e) => {
     form.reset();
 });
 
-
 function showFilmsFromLocalStorage() {
     filmList.innerHTML = "";
     let films = getFilmToLocalStorage();
     films.forEach((movie) => {
         filmList.innerHTML += `
   <div class="col-md-4" id="${movie.id}">
-  <div class="card mb-3 mt-5">
+  <div class="card mb-3 mt-5 m-3">
         <div class="row align-items-center">
           <div class="col-md-6">
             <img src=${movie.imageUrl}
-              class="img-fluid rounded-start" id="film-url" alt="" />
+              class="img-fluid rounded-start ms-3 my-3 " id="film-url" alt="" />
           </div>
           <div class="col-md-6">
             <div class="card-body">
@@ -83,7 +136,7 @@ function showFilmsFromLocalStorage() {
       </div>
       </div>
 `;
-    })
+    });
 }
 
 function deleteItem(id) {
@@ -97,23 +150,25 @@ function editItem(id) {
     console.log(films);
     films.forEach((film) => {
         if (film.id == id) {
-            const button = document.getElementById("addOrEditButton")
+            //TODO yukarıda tekilleştirilebilir
+            const button = document.getElementById("addOrEditButton");
             let filmUrl = document.getElementById("filmUrl");
             let filmName = document.getElementById("filmName");
             let director = document.getElementById("director");
             let filmType = document.getElementById("filmCategory");
             let filmYear = document.getElementById("filmYear");
             let filmScore = document.getElementById("filmScore");
-
+            //inputları doldur
             filmUrl.value = film.imageUrl;
             filmName.value = film.title;
             director.value = film.director;
             filmType.value = film.kind;
             filmYear.value = film.year;
             filmScore.value = film.score;
+            //butonu düzenle
             button.innerHTML = "Düzenle";
-            button.className = "btn btn-warning w-25"
-
+            button.className = "btn btn-warning w-25";
+            //butona tıklandığında filmi güncelle ve sayfayı yenile
             button.onclick = function () {
                 film.kind = filmType.value;
                 film.year = filmYear.value;
@@ -121,8 +176,11 @@ function editItem(id) {
                 film.score = filmScore.value;
                 film.imageUrl = filmUrl.value;
                 film.director = director.value;
+                //update fonksiyonuna filmi gönder
                 updateFilmToLocalStorage(film);
-            }
+                location.reload();
+
+            };
         }
     });
 }
@@ -136,6 +194,7 @@ function getFilmToLocalStorage() {
         films = JSON.parse(localStorage.getItem("films"));
     }
     return films;
+
 }
 
 // Film objesini local storage'a kaydet
@@ -144,19 +203,19 @@ function saveFilmToLocalStorage(movie) {
     films.push(movie);
     localStorage.setItem("films", JSON.stringify(films));
 }
-
+// Film objesini local storage'dan güncelle
 function updateFilmToLocalStorage(movie) {
-    console.log("update çalıştı")
     let films = getFilmToLocalStorage();
     films.map((film) => {
         if (film.id == movie.id) {
+            //filme gelen değerleri ata
             film.kind = movie.kind;
             film.year = movie.year;
             film.director = movie.director;
             film.imageUrl = movie.imageUrl;
-            film.title = movie.title
+            film.title = movie.title;
         }
-    })
+    });
 
     localStorage.setItem("films", JSON.stringify(films));
 }
@@ -172,3 +231,12 @@ function deleteFilmToLocalStorage(movie) {
     localStorage.setItem("films", JSON.stringify(films));
 }
 
+function isValidImageUrl(url) {
+    // Geçerli bir URL mi diye kontrol etme
+    try {
+        new URL(url);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
