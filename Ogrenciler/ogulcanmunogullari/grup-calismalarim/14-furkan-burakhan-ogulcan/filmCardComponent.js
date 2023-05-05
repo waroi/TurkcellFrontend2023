@@ -1,8 +1,8 @@
 const filmCard = (film, degis) => {
  return `
- <li class="card" style="width: 18rem;" id="${film.id}">
-     <div style="width: 100%; height: 150px;">
-      <img src="${film.url}" class="card-img-top" alt="...">
+ <li class="card "  id="${film.id}">
+     <div style="width: 100%;">
+      <img src="${film.url}" class="card-img-top " alt="...">
      </div>
   <div class="card-body">
     <h6 class="card-title">
@@ -18,6 +18,7 @@ const filmCard = (film, degis) => {
   degis ? 'd-none' : null
  }" >Değiştir</a>
     <a href="#" class="btn btn-danger" >Silme</a>
+    </div>
     </li>
  `;
 };

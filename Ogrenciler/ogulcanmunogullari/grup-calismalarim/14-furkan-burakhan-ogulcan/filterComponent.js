@@ -1,5 +1,5 @@
 const filterFn = (yil) => {
- return `<li> 
+ return `<li class="years"> 
  <a>${yil}</a>
  </li>`;
 };
