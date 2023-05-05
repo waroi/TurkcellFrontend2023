@@ -7,10 +7,12 @@ let durum = {
 };
 let filmler = JSON.parse(localStorage.getItem('filmler')) || [];
 screen();
+
 inputSearch.addEventListener('input', function (e) {
  e.preventDefault();
  screen();
 });
+
 filtreContainer.addEventListener('click', function (e) {
  e.preventDefault();
  if (e.target.id != 'filtreContainer') {
@@ -18,6 +20,7 @@ filtreContainer.addEventListener('click', function (e) {
   screen();
  }
 });
+
 ekleButton.addEventListener('click', function (e) {
  e.preventDefault();
  if (
@@ -48,6 +51,7 @@ ekleButton.addEventListener('click', function (e) {
  sifirla();
  screen();
 });
+
 filmlerContainer.addEventListener('click', function (e) {
  e.preventDefault();
  if (e.target.innerText == 'Değiştir') {
@@ -60,6 +64,7 @@ filmlerContainer.addEventListener('click', function (e) {
  }
  screen();
 });
+
 function filmToggle() {
  durum.degisiklik = !durum.degisiklik;
 }
@@ -78,6 +83,7 @@ degistirButton.addEventListener('click', function (e) {
  sifirla();
  screen();
 });
+
 function sifirla() {
  filmResmi.value = '';
  filmYili.value = '';
@@ -86,6 +92,7 @@ function sifirla() {
  filmPuani.value = '';
  filmAciklamasi.value = '';
 }
+
 function degistir(id) {
  const film = filmler.find((film) => film.id == id);
  durum.degistirmekIcinTiklananFilm = film;
@@ -120,6 +127,6 @@ function screen() {
    return filterFn(yil);
   })
   .join('');
- filtreContainer.innerHTML += `<li><a>Tümü</a></li>`;
+ filtreContainer.innerHTML += `<li class="years" ><a>Tümü</a></li>`;
  localStorage.setItem('filmler', JSON.stringify(filmler));
 }
