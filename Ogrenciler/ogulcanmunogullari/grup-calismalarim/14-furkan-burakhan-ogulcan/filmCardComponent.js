@@ -10,8 +10,8 @@ const filmCard = (film, degis) => {
      <span>${film.yil}</span>
      <span>
      ${
-      film.ad.toLowerCase() == 'yüzüklerin efendisi' ||
-      film.ad.toLowerCase() == 'yuzuklerin efendisi'
+      film.ad.toLowerCase().includes('yüzüklerin efendisi') ||
+      film.ad.toLowerCase().includes('yuzuklerin efendisi')
        ? '10'
        : film.puan
      }
