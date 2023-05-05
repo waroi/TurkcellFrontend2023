@@ -70,7 +70,7 @@ function renderMovies(movies) {
   movieCard.classList.add("col-lg-4");
 
   movieCard.innerHTML = `
-    <div class="card mt-3">
+    <div class="card mt-3 movie-card">
       <img src="${movies.url}" class="card-img-top" alt="Hatalı Url">
       <div class="card-body">
         <h5 class="card-title fw-bold">${movies.name}</h5>
@@ -109,8 +109,9 @@ function renderMovies(movies) {
 
 
 function editCard() {
-
+ 
 }
+
 
 
 
