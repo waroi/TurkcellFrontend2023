@@ -1,7 +1,7 @@
 // Verileri tutacak dizi
-let filmler = [];
+let movies = [];
 
-// Form elemanlarını seç
+// Form elemanları
 const form = document.getElementById('movieForm');
 const movieName = document.getElementById('movieName');
 const director = document.getElementById('director');
@@ -9,22 +9,22 @@ const year = document.getElementById('year');
 const type = document.getElementById('type');
 const posterUrl = document.getElementById('posterUrl');
 
-// Tablo ve kartları seç
 const movieTable = document.getElementById('movieTable').getElementsByTagName('tbody')[0];
-const filmKartlari = document.getElementById('movieCard');
 
-// Verileri localStorage'den yükle
-if (localStorage.getItem('filmler')) {
-  filmler = JSON.parse(localStorage.getItem('filmler'));
-  filmleriListele();
+
+// Verileri localStorage'dan yükle
+if (localStorage.getItem('movies')) {
+  movies = JSON.parse(localStorage.getItem('movies'));
+  movieList();
+  movieCards();
 }
 
 // Form gönderildiğinde çalışacak fonksiyon
-function filmEkle(event) {
+function addMovie(event) {
   event.preventDefault(); // Formun sayfayı yenilemesini engelle
 
   // Formdaki verileri al
-  const yeniFilm = {
+  const newMovie = {
     movieName: movieName.value,
     director: director.value,
     year: year.value,
@@ -32,88 +32,136 @@ function filmEkle(event) {
     posterUrl: posterUrl.value,
   };
 
-  // Yeni filmi filmler dizisine ekle
-  filmler.push(yeniFilm);
+  // Yeni filmi movies dizisine ekle
+  movies.push(newMovie);
 
-  // Filmleri localStorage'e kaydet
-  localStorage.setItem('filmler', JSON.stringify(filmler));
+  // moviesi localStorage'e kaydet
+  localStorage.setItem('movies', JSON.stringify(movies));
 
   // Tabloyu güncelle
-  filmleriListele();
+  movieList();
+  movieCards();
   
   // Formu temizle
   form.reset();
   
 }
-function movieCards(){
-    filmler = JSON.parse(localStorage.getItem('filmler'));
-    let movies=document.getElementById("movieCard");
-    filmler.forEach(film=>movies.innerHTML+=`<div class="card" style="width: 18rem;">
-    <img src="${film.posterUrl}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">${film.movieName}</h5>
-      <p class="card-text">${film.type}</p>
-      <p class="card-text">${film.director}</p>
-      <p class="card-text">${film.year}</p>
-    </div>
-  </div>`
-  )
-  
+ function movieCards(){
+    
+    document.getElementById("movieCard").innerHTML=' ';
+    movies.forEach(function(film,index){  
 
-}
+    const item =document.createElement('div');
+    item.className="card";
+    item.setAttribute("style","width: 18rem;")
 
-// Filmleri tabloya ekle
-function filmleriListele() {
+    const img =document.createElement('img');
+    img.className="card-img-top";
+    img.setAttribute("src",film.posterUrl);
+    item.appendChild(img);
+    const body = document.createElement('div');
+    body.className="card-body";
+    item.appendChild(body);
+    const header = document.createElement("h5");
+    header.className="card-title";
+    header.textContent=film.movieName;
+    body.appendChild(header);
+
+    const list= document.createElement("ul");
+    list.className="list-group list-group-flush";
+    item.appendChild(list);
+
+    const director = document.createElement("li");
+    director.className="list-group-item";
+    director.textContent=film.director;
+    list.appendChild(director);
+
+    const type = document.createElement("li");
+    type.className="list-group-item";
+    type.textContent=film.type;
+    list.appendChild(type);
+
+    const year = document.createElement("li");
+    year.className="list-group-item";
+    year.textContent=film.year;
+    list.appendChild(year);
+
+    const buttons = document.createElement("li");
+    buttons.className="d-flex justify-content-evenly"
+    const deleteButton = document.createElement('button');
+    deleteButton.className="btn btn-danger";
+    deleteButton.setAttribute("style"," padding-left:40px; padding-right:40px;")
+    deleteButton.textContent = 'Sil';
+    deleteButton.addEventListener('click', function () {
+      deleteMovie(index);
+    });
+buttons.appendChild(deleteButton);
+const updateButton = document.createElement('button');
+ updateButton.textContent = 'Güncelle';
+ updateButton.className="btn btn-success";
+ updateButton.addEventListener('click', function () {
+   updateMovie(index);
+ });
+ buttons.appendChild(updateButton);
+ list.appendChild(buttons)
+    document.getElementById("movieCard").appendChild(item);
+ })
+
+ }
+
+// moviesi tabloya ekle
+function movieList() {
   // Tabloyu temizle
   movieTable.innerHTML = '';
 
-  // Her bir film için bir satır oluştype
-  filmler.forEach(function (film, index) {
+  // Her bir film için bir satır oluşturma
+  movies.forEach(function (film, index) {
     const tr = document.createElement('tr');
     
 
     // Tabloya hücreler ekle
-    const tdmovieName = document.createElement('td');
-    tdmovieName.textContent = film.movieName;
-    tr.appendChild(tdmovieName);
+    const tdMovieName = document.createElement('td');
+    tdMovieName.textContent = film.movieName;
+    tr.appendChild(tdMovieName);
 
-    const tddirector = document.createElement('td');
-    tddirector.textContent = film.director;
-    tr.appendChild(tddirector);
+    const tdDirector = document.createElement('td');
+    tdDirector.textContent = film.director;
+    tr.appendChild(tdDirector);
 
-    const tdyear = document.createElement('td');
-    tdyear.textContent = film.year;
-    tr.appendChild(tdyear);
+    const tdYear = document.createElement('td');
+    tdYear.textContent = film.year;
+    tr.appendChild(tdYear);
 
-    const tdtype = document.createElement('td');
-    tdtype.textContent = film.type;
-    tr.appendChild(tdtype);
+    const tdType = document.createElement('td');
+    tdType.textContent = film.type;
+    tr.appendChild(tdType);
 
-    const tdAfiş = document.createElement('td');
+    const tdPoster = document.createElement('td');
     const posterUrlImg = document.createElement('img');
     posterUrlImg.src = film.posterUrl;
     posterUrlImg.alt = `${film.movieName} afişi`;
     tdAfiş.appendChild(posterUrlImg);
-    tr.appendChild(tdAfiş);
+    tdPoster.textContent= film.posterUrl;
+    tr.appendChild(tdPoster);
 
-    const tdIslemler = document.createElement('td');
-    const silButton = document.createElement('button');
-    silButton.className="btn btn-danger";
-    silButton.setAttribute("style","margin:0 5px; padding-left:20px; padding-right:20px;")
-    silButton.textContent = 'Sil';
-    silButton.addEventListener('click', function () {
-      filmSil(index);
-    });
-    tdIslemler.appendChild(silButton);
+    // const tdIslemler = document.createElement('td');
+    // const deleteButton = document.createElement('button');
+    // deleteButton.className="btn btn-danger";
+    // deleteButton.setAttribute("style","margin:0 5px; padding-left:20px; padding-right:20px;")
+    // deleteButton.textContent = 'Sil';
+    // deleteButton.addEventListener('click', function () {
+    //   deleteMovie(index);
+    // });
+    // tdIslemler.appendChild(deleteButton);
 
-    const guncelleButton = document.createElement('button');
-    guncelleButton.textContent = 'Güncelle';
-    guncelleButton.className="btn btn-success";
-    guncelleButton.addEventListener('click', function () {
-      filmGuncelle(index);
-    });
-    tdIslemler.appendChild(guncelleButton);
-    tr.appendChild(tdIslemler);
+    // const updateButton = document.createElement('button');
+    // updateButton.textContent = 'Güncelle';
+    // updateButton.className="btn btn-success";
+    // updateButton.addEventListener('click', function () {
+    //   updateMovie(index);
+    // });
+    // tdIslemler.appendChild(updateButton);
+    // tr.appendChild(tdIslemler);
 
     // Satırı tabloya ekle
     movieTable.appendChild(tr);
@@ -122,36 +170,37 @@ function filmleriListele() {
 }
 
 // Bir filmi sil
-function filmSil(index) {
+function deleteMovie(index) {
 // Filmi diziden sil
-filmler.splice(index, 1); //splice dizinin belirli bir bölümünü silmek için.Burada 1 filmi siliyor.
+movies.splice(index, 1); //splice dizinin belirli bir bölümünü silmek için.Burada 1 filmi siliyor.
 
-// Filmleri localStorage'den sil
-localStorage.setItem('filmler', JSON.stringify(filmler));
+// moviesi localStorage'den sil
+localStorage.setItem('movies', JSON.stringify(movies));
 
 // Tabloyu güncelle
-filmleriListele();
+movieList();
+movieCards();
 }
 
 // Bir filmi güncelleme formuna yükle
-function filmGuncelle(index) {
+function updateMovie(index) {
 // Film bilgilerini form elemanlarına yükle
-movieName.value = filmler[index].movieName;
-director.value = filmler[index].director;
-year.value = filmler[index].year;
-type.value = filmler[index].type;
-posterUrl.value = filmler[index].posterUrl;
+movieName.value = movies[index].movieName;
+director.value = movies[index].director;
+year.value = movies[index].year;
+type.value = movies[index].type;
+posterUrl.value = movies[index].posterUrl;
 
 // Eski filmi diziden sil
-filmler.splice(index, 1);
+movies.splice(index, 1);
 
-// Filmleri localStorage'den sil
-localStorage.setItem('filmler', JSON.stringify(filmler));
+// moviesi localStorage'den sil
+localStorage.setItem('movies', JSON.stringify(movies));
 
 // Tabloyu güncelle
-
-filmleriListele();
-}
+movieList();
 movieCards();
+}
+
 // Formu submit eventine bağla
-form.addEventListener('submit', filmEkle);
+form.addEventListener('submit', addMovie);
