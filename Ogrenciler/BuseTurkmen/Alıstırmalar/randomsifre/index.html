@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+    <link
+        href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <title>Random Sifre</title>
+</head>
+
+<body>
+    <div class="password">
+        <div class="container col-sm-12">
+            <h3 class="text-center">ŞİFRE OLUŞTURUCU</h3>
+            <div class="form rounded-3">
+                <div>
+                    <label>Şifre Uzunluğu:</label>
+                    <input type="number" id="passwordlength"/>
+                </div>
+                <div>
+                    <label>Büyük harf:</label>
+                    <input type="checkbox" id="uppercasecheck"/>
+                <div>
+                    <label>Küçük harf:</label>
+                    <input type="checkbox" id="lowercascheck"/>
+                </div>
+                <div>
+                    <label>Sayı:</label>
+                    <input type="checkbox" id="numbercheck"/>
+                </div>
+                <div>
+                    <label>Özel karakter:</label>
+                    <input type="checkbox" id="symbol"/>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-success" id="addBtn">
+                    <i class="fas fa-check"></i>Oluştur
+                </button>
+                <button class="btn btn-danger" id="deletepboard">
+                    <i class="fas fa-xmark"></i>Sıfırla
+                </button>
+            </div>
+            <div class="resultspassword">
+                <label>Şifre:</label>
+                <input type="text" id="newpassw"/>
+            </div>
+        </div>
+    </div>
+
+    <script src="deneme.js"></script>
+</body>
+</html>

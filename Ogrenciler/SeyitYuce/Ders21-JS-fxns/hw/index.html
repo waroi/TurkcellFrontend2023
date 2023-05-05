@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Hesap Makinesi</title>
+  </head>
+  <body>
+    <form id="calculator">
+      <div class="left-col">
+        <label for="num1">Number 1:</label>
+        <input
+          type="number"
+          id="numone"
+          class="calc-display"
+          onclick="number()"
+        />
+
+        <label for="operation">Operation:</label>
+        <select id="operation">
+          <option value="add">+</option>
+          <option value="subtract">-</option>
+          <option value="multiply">*</option>
+          <option value="divide">/</option>
+        </select>
+
+        <label for="num2">Number 2:</label>
+        <input
+          type="number"
+          id="num2"
+          class="use-keyboard-input"
+          onclick="number()"
+        />
+
+        <label for="result">Result:</label>
+        <input type="number" id="result" disabled /><br />
+      </div>
+
+      <div class="buttons-wrap right-col">
+        <div class="button-numbers">
+          <button id="btn-1" value="1" data-btn-val="1" type="button">1</button>
+          <button id="btn-2" value="2" data-btn-val="2" type="button">2</button>
+          <button id="btn-3" value="3" data-btn-val="3" type="button">3</button>
+          <button id="btn-4" value="4" data-btn-val="4" type="button">4</button>
+          <button id="btn-5" value="5" data-btn-val="5" type="button">5</button>
+          <button id="btn-6" value="6" data-btn-val="6" type="button">6</button>
+          <button id="btn-7" value="7" data-btn-val="7" type="button">7</button>
+          <button id="btn-8" value="8" data-btn-val="8" type="button">8</button>
+          <button id="btn-9" value="9" data-btn-val="9" type="button">9</button>
+          <button id="btn-0" value="0" data-btn-val="0" type="button">0</button>
+          <button onclick="performCalculation()" type="button" id="btn-equal">
+            =
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

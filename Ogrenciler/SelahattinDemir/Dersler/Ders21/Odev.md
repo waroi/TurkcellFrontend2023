@@ -1,0 +1,1 @@
+Kullanıcı 2 adet sayı girecek, bir de işlem seçecek, seçilen işleme göre sonucu ekrana yazdıracak bir hesap makinası yazınız. Sonsuz bir döngü içerisinde olacak, kullanıcıya her seferinde tekrar işlem yapmak isteyip istemediği sorulacak, istemiyorsa program sonlanacak, istiyorsa yeni sayılar girip yeni işlem seçerek devam edecek. Fonksiyonlar kullanılacak.
