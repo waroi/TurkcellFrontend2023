@@ -39,6 +39,16 @@ if (localStorage.getItem("films")) {
 }
 
 function addFilms() {
+  if (
+    filmName.value === "" ||
+    directorName.value === "" ||
+    year.value === "" ||
+    genres.value === "" ||
+    filmUrl.value === ""
+  ) {
+    alert("Lütfen tüm alanları doldurunuz.");
+    return;
+  }
   const filmText = capitalizeFirstLetter(filmName.value);
   const directorText = capitalizeFirstLetter(directorName.value);
   const yearText = year.value;
@@ -84,12 +94,12 @@ function showFilms() {
     const updateBtn = document.createElement("button");
     const updateText = document.createTextNode("Güncelle");
     updateBtn.appendChild(updateText);
-    updateBtn.classList = "btn btn-primary";
+    updateBtn.classList = "btn btn-dark";
 
     const deleteBtn = document.createElement("button");
     const deleteText = document.createTextNode("Sil");
     deleteBtn.appendChild(deleteText);
-    deleteBtn.classList = "btn btn-primary ms-2 px-4";
+    deleteBtn.classList = "btn btn-danger ms-2 px-4";
 
     const cardBody = document.createElement("div");
     cardBody.className = "card-body";
@@ -99,7 +109,7 @@ function showFilms() {
 
     const card = document.createElement("div");
     card.className =
-      "card d-flex col-12 col-md-5 col-lg-4  align-items-center mx-auto p-2 bg-danger text-white";
+      "card d-flex col-12 col-md-5 col-lg-4  align-items-center mx-auto p-2 bg-secondary   text-white";
 
     cards.appendChild(card);
 
