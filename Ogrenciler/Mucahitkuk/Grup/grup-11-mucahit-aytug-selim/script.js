@@ -94,7 +94,6 @@ function toggleCompleted(e) {
   if (!li.parentNode) {
     return;
   }
-  console.log(e.target.innerText)
   li.getAttribute("data-id");
   let todos = getTodosFromLocalStorage();
   let x = todos.find(todo => todo.text === e.target.innerText);
@@ -110,9 +109,6 @@ function toggleCompleted(e) {
   }
   localStorage.setItem("todos", JSON.stringify(todos));
 }
-
-
-
 
 function deleteTodo(e) {
 	const li = e.target.closest("li");
