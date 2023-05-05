@@ -31,14 +31,17 @@ ekleButton.addEventListener('click', function (e) {
   filmPuani.value &&
   filmAciklamasi.value
  ) {
-  alert('Eklendi');
+  if (!filmResmi.value.includes('://')) {
+   alert('Resim urlsini kontrol ediniz.');
+   return;
+  }
  } else {
-  alert('Lütfen tüm alanları doldurunuz');
+  alert('Lütfen tüm alanları doldurunuz.');
   return;
  }
  filmler = [
   {
-   id: Math.floor(Math.random() * 1_000_000),
+   id: Math.floor(Math.random() * 1_000_000_000),
    url: filmResmi.value,
    yil: filmYili.value,
    ad: filmAdi.value,
@@ -111,7 +114,7 @@ function screen() {
  filmlerContainer.innerHTML = filmler
   .filter((film) => {
    if (durum.filterYil == 'Tümü') return true;
-   return durum.filterYil ? film.yil == durum.filterYil : true;
+   return durum.filterYil ? film.yil >= durum.filterYil : true;
   })
   .filter((film) => {
    return film.ad.toLowerCase().includes(inputSearch.value.toLowerCase());

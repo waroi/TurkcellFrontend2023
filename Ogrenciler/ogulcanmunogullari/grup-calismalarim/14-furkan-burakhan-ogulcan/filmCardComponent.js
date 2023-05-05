@@ -1,26 +1,38 @@
+import turler from './turComponent.js';
 const filmCard = (film, degis) => {
  return `
- <li class="card "  id="${film.id}">
+ <li class="card" id="${film.id}">
      <div style="width: 100%;">
-      <img src="${film.url}" class="card-img-top " alt="...">
+      <img src="${film.url}" class="card-img-top " alt="film url si">
      </div>
   <div class="card-body">
-    <h6 class="card-title">
-     <span id="">${film.yil}</span>
-     <span id="">${film.puan}</span>
+    <h6 class="card-title d-flex justify-content-between">
+     <span>${film.yil}</span>
+     <span>
+     ${
+      film.ad.toLowerCase() == 'yüzüklerin efendisi' ||
+      film.ad.toLowerCase() == 'yuzuklerin efendisi'
+       ? '10'
+       : film.puan
+     }
+    
+     </span>
     </h6>
     <h4 class="card-title">${film.ad}</h4>
-    <p>${film.tur}</p>
-    <p class="card-text lineClamp">
-    ${film.aciklama}
-    </p>
+    <div class="turler-container lineClamp"> 
+    ${turler(film.tur)}
+    </div>
+      <p class="card-text lineClamp">
+      ${film.aciklama}
+      </p>
     <a href="#" class="btn btn-warning filmDegistir${film.id} ${
   degis ? 'd-none' : null
  }" >Değiştir</a>
-    <a href="#" class="btn btn-danger" >Silme</a>
+ <a href="#" class="btn btn-danger" >Silme</a>
     </div>
     </li>
  `;
 };
 
 export default filmCard;
+//   <p>${film.tur}</p>
