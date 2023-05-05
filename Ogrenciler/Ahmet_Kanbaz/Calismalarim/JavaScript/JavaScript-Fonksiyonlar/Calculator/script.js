@@ -75,11 +75,6 @@ function clearDisplayValue() {
 function getOperator(otherOperation) {
   const value = parseFloat(displayValue);
 
-  // if(operator && otherOperation) {
-  //   operator = otherOperation;
-  //   return;
-  // }
-
   if(firstNumber === null) {
     firstNumber = value;
   }

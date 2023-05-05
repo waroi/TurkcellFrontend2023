@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 *{
     margin: 0;
@@ -11,6 +13,7 @@ body{
     overflow: hidden;
     width: 100%;
     min-height: 100vh;
+    font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 // Mixin Functions
@@ -27,11 +30,25 @@ header{
     h1{
         font-family: "Delicious Handrawn",cursive;
     }
-    .nav-link{
-        color: black;
+    .nav-item{
+        .nav-text{
+            color: black;
+            border:1px solid transparent;
+            &:hover{
+                color: #0f93c1;
+                border: 1px solid black;
+            }
+        }
         &:hover{
-            color: #0f93c1;
-            border: 1px solid black;
+            transition: transform 200ms;
+            transform: translateY(-0.3em);
+        }    
+    }
+    .nav-link{
+        i{
+            &:hover{
+                transform: scale(1.3);
+            }
         }
     }
 }

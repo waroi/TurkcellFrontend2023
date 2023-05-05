@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HD Film Cehennemi</title>
+  <link rel="stylesheet" href="./css/main.css" />
+ </head>
+
+ <body>
+  <div class="container">
+   <form class="row d-flex my-3">
+    <div class="col-12 col-md-4">
+     <div class="inputs d-flex flex-column gap-2">
+      <label for="filmAdi">Film Adı:</label>
+      <input
+       class="line2"
+       type="text"
+       name="x"
+       id="filmAdi"
+       placeholder="Yüzüklerin Efendisi"
+       required />
+     </div>
+    </div>
+    <div class="col-12 col-md-4">
+     <div class="inputs d-flex flex-column gap-2">
+      <label for="filmTuru">Film Türü:</label>
+      <input
+       type="text"
+       name="x"
+       placeholder="aksiyon, bilim kurgu vb. 'virgül + boşluk ' ile ayırınız."
+       id="filmTuru"
+       required />
+     </div>
+    </div>
+    <div class="col-12 col-md-4">
+     <div class="inputs d-flex flex-column gap-2">
+      <label for="filmYili">Film Yılı:</label>
+      <input
+       type="number"
+       min="1888"
+       max="2023"
+       name="x"
+       id="filmYili"
+       placeholder="1999"
+       required />
+     </div>
+    </div>
+    <div class="col-12 col-md-4">
+     <div class="inputs d-flex flex-column gap-2">
+      <label for="filmPuani">Film Puanı:</label>
+      <input type="number" min="0" max="10" name="x" id="filmPuani" required />
+     </div>
+    </div>
+    <div class="col-12 col-md-4">
+     <div class="inputs d-flex flex-column gap-2">
+      <label for="filmResmi">Film Resmi:</label>
+      <input type="text" name="x" id="filmResmi" required />
+     </div>
+    </div>
+    <div class="col-12 col-md-4">
+     <div class="inputs d-flex flex-column gap-2">
+      <label for="filmAciklamasi">Film Açıklaması:</label>
+      <input type="text" name="x" id="filmAciklamasi" required />
+     </div>
+    </div>
+
+    <div class="col-6 mt-3 d-flex mx-auto">
+     <button class="w-100 btn btn-success" type="submit" id="ekleButton">
+      Ekle
+     </button>
+     <button
+      class="d-none w-100 btn btn-warning"
+      type="submit"
+      id="degistirButton">
+      Değiştir
+     </button>
+    </div>
+   </form>
+
+   <div class="row">
+    <div class="col-12 mt-2 col-md-6 mx-auto my-4">
+     <input
+      class="w-100"
+      type="search"
+      name="search"
+      id="inputSearch"
+      placeholder="Search.." />
+    </div>
+   </div>
+   <div class="row">
+    <ul
+     id="filmlerContainer"
+     class="col-12 col-md-11 d-flex flex-wrap order-1 order-md-0 gap-3"></ul>
+    <ul
+     class="filter col-12 col-md-1 order-0 order-md-1 d-flex gap-3 list-unstyled flex-md-column gap-md-2"
+     id="filtreContainer"></ul>
+   </div>
+  </div>
+
+  <script src="./app.js" type="module"></script>
+ </body>
+</html>

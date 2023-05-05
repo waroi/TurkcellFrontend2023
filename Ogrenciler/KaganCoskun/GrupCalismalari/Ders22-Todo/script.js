@@ -3,9 +3,9 @@ let deletedItem = document.getElementById("deleteAll");
 let search = document.getElementById("search");
 let deleteDone = document.getElementById("deleteDone");
 
-eventListener();
 
 window.addEventListener("DOMContentLoaded", render);
+eventListener();
 
 function eventListener() {
   form.addEventListener("submit", addTodo);
@@ -14,12 +14,14 @@ function eventListener() {
     delStorage();
   });
   search.addEventListener("keyup", searchTodo);
-  deleteDone.addEventListener("click", deleteDoneItems);
 }
 
 function addTodo(e) {
   let todo;
   let input = document.getElementById("entryTodo").value;
+  if(input === ""){
+    return alert("Lütfen bir todo giriniz");
+  } 
   document.getElementById("entryTodo").value = "";
   e.preventDefault();
   getStorage() != null ? (todo = getStorage()) : (todo = []);
@@ -36,12 +38,7 @@ function render() {
     const item = document.createElement("li");
     item.className = "todoItem d-flex justify-content-between my-1";
     item.setAttribute("style", "cursor:pointer");
-    todo.done
-      ? item.setAttribute(
-          "style",
-          "text-decoration: line-through;cursor:pointer"
-        )
-      : "";
+    todo.done? item.setAttribute("style","text-decoration: line-through;cursor:pointer"): "";
     const deleteButton = document.createElement("button");
     let deleteIcon = document.createElement("i");
     deleteIcon.setAttribute("class", "fa-solid fa-trash");
@@ -79,16 +76,15 @@ function deleteAllItem() {
 
 function searchTodo(e) {
   const filterValue = e.target.value.toLowerCase();
-  console.log(filterValue);
 
   let todoItems = document.querySelectorAll(".todoItem");
 
   todoItems.forEach(function (listItem) {
     const text = listItem.textContent.toLowerCase();
     if (text.indexOf(filterValue) === -1) {
-      listItem.setAttribute("style", "display : none !important");
+      listItem.setAttribute("style", "display : none !important ");
     } else {
-      listItem.setAttribute("style", "display : block ");
+      listItem.setAttribute("style", "display : block");
     }
   });
 }

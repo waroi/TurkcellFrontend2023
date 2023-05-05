@@ -4,107 +4,86 @@ let search_input = document.querySelector("#search_todo");
 let todo_list = document.querySelector("#todo_list");
 let clear_all = document.querySelector("#clear_all");
 let list_item = document.querySelectorAll("li");
+let local_value =  localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [];
+let todo_inner={};
 
-let item = todo_list.children;
-let local_value = JSON.parse(localStorage.getItem("todos"));
-let list_array = [];
-if (local_value !== null) {
-  list_array = [...local_value];
-}else{
-  list_array =[];
-}
-// console.log(local_value);
-function local_list() {
-if(local_value){
-  for (let i = 0; i < local_value.length; i++) 
-  {
-    let listItem = document.createElement("li");
-    listItem.classList = "list-group-item d-flex justify-content-between align-items-center";
-    listItem.innerText = local_value[i].value;
-    todo_list.appendChild(listItem);
-    let tag = document.createElement("span");
-    tag.classList = "fa-solid fa-x fs-6 text-secondary"
-    listItem.appendChild(tag);
-   }
-  }
-}
-local_list();
+add_button.addEventListener("click", addTodo);
+todo_value.addEventListener("keypress",(e) => e.key == "Enter" ? addTodo(e) : "");
+todo_list.addEventListener("click",removeTodo);
+clear_all.addEventListener("click",clearAllTodos);
+search_input.addEventListener("keyup", filterTodos)
 
-function addfunc(e){
+function addTodo(e){
   let value = todo_value.value.trim();
-  if(value !== " "){
-    list_array = [...list_array,{value:value,isDone: false}];
-    let listItem = document.createElement("li");
-    listItem.classList = "list-group-item d-flex justify-content-between align-items-center";
-    listItem.innerText = value;
-    todo_list.appendChild(listItem);
-    let tag = document.createElement("span");
-    tag.classList = "fa-solid fa-x fs-6 text-secondary"
-    listItem.appendChild(tag);
-  todo_value.value = "";
-}else{ 
-  alert("please add todo");
-}
-saveTodo();
-}
-todo_list.addEventListener("click", (e) => {
-  let item_inner = e.target.innerText;
-  let local = local_value.find((e)=> e.value == item_inner);
-  if(e.target.tagName == "LI"){
-    e.target.classList.toggle("bg-success");
-    // console.log(item_inner);
-    // console.log(local_value);
-    // if(e.target.classList.contains("bg-success")){
-      //   local.isDone == true;
-      //   console.log(local);
-      // }else{
-//   local.isDone == false;
-// }
-// if (local.isDone == false) {
-  //   e.target.classList.remove("bg-success");
-  // }else{
-    //   e.target.classList.add("bg-success");
-    //  }
+  todo_inner = {
+    id: Math.round(Math.random() *10000),
+    value: value,
+    isDone: false,
   }
-  if(e.target.tagName =='SPAN'){
-    e.target.classList.remove("bg-success");
-    e.target.parentElement.remove();
-    saveTodo();
+  if(value !== ""){
+    e.preventDefault();
+    local_value.push(todo_inner);
+    localStorage.setItem("todos",JSON.stringify(local_value));
+    todo_value.value = "";
+    createTodo(todo_inner);
+  }else{
+    alert("please enter a todo");
   }
 }
-)
 
-add_button.addEventListener("click", addfunc);
-todo_value.addEventListener("keypress",(e) => {
-  e.key == "Enter" ? addfunc() : " ";
-});
+ local_value.forEach(element => {
+   createTodo(element);
+  }
+ );
 
-todo_value.addEventListener("focus", () => {
-  todo_value.value = " ";
-})
+function createTodo(todo) {
+  let listItem = document.createElement("li");
+  listItem.classList = `${todo.isDone == true ? "bg-success" : ""} list-group-item d-flex justify-content-between align-items-center`;
+  listItem.innerText = todo.value;
+  listItem.id = todo.id;
+  let tag = document.createElement("span");
+  tag.classList = "fa-solid fa-x fs-6 text-secondary"
+  todo_list.appendChild(listItem);
+  listItem.appendChild(tag);
 
-search_input.addEventListener("keyup", (e) => {
+}
+function filterTodos(e){
   let search = e.target.value;
-  console.log(list_item);
-  for (let i = 0; i < item.length; i++) {
-    const text = item[i].textContent;
+  for (let i = 0; i < todo_list.children.length; i++) {
+    const text = todo_list.children[i].innerText;
     let include = text.toLowerCase().indexOf(search.toLowerCase());
+    console.log(include);
+    // console.log(local_value[i]);
     if (include > -1) {
-      item[i].style.display = "";
-    }
-    else {
-      item[i].style.display = "none";
+      console.log(todo_list.children[i]);
+      todo_list.children[i].classList.add("d-block");
+      todo_list.children[i].classList.remove("d-none");
+
+    }else{
+      todo_list.children[i].classList.add("d-none");
     }
   }
-})
-clear_all.addEventListener("click", () => {
-  todo_list.innerHTML= " ";
-  // for (let i = 0; i < item.length; i++) {
-  //   item[i].remove();
-  // }
- localStorage.removeItem("todos");
-})
-
-function saveTodo() {
-  localStorage.setItem("todos", JSON.stringify(list_array));
+}
+function removeTodo(e) {
+  if(e.target.tagName == "SPAN"){
+    console.log(e.target.parentElement.id);
+    e.target.parentElement.classList.add("d-none");
+    let todo_id = e.target.parentElement.id;
+    let inner_id = local_value.findIndex((e) => e.id == todo_id);
+    local_value.splice(inner_id,1);
+    localStorage.setItem("todos",JSON.stringify(local_value));
+  }
+  else if(e.target.tagName == "LI") {
+    let todo_id = e.target.id;
+    e.target.classList.toggle("bg-success");
+    let inner_id = local_value.findIndex((e) => e.id == todo_id);
+    local_value[inner_id].isDone == false ? local_value[inner_id].isDone = true : local_value[inner_id].isDone = false;
+    console.log(local_value[inner_id]);
+    localStorage.setItem("todos",JSON.stringify(local_value));
+  }
+}
+function clearAllTodos() {
+  local_value.splice(0,local_value.length);
+  localStorage.setItem("todos",JSON.stringify(local_value));
+  todo_list.innerHTML="";
 }
