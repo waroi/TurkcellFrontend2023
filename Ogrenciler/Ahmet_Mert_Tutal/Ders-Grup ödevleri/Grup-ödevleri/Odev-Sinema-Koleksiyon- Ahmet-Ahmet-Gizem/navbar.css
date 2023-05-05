@@ -1,7 +1,5 @@
-
 nav {
   height:90px;
-  
 }
 header{
   border-bottom: 10px dashed rgba(255, 255, 0, 0.77);
@@ -16,10 +14,7 @@ header{
 .nav-link:hover {
   color:yellow !important;
 }
-
-a,
-a:active,
-a:focus {
+a,a:active,a:focus {
     color: #333;
     text-decoration: none;
     transition-timing-function: ease-in-out;
@@ -33,7 +28,6 @@ a:focus {
     -webkit-transition-duration: .2s;
     -o-transition-duration: .2s;
 }
-
 .btn {
 -webkit-transition: all 0.8s;
 -moz-transition: all 0.8s;
@@ -41,34 +35,27 @@ a:focus {
 transition: all 0.8s;
 }
 .join-btn:hover{
-background: #15284f !important;
-color: #fff !important;
+background: black !important;
+color: yellow !important;
 border-color: #ffffff;
 }
 footer {
-
 border-top: 10px dashed yellow;
-color: #fff;
-padding: 50px 0;
 font-size: 17px;
 }
 footer h3 {
 font-size: 24px;
-font-weight: 600;
 letter-spacing: 1px;
 }
 footer h4 {
 font-size: 20px;
-font-weight: 600;
 letter-spacing: 1px;
 display: inline-block;
 margin-bottom: 2px;
 }
-
 footer a:hover {
 color: yellow !important;
 }
-
 .footer-title {
 border-bottom: 2px solid yellow;
 padding-bottom: 25px;
@@ -86,7 +73,6 @@ font-size: 16px;
 transition: all 0.5s;
 font-weight: 800;
 }
-
 ul.footer-social i:hover {
 background: #1b1b1b !important;
 color: yellow !important;
@@ -94,6 +80,27 @@ color: yellow !important;
 .open-hour{
   padding-bottom: 20px !important;
 }
+.text-hover::after {
+     content: "";
+    display: block;
+   width: 0;
+    height: 3px;
+    background: yellow;
+    transition: width 0.3s;
+  }
+  .text-hover:hover::after {
+    width: 25%;
+  }
+  .text-hover-nav:hover::after {
+    width: 75%;
+  }
+
+  .add-movie-btn:hover{
+    background: black !important;
+    color: yellow !important;
+    border-color: #ffffff;
+  }
+
 
 
 
