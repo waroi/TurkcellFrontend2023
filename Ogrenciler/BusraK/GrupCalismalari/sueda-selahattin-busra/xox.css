@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap%22");
+.button {
+  width: 120px !important;
+  height: 120px !important;
+  margin-bottom: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.marquee {
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee div {
+  display: block;
+  width: 200%;
+  position: absolute;
+  overflow: hidden;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
