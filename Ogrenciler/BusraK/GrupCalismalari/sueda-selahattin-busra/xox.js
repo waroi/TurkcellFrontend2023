@@ -5,6 +5,7 @@
   const reset = document.querySelector("#reset");
   let nowPlayer = "X";
   let controlWin = false;
+  let winnerPlayer = "";
   let play = ["", "", "", "", "", "", "", "", ""];
   let winOptions = [
     [0, 1, 2],
@@ -65,6 +66,7 @@
   }
 
   function isWinner() {
+    let winControl = false;
     for (let i = 0; i < winOptions.length; i++) {
       let winOption = winOptions[i];
       let first = play[winOption[0]];
@@ -74,11 +76,22 @@
         continue;
       }
       if (first == second && second == third) {
-        result.innerHTML = `${first} kazandı`;
-        btns.forEach((btn) => {
-          btn.disabled = true;
-        });
+        winControl = true;
+        winnerPlayer = first;
+
+        break;
       }
+    }
+    if (winControl) {
+      result.innerHTML = `${winnerPlayer} kazandı`;
+      btns.forEach((btn) => {
+        btn.disabled = true;
+      });
+    } else if (!play.includes("")) {
+      result.innerHTML = `berabere`;
+      btns.forEach((btn) => {
+        btn.disabled = true;
+      });
     }
   }
 })();
