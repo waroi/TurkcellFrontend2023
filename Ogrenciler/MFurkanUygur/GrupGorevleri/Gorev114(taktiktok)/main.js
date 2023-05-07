@@ -18,13 +18,17 @@ const winningCombos = [
 
 info.innerText = "X is first place";
 
-document.querySelectorAll("label").forEach((label) => {
-    label.addEventListener("click", xox)
-})
+function reload() {
+    document.querySelectorAll("label").forEach((label) => {
+        label.addEventListener("click", xox)
+    })
+}
 
+reload();
 function xox(e) {
     if (controlState) {
         e.target.classList.add("circle");
+        e.target.parentElement.style.backgroundColor = "rgb(122, 122, 255)"
         circle += String(e.target.id[1] - 1)
         controlState = !controlState;
         info.innerText = "X's turn";
@@ -32,10 +36,9 @@ function xox(e) {
     else {
         e.target.classList.add("cross");
         square += String(e.target.id[1] - 1);
+        e.target.parentElement.style.backgroundColor = "rgb(294, 94, 94)"
         controlState = !controlState;
         info.innerText = "O's turn";
-        e.target.parentElement.disable=true
-        console.log(e.target.parentElement)
     }
     count += 1
     count >= 5 ? controller() : null
@@ -63,7 +66,11 @@ function controller() {
     if (count == 9) {
         info.innerText = "Draw";
         info.classList.add("draw");
-        gameboard.style.backgroundColor="gray";
+        gameboard.style.backgroundColor = "black";
         removeClick();
     }
 }
+
+document.getElementsByTagName("button")[0].addEventListener("click", () => {
+    document.body.setAttribute("onload", window.location.reload())
+})

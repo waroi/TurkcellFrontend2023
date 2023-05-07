@@ -7,7 +7,7 @@ body {
 }
 
 #gameboard {
-    
+
     width: 300px;
     height: 300px;
     background-color: rgb(211, 167, 167);
@@ -24,9 +24,10 @@ body {
     align-items: center;
     background-color: bisque;
 }
-#gameboard>div>label{
+
+#gameboard>div>label {
     width: 100%;
-    height: 100%;  
+    height: 100%;
 }
 
 .d-none {
@@ -37,7 +38,7 @@ body {
     width: 75%;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    border: 10px solid rgb(122, 122, 255);
+    border: 10px solid rgb(0, 0, 255);
     box-sizing: border-box;
 }
 
@@ -52,7 +53,8 @@ body {
 .cross::after {
     content: "";
     position: absolute;
-    background-color: rgb(255, 68, 68);
+    background-color: rgb(255, 0, 0);
+
 }
 
 .cross::before {
@@ -69,20 +71,35 @@ body {
     margin-top: -10%;
     width: 100%;
 }
-h1{
+
+h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}   
-p{
+}
+
+p {
     font-size: larger;
     font-weight: bolder;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.xwin{
-   color: rgb(255, 36, 36);; 
+
+.xwin {
+    color: rgb(255, 0, 0);
 }
-.owin{
-    color:rgb(8, 8, 212);;
+
+.owin {
+    color: rgb(8, 8, 212);
 }
-.draw{
-    color:gray
+
+.draw {
+    color: gray
+}
+
+button {
+    padding: 10px 20px;
+    color: black;
+    font-weight: bolder;
+    border: 1px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: gray;
 }
