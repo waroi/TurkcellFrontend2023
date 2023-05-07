@@ -3,13 +3,14 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
 }
 
 #gameboard {
     
     width: 300px;
     height: 300px;
-    background-color: black;
+    background-color: rgb(211, 167, 167);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -26,7 +27,6 @@ body {
 #gameboard>div>label{
     width: 100%;
     height: 100%;  
-    /* background-color: red;   */
 }
 
 .d-none {
@@ -68,4 +68,21 @@ body {
     height: 20%;
     margin-top: -10%;
     width: 100%;
+}
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}   
+p{
+    font-size: larger;
+    font-weight: bolder;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.xwin{
+   color: rgb(255, 36, 36);; 
+}
+.owin{
+    color:rgb(8, 8, 212);;
+}
+.draw{
+    color:gray
 }

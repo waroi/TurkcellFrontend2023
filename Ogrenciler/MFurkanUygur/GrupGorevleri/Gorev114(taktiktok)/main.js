@@ -15,32 +15,55 @@ const winningCombos = [
     "048", "084", "408", "480", "804", "840",
     "246", "264", "462", "426", "624", "642"
 ];
+
+info.innerText = "X is first place";
+
 document.querySelectorAll("label").forEach((label) => {
-    label.addEventListener("click", function (e) {
-        if (controlState) {
-            e.target.classList.add("circle");
-            circle += String(e.target.id[1] - 1)
-            controlState = !controlState
-        }
-        else {
-            e.target.classList.add("cross");
-            square += String(e.target.id[1] - 1)
-            controlState = !controlState
-        }
-        count += 1
-        count >= 5 ? controller() : null
-    })
+    label.addEventListener("click", xox)
 })
+
+function xox(e) {
+    if (controlState) {
+        e.target.classList.add("circle");
+        circle += String(e.target.id[1] - 1)
+        controlState = !controlState;
+        info.innerText = "X's turn";
+    }
+    else {
+        e.target.classList.add("cross");
+        square += String(e.target.id[1] - 1);
+        controlState = !controlState;
+        info.innerText = "O's turn";
+        e.target.parentElement.disable=true
+        console.log(e.target.parentElement)
+    }
+    count += 1
+    count >= 5 ? controller() : null
+}
+
+function removeClick() {
+    document.querySelectorAll("label").forEach((label) => {
+        label.removeEventListener("click", xox)
+    })
+}
+
 function controller() {
     winningCombos.forEach(wc => {
         if (square.includes(wc)) {
-            console.log("X kazandı")
+            info.innerText = "X Win";
+            info.classList.add("xwin");
+            removeClick()
         }
         if (circle.includes(wc)) {
-            console.log("O kazandı")
+            info.innerText = "O Win";
+            info.classList.add("owin");
+            removeClick();
         }
     })
     if (count == 9) {
-        console.log("draw")
+        info.innerText = "Draw";
+        info.classList.add("draw");
+        gameboard.style.backgroundColor="gray";
+        removeClick();
     }
 }
