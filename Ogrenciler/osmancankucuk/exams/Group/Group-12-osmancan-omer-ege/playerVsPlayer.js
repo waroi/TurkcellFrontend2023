@@ -2,7 +2,7 @@ let curPlayer = document.querySelector(".currentPlayer");
 let gameArea = document.querySelector("gameArea");
 let box = document.querySelectorAll(".box");
 let chooseType = document.querySelector("#chooseType");
-import { winControll } from "./app.js";
+import { winControl } from "./app.js";
 
 export let player = "X";
 
@@ -21,7 +21,7 @@ function paintArea(area) {
   if (area.textContent === "") {
     area.textContent = player;
     player === "X" ? (player = "O") : (player = "X");
-    winControll();
+    winControl();
     curPlayer.textContent = `Player ${player}`;
   } else {
     area.style.border = "1px solid red";
