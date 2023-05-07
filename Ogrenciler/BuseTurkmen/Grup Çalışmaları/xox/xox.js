@@ -25,7 +25,7 @@ function chooseBox(box) {
         box.style.border = "10px solid red"
         setTimeout(() => {
             errorText.textContent = ""
-            box.style.border = "1px solid black"
+            box.style.border = "5px solid #4b5d63"
         }, 1000)
     }
 
@@ -76,7 +76,7 @@ function checkTie() {
     const values = [];
     boxs.forEach(box => values.push(box.textContent))
     if (!values.includes("")) {
-        playerText.textContent = "Beraber !";
+        playerText.textContent = "Berabere !";
         boxs.forEach(box => box.style.pointerEvents = 'none');
     }
 }
@@ -91,7 +91,6 @@ function resetGame() {
     boxs.forEach(box => {
         box.textContent = "";
         box.style.color = "black";
-        box.style.border = "1px solid black";
         box.style.pointerEvents = 'auto';
     });
 
