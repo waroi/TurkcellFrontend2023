@@ -108,7 +108,8 @@ function checkForWin() {
 	if (winner) {
 		playerTurn.innerText = "GAME IS FINISHED";
 		if (isEasyBot && winner == "O") {
-			return (winnerBox.innerText = "Winner = AI");
+			winnerBox.innerText = "Winner = AI";
+			return finishGame();
 		}
 		winnerBox.innerText = `Winner = Player ${winner}`;
 		finishGame();
