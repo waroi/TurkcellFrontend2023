@@ -18,13 +18,12 @@ const winningCombos = [
 
 info.innerText = "X is first place";
 
-function reload() {
-    document.querySelectorAll("label").forEach((label) => {
-        label.addEventListener("click", xox)
-    })
-}
+document.querySelectorAll("label").forEach((label) => {
+    label.addEventListener("click", xox)
+})
 
-reload();
+
+
 function xox(e) {
     if (controlState) {
         e.target.classList.add("circle");
