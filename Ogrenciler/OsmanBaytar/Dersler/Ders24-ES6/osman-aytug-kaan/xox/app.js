@@ -8,22 +8,73 @@ const boxValue7 = document.getElementById("7");
 const boxValue8 = document.getElementById("8");
 const boxValue9 = document.getElementById("9");
 const winnerBox = document.getElementById("winner");
+const playerTurn = document.getElementById("playerTurn");
 
+const versusPlayer = document.getElementById("versusPlayer");
+const versusAI = document.getElementById("versusAI");
+const easy = document.getElementById("easy");
+const hard = document.getElementById("hard");
+const reset = document.getElementById("reset");
 
 let player = "x";
+let count = 0;
+
+
+function isPlayer() {
+    versusAI.classList.add("d-none");
+    startGame();
+}
+
+function isAI() {
+    versusPlayer.classList.add("d-none");
+    versusAI.classList.add("d-none");
+    easy.classList.replace("d-none", "initial");
+    hard.classList.replace("d-none", "initial");
+}
+
+function isEasy() {
+    hard.classList.replace("initial", "d-none");
+    startGame();
+}
+
+function isHard() {
+    easy.classList.replace("initial", "d-none");
+    startGame();
+}
+
+
+versusPlayer.addEventListener("click", isPlayer);
+versusAI.addEventListener("click", isAI);
+easy.addEventListener("click", isEasy);
+hard.addEventListener("click", isHard);
 
 function write(e) {
     if (player == "x") {
         e.target.innerText = "X";
+        count = count + 1;
         switchPlayer();
+        switchPlayerDisplay();
         checkForWin();
-        disable(e);
+        checkForTile();
+        document.getElementById(e.target.id).removeEventListener("click", write);
     }
     else {
         e.target.innerText = "O";
+        count = count + 1;
         switchPlayer();
+        switchPlayerDisplay();
         checkForWin();
-        disable(e);
+        checkForTile();
+        document.getElementById(e.target.id).removeEventListener("click", write);
+    }
+}
+
+function switchPlayerDisplay() {
+    if (player == "x") {
+        playerTurn.innerText = "Next Player is X"
+    }
+    else {
+        playerTurn.innerText = "Next Player is O"
     }
 }
 
@@ -36,18 +87,13 @@ function switchPlayer() {
     }
 }
 
-function disable(e) {
-    e.target.disabled = true;
-}
-
 function checkForWin() {
     let winner = checkForRoW() || checkForColumn() || checkForDiagonal()
     if (winner) {
         winnerBox.innerText = `Winner = Player ${winner}`;
+        finishGame();
     }
 }
-
-
 
 function checkForRoW() {
     if (boxValue1.innerText == boxValue2.innerText && boxValue2.innerText == boxValue3.innerText) {
@@ -82,13 +128,38 @@ function checkForDiagonal() {
     }
 }
 
+function checkForTile() {
+    if (count == 9 && !checkForWin()) {
+        winnerBox.innerText = "The game is Tile"
+    }
+}
 
-boxValue1.addEventListener("click", write);
-boxValue2.addEventListener("click", write);
-boxValue3.addEventListener("click", write);
-boxValue4.addEventListener("click", write);
-boxValue5.addEventListener("click", write);
-boxValue6.addEventListener("click", write);
-boxValue7.addEventListener("click", write);
-boxValue8.addEventListener("click", write);
-boxValue9.addEventListener("click", write);
+function resetGame() {
+    window.location.reload();
+}
+
+reset.addEventListener("click", resetGame);
+
+function startGame() {
+    boxValue1.addEventListener("click", write);
+    boxValue2.addEventListener("click", write);
+    boxValue3.addEventListener("click", write);
+    boxValue4.addEventListener("click", write);
+    boxValue5.addEventListener("click", write);
+    boxValue6.addEventListener("click", write);
+    boxValue7.addEventListener("click", write);
+    boxValue8.addEventListener("click", write);
+    boxValue9.addEventListener("click", write);
+}
+
+function finishGame() {
+    boxValue1.removeEventListener("click", write);
+    boxValue2.removeEventListener("click", write);
+    boxValue3.removeEventListener("click", write);
+    boxValue4.removeEventListener("click", write);
+    boxValue5.removeEventListener("click", write);
+    boxValue6.removeEventListener("click", write);
+    boxValue7.removeEventListener("click", write);
+    boxValue8.removeEventListener("click", write);
+    boxValue9.removeEventListener("click", write);
+}

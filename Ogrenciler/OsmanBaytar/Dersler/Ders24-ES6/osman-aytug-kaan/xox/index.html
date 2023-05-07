@@ -28,7 +28,13 @@
   </head>
   <body>
     <div class="container">
-      <h2 class="text-center mt-5">X - O - X</h2>
+      <div class="text-center mt-5">
+        <button class="btn btn-primary" id="versusPlayer">Versus Player</button>
+        <button class="btn btn-secondary" id="versusAI">Versus AI</button>
+        <button class="btn btn-success d-none" id="easy">Easy</button>
+        <button class="btn btn-danger d-none" id="hard">Hard</button>
+      </div>
+      <h2 class="text-center mt-5" id="playerTurn">X - O - X</h2>
       <div class="row box-grid mx-auto mt-5">
         <div class="col-4 border border-2 text-center box" id="1"></div>
         <div class="col-4 border border-2 text-center box" id="2"></div>
@@ -41,6 +47,9 @@
         <div class="col-4 border border-2 text-center box" id="9"></div>
       </div>
       <div class="text-center mt-5 fs-1" id="winner"></div>
+      <div class="text-center">
+        <button class="btn btn-primary mt-5" id="reset">Reset the Game</button>
+      </div>
     </div>
 
     <script src="app.js"></script>
