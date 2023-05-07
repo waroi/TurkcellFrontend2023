@@ -57,20 +57,19 @@ function write(e) {
 		checkForWin();
 		checkForTile();
 		document.getElementById(e.target.id).removeEventListener("click", write);
-		document.getElementById(e.target.id).click();
 	} else {
 		if (isEasyBot) {
-			console.log("easy bot çalıştı");
-			easyAI();
+			random = easyAI();
+			document.getElementById(random).removeEventListener("click", write);
 		} else {
 			e.target.innerText = "O";
+			document.getElementById(e.target.id).removeEventListener("click", write);
 		}
 		count = count + 1;
 		switchPlayer();
 		switchPlayerDisplay();
 		checkForWin();
 		checkForTile();
-		document.getElementById(e.target.id).removeEventListener("click", write);
 	}
 }
 
@@ -80,7 +79,7 @@ function easyAI() {
 		if (document.getElementById(random).innerText == "") {
 			document.getElementById(random).innerText = "O";
 			console.log(random);
-			break;
+			return random;
 		}
 		random = Math.floor(Math.random() * 9) + 1;
 	}
@@ -89,6 +88,8 @@ function easyAI() {
 function switchPlayerDisplay() {
 	if (player == "x") {
 		playerTurn.innerText = "Next Player is X";
+	} else if (isEasyBot) {
+		playerTurn.innerText = "Next Player is AI";
 	} else {
 		playerTurn.innerText = "Next Player is O";
 	}
@@ -105,6 +106,10 @@ function switchPlayer() {
 function checkForWin() {
 	let winner = checkForRoW() || checkForColumn() || checkForDiagonal();
 	if (winner) {
+		playerTurn.innerText = "GAME IS FINISHED";
+		if (isEasyBot && winner == "O") {
+			return (winnerBox.innerText = "Winner = AI");
+		}
 		winnerBox.innerText = `Winner = Player ${winner}`;
 		finishGame();
 	}
@@ -145,6 +150,7 @@ function checkForDiagonal() {
 
 function checkForTile() {
 	if (count == 9 && !checkForWin()) {
+		playerTurn.innerText = "GAME IS FINISHED";
 		winnerBox.innerText = "The game is Tile";
 	}
 }
