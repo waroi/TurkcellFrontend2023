@@ -1,0 +1,71 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#gameboard {
+    
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+#gameboard>div {
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+}
+#gameboard>div>label{
+    width: 100%;
+    height: 100%;  
+    /* background-color: red;   */
+}
+
+.d-none {
+    display: none;
+}
+
+.circle {
+    width: 75%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 10px solid rgb(122, 122, 255);
+    box-sizing: border-box;
+}
+
+.cross {
+    width: 75%;
+    aspect-ratio: 1/1;
+    position: relative;
+    transform: rotate(45deg);
+}
+
+.cross::before,
+.cross::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 68, 68);
+}
+
+.cross::before {
+    left: 50%;
+    width: 20%;
+    margin-left: -10%;
+    height: 100%;
+}
+
+.cross::after {
+    top: 50%;
+    left: 0;
+    height: 20%;
+    margin-top: -10%;
+    width: 100%;
+}
