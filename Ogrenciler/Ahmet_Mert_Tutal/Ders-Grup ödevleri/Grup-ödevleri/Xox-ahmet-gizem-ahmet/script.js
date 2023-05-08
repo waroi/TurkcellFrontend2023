@@ -4,8 +4,8 @@ const reset = document.getElementById('reset');
 const winner = document.getElementById('winner');
 
 let player = 'X';
-let iconX = '<span class="bi bi-x text-info"></span>';
-let iconO = '<span class="bi bi-circle text-warning"></span>';
+let iconX = '<span class="bi bi-x text-warning"></span>';
+let iconO = '<span class="bi bi-circle text-primary"></span>';
 
 startGame();
 
@@ -69,6 +69,11 @@ let winningConditions = [
   [2, 4, 6],
 ];
 
+function changePlayerText(win, draw) {
+  winner.classList.remove(draw);
+  winner.classList.add(win);
+}
+
 function checkWinner(winIcon) {
   let allBoxesFilled = true;
 
@@ -79,13 +84,13 @@ function checkWinner(winIcon) {
       box[winningConditions[i][2]].innerHTML === winIcon
     ) {
       winner.innerHTML = `<span>${winIcon}</span> Kazandı!`;
-      winner.classList.add("text-success");
+      changePlayerText("text-success","text-danger");
       box[winningConditions[i][0]].classList.add("bg-success");
       box[winningConditions[i][1]].classList.add("bg-success");
       box[winningConditions[i][2]].classList.add("bg-success");
       box.forEach((item) => {
         item.removeEventListener("click", cardClick);
-      });
+              });
       return;
     }
   }
@@ -99,7 +104,7 @@ function checkWinner(winIcon) {
 
   if (allBoxesFilled) {
     winner.innerHTML = `<span>Beraberlik</span>`;
-    winner.classList.add("text-danger");
+    changePlayerText("text-danger","text-success");
     box.forEach((item) => {
       item.removeEventListener("click", cardClick);
       item.classList.add("bg-danger");
