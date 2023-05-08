@@ -28,7 +28,7 @@ chooseType.addEventListener("submit", (e) => {
     }
   }
 });
-export function winControl() {
+export function winControl(player) {
   if (hasWon()) {
     alert(`${player === "X" ? "O" : "X"} kazandi`);
     restartGame();

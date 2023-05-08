@@ -21,7 +21,7 @@ function paintArea(area) {
   if (area.textContent === "") {
     area.textContent = player;
     player === "X" ? (player = "O") : (player = "X");
-    winControl();
+    winControl(player);
     curPlayer.textContent = `Player ${player}`;
   } else {
     area.style.border = "1px solid red";

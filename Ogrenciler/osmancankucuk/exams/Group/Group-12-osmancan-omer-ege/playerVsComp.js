@@ -20,20 +20,20 @@ export function playerVsComp(btnVal) {
 }
 
 function paintArea(area) {
-  console.log(area);
   if (area.textContent === "") {
     area.textContent = player;
     player === "X" ? (player = "O") : (player = "X");
-    winControl();
+    winControl(player);
     curPlayer.textContent = `Player ${player}`;
     if (player === "O" && buttonValue === "player-computer") {
       let emptyBoxes = Array.from(box).filter(
         (item) => item.textContent === ""
       );
-      if (emptyBoxes.length > 0)
+      if (emptyBoxes.length > 0) {
         paintArea(emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)]);
-      // emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)].textContent =
-      //   "O";
+      } else {
+        player = "X";
+      }
     }
   } else {
     area.style.border = "1px solid red";
