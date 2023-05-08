@@ -40,6 +40,7 @@ function isEasy() {
 
 function isHard() {
 	easy.classList.replace("initial", "d-none");
+	isHardBot = true;
 	startGame();
 }
 
@@ -57,6 +58,7 @@ function write(e) {
 		checkForWin();
 		checkForTile();
 		document.getElementById(e.target.id).removeEventListener("click", write);
+		isEasyBot ? write() : null;
 	} else {
 		if (isEasyBot) {
 			random = easyAI();
@@ -75,7 +77,7 @@ function write(e) {
 
 function easyAI() {
 	let random = Math.floor(Math.random() * 9) + 1;
-	while (true) {
+	while (count < 9) {
 		if (document.getElementById(random).innerText == "") {
 			document.getElementById(random).innerText = "O";
 			return random;
@@ -113,6 +115,7 @@ function checkForWin() {
 		winnerBox.innerText = `Winner = Player ${winner}`;
 		finishGame();
 	}
+	return winner;
 }
 
 function checkForRoW() {
@@ -151,7 +154,7 @@ function checkForDiagonal() {
 function checkForTile() {
 	if (count == 9 && !checkForWin()) {
 		playerTurn.innerText = "GAME IS FINISHED";
-		winnerBox.innerText = "The game is Draw";
+		winnerBox.innerText = "The game is Tile";
 	}
 }
 
