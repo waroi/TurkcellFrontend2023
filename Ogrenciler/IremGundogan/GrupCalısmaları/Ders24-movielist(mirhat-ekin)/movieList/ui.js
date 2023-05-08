@@ -54,9 +54,32 @@ UI.prototype.deleteMovieFromUI = function (element) {
   console.log(element.parentElement);
   element.parentElement.parentElement.remove();
 };
-UI.prototype.clearAllFilmsFromUI = function () {
+UI.prototype.clearAllMoviesFromUI = function () {
   const movieList = document.getElementById("movies");
   while (movieList.firstElementChild !== null) {
     movieList.firstElementChild.remove();
   }
 };
+
+UI.prototype.editMovieUI = function (element) {
+  const oldName = e.target.parentElement.children[1].textContent;
+  const oldDirector = e.target.parentElement.children[2].innerHTML.split(': ')[1];
+  const oldUrl = e.target.parentElement.children[0].src;
+  const oldRelease = e.target.parentElement.children[3].textContent.split(': ')[1];
+
+  const newName = prompt("Yeni Film Adı Giriniz", oldName);
+  const newDirector = prompt("Yeni Yönetmen Adı Giriniz", oldDirector);
+  const newUrl = prompt("Yeni Url Giriniz", oldUrl);
+  const newRelease = prompt("Yeni Yıl Giriniz", oldRelease);
+
+  const newMovie = [newName, newDirector, newUrl, newRelease];
+  const oldMovie = [oldName, oldDirector, oldUrl, oldRelease];
+
+  if (newName == null || newDirector == null || newUrl == null || newRelease == null) {
+    return;
+  }else {
+    storage.editMovieFromStorage(oldMovie, newMovie);
+
+  }
+
+}
