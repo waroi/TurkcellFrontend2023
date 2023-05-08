@@ -5,6 +5,7 @@ let chooseType = document.querySelector("#chooseType");
 let formButton = document.querySelector(".btn.btn-success");
 
 import { playerVsPlayer, player, setPlayerX } from "./playerVsPlayer.js";
+import { playerVsComp} from "./playerVsComp.js";
 
 formButton.addEventListener("click", () => {
   chooseType.classList.toggle("hidden");
@@ -14,7 +15,6 @@ chooseType.addEventListener("submit", (e) => {
   console.log(e);
   const radioButtons = document.querySelectorAll('input[type="radio"]');
   e.preventDefault();
-
   for (const radioButton of radioButtons) {
     if (radioButton.checked) {
       if (radioButton.value === "player-computer") {
@@ -96,7 +96,7 @@ function hasWon() {
   );
 }
 
-function restartGame() {
+export function restartGame() {
   setPlayerX();
   box.forEach((item) => {
     item.classList.toggle("unclickable");
