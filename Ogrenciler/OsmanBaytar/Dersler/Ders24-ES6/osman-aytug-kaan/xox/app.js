@@ -40,6 +40,7 @@ function isEasy() {
 
 function isHard() {
 	easy.classList.replace("initial", "d-none");
+	isHardBot = true;
 	startGame();
 }
 
