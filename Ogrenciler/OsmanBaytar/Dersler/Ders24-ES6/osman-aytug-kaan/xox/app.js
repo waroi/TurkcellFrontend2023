@@ -58,6 +58,7 @@ function write(e) {
 		checkForWin();
 		checkForTile();
 		document.getElementById(e.target.id).removeEventListener("click", write);
+		isEasyBot ? write() : null;
 	} else {
 		if (isEasyBot) {
 			random = easyAI();
@@ -76,7 +77,7 @@ function write(e) {
 
 function easyAI() {
 	let random = Math.floor(Math.random() * 9) + 1;
-	while (true) {
+	while (count < 9) {
 		if (document.getElementById(random).innerText == "") {
 			document.getElementById(random).innerText = "O";
 			return random;
@@ -114,6 +115,7 @@ function checkForWin() {
 		winnerBox.innerText = `Winner = Player ${winner}`;
 		finishGame();
 	}
+	return winner;
 }
 
 function checkForRoW() {
