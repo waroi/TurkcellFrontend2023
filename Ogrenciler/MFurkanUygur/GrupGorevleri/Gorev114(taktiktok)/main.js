@@ -16,23 +16,30 @@ const winningCombos = [
     [2, 4, 6],
 ];
 
+// function findMatchingArray(test, warray) {
+//     for (let i = 0; i < warray.length; i++) {
+//         const subArray = warray[i];
+//         let matchCount = 0;
+//         for (let j = 0; j < subArray.length; j++) {
+//             if (test.includes(subArray[j])) {
+//                 matchCount++;
+//             } else {
+//                 break;
+//             }
+//         }
+//         if (matchCount === subArray.length) {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+
 function findMatchingArray(test, warray) {
-    for (let i = 0; i < warray.length; i++) {
-        const subArray = warray[i];
-        let matchCount = 0;
-        for (let j = 0; j < subArray.length; j++) {
-            if (test.includes(subArray[j])) {
-                matchCount++;
-            } else {
-                break;
-            }
-        }
-        if (matchCount === subArray.length) {
-            return true;
-        }
-    }
-    return false;
-}
+    return warray.some(subArray => {
+      return subArray.every(elem => test.includes(elem));
+    });
+  }
+  
 
 info.innerText = "X is first place";
 
