@@ -78,7 +78,6 @@ function easyAI() {
 	while (true) {
 		if (document.getElementById(random).innerText == "") {
 			document.getElementById(random).innerText = "O";
-			console.log(random);
 			return random;
 		}
 		random = Math.floor(Math.random() * 9) + 1;
@@ -152,7 +151,7 @@ function checkForDiagonal() {
 function checkForTile() {
 	if (count == 9 && !checkForWin()) {
 		playerTurn.innerText = "GAME IS FINISHED";
-		winnerBox.innerText = "The game is Tile";
+		winnerBox.innerText = "The game is Draw";
 	}
 }
 
