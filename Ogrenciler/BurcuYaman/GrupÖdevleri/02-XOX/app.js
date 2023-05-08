@@ -34,15 +34,6 @@ function startGamexox() {
   startGame.style.display = 'none';
 }
 
-function nextTurn() {
-  if (currentPlayer === player1Name) {
-    currentPlayer = player2Name;
-  } else {
-    currentPlayer = player1Name;
-  }
-  document.getElementById("player").textContent = currentPlayer;
-}
-
 
 game.addEventListener('click', (e) => {
   const kutu = e.target;
