@@ -12,7 +12,7 @@ const posterUrl = document.getElementById("posterUrl");
 const movieTable = document
   .getElementById("movieTable")
   .getElementsByTagName("tbody")[0];
-// const filmKartlari = document.getElementById('movieCard');
+
 
 // Verileri localStorage'dan yükle
 if (localStorage.getItem("movies")) {
@@ -23,7 +23,7 @@ if (localStorage.getItem("movies")) {
 
 // Form gönderildiğinde çalışacak fonksiyon
 function addMovie(event) {
-  event.preventDefault(); // Formun sayfayı yenilemesini engelle
+  event.preventDefault(); // Formun sayfayı yenilemesini engelliyor
 
   // Formdaki verileri al
   const newMovie = {

@@ -5,7 +5,7 @@ const filmCard = (film, degis) => {
      <div style="width: 100%;">
       <img src="${film.url}" class="card-img-top " alt="film url si">
      </div>
-  <div class="card-body">
+  <div class="card-body text-white">
     <h6 class="card-title d-flex justify-content-between">
      <span>${film.yil}</span>
      <span>
