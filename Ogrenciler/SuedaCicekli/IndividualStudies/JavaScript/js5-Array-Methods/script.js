@@ -24,6 +24,8 @@ result = girls.join(" - "); // aralarına çizgi koyarak yazdırır
 result = students.push(girls, boys)
 console.log("students", students);
 
+
+
 console.log(girls);
 console.log(result); //concat
 

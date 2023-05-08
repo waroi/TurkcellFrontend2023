@@ -88,12 +88,7 @@ degistirButton.addEventListener('click', function (e) {
 });
 
 function sifirla() {
- filmResmi.value = '';
- filmYili.value = '';
- filmAdi.value = '';
- filmTuru.value = '';
- filmPuani.value = '';
- filmAciklamasi.value = '';
+ form.reset()
 }
 
 function degistir(id) {
