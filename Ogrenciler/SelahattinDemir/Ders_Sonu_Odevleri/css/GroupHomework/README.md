@@ -8,13 +8,13 @@
 
 We cloned the https://shreethemes.in/upstart/layouts/index.html web page using HTML and CSS.
 
-<b>Teammates:</b> Ekin Mete Tahmilci, Selahattin Demir and Serkan Akalın 
-
+<b>Teammates:</b> Ekin Mete Tahmilci, Selahattin Demir and Serkan Akalın
 
 ## Website
 
-![alt text](https://github.com/waroi/TurkcellFrontend2023/blob/develop/Ogrenciler/SelahattinDemir/Ders_Sonu_Odevleri/css/GroupHomework/images/Web-View.gif)
+![alt text](https://github.com/waroi/TurkcellFrontend2023/blob/develop/Ogrenciler/SelahattinDemir/Ders_Sonu_Odevleri/css/GroupHomework/images/web-view.gif)
 
 ## Mobile View
 
-![alt text](https://github.com/waroi/TurkcellFrontend2023/blob/develop/Ogrenciler/SelahattinDemir/Ders_Sonu_Odevleri/css/GroupHomework/images/Mobil-View.gif)
+![alt text](https://github.com/waroi/TurkcellFrontend2023/blob/develop/Ogrenciler/SelahattinDemir/Ders_Sonu_Odevleri/css/GroupHomework/images/mobil-view.gif)
+
