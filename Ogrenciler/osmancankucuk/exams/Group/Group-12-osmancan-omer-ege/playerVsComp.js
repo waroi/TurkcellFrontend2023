@@ -2,64 +2,44 @@ let curPlayer = document.querySelector(".currentPlayer");
 let gameArea = document.querySelector("gameArea");
 let box = document.querySelectorAll(".box");
 let chooseType = document.querySelector("#chooseType");
+let formButton = document.querySelector(".btn.btn-success");
+let gameMode;
+let buttonValue;
+
 import { winControl } from "./app.js";
 
 export let player = "X";
 
-let elementRankArray = [0,0,0,0,0,0,0,0,0];
-
-
-// export function playerVsComp() {
-//   Array.from(box).every((item) => {
-//   item.addEventListener("click", (e) => {
-//     if (item.textContent == "") {
-//     item.textContent = player;
-//     computerTurn();
-//   }
-//   })
-//   })
-// }
-//
 curPlayer.textContent = `${player} Start`;
 
-export function playerVsComp() {
-  box.forEach((item,index) => {
-    item.addEventListener("click", (e) => paintArea(item,index));
+export function playerVsComp(btnVal) {
+  buttonValue = btnVal;
+  box.forEach((item) => {
+    item.addEventListener("click", () => paintArea(item));
   });
 }
-export function setPlayerX() {
-  player = "X";
-}
-function paintArea(area,i) {
+
+function paintArea(area) {
+  console.log(area);
   if (area.textContent === "") {
     area.textContent = player;
     player === "X" ? (player = "O") : (player = "X");
-    computerTurn(player);
-    elementRankArray[i] = -1;
-    console.log(elementRankArray);
     winControl();
-    // console.log(area);
     curPlayer.textContent = `Player ${player}`;
+    if (player === "O" && buttonValue === "player-computer") {
+      let emptyBoxes = Array.from(box).filter(
+        (item) => item.textContent === ""
+      );
+      if (emptyBoxes.length > 0)
+        paintArea(emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)]);
+      // emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)].textContent =
+      //   "O";
+    }
   } else {
     area.style.border = "1px solid red";
     setTimeout(() => {
-      // console.log("asd");
+      console.log("asd");
       area.style.border = "1px solid gray";
     }, 1500);
   }
 }
-function computerTurn(player) {
-  if(player == "O"){
-    let x = getNumber();
-    box[x].click();
-  }
-  }
-
-function getNumber(){
-  let sorted = Array.from(elementRankArray);
-  sorted.sort((a,b) => b-a);
-  console.log(sorted);
-  let findBoxIndex = elementRankArray.findIndex((element) => element === sorted[0]);
-  return findBoxIndex;
-  }
-
