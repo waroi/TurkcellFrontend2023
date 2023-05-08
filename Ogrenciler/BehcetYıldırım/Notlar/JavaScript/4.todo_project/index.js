@@ -11,11 +11,22 @@ eventListeners();
 
 function eventListeners(){ // Tüm event listener'lar
     form.addEventListener("submit",addTodo);
-
+    document.addEventListener("DOMContentLoaded",loadAllTodosToUI);
     secondCardBody.addEventListener("click",deleteTodo);
     filter.addEventListener("keyup",filterTodos);
+    clearButton.addEventListener("click", clearAllTodos);
 }
-//* LİSTEYE TODO EKLEME
+
+//*                                         Sayfa Yüklendiğinde Todolar Ekleme
+function loadAllTodosToUI(){
+    let todos = getTodoFromStorage();
+
+    todos.forEach(function(e){
+        addTodoToUI(e);
+    });
+}
+
+//*                                                    LİSTEYE TODO EKLEME
 function addTodo(e){
     const newTodo = todoInput.value.trim();// trim boşlukları siler.
 
@@ -23,6 +34,7 @@ function addTodo(e){
         showAlert("danger","Lütfen bir todo girin...");
     }else{
         addTodoToUI(newTodo);
+        addTodoToStorage(newTodo);
         showAlert("success","Başarılı bir şekilde giriş yapıldı...");
     }
     
@@ -30,7 +42,28 @@ function addTodo(e){
     e.preventDefault();
 };
 
-//* Listeye eklenecek itemleri oluşturma
+//*                                Local Storage'den İtemleri Dizi Halinde Çekme
+function getTodoFromStorage(){
+    let todos; // Local storge'e ekleyeceğimiz veriler için bir key oluşturuyoruz.
+    if(localStorage.getItem("todos")=== null){
+        todos = []; // eğer ki local storage'de todos isminde bir key yok ise todos dizisini boş başlattık.
+    }
+    else{
+        todos = JSON.parse(localStorage.getItem("todos")) // eğer todos var ise onu local storage'den ARRAY olarak okuduk.
+    }
+    return todos; // Stoage'den aldığımız todos dizisini döndürüyoruz.
+};
+
+//*                                                    Local Storage'e ekleme
+function addTodoToStorage(e){
+    let todos = getTodoFromStorage(); // getTodoFromStorage fonksiyonundan dönen diziyi alıyoruz.
+    
+    todos.push(e);// fonksiyona aldığımız değeri(newTodo) todos dizisine ekliyoruz.
+    
+    localStorage.setItem("todos", JSON.stringify(todos)) // dizi olarak tuttuğumuz todos'u local storage'e dizi olarak ekliyoruz.
+};
+
+//*                                         Listeye eklenecek itemleri oluşturma
 function addTodoToUI(e){
 // String değerini list item olarak UI'a ekleyecek
    // List item oluşturma
@@ -42,7 +75,7 @@ function addTodoToUI(e){
     const link = document.createElement("a");
     link.href = "#";
     link.className= "delete-item";
-    link.innerHTML = "<i class = 'fa fa-remove'></i>"
+    link.innerHTML = "<i class='fa fa-remove'></i>"
 
     listItem.appendChild(document.createTextNode(e));
     listItem.appendChild(link);
@@ -54,7 +87,7 @@ function addTodoToUI(e){
 }
 
 
-//* Uyarı Mesajı
+//*                                                      Uyarı Mesajı
 function showAlert(type, message){
     const alert = document.createElement("div");
     alert.className = `alert alert-${type}`;
@@ -67,15 +100,28 @@ function showAlert(type, message){
     }, 1500); // alert timeout
 };
 
-//* Listeden Todoları Silme
+//*                                                      Listeden Todoları Silme
 
 function deleteTodo(e){
     if(e.target.className==="fa fa-remove"){
         e.target.parentElement.parentElement.remove();
+        deleteTodoFromStorage(e.target.parentElement.parentElement.textContent);// fonksiyona silme işlemi uyygularken yukarıda aldığımız elementin içeriğini gönderiyoruz.
     }
 };
 
-//* Filtreleme
+//*                                             Local Storage'den Todoları Silme
+function deleteTodoFromStorage(e){
+    let todos = getTodoFromStorage();// Storage'de olan verileri tanımladığımız fonksiyonla çekiyoruz.
+
+    todos.forEach(function(a,index){// çektiğimiz diziyi geziyoruz ve deleteTodoFromStorage fonksiyonuna gönderidğimiz değer ile storage'deki gezindiğimiz değer aynı ise onu siliyoruz.
+        if(a === e){
+            todos.splice(index,1);
+        }
+    })
+    localStorage.setItem("todos", JSON.stringify(todos));// değerler silindikten sonra local storage'yi güncelliyoruz.
+};
+
+//*                                                      Filtreleme
 function filterTodos(e){
     const filterValue = e.target.value.toLowerCase();
     const listItems = document.querySelectorAll(".list-group-item");
@@ -83,32 +129,26 @@ function filterTodos(e){
     listItems.forEach(function(a){
         const text = a.textContent.toLowerCase();
 
-        if(text.indexOf(filterValue)=== -1){
+        if(text.indexOf(filterValue)=== -1){ // id ile bulmaya çalış
             a.setAttribute("style","display : none !important");
         }else{
             a.setAttribute("style","display : block"); 
         }
 
     });
-
-    
 };
-// function filterTodos(e){
-//     const filterValue = e.target.value.toLowerCase();
-//     const listItems = document.querySelectorAll(".list-group-item");
 
-//     listItems.forEach(function(a){
-//         const text = a.textContent.toLowerCase();
-//         if (text.indexOf(filterValue) === -1){
-//             // Bulamadı
-            
-//             a.setAttribute("style","display : none !important");
-//         }
-//         else {
-//             a.setAttribute("style","display : block");
-//         }
+//*                                           Bütün Todoları Temizleme
+function clearAllTodos(){
+    if(confirm("Tümünü Silmek İstedğinizden Emin Misiniz?")){
+        // Arayüzden temizleme
+        // todoList.innerHTML="";
+        while(todoList.firstElementChild != null){
+            todoList.removeChild(todoList.firstElementChild);
+        }
+        localStorage.clear();
 
-        
+    }
 
-//     });
-// };
+};
+

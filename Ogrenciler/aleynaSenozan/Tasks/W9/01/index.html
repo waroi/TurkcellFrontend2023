@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Cinema Archive</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Cinema Archive</h1>
+        <form id="movie-form">
+            <div class="mb-3">
+                <label for="title" class="form-label">Film Adı</label>
+                <input type="text" class="form-control" id="title" required>
+            </div>
+            <div class="mb-3">
+                <label for="director" class="form-label">Yönetmen</label>
+                <input type="text" class="form-control" id="director" required>
+            </div>
+            <div class="mb-3">
+                <label for="year" class="form-label">Yıl</label>
+                <input type="number" class="form-control" id="year" min="1900" max="2025" required>
+            </div>
+            <div class="mb-3">
+                <label for="genre" class="form-label">Tür</label>
+                <input type="text" class="form-control" id="genre" required>
+            </div>
+            <div class="mb-3">
+                <label for="posterUrl" class="form-label">Afiş URL</label>
+                <input type="url" class="form-control" id="posterUrl" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Ekle</button>
+        </form>
+        <div class="mt-5" id="movie-collection"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
