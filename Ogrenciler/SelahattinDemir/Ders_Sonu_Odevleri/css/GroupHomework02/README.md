@@ -11,7 +11,8 @@ We cloned the https://themesdesign.in/styza/layout/index-2-dark.html web page us
 
 ## Website
 
-![alt text](https://github.com/waroi/TurkcellFrontend2023/blob/develop/Ogrenciler/SelahattinDemir/Ders_Sonu_Odevleri/css/GroupHomework02/images/web-view.gif)
+![alt text](https://github.com/waroi/TurkcellFrontend2023/blob/develop/Ogrenciler/SelahattinDemir/Ders_Sonu_Odevleri/css/GroupHomework02/img/web-view.gif)
+
 
 ## Mobile View
 
