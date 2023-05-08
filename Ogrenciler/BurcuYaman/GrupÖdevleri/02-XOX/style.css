@@ -1,29 +1,37 @@
-* {
-    background-color: black;
-    color: white;
+body {
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
 }
 
 .container {
+    justify-content: center;
     width: 300px;
-    margin: 0 auto;
-    margin-top: 80px;
+    margin: auto;
+    padding-top: 50px;
     text-align: center;
+    padding-bottom: 100px;
 }
 
 h1 {
     font-size: 50px;
-    margin-bottom: 50px;
-    color: rgb(176, 108, 240);
+    margin-bottom: 30px;
+    color: rgb(30, 74, 124);
 }
 
 .restartBtn {
-    background-color: rgb(176, 108, 240);
-    color: white;
-    border: none;
+    background-color: rgb(173, 205, 241);
+    color: rgb(30, 74, 124);
+    border: 1px solid rgb(30, 74, 124);
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     margin: 30px 0px;
+    transition: all .3s;
+}
+
+.restartBtn:hover {
+    background-color: rgb(30, 74, 124);
+    color: white;
 }
 
 #game {
@@ -41,4 +49,52 @@ h1 {
     font-size: 25px;
     border: 2px solid rgb(112, 112, 112);
     cursor: pointer;
+    background-color: white;
+}
+
+#players {
+    display: flex;
+    flex-direction: column;
+}
+
+#players>input {
+    outline: none;
+    width: 100%;
+    padding: 8px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid rgba(148, 187, 233, 1)
+}
+
+#status {
+    display: none;
+}
+
+#startgame {
+    border-radius: 5px;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid white;
+    background: white;
+    cursor: pointer;
+    height: 30px;
+    transition: all .3s;
+    color: rgb(30, 74, 124);
+    margin: 20px 0;
+}
+
+#startgame:hover {
+    background-color: rgb(173, 205, 241);
+    border: 1px solid rgb(30, 74, 124);
+}
+
+#hint {
+    color: rgb(30, 74, 124);
+}
+
+#siraText {
+    color: rgb(25, 43, 64);
+    font-size: 20px;
+    margin-bottom: 10px;
 }

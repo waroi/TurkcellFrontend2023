@@ -13,6 +13,15 @@ const winningCombos = [
     [0, 4, 8], [2, 4, 6]
 ];
 
+function findMatchingArray(test, warray) {
+    return warray.some(subArray => {
+      return subArray.every(elem => test.includes(elem));
+    });
+  }
+  
+
+info.innerText = "X is first place";
+
 document.querySelectorAll("span").forEach((span) => {
     span.addEventListener("click", xox);
 });
