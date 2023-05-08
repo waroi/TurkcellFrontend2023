@@ -15,7 +15,6 @@ const filmCard = (film, degis) => {
        ? '10'
        : film.puan
      }
-    
      </span>
     </h6>
     <h4 class="card-title">${film.ad}</h4>
@@ -35,4 +34,3 @@ const filmCard = (film, degis) => {
 };
 
 export default filmCard;
-//   <p>${film.tur}</p>
