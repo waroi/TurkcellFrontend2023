@@ -111,8 +111,3 @@ function checkWinner(winIcon) {
     });
   }
 }
-
-
-
-
-
