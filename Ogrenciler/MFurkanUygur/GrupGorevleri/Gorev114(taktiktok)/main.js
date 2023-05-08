@@ -69,12 +69,6 @@ function removeClick() {
 }
 
 function controller() {
-    if (count == 9) {
-        info.innerText = "Draw";
-        info.classList.add("draw");
-        gameboard.style.backgroundColor = "black";
-        removeClick();
-    }
     if (findMatchingArray(square, winningCombos)) {
         info.innerText = "X Win";
         info.classList.add("xwin");
@@ -83,6 +77,12 @@ function controller() {
     if (findMatchingArray(circle, winningCombos)) {
         info.innerText = "O Win";
         info.classList.add("owin");
+        removeClick();
+    }
+    if (count == 9 && info.innerText.includes("turn")) {
+        info.innerText = "Draw";
+        info.classList.add("draw");
+        gameboard.style.backgroundColor = "black";
         removeClick();
     }
 }
