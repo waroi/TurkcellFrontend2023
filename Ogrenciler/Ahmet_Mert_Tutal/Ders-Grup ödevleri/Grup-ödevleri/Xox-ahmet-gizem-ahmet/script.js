@@ -52,6 +52,7 @@ function resetGame() {
       item.innerHTML = '';
       item.addEventListener('click', cardClick);
       item.classList.remove('bg-danger');
+      item.classList.remove('bg-success');
     });
     player = 'X';
     startGame();
@@ -75,6 +76,9 @@ function checkWinner(winIcon) {
       box[winningConditions[i][2]].innerHTML === winIcon) {
       winner.innerHTML = `<span>${winIcon}</span> Kazandı!`;
       winner.classList.add('text-success');
+      box[winningConditions[i][0]].classList.add('bg-success');
+      box[winningConditions[i][1]].classList.add('bg-success');
+      box[winningConditions[i][2]].classList.add('bg-success');
       box.forEach((item) => {
         item.removeEventListener('click', cardClick);
       });
