@@ -18,7 +18,7 @@ startGame.addEventListener('click', startGamexox);
 function startGamexox() {
   player1Name = document.getElementById("player1").value;
   player2Name = document.getElementById("player2").value;
-  if(player1Name === "" || player2Name === ""){
+  if (player1Name === "" || player2Name === "") {
     alert("Lütfen Oyuncu İsimlerini Giriniz");
     return;
   }
@@ -50,7 +50,7 @@ game.addEventListener('click', (e) => {
   if (board[index] === null) {
     board[index] = player;
     kutu.textContent = player;
-    let color = player === 'X' ? 'lightcoral' : 'aqua';
+    let color = player === 'X' ? 'rgb(175, 92, 128)' : 'rgb(30, 74, 124)';
     kutu.style.color = color;
 
     playerText.textContent = player === 'X' ? `${player2Name} (O)` : `${player1Name} (X)`;
