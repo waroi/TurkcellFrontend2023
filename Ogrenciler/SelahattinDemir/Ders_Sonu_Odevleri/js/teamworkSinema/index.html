@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sinema Koleksiyonu Uygulaması</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sinema Koleksiyonu</h1>
+      <form id="film-form">
+        <div>
+          <label for="film-name">Film Adı:</label>
+          <input type="text" id="film-name" name="film-name" />
+        </div>
+        <div class="error" id="filmNameError"></div>
+        <div>
+          <label for="director">Yönetmen:</label>
+          <input type="text" id="director" name="director" />
+        </div>
+        <div class="error" id="directorError"></div>
+        <div>
+          <label for="kind">Tür:</label>
+          <input type="text" id="kind" name="kind" />
+        </div>
+        <div class="error" id="kindError"></div>
+        <div>
+          <label for="year">Yıl:</label>
+          <input type="number" id="year" name="year" />
+        </div>
+        <div class="error" id="yearError"></div>
+        <div>
+          <label for="image">Film Resmi:</label>
+          <input type="text" id="image" name="image" />
+        </div>
+        <div class="error" id="imageError"></div>
+        <input type="submit" value="Ekle" />
+      </form>
+      <div id="film-list"></div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

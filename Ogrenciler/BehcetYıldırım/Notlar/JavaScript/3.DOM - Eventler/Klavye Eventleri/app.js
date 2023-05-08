@@ -1,32 +1,32 @@
 // Klavye Eventleri
 
-// Keypress (klavyede sadece harfler ve sayılar olacak şekilde tuşa bastığımızda çalışan event)
+//* Keypress (klavyede sadece harfler ve sayılar olacak şekilde tuşa bastığımızda çalışan event)
 
-// document.addEventListener("keypress",run); // "run" çağırdığımız fonksiyon
+document.addEventListener("keypress",run); // "run" çağırdığımız fonksiyon
 
-// function run(e){
-//     // console.log(e.which); // klavyede hangi tuşa bastığımızı ASCII tablosunda gösterir
-//     console.log(e.key); // hangi tuşa bastığımızı gösterir
-//     // console.log("naber");
-// };
+function run(e){
+    // console.log(e.which); // klavyede hangi tuşa bastığımızı ASCII tablosunda gösterir
+    // console.log(e.key); // hangi tuşa bastığımızı gösterir
+    // console.log("naber");
+};
 
-// // Keydown (klavyede herhangi bir tuşa bastığımızda çalışan event)
+//* Keydown (klavyede herhangi bir tuşa bastığımızda çalışan event)
 
-// document.addEventListener("keydown",run); 
+document.addEventListener("keydown",run); 
 
-// function run(e){
-//     console.log(e.key); 
+function run(e){
+    // console.log(e.key); 
     
-// };
+};
 
-// // Keyup (bir tane tuşu bıraktığımızda oluşan event)
+//* Keyup (bir tane tuşu bıraktığımızda oluşan event)
 
-// document.addEventListener("keyup",run); 
+document.addEventListener("keyup",run); 
 
-// function run(e){
-//     console.log(e.key); 
+function run(e){
+    // console.log(e.key); 
     
-// };
+};
 // ---------------------------------------------------------------------------------------------------------
 
 

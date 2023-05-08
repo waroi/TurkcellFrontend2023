@@ -12,16 +12,16 @@ const clearResult = () => {
 }
 
 function calculate() {
-var operands = result.match(/\d+/g);
-var operators = result.match(/[+\-*/]/g);
+let operands = result.match(/\d+/g);
+let operators = result.match(/[+\-*/]/g);
   
-if (!operands || !operators || operators.length >= 2) {
+if (!operands || !operators) {
   document.getElementById("result").value = "Geçersiz Girdi"
     return;
 }
 
-var resultValue = parseInt(operands[0], 10);
-for (var i = 1; i < operands.length; i++) {
+let resultValue = parseInt(operands[0], 10);
+for (let i = 1; i < operands.length; i++) {
     switch (operators[i - 1]) {
         case '+':
             resultValue += parseInt(operands[i], 10);

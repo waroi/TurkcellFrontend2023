@@ -118,3 +118,14 @@ ExecutionContext siline bile onu çevreleyen {} blockta bu değişkenlere ihtiya
 5. **bytecode** a dönüştürülen veri **profiling data** yı alarak **optimizing compiler** a gelir. 
 6. **optimize edilen kod**  deoptimize edilerek tekrar **bytecode** a dönüştürülür ve js motorları tarafından kullanılır.
 7. js kodları işlendiğinde **functions ve variables** olarak okunur ve makina koduna çevrilir.
+
+8. ardından gelecek olan fazlarda execution context aşamaları tanımlanır. burada 2 stage vardır. birincisi **creation stage** ve  **execution stage**
+
+9. Creation Stage (Yaratılma Aşaması)
+ 1. this anahtar kelimesinin atama işlemi bu aşamada gerçekleşir.
+ 2. Variable Environment (Değişken Ortamı) bu aşamada tanımlanır ve var ile tanımlanan değişken bilgileri undefined olarak tanımlanır.
+ 3. Lexical Environment (Anlamsal Ortam) bu aşamada Variable Environment’in kopyasıdır.
+
+ 10. Execution Stage (Çalışma Aşaması)
+    1. Tanımlanan değişkenlerin değer atamaları yapılır.
+    2. Lexical Environment diğer fonksiyon bağlamının diğer fonksiyon bağlamlarıyla ilişkilendirmesini yapar

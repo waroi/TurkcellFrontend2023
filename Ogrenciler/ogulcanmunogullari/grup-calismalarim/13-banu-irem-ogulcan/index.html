@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List xD</title>
+  <link rel="stylesheet" href="./css/main.css" />
+ </head>
+ <body class="vh-100 bg-black d-flex align-items-center">
+  <div id="container" class="container">
+   <div class="card row col-12 col-md-6 m-auto">
+    <div class="card-header bg-secondary fs-3">Todo List</div>
+    <div class="card-body">
+     <div id="addSection">
+      <div class="row g-3" id="addTodoForm">
+       <input
+        type="text"
+        id="addTodoInput"
+        class="w-100 rounded-3 p-2"
+        placeholder="Bir Todo Girin" />
+       <div class="d-flex gap-1 justify-content-between">
+        <button type="submit" id="addTodo" class="btn btn-success flex-grow-1">
+         Todo Ekleyin
+        </button>
+        <button
+         type="button"
+         id="changedTodoButton"
+         class="btn btn-warning flex-grow-1 d-none">
+         Onayla
+        </button>
+       </div>
+      </div>
+      <hr />
+     </div>
+    </div>
+    <div class="card-body">
+     <h3>Todolar</h3>
+     <div id="todosSection">
+      <input
+       id="searchInput"
+       type="search"
+       class="w-100 rounded-3 p-2"
+       placeholder="Bir Todo Arayın" />
+      <hr />
+      <ul class="list-group" id="todoContainer"></ul>
+     </div>
+     <hr />
+     <button class="btn btn-dark" id="clearAllTodos">
+      Tüm Todo'ları Temizleyin
+     </button>
+    </div>
+   </div>
+  </div>
+
+  <script src="./todo.js" type="module"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ </body>
+</html>
