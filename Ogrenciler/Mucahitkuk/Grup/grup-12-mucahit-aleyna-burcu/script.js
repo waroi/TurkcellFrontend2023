@@ -8,13 +8,11 @@ const movieUrl = document.querySelector("#movie-url-input");
 const errorText = document.querySelector("#error-text");
 const editButton = document.querySelector("#edit-movie");
 
-
 addBtn.addEventListener("click", inputValidation);
 searchInput.addEventListener("input", searchMovie);
 editButton.addEventListener("click", editCard);
 
 let list = document.getElementById("film-collection");
-let currentId;
 
 function addMovie() {
   const movies = {
@@ -23,15 +21,19 @@ function addMovie() {
     type: movieType.value.trim(),
     director: movieDirector.value.trim(),
     url: movieUrl.value.trim(),
-    completed: false,
   };
   renderMovies(movies);
   saveToLocalStorage(movies);
+  resetInput();
+  console.log(movies);
+}
+
+
+function resetInput() {
   movieName.value = "";
   movieDirector.value = "";
   movieType.value = "";
   movieUrl.value = "";
-  console.log(movies);
 }
 
 function inputValidation() {
@@ -42,15 +44,14 @@ function inputValidation() {
     movieType.value.trim() === "" ||
     !regexTest.test(movieUrl.value.trim())
   ) {
-    errorText.textContent = 'Lütfen tüm alanları doğru şekilde doldurunuz.';
-    setTimeout(function() {
-      errorText.textContent = '';
+    errorText.textContent = "Lütfen tüm alanları doğru şekilde doldurunuz.";
+    setTimeout(function () {
+      errorText.textContent = "";
     }, 3000);
     return;
   }
   addMovie();
 }
-
 
 function saveToLocalStorage(movies) {
   let movieList = getMoviesFromLocalStorage();
@@ -64,11 +65,9 @@ function getMoviesFromLocalStorage() {
   return movieList ? JSON.parse(movieList) : [];
 }
 
-
 function renderMovies(movies) {
   const movieCard = document.createElement("div");
   movieCard.classList.add("col-lg-4");
-
   movieCard.innerHTML = `
     <div class="card mt-3 movie-card">
       <img src="${movies.url}" class="card-img-top" alt="Hatalı Url">
@@ -83,7 +82,6 @@ function renderMovies(movies) {
       </div>
     </div>
   `;
-
   const editBtn = movieCard.querySelector(".edit-btn");
   const deleteBtn = movieCard.querySelector(".delete-btn");
   editBtn.addEventListener("click", () => {
@@ -99,7 +97,7 @@ function renderMovies(movies) {
   deleteBtn.addEventListener("click", () => {
     movieCard.remove();
     let movieList = getMoviesFromLocalStorage();
-    movieList = movieList.filter(movie => movie.id !== movies.id);
+    movieList = movieList.filter((movie) => movie.id !== movies.id);
     localStorage.setItem("movieList", JSON.stringify(movieList));
   });
   if (movieList) {
@@ -107,32 +105,46 @@ function renderMovies(movies) {
   }
 }
 
-
-function editCard() {
- 
+function searchMovie(e) {
+  const searchTerm = e.target.value.toLowerCase();
+  const movieList = document.querySelectorAll(".card");
+  console.log(movieList)
+  Array.from(movieList).forEach((movie) => {
+    const movieName = movie
+      .querySelector(".card-title")
+      .innerText.toLowerCase();
+    if (movieName.includes(searchTerm)) {
+      movie.style.display = "flex";
+    } else {
+      movie.style.display = "none";
+    }
+  });
 }
 
 
-
-
-
- function searchMovie(e) {
-  const searchTerm = e.target.value.toLowerCase();
-   const movieList = document.querySelectorAll(".card");
-   Array.from(movieList).forEach(movie => {
-     const movieName = movie.querySelector(".card-title").innerText.toLowerCase();
-     if (movieName.includes(searchTerm)) {
-       movie.style.display = "flex";
-     } else {
-       movie.style.display = "none";
-     }
-   });
- }
-
+function editCard() {
+  const movieList = getMoviesFromLocalStorage();
+  const id = currentId;
+  let updateItem = movieList.find(item => item.id === id)
+  let newData = {
+    id: currentId,
+    name: movieName.value.trim(),
+    type: movieType.value.trim(),
+    director: movieDirector.value.trim(),
+    url: movieUrl.value.trim()
+  }
+  
+  Object.assign(updateItem, newData)
+  localStorage.setItem("movieList", JSON.stringify(movieList)); 
+  addBtn.classList.remove("d-none");
+  editButton.classList.add("d-none");
+  resetInput();
+  window.location.reload();
+}
 
 function loadMoviesFromLocalStorage() {
   const movieList = getMoviesFromLocalStorage();
-  movieList.forEach(movies => renderMovies(movies));
+  movieList.forEach((movies) => renderMovies(movies));
 }
 
 loadMoviesFromLocalStorage();
