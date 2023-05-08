@@ -4,8 +4,8 @@ const reset = document.getElementById('reset');
 const winner = document.getElementById('winner');
 
 let player = 'X';
-let iconX = '<span class="bi bi-x fs-1"></span>';
-let iconO = '<span class="bi bi-circle fs-1"></span>';
+let iconX = '<span class="bi bi-x text-info"></span>';
+let iconO = '<span class="bi bi-circle text-warning"></span>';
 
 startGame();
 
@@ -70,25 +70,40 @@ let winningConditions = [
 ];
 
 function checkWinner(winIcon) {
-  for (let i=0; i<winningConditions.length-1; i++) {
-    if (box[winningConditions[i][0]].innerHTML === winIcon &&
+  let allBoxesFilled = true;
+
+  for (let i = 0; i < winningConditions.length; i++) {
+    if (
+      box[winningConditions[i][0]].innerHTML === winIcon &&
       box[winningConditions[i][1]].innerHTML === winIcon &&
-      box[winningConditions[i][2]].innerHTML === winIcon) {
+      box[winningConditions[i][2]].innerHTML === winIcon
+    ) {
       winner.innerHTML = `<span>${winIcon}</span> Kazandı!`;
-      winner.classList.add('text-success');
-      box[winningConditions[i][0]].classList.add('bg-success');
-      box[winningConditions[i][1]].classList.add('bg-success');
-      box[winningConditions[i][2]].classList.add('bg-success');
+      winner.classList.add("text-success");
+      box[winningConditions[i][0]].classList.add("bg-success");
+      box[winningConditions[i][1]].classList.add("bg-success");
+      box[winningConditions[i][2]].classList.add("bg-success");
       box.forEach((item) => {
-        item.removeEventListener('click', cardClick);
+        item.removeEventListener("click", cardClick);
       });
+      return;
     }
-    else if (box[0].innerHTML !== '' && box[1].innerHTML !== '' && box[2].innerHTML !== '' && box[3].innerHTML !== '' && box[4].innerHTML !== '' && box[5].innerHTML !== '' && box[6].innerHTML !== '' && box[7].innerHTML !== '' && box[8].innerHTML !== '') {winner.innerHTML = `<span>Beraberlik</span>`;
-    winner.classList.add('text-danger')
+  }
+
+  for (let i = 0; i < box.length; i++) {
+    if (box[i].innerHTML === "") {
+      allBoxesFilled = false;
+      break;
+    }
+  }
+
+  if (allBoxesFilled) {
+    winner.innerHTML = `<span>Beraberlik</span>`;
+    winner.classList.add("text-danger");
     box.forEach((item) => {
-      item.removeEventListener('click', cardClick);
-      item.classList.add('bg-danger');
-    });}
+      item.removeEventListener("click", cardClick);
+      item.classList.add("bg-danger");
+    });
   }
 }
 
