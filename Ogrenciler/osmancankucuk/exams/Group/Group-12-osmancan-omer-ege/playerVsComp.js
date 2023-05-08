@@ -22,18 +22,20 @@ export function playerVsComp(btnVal) {
 function paintArea(area) {
   if (area.textContent === "") {
     area.textContent = player;
-    player === "X" ? (player = "O") : (player = "X");
     winControl(player);
+    player === "X" ? (player = "O") : (player = "X");
     curPlayer.textContent = `Player ${player}`;
-    if (player === "O" && buttonValue === "player-computer") {
-      let emptyBoxes = Array.from(box).filter(
-        (item) => item.textContent === ""
-      );
-      if (emptyBoxes.length > 0) {
-        paintArea(emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)]);
-      } else {
-        player = "X";
-      }
+  }
+  if (player === "O" && buttonValue === "player-computer") {
+    let emptyBoxes = Array.from(box).filter((item) => item.textContent === "");
+    if (emptyBoxes.length > 0) {
+      emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)].textContent =
+        "O";
+      winControl(player);
+      player === "X" ? (player = "O") : (player = "X");
+      curPlayer.textContent = `Player ${player}`;
+    } else {
+      player = "X";
     }
   } else {
     area.style.border = "1px solid red";

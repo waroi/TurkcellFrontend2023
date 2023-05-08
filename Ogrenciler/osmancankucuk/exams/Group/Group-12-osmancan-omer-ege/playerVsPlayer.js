@@ -20,8 +20,10 @@ function paintArea(area) {
   console.log(area);
   if (area.textContent === "") {
     area.textContent = player;
-    player === "X" ? (player = "O") : (player = "X");
     winControl(player);
+
+    player === "X" ? (player = "O") : (player = "X");
+
     curPlayer.textContent = `Player ${player}`;
   } else {
     area.style.border = "1px solid red";

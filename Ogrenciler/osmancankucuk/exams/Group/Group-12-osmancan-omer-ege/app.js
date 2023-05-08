@@ -19,10 +19,10 @@ chooseType.addEventListener("submit", (e) => {
     if (radioButton.checked) {
       if (radioButton.value === "player-computer") {
         playerVsComp(radioButton.value);
-        gameMode = "computer";
+        // gameMode = "computer";
       } else {
         playerVsPlayer();
-        gameMode = "player";
+        // gameMode = "player";
       }
       return;
     }
@@ -30,7 +30,9 @@ chooseType.addEventListener("submit", (e) => {
 });
 export function winControl(player) {
   if (hasWon()) {
-    alert(`${player === "X" ? "O" : "X"} kazandi`);
+    setTimeout(() => {
+      alert(`${player} kazandi`);
+    }, 200);
     restartGame();
   } else {
     checkTie();
@@ -43,7 +45,6 @@ function checkTie() {
     if (item.textContent === "") {
       return false;
     }
-    return true;
   });
   if (isDone) {
     alert("tie");
