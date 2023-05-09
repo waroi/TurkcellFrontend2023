@@ -38,7 +38,7 @@ function UI() {
     console.log(films);
     films.forEach((film) => {
       if (film.id == id) {
-        //TODO yukarıda tekilleştirilebilir
+
         const button = document.getElementById("addOrEditButton");
         let filmUrl = document.getElementById("filmUrl");
         let filmName = document.getElementById("filmName");
@@ -75,7 +75,7 @@ function UI() {
 
 UI.prototype.formListenSubmitFromUI = function (e) {
   e.preventDefault();
-  id = checkandgetID();
+  id = storage.checkedIdFromLS();
   const button = document.getElementById("addOrEditButton");
   let filmUrl = document.getElementById("filmUrl").value;
   let filmName = document.getElementById("filmName").value;
@@ -132,6 +132,7 @@ UI.prototype.formListenSubmitFromUI = function (e) {
     button.innerHTML = "Ekle";
     button.className = "btn btn-primary w-25";
   } else {
+    // Fillm objesi
     let newFilm = new Film(
       id,
       filmName,
