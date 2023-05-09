@@ -2,10 +2,10 @@ const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
 
-const scissors = document.createElement("i")
-scissors.classList = "fa-solid fa-hand-scissors"
-const rock = document.createElement("i")
-rock.classList = "fa-regular fa-hand-back-fist"
+const scissors = document.createElement("i");
+scissors.classList = "fa-solid fa-hand-scissors";
+const rock = document.createElement("i");
+rock.classList = "fa-regular fa-hand-back-fist";
 
 const winConditions = [
   //Horizontal
@@ -26,7 +26,6 @@ let currentPlayer = rock;
 let winnerPlayer;
 let gameActive = false;
 let roundWon = false;
-
 
 startGame();
 
@@ -49,7 +48,8 @@ function cellClicked() {
   currentPlayer = currentPlayer === rock ? scissors : rock;
   statusText.textContent = "";
   statusText.appendChild(currentPlayer.cloneNode());
-  statusText.appendChild(document.createTextNode(`'s turn`)); checkWin(roundWon);
+  statusText.appendChild(document.createTextNode(`'s turn`));
+  checkWin(roundWon);
 }
 
 function checkWin(roundWon) {
@@ -68,8 +68,8 @@ function checkWin(roundWon) {
     }
   }
   if (roundWon) {
-    console.log(statusText.innerHTML)
-    console.log(statusText.outerHTML) 
+    console.log(statusText.innerHTML);
+    console.log(statusText.outerHTML);
     statusText.innerHTML = `${winnerPlayer.outerHTML} has won!`;
     gameActive = false;
   } else if (!options.includes("")) {
@@ -77,8 +77,6 @@ function checkWin(roundWon) {
     gameActive = false;
   }
 }
-
-
 
 function restartGame() {
   currentPlayer = rock;
@@ -92,4 +90,3 @@ function restartGame() {
   });
   gameActive = true;
 }
-

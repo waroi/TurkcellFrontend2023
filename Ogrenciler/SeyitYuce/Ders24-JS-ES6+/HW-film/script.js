@@ -1,25 +1,139 @@
-const filmName = document.getElementById("filmName");
-const directorName = document.getElementById("director");
-const year = document.getElementById("year");
-const genres = document.getElementById("genres");
-const filmUrl = document.getElementById("url");
-const form = document.getElementById("form");
-const cards = document.getElementById("cards");
-const submitBtn = document.getElementById("submitBtn");
-const editBtn = document.getElementById("editBtn");
+// UI constructor, Film Constructor ve Storage constructor olacak.
 
-let editedIndex = 0;
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+function FilmConstructor(name, director, year, genres, filmUrl) {
+  this.name = name;
+  this.director = director;
+  this.year = year;
+  this.genres = genres;
+  this.filmUrl = filmUrl;
 }
 
-const resetInputs = () => {
-  filmName.value = "";
-  directorName.value = "";
-  year.value = "";
-  genres.value = "";
-  filmUrl.value = "";
+function UIConstructor() {
+  this.filmName = document.getElementById("filmName");
+  this.directorName = document.getElementById("director");
+  this.year = document.getElementById("year");
+  this.genres = document.getElementById("genres");
+  this.filmUrl = document.getElementById("url");
+  this.form = document.getElementById("form");
+  this.cards = document.getElementById("cards");
+  this.submitBtn = document.getElementById("submitBtn");
+  this.editBtn = document.getElementById("editBtn");
+  this.editedIndex = 0;
+}
+
+UIConstructor.prototype = {
+  capitalizeFirstLetter: function (string) {
+    // return this.string.toUpperCase() + this.string.slice(1);
+  },
+  resetInputs: function () {
+    this.filmName.value = "";
+    this.directorName.value = "";
+    this.year.value = "";
+    this.genres.value = "";
+    this.filmUrl.value = "";
+  },
+  addFilms: function () {
+    UIConstructor.call(this);
+    this.filmName = this.filmName.value;
+    this.directorName = this.directorName.value;
+    this.yearName = this.year.value;
+    this.genresName = this.genres.value;
+    this.filmUrl = this.filmUrl.value;
+
+    if (
+      this.filmName === "" ||
+      this.directorName === "" ||
+      this.year === "" ||
+      this.genres === "" ||
+      this.filmUrl === ""
+    ) {
+      alert("Lütfen tüm alanları doldurunuz.");
+      return;
+    }
+    const filmText = this.capitalizeFirstLetter(this.filmName.value);
+    const directorText = this.capitalizeFirstLetter(this.directorName.value);
+    const yearText = this.year.value;
+    const options = this.capitalizeFirstLetter(this.genres.value);
+    const urlText = this.filmUrl.value;
+
+    const newFilm = new FilmConstructor(
+      filmText,
+      directorText,
+      yearText,
+      options,
+      urlText
+    );
+
+    films.push(newFilm);
+
+    localStorage.setItem("films", JSON.stringify(films));
+    showFilms();
+    this.resetInputs();
+  },
+  showFilms: function () {
+    cards.innerHTML = "";
+
+    films.forEach((film, index) => {
+      const filmImage = document.createElement("img");
+      filmImage.classList = "card-img-top";
+      filmImage.src = film.url;
+
+      const filmText = document.createElement("h5");
+      filmText.textContent = film.name;
+
+      const directorText = document.createElement("p");
+      directorText.textContent = film.director;
+
+      const genreText = document.createElement("span");
+      genreText.textContent = film.genres;
+      genreText.classList = "me-3";
+
+      const yearText = document.createElement("span");
+      yearText.textContent = film.year;
+
+      const updateBtn = document.createElement("button");
+      const updateText = document.createTextNode("Güncelle");
+      updateBtn.appendChild(updateText);
+      updateBtn.classList = "btn btn-dark";
+
+      const deleteBtn = document.createElement("button");
+      const deleteText = document.createTextNode("Sil");
+      deleteBtn.appendChild(deleteText);
+      deleteBtn.classList = "btn btn-danger ms-2 px-4";
+
+      const cardBody = document.createElement("div");
+      cardBody.className = "card-body";
+
+      const cardBtn = document.createElement("div");
+      cardBtn.className = "card-btns";
+
+      const card = document.createElement("div");
+      card.className =
+        "card d-flex col-12 col-md-5 col-lg-4  align-items-center mx-auto p-2 bg-secondary   text-white";
+
+      cards.appendChild(card);
+
+      card.appendChild(filmImage);
+      card.appendChild(cardBody);
+      card.appendChild(cardBtn);
+
+      cardBody.appendChild(filmText);
+      cardBody.appendChild(directorText);
+      cardBody.appendChild(genreText);
+      cardBody.appendChild(yearText);
+
+      cardBtn.appendChild(updateBtn);
+      cardBtn.appendChild(deleteBtn);
+
+      deleteBtn.addEventListener("click", () => {
+        deleteFilm(index);
+      });
+
+      updateBtn.addEventListener("click", () => {
+        updateFilm(index);
+      });
+    });
+  },
 };
 
 form.addEventListener("submit", (e) => {
@@ -27,7 +141,7 @@ form.addEventListener("submit", (e) => {
   if (submitBtn.classList.contains("d-none")) {
     editFilm();
   } else {
-    addFilms();
+    UIConstructor.prototype.addFilms();
   }
 });
 
@@ -36,38 +150,6 @@ let films = [];
 if (localStorage.getItem("films")) {
   films = JSON.parse(localStorage.getItem("films"));
   showFilms();
-}
-
-function addFilms() {
-  if (
-    filmName.value === "" ||
-    directorName.value === "" ||
-    year.value === "" ||
-    genres.value === "" ||
-    filmUrl.value === ""
-  ) {
-    alert("Lütfen tüm alanları doldurunuz.");
-    return;
-  }
-  const filmText = capitalizeFirstLetter(filmName.value);
-  const directorText = capitalizeFirstLetter(directorName.value);
-  const yearText = year.value;
-  const options = capitalizeFirstLetter(genres.value);
-  const urlText = filmUrl.value;
-
-  const film = {
-    name: filmText,
-    director: directorText,
-    year: yearText,
-    genres: options,
-    url: urlText,
-  };
-
-  films.push(film);
-
-  localStorage.setItem("films", JSON.stringify(films));
-  showFilms();
-  resetInputs();
 }
 
 function showFilms() {
