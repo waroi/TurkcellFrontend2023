@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(
+    to right top,
+    #6b8fd1,
+    #7094d5,
+    #7598d9,
+    #7a9ddd,
+    #7fa2e1,
+    #78acea,
+    #71b5f1,
+    #69bff8,
+    #52cffe,
+    #41dfff,
+    #46eefa,
+    #5ffbf1
+  );
+  min-height: 100vh;
+  font-family: "Dancing Script", cursive;
+}
+
+.gameArea {
+  width: 400px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.box {
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.box:nth-child(3),
+:nth-child(6),
+:nth-child(9) {
+  border-right: none;
+}
+.box:nth-child(7),
+:nth-child(8),
+:nth-child(9) {
+  border-bottom: none;
+}
+.hidden {
+  display: none;
+}
+.unclickable {
+  pointer-events: none;
+}
+
+label {
+  font-size: 2rem;
+}
+
+input {
+  height: 2rem;
+  width: 1.2rem;
+}
+
+button {
+  width: 100%;
+}
