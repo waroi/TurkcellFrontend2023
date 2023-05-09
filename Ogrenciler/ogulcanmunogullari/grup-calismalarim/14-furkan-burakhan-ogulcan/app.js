@@ -1,18 +1,17 @@
-import { Film, Durum } from './Constructors.js';
-
-let durum = new Durum(false, null, null);
+import { Film, UI, Process } from './Constructors.js';
+let ui = new UI(false, null, null);
 let filmler = JSON.parse(localStorage.getItem('filmler')) || [];
-durum.screen(filmlerContainer, filmler);
+ui.screen(filmlerContainer, filmler);
 inputSearch.addEventListener('input', function (e) {
  e.preventDefault();
- durum.screen(filmlerContainer, filmler);
+ ui.screen(filmlerContainer, filmler);
 });
 
 filtreContainer.addEventListener('click', function (e) {
  e.preventDefault();
  if (e.target.id != 'filtreContainer') {
-  durum.filterYil = e.target.innerText;
-  durum.screen(filmlerContainer, filmler);
+  ui.filterYil = e.target.innerText;
+  ui.screen(filmlerContainer, filmler);
  }
 });
 
@@ -45,8 +44,8 @@ ekleButton.addEventListener('click', function (e) {
  );
  film.id = Math.floor(Math.random() * 1_000_000_000);
  filmler = [film, ...filmler];
- durum.sifirla();
- durum.screen(filmlerContainer, filmler);
+ ui.formSifirla();
+ ui.screen(filmlerContainer, filmler);
 });
 
 filmlerContainer.addEventListener('click', function (e) {
@@ -59,12 +58,12 @@ filmlerContainer.addEventListener('click', function (e) {
    return film.id != e.target.parentElement.parentElement.id;
   });
  }
- durum.screen(filmlerContainer, filmler);
+ ui.screen(filmlerContainer, filmler);
 });
 
 degistirButton.addEventListener('click', function (e) {
  e.preventDefault();
- const film = durum.degistirmekIcinTiklananFilm;
+ const film = ui.degistirmekIcinTiklananFilm;
  film.url = filmResmi.value;
  film.yil = filmYili.value;
  film.ad = filmAdi.value;
@@ -73,14 +72,14 @@ degistirButton.addEventListener('click', function (e) {
  film.aciklama = filmAciklamasi.value;
  degistirButton.classList.toggle('d-none');
  ekleButton.classList.toggle('d-none');
- durum.filmToggle();
- durum.sifirla();
- durum.screen(filmlerContainer, filmler);
+ ui.filmToggle();
+ ui.formSifirla();
+ ui.screen(filmlerContainer, filmler);
 });
 
 function degistir(id) {
  const film = filmler.find((film) => film.id == id);
- durum.degistirmekIcinTiklananFilm = film;
+ ui.degistirmekIcinTiklananFilm = film;
  filmResmi.value = film.url;
  filmYili.value = film.yil;
  filmAdi.value = film.ad;
@@ -89,6 +88,6 @@ function degistir(id) {
  filmAciklamasi.value = film.aciklama;
  ekleButton.classList.toggle('d-none');
  degistirButton.classList.toggle('d-none');
- durum.filmToggle();
- durum.screen(filmlerContainer, filmler);
+ ui.filmToggle();
+ ui.screen(filmlerContainer, filmler);
 }
