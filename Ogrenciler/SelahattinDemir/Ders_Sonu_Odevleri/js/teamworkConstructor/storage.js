@@ -12,6 +12,7 @@ function LocalStorage() {
         film.director = movie.director;
         film.imageUrl = movie.imageUrl;
         film.title = movie.title;
+        film.score = movie.score;
       }
     });
     storage.saveFilmToLocalStorage(films);
