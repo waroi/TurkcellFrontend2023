@@ -10,18 +10,18 @@ export function Film(url, yil, ad, tur, puan, aciklama) {
   (this.aciklama = aciklama);
 }
 
-export function Durum(degisiklik, filterYil, degistirmekIcinTiklananFilm) {
+export function UI(degisiklik, filterYil, degistirmekIcinTiklananFilm) {
  (this.degisiklik = degisiklik),
   (this.filterYil = filterYil),
   (this.degistirmekIcinTiklananFilm = degistirmekIcinTiklananFilm);
 }
-Durum.prototype.sifirla = function () {
+UI.prototype.formSifirla = function () {
  form.reset();
 };
-Durum.prototype.filmToggle = function () {
+UI.prototype.filmToggle = function () {
  this.degisiklik = !this.degisiklik;
 };
-Durum.prototype.screen = function (filmlerContainer, filmler) {
+UI.prototype.screen = function (filmlerContainer, filmler) {
  filmlerContainer.innerHTML = filmler
   .filter((film) => {
    if (this.filterYil == 'Tümü') return true;
@@ -44,3 +44,6 @@ Durum.prototype.screen = function (filmlerContainer, filmler) {
  filtreContainer.innerHTML += `<li class="years" ><a>Tümü</a></li>`;
  localStorage.setItem('filmler', JSON.stringify(filmler));
 };
+
+//Yapılacak işlemler bunun içine alınacak
+export function Process() {}
