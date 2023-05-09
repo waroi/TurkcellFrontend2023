@@ -1,0 +1,71 @@
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+.lineClamp {
+ display: -webkit-box;
+ -webkit-line-clamp: 2;
+ -webkit-box-orient: vertical;
+ overflow: hidden;
+}
+body {
+ background-color: #121618;
+}
+
+label {
+ color: rgb(221, 220, 220);
+ text-shadow: 0 0 10px rgb(221, 220, 220);
+ font-size: 20px;
+ margin-top: 20px;
+}
+input {
+ padding: 5px 10px;
+ border-radius: 10px;
+ border: 1px solid rgb(221, 220, 220);
+ box-shadow: 0 0 10px 0 rgb(221, 220, 220);
+}
+
+.years {
+ a {
+  color: rgb(221, 220, 220) !important;
+  text-shadow: 0 0 10px rgb(221, 220, 220);
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+   color: rgb(248, 170, 170) !important;
+   text-shadow: 0 0 10px rgb(248, 170, 170);
+  }
+ }
+}
+
+.card {
+ width: 100%;
+ background-color: #202429;
+ border: 1px solid rgb(129, 128, 128);;
+}
+
+.turler-container {
+ display: flex;
+ gap: 5px;
+ flex-wrap: wrap;
+}
+.turler {
+ padding: 2px 5px;
+ border-radius: 5px;
+}
+@media screen and (min-width: 375px) {
+ .card {
+  width: 47%;
+ }
+}
+
+@media screen and (min-width: 768px) {
+ .card {
+  width: 31%;
+ }
+}
+@media screen and (min-width: 1140px) {
+ .card {
+  width: 23%;
+ }
+}

@@ -16,9 +16,9 @@ const startConf = () => {
    } 
 }
 const searchTodo = () => {
-    const searchTerm = document.querySelector(".todo_search").value.toLowerCase(); // arama kutusundan gelen metin küçük harfe dönüştürülür
+    const searchTerm = document.querySelector(".todo_search").value.toLowerCase(); // arama kutusundan gelen metin küçük harfe dönüştürülür. büyük küçük harf anlaması için 
     const todos = document.querySelectorAll(".todo"); // tüm görevleri seçer
- 
+    
     todos.forEach(todo => {
        const text = todo.querySelector(".todo_text").textContent.toLowerCase(); // her görevin metni küçük harfe dönüştürülür
        if (text.includes(searchTerm)) { // eğer metin arama terimini içeriyorsa görev gösterilir
@@ -30,15 +30,15 @@ const searchTodo = () => {
  }
  
 const addTodo = (e) => {
-   e.preventDefault(); //default halini engelliyor//
+   e.preventDefault(); //default halini engelliyor. istek atmıyor.//
    
    const inputVal = input.value;
 
-   if (inputVal == '')  { // boş değer girilmeye çalışıyor ise hata veriyoruz
+   if (inputVal === '')  { // boş değer girilmeye çalışıyor ise hata veriyoruz
       input.style.border = '1px solid red';
       setTimeout(() => {
          input.style.borderColor = 'transparent';
-      }, 2500);
+      }, 500);
       return false;
    }
 
