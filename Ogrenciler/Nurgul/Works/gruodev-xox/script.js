@@ -25,7 +25,7 @@ function chooseBox(box) {
         box.style.border = "10px solid red"
         setTimeout(() => {
             errorText.textContent = ""
-            box.style.border = "1px solid black"
+            box.style.border = "5px solid #4b5d63"
         }, 1000)
     }
 

@@ -1,23 +1,17 @@
-import filmCard from './filmCardComponent.js';
-import filterFn from './filterComponent.js';
-let durum = {
- degisiklik: false,
- filterYil: null,
- degistirmekIcinTiklananFilm: null,
-};
+import { Film, UI, Process } from './Constructors.js';
+let ui = new UI(false, null, null);
 let filmler = JSON.parse(localStorage.getItem('filmler')) || [];
-screen();
-
+ui.screen(filmlerContainer, filmler);
 inputSearch.addEventListener('input', function (e) {
  e.preventDefault();
- screen();
+ ui.screen(filmlerContainer, filmler);
 });
 
 filtreContainer.addEventListener('click', function (e) {
  e.preventDefault();
  if (e.target.id != 'filtreContainer') {
-  durum.filterYil = e.target.innerText;
-  screen();
+  ui.filterYil = e.target.innerText;
+  ui.screen(filmlerContainer, filmler);
  }
 });
 
@@ -39,20 +33,19 @@ ekleButton.addEventListener('click', function (e) {
   alert('Lütfen tüm alanları doldurunuz.');
   return;
  }
- filmler = [
-  {
-   id: Math.floor(Math.random() * 1_000_000_000),
-   url: filmResmi.value,
-   yil: filmYili.value,
-   ad: filmAdi.value,
-   tur: filmTuru.value,
-   puan: filmPuani.value,
-   aciklama: filmAciklamasi.value,
-  },
-  ...filmler,
- ];
- sifirla();
- screen();
+
+ const film = new Film(
+  filmResmi.value,
+  filmYili.value,
+  filmAdi.value,
+  filmTuru.value,
+  filmPuani.value,
+  filmAciklamasi.value,
+ );
+ film.id = Math.floor(Math.random() * 1_000_000_000);
+ filmler = [film, ...filmler];
+ ui.formSifirla();
+ ui.screen(filmlerContainer, filmler);
 });
 
 filmlerContainer.addEventListener('click', function (e) {
@@ -65,15 +58,12 @@ filmlerContainer.addEventListener('click', function (e) {
    return film.id != e.target.parentElement.parentElement.id;
   });
  }
- screen();
+ ui.screen(filmlerContainer, filmler);
 });
 
-function filmToggle() {
- durum.degisiklik = !durum.degisiklik;
-}
 degistirButton.addEventListener('click', function (e) {
  e.preventDefault();
- const film = durum.degistirmekIcinTiklananFilm;
+ const film = ui.degistirmekIcinTiklananFilm;
  film.url = filmResmi.value;
  film.yil = filmYili.value;
  film.ad = filmAdi.value;
@@ -82,23 +72,14 @@ degistirButton.addEventListener('click', function (e) {
  film.aciklama = filmAciklamasi.value;
  degistirButton.classList.toggle('d-none');
  ekleButton.classList.toggle('d-none');
- filmToggle();
- sifirla();
- screen();
+ ui.filmToggle();
+ ui.formSifirla();
+ ui.screen(filmlerContainer, filmler);
 });
-
-function sifirla() {
- filmResmi.value = '';
- filmYili.value = '';
- filmAdi.value = '';
- filmTuru.value = '';
- filmPuani.value = '';
- filmAciklamasi.value = '';
-}
 
 function degistir(id) {
  const film = filmler.find((film) => film.id == id);
- durum.degistirmekIcinTiklananFilm = film;
+ ui.degistirmekIcinTiklananFilm = film;
  filmResmi.value = film.url;
  filmYili.value = film.yil;
  filmAdi.value = film.ad;
@@ -107,29 +88,6 @@ function degistir(id) {
  filmAciklamasi.value = film.aciklama;
  ekleButton.classList.toggle('d-none');
  degistirButton.classList.toggle('d-none');
- filmToggle();
- screen();
-}
-function screen() {
- filmlerContainer.innerHTML = filmler
-  .filter((film) => {
-   if (durum.filterYil == 'Tümü') return true;
-   return durum.filterYil ? film.yil >= durum.filterYil : true;
-  })
-  .filter((film) => {
-   return film.ad.toLowerCase().includes(inputSearch.value.toLowerCase());
-  })
-  .map((film) => {
-   return filmCard(film, durum.degisiklik);
-  })
-  .join('');
- const FILMLER_SET = new Set(filmler.map((film) => film.yil));
- filtreContainer.innerHTML = Array.from(FILMLER_SET)
-  .sort()
-  .map((yil) => {
-   return filterFn(yil);
-  })
-  .join('');
- filtreContainer.innerHTML += `<li class="years" ><a>Tümü</a></li>`;
- localStorage.setItem('filmler', JSON.stringify(filmler));
+ ui.filmToggle();
+ ui.screen(filmlerContainer, filmler);
 }

@@ -5,7 +5,7 @@ const filmCard = (film, degis) => {
      <div style="width: 100%;">
       <img src="${film.url}" class="card-img-top " alt="film url si">
      </div>
-  <div class="card-body">
+  <div class="card-body text-white">
     <h6 class="card-title d-flex justify-content-between">
      <span>${film.yil}</span>
      <span>
@@ -15,7 +15,6 @@ const filmCard = (film, degis) => {
        ? '10'
        : film.puan
      }
-    
      </span>
     </h6>
     <h4 class="card-title">${film.ad}</h4>
@@ -35,4 +34,3 @@ const filmCard = (film, degis) => {
 };
 
 export default filmCard;
-//   <p>${film.tur}</p>
