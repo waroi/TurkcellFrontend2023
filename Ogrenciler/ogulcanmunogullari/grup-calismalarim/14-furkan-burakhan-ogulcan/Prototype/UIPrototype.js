@@ -1,10 +1,10 @@
-import filmCard from '../filmCardComponent.js';
-import filterFn from '../filterComponent.js';
+import filmCard from '../Components/filmCardComponent.js';
+import filterFn from '../Components/filterComponent.js';
 
 function UI(degisiklik, filterYil, degistirmekIcinTiklananFilm) {
- (this.degisiklik = degisiklik),
-  (this.filterYil = filterYil),
-  (this.degistirmekIcinTiklananFilm = degistirmekIcinTiklananFilm);
+ this.degisiklik = degisiklik;
+ this.filterYil = filterYil;
+ this.degistirmekIcinTiklananFilm = degistirmekIcinTiklananFilm;
 }
 
 UI.prototype.formSifirla = function () {
