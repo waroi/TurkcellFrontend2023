@@ -14,14 +14,14 @@ LocalStorage.prototype.getMoviesFromLocalStorage = function() {
 
 //Local Storage'a film ekleme
 LocalStorage.prototype.setMovie2LocalStorage = function(movie) {
-  let movies = localstorage.getMoviesFromLocalStorage();
+  let movies = storage.getMoviesFromLocalStorage();
   movies.push(movie);
   localStorage.setItem('movies', JSON.stringify(movies));
 }
 
 //Local Storage'da bulunan filmleri gösterme
 LocalStorage.prototype.showMoviesFromLocalStorage = function() {
-  let movies = localstorage.getMoviesFromLocalStorage();
+  let movies = storage.getMoviesFromLocalStorage();
   movies.forEach((movie) => {
     ui.addMovie(movie);
   })
@@ -29,7 +29,7 @@ LocalStorage.prototype.showMoviesFromLocalStorage = function() {
 
 //Local Storage'dan film silme
 LocalStorage.prototype.deleteMovieFromLocalStorage = function(deleteMovieId) {
-  let movies = localstorage.getMoviesFromLocalStorage();
+  let movies = storage.getMoviesFromLocalStorage();
   for(let i = 0; i < movies.length; i++) {
     if(movies[i].id == deleteMovieId) {
       movies.splice(i, 1);

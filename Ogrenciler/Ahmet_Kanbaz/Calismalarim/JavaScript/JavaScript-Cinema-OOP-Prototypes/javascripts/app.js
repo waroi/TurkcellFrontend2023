@@ -1,4 +1,4 @@
-const localstorage = new LocalStorage();
+const storage = new LocalStorage();
 const ui = new UI();
 const movies = new Movies();
 
@@ -29,7 +29,7 @@ const saveModalChanges = document.getElementById("saveChanges");
 addEventListeners();
 
 function addEventListeners() {
-  document.addEventListener("DOMContentLoaded", localstorage.showMoviesFromLocalStorage);
+  document.addEventListener("DOMContentLoaded", storage.showMoviesFromLocalStorage);
   addMovieButton.addEventListener("click", movies.addMovie);
   movieList.addEventListener("click", movies.deleteMovie);
   movieList.addEventListener("click", movies.editMovie);

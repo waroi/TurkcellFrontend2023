@@ -25,7 +25,7 @@ Movies.prototype.addMovie = function (e) {
   else {
     const uiMovie = new Movies(id, url, name, type, date, director, summary);
     ui.addMovie(uiMovie);
-    localstorage.setMovie2LocalStorage(uiMovie);
+    storage.setMovie2LocalStorage(uiMovie);
     
     ui.clearForm();
   }
@@ -38,7 +38,7 @@ Movies.prototype.deleteMovie = function (e) {
     const movie = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
     if(confirm('Bu filmi silmek istediğinize emin misiniz?')) {
       movie.remove();
-      localstorage.deleteMovieFromLocalStorage(movie.id);
+      storage.deleteMovieFromLocalStorage(movie.id);
     }
   }
   e.preventDefault();
@@ -48,7 +48,7 @@ Movies.prototype.editMovie = function (e) {
   if(e.target.className === 'fa-solid fa-pen-to-square fa-lg') {
     const movie = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
     const movieChangeId = movie.id;
-    const movies = localstorage.getMoviesFromLocalStorage();
+    const movies = storage.getMoviesFromLocalStorage();
     for(let i = 0; i < movies.length; i++) {
       if(movies[i].id == movieChangeId) {
         modalImage.setAttribute('src', movies[i].url);
@@ -67,7 +67,7 @@ Movies.prototype.editMovie = function (e) {
 
 
 Movies.prototype.saveEditMovie = function (e) {
-  const movies = localstorage.getMoviesFromLocalStorage();
+  const movies = storage.getMoviesFromLocalStorage();
   const movieChangeId = modalImage.id;
   movies.forEach(function (movie) {
     if(movie.id == movieChangeId) {
