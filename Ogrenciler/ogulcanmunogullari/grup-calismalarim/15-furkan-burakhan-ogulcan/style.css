@@ -1,0 +1,101 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#gameboard {
+
+    width: 300px;
+    height: 300px;
+    background-color: rgb(211, 167, 167);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+#gameboard>div {
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+}
+
+#gameboard>div>span {
+    width: 100%;
+    height: 100%;
+}
+
+.circle {
+    width: 75%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 10px solid rgb(0, 0, 255);
+    box-sizing: border-box;
+}
+
+.cross {
+    width: 75%;
+    aspect-ratio: 1/1;
+    position: relative;
+    transform: rotate(45deg);
+}
+
+.cross::before,
+.cross::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 0, 0);
+
+}
+
+.cross::before {
+    left: 50%;
+    width: 20%;
+    margin-left: -10%;
+    height: 100%;
+}
+
+.cross::after {
+    top: 50%;
+    left: 0;
+    height: 20%;
+    margin-top: -10%;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+p {
+    font-size: larger;
+    font-weight: bolder;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.xwin {
+    color: rgb(255, 0, 0);
+}
+
+.owin {
+    color: rgb(8, 8, 212);
+}
+
+.draw {
+    color: gray
+}
+
+button {
+    padding: 10px 20px;
+    color: black;
+    font-weight: bolder;
+    border: 1px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: gray;
+}
