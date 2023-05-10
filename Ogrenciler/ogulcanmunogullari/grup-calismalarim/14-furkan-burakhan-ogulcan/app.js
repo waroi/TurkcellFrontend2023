@@ -1,39 +1,32 @@
-import { Film, UI, Process } from './Constructors.js';
+import Film from './Constructors/FilmConstructor.js';
+import Process from './Constructors/ProcessConstructor.js';
+import UI from './Constructors/UIConstructor.js';
+
 let ui = new UI(false, null, null);
+let process = new Process();
+
 let filmler = JSON.parse(localStorage.getItem('filmler')) || [];
-ui.screen(filmlerContainer, filmler);
+ui.screen(filmler);
+
 inputSearch.addEventListener('input', function (e) {
  e.preventDefault();
- ui.screen(filmlerContainer, filmler);
+ ui.screen(filmler);
 });
 
 filtreContainer.addEventListener('click', function (e) {
  e.preventDefault();
  if (e.target.id != 'filtreContainer') {
   ui.filterYil = e.target.innerText;
-  ui.screen(filmlerContainer, filmler);
+  ui.screen(filmler);
  }
 });
 
 ekleButton.addEventListener('click', function (e) {
  e.preventDefault();
- if (
-  filmResmi.value &&
-  filmYili.value &&
-  filmAdi.value &&
-  filmTuru.value &&
-  filmPuani.value &&
-  filmAciklamasi.value
- ) {
-  if (!filmResmi.value.includes('://')) {
-   alert('Resim urlsini kontrol ediniz.');
-   return;
-  }
- } else {
-  alert('Lütfen tüm alanları doldurunuz.');
+ const kontrol = ui.kontrolFn();
+ if (kontrol) {
   return;
  }
-
  const film = new Film(
   filmResmi.value,
   filmYili.value,
@@ -45,49 +38,32 @@ ekleButton.addEventListener('click', function (e) {
  film.id = Math.floor(Math.random() * 1_000_000_000);
  filmler = [film, ...filmler];
  ui.formSifirla();
- ui.screen(filmlerContainer, filmler);
+ ui.screen(filmler);
 });
 
 filmlerContainer.addEventListener('click', function (e) {
  e.preventDefault();
  if (e.target.innerText == 'Değiştir') {
-  degistir(e.target.parentElement.parentElement.id);
+  process.degistir(e.target.parentElement.parentElement.id, filmler, ui);
+  ui.filmToggle();
+  ui.screen(filmler);
  }
  if (e.target.innerText == 'Silme') {
   filmler = filmler.filter((film) => {
    return film.id != e.target.parentElement.parentElement.id;
   });
  }
- ui.screen(filmlerContainer, filmler);
+ ui.screen(filmler);
 });
 
-degistirButton.addEventListener('click', function (e) {
+uygulaButton.addEventListener('click', function (e) {
  e.preventDefault();
- const film = ui.degistirmekIcinTiklananFilm;
- film.url = filmResmi.value;
- film.yil = filmYili.value;
- film.ad = filmAdi.value;
- film.tur = filmTuru.value;
- film.puan = filmPuani.value;
- film.aciklama = filmAciklamasi.value;
- degistirButton.classList.toggle('d-none');
- ekleButton.classList.toggle('d-none');
+ const kontrol = ui.kontrolFn();
+ if (kontrol) {
+  return;
+ }
+ process.uygula(ui);
  ui.filmToggle();
  ui.formSifirla();
- ui.screen(filmlerContainer, filmler);
+ ui.screen(filmler);
 });
-
-function degistir(id) {
- const film = filmler.find((film) => film.id == id);
- ui.degistirmekIcinTiklananFilm = film;
- filmResmi.value = film.url;
- filmYili.value = film.yil;
- filmAdi.value = film.ad;
- filmTuru.value = film.tur;
- filmPuani.value = film.puan;
- filmAciklamasi.value = film.aciklama;
- ekleButton.classList.toggle('d-none');
- degistirButton.classList.toggle('d-none');
- ui.filmToggle();
- ui.screen(filmlerContainer, filmler);
-}

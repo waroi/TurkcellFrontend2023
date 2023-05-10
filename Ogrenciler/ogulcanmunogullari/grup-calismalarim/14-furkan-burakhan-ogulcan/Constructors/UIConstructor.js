@@ -1,16 +1,7 @@
-import filmCard from './filmCardComponent.js';
-import filterFn from './filterComponent.js';
+import filmCard from '../filmCardComponent.js';
+import filterFn from '../filterComponent.js';
 
-export function Film(url, yil, ad, tur, puan, aciklama) {
- (this.url = url),
-  (this.yil = yil),
-  (this.ad = ad),
-  (this.tur = tur),
-  (this.puan = puan),
-  (this.aciklama = aciklama);
-}
-
-export function UI(degisiklik, filterYil, degistirmekIcinTiklananFilm) {
+function UI(degisiklik, filterYil, degistirmekIcinTiklananFilm) {
  (this.degisiklik = degisiklik),
   (this.filterYil = filterYil),
   (this.degistirmekIcinTiklananFilm = degistirmekIcinTiklananFilm);
@@ -21,7 +12,7 @@ UI.prototype.formSifirla = function () {
 UI.prototype.filmToggle = function () {
  this.degisiklik = !this.degisiklik;
 };
-UI.prototype.screen = function (filmlerContainer, filmler) {
+UI.prototype.screen = function (filmler) {
  filmlerContainer.innerHTML = filmler
   .filter((film) => {
    if (this.filterYil == 'Tümü') return true;
@@ -44,6 +35,25 @@ UI.prototype.screen = function (filmlerContainer, filmler) {
  filtreContainer.innerHTML += `<li class="years" ><a>Tümü</a></li>`;
  localStorage.setItem('filmler', JSON.stringify(filmler));
 };
+UI.prototype.kontrolFn = function () {
+ if (
+  filmResmi.value &&
+  filmYili.value &&
+  filmAdi.value &&
+  filmTuru.value &&
+  filmPuani.value &&
+  filmAciklamasi.value
+ ) {
+  if (!filmResmi.value.includes('://')) {
+   console.log('url testi');
+   alert('Resim urlsini kontrol ediniz.');
+   return true;
+  }
+ } else {
+  console.log('boş alan testi');
+  alert('Lütfen tüm alanları doldurunuz.');
+  return true;
+ }
+};
 
-//Yapılacak işlemler bunun içine alınacak
-export function Process() {}
+export default UI;
