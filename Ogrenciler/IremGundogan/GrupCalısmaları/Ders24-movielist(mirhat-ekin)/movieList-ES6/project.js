@@ -38,16 +38,13 @@ function addMovie(e) {
   }
   UI.clearInputs(nameElement, urlElement, directorElement, releaseElement);
 }
+
 function deleteMovie(e) {
   if (e.target.id === "delete-movie") {
     UI.deleteMovieFromUI(e.target);
   }
 }
-// function editMovie(e) {
-//   console.log(e);
-//   if (e.target.id === "edit-movie") {
-//   }
-// }
+
 function clearAllFilms() {
   if (confirm("Emin misiniz ?")) {
     UI.clearAllFilmsFromUI();
