@@ -7,9 +7,9 @@ function UI() {
   <div class="col-md-4" id="${movie.id}">
   <div class="card mb-3 mt-5 m-3">
         <div class="row align-items-center">
-          <div class="col-md-6">
+          <div class="col-md-6 text-center">
             <img src=${movie.imageUrl}
-              class="img-fluid rounded-start ms-3 my-3 " id="film-url" alt="" />
+              class="img-fluid rounded-start" id="film-url" alt="" />
           </div>
           <div class="col-md-6">
             <div class="card-body">
@@ -38,7 +38,6 @@ function UI() {
     console.log(films);
     films.forEach((film) => {
       if (film.id == id) {
-
         const button = document.getElementById("addOrEditButton");
         let filmUrl = document.getElementById("filmUrl");
         let filmName = document.getElementById("filmName");
@@ -65,14 +64,22 @@ function UI() {
           film.imageUrl = filmUrl.value;
           film.director = director.value;
           //update fonksiyonuna filmi gönder
-          updateFilmToLocalStorage(film);
+          updateLocalStorage(film);
           location.reload();
         };
       }
     });
   };
 }
-
+// Geçerli bir URL mi diye kontrol etme
+function isValidImageUrl(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
 UI.prototype.formListenSubmitFromUI = function (e) {
   e.preventDefault();
   id = storage.checkedIdFromLS();
@@ -142,7 +149,7 @@ UI.prototype.formListenSubmitFromUI = function (e) {
       filmYear,
       filmType
     );
-    saveFilmToLocalStorage(newFilm);
+    saveLocalStorage(newFilm);
   }
   localStorage.setItem("id", ++id);
   form.reset();

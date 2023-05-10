@@ -1,5 +1,5 @@
 function LocalStorage() {
-  this.saveFilmToLocalStorage = function (films) {
+  this.saveFilmFromLocalStorage = function (films) {
     localStorage.setItem("films", JSON.stringify(films));
   };
   this.updateFilmFromLocalStorage = function (movie) {
@@ -15,9 +15,21 @@ function LocalStorage() {
         film.score = movie.score;
       }
     });
-    storage.saveFilmToLocalStorage(films);
+    storage.saveFilmFromLocalStorage(films);
   };
 }
+
+// id kontrolü
+LocalStorage.prototype.checkedIdFromLS = function () {
+  let id;
+  if (localStorage.getItem("id") === null) {
+    localStorage.setItem("id", 0);
+    id = 0;
+  } else {
+    id = localStorage.getItem("id");
+  }
+  return id;
+};
 
 LocalStorage.prototype.getFilmFromLocalStorage = function () {
   let films;
@@ -29,29 +41,21 @@ LocalStorage.prototype.getFilmFromLocalStorage = function () {
   return films;
 };
 
-LocalStorage.prototype.deleteFilmFromLocalStorage = function (movie) {
+// onclik tetiklendiren fonksiyon
+LocalStorage.prototype.deleteItemFromLocalStorage = function (id) {
+  let film = document.getElementById(id);
+  deleteLocalStorage(film);
+  film.remove();
+};
+
+// local storage'dan film silme
+LocalStorage.prototype.deleteFromLocalStorage = function (movie) {
   let films = storage.getFilmFromLocalStorage();
   films.forEach((film, index) => {
     if (film.id == movie.id) {
       films.splice(index, 1);
     }
   });
-  storage.saveFilmToLocalStorage(films);
+  storage.saveFilmFromLocalStorage(films);
 };
 
-LocalStorage.prototype.deleteItemFromLocalStorage = function (id) {
-  let film = document.getElementById(id);
-  deleteFilmToLocalStorage(film);
-  film.remove();
-};
-
-LocalStorage.prototype.checkedIdFromLS = function () {
-  let id;
-  if (localStorage.getItem("id") === null) {
-    localStorage.setItem("id", 0);
-    id = 0;
-  } else {
-    id = localStorage.getItem("id");
-  }
-  return id;
-};
