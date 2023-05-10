@@ -144,7 +144,7 @@ if (
   movieType.value.trim() === "" ||
   !regexTest.test(movieUrl.value.trim())
 ) {
-    ui.displayError("Lütfen tüm alanları doldurun.");
+    ui.displayError("Lütfen tüm alanları doldurunuz.");
     return false;
   }
   return true;
