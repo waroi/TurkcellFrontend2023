@@ -26,11 +26,12 @@ UIConstructor.prototype = {
     // return this.string.toUpperCase() + this.string.slice(1);
   },
   resetInputs: function () {
-    this.filmName = "";
-    this.directorName = "";
-    this.year = "";
-    this.genres = "";
-    this.filmUrl = "";
+    UIConstructor.call(this);
+    this.filmName.value = "";
+    this.directorName.value = "";
+    this.year.value = "";
+    this.genres.value = "";
+    this.filmUrl.value = "";
   },
   addFilms: function () {
     UIConstructor.call(this);
