@@ -5,7 +5,7 @@ const movieGenreInp = document.querySelector("#movieGenreInput");
 const movieBannerInp = document.querySelector("#movieBannerInput");
 const movieCollectionRow = document.querySelector(".movie-collection");
 const addMovieButton = document.querySelector("#add-movie");
-const editMovieButton = document.querySelector("#edit-movie");
+let editMovieButton = document.querySelector("#edit-movie");
 const form = document.querySelector("form");
 
 // #region Constructors
@@ -45,13 +45,14 @@ UI.prototype.resetInput = function () {
 UI.prototype.cardToForm = function (movieID) {
   addMovieButton.style.display = "none";
   editMovieButton.style.display = "block";
-  const movie = movies.find((movie) => movie.id == movieID);
+  let movie = movies.find((movie) => movie.id == movieID);
+  console.log("asdasdsa");
   movieNameInp.value = movie.name;
   movieDirectorInp.value = movie.director;
   movieYearInp.value = movie.year;
   movieGenreInp.value = movie.genre;
   movieBannerInp.value = movie.banner;
-  editMovieButton.addEventListener("click", (e) => editMovie(movie, e));
+  console.log(movie); 
 };
 
 function Storage() {}
@@ -65,10 +66,11 @@ Storage.prototype.setStorage = function () {
 };
 //#endregion
 
-const storage = new Storage();
-const ui = new UI();
+let storage = new Storage();
+let ui = new UI();
+let currentMovieID;
 
-const movies = storage.getStorage() ? storage.getStorage() : [];
+let movies = storage.getStorage() ? storage.getStorage() : [];
 eventListeners();
 updateDisplay();
 
@@ -76,15 +78,21 @@ function eventListeners() {
   addMovieButton.addEventListener("click", addMovie);
   movieCollectionRow.addEventListener("click", function (e) {
     if (e.target.classList.contains("movie-delete")) {
-      const movieCard = e.target.parentElement.parentElement.parentElement;
+      let movieCard = e.target.parentElement.parentElement.parentElement;
       ui.deleteMovieFromUI(movieCard);
       removeFromArray(movieCard.id);
     } else if (e.target.classList.contains("movie-edit")) {
-      const movieCard = e.target.parentElement.parentElement.parentElement;
+      let movieCard = e.target.parentElement.parentElement.parentElement;
+      currentMovieID = movieCard.id;
       ui.cardToForm(movieCard.id);
       // toggleButtons();
     }
   });
+  editMovieButton.addEventListener("click", (e) =>
+  {
+  console.log(currentMovieID);
+  editMovie(currentMovieID, e)
+}) 
 }
 
 function addMovie(e) {
@@ -92,7 +100,7 @@ function addMovie(e) {
   if (ui.isEmpty()) {
     alert("Boş girdi yapmayınız");
   } else {
-    const newMovie = new Movie(
+    let newMovie = new Movie(
       movieNameInp.value,
       movieDirectorInp.value,
       movieYearInp.value,
@@ -135,7 +143,7 @@ function createCard(movie) {
 }
 
 function removeFromArray(movieID) {
-  const movie = movies.find((movie) => movie.id == movieID);
+  let movie = movies.find((movie) => movie.id == movieID);
   movies.splice(movies.indexOf(movie), 1);
   storage.setStorage();
 }
@@ -147,17 +155,22 @@ function toggleButtons() {
     editMovieButton.style.display === "block" ? "none" : "block";
 }
 
-function editMovie(movie, e) {
-  let crazy = movie;
-  console.log(crazy);
+function editMovie(movieID, e) {
+  console.log(movieID);
+  let crazy = movies.find((element)=> element.id == movieID)
   editMovieButton.style.display = "none";
   addMovieButton.style.display = "block";
   // toggleButtons();
-  movie.name = movieNameInp.value;
-  movie.director = movieDirectorInp.value;
-  movie.year = movieYearInp.value;
-  movie.genre = movieGenreInp.value;
-  movie.banner = movieBannerInp.value;
-  editMovieButton.removeEventListener("click", () => editMovie(movie));
+  crazy.name = movieNameInp.value;
+  crazy.director = movieDirectorInp.value;
+  crazy.year = movieYearInp.value;
+  crazy.genre = movieGenreInp.value;
+  crazy.banner = movieBannerInp.value;
+  editMovieButton.removeEventListener("click", () => editMovie());
+  e.preventDefault();
   storage.setStorage();
+  updateDisplay();
+  // for (const key in obj.address) {
+  //   delete movie[key];
+  // }
 }
