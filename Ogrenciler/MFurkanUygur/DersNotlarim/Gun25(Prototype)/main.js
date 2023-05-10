@@ -38,10 +38,11 @@ Person.prototype.showInfo = function () {
     `);
 }
 const person1 = new Person("furkan", 25, 4000)
+person1.showInfo();
 const person2 = new Person("Uygur", 26, 5000)
 
-console.log(person1)
-console.log(person2)
+// console.log(person1)
+// console.log(person2)
 
 
 //prototype kalıtımEemploy.prototype=Object.create(Person.prototype)
