@@ -19,15 +19,6 @@ class Movie {
     this.banner = banner;
   }
 }
-// function Movie() {
-//   this.id = Date.now();
-//   this.name = name;
-//   this.director = director;
-//   this.year = year;
-//   this.genre = genre;
-//   this.banner = banner;
-// }
-
 class UI{
   static isEmpty(){
     return (
@@ -67,57 +58,6 @@ class Storage{
     localStorage.setItem("movieStorage", JSON.stringify(movies));
   }
 }
-
-// function UI() {}
-
-// UI.prototype.isEmpty = function () {
-//   return (
-//     movieNameInp.value == "" ||
-//     movieDirectorInp.value == "" ||
-//     movieYearInp.value == "" ||
-//     movieGenreInp.value == "" ||
-//     movieBannerInp.value == ""
-//   );
-// };
-
-// UI.prototype.addMovieToUI = function (newMovie) {
-//   movieCollectionRow.innerHTML += createCard(newMovie);
-// };
-
-// UI.prototype.deleteMovieFromUI = function (movie) {
-//   movie.remove();
-// };
-
-// UI.prototype.resetInput = function () {
-//   form.reset();
-// };
-
-// UI.prototype.cardToForm = function (movieID) {
-//   addMovieButton.style.display = "none";
-//   editMovieButton.style.display = "block";
-//   let movie = movies.find((movie) => movie.id == movieID);
-//   console.log("asdasdsa");
-//   movieNameInp.value = movie.name;
-//   movieDirectorInp.value = movie.director;
-//   movieYearInp.value = movie.year;
-//   movieGenreInp.value = movie.genre;
-//   movieBannerInp.value = movie.banner;
-//   console.log(movie); 
-// };
-
-// function Storage() {}
-
-// Storage.prototype.getStorage = function () {
-//   return JSON.parse(localStorage.getItem("movieStorage"));
-// };
-
-// Storage.prototype.setStorage = function () {
-//   localStorage.setItem("movieStorage", JSON.stringify(movies));
-// };
-//#endregion
-
-// let storage = new Storage();
-// let ui = new UI();
 let currentMovieID;
 
 let movies = Storage.getStorage() ? Storage.getStorage() : [];
