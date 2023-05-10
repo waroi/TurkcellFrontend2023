@@ -5,7 +5,7 @@ const urlElement = document.querySelector("#url");
 const releaseElement = document.querySelector("#release");
 const cardbody = document.querySelectorAll(".card-body")[1];
 const clear = document.getElementById("clear-movies");
-
+const edit = document.getElementById("edit-movie");
 //Tüm eventleri yükleme
 eventListeners();
 
@@ -40,9 +40,14 @@ function addMovie(e) {
 }
 function deleteMovie(e) {
   if (e.target.id === "delete-movie") {
-    ui.deleteMovieFromUI(e.target);
+    UI.deleteMovieFromUI(e.target);
   }
 }
+// function editMovie(e) {
+//   console.log(e);
+//   if (e.target.id === "edit-movie") {
+//   }
+// }
 function clearAllFilms() {
   if (confirm("Emin misiniz ?")) {
     UI.clearAllFilmsFromUI();
