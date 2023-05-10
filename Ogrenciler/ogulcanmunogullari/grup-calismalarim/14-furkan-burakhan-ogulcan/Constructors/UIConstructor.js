@@ -6,12 +6,17 @@ function UI(degisiklik, filterYil, degistirmekIcinTiklananFilm) {
   (this.filterYil = filterYil),
   (this.degistirmekIcinTiklananFilm = degistirmekIcinTiklananFilm);
 }
+
 UI.prototype.formSifirla = function () {
  form.reset();
 };
+
 UI.prototype.filmToggle = function () {
  this.degisiklik = !this.degisiklik;
 };
+
+// UI.prototype = Object.create(Process.prototype);
+
 UI.prototype.screen = function (filmler) {
  filmlerContainer.innerHTML = filmler
   .filter((film) => {
@@ -35,6 +40,7 @@ UI.prototype.screen = function (filmler) {
  filtreContainer.innerHTML += `<li class="years" ><a>Tümü</a></li>`;
  localStorage.setItem('filmler', JSON.stringify(filmler));
 };
+
 UI.prototype.kontrolFn = function () {
  if (
   filmResmi.value &&
