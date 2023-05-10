@@ -1,16 +1,18 @@
 const bookName = document.getElementById("bookName");
 const bookWriter = document.getElementById("bookWriter");
 const bookType = document.getElementById("bookType");
-const bookPrice = document.getElementById("bookPrice");
+const bookDate = document.getElementById("bookDate");
+const bookPicture = document.getElementById("bookPicture");
 
 const addButton = document.getElementById("addButton");
 
 //Books Object
-function Books(bookName, bookWriter, bookType, bookPrice) {
+function Books(bookName, bookWriter, bookType, bookDate, bookPicture) {
     this.bookName = bookName;
     this.bookWriter = bookWriter;
     this.bookType = bookType;
-    this.bookPrice = bookPrice;
+    this.bookDate = bookDate;
+    this.bookPicture = bookPicture;
     this.bookID = Math.floor(Math.random() * 1000000);
 }
 
@@ -22,7 +24,8 @@ function addBook(e) {
         bookName.value == "" ||
         bookWriter.value == "" ||
         bookType.value == "" ||
-        bookPrice == ""
+        bookDate == "" ||
+        bookPicture == ""
     ) {
         alert("Boş geçme");
     } else {
@@ -31,7 +34,8 @@ function addBook(e) {
             bookName.value,
             bookWriter.value,
             bookType.value,
-            bookPrice.value
+            bookDate.value,
+            bookPicture.value
         );
 
         //Sonra bu verileri storage'da depolayabilmek için Storage nesnemize gönderdik ordanda ui'ya gidicek
@@ -42,6 +46,7 @@ function addBook(e) {
         bookName.value = "";
         bookWriter.value = "";
         bookType.value = "";
-        bookPrice.value = "";
+        bookDate.value = "";
+        bookPicture.value = ""
     }
 }

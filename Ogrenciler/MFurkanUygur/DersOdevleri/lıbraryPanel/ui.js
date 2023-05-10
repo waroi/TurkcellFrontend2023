@@ -13,13 +13,13 @@ UI.prototype.addBook = function (getBooks) {
         // bookContainer.innerHTML = createTag(getBook)
         bookContainer.innerHTML += `
             <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="resim">
+            <img src="${getBook.bookPicture}" class="card-img-top" alt="resim">
             <div class="card-body">
-              <h3 class="card-title">${getBook.bookName}</h3>
-              <h5 class="card-subtitle">${getBook.bookWriter}</h5>
-              <p class="card-text">${getBook.bookPrice}</p>
-              <p class="card-text">${getBook.bookType}</p>
-              <p class="card-text">${getBook.bookID}</p>
+              <h3 class="card-title">isim:${getBook.bookName}</h3>
+              <h5 class="card-subtitle">yazar:${getBook.bookWriter}</h5>
+              <p class="card-text">tür:${getBook.bookType}</p>
+              <p class="card-text">date:${getBook.bookDate}</p>
+              <p class="card-text"> id${getBook.bookID}</p>
 
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
@@ -52,7 +52,6 @@ function createTag(b) {
     p3.setAttribute("class", "card-text");
     p3.innerHTML = b.bookID;
 
-
     divBody.appendChild(h3)
     divBody.appendChild(h5);
     divBody.appendChild(p1);
@@ -60,7 +59,4 @@ function createTag(b) {
     divBody.appendChild(p3);
     mainDiv.appendChild(divBody);
     bookContainer.appendChild(mainDiv);
-
-
-
 }
