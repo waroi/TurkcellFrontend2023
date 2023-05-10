@@ -139,17 +139,19 @@ UIConstructor.prototype = {
     this.showFilms();
   },
   updateFilm: function (index) {
+    UIConstructor.call(this);
     this.filmName.value = films[index].name;
     this.directorName.value = films[index].director;
     this.year.value = films[index].year;
     this.genres.value = films[index].genres;
-    this.filmUrl.value = films[index].url;
+    this.filmUrl.value = films[index].filmUrl;
     this.submitBtn.classList.add("d-none");
     this.editBtn.classList.add("d-block");
     this.editBtn.classList.remove("d-none");
     this.editedIndex = index;
   },
   editFilm: function () {
+    UIConstructor.call(this);
     const filmText = this.filmName.value;
     const directorText = this.directorName.value;
     const yearText = this.year.value;
@@ -160,10 +162,10 @@ UIConstructor.prototype = {
       director: directorText,
       year: yearText,
       genres: options,
-      url: urlText,
+      filmUrl: urlText,
     };
 
-    films[editedIndex] = updatedFilm;
+    films[this.editedIndex] = updatedFilm;
 
     localStorage.setItem("films", JSON.stringify(films));
     this.showFilms();
@@ -178,7 +180,7 @@ UIConstructor.prototype = {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (submitBtn.classList.contains("d-none")) {
-    editFilm();
+    UIConstructor.prototype.editFilm();
   } else {
     UIConstructor.prototype.addFilms();
   }
