@@ -15,7 +15,7 @@ class UI {
         <td>${newMovie.director}</td>
         <td>${newMovie.release}</td>
         <td><a href="#" id = "delete-movie" class = "btn btn-danger">Filmi Sil</a></td>
-          <td><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Düzenle</a></td>
+          <td><a href="#" id = "edit-movie" class = "btn btn-danger">Filmi Düzenle</a></td>
     </tr>
     `;
   }

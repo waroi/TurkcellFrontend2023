@@ -6,6 +6,7 @@ const releaseElement = document.querySelector("#release");
 const cardbody = document.querySelectorAll(".card-body")[1];
 const clear = document.getElementById("clear-movies");
 const edit = document.getElementById("edit-movie");
+console.log(edit);
 //Tüm eventleri yükleme
 eventListeners();
 
@@ -38,13 +39,12 @@ function addMovie(e) {
   }
   UI.clearInputs(nameElement, urlElement, directorElement, releaseElement);
 }
-
 function deleteMovie(e) {
   if (e.target.id === "delete-movie") {
     UI.deleteMovieFromUI(e.target);
   }
 }
-
+function editMovie(e) {}
 function clearAllFilms() {
   if (confirm("Emin misiniz ?")) {
     UI.clearAllFilmsFromUI();
