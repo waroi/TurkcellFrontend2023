@@ -1,9 +1,8 @@
-import Film from './Constructors/FilmConstructor.js';
-import Process from './Constructors/ProcessConstructor.js';
-import UI from './Constructors/UIConstructor.js';
+import Film from './FilmClass.js';
+import Process from './ProcessClass.js';
+import UI from './UIClass.js';
 
 let ui = new UI(false, null, null);
-let process = new Process();
 
 let filmler = JSON.parse(localStorage.getItem('filmler')) || [];
 ui.screen(filmler);
@@ -44,7 +43,7 @@ ekleButton.addEventListener('click', function (e) {
 filmlerContainer.addEventListener('click', function (e) {
  e.preventDefault();
  if (e.target.innerText == 'Değiştir') {
-  process.degistir(e.target.parentElement.parentElement.id, filmler, ui);
+  Process.degistir(e.target.parentElement.parentElement.id, filmler, ui);
   ui.filmToggle();
   ui.screen(filmler);
  }
@@ -62,7 +61,7 @@ uygulaButton.addEventListener('click', function (e) {
  if (kontrol) {
   return;
  }
- process.uygula(ui);
+ Process.uygula(ui);
  ui.filmToggle();
  ui.formSifirla();
  ui.screen(filmler);
