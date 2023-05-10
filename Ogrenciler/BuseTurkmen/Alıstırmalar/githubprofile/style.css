@@ -1,11 +1,21 @@
+*{
+  background-color: rgb(39, 13, 39);
+}
 .container {
     max-width: 600px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 200px;
     padding: 20px;
+    border: 3px solid plum;
+    border-radius: 15px;
   }
   
   h1 {
     text-align: center;
+    color: antiquewhite;
   }
   
   form {
@@ -27,11 +37,27 @@
     font-size: 16px;
     border: none;
     border-radius: 0 4px 4px 0;
-    background-color: #007bff;
+    background-color: #bd58f8;
     color: #fff;
     cursor: pointer;
   }
   
   button[type="submit"]:hover {
     background-color: #0069d9;
+  }
+
+  .card{
+    display: flex;
+    max-width: 500px;
+  }
+
+  .avatar{
+    border-radius: 50%;
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .info{
+    display: flex;
+    gap: 20px;
   }
