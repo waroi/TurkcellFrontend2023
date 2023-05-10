@@ -50,7 +50,7 @@ UI.prototype.deleteMovieFromList = function (target) {
   if (target.classList.contains("btn-danger")) {
     target.parentElement.parentElement.remove();
   }
- else if (target.classList.contains("btn-primary")) {
+  else if (target.classList.contains("btn-primary")) {
     target.parentElement.parentElement.remove();
   }
 };
@@ -145,9 +145,9 @@ document.getElementById("movieTable").addEventListener("click", function (event)
     storage.deleteMovieFromStorage(rowIndex);
   }
      // Güncelleme butonuna tıklandığında
-     if (event.target.classList.contains("btn-primary")) {
+      if (event.target.classList.contains("btn-primary")) {
         const rowIndex = event.target.parentElement.parentElement.rowIndex-1;
-       
+      
         const movies = storage.getMoviesFromStorage();
         const movie = movies[rowIndex];
         
