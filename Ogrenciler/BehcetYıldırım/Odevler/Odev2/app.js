@@ -1,6 +1,6 @@
 const ui = new UI();
 const book = new Book();
-
+const storage = new Storage();
 
 const bookList = document.getElementById("bookList");
 const modal = document.getElementById("booksModal");

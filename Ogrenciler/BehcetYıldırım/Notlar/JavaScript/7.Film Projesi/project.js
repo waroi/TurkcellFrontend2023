@@ -7,6 +7,10 @@ const urlElement = document.getElementById("url");
 // UI Başlatma
 const ui = new UI();
 
+// Storage objesi üretme
+
+const storage = new Storage();
+
 // Tüm Eventleri Yükleme
 
 eventListeners();
@@ -30,6 +34,7 @@ function addFilm(e){
         const newFilm = new Film(title,director,url);
 
         ui.addFilmToUI(newFilm);// Burada 8.satırda UI objesinden oluşturduğumuz "ui" objesinde, yine oluşturduğumuz ui objesi içindeki fonksiyona "newFilm"'i yolluyoruz.
+        storage.addFilmToStorage(newFilm);
     }
 
 

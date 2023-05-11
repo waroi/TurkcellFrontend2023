@@ -22,6 +22,7 @@ Book.prototype.addBooks = function(e){
         const newBook = new Book(name,writer,category,date,url);
 
         ui.createNewBook(newBook);  
+        storage.addBooksToStorage(newBook);
         ui.clearModal();
               
     }
