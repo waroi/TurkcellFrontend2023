@@ -8,61 +8,134 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <div class="container">
-      <label for="search" class="text-white">Kitap Ara:</label>
-      <input class="mt-5" type="text" id="search" />
+    <header class="py-4">
+      <div class="container">
+        <div class="row flex-row justify-content-between">
+          <h1 class="text-white w-50">Book Wizard</h1>
+          <p
+            class="text-white fs-3 w-50 my-0 d-flex flex-wrap align-content-center justify-content-center"
+          >
+            "Kitapların Büyüsü İçerisinde Kaybolun"
+          </p>
+        </div>
+      </div>
+    </header>
 
-      <!-- Button trigger modal -->
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#Addbook"
-      >
-        Kitap Ekle
-      </button>
+    <section class="book-finder py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <label for="search" class="text-white fs-4">Kitap Ara:</label>
+            <input class="mt-2" type="text" id="search" />
 
-      <!-- Modal -->
-      <div
-        class="modal fade"
-        id="Addbook"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                Kitap Ekle
-              </h1>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <h2>özellikler</h2>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
+            <label for="sorter" class="text-white ms-3 fs-4"
+              >Sıralama Yap:</label
+            >
+
+            <select name="sorter-choose" id="sorter">
+              <option value="AtoZ">A'dan Z'ye</option>
+              <option value="ZtoA">Z'den A'ya</option>
+              <option value="OnDate">Tarihe Göre</option>
+            </select>
+          </div>
+          <div class="col-6 d-flex justify-content-end">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#Addbook"
+            >
+              Kitap Ekle
+            </button>
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="Addbook"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
               >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">Understood</button>
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      Kitap Ekle
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <h2>özellikler</h2>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                      Understood
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="row mt-3">
+          <div class="col-4">
+            <h3 class="text-white">Filtreleme:</h3>
+          </div>
+          <div class="col-4">
+            <label for="category" class="text-white fs-4">Kategori:</label>
+            <select name="category" id="category">
+              <option value="#">İçerik Yok</option>
+            </select>
+          </div>
+          <div class="col-4">
+            <label for="writer" class="text-white fs-4">Yazar:</label>
+            <select name="writer" id="writer">
+              <option value="#">İçerik Yok</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3 books">
+          <div class="col-1">
+            <h4>iki şehrin hikayesi</h4>
+            <p>deneme</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <script src="./node_modules/bootstrap/js/src/modal.js"></script>
+    </section>
+    <footer class="bg-secondary pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <span
+              >This page was made by
+              <a href="https://github.com/SelimEminoglu61" class="text-info"
+                >Selim Eminoğlu</a
+              ></span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
     <script src="./app.js"></script>
   </body>
 </html>
