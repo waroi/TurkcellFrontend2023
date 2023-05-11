@@ -28,5 +28,4 @@ form.addEventListener('submit', e => {
         </div>
       `;
     })
-    .catch(error => console.error(error));
 });

@@ -1,4 +1,5 @@
-function UI() { }
+// UI Constructor
+function UI() {}
 
 UI.prototype.addMovieToList = function (movie) {
   const movieTable = document
@@ -19,22 +20,22 @@ UI.prototype.addMovieToList = function (movie) {
     </td>
   `;
 
-  //   const movieCard = document.getElementById("movieCard");
-  //   const card = document.createElement("div");
-  //   card.className="deneme";
+//   const movieCard = document.getElementById("movieCard");
+//   const card = document.createElement("div");
+//   card.className="deneme";
 
-  //   card.innerHTML = `<img src="${movie.posterUrl}" class="card-img-top" alt="...">
-  //   <div class="card-body">
-  //     <h5 class="card-title">${movie.movieName}</h5>
-  //     <p class="card-text">${movie.director}</p>
-  //     <p class="card-text">${movie.year}</p>
-  //     <p class="card-text">${movie.type}</p>
-  //     <button class="btn btn-danger">Sil</button>
-  //       <button class="btn btn-primary">Güncelle</button>
-  //   </div>`;
-  //   movieCard.appendChild(card);
+//   card.innerHTML = `<img src="${movie.posterUrl}" class="card-img-top" alt="...">
+//   <div class="card-body">
+//     <h5 class="card-title">${movie.movieName}</h5>
+//     <p class="card-text">${movie.director}</p>
+//     <p class="card-text">${movie.year}</p>
+//     <p class="card-text">${movie.type}</p>
+//     <button class="btn btn-danger">Sil</button>
+//       <button class="btn btn-primary">Güncelle</button>
+//   </div>`;
+//   movieCard.appendChild(card);
   movieTable.appendChild(tr);
-
+  
 };
 
 UI.prototype.clearFormFields = function () {
@@ -49,7 +50,7 @@ UI.prototype.deleteMovieFromList = function (target) {
   if (target.classList.contains("btn-danger")) {
     target.parentElement.parentElement.remove();
   }
-  else if (target.classList.contains("btn-primary")) {
+ else if (target.classList.contains("btn-primary")) {
     target.parentElement.parentElement.remove();
   }
 };
@@ -62,6 +63,8 @@ UI.prototype.updateMovieForm = function (movie) {
   document.getElementById("posterUrl").value = movie.posterUrl;
 };
 
+// Movie Constructor
+
 function Movie(movieName, director, year, type, posterUrl) {
   this.movieName = movieName;
   this.director = director;
@@ -70,7 +73,8 @@ function Movie(movieName, director, year, type, posterUrl) {
   this.posterUrl = posterUrl;
 }
 
-function Storage() { }
+// Storage Constructor
+function Storage() {}
 
 Storage.prototype.getMoviesFromStorage = function () {
   let movies;
@@ -80,6 +84,7 @@ Storage.prototype.getMoviesFromStorage = function () {
   } else {
     movies = [];
   }
+
   return movies;
 };
 
@@ -96,7 +101,7 @@ Storage.prototype.addMovieToStorage = function (movie) {
 //   movies.splice(index, 1, movie);
 
 //   localStorage.setItem("movies", JSON.stringify(movies));
-
+  
 // };
 
 Storage.prototype.deleteMovieFromStorage = function (index) {
@@ -110,7 +115,8 @@ const ui = new UI();
 const storage = new Storage();
 
 function addMovie(event) {
-  event.preventDefault();
+  event.preventDefault(); // Formun sayfayı yenilemesini engelliyor
+
 
   const movieName = document.getElementById("movieName").value;
   const director = document.getElementById("director").value;
@@ -127,33 +133,33 @@ function addMovie(event) {
   ui.clearFormFields();
 }
 
-function deleteAndUpdateClick(event) {
-  // Silme butonuna tıklandığında
-  if (event.target.classList.contains("btn-danger")) {
-    const rowIndex = event.target.parentElement.parentElement.rowIndex;
-
-    ui.deleteMovieFromList(event.target);
-
-    storage.deleteMovieFromStorage(rowIndex - 1);
-  }
-  // Güncelleme butonuna tıklandığında
-  if (event.target.classList.contains("btn-primary")) {
-    const rowIndex = event.target.parentElement.parentElement.rowIndex - 1;
-
-    const movies = storage.getMoviesFromStorage();
-    const movie = movies[rowIndex];
-
-    ui.updateMovieForm(movie);
-    ui.deleteMovieFromList(event.target);
-    storage.deleteMovieFromStorage(rowIndex);
-  }
-
-  event.preventDefault();
-}
 document.getElementById("movieForm").addEventListener("submit", addMovie);
 
-document.getElementById("movieTable").addEventListener("click", deleteAndUpdateClick);
+document.getElementById("movieTable").addEventListener("click", function (event) {
+    // Silme butonuna tıklandığında
+  if (event.target.classList.contains("btn-danger")) {
+    const rowIndex = event.target.parentElement.parentElement.rowIndex-1;
 
+    ui.deleteMovieFromList(event.target);
+
+    storage.deleteMovieFromStorage(rowIndex);
+  }
+     // Güncelleme butonuna tıklandığında
+     if (event.target.classList.contains("btn-primary")) {
+        const rowIndex = event.target.parentElement.parentElement.rowIndex-1;
+       
+        const movies = storage.getMoviesFromStorage();
+        const movie = movies[rowIndex];
+        
+        ui.updateMovieForm(movie);
+        ui.deleteMovieFromList(event.target);
+        storage.deleteMovieFromStorage(rowIndex);
+      } 
+  
+  event.preventDefault();
+});
+
+// Sayfa yüklendiğinde localStorage'den verileri alma ve tabloya ekleme
 document.addEventListener("DOMContentLoaded", function () {
   const movies = storage.getMoviesFromStorage();
 

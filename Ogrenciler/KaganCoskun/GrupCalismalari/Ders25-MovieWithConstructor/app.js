@@ -17,11 +17,10 @@ function getData() {
 	let year = document.getElementById("year").value;
 	let cover = document.getElementById("cover").value;
 	const newMovie = new Movie(name, director, year, cover);
-  
+
 	return newMovie;
-  }
-
-
+}
 
 document.addEventListener("DOMContentLoaded", UI.loadUI);
+
 
