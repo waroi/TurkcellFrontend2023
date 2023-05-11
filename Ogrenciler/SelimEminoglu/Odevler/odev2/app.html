@@ -26,13 +26,19 @@
         <div class="row">
           <div class="col-6">
             <label for="search" class="text-white fs-4">Kitap Ara:</label>
-            <input class="mt-2" type="text" id="search" />
+            <input
+              class="mt-2 py-1 px-2"
+              type="text"
+              id="search"
+              placeholder="Yazar veya Kitap Adı"
+            />
 
             <label for="sorter" class="text-white ms-3 fs-4"
               >Sıralama Yap:</label
             >
 
-            <select name="sorter-choose" id="sorter">
+            <select name="sorter-choose" id="sorter" class="py-1">
+              <option selected>Belirtilmemiş</option>
               <option value="AtoZ">A'dan Z'ye</option>
               <option value="ZtoA">Z'den A'ya</option>
               <option value="OnDate">Tarihe Göre</option>
@@ -73,7 +79,29 @@
                     ></button>
                   </div>
                   <div class="modal-body">
-                    <h2>özellikler</h2>
+                    <h2>Kitap Özellikleri</h2>
+                    <form class="book-form mt-3" id="form">
+                      <label for="bookName" class="w-100 fs-4 my-1"
+                        >Kitap Adı:</label
+                      >
+                      <input type="text" id="bookName" class="w-100" />
+                      <label for="bookWriter" class="w-100 fs-4 my-1"
+                        >Kitabın Yazarı:</label
+                      >
+                      <input type="text" id="bookWriter" class="w-100" />
+                      <label for="bookDate" class="w-100 fs-4 my-1"
+                        >Yazım Yılı:</label
+                      >
+                      <input type="text" id="bookDate" class="w-100" />
+                      <label for="bookCategory" class="w-100 fs-4 my-1"
+                        >Kategorisi:</label
+                      >
+                      <input type="text" id="bookCategory" class="w-100" />
+                      <label for="bookUrl" class="w-100 fs-4 my-1"
+                        >Kitap Resmi İçin URL:</label
+                      >
+                      <input type="text" id="bookUrl" class="w-100" />
+                    </form>
                   </div>
                   <div class="modal-footer">
                     <button
@@ -81,10 +109,10 @@
                       class="btn btn-secondary"
                       data-bs-dismiss="modal"
                     >
-                      Close
+                      Kapat
                     </button>
-                    <button type="button" class="btn btn-primary">
-                      Understood
+                    <button type="button" class="btn btn-primary" id="addBook">
+                      Kitap Ekle
                     </button>
                   </div>
                 </div>
@@ -98,21 +126,45 @@
           </div>
           <div class="col-4">
             <label for="category" class="text-white fs-4">Kategori:</label>
-            <select name="category" id="category">
-              <option value="#">İçerik Yok</option>
+            <select name="category" id="category" class="py-1">
+              <option selected>Belirtilmemiş</option>
             </select>
           </div>
           <div class="col-4">
             <label for="writer" class="text-white fs-4">Yazar:</label>
-            <select name="writer" id="writer">
-              <option value="#">İçerik Yok</option>
+            <select name="writer" id="writer" class="py-1">
+              <option selected>Belirtilmemiş</option>
             </select>
           </div>
         </div>
         <div class="row mt-3 books">
-          <div class="col-1">
-            <h4>iki şehrin hikayesi</h4>
-            <p>deneme</p>
+          <div class="col-3">
+            <div class="card my-3 mx-2" style="width: 18rem">
+              <img
+                src="https://i.dr.com.tr/cache/500x400-0/originals/0001788068001-1.jpg"
+                class="card-img-top"
+                alt="images"
+              />
+              <div class="card-body">
+                <h5 class="card-title">İki Şehrin Hikayesi</h5>
+                <h6>Yazar:</h6>
+                <p class="card-text">Charles Dickens</p>
+                <h6>Yazım Yılı:</h6>
+                <p class="card-text">1859</p>
+                <h6>Kategori:</h6>
+                <p class="card-text">Roman</p>
+                <div class="row justify-content-center">
+                  <div class="col-5">
+                    <button type="button" class="btn btn-success">
+                      Güncelle
+                    </button>
+                  </div>
+                  <div class="col-5 d-flex justify-content-center">
+                    <button type="button" class="btn btn-danger">Sil</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -136,6 +188,7 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-    <script src="./app.js"></script>
+    <script type="module" src="./app.js"></script>
+    <script src="./book.js"></script>
   </body>
 </html>
