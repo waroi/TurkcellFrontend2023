@@ -1,30 +1,83 @@
-// let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+// Object Literal
+// const person1 = {
+//   name: 'Varol',
+//   age: 37,
+//   showInfo: function () {
+//     console.log('bilgiler gösteriliyor...');
+//   },
+// };
 
-// let value = numbers.sort(() => Math.random() - 0.5);
-// console.log(value);
-// // value = numbers.sort((a, b) => a - b);
-// // console.log(value);
+// const person2 = {
+//   name: 'Behçet',
+//   age: 23,
+//   showInfo: function () {
+//     console.log('bilgiler gösteriliyor...');
+//   },
+// };
 
-//Array Methods
+// console.log(person1);
+// console.log(person2);
 
-let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
-let langs = ["Python", "Java", "C++", "Javascript"];
+// const date = new Date();
+// console.log(date.getFullYear());
 
-//map methodu
-const map1 = numbers.map((number) => number * 2);
-console.log(map1);
+// Yapıcı Fonksiyonlar (Constructor)
 
-let users = [
-  { firstName: "Varol", lastName: "Maksutoğlu", isOnline: true, age: 37 },
-  { firstName: "Mehmet", lastName: "Maksutoğlu", isOnline: false, age: 60 },
-  { firstName: "Seyit", lastName: "Maksutoğlu", isOnline: true, age: 30 },
-];
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  // this.showInfo = function () {
+  // console.log(`    isim: ${this.name}
+  //   yaş: ${this.age}
+  //   maaş: ${this.salary}`);
+  // };
+}
 
-let userNames = users.map((user) => user.firstName);
+function Employee(name, age, salary, test) {
+  Person.call(this, name, age);
+  this.salary = salary;
+  this.test = test;
+}
 
-userNames.map((name) => console.log(name));
+Employee.prototype = Object.create(Person.prototype);
 
-//forEach mwthodu
-langs.forEach((lang) => {
-  console.log(lang);
-});
+Person.prototype.showInfo = function () {
+  console.log(`    isim: ${this.name}
+    yaş: ${this.age}
+    maaş: ${this.salary}
+    deneme: ${this.test}
+    `);
+};
+
+// Object.prototype.showInfo = function () {
+//   console.log(`    isim: ${this.name}
+//     yaş: ${this.age}
+//     maaş: ${this.salary}
+//     deneme: ${this.test}
+//     `);
+// };
+
+Object.prototype.showInfo = function () {
+  console.log(`Merhaba`);
+};
+
+// const person1 = new Person('Varol', 37, 4000);
+// const person2 = new Person('Behçet', 23, 5000);
+
+// console.log(person1);
+// console.log(person2);
+
+// person1.showInfo();
+// person2.showInfo();
+
+const emp1 = new Employee("Varol", 37, 4000, "test");
+console.log(emp1);
+emp1.showInfo();
+console.log(Object.create(Person.prototype));
+
+// const person3 = {
+//   name: 'Varol',
+//   age: 37,
+// };
+// console.log(person3);
+// person3.showInfo();
