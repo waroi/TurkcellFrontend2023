@@ -6,7 +6,7 @@ isEdit = false;
 
 function submitForm(e) {
 	e.preventDefault();
-	isEdit ? storage.editLocalStorage() : UI.addMovie();
+	isEdit ? storage.editLocalStorage() : UserInterface.addMovie();
 }
 
 form.addEventListener("submit", submitForm);
