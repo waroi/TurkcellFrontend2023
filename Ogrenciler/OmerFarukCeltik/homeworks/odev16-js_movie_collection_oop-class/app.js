@@ -18,7 +18,10 @@ class Movie {
     this.genre = genre;
     this.banner = banner;
   }
+  
 }
+let movie2 = new Movie("sadas","asd",123123,"fdgfd","sdafad");
+console.log(movie2);
 class UI{
   static isEmpty(){
     return (
@@ -51,6 +54,7 @@ class UI{
   }
 
 class Storage{
+
   static getStorage(){
     return JSON.parse(localStorage.getItem("movieStorage"));
   }
