@@ -6,7 +6,7 @@ isEdit = false;
 
 function submitForm(e) {
 	e.preventDefault();
-	isEdit ? storage.editLocalStorage() : UI.addMovie();
+	isEdit ? storage.editLocalStorage() : UserInterface.addMovie();
 }
 
 form.addEventListener("submit", submitForm);
@@ -17,10 +17,11 @@ function getData() {
 	let year = document.getElementById("year").value;
 	let cover = document.getElementById("cover").value;
 	const newMovie = new Movie(name, director, year, cover);
-
+  
 	return newMovie;
-}
+  }
+
+
 
 document.addEventListener("DOMContentLoaded", UI.loadUI);
-
 
