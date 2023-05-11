@@ -28,12 +28,12 @@ Storage.prototype.showMoviesFromLocalStorage = function() {
 }
 
 Storage.prototype.deleteMovieFromLocalStorage = function(deleteMovieId) {
-  let deleteMovieLocal = storage.getMoviesFromLocalStorage();
-  for(let i = 0; i < deleteMovieLocal.length; i++) {
-    if(deleteMovieLocal[i].id = deleteMovieId) {
-      deleteMovieLocal.splice(i, 1);
+  let movies = storage.getMoviesFromLocalStorage();
+  for(let i = 0; i < movies.length; i++) {
+    if(movies[i].id == deleteMovieId) {
+      movies.splice(i, 1);
     }
   }
 
-  localStorage.setItem('movies', JSON.stringify(deleteMovieLocal));
+  localStorage.setItem('movies', JSON.stringify(movies));
 }
