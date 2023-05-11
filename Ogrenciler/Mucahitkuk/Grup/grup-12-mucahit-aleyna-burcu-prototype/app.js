@@ -53,7 +53,6 @@ UI.prototype.addMovieToList = function (movie) {
   `;
   const editBtn = movieCard.querySelector(".edit-btn");
   const deleteBtn = movieCard.querySelector(".delete-btn");
-  const ui = this;
   editBtn.addEventListener("click", function () {
     ui.showEditForm(movie);
   });
@@ -87,6 +86,20 @@ UI.prototype.clearFields = function () {
   movieUrl.value = "";
 };
 
+UI.prototype.inputValidation = function () {
+  let regexTest = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/i;
+if (
+  movieName.value.trim() === "" ||
+  movieDirector.value.trim() === "" ||
+  movieType.value.trim() === "" ||
+  !regexTest.test(movieUrl.value.trim())
+) {
+    ui.displayError("Lütfen tüm alanları doldurunuz.");
+    return false;
+  }
+  return true;
+}
+
 UI.prototype.displayError = function (message) {
   errorText.textContent = message;
   setTimeout(function () {
@@ -109,20 +122,6 @@ Storage.prototype.addMovie = function (movie) {
   localStorage.setItem("movieList", JSON.stringify(movieList));
 };
 
-Storage.prototype.updateMovie = function (movie) {
-  let movieList = this.getMovies();
-  for (let i = 0; i < movieList.length; i++) {
-    if (movieList.id === movie.id) {
-      movieList[i].name = movie.name;
-      movieList[i].type = movie.type;
-      movieList[i].director = movie.director;
-      movieList[i].url = movie.url;
-      break;
-    }
-  }
-  localStorage.setItem("movieList", JSON.stringify(movieList));
-};
-
 Storage.prototype.deleteMovie = function (id) {
   let movieList = this.getMovies();
   movieList = movieList.filter((movie) => movie.id !== id);
@@ -136,19 +135,7 @@ Storage.prototype.loadMoviesFromLocalStorage = function() {
   }
 }
 
-UI.prototype.inputValidation = function () {
-  let regexTest = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/i;
-if (
-  movieName.value.trim() === "" ||
-  movieDirector.value.trim() === "" ||
-  movieType.value.trim() === "" ||
-  !regexTest.test(movieUrl.value.trim())
-) {
-    ui.displayError("Lütfen tüm alanları doldurunuz.");
-    return false;
-  }
-  return true;
-}
+
 
 
 //Fonksiyonlar
