@@ -6,6 +6,8 @@ function Book(name,writer,category,date,url){
     this.date=date;
     this.url=url;
 }
+const ui2 = new UI();
+const storage2 = new Storage();
 
 Book.prototype.addBooks = function(e){
     const name = bookName.value.trim();
@@ -25,5 +27,18 @@ Book.prototype.addBooks = function(e){
         storage.addBooksToStorage(newBook);
         ui.clearModal();
               
+    }
+}
+
+Book.prototype.loadAllBooks = function(){
+    let films = storage2.getBookFromStorage();
+
+    ui2.loadAllBooksFromStorage(films);
+}
+
+Book.prototype.deleteBook = function(e){
+    if(e.target.id === "delete-book"){
+        ui2.deleteBookFromUI(e.target);
+        storage2.deleteBookFromStorage(e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent);
     }
 }

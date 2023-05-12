@@ -12,9 +12,13 @@ const bookImgUrl = document.getElementById("bookImgUrl");
 
 const saveButton = document.getElementById("saveBooks");
 
+const library = document.getElementById("sectionLibrary");
 
 eventListeners();
 
 function eventListeners(e){
     saveButton.addEventListener("click",book.addBooks);
+    document.addEventListener("DOMContentLoaded",book.loadAllBooks);
+    library.addEventListener("click", book.deleteBook);
+
 }

@@ -1,33 +1,26 @@
 function UI(){};
+const ui3 = new UI();
 
 UI.prototype.alertMessage = function(e){
     alert(e);
 };
 
 UI.prototype.createNewBook = function(book){
-    const bookCol = document.createElement('div');
-    bookCol.className = 'col-lg-3 col-sm-6 my-3 text-center';
-    const bookCard = document.createElement('div');
-    bookCard.className = 'card shadow';
-    const bookImg = document.createElement('img');
-    bookImg.className = 'card-img-top img-fluid';
-    bookImg.setAttribute('src', book.url);
-    bookImg.setAttribute('alt', book.name);
-    const cardBody = document.createElement('div');
-    cardBody.className = 'card-body';
-    const cardBodyItems = `<h5 class="card-title text-center text-truncate">${book.name}</h5>
-    <p class="card-text text-truncate">${book.category}</p>
-    <h6 class="text-end">${book.date}</h6>
-    <h6 class="text-end text-secondary">${book.writer}</h6>
-    <div class="d-flex justify-content-around my-3">
-      <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#booksModal"><span class="fa-solid fa-pen-to-square fa-lg"></span></a>
-      <a href="#"><span class="fa-solid fa-trash fa-lg"></span></a>
-    </div>`;
-    cardBody.innerHTML = cardBodyItems;
-    bookCard.appendChild(bookImg);
-    bookCard.appendChild(cardBody);
-    bookCol.appendChild(bookCard);
-    bookList.appendChild(bookCol);
+    const bookList = document.getElementById("bookList");
+    bookList.innerHTML += `
+    <div class="card" style="width: 18rem;">
+        <img src="${book.url}" class="card-img-top" alt="${book.name}">
+        <div class="card-body">
+            <h5 class="card-title">Kitap Adı: ${book.name}</h5>
+            <p class="card-text"> Yazar Adı: ${book.writer}</p>
+            <p class="card-text"> Kategori: ${book.writer}</p>
+            <p class="card-text"> Yayın Tarihi: ${book.date}</p>
+            <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#booksModal"><span class="fa-solid fa-pen-to-square fa-lg"></span></a>
+            <a href="#" id = "delete-book" class = "btn btn-danger mx-5">Kitabı Sil</a>
+        </div>
+    </div>
+    `;
+    
     
 };
 
@@ -37,4 +30,29 @@ UI.prototype.clearModal = function(){
     bookCategory.value = "";
     releaseDate.value = "";
     bookImgUrl.value = "";
+}
+
+
+UI.prototype.loadAllBooksFromStorage = function(books){
+    const bookList = document.getElementById("bookList");
+
+    books.forEach(function(e){
+        bookList.innerHTML += `
+        <div class="card" style="width: 18rem;">
+            <img src="${e.url}" class="card-img-top" alt="${e.name}">
+            <div class="card-body">
+                <h5 class="card-title">Kitap Adı: ${e.name}</h5>
+                <p class="card-text"> Yazar Adı: ${e.writer}</p>
+                <p class="card-text"> Kategori: ${e.writer}</p>
+                <p class="card-text"> Yayın Tarihi: ${e.date}</p>
+                <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#booksModal"><span class="fa-solid fa-pen-to-square fa-lg"></span></a>
+                <a href="#" id = "delete-book" class = "btn btn-danger mx-5">Kitabı Sil</a>
+            </div>
+        </div>
+        `;
+    })
+}
+
+UI.prototype.deleteBookFromUI = function(e){
+    e.parentElement.parentElement.remove();
 }
