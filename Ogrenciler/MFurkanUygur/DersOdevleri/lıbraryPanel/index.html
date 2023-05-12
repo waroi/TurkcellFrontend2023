@@ -12,26 +12,85 @@
 </head>
 
 <body>
-    <form>
-        <label for="bookName">Book Name: </label>
-        <input type="text" id="bookName">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Merdiven Altı</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Kitaplar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
 
-        <label for="bookWriter">Book Writer: </label>
-        <input type="text" id="bookWriter">
 
-        <label for="bookType">Book Type: </label>
-        <input type="text" id="bookType">
+    <section class="addBooks my-5">
+        <div class="container">
+            <div class="accordion accordion-flush mb-5" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header d-flex justify-content-end">
+                        <button class="btn btn-primary fw-bold collapsed " type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Kitap Ekle
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body p-0 m-0">
+                            <div class="row">
+                                <form>
+                                    <label for="bookName">Book Name: </label>
+                                    <input class="form-control" type="text" id="bookName">
+                                    <br>
 
-        <label for="bookDate">Book Date: </label>
-        <input type="text" id="bookDate">
+                                    <label for="bookWriter">Book Writer: </label>
+                                    <input class="form-control" type="text" id="bookWriter">
+                                    <br>
 
-        <label for="bookPicture">Book Picture: </label>
-        <input type="text" id="bookPicture">
+                                    <label for="bookType">Book Type: </label>
+                                    <input class="form-control" type="text" id="bookType">
+                                    <br>
 
-        <button type="submit" id="addButton">Add</button>
-    </form>
-    <div id="bookContainer" class="d-flex"></div>
+                                    <label for="bookDate">Book Date: </label>
+                                    <input class="form-control" type="text" id="bookDate">
+                                    <br>
 
+                                    <label for="bookPicture">Book Picture: </label>
+                                    <input class="form-control" type="text" id="bookPicture">
+                                    <br>
+
+                                    <button type="submit" class="btn btn-primary w-100 " id="addButton">Add</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="all-books-on-display">
+                <div class="container">
+                    <div class="row p-0" id="bookContainer">
+
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger" id="deleteAll">Delete All</button>
+            </section>
+        </div>
+    </section>
     <script src="./main.js"></script>
     <script src="./ui.js"></script>
     <script src="./storage.js"></script>

@@ -1,62 +1,164 @@
 const bookContainer = document.getElementById("bookContainer");
 
 //UI Object
-function UI(OneBook) {
-    // console.log("UI nesnesi içindeki", OneBook);
+function UI() {
+
 }
 
+//En son new Storageları teke indirebilir miyiz kontrolünü yap
 
-UI.prototype.addBook = function (getBooks) {
+UI.prototype.displayBookOnHtml = function (test) {
+  // bookContainer.innerHTML = createTag(test) + bookContainer.innerHTML
+  bookContainer.innerHTML += createTag(test);
 
-    // console.log("localDan ui'a geldi ", OneBook)
-    getBooks.forEach(getBook => {
-        // bookContainer.innerHTML = createTag(getBook)
-        bookContainer.innerHTML += `
-            <div class="card" style="width: 18rem;">
-            <img src="${getBook.bookPicture}" class="card-img-top" alt="resim">
-            <div class="card-body">
-              <h3 class="card-title">isim:${getBook.bookName}</h3>
-              <h5 class="card-subtitle">yazar:${getBook.bookWriter}</h5>
-              <p class="card-text">tür:${getBook.bookType}</p>
-              <p class="card-text">date:${getBook.bookDate}</p>
-              <p class="card-text"> id${getBook.bookID}</p>
+  //Her card yapısına delete butonu ekledik
+  const deleteBookBtns = document.querySelectorAll(".delete-btn");
+  deleteBtn(deleteBookBtns);
+  //Her card yapısına edit butonu ekledik
+  const editBookBtns = document.querySelectorAll(".edit-btn");
+  editBtn(editBookBtns);
 
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>`
-    });
+  const saveChangesBtns = document.querySelectorAll(".saveChanges");
+  saveBtn(saveChangesBtns)
+}
 
+//Güncelleme butonu
+function saveBtn(saveChangesBtns) {
+  saveChangesBtns.forEach(e => {
+    e.addEventListener("click", (e) => {
+      let selectedBookTempID = defaultBookID.value;
+      const selectedBookID = new Storage();
+      selectedBookID.updateSelectedBook(selectedBookTempID)
+    })
+  })
+}
+//Delete butonuna click fonksiyonu eklendi
+function deleteBtn(deleteBookBtns) {
+  deleteBookBtns.forEach(e => {
+    e.addEventListener("click", (e) => {
+      let selectedBookTempID = e.target.parentElement.parentElement.parentElement.id;
+      const selectedBookID = new Storage();
+      selectedBookID.deleteSelectedBook(selectedBookTempID)
+    })
+  });
+}
+
+//Edit butonuna click fonksiyonu eklendi
+function editBtn(editBookBtns) {
+  editBookBtns.forEach(e => {
+    e.addEventListener("click", (e) => {
+      let editedBookTempID = e.target.parentElement.parentElement.parentElement.id;
+      const editedBookID = new Storage();
+      editedBookID.openModalWindowForEachBook(editedBookTempID)
+    })
+  })
 }
 
 function createTag(b) {
-    let mainDiv = document.createElement("div");
-    mainDiv.setAttribute("class", "card");
-    let img = document.createElement("img");
-    // img.setAttribute("class","card-img-top");
-    // img.setAttribute("src",b.url)
-    let divBody = document.createElement("div");
-    divBody.setAttribute("class", "card-body");
-    let h3 = document.createElement("h3");
-    h3.setAttribute("class", "card-title");
-    h3.innerHTML = b.bookName;
-    let h5 = document.createElement("h5");
-    h5.setAttribute("class", "card-subtitle");
-    h5.innerHTML = b.bookWriter;
-    let p1 = document.createElement("p");
-    p1.setAttribute("class", "card-text");
-    p1.innerHTML = b.bookPrice
-    let p2 = document.createElement("p");
-    p2.setAttribute("class", "card-text");
-    p2.innerHTML = b.bookType;
-    let p3 = document.createElement("p");
-    p3.setAttribute("class", "card-text");
-    p3.innerHTML = b.bookID;
+  return `
+  <div class= "col-12 col-md-6 col-lg-3">
+  <div class="card my-3 " id="${b.bookID}">
+      <div class="text-center">
+          <img src="${b.bookPicture}" class="card-img-top" alt="${b.bookPicture}">
+      </div>
+      <div class="card-body">
+          <h5 class="card-title m-0 fw-bolder">${b.bookName}</h5>
+          <p class="card-text  mb-3 fw-bold">${b.bookWriter}</p>
+          <div class="d-flex justify-content-between mb-3">
+            <span class="card-text ">${b.bookType}</span>
+            <span class="card-text">${b.bookDate}</span>
+          </div>
+          <div class=" d-flex">
+              <button class="btn btn-danger w-50 me-2 delete-btn">Delete</button>
+              <!-- Button trigger modal -->
 
-    divBody.appendChild(h3)
-    divBody.appendChild(h5);
-    divBody.appendChild(p1);
-    divBody.appendChild(p2);
-    divBody.appendChild(p3);
-    mainDiv.appendChild(divBody);
-    bookContainer.appendChild(mainDiv);
+              <button type="button" class="btn btn-primary w-50 ms-2 edit-btn" data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop">
+                  Edit
+              </button>
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog  modal-dialog-centered">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Change Book's Informations</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                  aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body px-5">
+                              <div class="row">
+                                  <div class="col-lg-6 fw-bold ">
+                                      <h5 class="modal-title fw-bold">Default Informations</h5>
+                                      <hr>
+                                      <form>
+                                          <label for="bookID">Book Id:</label>
+                                          <input class="form-control" type="text" id="defaultBookID" disabled>
+                                          <br>
+
+                                          <label for="bookName">Book Name:</label>
+                                          <input class="form-control" type="text" id="defaultBookName" disabled>
+                                          <br>
+
+                                          <label for="bookWriter">Book Writer: </label>
+                                          <input class="form-control" type="text" id="defaultBookWriter" disabled>
+                                          <br>
+
+                                          <label for="bookType">Book Type: </label>
+                                          <input class="form-control" type="text" id="defaultBookType" disabled>
+                                          <br>
+
+                                          <label for="bookDate">Book Date: </label>
+                                          <input class="form-control" type="text" id="defaultBookDate" disabled>
+                                          <br>
+                                          <label for="bookPicture">Book Picture: </label>
+                                          <input class="form-control" type="text" id="defaultBookPicture" disabled>
+                                          <br>
+                                      </form>
+                                  </div>
+                                  <div class="col-lg-6">
+                                      <h5 class="modal-title fw-bold text-center">Editing Informations</h5>
+                                      <hr>
+                                      <form>
+                                          <label for="bookID">Book Id:</label>
+                                          <input class="form-control" type="text" id="editBookID" disabled>
+                                          <br>
+
+                                          <label for="bookName">Book Name:</label>
+                                          <input class="form-control" type="text" id="editBookName">
+                                          <br>
+
+                                          <label for="bookWriter">Book Writer: </label>
+                                          <input class="form-control" type="text" id="editBookWriter">
+                                          <br>
+
+                                          <label for="bookType">Book Type: </label>
+                                          <input class="form-control" type="text" id="editBookType">
+                                          <br>
+
+                                          <label for="bookDate">Book Date: </label>
+                                          <input class="form-control" type="text" id="editBookDate">
+                                          <br>
+                                          <label for="bookPicture">Book Picture: </label>
+                                          <input class="form-control" type="text" id="editBookPicture">
+                                          <br>
+                                      </form>
+                                  </div>
+                                  <button type="button" class="btn btn-success saveChanges"
+                                      data-bs-dismiss="modal">Save Changes</button>
+                              </div>
+                          </div>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+`
 }
+//save buton üstüne koy
+{/* <div class="modal-footer"></div> */ }

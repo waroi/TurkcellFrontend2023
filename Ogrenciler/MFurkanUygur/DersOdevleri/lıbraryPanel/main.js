@@ -5,6 +5,7 @@ const bookDate = document.getElementById("bookDate");
 const bookPicture = document.getElementById("bookPicture");
 
 const addButton = document.getElementById("addButton");
+const deleteAllButton = document.getElementById("deleteAll");
 
 //Books Object
 function Books(bookName, bookWriter, bookType, bookDate, bookPicture) {
@@ -30,7 +31,7 @@ function addBook(e) {
         alert("Boş geçme");
     } else {
         //Butona verdiğimiz event ile aldığımız valueları Books contructor'ına gönderdik
-        let OneBook = new Books(
+        let newBook = new Books(
             bookName.value,
             bookWriter.value,
             bookType.value,
@@ -40,7 +41,7 @@ function addBook(e) {
 
         //Sonra bu verileri storage'da depolayabilmek için Storage nesnemize gönderdik ordanda ui'ya gidicek
         const sendStorage = new Storage();
-        sendStorage.addStorage(OneBook);
+        sendStorage.addNewBookToLocalStorage(newBook);
 
         //Inputlarımızı temizledik
         bookName.value = "";
@@ -50,3 +51,35 @@ function addBook(e) {
         bookPicture.value = ""
     }
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    const getAllBooks = new Storage();
+    getAllBooks.getAllBooksOnLocalStorage();
+
+
+});
+
+
+
+deleteAllButton.addEventListener("click", deleteAllBooks)
+function deleteAllBooks() {
+
+    const deleteAllBooks = new Storage();
+    deleteAllBooks.deleteAllBooksOnStorage();
+
+}
+
+
+// card.addEventListener("click", tıkla);
+// function tıkla() {
+//     console.log(tıkla)
+// }
+
+
+
+
+
+// card[0].addEventListener("click", () => {
+//     console.log("tıklandı")
+// })
