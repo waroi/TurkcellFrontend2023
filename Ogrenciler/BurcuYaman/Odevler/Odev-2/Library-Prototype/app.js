@@ -73,6 +73,7 @@ function deleteBook(e) {
 }
 
 function editBook(e) {
+
     // if (e.target.id === 'editButton') {
     //     ui.editBookUI(e);
     //     storage.deleteBookFromStorage(e.target.parentElement.parentElement.children[0].textContent);

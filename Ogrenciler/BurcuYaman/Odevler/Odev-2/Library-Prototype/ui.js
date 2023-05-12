@@ -4,9 +4,9 @@ function UI() { }
 
 UI.prototype.addBookToUI = function (newBook) {
 
-    const bookList = document.getElementById('booklist');
+  const bookList = document.getElementById('booklist');
 
-    bookList.innerHTML += `
+  bookList.innerHTML += `
     <div class="col-md-4">
     <div class="card mt-4">
       <img
@@ -46,25 +46,33 @@ UI.prototype.addBookToUI = function (newBook) {
 
 UI.prototype.clearInputs = function (element1, element2, element3, element4, element5) {
 
-    element1.value = '';
-    element2.value = '';
-    element3.value = '';
-    element4.value = '';
-    element5.value = '';
+  element1.value = '';
+  element2.value = '';
+  element3.value = '';
+  element4.value = '';
+  element5.value = '';
 }
 
 
 UI.prototype.displayMessages = function (modalname) {
-    let warningModal = new bootstrap.Modal(document.getElementById(modalname));
-    warningModal.show();
+  let warningModal = new bootstrap.Modal(document.getElementById(modalname));
+  warningModal.show();
 };
 
 
 
 UI.prototype.deleteBookFromUI = function (element) {
-    element.parentElement.parentElement.parentElement.remove();
-
+  element.parentElement.parentElement.parentElement.parentElement.remove();
 };
+
+
+
+
+
+
+
+
+
 
 // UI.prototype.editBookUI = function (e) {
 

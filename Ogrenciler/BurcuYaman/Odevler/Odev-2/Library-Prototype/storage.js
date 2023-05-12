@@ -30,13 +30,15 @@ LStorage.prototype.deleteBookFromStorage = function (bookName) {
 
 }
 
-//düzenlenecek
-LStorage.prototype.editBookFromStorage = function (newBook) {
-    // let books = this.getBooksFromStorage();
-    // books.forEach(function (book, index) {
-    //     if (book.name === newBook.name) {
-    //         books.splice(index, 1, newBook);
-    //     }
-    // });
-    // localStorage.setItem('books', JSON.stringify(books));
-}
+// //düzenlenecek
+// LStorage.prototype.editBookFromStorage = function (newBook) {
+//     // let books = this.getBooksFromStorage();
+//     // books.forEach(function (book, index) {
+//     //     if (book.name === newBook.name) {
+//     //         books.splice(index, 1, newBook);
+//     //     }
+//     // });
+//     // localStorage.setItem('books', JSON.stringify(books));
+// }
+
+
