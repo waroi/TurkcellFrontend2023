@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./app.js" />
+
     <title>Open Library</title>
   </head>
   <body>
@@ -54,7 +54,7 @@
 
           <button
             class="btn btn-secondary btn-md"
-            id="addBookButton"
+            id="addBookModal"
             data-bs-toggle="modal"
             data-bs-target="#addNewBookModal"
           >
@@ -127,7 +127,7 @@
                       <label for="urlinput" class="form-label"
                         >Url of the Book Cover:
                       </label>
-                      <input type="url" class="form-control" id="urlinput" />
+                      <input type="text" class="form-control" id="urlinput" />
                     </div>
                   </form>
                 </div>
@@ -148,6 +148,233 @@
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <!-- Modal for edit book
+          <div
+            class="modal fade"
+            id="editBookModal"
+            tabindex="-1"
+            aria-labelledby="editBookModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="editBookModalLabel">
+                    Edit the Book
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="editbooknameinput" class="form-label"
+                        >Name:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editbooknameinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="editbookauthorinput" class="form-label"
+                        >Author:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editbookauthorinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="editbookcategoryinput" class="form-label"
+                        >Category:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editbookcategoryinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="editdatepublicationinput" class="form-label"
+                        >Date of Publication:
+                      </label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="editdatepublicationinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="editurlinput" class="form-label"
+                        >Url of the Book Cover:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editurlinput"
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    id="saveChanges"
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <!--  warningModal for empty inputs -->
+      <div
+        class="modal fade"
+        id="warningModal"
+        tabindex="-1"
+        aria-labelledby="warningModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="warningModalLabel">Uyarı</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Lütfen tüm alanları doldurunuz!</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Kapat
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--  warningModal for success added -->
+      <div
+        class="modal fade"
+        id="successadded"
+        tabindex="-1"
+        aria-labelledby="successaddedLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="successaddedLabel">Uyarı</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Film Başarıyla Eklendi!</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Kapat
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--  warningModal for success deleted -->
+      <div
+        class="modal fade"
+        id="successdeleted"
+        tabindex="-1"
+        aria-labelledby="successdeletedLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="successdeletedLabel">Uyarı</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Film Başarıyla Silindi!</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Kapat
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--  warningModal for success edited -->
+      <div
+        class="modal fade"
+        id="successedited"
+        tabindex="-1"
+        aria-labelledby="successeditedLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="successeditedLabel">Uyarı</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Film Başarıyla Güncellendi!</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Kapat
+              </button>
             </div>
           </div>
         </div>
@@ -476,5 +703,9 @@
       </div>
       >
     </footer>
+    <script src="./book.js"></script>
+    <script src="./ui.js"></script>
+    <script src="./storage.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
