@@ -11,7 +11,7 @@ UI.prototype.createNewBook = function(book){
     <div class="card" style="width: 18rem;">
         <img src="${book.url}" class="card-img-top" alt="${book.name}">
         <div class="card-body">
-            <h5 class="card-title">Kitap Adı: ${book.name}</h5>
+            <h5 class="card-title">${book.name}</h5>
             <p class="card-text"> Yazar Adı: ${book.writer}</p>
             <p class="card-text"> Kategori: ${book.writer}</p>
             <p class="card-text"> Yayın Tarihi: ${book.date}</p>
@@ -41,7 +41,7 @@ UI.prototype.loadAllBooksFromStorage = function(books){
         <div class="card" style="width: 18rem;">
             <img src="${e.url}" class="card-img-top" alt="${e.name}">
             <div class="card-body">
-                <h5 class="card-title">Kitap Adı: ${e.name}</h5>
+                <h5 class="card-title">${e.name}</h5>
                 <p class="card-text"> Yazar Adı: ${e.writer}</p>
                 <p class="card-text"> Kategori: ${e.writer}</p>
                 <p class="card-text"> Yayın Tarihi: ${e.date}</p>
@@ -54,5 +54,5 @@ UI.prototype.loadAllBooksFromStorage = function(books){
 }
 
 UI.prototype.deleteBookFromUI = function(e){
-    e.parentElement.parentElement.remove();
+    e.remove();
 }

@@ -5,9 +5,8 @@ function Book(name,writer,category,date,url){
     this.category=category;
     this.date=date;
     this.url=url;
-}
-const ui2 = new UI();
-const storage2 = new Storage();
+};
+
 
 Book.prototype.addBooks = function(e){
     const name = bookName.value.trim();
@@ -31,14 +30,20 @@ Book.prototype.addBooks = function(e){
 }
 
 Book.prototype.loadAllBooks = function(){
-    let films = storage2.getBookFromStorage();
+    let films = storage.getBookFromStorage();
 
-    ui2.loadAllBooksFromStorage(films);
+    ui.loadAllBooksFromStorage(films);
 }
 
 Book.prototype.deleteBook = function(e){
     if(e.target.id === "delete-book"){
-        ui2.deleteBookFromUI(e.target);
-        storage2.deleteBookFromStorage(e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent);
+        const deleteBook = e.target.parentElement.parentElement;
+        const deleteBookName = e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent; 
+        if(confirm("Bu filmi silmek istediğinize emin misiniz?")){
+            ui.deleteBookFromUI(deleteBook);
+            storage.deleteBookFromStorage(deleteBookName)
+        }
+        // 
+        // storage2.deleteBookFromStorage(e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent);
     }
 }
