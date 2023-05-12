@@ -8,20 +8,18 @@
 body {
   background-color: var(--color2);
 }
-.container {
-  position: relative;
-}
 
 .card {
   position: relative;
   /* min-width: 320px; */
-  height: 450px;
+  height: 400px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   border: 1px solid var(--color3);
   border-radius: 0px 32px 29px 0px;
   overflow: hidden;
   background: var(--color1);
+  margin-top: 50px;
 }
 .card:nth-child(even) {
   border-radius: 0px 25px 25px 0px;
@@ -31,8 +29,8 @@ body {
 }
 
 .imgBx {
-  position: absolute;
-  top: 40%;
+  /* position: absolute; */
+  /* top: 540%; */
   z-index: 1;
   width: 100%;
   height: 220px;
@@ -45,11 +43,11 @@ body {
 }
 
 .imgBx > img {
-  position: absolute;
-  top: -12%;
-  left: 44%;
-  transform: translate(-50%, -50%);
-  width: 230px;
+  /* position: absolute; */
+  /* top: -12%; */
+  /* left: 44%; */
+  /* transform: translate(-50%, -50%); */
+  width: 100%;
   height: 280px;
 }
 
@@ -78,23 +76,28 @@ body {
   overflow: hidden;
   width: 90%;
   margin: 0;
-  display: inline-block;
+  /* display: inline-block; */
+  z-index: 9995416359;
+
 }
 
 .tooltiptext {
-  visibility: hidden;
-  /* width: 120px; */
+  /* visibility: hidden; */
+  /* width: 500px; */
+  font-size: 20px;
   background-color: rgba(255, 0, 0, 0);
   color: #ff0000;
-  text-align: center;
+  /* text-align: center; */
   border-radius: 6px;
-  padding: 5px 0;
-  content: " ";
+  /* padding: 5px 0; */
+  /* content: " "; */
   position: absolute;
-  top: -30px; /* adjust the distance from the top as needed */
-  left: 50%;
-  margin-left: -60px; /* half of the tooltip width */
-  z-index: 9995416359; /* increase the z-index value */
+  top: -40%; /* adjust the distance from the top as needed */
+  /* left: -30%; */
+  /* z-index: 9995416359;  */
+  white-space: nowrap;
+  /* overflow: visible; */
+  box-sizing: content-box;
 }
 
 .title-tooltip:hover .tooltiptext {
