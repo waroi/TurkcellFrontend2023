@@ -1,7 +1,8 @@
-function BookConstructor(name, writer, date, category, url) {
+function BookConstructor(name, writer, date, category, url, id) {
   this.name = name;
   this.writer = writer;
   this.date = date;
   this.category = category;
   this.url = url;
+  this.id = id;
 }
