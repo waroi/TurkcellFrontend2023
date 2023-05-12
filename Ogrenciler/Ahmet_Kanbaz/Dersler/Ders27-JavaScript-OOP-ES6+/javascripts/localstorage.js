@@ -32,6 +32,4 @@ class LocalStorage {
     }
     localStorage.setItem('movies', JSON.stringify(movies));
   }
-
-
 }

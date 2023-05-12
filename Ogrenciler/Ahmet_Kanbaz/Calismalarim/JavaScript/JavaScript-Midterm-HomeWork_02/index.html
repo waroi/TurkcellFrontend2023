@@ -13,10 +13,11 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg py-4 fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -27,14 +28,34 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link2</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
-  
+
+  <section class="py-5 bg-black text-white">
+    <div class="container pt-5 pb-4">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-6">
+          <img src="./topSectionBook.jpg" alt="topSectionBook" class="img-fluid">
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4">
+            <h1>Kitaplar</h1>
+            <p class="pt-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam id architecto unde, ab cumque
+              expedita odit facilis sequi ratione vel?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="py-5">
     <div class="container">
-      <div class="row">
+      <div class="row gap-4 gap-lg-0">
         <div class="col-lg-3">
           Filtreleme
         </div>
@@ -46,38 +67,96 @@
             <input type="text" class="form-control" placeholder="Aramak için Kitap veya Yazar Adı Giriniz...">
           </div>
         </div>
-        <div class="col-lg-2 d-flex justify-content-lg-end justify-content-center" data-bs-toggle="modal" data-bs-target="#addBookModal">
-          <button class="btn btn-primary">Kitap Ekle</button>
+        <div class="col-lg-2 d-flex justify-content-lg-end justify-content-center" data-bs-toggle="modal"
+          data-bs-target="#addBookModal" id="addNewBookButton">
+          <button class="btn btn-primary px-4 py-2 d-flex align-items-center">Kitap Ekle
+            <span class="fa-solid fa-book fa-xl ps-4"></span>
+            <span class="fa-solid fa-plus ps-1 align-self-start"></span>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
-<div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="modalLabel">Yeni Kitap Ekle</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <section class="py-5">
+    <div class="container">
+      <div class="row mb-4" id="bookList">
+        <div class="col-md-3 col-sm-6 mb-3">
+          <div class="card">
+            <div class="row">
+              <div class="col-6">
+                <img src="https://img.kitapyurdu.com/v1/getImage/fn:11690336/wh:true/wi:220" alt=""
+                  class="cardImage img-fluid">
+              </div>
+              <div class="col-6 ps-0">
+                <div class="card-body ps-0 pt-3">
+                  <h6 class="card-title text-center mb-3 text-truncate">Kuru Kız</h6>
+                  <span class="card-text bg-danger rounded px-2 py-1">Roman</span>
+                  <p class="card-text fst-italic fw-bolder text-end mt-3 mb-2">14/02/1999</p>
+                  <p class="border-top mb-0 text-center pt-2 text-truncate">Ayfer Tunç</p>
+                  <div class="d-flex justify-content-around pt-2">
+                    <a href="#"><span class="fa-solid fa-pen"></span></a>
+                    <a href="#"><span class="fa-solid fa-trash"></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        Hello BookStore
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-        <button type="button" class="btn btn-primary">Kitap Oluştur</button>
+    </div>
+  </section>
+
+  <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalLabel">Yeni Kitap Ekle</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="modalBookName" class="form-label">Kitap Adı</label>
+              <input type="text" class="form-control" id="modalBookName">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookAuthor" class="form-label">Yazar Adı - Soyadı</label>
+              <input type="text" class="form-control" id="modalBookAuthor">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookCategory" class="form-label">Kategori</label>
+              <input type="text" class="form-control" id="modalBookCategory">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookDate" class="form-label">Yazıldığı Tarih</label>
+              <input type="date" class="form-control" id="modalBookDate">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookImageUrl" class="form-label">Kitabın Kapak Fotoğraf URL'i</label>
+              <input type="url" class="form-control" id="modalBookImageUrl">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+          <button type="button" class="btn btn-primary" id="createBookButton">Kitap Oluştur</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-  crossorigin="anonymous"></script>
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="./jsFolders/storage.js"></script>
+  <script src="./jsFolders/ui.js"></script>
+  <script src="./jsFolders/books.js"></script>
   <script src="./jsFolders//app.js"></script>
 </body>
+
 </html>
-  <!-- <div class="row mt-5">
+<!-- <div class="row mt-5">
     <div class="col-12">
       <table class="table table-striped table-hover">
         <thead>
