@@ -9,8 +9,8 @@ function createCard(book) {
       <h3 class="book-category">${book.category}</h3>
       <h5 class="book-release-date">${book.releaseDate}</h5>
       
-      <a href="#" data-bs-toggle="modal" data-bs-target="#addModal" class="btn btn-warning book-edit">Edit</a>
-      <a href="#"  class="btn btn-danger book-delete">Delete</a>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#addModal" class="btn btn-warning book-edit"><i class="fa-solid fa-pen-nib"></i></a>
+      <a href="#"  class="btn btn-danger book-delete"><i class="fa-solid fa-eraser"></i></a>
     </div>
     </div>
   </div>`;
