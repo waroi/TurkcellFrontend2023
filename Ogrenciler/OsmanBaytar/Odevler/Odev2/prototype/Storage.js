@@ -52,3 +52,23 @@ StorageConstructor.prototype.getFullStorage = function () {
 
     return fullData;
 }
+
+StorageConstructor.prototype.getFilteredCategoryStorage = function () {
+    let fullData = storage.getFullStorage();
+    let filteredCategoryData = [];
+    let length = fullData.length;
+    for (let i = 0; i < length; i++) {
+        filteredCategoryData = filteredCategoryData.concat(fullData[i].category)
+    }
+    return filteredCategoryData;
+}
+
+StorageConstructor.prototype.getFilteredWriterStorage = function () {
+    let fullData = storage.getFullStorage();
+    let filteredWriterData = [];
+    let length = fullData.length;
+    for (let i = 0; i < length; i++) {
+        filteredWriterData = filteredWriterData.concat(fullData[i].writer)
+    }
+    return filteredWriterData;
+}

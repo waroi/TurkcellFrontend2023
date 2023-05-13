@@ -4,6 +4,8 @@ let addModal = document.getElementById("addModal");
 let modalBox = document.getElementById("modalBox");
 let addBookArea = document.getElementById("addBookArea");
 let bookUI = document.getElementById("bookUI");
+let filterBy = document.getElementById("filter-by");
+let filterWith = document.getElementById("filter-with");
 let isModal = false;
 
 UserInterface.prototype.createModal = function () {
@@ -76,6 +78,7 @@ UserInterface.prototype.editBook = function (book) {
 }
 
 UserInterface.prototype.loadUI = function () {
+    filterBy.value = "none";
     let fullData = storage.getFullStorage();
     if (UserInterface.prototype.sortValues()) {
         fullData = UserInterface.prototype.sortValues();
@@ -142,3 +145,39 @@ UserInterface.prototype.loadSearchedUI = function () {
     bookUI.innerHTML = "";
     searchedData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
 }
+
+UserInterface.prototype.addFilteredCategory = function () {
+    UI.clearFilter();
+    let data = storage.getFilteredCategoryStorage();
+    for (let i = 0; i < data.length; i++) {
+        let option = document.createElement("option");
+        option.innerHTML = data[i];
+        filterWith.appendChild(option);
+    }
+}
+
+UserInterface.prototype.addFilteredWriter = function () {
+    UI.clearFilter();
+    let data = storage.getFilteredWriterStorage();
+    for (let i = 0; i < data.length; i++) {
+        let option = document.createElement("option");
+        option.innerHTML = data[i];
+        filterWith.appendChild(option);
+    }
+}
+
+UserInterface.prototype.clearFilter = function () {
+    filterWith.innerHTML = "";
+}
+
+UserInterface.prototype.whichFilter = function () {
+    if (filterBy.value == "category") {
+        UI.addFilteredCategory();
+    }
+    else if (filterBy.value == "writer") {
+        UI.addFilteredWriter();
+    }
+    else {
+        UI.clearFilter();
+    }
+}   

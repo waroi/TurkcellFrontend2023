@@ -28,3 +28,6 @@ select.addEventListener("click", UI.sortCards);
 
 const searchInput = document.getElementById("search-input");
 searchInput.addEventListener("keyup", UI.loadSearchedUI);
+
+filterBy = document.getElementById("filter-by");
+filterBy.addEventListener("click", UI.whichFilter);
