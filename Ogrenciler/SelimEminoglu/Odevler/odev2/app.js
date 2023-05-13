@@ -6,20 +6,17 @@ const bookUrl = document.getElementById("bookUrl");
 const addBook = document.getElementById("addBook");
 const bookList = document.getElementById("bookList");
 
-let books = [];
-let bookİd = Date.now();
-
 addBook.addEventListener("click", formClicked);
 
 let check = LocalConstructor.prototype.checkToLocalS();
 
 if (check) {
-  books = check;
-  console.log(books);
   UIConstructor.prototype.showBook(check);
 }
 
 function formClicked() {
+  let books = [];
+  let bookİd = Date.now();
   let newBook = new BookConstructor(
     bookName.value,
     bookWriter.value,
@@ -46,14 +43,10 @@ function formClicked() {
           return;
         }
       }
-      if (key == "id") {
-        // id farklı yapılacak
-      }
     }
   }
-
   books.push(newBook);
-  LocalConstructor.prototype.changeBookToLocalS(books);
-  console.log(books);
+  check.push(newBook);
+  LocalConstructor.prototype.changeBookToLocalS(check);
   UIConstructor.prototype.showBook(books);
 }

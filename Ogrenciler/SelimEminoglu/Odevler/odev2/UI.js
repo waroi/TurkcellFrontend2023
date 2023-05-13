@@ -8,6 +8,7 @@ UIConstructor.prototype.showBook = function (books) {
       date: book.date,
       category: book.category,
       url: book.url,
+      id: book.id,
     };
 
     const col = document.createElement("div");
@@ -17,6 +18,7 @@ UIConstructor.prototype.showBook = function (books) {
     card.classList.add("card", "my-3", "mx-2");
     card.getAttribute("style");
     card.style.width = "18rem";
+    card.id = book.id;
 
     const img = document.createElement("img");
     img.classList.add("card-img-top");
@@ -99,5 +101,28 @@ UIConstructor.prototype.showBook = function (books) {
     col5Flex.appendChild(deleteBtn);
 
     bookList.appendChild(col);
+
+    updateBtn.addEventListener("click", updateBtnClick);
+    deleteBtn.addEventListener("click", deleteBtnClick);
   });
+
+  function updateBtnClick() {
+    console.log(this.parentNode.parentNode.parentNode.parentNode.id);
+  }
+  function deleteBtnClick() {
+    let list = LocalConstructor.prototype.checkToLocalS();
+
+    list = list.filter((item) => {
+      console.log(item);
+      return (
+        item.id !== Number(this.parentNode.parentNode.parentNode.parentNode.id)
+      );
+    });
+    console.log(list);
+
+    LocalConstructor.prototype.changeBookToLocalS(list);
+    list = LocalConstructor.prototype.checkToLocalS();
+    location.reload();
+    UIConstructor.prototype.showBook(list);
+  }
 };

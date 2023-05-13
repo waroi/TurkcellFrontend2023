@@ -15,20 +15,22 @@ LocalConstructor.prototype.changeBookToLocalS = function (books) {
 };
 
 LocalConstructor.prototype.checkToLocalS = function () {
+  let localBooks = [];
   if (localStorage.getItem("books")) {
-    let localBooks = [];
     let bookData = JSON.parse(localStorage.getItem("books"));
-    let item = new BookConstructor(
-      bookData.name,
-      bookData.writer,
-      bookData.date,
-      bookData.category,
-      bookData.url,
-      bookData.id
-    );
-    localBooks.push(item);
+    bookData.map((item) => {
+      item = new BookConstructor(
+        item.name,
+        item.writer,
+        item.date,
+        item.category,
+        item.url,
+        item.id
+      );
+      localBooks.push(item);
+    });
     return localBooks;
   } else {
-    return false;
+    return localBooks;
   }
 };
