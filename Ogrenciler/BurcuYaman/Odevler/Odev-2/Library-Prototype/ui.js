@@ -1,7 +1,5 @@
 function UI() { }
 
-
-
 UI.prototype.addBookToUI = function (newBook) {
 
   const bookList = document.getElementById('booklist');
@@ -39,13 +37,7 @@ UI.prototype.addBookToUI = function (newBook) {
 
 };
 
-
-
-
-
-
 UI.prototype.clearInputs = function (element1, element2, element3, element4, element5) {
-
   element1.value = '';
   element2.value = '';
   element3.value = '';
@@ -53,59 +45,63 @@ UI.prototype.clearInputs = function (element1, element2, element3, element4, ele
   element5.value = '';
 }
 
-
+//DÜZENLEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 UI.prototype.displayMessages = function (modalname) {
   let warningModal = new bootstrap.Modal(document.getElementById(modalname));
   warningModal.show();
 };
 
 
-
 UI.prototype.deleteBookFromUI = function (element) {
   element.parentElement.parentElement.parentElement.parentElement.remove();
 };
 
+UI.prototype.updateBookFromUI = function (element) {
+  let editingModal = new bootstrap.Modal(document.getElementById('editBookModal'));
+  editingModal.show();
 
+  document.getElementById('editbooknameinput').value = element.target.parentElement.parentElement.children[0].textContent;
+  document.getElementById('editbookauthorinput').value = element.target.parentElement.parentElement.children[1].textContent;
+  document.getElementById('editbookcategoryinput').value = element.target.parentElement.parentElement.children[2].textContent;
+  document.getElementById('editdatepublicationinput').value = element.target.parentElement.parentElement.children[3].textContent;
+  document.getElementById('editurlinput').value = element.target.parentElement.parentElement.parentElement.children[0].src;
 
+  const oldBook = new Book(element.target.parentElement.parentElement.children[0].textContent, element.target.parentElement.parentElement.children[1].textContent, element.target.parentElement.parentElement.children[2].textContent, element.target.parentElement.parentElement.children[3].textContent, element.target.parentElement.parentElement.parentElement.children[0].src);
 
+  const saveChanges = document.getElementById('saveChanges');
+  saveChanges.addEventListener('click', function () {
+    const newBook = new Book();
+    newBook.name = document.getElementById('editbooknameinput').value;
+    newBook.author = document.getElementById('editbookauthorinput').value;
+    newBook.category = document.getElementById('editbookcategoryinput').value;
+    newBook.date = document.getElementById('editdatepublicationinput').value;
+    newBook.url = document.getElementById('editurlinput').value;
 
+    element.target.parentElement.parentElement.children[0].textContent = document.getElementById('editbooknameinput').value;
+    element.target.parentElement.parentElement.children[1].textContent = document.getElementById('editbookauthorinput').value;
+    element.target.parentElement.parentElement.children[2].textContent = document.getElementById('editbookcategoryinput').value;
+    element.target.parentElement.parentElement.children[3].textContent = document.getElementById('editdatepublicationinput').value;
+    element.target.parentElement.parentElement.parentElement.children[0].src = document.getElementById('editurlinput').value;
+    editingModal.hide();
+    storage.updateBookFromStorage(oldBook, newBook);
+    ui.displayMessages('successedited');
+  });
 
+}
 
+UI.prototype.searchBook = function (searchValue) {
+  const bookList = document.getElementById('booklist');
+  const bookListItems = bookList.querySelectorAll('.card-body');
+  bookListItems.forEach(function (bookListItem) {
+    const text = bookListItem.children[0].textContent.toLowerCase();
+    const author = bookListItem.children[1].textContent.toLowerCase();
+    if (text.indexOf(searchValue) === -1 && author.indexOf(searchValue) === -1) {
+      bookListItem.parentElement.parentElement.setAttribute('style', 'display : none !important');
+    } else {
+      bookListItem.parentElement.parentElement.setAttribute('style', 'display : block');
+    }
+  }
 
+  )
 
-
-// UI.prototype.editBookUI = function (e) {
-
-//     let editingModal = new bootstrap.Modal(document.getElementById('editBookModal'));
-//     editingModal.show();
-
-//     const name = document.getElementById('editbooknameinput');
-//     const author = document.getElementById('editbookauthorinput');
-//     const category = document.getElementById('editbookcategoryinput');
-//     const date = document.getElementById('editdatepublicationinput');
-//     const url = document.getElementById('editurlinput');
-
-
-//     name.value = e.target.parentElement.parentElement.children[0].textContent;
-//     author.value = e.target.parentElement.parentElement.children[1].textContent;
-//     category.value = e.target.parentElement.parentElement.children[2].textContent;
-//     date.value = e.target.parentElement.parentElement.children[3].textContent;
-//     url.value = e.target.parentElement.parentElement.parentElement.children[0].src;
-
-//     const saveChanges = document.getElementById('saveChanges');
-//     saveChanges.addEventListener('click', function () {
-//         const newBook = new Book(name.value, author.value, category.value, date.value, url.value);
-//         ui.addBookToUI(newBook);
-//         storage.addBookToStorage(newBook);
-//         ui.displayMessages("successadded");
-//         ui.deleteBookFromUI(e.target);
-//         storage.deleteBookFromStorage(e.target.parentElement.parentElement.children[0].textContent);
-//         editingModal.hide();
-
-
-//     });
-
-
-
-// }
-
+}

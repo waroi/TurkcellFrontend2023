@@ -17,7 +17,6 @@ LStorage.prototype.getBooksFromStorage = function () {
 }
 
 
-
 LStorage.prototype.deleteBookFromStorage = function (bookName) {
     let books = this.getBooksFromStorage();
     books.forEach(function (book, index) {
@@ -27,18 +26,15 @@ LStorage.prototype.deleteBookFromStorage = function (bookName) {
     });
     localStorage.setItem('books', JSON.stringify(books));
 
-
 }
 
-// //düzenlenecek
-// LStorage.prototype.editBookFromStorage = function (newBook) {
-//     // let books = this.getBooksFromStorage();
-//     // books.forEach(function (book, index) {
-//     //     if (book.name === newBook.name) {
-//     //         books.splice(index, 1, newBook);
-//     //     }
-//     // });
-//     // localStorage.setItem('books', JSON.stringify(books));
-// }
-
+LStorage.prototype.updateBookFromStorage = function (oldBook, updatedBook) {
+    let books = this.getBooksFromStorage();
+    books.forEach(function (book, index) {
+        if (book.name === oldBook.name) {
+            books.splice(index, 1, updatedBook);
+        }
+    });
+    localStorage.setItem('books', JSON.stringify(books));
+}
 
