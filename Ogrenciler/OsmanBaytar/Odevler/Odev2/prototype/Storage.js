@@ -37,10 +37,14 @@ StorageConstructor.prototype.getStableStorage = function () {
     const stableData1 = new Book("Devotion", "Hannah Kent", "Love Story", new Date("2021-10-26").toISOString().split('T')[0], "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSVmVV46WYj9ZpJUwpCn8nP_8XX3O2GSw8PVdEqDYv3w1AxNOqI");
     const stableData2 = new Book("I'm Sorry You Feel That Way", "Rebecca Wait", "Tragicomedy", new Date("2022-07-07").toISOString().split('T')[0], "https://m.media-amazon.com/images/I/61IRb8fjicL.jpg");
     const stableData3 = new Book("Silver Sparrow", "Tayari Jones", "Novel", new Date("2020-10-22").toISOString().split('T')[0], "https://m.media-amazon.com/images/I/81+vgllO90L._AC_UF1000,1000_QL80_.jpg");
+    const stableData4 = new Book("Burial Rites", "Hannah Kent", "Novel", new Date("2013-11-09").toISOString().split('T')[0], "https://m.media-amazon.com/images/I/81LL9anKoWL._AC_UF894,1000_QL80_.jpg")
+    const stableData5 = new Book("An American Marriage", "Tayari Jones", "Love Story", new Date("2018-04-17").toISOString().split('T')[0], "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1491493625i/33590210.jpg")
     let stableData = [];
     stableData.push(stableData1);
     stableData.push(stableData2);
     stableData.push(stableData3);
+    stableData.push(stableData4);
+    stableData.push(stableData5);
 
     return stableData;
 }
@@ -86,7 +90,6 @@ StorageConstructor.prototype.getIntersectedStorage = function () {
     let filteredWriterData = UI.filterWriter();
 
     if (filteredCategoryData.length != 0) {
-        console.log("object");
         intersectedData = searchedData.filter(function (item1) {
             return filteredCategoryData.some(function (item2) {
                 return item1.name === item2.name;

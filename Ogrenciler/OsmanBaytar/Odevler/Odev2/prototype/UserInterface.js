@@ -80,9 +80,9 @@ UserInterface.prototype.editBook = function (book) {
 UserInterface.prototype.loadUI = function () {
     filterBy.value = "none";
     let fullData = storage.getFullStorage();
-    if (UserInterface.prototype.sortValues()) {
-        fullData = UserInterface.prototype.sortValues();
-    }
+    // if (UserInterface.prototype.sortValues()) {
+    //     fullData = UserInterface.prototype.sortValues();
+    // }
 
     bookUI.innerHTML = "";
     fullData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
@@ -91,18 +91,18 @@ UserInterface.prototype.loadUI = function () {
 UserInterface.prototype.sortValues = function () {
     const select = document.getElementById("sort-select");
     const condition = select.options[select.selectedIndex].value;
-    let data = [];
+    let data = storage.getIntersectedStorage();
 
-    if (UserInterface.prototype.search() != []) {
-        data = UserInterface.prototype.search();
-    }
+    // if (UserInterface.prototype.search() != []) {
+    //     data = UserInterface.prototype.search();
+    // }
     // else if (UserInterface.prototype.filterCategory() != []) {
     //     data = UserInterface.prototype.filterCategory();
     //     console.log(data);
     // }
-    else {
-        data = storage.getFullStorage();
-    }
+    // else {
+    //     data = storage.getFullStorage();
+    // }
 
     if (condition == "default") {
         return data;
@@ -123,7 +123,7 @@ UserInterface.prototype.sortValues = function () {
 }
 
 UserInterface.prototype.sortCards = function () {
-    UserInterface.prototype.loadUI();
+    UserInterface.prototype.loadIntersectedUI();
 }
 
 UserInterface.prototype.search = function () {
@@ -221,25 +221,6 @@ UserInterface.prototype.filterWriter = function () {
 }
 
 
-
-UserInterface.prototype.loadFilteredCategoryUI = function () {
-    let filteredData = UserInterface.prototype.filterCategory();
-    // if (UserInterface.prototype.sortValues()) {
-    //     filteredData = UserInterface.prototype.sortValues();
-    // }
-    bookUI.innerHTML = "";
-    filteredData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
-}
-
-UserInterface.prototype.loadFilteredWriterUI = function () {
-    let filteredData = UserInterface.prototype.filterWriter();
-    // if (UserInterface.prototype.sortValues()) {
-    //     filteredData = UserInterface.prototype.sortValues();
-    // }
-    bookUI.innerHTML = "";
-    filteredData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
-}
-
 UserInterface.prototype.resetFilter = function () {
     let filterValue = filterWith.value.toLowerCase();
     let fullData = storage.getFullStorage();
@@ -249,37 +230,12 @@ UserInterface.prototype.resetFilter = function () {
     }
 }
 
-// UserInterface.prototype.loadChangedUI = function () {
-//     let intersectedData = [];
-//     let searchedData = UI.search();
-//     let filteredCategoryData = UI.filterCategory();
-//     let filteredWriterData = UI.filterWriter();
-
-//     if (filteredCategoryData.length != 0) {
-//         console.log("object");
-//         intersectedData = searchedData.filter(function (item1) {
-//             return filteredCategoryData.some(function (item2) {
-//                 return item1.name === item2.name;
-//             });
-//         });
-//     }
-//     else if (filteredWriterData.length != 0) {
-//         intersectedData = searchedData.filter(function (item1) {
-//             return filteredWriterData.some(function (item2) {
-//                 return item1.name === item2.name;
-//             });
-//         });
-//     }
-//     return intersectedData;
-// }
 
 UserInterface.prototype.loadIntersectedUI = function () {
     let data = storage.getIntersectedStorage();
-    // filterBy.value = "none";
     if (UserInterface.prototype.sortValues()) {
-        fullData = UserInterface.prototype.sortValues();
+        data = UserInterface.prototype.sortValues();
     }
-    console.log(data);
     bookUI.innerHTML = "";
     data.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
 }
