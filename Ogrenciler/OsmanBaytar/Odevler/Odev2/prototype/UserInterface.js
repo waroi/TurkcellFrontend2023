@@ -96,6 +96,10 @@ UserInterface.prototype.sortValues = function () {
     if (UserInterface.prototype.search() != []) {
         data = UserInterface.prototype.search();
     }
+    // else if (UserInterface.prototype.filterCategory() != []) {
+    //     data = UserInterface.prototype.filterCategory();
+    //     console.log(data);
+    // }
     else {
         data = storage.getFullStorage();
     }
@@ -149,8 +153,11 @@ UserInterface.prototype.loadSearchedUI = function () {
 UserInterface.prototype.addFilteredCategory = function () {
     UI.clearFilter();
     let data = storage.getFilteredCategoryStorage();
+    let option = document.createElement("option");
+    option.innerHTML = "None";
+    filterWith.appendChild(option);
     for (let i = 0; i < data.length; i++) {
-        let option = document.createElement("option");
+        option = document.createElement("option");
         option.innerHTML = data[i];
         filterWith.appendChild(option);
     }
@@ -159,8 +166,11 @@ UserInterface.prototype.addFilteredCategory = function () {
 UserInterface.prototype.addFilteredWriter = function () {
     UI.clearFilter();
     let data = storage.getFilteredWriterStorage();
+    let option = document.createElement("option");
+    option.innerHTML = "None";
+    filterWith.appendChild(option);
     for (let i = 0; i < data.length; i++) {
-        let option = document.createElement("option");
+        option = document.createElement("option");
         option.innerHTML = data[i];
         filterWith.appendChild(option);
     }
@@ -180,4 +190,61 @@ UserInterface.prototype.whichFilter = function () {
     else {
         UI.clearFilter();
     }
-}   
+}
+
+UserInterface.prototype.filterCategory = function () {
+    let filterValue = filterWith.value.toLowerCase();
+    let fullData = storage.getFullStorage();
+    let length = fullData.length;
+    let filteredData = [];
+    for (let i = 0; i < length; i++) {
+        let category = fullData[i].category.toLowerCase();
+        if (category == filterValue) {
+            filteredData = filteredData.concat(fullData[i])
+        }
+    }
+    return filteredData;
+}
+
+UserInterface.prototype.filterWriter = function () {
+    let filterValue = filterWith.value.toLowerCase();
+    let fullData = storage.getFullStorage();
+    let length = fullData.length;
+    let filteredData = [];
+    for (let i = 0; i < length; i++) {
+        let writer = fullData[i].writer.toLowerCase();
+        if (writer.includes(filterValue)) {
+            filteredData = filteredData.concat(fullData[i])
+        }
+    }
+    return filteredData;
+}
+
+
+
+UserInterface.prototype.loadFilteredCategoryUI = function () {
+    let filteredData = UserInterface.prototype.filterCategory();
+    // if (UserInterface.prototype.sortValues()) {
+    //     filteredData = UserInterface.prototype.sortValues();
+    // }
+    bookUI.innerHTML = "";
+    filteredData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
+}
+
+UserInterface.prototype.loadFilteredWriterUI = function () {
+    let filteredData = UserInterface.prototype.filterWriter();
+    // if (UserInterface.prototype.sortValues()) {
+    //     filteredData = UserInterface.prototype.sortValues();
+    // }
+    bookUI.innerHTML = "";
+    filteredData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
+}
+
+UserInterface.prototype.resetFilter = function () {
+    let filterValue = filterWith.value.toLowerCase();
+    let fullData = storage.getFullStorage();
+    bookUI.innerHTML = "";
+    if (filterValue == "") {
+        fullData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
+    }
+}
