@@ -308,9 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
   books.forEach((book) => storage.addBookToUI(book));
 });
 
-document
-  .querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill")
-  .forEach(function (icon) {
+document.querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill").forEach(function (icon) {
     icon.addEventListener("click", function (e) {
       const column = e.target.getAttribute("data-column");
       const num = Number(e.target.getAttribute("data-num"));
@@ -326,11 +324,10 @@ document
       e.target.classList.toggle("bi-caret-up-fill");
       e.target.classList.toggle("bi-caret-down-fill");
     });
-  });
+});
 
 const coverModal = document.getElementById("coverModal");
 const coverImage = document.getElementById("coverImage");
-
 coverModal.addEventListener("show.bs.modal", function (event) {
   const button = event.relatedTarget;
   const imgUrl = button.getAttribute("data-img");
