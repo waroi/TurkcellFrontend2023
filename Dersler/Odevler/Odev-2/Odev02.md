@@ -11,3 +11,6 @@
 - Güncelleme işlemi yapılacak.
 - 2 ayrı proje olacak birisi class kullanımı diğeri prototype kullanımı olacak.
 - Tasarımı Bootstrap ile yapılacak.
+
+
+[{Id,Name,Writer,PublishDate,Category},{Id,Name,Writer,PublishDate,Category}]

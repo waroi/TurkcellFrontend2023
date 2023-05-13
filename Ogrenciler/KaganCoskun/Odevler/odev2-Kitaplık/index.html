@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kaganley Library</title>
+    <link rel="stylesheet" href="./css/main.css">
+  </head>
+  <body>
+    <h1>Kaganley Library</h1>
+    <form id="categoryForm">
+      <input type="text" id="categoryName" placeholder="Category Name">
+      <button type="submit">Kaydet</button>
+    </form>
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBook">
+  Add New Book
+</button>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 border border-2" ></div>
+    <div class="col-lg-25">
+      <div style="height: 100px;">Arama  & Srıalama</div>
+      <div class="row g-4" id="bookUI"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addBook" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addBookLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addBookLabel">Add New Book</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="bookForm">
+      <div class="modal-body">
+        
+        <div  class="row position-relative">
+        <!-- Kitap adı, yazarı, kategori, yazıldığı tarih, kapak görsel url'i -->
+              <div class="col-30 mb-3">
+                <input class="form-control  col-lg-15 col-sm-30" id="title" type="text" placeholder="Book Name" required>
+              </div>    
+              <div class=" col-lg-15 col-sm-30 mb-3">
+                <label for="category">Category</label>
+                <select class="form-select" id="category" aria-label="Default select example" required>
+                  
+                </select>
+              </div>
+              <div class="col-lg-15 col-sm-30 mb-3">
+                <label for="date">Publication Date</label>
+                <input class="form-control  col-lg-15 col-sm-30" id="date" type="month"  required>
+              </div>
+              <div class="col-lg-15 col-sm-30 mb-3">
+                <label for="author">Author Name</label>
+                <input class="form-control  col-lg-15 col-sm-30" id="author" type="text"  required>
+              </div>
+              <div class="col-lg-15 col-sm-30 mb-3">
+                <label for="author">Cover URL</label>
+                <input class="form-control  col-lg-15 col-sm-30" id="coverUrl" type="text"  required>
+              </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="clsBtn">Close</button>
+        <button type="submit" class="btn btn-primary" id="bookFormBtn" >Create</button> 
+      </div>
+    </form>
+    </div>
+  </div>
+ 
+</div>
+
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- <script src="BookConstructor.js"></script>
+    <script src="Storage.js"></script>
+    <script src="UserInterface.js"></script> -->
+    <script src="app.js"></script>
+  </body>
+</html>
