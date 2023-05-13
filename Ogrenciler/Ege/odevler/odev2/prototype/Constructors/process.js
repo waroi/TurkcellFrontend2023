@@ -36,7 +36,7 @@ Process.prototype.editBook = function (books, bookID, ui, form) {
   book.name = bookNameInp.value;
   book.writer = bookWriterInp.value;
   book.category = bookCategoryInp.value;
-  book.date = bookDateInp.value;
+  book.releaseDate = bookDateInp.value;
   book.coverURL = bookCoverInp.value;
   localStorage.setItem("bookStorage", JSON.stringify(books));
   ui.updateDisplay(books);
@@ -69,11 +69,13 @@ const compareBookDates = function (a, b) {
 };
 
 Process.prototype.sortBooks = function (books, value) {
-  if (value == "a-z") return books.sort(compareBookNames);
-  else if (value == "z-a") return books.sort(compareBookNames).reverse();
-  else if (value == "old-new") return books.sort(compareBookDates);
-  else if (value == "new-old") return books.sort(compareBookDates).reverse();
-  else return books;
+  const originalBooks = [...books];
+  if (value == "a-z") return [...books].sort(compareBookNames);
+  else if (value == "z-a") return [...books].sort(compareBookNames).reverse();
+  else if (value == "old-new") return [...books].sort(compareBookDates);
+  else if (value == "new-old")
+    return [...books].sort(compareBookDates).reverse();
+  else return originalBooks;
 };
 
 Process.prototype.searchBooks = function (books, value) {

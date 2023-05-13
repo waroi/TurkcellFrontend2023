@@ -49,7 +49,7 @@ UI.prototype.cardToModal = function (books, bookID) {
   bookNameInp.value = book.name;
   bookWriterInp.value = book.writer;
   bookCategoryInp.value = book.category;
-  bookDateInp.value = book.date;
+  bookDateInp.value = book.releaseDate;
   bookCoverInp.value = book.coverURL;
   addBookBtn.classList.toggle("hidden");
   editBookBtn.classList.toggle("hidden");
