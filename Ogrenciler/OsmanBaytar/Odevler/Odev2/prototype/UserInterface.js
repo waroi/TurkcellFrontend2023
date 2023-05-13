@@ -248,3 +248,38 @@ UserInterface.prototype.resetFilter = function () {
         fullData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
     }
 }
+
+// UserInterface.prototype.loadChangedUI = function () {
+//     let intersectedData = [];
+//     let searchedData = UI.search();
+//     let filteredCategoryData = UI.filterCategory();
+//     let filteredWriterData = UI.filterWriter();
+
+//     if (filteredCategoryData.length != 0) {
+//         console.log("object");
+//         intersectedData = searchedData.filter(function (item1) {
+//             return filteredCategoryData.some(function (item2) {
+//                 return item1.name === item2.name;
+//             });
+//         });
+//     }
+//     else if (filteredWriterData.length != 0) {
+//         intersectedData = searchedData.filter(function (item1) {
+//             return filteredWriterData.some(function (item2) {
+//                 return item1.name === item2.name;
+//             });
+//         });
+//     }
+//     return intersectedData;
+// }
+
+UserInterface.prototype.loadIntersectedUI = function () {
+    let data = storage.getIntersectedStorage();
+    // filterBy.value = "none";
+    if (UserInterface.prototype.sortValues()) {
+        fullData = UserInterface.prototype.sortValues();
+    }
+    console.log(data);
+    bookUI.innerHTML = "";
+    data.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
+}

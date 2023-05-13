@@ -31,6 +31,7 @@ searchInput.addEventListener("keyup", UI.loadSearchedUI);
 
 filterBy = document.getElementById("filter-by");
 filterBy.addEventListener("click", UI.whichFilter);
-filterWith.addEventListener("click", UI.loadFilteredCategoryUI);
-filterWith.addEventListener("click", UI.loadFilteredWriterUI);
+// filterWith.addEventListener("click", UI.loadFilteredCategoryUI);
+// filterWith.addEventListener("click", UI.loadFilteredWriterUI);
+window.addEventListener("click", UI.loadIntersectedUI);
 filterBy.addEventListener("click", UI.resetFilter);

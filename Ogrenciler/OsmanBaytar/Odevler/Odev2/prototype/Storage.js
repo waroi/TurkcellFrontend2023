@@ -60,7 +60,10 @@ StorageConstructor.prototype.getFilteredCategoryStorage = function () {
     for (let i = 0; i < length; i++) {
         filteredCategoryData = filteredCategoryData.concat(fullData[i].category)
     }
-    return filteredCategoryData;
+    let uniqueFilteredCategoryData = filteredCategoryData.filter(function (item, index) {
+        return filteredCategoryData.indexOf(item) === index;
+    });
+    return uniqueFilteredCategoryData;
 }
 
 StorageConstructor.prototype.getFilteredWriterStorage = function () {
@@ -70,5 +73,32 @@ StorageConstructor.prototype.getFilteredWriterStorage = function () {
     for (let i = 0; i < length; i++) {
         filteredWriterData = filteredWriterData.concat(fullData[i].writer)
     }
-    return filteredWriterData;
+    let uniqueFilteredWriterData = filteredWriterData.filter(function (item, index) {
+        return filteredWriterData.indexOf(item) === index;
+    });
+    return uniqueFilteredWriterData;
+}
+
+StorageConstructor.prototype.getIntersectedStorage = function () {
+    let intersectedData = [];
+    let searchedData = UI.search();
+    let filteredCategoryData = UI.filterCategory();
+    let filteredWriterData = UI.filterWriter();
+
+    if (filteredCategoryData.length != 0) {
+        console.log("object");
+        intersectedData = searchedData.filter(function (item1) {
+            return filteredCategoryData.some(function (item2) {
+                return item1.name === item2.name;
+            });
+        });
+    }
+    else if (filteredWriterData.length != 0) {
+        intersectedData = searchedData.filter(function (item1) {
+            return filteredWriterData.some(function (item2) {
+                return item1.name === item2.name;
+            });
+        });
+    }
+    return intersectedData;
 }
