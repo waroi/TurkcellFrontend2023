@@ -1,0 +1,113 @@
+function UserInterface() { };
+
+let addModal = document.getElementById("addModal");
+let modalBox = document.getElementById("modalBox");
+let addBookArea = document.getElementById("addBookArea");
+let bookUI = document.getElementById("bookUI");
+isModal = false;
+
+UserInterface.prototype.createModal = function () {
+    if (isModal == false && isEdit == false) {
+        modalBox.classList.replace("d-none", "d-block");
+        isModal = true;
+    }
+    else if (isModal == true && isEdit == false) {
+        modalBox.classList.replace("d-block", "d-none");
+        isModal = false;
+    }
+    else if (isModal == false && isEdit == true) {
+        modalBox.classList.replace("d-none", "d-block");
+        isModal = true;
+    }
+    else if (isModal == true && isEdit == true) {
+        modalBox.classList.replace("d-none", "d-block");
+        isModal = false;
+    }
+}
+
+
+UserInterface.prototype.addBook = function () {
+    let newBook = getData();
+    let localData;
+    storage.getLocalStorage() ? (localData = storage.getLocalStorage()) : (localData = []);
+    localData.push(newBook);
+    storage.setLocalStorage(localData);
+    console.log(localData);
+    UI.addBox(newBook);
+    UI.clearValues();
+}
+
+UserInterface.prototype.addBox = function (book) {
+    let box = book.createBox();
+    bookUI.appendChild(box);
+
+    box.querySelector(".btn-danger").addEventListener("click", function () {
+        box.remove();
+        storage.deleteLocalStorage(book.name);
+    })
+
+    box.querySelector(".btn-warning").addEventListener("click", function () {
+        UI.editBook(book);
+        UI.createModal();
+    })
+}
+
+UserInterface.prototype.clearValues = function () {
+    document.getElementById("addName").value = "";
+    document.getElementById("addWriter").value = "";
+    document.getElementById("addCategory").value = "";
+    document.getElementById("addDate").value = "";
+    document.getElementById("addUrl").value = "";
+}
+
+UserInterface.prototype.editBook = function (book) {
+    isEdit = true;
+    document.getElementById("addName").value = book.name;
+    document.getElementById("addWriter").value = book.writer;
+    document.getElementById("addCategory").value = book.category;
+    document.getElementById("addDate").value = book.date;
+    document.getElementById("addUrl").value = book.url;
+
+    addBookArea.classList.replace("btn-success", "btn-primary");
+    addBookArea.innerHTML = "Save";
+
+    tempData = book;
+    window.scrollTo(0, 0);
+}
+
+UserInterface.prototype.loadUI = function () {
+    let fullData = storage.getFullStorage();
+    if (UserInterface.prototype.sortValues()) {
+        fullData = UserInterface.prototype.sortValues();
+    }
+
+    bookUI.innerHTML = "";
+    fullData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
+}
+
+UserInterface.prototype.sortValues = function () {
+    const select = document.getElementById("sort-select");
+    const condition = select.options[select.selectedIndex].value;
+    let data = storage.getFullStorage();
+
+    if (condition == "default") {
+        return data;
+    }
+    else if (condition == "a-z") {
+        data.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    else if (condition == "z-a") {
+        data.sort((a, b) => b.name.localeCompare(a.name));
+    }
+    else if (condition == "dateNew") {
+        data.sort((a, b) => b.date.localeCompare(a.date));
+    }
+    else if (condition == "dateOld") {
+        data.sort((a, b) => a.date.localeCompare(b.date));
+    }
+    return data;
+}
+
+UserInterface.prototype.sortCards = function () {
+    UserInterface.prototype.loadUI();
+}
