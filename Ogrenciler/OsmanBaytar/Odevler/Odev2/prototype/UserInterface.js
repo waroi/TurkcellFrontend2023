@@ -122,12 +122,12 @@ UserInterface.prototype.sortCards = function () {
 UserInterface.prototype.search = function () {
     const searchInputValue = document.getElementById("search-input").value;
     const searchValue = searchInputValue.toLowerCase();
-    // bookUI;
     let fullData = storage.getFullStorage();
     let length = fullData.length;
     let searchedData = [];
     for (let i = 0; i < length; i++) {
-        if (fullData[i].name.includes(searchValue)) {
+        let name = fullData[i].name.toLowerCase();
+        if (name.includes(searchValue)) {
             searchedData = searchedData.concat(fullData[i])
         }
     }
