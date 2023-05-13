@@ -15,7 +15,7 @@ Books.prototype.addBook = function(e) {
   const date = bookDate.value.trim();
   const imageUrl = bookImageUrl.value.trim();
   if(name === '' || author === '' || category === '' || date === '' || imageUrl === '') {
-    ui.alertMessage('Lütfen tüm alanları doldurunuz.');
+    ui.alertMessage('Lütfen tüm alanları doldurunuz ve Tekrar Deneyiniz');
     ui.clearModalForm();
   }
   else {
@@ -23,6 +23,7 @@ Books.prototype.addBook = function(e) {
     const book = new Books(id, name, author, category, date, imageUrl);
     ui.addBookToUI(book);
     storage.setBook2LocalStorage(book);
+    ui.toastMessage('Kitap Başarılı Bir Şekilde Eklendi.');
   }
   e.preventDefault();
 }
@@ -33,6 +34,7 @@ Books.prototype.deleteBook = function(e) {
     if(confirm('Kitabı silmek istediğinize emin misiniz?')) {
       ui.deleteBookFromUI(deleteBook);
       storage.deleteBookFromLocalStorage(deleteBook.id);
+      ui.toastMessage('Kitap Başarılı Bir Şekilde Silindi.');
     }
   }
   e.preventDefault();
@@ -40,40 +42,23 @@ Books.prototype.deleteBook = function(e) {
 
 Books.prototype.updateBook = function(e) {
   if(e.target.className === 'fa-solid fa-pen') {
-    const updateBook = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-    const updateBookId = updateBook.id;
+    bookCreateButton.style.display = 'none';
+    updateBookButton.style.display = 'block';
+    const updateBookCard = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+    const updateBookId = updateBookCard.id;
     const books = storage.getBooksFromLocalStorage();
     books.map((book) => {
       if(book.id == updateBookId) {
-        modalTitle.textContent = 'Kitap Güncelle';
-        modalTitle.id = book.id;
-        bookName.value = book.name;
-        bookAuthor.value = book.author;
-        bookCategory.value = book.category;
-        bookDate.value = book.date;
-        bookImageUrl.value = book.imageUrl;
-        bookCreateButton.setAttribute('class', 'btn btn-warning');
-        bookCreateButton.textContent = 'Kitabı Güncelle';
-        bookCreateButton.addEventListener('click', function(e) {
-          const updateBookId = modalTitle.id;
-          const books = storage.getBooksFromLocalStorage();
-          books.map((book) => {
-            if(book.id == updateBookId) {
-              book.name = bookName.value.trim();
-              book.author = bookAuthor.value.trim();
-              book.category = bookCategory.value.trim();
-              book.date = bookDate.value.trim();
-              book.imageUrl = bookImageUrl.value.trim();
-              console.log(book.name, book.author, book.category, book.date, book.imageUrl);
-              // storage.updateBookFromLocalStorage(book);
-              // ui.updateBookFromUI(book);
-              // ui.clearModalForm();
-            }
-          })
-          e.preventDefault();
-        });
+        ui.updateBook2UI(book);
       }
-    })
+    });
   }
   e.preventDefault();
+}
+
+Books.prototype.searchBook = function(e) {
+  const getAllBooksName = document.querySelectorAll('.getAllBooks');
+  const getAllDirectors = document.querySelectorAll('.getAllDirectors');
+  const searchWord = e.target.value.toLowerCase();
+  ui.searchBook2UI(getAllBooksName, getAllDirectors, searchWord);
 }

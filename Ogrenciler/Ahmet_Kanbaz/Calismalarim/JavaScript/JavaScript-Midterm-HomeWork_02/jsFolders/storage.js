@@ -14,15 +14,15 @@ Storage.prototype.getBooksFromLocalStorage = function() {
 
 //Local Storage'a kitap ekleme
 Storage.prototype.setBook2LocalStorage = function(book) {
-  let books = storage.getBooksFromLocalStorage();
+  const books = storage.getBooksFromLocalStorage();
   books.push(book);
   localStorage.setItem('books', JSON.stringify(books));
 }
 
 //Local Storage'da bulunan kitapları gösterme
 Storage.prototype.showBooksFromLocalStorage = function() {
-  let books = storage.getBooksFromLocalStorage();
-  books.forEach((book) => {
+  const books = storage.getBooksFromLocalStorage();
+  books.map((book) => {
     ui.addBookToUI(book);
   });
 }

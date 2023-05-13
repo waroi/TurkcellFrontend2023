@@ -64,7 +64,7 @@
         </div>
         <div class="col-lg-4 d-flex justify-content-center">
           <div class="input-group d-flex">
-            <input type="text" class="form-control" placeholder="Aramak için Kitap veya Yazar Adı Giriniz...">
+            <input type="text" class="form-control" placeholder="Aramak için Kitap veya Yazar Adı Giriniz..." id="searchBook">
           </div>
         </div>
         <div class="col-lg-2 d-flex justify-content-lg-end justify-content-center" data-bs-toggle="modal"
@@ -77,6 +77,51 @@
       </div>
     </div>
   </section>
+  
+  <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalLabel">BookStore</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="modalBookName" class="form-label">Kitap Adı</label>
+              <input type="text" class="form-control" id="modalBookName">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookAuthor" class="form-label">Yazar Adı - Soyadı</label>
+              <input type="text" class="form-control" id="modalBookAuthor">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookCategory" class="form-label">Kategori</label>
+              <input type="text" class="form-control" id="modalBookCategory">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookDate" class="form-label">Yazıldığı Tarih</label>
+              <input type="date" class="form-control" id="modalBookDate">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookImageUrl" class="form-label">Kitabın Kapak Fotoğraf URL'i</label>
+              <input type="url" class="form-control" id="modalBookImageUrl">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+          <button type="button" class="btn btn-primary" id="createBookButton" data-bs-dismiss="modal">Kitap Oluştur</button>
+          <button type="button" class="btn btn-warning" id="updateButton" data-bs-dismiss="modal">Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-fixed bottom-0 end-0 p-3 toastZIndex">
+    <div id="toastMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+    </div>
+  </div>
 
   <section class="py-5">
     <div class="container">
@@ -106,45 +151,6 @@
       </div>
     </div>
   </section>
-
-  <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modalLabel">Yeni Kitap Ekle</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="modalBookName" class="form-label">Kitap Adı</label>
-              <input type="text" class="form-control" id="modalBookName">
-            </div>
-            <div class="mb-3">
-              <label for="modalBookAuthor" class="form-label">Yazar Adı - Soyadı</label>
-              <input type="text" class="form-control" id="modalBookAuthor">
-            </div>
-            <div class="mb-3">
-              <label for="modalBookCategory" class="form-label">Kategori</label>
-              <input type="text" class="form-control" id="modalBookCategory">
-            </div>
-            <div class="mb-3">
-              <label for="modalBookDate" class="form-label">Yazıldığı Tarih</label>
-              <input type="date" class="form-control" id="modalBookDate">
-            </div>
-            <div class="mb-3">
-              <label for="modalBookImageUrl" class="form-label">Kitabın Kapak Fotoğraf URL'i</label>
-              <input type="url" class="form-control" id="modalBookImageUrl">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-          <button type="button" class="btn btn-primary" id="createBookButton">Kitap Oluştur</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
