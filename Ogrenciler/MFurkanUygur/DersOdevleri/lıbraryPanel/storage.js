@@ -22,38 +22,45 @@ let allBooksOnLocalStorage = [
     }
 ];
 
+//Yeni kitap ekleme(Hem LS hem display)
 Storage.prototype.addNewBookToLocalStorage = function (newBook) {
-    //Main.js'den eklenen yeni kitap buraya geldi, burdan ui'ya gidicek sonra ekrana basılacak
-    //Aptal olma unutma
-    //Önce aldığın nesneyi bastır ekrana, sonra ls'e at MAL MAL MAL
-    ui.displayBookOnHtml(newBook)
-    //LocalStorage'a attık
+    ui.displayBookOnHtml(newBook);
+
     allBooksOnLocalStorage = [...allBooksOnLocalStorage, newBook];
     localStorage.setItem("books", JSON.stringify(allBooksOnLocalStorage));
+    writerFilterTag.innerHTML += `<a class="list-group">${newBook.bookWriter}</a>`;
+    typeFilterTag.innerHTML += `<a class="list-group">${newBook.bookType}</a>`
 }
 
+
+//Sayfa yenilenince kitapları ekrana basma
 Storage.prototype.getAllBooksOnLocalStorage = function () {
     //defaultbooks hep başta. bunu allBook ile birleştirsek daha iyi olur bence
     allBooks = JSON.parse(localStorage.getItem("books"));
+
     if (allBooks != null) {
         allBooksOnLocalStorage = [...allBooks]
         // const ui = new UI();
         allBooks.forEach(e => {
             ui.displayBookOnHtml(e)
         });
+        filters(allBooksOnLocalStorage)
+
     }
     else {
         allBooksOnLocalStorage.forEach(x => {
             ui.displayBookOnHtml(x)
         })
+        filters(allBooksOnLocalStorage)
     }
+
+
 
     //sayfa yüklenir yüklenmez default kitapları kaydetmek için, bu olmazsa kitabı ekle butonuna tıkladıktan sonra LS'e kayıt yapıyor
     localStorage.setItem("books", JSON.stringify(allBooksOnLocalStorage));
 }
 
-
-//yaaaniiii oldu gibi bence yüzde 90 okey
+//İstenilen bir kitabı silme ----yaaaniiii oldu gibi bence yüzde 90 okey
 Storage.prototype.deleteSelectedBook = function (selectedID) {
     allBooksOnLocalStorage.forEach(itemOnLS => {
         if (itemOnLS.bookID == selectedID) {
@@ -72,6 +79,8 @@ Storage.prototype.deleteSelectedBook = function (selectedID) {
         }
     })
 }
+
+//Edit butona tıklanınca açılan modal içine bilgilerin atılması
 Storage.prototype.openModalWindowForEachBook = function (selectedID) {
     allBooksOnLocalStorage.forEach(itemOnLS => {
         if (itemOnLS.bookID == selectedID) {
@@ -79,8 +88,8 @@ Storage.prototype.openModalWindowForEachBook = function (selectedID) {
             showBookInformation(itemOnLS)
         }
     })
-
 }
+//openModalWindowForEachBook içine yazılabilir direk
 function showBookInformation(defaultInformationOnLS) {
     defaultBookID.value = defaultInformationOnLS.bookID
     defaultBookName.value = defaultInformationOnLS.bookName;
@@ -92,10 +101,8 @@ function showBookInformation(defaultInformationOnLS) {
     //
     editBookID.value = defaultInformationOnLS.bookID
 }
-
+//Kitap Güncelleme
 Storage.prototype.updateSelectedBook = function (selectedID) {
-    console.log(selectedID)
-
     allBooksOnLocalStorage.forEach(updateItemOnLS => {
         if (updateItemOnLS.bookID == selectedID) {
             //BOŞ MU DOLU MU KONTROLÜ LAZIM
@@ -116,9 +123,12 @@ Storage.prototype.updateSelectedBook = function (selectedID) {
         }
 
     })
+    //Güncellenen değerler LS'e kaydedildi
+    localStorage.setItem("books", JSON.stringify(allBooksOnLocalStorage));
     bookContainer.innerHTML = "";
     allBooksOnLocalStorage.forEach(e => {
         ui.displayBookOnHtml(e)
+        console.log(e)
     })
 
     //inputların içini tamizledik
@@ -129,6 +139,102 @@ Storage.prototype.updateSelectedBook = function (selectedID) {
     editBookPicture.value = ""
 
 }
+//Kitap Arama
+Storage.prototype.searchBookOnStorage = function (bookNameOrWriterValue) {
+    bookNameOrWriterValue = bookNameOrWriterValue.toLowerCase();
+    bookContainer.innerHTML = "";
+    if (bookNameOrWriterValue != null) {
+        allBooksOnLocalStorage.forEach(searchEachBookOnLS => {
+            if (searchEachBookOnLS.bookName.toLowerCase().indexOf(bookNameOrWriterValue) > -1 ||
+                searchEachBookOnLS.bookWriter.toLowerCase().indexOf(bookNameOrWriterValue) > -1) {
+
+                ui.displayBookOnHtml(searchEachBookOnLS)
+            }
+        })
+    }
+    else {
+        allBooksOnLocalStorage.forEach(x => {
+            ui.displayBookOnHtml(x)
+        })
+    }
+
+}
+
+
+//Filtreleme Yapma (kategori veya yazar adına göre)
+Storage.prototype.filterBooksToTypeOrWriter = function () {
+    let filterTitles = [];
+    allBooksOnLocalStorage.forEach(x => {
+        filterTitles.push({ filterBookName: x.bookName, filterWriterName: x.bookWriter });
+
+    })
+
+}
+
+function filters(f) {
+    //LS'teki kitaba ait yazar ve tür bilgisini filtre kısmında gözükmesi için çektik ve unique olması için SET diziye attık 
+    let writerTags = [];
+    let typeTags = [];
+    f.forEach(x => {
+        writerTags.push(x.bookWriter.toLowerCase());
+        typeTags.push(x.bookType.toLowerCase());
+    })
+    const uniqueWriterTags = new Set();
+    writerTags.forEach(uniqueWriterTags.add, uniqueWriterTags);
+
+    const uniqueTypeTags = new Set();
+    typeTags.forEach(uniqueTypeTags.add, uniqueTypeTags);
+
+    writerFilterTag.innerHTML = "";
+    typeFilterTag.innerHTML = "";
+
+    for (let eachWriterTag of uniqueWriterTags) {
+        writerFilterTag.innerHTML += `<a class="list-group">${eachWriterTag}</a>`;
+    }
+    for (let eachTypeTag of uniqueTypeTags) {
+        typeFilterTag.innerHTML += `<a class="list-group">${eachTypeTag}</a>`;
+    }
+}
+
+// setInterval(function () {
+//     allBooks = JSON.parse(localStorage.getItem("books"));
+//     let writerTags = [];
+//     let typeTags = [];
+
+//     //LS'teki kitaba ait yazar ve tür bilgisini filtre kısmında gözükmesi için çektik ve unique olması için SET diziye attık 
+//     allBooks.forEach(x => {
+//         writerTags.push(x.bookWriter.toLowerCase());
+//         typeTags.push(x.bookType.toLowerCase());
+//     })
+//     const uniqueWriterTags = new Set();
+//     const uniqueTypeTags = new Set();
+//     writerTags.forEach(uniqueWriterTags.add, uniqueWriterTags);
+//     typeTags.forEach(uniqueTypeTags.add, uniqueTypeTags);
+
+//     // writerTags.forEach(tag => {
+//     // writerFilterTag.innerHTML += `<a class="list-group">${tag.filterBookWriter}</a>`;
+//     // typeFilterTag.innerHTML += `<a class="list-group">${tag.filterBookType}</a>`;
+//     // })
+//     writerFilterTag.innerHTML = "";
+//     typeFilterTag.innerHTML = "";
+//     for (let eachWriterTag of uniqueWriterTags) {
+//         writerFilterTag.innerHTML += `<a class="list-group">${eachWriterTag}</a>`;
+//     }
+//     for (let eachTypeTag of uniqueTypeTags) {
+//         typeFilterTag.innerHTML += `<a class="list-group">${eachTypeTag}</a>`;
+//     }
+//     console.log(writerTags)
+
+// }, 2000)
+
+
+
+
+
+
+
+
+
 
 //Tümünü silme -- Siliyor ama hata uyarısı var
 Storage.prototype.deleteAllBooksOnStorage = function () {

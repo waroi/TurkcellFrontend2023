@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Merdiven Altı</a>
+            <a class="navbar-brand fw-bold" href="#">Merdiven Üstü</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -37,44 +37,108 @@
         </div>
     </nav>
 
-
-    <section class="addBooks my-5">
+    <section class="someButtons my-5">
         <div class="container">
-            <div class="accordion accordion-flush mb-5" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header d-flex justify-content-end">
-                        <button class="btn btn-primary fw-bold collapsed " type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Kitap Ekle
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body p-0 m-0">
-                            <div class="row">
-                                <form>
-                                    <label for="bookName">Book Name: </label>
-                                    <input class="form-control" type="text" id="bookName">
-                                    <br>
+            <div class="row">
+                <div class="col-lg-3 mb-2">
+                    <div class="btn btn-primary w-100 d-flex  justify-content-center  align-items-center">
+                        <label for="searchBook" class="w-25"> Ara:</label>
+                        <input class=" w-75" type="text" id="searchBook">
+                    </div>
+                </div>
+                <!-- Kitap ekleme -->
+                <div class="col-lg-3">
+                    <div class="accordion accordion-flush mb-2" id="addBookButton">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="btn btn-primary fw-bold w-100 collapsed " type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#addBookAllInputs" aria-expanded="false"
+                                    aria-controls="addBookAllInputs">
+                                    Kitap Ekle
+                                    <i class="bi-arrow-down"></i>
+                                </button>
+                            </h2>
+                            <div id="addBookAllInputs" class="accordion-collapse collapse"
+                                data-bs-parent="#addBookButton">
+                                <div class="accordion-body pb-0 mb-0">
+                                    <div class="row">
+                                        <form>
+                                            <label for="bookName">Book Name: </label>
+                                            <input class="form-control" type="text" id="bookName">
+                                            <br>
 
-                                    <label for="bookWriter">Book Writer: </label>
-                                    <input class="form-control" type="text" id="bookWriter">
-                                    <br>
+                                            <label for="bookWriter">Book Writer: </label>
+                                            <input class="form-control" type="text" id="bookWriter">
+                                            <br>
 
-                                    <label for="bookType">Book Type: </label>
-                                    <input class="form-control" type="text" id="bookType">
-                                    <br>
+                                            <label for="bookType">Book Type: </label>
+                                            <input class="form-control" type="text" id="bookType">
+                                            <br>
 
-                                    <label for="bookDate">Book Date: </label>
-                                    <input class="form-control" type="text" id="bookDate">
-                                    <br>
+                                            <label for="bookDate">Book Date: </label>
+                                            <input class="form-control" type="text" id="bookDate">
+                                            <br>
 
-                                    <label for="bookPicture">Book Picture: </label>
-                                    <input class="form-control" type="text" id="bookPicture">
-                                    <br>
+                                            <label for="bookPicture">Book Picture: </label>
+                                            <input class="form-control" type="text" id="bookPicture">
+                                            <br>
 
-                                    <button type="submit" class="btn btn-primary w-100 " id="addButton">Add</button>
-                                </form>
+                                            <button type="submit" class="btn btn-primary w-100 "
+                                                id="addButton">Add</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Filtreleme -->
+                <div class="col-lg-3">
+                    <div class="accordion accordion-flush mb-2" id="filterBookButton">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="btn btn-primary fw-bold w-100 collapsed " type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#bookFilterTags" aria-expanded="false"
+                                    aria-controls="bookFilterTags">
+                                    Filtreler
+                                    <i class="bi-arrow-down"></i>
+                                </button>
+                            </h2>
+                            <div id="bookFilterTags" class="accordion-collapse collapse"
+                                data-bs-parent="#filterBookButton">
+                                <div class="accordion-body ">
+                                    <h6 class="mb-0">Yazarlar:</h6>
+                                    <hr class="mt-2 pt-2">
+                                    <div id="writerFilterTag"></div>
+                                    <h6>Türler</h6>
+                                    <hr class="mt-2 pt-2">
+                                    <div id="typeFilterTag"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="accordion accordion-flush mb-2" id="sortBookButton">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="btn btn-primary fw-bold w-100 collapsed " type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#bookSortTags" aria-expanded="false"
+                                    aria-controls="bookSortTags">
+                                    Sırala
+                                    <i class="bi-arrow-down"></i>
+                                </button>
+                            </h2>
+                            <div id="bookSortTags" class="accordion-collapse collapse" data-bs-parent="#sortBookButton">
+                                <div class="accordion-body ">
+                                    <ul class="list-group">
+                                        <li class="list-group mb-2"><button class="btn btn-dark">A-z</button></li>
+                                        <li class="list-group mb-2"><button class="btn btn-dark">Z-a</button></li>
+                                        <li class="list-group mb-2"><button class="btn btn-dark">Tarihe göre</button>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

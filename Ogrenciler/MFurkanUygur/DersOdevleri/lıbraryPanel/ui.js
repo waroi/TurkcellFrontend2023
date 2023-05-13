@@ -22,6 +22,12 @@ UI.prototype.displayBookOnHtml = function (test) {
   saveBtn(saveChangesBtns)
 }
 
+UI.prototype.displayOnFilterTitles = function () {
+  
+  
+}
+
+
 //Güncelleme butonu
 function saveBtn(saveChangesBtns) {
   saveChangesBtns.forEach(e => {

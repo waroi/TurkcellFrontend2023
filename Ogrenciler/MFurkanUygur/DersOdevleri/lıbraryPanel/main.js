@@ -7,6 +7,8 @@ const bookPicture = document.getElementById("bookPicture");
 const addButton = document.getElementById("addButton");
 const deleteAllButton = document.getElementById("deleteAll");
 
+const searchBookInput = document.getElementById("searchBook")
+
 //Books Object
 function Books(bookName, bookWriter, bookType, bookDate, bookPicture) {
     this.bookName = bookName;
@@ -53,33 +55,20 @@ function addBook(e) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-
     const getAllBooks = new Storage();
     getAllBooks.getAllBooksOnLocalStorage();
-
-
 });
-
-
 
 deleteAllButton.addEventListener("click", deleteAllBooks)
 function deleteAllBooks() {
-
     const deleteAllBooks = new Storage();
     deleteAllBooks.deleteAllBooksOnStorage();
-
 }
 
+searchBookInput.addEventListener("keyup", searchBook)
+function searchBook() {
 
-// card.addEventListener("click", tıkla);
-// function tıkla() {
-//     console.log(tıkla)
-// }
-
-
-
-
-
-// card[0].addEventListener("click", () => {
-//     console.log("tıklandı")
-// })
+    const searcBookOnLS = new Storage();
+    searcBookOnLS.searchBookOnStorage(searchBookInput.value);
+}
+searchBookInput.addEventListener("focus", () => { searchBookInput.value = "" })
