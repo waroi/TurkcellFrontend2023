@@ -4,7 +4,7 @@ let addModal = document.getElementById("addModal");
 let modalBox = document.getElementById("modalBox");
 let addBookArea = document.getElementById("addBookArea");
 let bookUI = document.getElementById("bookUI");
-isModal = false;
+let isModal = false;
 
 UserInterface.prototype.createModal = function () {
     if (isModal == false && isEdit == false) {
@@ -88,7 +88,14 @@ UserInterface.prototype.loadUI = function () {
 UserInterface.prototype.sortValues = function () {
     const select = document.getElementById("sort-select");
     const condition = select.options[select.selectedIndex].value;
-    let data = storage.getFullStorage();
+    let data = [];
+
+    if (UserInterface.prototype.search() != []) {
+        data = UserInterface.prototype.search();
+    }
+    else {
+        data = storage.getFullStorage();
+    }
 
     if (condition == "default") {
         return data;
@@ -110,4 +117,28 @@ UserInterface.prototype.sortValues = function () {
 
 UserInterface.prototype.sortCards = function () {
     UserInterface.prototype.loadUI();
+}
+
+UserInterface.prototype.search = function () {
+    const searchInputValue = document.getElementById("search-input").value;
+    const searchValue = searchInputValue.toLowerCase();
+    // bookUI;
+    let fullData = storage.getFullStorage();
+    let length = fullData.length;
+    let searchedData = [];
+    for (let i = 0; i < length; i++) {
+        if (fullData[i].name.includes(searchValue)) {
+            searchedData = searchedData.concat(fullData[i])
+        }
+    }
+    return searchedData;
+}
+
+UserInterface.prototype.loadSearchedUI = function () {
+    let searchedData = UserInterface.prototype.search();
+    if (UserInterface.prototype.sortValues()) {
+        searchedData = UserInterface.prototype.sortValues();
+    }
+    bookUI.innerHTML = "";
+    searchedData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
 }

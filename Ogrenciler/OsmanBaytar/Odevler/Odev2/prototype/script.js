@@ -25,3 +25,6 @@ document.addEventListener("DOMContentLoaded", UI.loadUI);
 
 const select = document.getElementById("sort-select");
 select.addEventListener("click", UI.sortCards);
+
+const searchInput = document.getElementById("search-input");
+searchInput.addEventListener("keyup", UI.loadSearchedUI);
