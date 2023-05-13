@@ -43,7 +43,25 @@ Book.prototype.deleteBook = function(e){
             ui.deleteBookFromUI(deleteBook);
             storage.deleteBookFromStorage(deleteBookName)
         }
-        // 
-        // storage2.deleteBookFromStorage(e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent);
+
     }
+}
+
+Book.prototype.filterBooks = function(e){
+    const filterValue = e.target.value.toLowerCase();
+    const listItems = document.querySelectorAll(".bookBody");
+    // const listItemsWriter = document.querySelectorAll(".writerName");
+    if(filterValue != ""){
+        listItems.forEach(function(a){
+            const bookName = a.children[0].textContent.toLowerCase();
+            const writerName = a.children[1].textContent.toLowerCase();
+            if(bookName.indexOf(filterValue)=== -1 ){ 
+                a.parentElement.setAttribute("style","display : none !important");
+        
+            }else{
+                a.parentElement.parentElement.setAttribute("style","width:18rem; display : block"); 
+            }
+        })
+    }
+    
 }

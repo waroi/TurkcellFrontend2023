@@ -14,11 +14,13 @@ const saveButton = document.getElementById("saveBooks");
 
 const library = document.getElementById("sectionLibrary");
 
+const filter = document.getElementById("filter")
 eventListeners();
 
 function eventListeners(e){
     saveButton.addEventListener("click",book.addBooks);
     document.addEventListener("DOMContentLoaded",book.loadAllBooks);
     library.addEventListener("click", book.deleteBook);
+    filter.addEventListener("keyup",book.filterBooks);
 
 }
