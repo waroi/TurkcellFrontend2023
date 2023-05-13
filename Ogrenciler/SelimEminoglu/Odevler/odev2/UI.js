@@ -69,6 +69,8 @@ UIConstructor.prototype.showBook = function (books) {
     const updateBtn = document.createElement("button");
     updateBtn.classList.add("btn", "btn-success");
     updateBtn.type = "button";
+    updateBtn.setAttribute("data-bs-toggle", "modal");
+    updateBtn.setAttribute("data-bs-target", "#updateBookModal");
     const updateBtnText = document.createTextNode("Güncelle");
     updateBtn.appendChild(updateBtnText);
 
@@ -107,18 +109,31 @@ UIConstructor.prototype.showBook = function (books) {
   });
 
   function updateBtnClick() {
-    console.log(this.parentNode.parentNode.parentNode.parentNode.id);
+    let list = LocalConstructor.prototype.checkToLocalS();
+    let place = 0;
+    list.map((item) => {
+      if (
+        item.id == Number(this.parentNode.parentNode.parentNode.parentNode.id)
+      ) {
+        bookNameUpdate.value = item.name;
+        bookWriterUpdate.value = item.writer;
+        bookDateUpdate.value = item.date;
+        bookCategoryUpdate.value = item.category;
+        bookUrlUpdate.value = item.url;
+        place = item.id;
+      }
+    });
+    bookNameUpdate.setAttribute("order", place);
   }
+
   function deleteBtnClick() {
     let list = LocalConstructor.prototype.checkToLocalS();
 
     list = list.filter((item) => {
-      console.log(item);
       return (
         item.id !== Number(this.parentNode.parentNode.parentNode.parentNode.id)
       );
     });
-    console.log(list);
 
     LocalConstructor.prototype.changeBookToLocalS(list);
     list = LocalConstructor.prototype.checkToLocalS();

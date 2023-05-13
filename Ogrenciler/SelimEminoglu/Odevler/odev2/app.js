@@ -3,10 +3,19 @@ const bookWriter = document.getElementById("bookWriter");
 const bookDate = document.getElementById("bookDate");
 const bookCategory = document.getElementById("bookCategory");
 const bookUrl = document.getElementById("bookUrl");
+
+const bookNameUpdate = document.getElementById("bookNameUpdate");
+const bookWriterUpdate = document.getElementById("bookWriterUpdate");
+const bookDateUpdate = document.getElementById("bookDateUpdate");
+const bookCategoryUpdate = document.getElementById("bookCategoryUpdate");
+const bookUrlUpdate = document.getElementById("bookUrlUpdate");
+
 const addBook = document.getElementById("addBook");
+const updateBook = document.getElementById("updateBook");
 const bookList = document.getElementById("bookList");
 
 addBook.addEventListener("click", formClicked);
+updateBook.addEventListener("click", bookUpdated);
 
 let check = LocalConstructor.prototype.checkToLocalS();
 
@@ -49,4 +58,21 @@ function formClicked() {
   check.push(newBook);
   LocalConstructor.prototype.changeBookToLocalS(check);
   UIConstructor.prototype.showBook(books);
+}
+
+function bookUpdated() {
+  let list = LocalConstructor.prototype.checkToLocalS();
+  list.map((item) => {
+    if (bookNameUpdate.getAttribute("order") == item.id) {
+      item.name = bookNameUpdate.value;
+      item.writer = bookWriterUpdate.value;
+      item.date = bookDateUpdate.value;
+      item.category = bookCategoryUpdate.value;
+      item.url = bookUrlUpdate.value;
+    }
+  });
+  LocalConstructor.prototype.changeBookToLocalS(list);
+  list = LocalConstructor.prototype.checkToLocalS();
+  location.reload();
+  UIConstructor.prototype.showBook(list);
 }
