@@ -12,10 +12,13 @@ const bookUrlUpdate = document.getElementById("bookUrlUpdate");
 
 const addBook = document.getElementById("addBook");
 const updateBook = document.getElementById("updateBook");
+
+const searchİnput = document.getElementById("search");
 const bookList = document.getElementById("bookList");
 
 addBook.addEventListener("click", formClicked);
 updateBook.addEventListener("click", bookUpdated);
+searchİnput.addEventListener("keyup", searchBook);
 
 let check = LocalConstructor.prototype.checkToLocalS();
 
@@ -75,4 +78,28 @@ function bookUpdated() {
   list = LocalConstructor.prototype.checkToLocalS();
   location.reload();
   UIConstructor.prototype.showBook(list);
+}
+
+function searchBook() {
+  let list = LocalConstructor.prototype.checkToLocalS();
+  let searchİnput = this.value.toLowerCase();
+  let searchList = [];
+  list.map((item) => {
+    if (searchİnput == "") {
+      return;
+    } else if (
+      item.name.toLowerCase().indexOf(searchİnput) > -1 ||
+      item.writer.toLowerCase().indexOf(searchİnput) > -1
+    ) {
+      searchList.push(item);
+    }
+  });
+  if (searchList != null) {
+    bookList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        bookList.removeChild(child);
+        console.log(child);
+      }
+    });
+  }
 }
