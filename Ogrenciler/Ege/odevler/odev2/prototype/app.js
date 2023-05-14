@@ -22,12 +22,13 @@ const books = localStorage.getItem("bookStorage")
   ? JSON.parse(localStorage.getItem("bookStorage"))
   : [];
 
+//#region Bu alan development aşamasında test edilme kolaylığı sağlamak için eklenmiştir.
 if (books.length === 0) {
   books.push(
     new Book(
       "Ege'lerin Sessizliği",
       "Ege Kara",
-      "Korku",
+      "Horror",
       "1998-04-08",
       "https://avatars.githubusercontent.com/u/83390653?v=4"
     )
@@ -36,15 +37,43 @@ if (books.length === 0) {
     new Book(
       "Maksutoğulları",
       "Varol Maksutoğlu",
-      "Fantastik",
+      "Fantasy",
       "1998-12-30",
       "https://avatars.githubusercontent.com/u/3173292?v=4"
+    )
+  );
+  books.push(
+    new Book(
+      "Tutunamayanlar",
+      "Oğuz Atay",
+      "Fiction",
+      "1971-03-12",
+      "https://i.dr.com.tr/cache/500x400-0/originals/0000000061424-1.jpg"
+    )
+  );
+  books.push(
+    new Book(
+      "Tehlikeli Oyunlar",
+      "Oğuz Atay",
+      "Fiction",
+      "1973-06-14",
+      "https://i.dr.com.tr/cache/600x600-0/originals/0000000061603-1.jpg"
+    )
+  );
+  books.push(
+    new Book(
+      "Silmarillion",
+      "Christopher Tolkien",
+      "Fantasy",
+      "1977-09-15",
+      "https://i.dr.com.tr/cache/600x600-0/originals/0001999887001-1.jpg"
     )
   );
   books[0].id = "egeID";
   books[1].id = "varolID";
   localStorage.setItem("bookStorage", JSON.stringify(books));
 }
+//#endregion
 
 userInterface.updateDisplay(books);
 userInterface.makeUniques(books);
