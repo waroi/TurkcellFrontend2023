@@ -26,7 +26,3 @@ function createCard(book) {
 }
 export default createCard;
 
-// <button type="button" class="btn btn-warning my-4 my-md-0" data-bs-toggle="modal"
-//   data-bs-target="#addBookModal">
-//   <i class="fa-solid fa-plus fa-beat"></i> Add New Book
-// </button>

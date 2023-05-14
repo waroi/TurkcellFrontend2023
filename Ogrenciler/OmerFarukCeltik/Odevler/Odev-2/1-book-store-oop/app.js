@@ -1,105 +1,80 @@
-// import createCard from "./cardComponent";
-import createCard from "./cardComponent.js";
+// import createCard from "./cardComponent.js";
 import baseBooks from "./bookList.js";
-
-let cardArea = document.querySelector("#card-area"); /*ekleyeceğimiz alan*/
-
+import Book from "./bookConstructor.js";
+import UI from "./uiConstructor.js";
+import Storage from "./storageConstructor.js";
+// areas
+let cardArea = document.querySelector("#card-area");
 let addBookButton = document.querySelector("#bookSearchContent");
+let categoryFilterArea = document.querySelector("#categoryFilterArea");
+let authorFilterArea = document.querySelector("#authorFilterArea");
 // sort
-
-let sortBookByValue = document.querySelector("#sort-area"); /*sortlayacağımız alan*/
+let sortBookByValue = document.querySelector("#sort-area");
 // search
-let searchBooksInput = document.querySelector("#search-input"); /*searchleyeceğimiz alan*/
-let searchBooksButton = document.querySelector("#search-button"); /*searchleyeceğimiz button*/
-// modal
-let bookNameInput = document.querySelector("#bookNameInput"); /*searchleyeceğimiz button*/
-let authorInput = document.querySelector("#authorInput"); /*searchleyeceğimiz button*/
-let categoryInput = document.querySelector("#categoryInput"); /*searchleyeceğimiz button*/
-let numberInput = document.querySelector("#numberInput"); /*searchleyeceğimiz button*/
-let urlInput = document.querySelector("#urlInput"); /*searchleyeceğimiz button*/
+let searchBooksInput = document.querySelector("#search-input");
+let searchBooksButton = document.querySelector("#search-button");
+// modal inputs buttons
+let bookNameInput = document.querySelector("#bookNameInput");
+let authorInput = document.querySelector("#authorInput");
+let categoryInput = document.querySelector("#categoryInput");
+let numberInput = document.querySelector("#numberInput");
+let urlInput = document.querySelector("#urlInput");
 let saveBookButton = document.querySelector("#save-book");
 let editBookButton = document.querySelector("#edit-book");
-let form = document.querySelector("form");
 
-function Book(name, author, category, publicationDate, banner) {
-  this.id = Date.now();
-  this.bookName = name;
-  this.author = author;
-  this.category = category;
-  this.publicationDate = publicationDate;
-  this.banner = banner;
-  this.date= this.id.toString();
-}
-// UI constructor start
-function UI() { }
-UI.prototype.isEmpty = function () {
-  return (
-    bookNameInput.value == "" ||
-    authorInput.value == "" ||
-    categoryInput.value == "" ||
-    numberInput.value == "" ||
-    numberInput.value == ""
-  );
-}
-UI.prototype.addBookCardToUI = function (newBook) {
-  // console.log(createCard(newBook));
-  cardArea.innerHTML += createCard(newBook);
-}
-UI.prototype.deleteBookCardUI = function (book) {
-  book.remove();
-}
-UI.prototype.resetAllInput = function () {
-  form.reset();
-}
-let uiFunc = new UI();
-// UI constructor end
-// storage start
-function Storage() { };
 
-Storage.prototype.getBooksFromStorage = function () {
-  return JSON.parse(localStorage.getItem("bookStorage"));
-}
-
-Storage.prototype.setBooksToStorage = function () {
-  localStorage.setItem("bookStorage", JSON.stringify(bookArray));
-}
-
+// storage and array start
 let storage = new Storage();
-let bookArray = storage.getBooksFromStorage() ? storage.getBooksFromStorage() : baseBooks;
-if(bookArray.length == 0){
+export let bookArray = storage.getBooksFromStorage() ? storage.getBooksFromStorage() : [];
+if (bookArray.length == 0) {
   baseBooks.map((e) => bookArray.push(e));
   storage.setBooksToStorage();
 }
+let bookCategorySet = bookArray ? new Set(bookArray.map((book) => book.category)) : false;
+let bookAuthorSet = bookArray ? new Set(bookArray.map((book) => book.author)) : false;
 // storage end
-// eventlisteners
+
+let uiFunc = new UI();
 eventListeners();
 cardUpdateToUI();
+createBookFilters();
 let currentCardUIID;
+
+function cardUpdateToUI(bookFounded,checkboxParam) {
+  if (!checkboxParam) {
+    cardArea.innerHTML = "";
+  }
+  if (!bookFounded) {
+    bookArray.map((book) => {
+      uiFunc.addBookCardToUI(book);
+    })
+  } else {
+    uiFunc.addBookCardToUI(bookFounded);
+  }
+}
+// eventlisteners
 function eventListeners() {
   addBookButton.addEventListener("click", (e) => toggleButtons(e));
   saveBookButton.addEventListener("click", (e) => addBook(e));
-  cardArea.addEventListener("click", (e) => cardsEditnDelete(e));
-  editBookButton.addEventListener("click", (e) => completeCardEdit(e,currentCardUIID));
-  searchBooksInput.addEventListener("keyup", (e) => searchBooksByNameAuthor(e))
+  cardArea.addEventListener("click", (e) => cardsEditnDeleteCatch(e));
+  editBookButton.addEventListener("click", (e) => completeCardEdit(e, currentCardUIID));
+  searchBooksInput.addEventListener("keyup", (e) => searchBooksByNameAndAuthor(e))
+  categoryFilterArea.addEventListener("click", (e) => filterByCheckboxValue(e));
+  authorFilterArea.addEventListener("click", (e) => filterByCheckboxValue(e));
+  sortBookByValue.addEventListener("click", (e) => sortCardsDateAndAlphabetic(e));
 }
 // eventlisteners end
 
-function toggleButtons(e){
+function toggleButtons() {
   editBookButton.classList.remove("d-block");
   editBookButton.classList.add("d-none");
   saveBookButton.classList.remove("d-none")
   saveBookButton.classList.add("d-block");
 }
-
 function addBook(e) {
   e.preventDefault();
   if (uiFunc.isEmpty()) {
-  //   let alert = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  //   <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-  //   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  // </div>`
-  //   cardArea.appendChild(alert);
-  alert("asdasd");
+    alert("Please");
   } else {
     let newBook = new Book(
       bookNameInput.value,
@@ -107,42 +82,42 @@ function addBook(e) {
       categoryInput.value,
       numberInput.value,
       urlInput.value
-      );
+    );
     bookArray.push(newBook);
     uiFunc.addBookCardToUI(newBook);
     uiFunc.resetAllInput();
     storage.setBooksToStorage();
+    bookCategorySet = new Set(bookArray.map((book) => book.category));
+    bookAuthorSet = new Set(bookArray.map((book) => book.author));
+    console.log(bookCategorySet);
+    createBookFilters();
   }
 }
-function cardUpdateToUI(){
-  cardArea.innerHTML ="";
-  bookArray.map((book) => {
-    uiFunc.addBookCardToUI(book);
-  })
-}
-// edit n delete area
-function cardsEditnDelete(e){
+// edit and delete area
+function cardsEditnDeleteCatch(e) {
   let currentCardUI = e.target.parentElement.parentElement.parentElement;
   currentCardUIID = currentCardUI.id;
   // delete card
-  if(e.target.classList.contains("delete-button")){
+  if (e.target.classList.contains("delete-button")) {
     deleteCurrentCard(currentCardUI);
   }
   // edit card
-  else if(e.target.classList.contains("edit-button")){
+  else if (e.target.classList.contains("edit-button")) {
     editCurrentCardInput(currentCardUI);
     console.log(currentCardUI);
   }
-}
-
-
-function deleteCurrentCard(currentCardUI){
-  uiFunc.deleteBookCardUI(currentCardUI);
-  let bookCard = bookArray.find((book) => book.id == currentCardUI.id);
-  bookArray.splice(bookArray.indexOf(bookCard),1);
+  bookCategorySet = new Set(bookArray.map((book) => book.category));
+  bookAuthorSet = new Set(bookArray.map((book) => book.author));
+  createBookFilters();
   storage.setBooksToStorage();
 }
-function editCurrentCardInput(currentCardUI){
+
+function deleteCurrentCard(currentCardUI) {
+  uiFunc.deleteBookCardUI(currentCardUI);
+  let bookCard = bookArray.find((book) => book.id == currentCardUI.id);
+  bookArray.splice(bookArray.indexOf(bookCard), 1);
+}
+function editCurrentCardInput(currentCardUI) {
   editBookButton.classList.remove("d-none");
   editBookButton.classList.add("d-block");
   saveBookButton.classList.remove("d-block")
@@ -155,7 +130,7 @@ function editCurrentCardInput(currentCardUI){
   urlInput.value = bookCard.banner;
 }
 
-function completeCardEdit(e,id){
+function completeCardEdit(e, id) {
   let editedBook = bookArray.find((book) => book.id == id);
   console.log(editedBook);
   editedBook.bookName = bookNameInput.value;
@@ -163,13 +138,94 @@ function completeCardEdit(e,id){
   editedBook.category = categoryInput.value;
   editedBook.publicationDate = numberInput.value;
   editedBook.banner = urlInput.value;
+  bookCategorySet = new Set(bookArray.map((book) => book.category));
+  bookAuthorSet = new Set(bookArray.map((book) => book.author));
+  createBookFilters();
   cardUpdateToUI();
   uiFunc.resetAllInput();
   storage.setBooksToStorage();
 }
 // edit n delete area end
-function searchBooksByNameAuthor(e){
-  if(e.target.value.length >= 3){
-    let bookFounded = bookArray.find((book) => book.bookName.includes(e.target.value) || book.author.includes(e.target.value))
+// search and filter area start
+function searchBooksByNameAndAuthor(e) {
+  let searchValue = e.target.value.toLowerCase();
+  if (searchValue.length >= 3) {
+    let bookFounded = bookArray.find((book) => book.bookName.toLowerCase().includes(searchValue));
+    console.log(bookFounded);
+    cardUpdateToUI(bookFounded);
+  } else {
+    cardUpdateToUI();
+  }
+}
+function createBookFilters() {
+  categoryFilterArea.innerHTML = "";
+  authorFilterArea.innerHTML = "";
+  if (bookCategorySet) {
+    Array.from(bookCategorySet).map((categoryFilter) => uiFunc.addCategoryFilterToUI(categoryFilter));
+  }
+  if (bookAuthorSet) {
+    Array.from(bookAuthorSet).map((authorFilter) => uiFunc.addAuthorFilterToUI(authorFilter));
+  }
+}
+
+let arrayForSort = [];
+let checkboxParam = false;
+
+function filterByCheckboxValue(e) {
+  if (e.target.checked) {
+    checkboxParam = true;
+    let categoryBook = bookArray.find((book) => e.target.value == book.category || e.target.value == book.author);
+    arrayForSort.push(categoryBook)
+    cardArea.innerHTML = "";
+    arrayForSort.forEach((categoryBook) => cardUpdateToUI(categoryBook, checkboxParam))
+  }
+  else if (!e.target.checked) {
+    let categoryBook = bookArray.find((book) => e.target.value == book.category || e.target.value == book.author);
+    arrayForSort.splice(categoryBook, 1);
+    cardArea.innerHTML = "";
+    arrayForSort.forEach((categoryBook) => cardUpdateToUI(categoryBook, checkboxParam))
+    cardUpdateToUI();
+
+    let parent = e.target.parentElement.parentElement.children;
+    for (let i = 0; i < parent.length; i++) {
+      parent[i].children[0].checked = false;
+      arrayForSort = [];
+    }
+  }
+}
+
+function sortCardsDateAndAlphabetic(e) {
+  if (e.target.value == "a/z") {
+    bookArray.sort((a, b) => {
+      let bookA = a.bookName.toLowerCase();
+      let bookB = b.bookName.toLowerCase();
+      if (bookA > bookB) {
+        return 1;
+      }
+      if (bookA < bookB) {
+        return -1;
+      }
+      return 0
+    })
+    cardUpdateToUI();
+  }
+  if (e.target.value == "z/a") {
+    bookArray.sort((a, b) => {
+      let bookA = a.bookName.toLowerCase();
+      let bookB = b.bookName.toLowerCase();
+      if (bookA < bookB) {
+        return 1;
+      }
+      if (bookA > bookB) {
+        return -1;
+      }
+      return 0
+    })
+    cardUpdateToUI();
+  }
+  if (e.target.value == "date") {
+    bookArray.sort((a, b) => a.publicationDate - b.publicationDate);
+    console.log(bookArray);
+    cardUpdateToUI();
   }
 }
