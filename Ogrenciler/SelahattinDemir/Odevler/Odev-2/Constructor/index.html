@@ -87,6 +87,7 @@
               type="button"
               class="btn btn-primary py-2 px-4"
               id="addOrEditButton"
+              data-bs-dismiss="modal"
             >
               Ekle
             </button>
@@ -96,29 +97,12 @@
     </div>
     <div class="container my-5">
       <form id="filter-form">
-        <label class="text-light fs-5 me-3">Kategoriler:</label>
-        <label class="text-light">
-          <input type="checkbox" name="categories" value="korku" />
-          Korku
-        </label>
-        <label class="text-light">
-          <input type="checkbox" name="categories" value="aksiyon" />
-          Aksiyon
-        </label>
-        <label class="text-light">
-          <input type="checkbox" name="categories" value="polisiye" />
-          Polisiye
-        </label>
-        <br />
-        <label class="text-light fs-5 me-3">Yazarlar:</label>
-        <label class="text-light">
-          <input type="checkbox" name="authors" value="kerem" />
-          Kerem
-        </label>
-        <label class="text-light">
-          <input type="checkbox" name="authors" value="ahmet" />
-          Ahmet
-        </label>
+        <div id="category-list">
+          <label class="text-light fs-5 me-3">Kategoriler:</label>
+        </div>
+        <div id="author-list">
+          <label class="text-light fs-5 me-3">Yazarlar:</label>
+        </div>
       </form>
       <label for="sort">Sırala:</label>
       <select id="sort">
@@ -138,30 +122,7 @@
         data-bs-target="#booksModal"
         >Kitap Ekle</a
       >
-      <div class="row mb-4" id="bookList">
-        <div class="col-lg-3 col-sm-6 my-3 text-center">
-          <div class="card shadow">
-            <img src="" alt="" class="card-img-top img-fluid" />
-            <div class="card-body">
-              <h5 class="card-title text-center text-truncate">Kitap adı</h5>
-              <h6 class="text-center text-success">yazar</h6>
-              <p class="card-text text-truncate">kategori</p>
-              <h6 class="text-end">tarih</h6>
-              <h6 class="text-end text-secondary">kategori</h6>
-              <div class="d-flex justify-content-around my-3">
-                <a
-                  href="#"
-                  class="me-3"
-                  data-bs-toggle="modal"
-                  data-bs-target="#booksModal"
-                  ><span class="fa-solid fa-pen-to-square fa-lg"></span
-                ></a>
-                <a href="#"><span class="fa-solid fa-trash fa-lg"></span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="row mb-4" id="bookList"></div>
     </div>
 
     <script
@@ -169,10 +130,13 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./scripts/Components/bookCard.js"></script>
+    <script src="./scripts/Components/checkbox.js"></script>
+    <script src="./scripts/Components/books.js"></script>
     <script src="./scripts/storage.js"></script>
     <script src="./scripts/ui.js"></script>
     <script src="./scripts/filter.js"></script>
-    <script src="./scripts/books.js"></script>
     <script src="./scripts/app.js"></script>
   </body>
 </html>
