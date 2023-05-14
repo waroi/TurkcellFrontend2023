@@ -71,6 +71,9 @@ if (books.length === 0) {
   );
   books[0].id = "egeID";
   books[1].id = "varolID";
+  books[2].id = "thirdID";
+  books[3].id = "fourthID";
+  books[4].id = "fifthID";
   localStorage.setItem("bookStorage", JSON.stringify(books));
 }
 //#endregion
@@ -88,12 +91,9 @@ function handleEventListeners() {
   bookCollectionRow.addEventListener("click", (e) => {
     if (e.target.classList.contains("book-delete")) {
       let bookCard = e.target.closest(".col-lg-4");
-      // e.target.parentElement.parentElement.parentElement.parentElement;
       process.deleteBook(books, bookCard, bookCard.id);
     } else if (e.target.classList.contains("book-edit")) {
       let bookCard = e.target.closest(".col-lg-4");
-      // e.target.parentElement.parentElement.parentElement.parentElement;
-
       currentBookID = bookCard.id;
       userInterface.cardToModal(books, currentBookID);
     }

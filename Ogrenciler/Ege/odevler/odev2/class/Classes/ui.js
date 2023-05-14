@@ -22,7 +22,9 @@ class UI {
   }
 
   uniqueCategories(books) {
-    const categoriesSet = new Set(books.map((book) => book.category));
+    const categoriesSet = new Set(
+      books.map((book) => book.category.toUpperCase())
+    );
     categorySelect.innerHTML = "";
     categorySelect.innerHTML += `<option value="">All</option>`;
     categorySelect.innerHTML += Array.from(categoriesSet).map((category) => {
@@ -31,7 +33,7 @@ class UI {
   }
 
   uniqueWriters(books) {
-    const writersSet = new Set(books.map((book) => book.writer));
+    const writersSet = new Set(books.map((book) => book.writer.toUpperCase()));
     writerSelect.innerHTML = "";
     writerSelect.innerHTML += `<option value="">All</option>`;
     writerSelect.innerHTML += Array.from(writersSet).map((writer) => {
@@ -44,18 +46,26 @@ class UI {
     this.uniqueWriters(books);
   }
 
-  static cardToModal(books, bookID) {
-    UI.prototype.cardToModal = function (books, bookID) {
-      const book = books.find((book) => book.id == bookID);
-      console.log(bookID);
-      bookNameInp.value = book.name;
-      bookWriterInp.value = book.writer;
-      bookCategoryInp.value = book.category;
-      bookDateInp.value = book.releaseDate;
-      bookCoverInp.value = book.coverURL;
-      addBookBtn.classList.toggle("hidden");
-      editBookBtn.classList.toggle("hidden");
-    };
+  cardToModal(books, bookID) {
+    const book = books.find((book) => book.id == bookID);
+    console.log(bookID);
+    bookNameInp.value = book.name;
+    bookWriterInp.value = book.writer;
+    bookCategoryInp.value = book.category;
+    bookDateInp.value = book.releaseDate;
+    bookCoverInp.value = book.coverURL;
+    addBookBtn.classList.toggle("hidden");
+    editBookBtn.classList.toggle("hidden");
+  }
+
+  isEmpty() {
+    return (
+      bookNameInp.value == "" ||
+      bookWriterInp.value == "" ||
+      bookCategoryInp.value == "" ||
+      bookDateInp.value == "" ||
+      bookCoverInp.value == ""
+    );
   }
 }
 

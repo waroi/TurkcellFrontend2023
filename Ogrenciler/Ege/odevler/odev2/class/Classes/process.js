@@ -44,13 +44,17 @@ class Process {
 
   static filterByCategory(books, selectedCategory) {
     if (selectedCategory != "")
-      return books.filter((book) => book.category == selectedCategory);
+      return books.filter(
+        (book) => book.category.toLowerCase() == selectedCategory.toLowerCase()
+      );
     else if (selectedCategory == "") return books;
   }
 
   static filterByWriter(books, selectedWriter) {
     if (selectedWriter != "")
-      return books.filter((book) => book.writer == selectedWriter);
+      return books.filter(
+        (book) => book.writer.toLowerCase() == selectedWriter.toLowerCase()
+      );
     else if (selectedWriter == "") return books;
   }
 
@@ -78,8 +82,8 @@ class Process {
 }
 
 function compareBookNames(a, b) {
-  if (a.name > b.name) return 1;
-  if (a.name < b.name) return -1;
+  if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+  if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
   return 0;
 }
 
