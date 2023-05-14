@@ -24,10 +24,10 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg  py-3">
-      <div class="container">
+      <div class="container mobile">
         <h3 class="fs-5 pt-2 logo text-white">MİRO LIBRARY</h3>
         <div class="navbar-text mx-auto text-white">Kitap koleksiyonunuza ürün eklemek için butona tıklayınız...</div>
-        <button type="button" class="btn btn-info ms-5" data-bs-toggle="modal" data-bs-target="#addModal">
+        <button type="button" class="btn addbtn" data-bs-toggle="modal" data-bs-target="#addModal">
         <i class="fa-solid fa-plus-minus"></i>
         </button>
       </div>
@@ -107,7 +107,7 @@
               type="button"
               data-bs-dismiss="modal"
               class="btn btn-success"
-              id="add-submit"
+              id="add-button"
             >
               EKLE
             </button>
@@ -115,7 +115,7 @@
               type="button"
               data-bs-dismiss="modal"
               class="btn btn-warning d-none"
-              id="edit-submit"
+              id="edit-button"
             >
               DÜZENLE
             </button>
@@ -124,9 +124,9 @@
       </div>
     </div>
 
-    <section class="books">
+    <section class="library">
       <div class="container">
-        <div class="row" id="book-collection"></div>
+        <div class="row" id="books"></div>
       </div>
     </section>
 

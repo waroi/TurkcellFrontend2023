@@ -2,10 +2,10 @@
 const categoryAdd = document.querySelector("#categories");
 const writer = document.querySelector("#writers");
 const imageBook = document.querySelector("#book-cover");
-const bookAdd = document.querySelector("#add-submit");
+const bookAdd = document.querySelector("#add-button");
 const nameBook = document.querySelector("#book-name");
 const writerBook = document.querySelector("#book-writer");
-const editBook = document.querySelector("#edit-submit");
+const editBook = document.querySelector("#edit-button");
 const categoryBook = document.querySelector("#book-category");
 const dateBook = document.querySelector("#book-date");
 
@@ -18,11 +18,11 @@ function createCard(book) {
       <h2 class="book-title fw-bold fs-2">${book.name}</h2>
       <h3 class="book-writer fs-4 text-muted">${book.writer}</h3>
       <h3 class="book-category fs-6 text-muted">${book.category}</h3>
-      <h5 class="book-release-date fs-6 pb-3 text-muted">${book.releaseDate}</h5>
+      <h5 class="book-release-date fs-6 pb-3  text-muted">${book.releaseDate}</h5>
       
       <a href="#" data-bs-toggle="modal" data-bs-target="#addModal" class="btn btn-warning book-edit">DÜZENLE</a>
       <a href="#"  class="btn btn-danger book-delete">
-        <i class="fa-solid fa-trash"></i>
+        SİL
       </a>
     </div>
     </div>
@@ -67,7 +67,6 @@ export function UI(display) {
 
 UI.prototype.modalWrap = function (books, bookID) {
   const book = books.find((book) => book.id == bookID);
-  console.log(bookID);
   nameBook.value = book.name;
   writerBook.value = book.writer;
   categoryBook.value = book.category;
@@ -76,3 +75,4 @@ UI.prototype.modalWrap = function (books, bookID) {
   bookAdd.classList.toggle("d-none");
   editBook.classList.toggle("d-none");
 };
+

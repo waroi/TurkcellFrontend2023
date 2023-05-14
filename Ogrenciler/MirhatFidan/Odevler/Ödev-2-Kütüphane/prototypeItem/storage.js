@@ -9,6 +9,17 @@ import Book from "./library.js";
 export function Storage() {}
 
 Storage.prototype.addBook = function (books, ui, form) {
+  if (
+    nameBook.value.trim() === "" ||
+    writerBook.value.trim() === "" ||
+    categoryBook.value.trim() === "" ||
+    dateBook.value.trim() === "" ||
+    imageBook.value.trim() === ""
+  ) {
+    alert("Lütfen tüm alanları doldurun.");
+    return;
+  }
+
   const newBook = new Book(
     nameBook.value,
     writerBook.value,
@@ -31,6 +42,7 @@ Storage.prototype.deleteBook = function (books, bookWrap, bookID) {
 };
 
 Storage.prototype.editBook = function (books, bookID, ui, form) {
+
   const book = books.find((book) => book.id == bookID);
 
   book.name = nameBook.value;

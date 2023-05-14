@@ -2,9 +2,9 @@ import Book from "./prototypeItem/library.js";
 import { UI } from "./prototypeItem/ui.js";
 import { Storage } from "./prototypeItem/storage.js";
 
-const library = document.querySelector("#book-collection");
-const bookAdd = document.querySelector("#add-submit");
-const editBook = document.querySelector("#edit-submit");
+const library = document.querySelector("#books");
+const bookAdd = document.querySelector("#add-button");
+const editBook = document.querySelector("#edit-button");
 const searchName = document.querySelector("#search-book");
 const sortBook = document.querySelector("#sort-books");
 const form = document.querySelector("form");
@@ -33,27 +33,27 @@ if (books.length === 0) {
   );
   books.push(
     new Book(
-      "Simyacı",
-      "Paulo Coelho",
-      "Macera",
-      "1988-12-30",
-      "./assets/simyaci.jpg")
+      "Ermiş",
+      "Halil Cibran",
+      "Felsefe",
+      "1988-12-05",
+      "./assets/ermis.jpg")
   );
   books.push(
     new Book(
-      "Simyacı",
-      "Paulo Coelho",
-      "Macera",
-      "1988-12-30",
-      "./assets/simyaci.jpg")
+      "Mutlu Prens",
+      "Oscar Wilde",
+      "Bilim Kurgu",
+      "1988-11-11",
+      "./assets/prens.jpg")
   );
   books.push(
     new Book(
-      "Simyacı",
-      "Paulo Coelho",
-      "Macera",
-      "1988-12-30",
-      "./assets/simyaci.jpg")
+      "1984",
+      "George Orwell",
+      "Fantastik",
+      "1988-10-30",
+      "./assets/1984.jpg")
   );
   books[0].id = "simyaciID";
   books[1].id = "simyaciID1";
@@ -101,7 +101,7 @@ function handleEventListeners() {
     userInterface.updateDisplay(bookItem);
   });
 
-  categoryAdd.addEventListener("change", (e) => {
+  categoryAdd.addEventListener("change", (e) => { 
     const bookItem = storage.categoryFilter(books, e.target.value);
     userInterface.updateDisplay(bookItem);
   });
