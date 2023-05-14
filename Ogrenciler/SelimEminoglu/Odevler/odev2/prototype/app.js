@@ -18,6 +18,9 @@ const bookList = document.getElementById("bookList");
 
 const orderList = document.getElementById("sorter");
 
+const categoryFilter = document.getElementById("category");
+const writerFilter = document.getElementById("writer");
+
 addBook.addEventListener("click", formClicked);
 updateBook.addEventListener("click", bookUpdated);
 searchİnput.addEventListener("keyup", searchBook);
@@ -57,6 +60,10 @@ orderList.addEventListener("change", () => {
       LocalConstructor.prototype.changeBookToLocalS(list3);
       list = LocalConstructor.prototype.checkToLocalS();
 
+      while (bookList.firstChild) {
+        bookList.removeChild(bookList.lastChild);
+      }
+
       UIConstructor.prototype.showBook(list);
 
       break;
@@ -87,15 +94,57 @@ orderList.addEventListener("change", () => {
       LocalConstructor.prototype.changeBookToLocalS(list6);
       list4 = LocalConstructor.prototype.checkToLocalS();
 
+      while (bookList.firstChild) {
+        bookList.removeChild(bookList.lastChild);
+      }
+
       UIConstructor.prototype.showBook(list4);
       break;
     case "OnDate":
-      console.log("ondate");
+      let OnDate = [];
+      let list7 = LocalConstructor.prototype.checkToLocalS();
+      let list8 = [];
+      let list9 = [];
+
+      list7.map((item) => {
+        OnDate.push(item.date);
+      });
+      OnDate = OnDate.sort();
+
+      for (let i = 0; i < OnDate.length; i++) {
+        list7.map((item) => {
+          if (OnDate[i] === item.date) {
+            list8.push(item);
+          }
+        });
+      }
+
+      let resultDate = new Set(list8);
+
+      resultDate.forEach((item) => {
+        list9.push(item);
+      });
+
+      LocalConstructor.prototype.changeBookToLocalS(list9);
+      list7 = LocalConstructor.prototype.checkToLocalS();
+
+      while (bookList.firstChild) {
+        bookList.removeChild(bookList.lastChild);
+      }
+
+      UIConstructor.prototype.showBook(list7);
       break;
     default:
       let rand = LocalConstructor.prototype.checkToLocalS();
       let randList = rand.sort((a, b) => 0.5 - Math.random());
       LocalConstructor.prototype.changeBookToLocalS(randList);
+      rand = LocalConstructor.prototype.checkToLocalS();
+
+      while (bookList.firstChild) {
+        bookList.removeChild(bookList.lastChild);
+      }
+
+      UIConstructor.prototype.showBook(rand);
       break;
   }
 });
