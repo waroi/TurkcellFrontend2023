@@ -75,27 +75,67 @@ function deleteAllBooks() {
     deleteAllBooks.checkInformationAllPage()
 }
 
+const writerFilterBtns = document.querySelectorAll("#writerFilterTag");
+filterWriterBtn(writerFilterBtns);
+
+const typeFilterBtns = document.querySelectorAll("#typeFilterTag");
+filterTypeBtn(typeFilterBtns);
+//Filter buttonları
+function filterWriterBtn(writerFilterBtns) {
+    writerFilterBtns.forEach(e => {
+        e.addEventListener("click", (f) => {
+            let filterWriterName = f.target.parentElement.children[1].innerHTML;
+            if (f.target.parentElement.children[0].checked == true) {
+                const filterWord = new Storage();
+                filterWord.filterOnLS(filterWriterName);
+            }
+        })
+    })
+}
+
+function filterTypeBtn(typeFilterBtns) {
+    typeFilterBtns.forEach(e => {
+        e.addEventListener("click", (f) => {
+            if (f.target.parentElement.children[0].checked == true) {
+                let filterTypeName = f.target.parentElement.children[1].innerHTML;
+                const filterWord = new Storage();
+                filterWord.filterOnLS(filterTypeName);
+            }
+        })
+    })
+}
+
+const clearFilterBtn = document.getElementById("clearFilters");
+clearFilterBtn.addEventListener("click", () => {
+    bookContainer.innerHTML = "";
+    const clearBtn = new Storage();
+    clearBtn.getAllBooksOnLocalStorage();
+    typeFilterBtns.forEach(t => {
+        Array.from(t.children).forEach(i => {
+            i.children[0].checked = false
+            console.log(i.children[0].checked)
+        })
+    })
+    writerFilterBtns.forEach(t => {
+        Array.from(t.children).forEach(i => {
+            i.children[0].checked = false
+            console.log(i.children[0].checked)
+        })
+    })
+})
 
 
 sortTitles = document.querySelectorAll("option");
-// sortOptions.addEventListener("click",()=>{
-
-// })
+sortTitles.forEach(s => {
+    s.addEventListener("click", sortType)
+})
 sortOptions.addEventListener("change", () => {
-    // sortTitles.forEach(s => {
-    //     if (s.value == "azSort") {
-    //         changeSort("azsort")
-    //     }
-    // });
-    // changeSort()
-    console.log(sortTitles[0])
-    if (sortTitles[0].value == "defaultSort") {
-        changeSort("defaultSort")
-    }
+
 })
 
-function changeSort(sortType) {
-    console.log(sortType)
+function sortType(sortType) {
+    let tempSortTypeID = sortType.explicitOriginalTarget.id
+    console.log(tempSortTypeID)
 }
 
 

@@ -21,39 +21,40 @@ UI.prototype.displayBookOnHtml = function (test) {
   const saveChangesBtns = document.querySelectorAll(".saveChanges");
   saveBtn(saveChangesBtns)
 
-  const writerFilterBtns = document.querySelectorAll("#writerFilterTag");
-  filterWriterBtn(writerFilterBtns)
+  // const writerFilterBtns = document.querySelectorAll("#writerFilterTag");
+  // filterWriterBtn(writerFilterBtns)
 
-  const typeFilterBtns = document.querySelectorAll("#typeFilterTag");
-  filterTypeBtn(typeFilterBtns)
+  // const typeFilterBtns = document.querySelectorAll("#typeFilterTag");
+  // filterTypeBtn(typeFilterBtns)
 }
 
 //Filter buttonları
-function filterWriterBtn(writerFilterBtns) {
-  writerFilterBtns.forEach(e => {
-    e.addEventListener("click", (f) => {
-      let filterWriterName = f.target.parentElement.children[1].innerHTML;
-      if (f.target.parentElement.children[0].checked == true) {
-        const filterWord = new Storage();
-        filterWord.filterOnLS(filterWriterName);
-      }
-      f.target.parentElement.children[0].checked = false;
-    })
-  })
-}
+// function filterWriterBtn(writerFilterBtns) {
+//   // console.log(writerFilterBtns)
+//   writerFilterBtns.forEach(e => {
+//     e.addEventListener("click", (f) => {
+//       let filterWriterName = f.target.parentElement.children[1].innerHTML;
+//       if (f.target.parentElement.children[0].checked == true) {
+//         const filterWord = new Storage();
+//         filterWord.filterOnLS(filterWriterName);
+//       }
+//       // f.target.parentElement.children[0].checked = false;
+//     })
+//   })
+// }
 
-function filterTypeBtn(typeFilterBtns) {
-  typeFilterBtns.forEach(e => {
-    e.addEventListener("click", (f) => {
-      if (f.target.parentElement.children[0].checked == true) {
-        let filterTypeName = f.target.parentElement.children[1].innerHTML;
-        const filterWord = new Storage();
-        filterWord.filterOnLS(filterTypeName);
-      }
-      f.target.parentElement.children[0].checked = false
-    })
-  })
-}
+// function filterTypeBtn(typeFilterBtns) {
+//   typeFilterBtns.forEach(e => {
+//     e.addEventListener("click", (f) => {
+//       if (f.target.parentElement.children[0].checked == true) {
+//         let filterTypeName = f.target.parentElement.children[1].innerHTML;
+//         const filterWord = new Storage();
+//         filterWord.filterOnLS(filterTypeName);
+//       }
+//       // f.target.parentElement.children[0].checked = false
+//     })
+//   })
+// }
 
 
 

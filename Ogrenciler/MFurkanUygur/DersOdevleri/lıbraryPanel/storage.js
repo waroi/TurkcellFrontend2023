@@ -174,14 +174,14 @@ Storage.prototype.checkInformationAllPage = function () {
     for (let eachWriterTag of uniqueWriterTags) {
         writerFilterTag.innerHTML += `
         <div class="p-0 m-0">
-            <input type="radio" name="writerName" class="form-check-input filter-writer-tag">
+            <input type="radio" name="name" class="form-check-input filter-writer-tag">
             <label for="filterCheckBox">${eachWriterTag}</label>
         </div>`;
     }
     for (let eachTypeTag of uniqueTypeTags) {
         typeFilterTag.innerHTML += `
         <div class="p-0 m-0">
-            <input type="radio" name="typeName" class="form-check-input filter-tag">
+            <input type="radio" name="name" class="form-check-input filter-tag">
             <label for="filterCheckBox">${eachTypeTag}</label>
         </div>`;
     }
@@ -191,11 +191,31 @@ Storage.prototype.filterOnLS = function (filterWord) {
     bookContainer.innerHTML = "";
     allBooksOnLocalStorage.forEach(x => {
         if (x.bookType.toLowerCase() == filterWord || x.bookWriter.toLowerCase() == filterWord) {
-
             ui.displayBookOnHtml(x)
         }
-
     })
+}
+
+
+
+//Tümünü silme -- Siliyor ama hata uyarısı var
+Storage.prototype.deleteAllBooksOnStorage = function () {
+    localStorage.clear();
+    bookContainer.innerHTML = "";
+    // let allBooksOnHtml = document.querySelectorAll(".card")
+    // console.log(allBooksOnHtml)
+    // while (allBooksOnHtml.length > 0) {
+    //     bookContainer.removeChild(bookContainer.firstChild);
+    // }
+
+    console.log("silindi")
+    //??GEREK VAR MI emin değilim
+    allBooks = [];
+    allBooksOnLocalStorage = []
+
+    // console.log("allbooks", allBooks)
+    // console.log("LS", allBooksOnLocalStorage)
+
 }
 
 // function filters(f) {
@@ -255,32 +275,3 @@ Storage.prototype.filterOnLS = function (filterWord) {
 //     console.log(writerTags)
 
 // }, 2000)
-
-
-
-
-
-
-
-
-
-
-//Tümünü silme -- Siliyor ama hata uyarısı var
-Storage.prototype.deleteAllBooksOnStorage = function () {
-    localStorage.clear();
-    bookContainer.innerHTML = "";
-    // let allBooksOnHtml = document.querySelectorAll(".card")
-    // console.log(allBooksOnHtml)
-    // while (allBooksOnHtml.length > 0) {
-    //     bookContainer.removeChild(bookContainer.firstChild);
-    // }
-
-    console.log("silindi")
-    //??GEREK VAR MI emin değilim
-    allBooks = [];
-    allBooksOnLocalStorage = []
-
-    // console.log("allbooks", allBooks)
-    // console.log("LS", allBooksOnLocalStorage)
-
-}
