@@ -43,12 +43,29 @@ Storage.prototype.addBookToUI = function (book) {
   <td>${book.author}</td>
   <td>${book.category}</td>
   <td>${book.year}</td>
-  <td>${book.cover}</td>
+  <td><span class="zoom-icon" data-img="${book.cover}"><i class="btn bi bi-zoom-in"></i></span></td>
   <td><button id="update-${book.title.replace(
     /\s+/g,
     "-"
   )}" class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Güncelle</button></td>
 `;
+      // Büyüteç ikonuna tıklama olayı ekler
+  const zoomIcon = row.querySelector(".zoom-icon");
+  zoomIcon.addEventListener("click", function () {
+    // Modalı açmak için verileri alır
+    const img = zoomIcon.getAttribute("data-img");
+    const largeImg = zoomIcon.getAttribute("data-large-img");
+
+    // Modal içindeki img elementinin src özelliğini günceller
+    const coverImage = document.getElementById("coverImage");
+    coverImage.src = largeImg;
+
+    // Modalı açar
+    const coverModal = new bootstrap.Modal(
+      document.getElementById("coverModal")
+    );
+    coverModal.show();
+  });
 
   table.appendChild(row);
 

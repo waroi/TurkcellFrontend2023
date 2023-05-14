@@ -9,7 +9,7 @@ class Book {
 }
 
 class Storage {
-  static getBooksFromStorage() {
+  getBooksFromStorage() {
     let books;
 
     if (localStorage.getItem("books") === null) {
@@ -21,15 +21,15 @@ class Storage {
     return books;
   }
 
-  static addBookToStorage(newBook) {
-    const books = Storage.getBooksFromStorage();
+  addBookToStorage(newBook) {
+    let books = this.getBooksFromStorage();
 
     books.push(newBook);
 
     localStorage.setItem("books", JSON.stringify(books));
   }
 
-  static addBookToUI(book) {
+  addBookToUI(book) {
     const table = document.querySelector("table tbody");
     const row = document.createElement("tr");
 
@@ -39,12 +39,26 @@ class Storage {
       <td>${book.author}</td>
       <td>${book.category}</td>
       <td>${book.year}</td>
-      <td>${book.cover}</td>
+      <td><span class="zoom-icon" data-img="${book.cover}"><i class="btn bi bi-zoom-in"></i></span></td>
       <td><button id="update-${book.title.replace(
         /\s+/g,
         "-"
       )}" class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Güncelle</button></td>
     `;
+
+    const zoomIcon = row.querySelector(".zoom-icon");
+    zoomIcon.addEventListener("click", function () {
+      const img = zoomIcon.getAttribute("data-img");
+      const largeImg = zoomIcon.getAttribute("data-large-img");
+
+      const coverImage = document.getElementById("coverImage");
+      coverImage.src = largeImg;
+
+      const coverModal = new bootstrap.Modal(
+        document.getElementById("coverModal")
+      );
+      coverModal.show();
+    });
 
     table.appendChild(row);
 
@@ -79,8 +93,8 @@ class Storage {
     addFilterItem(yearFilter, book.year.toString());
   }
 
-  static deleteBookFromStorage(title) {
-    const books = Storage.getBooksFromStorage();
+  deleteBookFromStorage(title) {
+    let books = this.getBooksFromStorage();
 
     books.forEach(function (book, index) {
       if (book.title === title) {
@@ -91,12 +105,12 @@ class Storage {
     localStorage.setItem("books", JSON.stringify(books));
   }
 
-  static deleteBookFromUI(element) {
+  deleteBookFromUI(element) {
     element.remove();
   }
 
-  static updateBookInStorage(oldTitle, updatedBook) {
-    const books = Storage.getBooksFromStorage();
+  updateBookInStorage(oldTitle, updatedBook) {
+    let books = this.getBooksFromStorage();
 
     books.forEach(function (book, index) {
       if (book.title === oldTitle) {
@@ -107,7 +121,7 @@ class Storage {
     localStorage.setItem("books", JSON.stringify(books));
   }
 
-  static updateBookInUI(oldTitle, updatedBook) {
+  updateBookInUI(oldTitle, updatedBook) {
     const table = document.querySelector("table tbody");
     const rows = Array.from(table.querySelectorAll("tr"));
 
@@ -123,93 +137,7 @@ class Storage {
       }
     });
   }
-  static filterBooks() {
-    const table = document.querySelector("table tbody");
-    const books = Array.from(table.querySelectorAll("tr"));
-
-    books.forEach((book) => (book.style.display = ""));
-
-    activeFilters.forEach((filter) => {
-      books.forEach((book) => {
-        const td = book.querySelectorAll("td");
-        const author = td[2].textContent;
-        const category = td[3].textContent;
-        const year = td[4].textContent;
-
-        if (author !== filter && category !== filter && year !== filter) {
-          book.style.display = "none";
-        }
-      });
-    });
-  }
-
-  static sortTable(column, num) {
-    let table, rows, switching, i, x, y, shouldSwitch;
-    table = document.querySelector("table");
-    switching = true;
-
-    sortState[column] = sortState[column] === 0 ? 1 : 0;
-
-    while (switching) {
-      switching = false;
-      rows = table.rows;
-
-      for (i = 1; i < rows.length - 1; i++) {
-        shouldSwitch = false;
-
-        x = rows[i].getElementsByTagName("TD")[num];
-        y = rows[i + 1].getElementsByTagName("TD")[num];
-
-        if (sortState[column] === 1) {
-          if (num !== 4) {
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-              shouldSwitch = true;
-              break;
-            }
-          } else {
-            if (Number(x.innerHTML) > Number(y.innerHTML)) {
-              shouldSwitch = true;
-              break;
-            }
-          }
-        } else {
-          if (num !== 4) {
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-              shouldSwitch = true;
-              break;
-            }
-          } else {
-            if (Number(x.innerHTML) < Number(y.innerHTML)) {
-              shouldSwitch = true;
-              break;
-            }
-          }
-        }
-      }
-
-      if (shouldSwitch) {
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
-      }
-    }
-  }
 }
-
-let activeFilters = [];
-
-["author-filter", "category-filter", "year-filter"].forEach((filterId) => {
-  document.getElementById(filterId).addEventListener("change", function (e) {
-    if (e.target.tagName === "INPUT") {
-      activeFilters = Array.from(
-        document.querySelectorAll(
-          "#author-filter input:checked, #category-filter input:checked, #year-filter input:checked"
-        )
-      ).map((checkbox) => checkbox.value);
-
-      Storage.filterBooks();
-    }
-  });
-});
 
 document.getElementById("save-button").addEventListener("click", function () {
   const title = document.getElementById("title").value;
@@ -220,8 +148,9 @@ document.getElementById("save-button").addEventListener("click", function () {
 
   const newBook = new Book(title, author, category, year, cover);
 
-  Storage.addBookToStorage(newBook);
-  Storage.addBookToUI(newBook);
+  const storage = new Storage();
+  storage.addBookToStorage(newBook);
+  storage.addBookToUI(newBook);
 
   document.getElementById("book-form").reset();
 
@@ -231,16 +160,22 @@ document.getElementById("save-button").addEventListener("click", function () {
   myModal.hide();
 });
 
+Storage.prototype.deleteBookFromUI = function (element) {
+  element.remove();
+};
+
 document.getElementById("delete-button").addEventListener("click", function () {
+  const storage = new Storage();
   const checkboxes = document.querySelectorAll(
     "table tbody input[type=checkbox]:checked"
   );
+
   checkboxes.forEach(function (checkbox) {
     const row = checkbox.parentElement.parentElement;
     const title = row.getElementsByTagName("td")[1].textContent;
 
-    Storage.deleteBookFromStorage(title);
-    Storage.deleteBookFromUI(row);
+    storage.deleteBookFromStorage(title);
+    storage.deleteBookFromUI(row);
   });
 });
 
@@ -261,11 +196,23 @@ document.getElementById("search").addEventListener("input", function (e) {
   });
 });
 
+function getBookFromStorage(title) {
+  const books = JSON.parse(localStorage.getItem("books"));
+
+  for (let i = 0; i < books.length; i++) {
+    if (books[i].title === title) {
+      return books[i];
+    }
+  }
+
+  return null;
+}
+
 document.addEventListener("click", function (e) {
   if (e.target.id.startsWith("update-")) {
     const title = e.target.id.substring(7).replace(/-/g, " ");
 
-    const book = Storage.getBookFromStorage(title);
+    const book = getBookFromStorage(title);
 
     if (book) {
       document.getElementById("update-title").defaultValue = book.title;
@@ -285,6 +232,7 @@ document.addEventListener("click", function (e) {
 document.getElementById("update-button").addEventListener("click", function () {
   const oldTitle = document.getElementById("update-title").defaultValue;
   const newTitle = document.getElementById("update-title").value;
+
   const author = document.getElementById("update-author").value;
   const category = document.getElementById("update-category").value;
   const year = document.getElementById("update-year").value;
@@ -292,14 +240,52 @@ document.getElementById("update-button").addEventListener("click", function () {
 
   const updatedBook = new Book(newTitle, author, category, year, cover);
 
-  Storage.updateBookInStorage(oldTitle, updatedBook);
-  Storage.updateBookInUI(oldTitle, updatedBook);
+  const storage = new Storage();
+  storage.updateBookInStorage(oldTitle, updatedBook);
+  storage.updateBookInUI(oldTitle, updatedBook);
 
   var myModal = bootstrap.Modal.getInstance(
     document.getElementById("updateBookModal")
   );
   myModal.hide();
 });
+
+let activeFilters = [];
+
+["author-filter", "category-filter", "year-filter"].forEach((filterId) => {
+  document.getElementById(filterId).addEventListener("change", function (e) {
+    if (e.target.tagName === "INPUT") {
+      activeFilters = Array.from(
+        document.querySelectorAll(
+          "#author-filter input:checked, #category-filter input:checked, #year-filter input:checked"
+        )
+      ).map((checkbox) => checkbox.value);
+
+      filterBooks();
+    }
+  });
+});
+
+function filterBooks() {
+  const table = document.querySelector("table tbody");
+  const books = Array.from(table.querySelectorAll("tr"));
+
+  books.forEach((book) => (book.style.display = ""));
+
+  activeFilters.forEach((filter) => {
+    books.forEach((book) => {
+      const td = book.querySelectorAll("td");
+
+      const author = td[2].textContent;
+      const category = td[3].textContent;
+      const year = td[4].textContent;
+
+      if (author !== filter && category !== filter && year !== filter) {
+        book.style.display = "none";
+      }
+    });
+  });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const storage = new Storage();
@@ -308,11 +294,72 @@ document.addEventListener("DOMContentLoaded", function () {
   books.forEach((book) => storage.addBookToUI(book));
 });
 
-document.querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill").forEach(function (icon) {
+const sortState = {
+  title: 0,
+  author: 0,
+  category: 0,
+  year: 0,
+};
+
+function sortTable(column, num) {
+  let table, rows, switching, i, x, y, shouldSwitch;
+  table = document.querySelector("table");
+  switching = true;
+
+  sortState[column] = sortState[column] === 0 ? 1 : 0;
+
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+
+    for (i = 1; i < rows.length - 1; i++) {
+      shouldSwitch = false;
+
+      x = rows[i].getElementsByTagName("TD")[num];
+      y = rows[i + 1].getElementsByTagName("TD")[num];
+
+      if (sortState[column] === 1) {
+        if (num !== 4) {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+        } else {
+          if (Number(x.innerHTML) > Number(y.innerHTML)) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+      } else {
+        if (num !== 4) {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+        } else {
+          if (Number(x.innerHTML) < Number(y.innerHTML)) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+    }
+
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+document
+  .querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill")
+  .forEach(function (icon) {
+    icon.addEventListener
     icon.addEventListener("click", function (e) {
       const column = e.target.getAttribute("data-column");
       const num = Number(e.target.getAttribute("data-num"));
-      Storage.sortTable(column, num);
+      sortTable(column, num);
 
       document
         .querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill")
@@ -324,10 +371,11 @@ document.querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill").forEach(func
       e.target.classList.toggle("bi-caret-up-fill");
       e.target.classList.toggle("bi-caret-down-fill");
     });
-});
+  });
 
 const coverModal = document.getElementById("coverModal");
 const coverImage = document.getElementById("coverImage");
+
 coverModal.addEventListener("show.bs.modal", function (event) {
   const button = event.relatedTarget;
   const imgUrl = button.getAttribute("data-img");
