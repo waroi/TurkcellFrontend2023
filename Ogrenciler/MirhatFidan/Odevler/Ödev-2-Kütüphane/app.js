@@ -56,9 +56,9 @@ if (books.length === 0) {
       "./assets/1984.jpg")
   );
   books[0].id = "simyaciID";
-  books[1].id = "simyaciID1";
-  books[2].id = "simyaciID2"
-  books[3].id = "simyaciID3";
+  books[1].id = "ermisID";
+  books[2].id = "prensID"
+  books[3].id = "georgeID";
   localStorage.setItem("bookStorage", JSON.stringify(books));
 }
 
