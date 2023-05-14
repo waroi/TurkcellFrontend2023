@@ -32,4 +32,4 @@ searchInput.addEventListener("keyup", UI.loadSearchedUI);
 filterBy = document.getElementById("filter-by");
 filterBy.addEventListener("click", UI.whichFilter);
 window.addEventListener("click", UI.loadIntersectedUI);
-filterBy.addEventListener("click", UI.resetFilter);
+// filterBy.addEventListener("click", UI.resetFilter);

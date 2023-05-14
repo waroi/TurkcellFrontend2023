@@ -197,6 +197,10 @@ UserInterface.prototype.filterCategory = function () {
     let fullData = storage.getFullStorage();
     let length = fullData.length;
     let filteredData = [];
+    if (filterValue == "none") {
+        fullData = storage.getFullStorage();
+        return fullData;
+    }
     for (let i = 0; i < length; i++) {
         let category = fullData[i].category.toLowerCase();
         if (category == filterValue) {
@@ -211,6 +215,10 @@ UserInterface.prototype.filterWriter = function () {
     let fullData = storage.getFullStorage();
     let length = fullData.length;
     let filteredData = [];
+    if (filterValue == "none") {
+        fullData = storage.getFullStorage();
+        return fullData;
+    }
     for (let i = 0; i < length; i++) {
         let writer = fullData[i].writer.toLowerCase();
         if (writer.includes(filterValue)) {
@@ -221,14 +229,14 @@ UserInterface.prototype.filterWriter = function () {
 }
 
 
-UserInterface.prototype.resetFilter = function () {
-    let filterValue = filterWith.value.toLowerCase();
-    let fullData = storage.getFullStorage();
-    bookUI.innerHTML = "";
-    if (filterValue == "") {
-        fullData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
-    }
-}
+// UserInterface.prototype.resetFilter = function () {
+//     let filterValue = filterWith.value.toLowerCase();
+//     let fullData = storage.getFullStorage();
+//     bookUI.innerHTML = "";
+//     if (filterValue == "") {
+//         fullData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
+//     }
+// }
 
 
 UserInterface.prototype.loadIntersectedUI = function () {
