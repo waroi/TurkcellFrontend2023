@@ -6,7 +6,7 @@ const bookCoverInp = document.querySelector("#book-cover");
 
 import Book from "./book.js";
 
-export class Process {
+class Process {
   static addBook(books, ui, form) {
     const newBook = new Book(
       bookNameInp.value,
@@ -88,3 +88,5 @@ function compareBookDates(a, b) {
   if (a.releaseDate < b.releaseDate) return -1;
   return 0;
 }
+
+export default Process;
