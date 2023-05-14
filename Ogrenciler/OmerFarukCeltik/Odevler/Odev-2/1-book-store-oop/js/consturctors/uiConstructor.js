@@ -1,5 +1,6 @@
-import filterComponent from "./filterComponent.js";
-import createCard from "./cardComponent.js";
+
+import filterComponent from "../components/filterComponent.js";
+import createCard from "../components/cardComponent.js";
 let cardArea = document.querySelector("#card-area"); /*ekleyeceğimiz alan*/
 let form = document.querySelector("form");
 let categoryFilterArea = document.querySelector("#categoryFilterArea");

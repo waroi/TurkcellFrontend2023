@@ -4,4 +4,5 @@ function filterComponent(bookAttiribute) {
               <label class="form-check-label" for="checkbox${bookAttiribute}">${bookAttiribute}</label>
           </li>`
 }
+
 export default filterComponent;

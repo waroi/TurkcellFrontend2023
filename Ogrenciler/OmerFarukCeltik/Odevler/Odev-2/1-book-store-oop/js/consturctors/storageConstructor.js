@@ -1,4 +1,4 @@
-import { bookArray } from "./app.js";
+import { bookArray } from "../app.js";
 function Storage() { };
 
 Storage.prototype.getBooksFromStorage = function () {

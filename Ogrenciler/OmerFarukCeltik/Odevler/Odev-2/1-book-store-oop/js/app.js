@@ -1,8 +1,10 @@
 // import createCard from "./cardComponent.js";
 import baseBooks from "./bookList.js";
-import Book from "./bookConstructor.js";
-import UI from "./uiConstructor.js";
-import Storage from "./storageConstructor.js";
+import Book from "./consturctors/bookConstructor.js";
+import UI from "./consturctors/uiConstructor.js";
+import Storage from "./consturctors/storageConstructor.js";
+import sortCardsDateAndAlphabetic from "./functions/sortCardsFunction.js";
+import filterByCheckboxValue from "./functions/filterFunction.js";
 // areas
 let cardArea = document.querySelector("#card-area");
 let addBookButton = document.querySelector("#bookSearchContent");
@@ -40,7 +42,7 @@ cardUpdateToUI();
 createBookFilters();
 let currentCardUIID;
 
-function cardUpdateToUI(bookFounded,checkboxParam) {
+export function cardUpdateToUI(bookFounded,checkboxParam) {
   if (!checkboxParam) {
     cardArea.innerHTML = "";
   }
@@ -168,64 +170,4 @@ function createBookFilters() {
   }
 }
 
-let arrayForSort = [];
-let checkboxParam = false;
 
-function filterByCheckboxValue(e) {
-  if (e.target.checked) {
-    checkboxParam = true;
-    let categoryBook = bookArray.find((book) => e.target.value == book.category || e.target.value == book.author);
-    arrayForSort.push(categoryBook)
-    cardArea.innerHTML = "";
-    arrayForSort.forEach((categoryBook) => cardUpdateToUI(categoryBook, checkboxParam))
-  }
-  else if (!e.target.checked) {
-    let categoryBook = bookArray.find((book) => e.target.value == book.category || e.target.value == book.author);
-    arrayForSort.splice(categoryBook, 1);
-    cardArea.innerHTML = "";
-    arrayForSort.forEach((categoryBook) => cardUpdateToUI(categoryBook, checkboxParam))
-    cardUpdateToUI();
-
-    let parent = e.target.parentElement.parentElement.children;
-    for (let i = 0; i < parent.length; i++) {
-      parent[i].children[0].checked = false;
-      arrayForSort = [];
-    }
-  }
-}
-
-function sortCardsDateAndAlphabetic(e) {
-  if (e.target.value == "a/z") {
-    bookArray.sort((a, b) => {
-      let bookA = a.bookName.toLowerCase();
-      let bookB = b.bookName.toLowerCase();
-      if (bookA > bookB) {
-        return 1;
-      }
-      if (bookA < bookB) {
-        return -1;
-      }
-      return 0
-    })
-    cardUpdateToUI();
-  }
-  if (e.target.value == "z/a") {
-    bookArray.sort((a, b) => {
-      let bookA = a.bookName.toLowerCase();
-      let bookB = b.bookName.toLowerCase();
-      if (bookA < bookB) {
-        return 1;
-      }
-      if (bookA > bookB) {
-        return -1;
-      }
-      return 0
-    })
-    cardUpdateToUI();
-  }
-  if (e.target.value == "date") {
-    bookArray.sort((a, b) => a.publicationDate - b.publicationDate);
-    console.log(bookArray);
-    cardUpdateToUI();
-  }
-}
