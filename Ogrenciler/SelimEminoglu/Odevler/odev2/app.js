@@ -16,6 +16,8 @@ const updateBook = document.getElementById("updateBook");
 const searchİnput = document.getElementById("search");
 const bookList = document.getElementById("bookList");
 
+const orderList = document.getElementById("sorter");
+
 addBook.addEventListener("click", formClicked);
 updateBook.addEventListener("click", bookUpdated);
 searchİnput.addEventListener("keyup", searchBook);
@@ -25,6 +27,37 @@ let check = LocalConstructor.prototype.checkToLocalS();
 if (check) {
   UIConstructor.prototype.showBook(check);
 }
+
+orderList.addEventListener("change", () => {
+  switch (orderList.value) {
+    case "AtoZ":
+      let AtoZ = [];
+      bookList.childNodes.forEach((child) => {
+        AtoZ.push(child.childNodes[0].childNodes[1].childNodes[0].innerHTML);
+        child.classList.add("d-none");
+      });
+      AtoZ = AtoZ.sort();
+      AtoZ.map((title) => {
+        bookList.childNodes.forEach((child) => {
+          if (
+            title == child.childNodes[0].childNodes[1].childNodes[0].innerHTML
+          )
+            console.log(title);
+          child.classList.remove("d-none");
+        });
+      });
+      break;
+    case "ZtoA":
+      console.log("ztoa");
+      break;
+    case "OnDate":
+      console.log("ondate");
+      break;
+    default:
+      console.log("yok");
+      break;
+  }
+});
 
 function formClicked() {
   let books = [];
