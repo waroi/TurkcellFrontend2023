@@ -244,6 +244,7 @@ UserInterface.prototype.loadIntersectedUI = function () {
     if (UserInterface.prototype.sortValues()) {
         data = UserInterface.prototype.sortValues();
     }
+    console.log("intersected");
     bookUI.innerHTML = "";
     data.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
 }
