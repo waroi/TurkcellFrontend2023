@@ -44,6 +44,7 @@ function addBook(e) {
         //Sonra bu verileri storage'da depolayabilmek için Storage nesnemize gönderdik ordanda ui'ya gidicek
         const sendStorage = new Storage();
         sendStorage.addNewBookToLocalStorage(newBook);
+        sendStorage.checkInformationAllPage();
 
         //Inputlarımızı temizledik
         bookName.value = "";
@@ -54,16 +55,50 @@ function addBook(e) {
     }
 }
 
+// document.body.addEventListener("click", checkAllInfo);
+// function checkAllInfo() {
+//     const checkFunction = new Storage();
+//     // checkFunction.checkInformationAllPage()
+// }
+
+
 window.addEventListener("DOMContentLoaded", () => {
     const getAllBooks = new Storage();
     getAllBooks.getAllBooksOnLocalStorage();
+    getAllBooks.checkInformationAllPage()
 });
 
 deleteAllButton.addEventListener("click", deleteAllBooks)
 function deleteAllBooks() {
     const deleteAllBooks = new Storage();
     deleteAllBooks.deleteAllBooksOnStorage();
+    deleteAllBooks.checkInformationAllPage()
 }
+sortTitles = document.querySelectorAll("option");
+// sortOptions.addEventListener("click",()=>{
+
+// })
+sortOptions.addEventListener("change", () => {
+    console.log(typeof sortTitles)
+    Array.from(sortTitles).map(s => {
+        if (s.value == "azSort") {
+            changeSort("azsort")
+        }
+        else if (s.value == "zaSort") {
+            changeSort("zaSort")
+        }
+        else if (s.value == "dateSort") {
+            changeSort("dateSort")
+        }
+
+    });
+    // changeSort()
+})
+
+function changeSort(sortType) {
+    console.log(sortType)
+}
+
 
 searchBookInput.addEventListener("keyup", searchBook)
 function searchBook() {

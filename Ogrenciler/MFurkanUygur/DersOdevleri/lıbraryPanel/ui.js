@@ -10,7 +10,7 @@ function UI() {
 UI.prototype.displayBookOnHtml = function (test) {
   // bookContainer.innerHTML = createTag(test) + bookContainer.innerHTML
   bookContainer.innerHTML += createTag(test);
-
+  
   //Her card yapısına delete butonu ekledik
   const deleteBookBtns = document.querySelectorAll(".delete-btn");
   deleteBtn(deleteBookBtns);
@@ -20,12 +20,41 @@ UI.prototype.displayBookOnHtml = function (test) {
 
   const saveChangesBtns = document.querySelectorAll(".saveChanges");
   saveBtn(saveChangesBtns)
+
+  const writerFilterBtns = document.querySelectorAll("#writerFilterTag");
+  filterWriterBtn(writerFilterBtns)
+
+  const typeFilterBtns = document.querySelectorAll("#typeFilterTag");
+  filterTypeBtn(typeFilterBtns)
 }
 
-UI.prototype.displayOnFilterTitles = function () {
-  
-  
+//Filter buttonları
+function filterWriterBtn(writerFilterBtns) {
+  writerFilterBtns.forEach(e => {
+    e.addEventListener("click", (f) => {
+      let filterWriterName = f.target.parentElement.children[1].innerHTML;
+      if (f.target.parentElement.children[0].checked == true) {
+        const filterWord = new Storage();
+        filterWord.filterOnLS(filterWriterName);
+      }
+      f.target.parentElement.children[0].checked = false;
+    })
+  })
 }
+
+function filterTypeBtn(typeFilterBtns) {
+  typeFilterBtns.forEach(e => {
+    e.addEventListener("click", (f) => {
+      if (f.target.parentElement.children[0].checked == true) {
+        let filterTypeName = f.target.parentElement.children[1].innerHTML;
+        const filterWord = new Storage();
+        filterWord.filterOnLS(filterTypeName);
+      }
+      f.target.parentElement.children[0].checked = false
+    })
+  })
+}
+
 
 
 //Güncelleme butonu
@@ -34,7 +63,8 @@ function saveBtn(saveChangesBtns) {
     e.addEventListener("click", (e) => {
       let selectedBookTempID = defaultBookID.value;
       const selectedBookID = new Storage();
-      selectedBookID.updateSelectedBook(selectedBookTempID)
+      selectedBookID.updateSelectedBook(selectedBookTempID);
+      selectedBookID.checkInformationAllPage();
     })
   })
 }
@@ -44,7 +74,8 @@ function deleteBtn(deleteBookBtns) {
     e.addEventListener("click", (e) => {
       let selectedBookTempID = e.target.parentElement.parentElement.parentElement.id;
       const selectedBookID = new Storage();
-      selectedBookID.deleteSelectedBook(selectedBookTempID)
+      selectedBookID.deleteSelectedBook(selectedBookTempID);
+      selectedBookID.checkInformationAllPage();
     })
   });
 }
@@ -55,14 +86,15 @@ function editBtn(editBookBtns) {
     e.addEventListener("click", (e) => {
       let editedBookTempID = e.target.parentElement.parentElement.parentElement.id;
       const editedBookID = new Storage();
-      editedBookID.openModalWindowForEachBook(editedBookTempID)
+      editedBookID.openModalWindowForEachBook(editedBookTempID);
+
     })
   })
 }
 
 function createTag(b) {
   return `
-  <div class= "col-12 col-md-6 col-lg-3">
+  <div class= "col-12 col-sm-6 col-lg-3">
   <div class="card my-3 " id="${b.bookID}">
       <div class="text-center">
           <img src="${b.bookPicture}" class="card-img-top" alt="${b.bookPicture}">

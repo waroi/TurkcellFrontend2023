@@ -25,37 +25,30 @@ let allBooksOnLocalStorage = [
 //Yeni kitap ekleme(Hem LS hem display)
 Storage.prototype.addNewBookToLocalStorage = function (newBook) {
     ui.displayBookOnHtml(newBook);
-
     allBooksOnLocalStorage = [...allBooksOnLocalStorage, newBook];
     localStorage.setItem("books", JSON.stringify(allBooksOnLocalStorage));
-    writerFilterTag.innerHTML += `<a class="list-group">${newBook.bookWriter}</a>`;
-    typeFilterTag.innerHTML += `<a class="list-group">${newBook.bookType}</a>`
-}
 
+}
 
 //Sayfa yenilenince kitapları ekrana basma
 Storage.prototype.getAllBooksOnLocalStorage = function () {
     //defaultbooks hep başta. bunu allBook ile birleştirsek daha iyi olur bence
     allBooks = JSON.parse(localStorage.getItem("books"));
-
     if (allBooks != null) {
         allBooksOnLocalStorage = [...allBooks]
         // const ui = new UI();
         allBooks.forEach(e => {
             ui.displayBookOnHtml(e)
         });
-        filters(allBooksOnLocalStorage)
+        // filters(allBooksOnLocalStorage)
 
     }
     else {
         allBooksOnLocalStorage.forEach(x => {
             ui.displayBookOnHtml(x)
         })
-        filters(allBooksOnLocalStorage)
+        // filters(allBooksOnLocalStorage)
     }
-
-
-
     //sayfa yüklenir yüklenmez default kitapları kaydetmek için, bu olmazsa kitabı ekle butonuna tıkladıktan sonra LS'e kayıt yapıyor
     localStorage.setItem("books", JSON.stringify(allBooksOnLocalStorage));
 }
@@ -70,6 +63,7 @@ Storage.prototype.deleteSelectedBook = function (selectedID) {
                 allBooksOnLocalStorage.splice(bookIndex, 1);
                 allBooksOnLocalStorage.forEach(e => {
                     ui.displayBookOnHtml(e);
+
                 })
                 localStorage.setItem("books", JSON.stringify(allBooksOnLocalStorage));
             }
@@ -157,44 +151,79 @@ Storage.prototype.searchBookOnStorage = function (bookNameOrWriterValue) {
             ui.displayBookOnHtml(x)
         })
     }
-
 }
 
-
-//Filtreleme Yapma (kategori veya yazar adına göre)
-Storage.prototype.filterBooksToTypeOrWriter = function () {
-    let filterTitles = [];
-    allBooksOnLocalStorage.forEach(x => {
-        filterTitles.push({ filterBookName: x.bookName, filterWriterName: x.bookWriter });
-
-    })
-
-}
-
-function filters(f) {
-    //LS'teki kitaba ait yazar ve tür bilgisini filtre kısmında gözükmesi için çektik ve unique olması için SET diziye attık 
+//Sayfada yer alan verilerdeki ilgili bilgilerin filtreler kısmına ekleme
+Storage.prototype.checkInformationAllPage = function () {
+    // setInterval(checkInfoForEachClick, 1000)
     let writerTags = [];
     let typeTags = [];
-    f.forEach(x => {
+    //LS'teki kitaba ait yazar ve tür bilgisini filtre kısmında gözükmesi için çektik ve unique olması için SET diziye attık 
+    allBooksOnLocalStorage.forEach(x => {
         writerTags.push(x.bookWriter.toLowerCase());
         typeTags.push(x.bookType.toLowerCase());
     })
     const uniqueWriterTags = new Set();
-    writerTags.forEach(uniqueWriterTags.add, uniqueWriterTags);
-
     const uniqueTypeTags = new Set();
+    writerTags.forEach(uniqueWriterTags.add, uniqueWriterTags);
     typeTags.forEach(uniqueTypeTags.add, uniqueTypeTags);
 
     writerFilterTag.innerHTML = "";
     typeFilterTag.innerHTML = "";
 
     for (let eachWriterTag of uniqueWriterTags) {
-        writerFilterTag.innerHTML += `<a class="list-group">${eachWriterTag}</a>`;
+        writerFilterTag.innerHTML += `
+        <div class="p-0 m-0">
+            <input type="radio" name="writerName" class="form-check-input filter-writer-tag">
+            <label for="filterCheckBox">${eachWriterTag}</label>
+        </div>`;
     }
     for (let eachTypeTag of uniqueTypeTags) {
-        typeFilterTag.innerHTML += `<a class="list-group">${eachTypeTag}</a>`;
+        typeFilterTag.innerHTML += `
+        <div class="p-0 m-0">
+            <input type="radio" name="typeName" class="form-check-input filter-tag">
+            <label for="filterCheckBox">${eachTypeTag}</label>
+        </div>`;
     }
 }
+
+Storage.prototype.filterOnLS = function (filterWord) {
+    bookContainer.innerHTML = "";
+    allBooksOnLocalStorage.forEach(x => {
+        if (x.bookType.toLowerCase() == filterWord || x.bookWriter.toLowerCase() == filterWord) {   
+
+            ui.displayBookOnHtml(x)
+        }
+        
+    })
+}
+
+// function filters(f) {
+//     //LS'teki kitaba ait yazar ve tür bilgisini filtre kısmında gözükmesi için çektik ve unique olması için SET diziye attık 
+//     let writerTags = [];
+//     let typeTags = [];
+//     f.forEach(f => {
+//         writerTags.push(f.bookWriter.toLowerCase());
+//         typeTags.push(f.bookType.toLowerCase());
+//     })
+//     const uniqueWriterTags = new Set();
+//     writerTags.forEach(uniqueWriterTags.add, uniqueWriterTags);
+
+//     const uniqueTypeTags = new Set();
+//     typeTags.forEach(uniqueTypeTags.add, uniqueTypeTags);
+
+//     writerFilterTag.innerHTML = "";
+//     typeFilterTag.innerHTML = "";
+
+//     for (let eachWriterTag of uniqueWriterTags) {
+//         writerFilterTag.innerHTML += `<a href="" class="writer-tag">${eachWriterTag}</a>
+//         <br>`;
+//     }
+//     for (let eachTypeTag of uniqueTypeTags) {
+//         typeFilterTag.innerHTML += `<a href="" class="type-tag">${eachTypeTag}</a>
+//         <br>`;
+//     }
+// }
 
 // setInterval(function () {
 //     allBooks = JSON.parse(localStorage.getItem("books"));
@@ -212,16 +241,16 @@ function filters(f) {
 //     typeTags.forEach(uniqueTypeTags.add, uniqueTypeTags);
 
 //     // writerTags.forEach(tag => {
-//     // writerFilterTag.innerHTML += `<a class="list-group">${tag.filterBookWriter}</a>`;
-//     // typeFilterTag.innerHTML += `<a class="list-group">${tag.filterBookType}</a>`;
+//     // writerFilterTag.innerHTML += `<a href="">${tag.filterBookWriter}</a>`;
+//     // typeFilterTag.innerHTML += `<a href="">${tag.filterBookType}</a>`;
 //     // })
 //     writerFilterTag.innerHTML = "";
 //     typeFilterTag.innerHTML = "";
 //     for (let eachWriterTag of uniqueWriterTags) {
-//         writerFilterTag.innerHTML += `<a class="list-group">${eachWriterTag}</a>`;
+//         writerFilterTag.innerHTML += `<a href="">${eachWriterTag}</a>`;
 //     }
 //     for (let eachTypeTag of uniqueTypeTags) {
-//         typeFilterTag.innerHTML += `<a class="list-group">${eachTypeTag}</a>`;
+//         typeFilterTag.innerHTML += `<a href="">${eachTypeTag}</a>`;
 //     }
 //     console.log(writerTags)
 
