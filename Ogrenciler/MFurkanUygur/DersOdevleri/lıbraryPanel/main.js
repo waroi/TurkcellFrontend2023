@@ -129,13 +129,11 @@ sortTitles = document.querySelectorAll("option");
 sortTitles.forEach(s => {
     s.addEventListener("click", sortType)
 })
-sortOptions.addEventListener("change", () => {
-
-})
-
 function sortType(sortType) {
-    let tempSortTypeID = sortType.explicitOriginalTarget.id
-    console.log(tempSortTypeID)
+    let tempSortTypeID = sortType.explicitOriginalTarget.id;
+    // console.log(tempSortTypeID);
+    const sortBooks = new Storage();
+    sortBooks.sortBooks(tempSortTypeID)
 }
 
 

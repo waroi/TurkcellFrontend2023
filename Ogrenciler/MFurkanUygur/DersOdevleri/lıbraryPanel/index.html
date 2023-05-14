@@ -35,45 +35,49 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 mb-2">
-                    <div class="accordion accordion-flush mb-2" id="addBookButton">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header bg-black">
-                                <button class="btn btn-warning fw-bold w-100 collapsed " type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#addBookAllInputs" aria-expanded="false"
-                                    aria-controls="addBookAllInputs">
-                                    Kitap Ekle
-                                    <i class="bi-arrow-down"></i>
-                                </button>
-                            </h2>
-                            <div id="addBookAllInputs" class="accordion-collapse collapse"
-                                data-bs-parent="#addBookButton">
-                                <div class="accordion-body pb-0 mb-0">
-                                    <div class="row">
-                                        <form>
-                                            <label for="bookName">Kitap Adı: </label>
-                                            <input class="form-control py-1 fs-6 mb-2 mt-1"
-                                                placeholder="Kitap adı giriniz..." type="text" id="bookName">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-warning w-100 mb-2 fw-bold" data-bs-toggle="modal"
+                        data-bs-target="#addBook">
+                        Kitap Ekle
+                    </button>
 
-                                            <label for="bookWriter">Yazar: </label>
-                                            <input class="form-control py-1 fs-6 mb-2 mt-1"
-                                                placeholder="Yazar ismini giriniz..." type="text" id="bookWriter">
+                    <!-- Modal -->
+                    <div class="modal fade" id="addBook" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="addBookLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="addBookLabel">Kitap Ekleyiniz!</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <label for="bookName">Kitap Adı: </label>
+                                        <input class="form-control py-1 fs-6 mb-2 mt-1"
+                                            placeholder="Kitap adı giriniz..." type="text" id="bookName">
 
-                                            <label for="bookType">Kitap Türü: </label>
-                                            <input class="form-control py-1 fs-6 mb-2 mt-1"
-                                                placeholder="Kitap türünü giriniz..." type="text" id="bookType">
+                                        <label for="bookWriter">Yazar: </label>
+                                        <input class="form-control py-1 fs-6 mb-2 mt-1"
+                                            placeholder="Yazar ismini giriniz..." type="text" id="bookWriter">
 
-                                            <label for="bookDate">Basım Yılı: </label>
-                                            <input class="form-control py-1 fs-6 mb-2 mt-1"
-                                                placeholder="Basım yılını giriniz..." type="text" id="bookDate">
+                                        <label for="bookType">Kitap Türü: </label>
+                                        <input class="form-control py-1 fs-6 mb-2 mt-1"
+                                            placeholder="Kitap türünü giriniz..." type="text" id="bookType">
 
-                                            <label for="bookPicture">Kitap Görseli: </label>
-                                            <input class="form-control py-1 fs-6 mb-2 mt-1" type="text"
-                                                placeholder="Kitap görselini giriniz..." id="bookPicture">
+                                        <label for="bookDate">Basım Yılı: </label>
+                                        <input class="form-control py-1 fs-6 mb-2 mt-1"
+                                            placeholder="Basım yılını giriniz..." type="text" id="bookDate">
 
-                                            <button type="submit" class="btn btn-success w-100 my-3 "
-                                                id="addButton">Add</button>
-                                        </form>
-                                    </div>
+                                        <label for="bookPicture">Kitap Görseli: </label>
+                                        <input class="form-control py-1 fs-6 mb-2 mt-1" type="text"
+                                            placeholder="Kitap görselini giriniz..." id="bookPicture">
+
+                                        <button type="submit" class="btn btn-success w-100 my-3 " id="addButton"
+                                            data-bs-dismiss="modal">Ekle</button>
+                                        <button type="button" class="btn btn-danger w-100"
+                                            data-bs-dismiss="modal">İptal</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +126,9 @@
                             <option value="defaultSort" id="defaultSort" selected>Varsayılan</option>
                             <option value="azSort" id="azSort">A-z</option>
                             <option value="zaSort" id="zaSort">Z-a</option>
-                            <option value="dateSort" id="dateSort">Tarih</option>
+                            <option value="dateSortIncrease" id="dateSortIncrease">Tarih göre artan</option>
+                            <option value="dateSortDescend" id="dateSortDescend">Tarihe göre azalan</option>
+
                         </select>
                     </div>
                     <div class="row" id="bookContainer">

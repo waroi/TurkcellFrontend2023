@@ -1,11 +1,11 @@
+const ui = new UI();
+
 function Storage() {
 
 }
-const ui = new UI();
-
 let allBooksOnLocalStorage = [
     {
-        bookName: "Tutunamayanlar",
+        bookName: "Tehlikeli Oyunlar",
         bookWriter: "Oğuz Atay",
         bookType: "Kurgu",
         bookDate: "2000",
@@ -19,7 +19,24 @@ let allBooksOnLocalStorage = [
         bookDate: "2021",
         bookPicture: "https://i.dr.com.tr/cache/500x400-0/originals/0001717363001-1.jpg",
         bookID: Math.floor(Math.random() * 1000000)
+    },
+    {
+        bookName: "Küçük Prens",
+        bookWriter: "Antoine de Saint-Exupery",
+        bookType: "Macera",
+        bookDate: "2015",
+        bookPicture: "https://i.dr.com.tr/cache/500x400-0/originals/0000000628979-1.jpg",
+        bookID: Math.floor(Math.random() * 1000000)
+    },
+    {
+        bookName: "Kürk Mantolu Madonna",
+        bookWriter: "Sabahattin Ali",
+        bookType: "Macera",
+        bookDate: "2017",
+        bookPicture: "https://i.dr.com.tr/cache/500x400-0/originals/0000000058245-1.jpg",
+        bookID: Math.floor(Math.random() * 1000000)
     }
+
 ];
 
 //Yeni kitap ekleme(Hem LS hem display)
@@ -53,7 +70,7 @@ Storage.prototype.getAllBooksOnLocalStorage = function () {
     localStorage.setItem("books", JSON.stringify(allBooksOnLocalStorage));
 }
 
-//İstenilen bir kitabı silme ----yaaaniiii oldu gibi bence yüzde 90 okey
+//İstenilen bir kitabı silme
 Storage.prototype.deleteSelectedBook = function (selectedID) {
     allBooksOnLocalStorage.forEach(itemOnLS => {
         if (itemOnLS.bookID == selectedID) {
@@ -187,18 +204,74 @@ Storage.prototype.checkInformationAllPage = function () {
     }
 }
 
+//Filtrelenen kitapların ekrana basımı
 Storage.prototype.filterOnLS = function (filterWord) {
     bookContainer.innerHTML = "";
+    let filteredArray = [];
     allBooksOnLocalStorage.forEach(x => {
         if (x.bookType.toLowerCase() == filterWord || x.bookWriter.toLowerCase() == filterWord) {
-            ui.displayBookOnHtml(x)
+            filteredArray.push(x);
+            console.log(filteredArray)
         }
     })
+    allBooksOnLocalStorage = filteredArray
+    filteredArray.forEach(x => { ui.displayBookOnHtml(x) })
+
+
 }
 
+//Kitapların ekranda istenilen düzene göre sıralanması
+Storage.prototype.sortBooks = function (sortType) {
+    console.log("ls", sortType);
+    if (sortType == "azSort") {
+        let sortArray =
+            allBooksOnLocalStorage
+                .map(x => x)
+                .sort((a, b) => (a.bookName > b.bookName) ? 1 : ((b.bookName > a.bookName) ? -1 : 0))
+        bookContainer.innerHTML = "";
+        sortArray.map(e => e).forEach(e => {
+            ui.displayBookOnHtml(e)
+        })
+    }
+    else if (sortType == "zaSort") {
+        let sortArray =
+            allBooksOnLocalStorage
+                .map(x => x)
+                .sort((a, b) => (a.bookName < b.bookName) ? 1 : ((b.bookName < a.bookName) ? -1 : 0))
+        bookContainer.innerHTML = "";
+        sortArray.forEach(e => {
+            ui.displayBookOnHtml(e)
+        })
+    }
+    else if (sortType == "defaultSort") {
+        bookContainer.innerHTML = "";
+        allBooksOnLocalStorage.forEach(e => {
+            ui.displayBookOnHtml(e)
+        })
+    }
+    else if (sortType == "dateSortDescend") {
+        let sortArray =
+            allBooksOnLocalStorage
+                .map(x => x)
+                .sort((a, b) => (a.bookDate < b.bookDate) ? 1 : ((b.bookDate < a.bookDate) ? -1 : 0))
+        bookContainer.innerHTML = "";
+        sortArray.forEach(e => {
+            ui.displayBookOnHtml(e)
+        })
+    }
+    else if (sortType == "dateSortIncrease") {
+        let sortArray =
+            allBooksOnLocalStorage
+                .map(x => x)
+                .sort((a, b) => (a.bookDate > b.bookDate) ? 1 : ((b.bookDate > a.bookDate) ? -1 : 0))
+        bookContainer.innerHTML = "";
+        sortArray.forEach(e => {
+            ui.displayBookOnHtml(e)
+        })
+    }
+}
 
-
-//Tümünü silme -- Siliyor ama hata uyarısı var
+//Tümünü silme
 Storage.prototype.deleteAllBooksOnStorage = function () {
     localStorage.clear();
     bookContainer.innerHTML = "";
@@ -207,19 +280,14 @@ Storage.prototype.deleteAllBooksOnStorage = function () {
     // while (allBooksOnHtml.length > 0) {
     //     bookContainer.removeChild(bookContainer.firstChild);
     // }
-
-    console.log("silindi")
+    console.log("silindi");
     //??GEREK VAR MI emin değilim
     allBooks = [];
-    allBooksOnLocalStorage = []
-
-    // console.log("allbooks", allBooks)
-    // console.log("LS", allBooksOnLocalStorage)
-
+    allBooksOnLocalStorage = [];
 }
 
 // function filters(f) {
-//     //LS'teki kitaba ait yazar ve tür bilgisini filtre kısmında gözükmesi için çektik ve unique olması için SET diziye attık 
+//     //LS'teki kitaba ait yazar ve tür bilgisini filtre kısmında gözükmesi için çektik ve unique olması için SET diziye attık
 //     let writerTags = [];
 //     let typeTags = [];
 //     f.forEach(f => {
@@ -250,7 +318,7 @@ Storage.prototype.deleteAllBooksOnStorage = function () {
 //     let writerTags = [];
 //     let typeTags = [];
 
-//     //LS'teki kitaba ait yazar ve tür bilgisini filtre kısmında gözükmesi için çektik ve unique olması için SET diziye attık 
+//     //LS'teki kitaba ait yazar ve tür bilgisini filtre kısmında gözükmesi için çektik ve unique olması için SET diziye attık
 //     allBooks.forEach(x => {
 //         writerTags.push(x.bookWriter.toLowerCase());
 //         typeTags.push(x.bookType.toLowerCase());

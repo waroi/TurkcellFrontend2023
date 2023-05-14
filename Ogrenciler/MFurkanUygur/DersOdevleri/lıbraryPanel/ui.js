@@ -1,11 +1,7 @@
 const bookContainer = document.getElementById("bookContainer");
 
 //UI Object
-function UI() {
-
-}
-
-//En son new Storageları teke indirebilir miyiz kontrolünü yap
+function UI() { }
 
 UI.prototype.displayBookOnHtml = function (test) {
   // bookContainer.innerHTML = createTag(test) + bookContainer.innerHTML
@@ -17,7 +13,7 @@ UI.prototype.displayBookOnHtml = function (test) {
   //Her card yapısına edit butonu ekledik
   const editBookBtns = document.querySelectorAll(".edit-btn");
   editBtn(editBookBtns);
-
+  //Her card'ta bulunan edit butonuyla açılan modalda yer alan save changes butonu
   const saveChangesBtns = document.querySelectorAll(".saveChanges");
   saveBtn(saveChangesBtns)
 
@@ -56,8 +52,6 @@ UI.prototype.displayBookOnHtml = function (test) {
 //   })
 // }
 
-
-
 //Güncelleme butonu
 function saveBtn(saveChangesBtns) {
   saveChangesBtns.forEach(e => {
@@ -80,7 +74,6 @@ function deleteBtn(deleteBookBtns) {
     })
   });
 }
-
 //Edit butonuna click fonksiyonu eklendi
 function editBtn(editBookBtns) {
   editBookBtns.forEach(e => {
@@ -95,10 +88,10 @@ function editBtn(editBookBtns) {
 
 function createTag(b) {
   return `
-  <div class= "col-12 col-sm-6 col-lg-4  h-100">
-  <div class="card my-3 " id="${b.bookID}">
+  <div class= "col-12 col-sm-6 col-lg-4 ">
+  <div class="card my-3" id="${b.bookID}">
       <div class="text-center">
-          <img src="${b.bookPicture}" class="card-img-top img-fluid" alt="${b.bookPicture}">
+          <img src="${b.bookPicture}" class="card-img-top img-fluid " alt="${b.bookPicture}">
       </div>
       <div class="card-body">
           <h5 class="card-title m-0 fw-bold">${b.bookName}</h5>
