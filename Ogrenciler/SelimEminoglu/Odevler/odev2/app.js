@@ -84,22 +84,35 @@ function searchBook() {
   let list = LocalConstructor.prototype.checkToLocalS();
   let searchİnput = this.value.toLowerCase();
   let searchList = [];
+
   list.map((item) => {
     if (searchİnput == "") {
+      bookList.childNodes.forEach((child) => {
+        if (child.hasChildNodes()) {
+          child.classList.remove("d-none");
+        }
+      });
       return;
     } else if (
       item.name.toLowerCase().indexOf(searchİnput) > -1 ||
       item.writer.toLowerCase().indexOf(searchİnput) > -1
     ) {
+      bookList.childNodes.forEach((child) => {
+        if (child.hasChildNodes()) {
+          child.classList.add("d-none");
+        }
+      });
       searchList.push(item);
     }
   });
-  if (searchList != null) {
+
+  searchList.map((item) => {
     bookList.childNodes.forEach((child) => {
       if (child.hasChildNodes()) {
-        bookList.removeChild(child);
-        console.log(child);
+        if (item.id == Number(child.childNodes[0].id)) {
+          child.classList.remove("d-none");
+        }
       }
     });
-  }
+  });
 }
