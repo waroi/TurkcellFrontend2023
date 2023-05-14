@@ -3,6 +3,16 @@ const modalEl = document.querySelector('#addNewBookModal');
 const addLibraryButton = modalEl.querySelector('#addLibraryButton');
 const searchButton = document.querySelector('#searchInputButton');
 const searchInput = document.querySelector('#searchInput');
+const sortAz = document.querySelector('#sortAz');
+const sortZa = document.querySelector('#sortZa');
+const sortLatest = document.querySelector('#sortLatest');
+const sortOldest = document.querySelector('#sortOldest');
+const filterauthor = document.querySelector('#filterauthor');
+const filterbooksbutton = document.querySelector('#filterbooksbutton');
+const modalFilter = document.querySelector('#filterModal');
+
+
+
 
 const ui = new UI();
 const storage = new LStorage();
@@ -14,6 +24,25 @@ function eventListeners() {
         // Modal açıldığında çalışacak kodlar
         addLibraryButton.addEventListener('click', addNewBook); // Modal butonuna event listener ekleme
     });
+    modalFilter.addEventListener('shown.bs.modal', filterBook2)
+    // modalFilter.addEventListener('shown.bs.modal', filteredCategory)
+    // {
+    //     // Modal açıldığında çalışacak kodlar
+    //     const checkboxes = document.querySelectorAll('.authorcheckbox');
+    //     const filteredAuthor = [];
+    //     checkboxes.forEach(function (checkbox) {
+    //         checkbox.addEventListener('change', function () {
+    //             if (this.checked) {
+    //                 filteredAuthor.push(this.id);
+    //                 console.log(filteredAuthor);
+    //             }
+    //         });
+    //     });
+
+
+    //     filterbooksbutton.addEventListener('click', filterAuthor);
+
+    // });
     // modalEl.addEventListener('hidden.bs.modal', function () {
     //     // Modal kapatıldığında çalışacak kodlar
     //     addLibraryButton.removeEventListener('click', addNewBook); // Modal butonundan event listener kaldırma
@@ -22,6 +51,14 @@ function eventListeners() {
     bookList.addEventListener('click', updateBook);
     document.addEventListener('DOMContentLoaded', starterCond);
     searchInput.addEventListener('keyup', searchBook);
+    sortAz.addEventListener('click', sortBookAz);
+    sortZa.addEventListener('click', sortBookZa);
+    sortLatest.addEventListener('click', sortBookLatest);
+    sortOldest.addEventListener('click', sortBookOldest);
+    filterbooksbutton.addEventListener('click', filterBook2);
+
+
+
 
 }
 
@@ -33,7 +70,7 @@ function starterCond() {
                 'Otomatik Portakal ',
                 'Anthony Burgess',
                 'Roman',
-                '2010-07-25',
+                '2010-07-24',
                 'https://i.dr.com.tr/cache/500x400-0/originals/0000000064031-1.jpg'
 
             )
@@ -49,10 +86,10 @@ function starterCond() {
         );
         storage.addBookToStorage(
             new Book(
-                'Şeker Portakalı',
+                'Seker Portakalı',
                 'Jose Mauro De Vasconcelos ',
                 'Şiir',
-                '2010-07-25',
+                '2010-07-26',
                 'https://i.dr.com.tr/cache/500x400-0/originals/0000000064031-1.jpg'
             )
         );
@@ -107,7 +144,6 @@ function deleteBook(e) {
 function updateBook(e) {
     if (e.target.id === 'editButton') {
         ui.updateBookFromUI(e);
-        storage.updateBookFromStorage(e.target.parentElement.parentElement.children[0].textContent);
     }
 
 }
@@ -115,5 +151,149 @@ function updateBook(e) {
 function searchBook(e) {
     const searchValue = e.target.value.toLowerCase();
     ui.searchBook(searchValue);
+}
+
+function sortBookAz(e) {
+
+    const books = storage.getBooksFromStorage();
+    const bookNames = books.map(function (book) {
+        return book.name.toLowerCase();
+    }
+    );
+
+    bookNames.sort();
+    ui.sortBookAz(bookNames);
 
 }
+
+
+function sortBookZa(e) {
+    const books = storage.getBooksFromStorage();
+    const bookNames = books.map(function (book) {
+        return book.name.toLowerCase();
+    }
+    );
+
+    bookNames.sort().reverse();
+    ui.sortBookAz(bookNames);
+
+}
+
+function sortBookLatest(e) {
+    const books = storage.getBooksFromStorage();
+    const bookDates = books.map(function (book) {
+        return book.date;
+    }
+    );
+
+    bookDates.sort().reverse();
+    ui.sortBookDates(bookDates);
+
+}
+
+function sortBookOldest(e) {
+    const books = storage.getBooksFromStorage();
+    const bookDates = books.map(function (book) {
+        return book.date;
+    }
+    );
+    console.log(bookDates);
+    bookDates.sort();
+    ui.sortBookDates(bookDates);
+
+}
+
+function checkedAuthor(e) {
+    const authorCheckboxes = document.querySelectorAll("authorcheckbox");
+    console.log(authorCheckboxes);
+}
+
+
+
+
+// function filterAuthor(e) {
+//     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+//     console.log(checkboxes);
+
+//     const selectedAuthors = [];
+//     const authorCheckboxes = document.querySelectorAll("authorcheckbox");
+
+//     authorCheckboxes.forEach(function (checkbox) {
+//         if (checkbox.checked) {
+//             selectedAuthors.push(checkbox.value);
+//         }
+//     });
+//     console.log(selectedAuthors);
+//     // const books = storage.getBooksFromStorage();
+
+//     // const filteredBooks = books.filter(function (book) {
+//     //     return selectedAuthors.includes(book.author);
+//     // });
+
+//     // ui.filterAuthor(filteredBooks);
+// }
+
+function filterBook2() {
+    const checkboxes = document.querySelectorAll('.authorcheckbox');
+    const filteredAuthor = [];
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                filteredAuthor.push(this.id);
+                console.log(filteredAuthor);
+            }
+        });
+    });
+
+    const checkboxes2 = document.querySelectorAll('.categorycheckbox');
+    const filteredCategory = [];
+    checkboxes2.forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                filteredCategory.push(this.id);
+                console.log(filteredCategory);
+
+            }
+        });
+    });
+
+}
+
+// function filteredAuthor() {
+//     //sçilen yazarların dizisi
+//     const checkboxes = document.querySelectorAll('.authorcheckbox');
+//     const filteredAuthor = [];
+//     checkboxes.forEach(function (checkbox) {
+//         checkbox.addEventListener('change', function () {
+//             if (this.checked) {
+//                 filteredAuthor.push(this.id);
+//                 console.log(filteredAuthor);
+//             }
+//         });
+//     });
+//     console.log(filteredAuthor);
+//     return filteredAuthor;
+//     // ui.filterAuthor(filteredAuthor);
+// }
+
+// function filteredCategory() {
+//     //sçilen kategorilerin dizisi
+//     const checkboxes = document.querySelectorAll('.categorycheckbox');
+//     const filteredCategory = [];
+//     checkboxes.forEach(function (checkbox) {
+//         checkbox.addEventListener('change', function () {
+//             if (this.checked) {
+//                 filteredCategory.push(this.id);
+//                 console.log(filteredCategory);
+//             }
+//         });
+//     });
+//     console.log(filteredCategory);
+//     return filteredCategory;
+//     // ui.filterAuthor(filteredAuthor);
+// }
+
+// function filterBook() {
+
+// }

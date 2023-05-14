@@ -3,6 +3,8 @@ function UI() { }
 UI.prototype.addBookToUI = function (newBook) {
 
   const bookList = document.getElementById('booklist');
+  const filterauthor = document.getElementById('filterauthor');
+  const filtercategory = document.getElementById('filtercategory');
 
   bookList.innerHTML += `
     <div class="col-md-4">
@@ -35,6 +37,38 @@ UI.prototype.addBookToUI = function (newBook) {
   </div>
     `;
 
+  if (!filterauthor.innerHTML.includes(newBook.author)) {
+    filterauthor.innerHTML += `
+  <div class="form-check ">
+                      <input
+                        class="form-check-input authorcheckbox"
+                        type="checkbox"
+                        value=""
+                        id="${newBook.author}"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault">
+                      ${newBook.author}
+                      </label>
+                    </div>
+  `;
+
+    filtercategory.innerHTML += ` <div class="form-check">
+  <input
+    class="form-check-input categorycheckbox"
+    type="checkbox"
+    value=""
+    id="${newBook.category}"
+  />
+  <label class="form-check-label" for="flexCheckDefault">
+  ${newBook.category}
+  </label>
+</div>
+`;
+  }
+
+
+
+
 };
 
 UI.prototype.clearInputs = function (element1, element2, element3, element4, element5) {
@@ -55,6 +89,13 @@ UI.prototype.displayMessages = function (modalname) {
 UI.prototype.deleteBookFromUI = function (element) {
   element.parentElement.parentElement.parentElement.parentElement.remove();
 };
+
+UI.prototype.deleteAllBooksFromUI = function () {
+  const bookList = document.getElementById('booklist');
+  bookList.innerHTML = '';
+};
+
+
 
 UI.prototype.updateBookFromUI = function (element) {
   let editingModal = new bootstrap.Modal(document.getElementById('editBookModal'));
@@ -103,5 +144,46 @@ UI.prototype.searchBook = function (searchValue) {
   }
 
   )
+
+}
+
+UI.prototype.sortBookAz = function (bookNames) {
+  ui.deleteAllBooksFromUI();
+  console.log(bookNames);
+
+  const books = storage.getBooksFromStorage();
+
+  bookNames.forEach(function (bookName) {
+    books.forEach(function (book) {
+      if (book.name.toLowerCase() == bookName) {
+        ui.addBookToUI(book);
+      }
+    })
+  })
+
+
+}
+
+UI.prototype.sortBookDates = function (bookDates) {
+  ui.deleteAllBooksFromUI();
+  console.log(bookDates);
+
+  const books = storage.getBooksFromStorage();
+
+  bookDates.forEach(function (bookDate) {
+    books.forEach(function (book) {
+      let booksInUI = document.getElementById('booklist');
+      if (book.date == bookDate && booksInUI.innerHTML.indexOf(book.name) == -1) {
+        ui.addBookToUI(book);
+      }
+    })
+  })
+
+}
+
+
+UI.prototype.filterBook = function (filteredAuthor, filteredCategory) {
+  console.log(filteredAuthor);
+  console.log(filteredCategory);
 
 }
