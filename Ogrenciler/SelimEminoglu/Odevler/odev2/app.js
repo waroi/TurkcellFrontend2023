@@ -32,29 +32,70 @@ orderList.addEventListener("change", () => {
   switch (orderList.value) {
     case "AtoZ":
       let AtoZ = [];
-      bookList.childNodes.forEach((child) => {
-        AtoZ.push(child.childNodes[0].childNodes[1].childNodes[0].innerHTML);
-        child.classList.add("d-none");
+      let list = LocalConstructor.prototype.checkToLocalS();
+      let list2 = [];
+      let list3 = [];
+
+      list.map((item) => {
+        AtoZ.push(item.name);
       });
       AtoZ = AtoZ.sort();
-      AtoZ.map((title) => {
-        bookList.childNodes.forEach((child) => {
-          if (
-            title == child.childNodes[0].childNodes[1].childNodes[0].innerHTML
-          )
-            console.log(title);
-          child.classList.remove("d-none");
+
+      for (let i = 0; i < AtoZ.length; i++) {
+        list.map((item) => {
+          if (AtoZ[i] === item.name) {
+            list2.push(item);
+          }
         });
+      }
+
+      let result = new Set(list2);
+
+      result.forEach((item) => {
+        list3.push(item);
       });
+      LocalConstructor.prototype.changeBookToLocalS(list3);
+      list = LocalConstructor.prototype.checkToLocalS();
+
+      UIConstructor.prototype.showBook(list);
+
       break;
     case "ZtoA":
-      console.log("ztoa");
+      let ZtoA = [];
+      let list4 = LocalConstructor.prototype.checkToLocalS();
+      let list5 = [];
+      let list6 = [];
+
+      list4.map((item) => {
+        ZtoA.push(item.name);
+      });
+      ZtoA = ZtoA.reverse();
+
+      for (let i = 0; i < ZtoA.length; i++) {
+        list4.map((item) => {
+          if (ZtoA[i] === item.name) {
+            list5.push(item);
+          }
+        });
+      }
+
+      let result2 = new Set(list5);
+
+      result2.forEach((item) => {
+        list6.push(item);
+      });
+      LocalConstructor.prototype.changeBookToLocalS(list6);
+      list4 = LocalConstructor.prototype.checkToLocalS();
+
+      UIConstructor.prototype.showBook(list4);
       break;
     case "OnDate":
       console.log("ondate");
       break;
     default:
-      console.log("yok");
+      let rand = LocalConstructor.prototype.checkToLocalS();
+      let randList = rand.sort((a, b) => 0.5 - Math.random());
+      LocalConstructor.prototype.changeBookToLocalS(randList);
       break;
   }
 });
