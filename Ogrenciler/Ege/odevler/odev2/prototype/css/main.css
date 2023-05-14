@@ -5196,15 +5196,15 @@ textarea.form-control-lg {
   --bs-modal-padding: 1rem;
   --bs-modal-margin: 0.5rem;
   --bs-modal-color: ;
-  --bs-modal-bg: #fff;
+  --bs-modal-bg: rgba(255, 255, 255, 0.6);
   --bs-modal-border-color: var(--bs-border-color-translucent);
   --bs-modal-border-width: 1px;
   --bs-modal-border-radius: 0.5rem;
   --bs-modal-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   --bs-modal-inner-border-radius: calc(0.5rem - 1px);
   --bs-modal-header-padding-x: 1rem;
-  --bs-modal-header-padding-y: 1rem;
-  --bs-modal-header-padding: 1rem 1rem;
+  --bs-modal-header-padding-y: 3rem;
+  --bs-modal-header-padding: 3rem 1rem;
   --bs-modal-header-border-color: var(--bs-border-color);
   --bs-modal-header-border-width: 1px;
   --bs-modal-title-line-height: 1.5;
@@ -6014,7 +6014,7 @@ textarea.form-control-lg {
   --bs-offcanvas-padding-x: 1rem;
   --bs-offcanvas-padding-y: 1rem;
   --bs-offcanvas-color: ;
-  --bs-offcanvas-bg: #fff;
+  --bs-offcanvas-bg: rgba(255, 255, 255, 0.6);
   --bs-offcanvas-border-width: 1px;
   --bs-offcanvas-border-color: var(--bs-border-color-translucent);
   --bs-offcanvas-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
@@ -10802,10 +10802,43 @@ i {
 }
 
 .hero {
-  font-size: 142px;
+  font-size: 128px;
   font-weight: 700;
   color: rgb(255, 255, 255);
   text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px, #ff6e4a 0px 0px 20px, #ff6e4a 0px 0px 30px, #ff6e4a 0px 0px 40px, #ff6e4a 0px 0px 50px, #ff6e4a 0px 0px 75px;
+}
+
+.modal-header {
+  background-image: url(https://img.freepik.com/free-vector/sunset-sunrise-ocean-nature-landscape_33099-2244.jpg?w=1380&t=st=1684093899~exp=1684094499~hmac=54059f7eaab5a67d47c04a6008b9c94e2d7d26b05e34ac51eb6bbaf9539ea5a0);
+  background-size: cover;
+}
+
+.modal-content {
+  backdrop-filter: blur(5px);
+}
+.modal-content label {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin: 16px 0 8px 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+}
+.modal-content input {
+  border-radius: 10px;
+  padding: 5px 2px;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+}
+
+.modal-title h1, .modal-title .h1 {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 992px) {
+  .hero {
+    font-size: 64px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
