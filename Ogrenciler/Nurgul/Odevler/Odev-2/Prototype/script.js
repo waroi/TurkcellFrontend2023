@@ -228,7 +228,6 @@ BookManager.prototype.sortBooks = function (sortOption) {
     });
   }
 };
-
 const bookMangr = new BookManager();
 const sortSelect = document.getElementById("sortSelect");
 sortSelect.addEventListener("change", () => {
@@ -238,7 +237,8 @@ sortSelect.addEventListener("change", () => {
   bookMangr.sortBooks(sortSelect.value);
   bookMangr.renderBooks();
 });
-
+searchInput = document.querySelector(".searchInput");
+searchInput.addEventListener("input", searchBook);
 BookManager.prototype.deleteBook = function (index) {
   this.books.splice(index, 1);
   localStorage.setItem("books", JSON.stringify(this.books));

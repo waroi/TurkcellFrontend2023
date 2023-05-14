@@ -103,10 +103,7 @@ class BookManager {
     while (bookCard.firstChild) {
       bookCard.firstChild.remove();
     }
-
-    
-    bookCard.innerHTML = "";
-
+  
     this.sortBooks(sortSelect.value);
 
     this.books.forEach((book, index) => {
@@ -240,41 +237,23 @@ class BookManager {
       this.books.sort((a, b) => {
         const yearA = Number(a.year);
         const yearB = Number(b.year);
+  
         return yearA - yearB;
       });
     } else if (sortOption === "reverse-year") {
       this.books.sort((a, b) => {
         const yearA = Number(a.year);
         const yearB = Number(b.year);
+  
         return yearB - yearA;
       });
     }
   }
-
   deleteBook(index) {
     this.books.splice(index, 1);
     localStorage.setItem("books", JSON.stringify(this.books));
     this.renderBooks();
   }
-
-  updateBook(index) {
-    const book = this.books[index];
-    const form = document.getElementById("bookForm");
-    form.elements.bookName.value = book.bookName;
-    form.elements.writer.value = book.writer;
-    form.elements.year.value = book.year;
-    form.elements.type.value = book.type;
-    form.elements.posterUrl.value = book.posterUrl;
-    const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-    modal.show();
-
-    const updateButton = document.getElementById("updateButton");
-    updateButton.addEventListener("click", () => {
-      this.performUpdate(index);
-      modal.hide();
-    });
-  }
-
   performUpdate(index) {
     const form = document.getElementById("bookForm");
     const bookName = form.elements.bookName.value;
@@ -301,6 +280,7 @@ class BookManager {
 const bookManager = new BookManager();
 
 const bookForm = document.getElementById("bookForm");
+
 bookForm.addEventListener("submit", function (event) {
   event.preventDefault();
   bookManager.addBook(event);

@@ -2,7 +2,7 @@ class BookManager {
   constructor() {
     this.books = [];
 
-    // Yerel depoda (localStorage) "books" adında bir anahtar varsa, kayıtlı kitapları alır ve ekrana render eder.
+   
     if (localStorage.getItem("books")) {
       this.books = JSON.parse(localStorage.getItem("books"));
       this.renderBooks();
@@ -21,7 +21,7 @@ class BookManager {
     const type = form.elements.type.value;
     const posterUrl = form.elements.posterUrl.value;
 
-    // Arama işlemi için input alanına dinleyici eklenir
+   
     const searchInput = document.querySelector(".searchInput");
     searchInput.addEventListener("input", this.searchBook);
 
@@ -33,7 +33,7 @@ class BookManager {
       posterUrl,
     };
 
-    // Eğer herhangi bir alan boş bırakıldıysa, uyarı verilir ve işlem durdurulur.
+    
     if (
       bookName === "" ||
       writer === "" ||
@@ -180,7 +180,7 @@ class BookManager {
       radio.addEventListener("change", this.searchBook);
     });
 
-    // Radio butonlarını güncelle
+   
     const categoryContainer = document.getElementById("categoryContainer");
     categoryContainer.innerHTML = "";
 
