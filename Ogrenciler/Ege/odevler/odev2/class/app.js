@@ -1,6 +1,6 @@
-import Book from "./Constructors/book.js";
-import { UI } from "./Constructors/ui.js";
-import { Process } from "./Constructors/process.js";
+import Book from "./Classes/book.js";
+import { UI } from "./Classes/ui.js";
+import { Process } from "./Classes/process.js";
 
 const categorySelect = document.querySelector("#categories");
 const writerSelect = document.querySelector("#writers");
