@@ -17,6 +17,7 @@ Storage.prototype.setBook2LocalStorage = function(book) {
   const books = storage.getBooksFromLocalStorage();
   books.push(book);
   localStorage.setItem('books', JSON.stringify(books));
+  ui.addCategories2UI(books);
 }
 
 //Local Storage'da bulunan kitapları gösterme
@@ -25,6 +26,7 @@ Storage.prototype.showBooksFromLocalStorage = function() {
   books.map((book) => {
     ui.addBookToUI(book);
   });
+  ui.addCategories2UI(books);
 }
 
 //Local Storage'dan kitap silme
@@ -36,4 +38,5 @@ Storage.prototype.deleteBookFromLocalStorage = function(deleteBookId) {
     }
   });
   localStorage.setItem('books', JSON.stringify(books));
+  ui.addCategories2UI(books);
 }

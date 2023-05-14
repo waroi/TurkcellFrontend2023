@@ -17,7 +17,7 @@ UI.prototype.clearModalForm = function() {
 UI.prototype.addBookToUI = function(book) {
   const bookCol = document.createElement('div');
   bookCol.id = book.id;
-  bookCol.className = 'col-md-3 col-sm-6 mb-3';
+  bookCol.className = 'col-md-4 col-sm-6 mb-3';
   const bookCard = document.createElement('div');
   bookCard.className = 'card shadow border-0';
   const bookCardRow = `
@@ -64,6 +64,11 @@ UI.prototype.toastMessage = function(message) {
   toastMessage.show();
 }
 
+UI.prototype.updateDisplay = function(books) {
+    bookList.innerHTML = '';
+    books.map((book) => ui.addBookToUI(book));
+}
+
 UI.prototype.updateBook2UI = function(updateBook) {
   bookName.value = updateBook.name;
   bookAuthor.value = updateBook.author;
@@ -94,32 +99,84 @@ UI.prototype.searchBook2UI = function(getAllBooksName, getAllDirectors, searchWo
     const bookCard = getAllBooksName[i].parentElement.parentElement.parentElement.parentElement.parentElement;
     const bookNames = getAllBooksName[i].innerHTML.toLowerCase();
     const directorNames = getAllDirectors[i].innerHTML.toLowerCase();
-    if(bookNames.indexOf(searchWord) <= -1 || directorNames.indexOf(searchWord) <= -1) {
-      bookCard.style.display = 'none';
-    }
-    else {
+    if(bookNames.indexOf(searchWord) > -1 || directorNames.indexOf(searchWord) > -1) {
       bookCard.style.display = 'block';
     }
+    else {
+      bookCard.style.display = 'none';
+    }
   }
-  // getAllBooksName.forEach((book) => {
-  //   const bookCards = book.parentElement.parentElement.parentElement.parentElement.parentElement;
-  //   const bookNames = book.innerHTML.toLowerCase();
-  //   if(bookNames.indexOf(searchWord) <= -1) {
-  //     bookCards.style.display = 'none';
-  //   }
-  //   else {
-  //     bookCards.style.display = 'block';
-  //   }
-  // });
-  // getAllDirectors.forEach((director) => {
-  //   const directorCards = director.parentElement.parentElement.parentElement.parentElement.parentElement;
-  //   const directorNames = director.innerHTML.toLowerCase();
-  //   if(directorNames.indexOf(searchWord) <= -1) {
-  //     directorCards.style.display = 'none';
-  //   }
-  //   else {
-  //     directorCards.style.display = 'block';
-  //   }
-  // })
+}
 
+UI.prototype.sortBook2UI = function(dropDownValue) {
+  const books = storage.getBooksFromLocalStorage();
+  function sortBooksWithName(a, b) {
+    let x = a.name.toLowerCase();
+    let y = b.name.toLowerCase();
+    if (x < y) {return -1;}
+    if (x > y) {return 1;}
+    return;
+  }
+  
+  function sortBooksWithDate(a, b) {
+    let x = a.date;
+    let y = b.date;
+    if (x < y) {return -1;}
+    if (x > y) {return 1;}
+    return;
+  }
+  if(dropDownValue === 'A - Z') books.sort(sortBooksWithName);
+  else if(dropDownValue === 'Z - A') books.sort(sortBooksWithName).reverse();
+  else if(dropDownValue === 'Eskiden Yeniye') books.sort(sortBooksWithDate);
+  else if(dropDownValue === 'Yeniden Eskiye') books.sort(sortBooksWithDate).reverse();
+  ui.updateDisplay(books);
+}
+
+UI.prototype.addCategories2UI = function(books) {
+  const myCategoriesSet = new Set(books.map((book) => book.category));
+  ui.addCategoriesAndAuthor2UI4ListGroup(categoryDropDown, categories, myCategoriesSet);
+  const myAuthorSet = new Set(books.map((book) => book.author));
+  ui.addCategoriesAndAuthor2UI4ListGroup(directorDropDown, directors, myAuthorSet);
+}
+
+UI.prototype.addCategoriesAndAuthor2UI4ListGroup = function(dropDown, listGroup, tempSet) {
+  dropDown.innerHTML = '';
+  listGroup.innerHTML = '';
+  const tempArray4ListGroup = [];
+  const tempArray4DropDown = [];
+  tempArray4ListGroup.push(tempSet);
+  tempArray4DropDown.push(tempSet);
+  Array.from(tempArray4ListGroup[0]).sort().map((typeCategory) => {
+    const listGroupItem = document.createElement('a');
+    listGroupItem.className = 'list-group-item list-group-item-action';
+    listGroupItem.setAttribute('href', '#');
+    listGroupItem.value = typeCategory;
+    listGroupItem.innerHTML = typeCategory;
+    listGroup.appendChild(listGroupItem);
+    const dropDownItem = document.createElement('li');
+    const dropDownItemLink = document.createElement('a');
+    dropDownItemLink.className = 'dropdown-item';
+    dropDownItemLink.setAttribute('href', '#');
+    dropDownItemLink.value = typeCategory;
+    dropDownItemLink.innerHTML = typeCategory;
+    dropDownItem.appendChild(dropDownItemLink);
+    dropDown.appendChild(dropDownItem);
+  }
+  );
+}
+
+UI.prototype.listOfSameCategoriesBooks = function(e) {
+  const books = storage.getBooksFromLocalStorage();
+  const categoryName = e.target.value;
+  const filteredBooks = books.filter((book) => book.category === categoryName);
+  ui.updateDisplay(filteredBooks);
+  e.preventDefault();
+}
+
+UI.prototype.listOfDirectorBooks = function(e) {
+  const books = storage.getBooksFromLocalStorage();
+  const directorName4Books = e.target.value;
+  const filteredBooks = books.filter((book) => book.author === directorName4Books);
+  ui.updateDisplay(filteredBooks);
+  e.preventDefault();
 }

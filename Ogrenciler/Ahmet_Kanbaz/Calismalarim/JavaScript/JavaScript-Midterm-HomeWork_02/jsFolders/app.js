@@ -21,6 +21,12 @@ const toast = document.getElementById("toastMessage");
 
 const searchBook = document.getElementById('searchBook');
 
+const dropDownItems = document.querySelectorAll('.dropdown-item');
+const categories = document.querySelector('.categories');
+const directors = document.querySelector('.directors');
+
+const categoryDropDown = document.querySelector('.categoryDropDown');
+const directorDropDown = document.querySelector('.directorDropDown');
 addEventListeners();
 
 function addEventListeners() {
@@ -30,5 +36,9 @@ function addEventListeners() {
   bookList.addEventListener("click", books.deleteBook);
   bookList.addEventListener("click", books.updateBook);
   searchBook.addEventListener('keyup', books.searchBook);
-
+  dropDownItems.forEach(item => {item.addEventListener('click', books.sortBook)});
+  categories.addEventListener('click', ui.listOfSameCategoriesBooks);
+  categoryDropDown.addEventListener('click', ui.listOfSameCategoriesBooks);
+  directors.addEventListener('click', ui.listOfDirectorBooks);
+  directorDropDown.addEventListener('click', ui.listOfDirectorBooks);
 }

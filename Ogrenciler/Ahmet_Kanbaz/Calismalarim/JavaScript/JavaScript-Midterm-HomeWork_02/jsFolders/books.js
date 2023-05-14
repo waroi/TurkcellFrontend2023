@@ -62,3 +62,9 @@ Books.prototype.searchBook = function(e) {
   const searchWord = e.target.value.toLowerCase();
   ui.searchBook2UI(getAllBooksName, getAllDirectors, searchWord);
 }
+
+Books.prototype.sortBook = function(e) {
+  const dropDownValue = e.target.textContent;
+  ui.sortBook2UI(dropDownValue);
+  e.preventDefault();
+}

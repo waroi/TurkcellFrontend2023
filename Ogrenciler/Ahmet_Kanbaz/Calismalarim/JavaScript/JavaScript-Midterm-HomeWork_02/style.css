@@ -2,13 +2,34 @@ body {
   margin: 0;
   padding: 0;
   background-color: #F2F2F2;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 nav {
-  background-color: white;
+  background-color: #FFFFFF;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.collapse a {
+  color: #000000;
+  transition: all 0.3s ease-in-out;
+}
+
+.collapse li:hover a {
+  color: #838383;
+}
+
+.socials a {
+    width: 35px;
+    height: 35px;
+    background-color: #969696;
+}
+
+.socials a:hover {
+    background-color: #838383;
 }
 
 input[type="text"]:focus {
@@ -38,13 +59,23 @@ span, p {
 
 .cardIcon a{
   color: #000000;
-  transition: all .3s ease-in-out;
-}
-
-.cardIcon a:hover{
-  color: #838383;
 }
 
 .toastZIndex {
   z-index: 11;
+}
+
+.list-group-item {
+  background-color: #F2F2F2;
+}
+
+footer a,
+footer p,
+footer h5 {
+  color: #FFFFFF;
+}
+
+footer a:hover,
+.cardIcon a:hover{
+  color: #838383;
 }
