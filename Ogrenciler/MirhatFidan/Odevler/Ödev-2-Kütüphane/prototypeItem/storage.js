@@ -48,7 +48,7 @@ Storage.prototype.editBook = function (books, bookID, ui, form) {
   book.name = nameBook.value;
   book.writer = writerBook.value;
   book.category = categoryBook.value;
-  book.date = dateBook.value;
+  book.releaseDate = dateBook.value;
   book.coverURL = imageBook.value;
   localStorage.setItem("bookStorage", JSON.stringify(books));
   ui.updateDisplay(books);

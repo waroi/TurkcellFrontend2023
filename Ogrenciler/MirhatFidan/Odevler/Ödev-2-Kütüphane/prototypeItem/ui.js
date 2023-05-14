@@ -70,7 +70,7 @@ UI.prototype.modalWrap = function (books, bookID) {
   nameBook.value = book.name;
   writerBook.value = book.writer;
   categoryBook.value = book.category;
-  dateBook.value = book.date;
+  dateBook.value = book.releaseDate;
   imageBook.value = book.coverURL;
   bookAdd.classList.toggle("d-none");
   editBook.classList.toggle("d-none");

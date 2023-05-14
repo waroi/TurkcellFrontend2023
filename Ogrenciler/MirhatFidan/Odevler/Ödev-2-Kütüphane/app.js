@@ -28,7 +28,7 @@ if (books.length === 0) {
       "Simyacı",
       "Paulo Coelho",
       "Macera",
-      "1988-12-30",
+      "1966-12-30",
       "./assets/simyaci.jpg")
   );
   books.push(
@@ -36,7 +36,7 @@ if (books.length === 0) {
       "Ermiş",
       "Halil Cibran",
       "Felsefe",
-      "1988-12-05",
+      "1953-12-05",
       "./assets/ermis.jpg")
   );
   books.push(
@@ -44,7 +44,7 @@ if (books.length === 0) {
       "Mutlu Prens",
       "Oscar Wilde",
       "Bilim Kurgu",
-      "1988-11-11",
+      "1936-11-11",
       "./assets/prens.jpg")
   );
   books.push(
@@ -52,7 +52,7 @@ if (books.length === 0) {
       "1984",
       "George Orwell",
       "Fantastik",
-      "1988-10-30",
+      "1942-10-30",
       "./assets/1984.jpg")
   );
   books[0].id = "simyaciID";
