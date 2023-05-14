@@ -10,7 +10,7 @@ function UI() {
 UI.prototype.displayBookOnHtml = function (test) {
   // bookContainer.innerHTML = createTag(test) + bookContainer.innerHTML
   bookContainer.innerHTML += createTag(test);
-  
+
   //Her card yapısına delete butonu ekledik
   const deleteBookBtns = document.querySelectorAll(".delete-btn");
   deleteBtn(deleteBookBtns);
@@ -94,25 +94,23 @@ function editBtn(editBookBtns) {
 
 function createTag(b) {
   return `
-  <div class= "col-12 col-sm-6 col-lg-3">
+  <div class= "col-12 col-sm-6 col-lg-4  h-100">
   <div class="card my-3 " id="${b.bookID}">
       <div class="text-center">
-          <img src="${b.bookPicture}" class="card-img-top" alt="${b.bookPicture}">
+          <img src="${b.bookPicture}" class="card-img-top img-fluid" alt="${b.bookPicture}">
       </div>
       <div class="card-body">
-          <h5 class="card-title m-0 fw-bolder">${b.bookName}</h5>
-          <p class="card-text  mb-3 fw-bold">${b.bookWriter}</p>
+          <h5 class="card-title m-0 fw-bold">${b.bookName}</h5>
+          <p class="card-text  mb-3 fw-semibold">${b.bookWriter}</p>
           <div class="d-flex justify-content-between mb-3">
-            <span class="card-text ">${b.bookType}</span>
-            <span class="card-text">${b.bookDate}</span>
+            <span class="card-text ">Tür: ${b.bookType}</span>
+            <span class="card-text">Yıl: ${b.bookDate}</span>
           </div>
           <div class=" d-flex">
-              <button class="btn btn-danger w-50 me-2 delete-btn">Delete</button>
-              <!-- Button trigger modal -->
-
+              <button class="btn btn-danger w-50 me-2 delete-btn">Sil</button>
               <button type="button" class="btn btn-primary w-50 ms-2 edit-btn" data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop">
-                  Edit
+                  Düzenle
               </button>
               <!-- Modal -->
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -120,73 +118,68 @@ function createTag(b) {
                   <div class="modal-dialog  modal-dialog-centered">
                       <div class="modal-content">
                           <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Change Book's Informations</h1>
+                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Kitap Bilgileri</h1>
                               <button type="button" class="btn-close" data-bs-dismiss="modal"
                                   aria-label="Close"></button>
                           </div>
                           <div class="modal-body px-5">
                               <div class="row">
-                                  <div class="col-lg-6 fw-bold ">
-                                      <h5 class="modal-title fw-bold">Default Informations</h5>
-                                      <hr>
+                                  <div class="col-lg-6 fw-semibold ">
+                                      <h5 class="modal-title fw-semibold text-center">Anlık Bilgiler</h5>
+                                      <hr class="mt-0">
                                       <form>
                                           <label for="bookID">Book Id:</label>
-                                          <input class="form-control" type="text" id="defaultBookID" disabled>
-                                          <br>
-
+                                          <input class="form-control mb-2" type="text" id="defaultBookID" disabled>
+                                          
                                           <label for="bookName">Book Name:</label>
-                                          <input class="form-control" type="text" id="defaultBookName" disabled>
-                                          <br>
-
+                                          <input class="form-control mb-2" type="text" id="defaultBookName" disabled>
+                                          
                                           <label for="bookWriter">Book Writer: </label>
-                                          <input class="form-control" type="text" id="defaultBookWriter" disabled>
-                                          <br>
-
+                                          <input class="form-control mb-2" type="text" id="defaultBookWriter" disabled>
+                                          
                                           <label for="bookType">Book Type: </label>
-                                          <input class="form-control" type="text" id="defaultBookType" disabled>
-                                          <br>
+                                          <input class="form-control mb-2" type="text" id="defaultBookType" disabled>
 
                                           <label for="bookDate">Book Date: </label>
-                                          <input class="form-control" type="text" id="defaultBookDate" disabled>
-                                          <br>
+                                          <input class="form-control mb-2" type="text" id="defaultBookDate" disabled>
+                                          
                                           <label for="bookPicture">Book Picture: </label>
-                                          <input class="form-control" type="text" id="defaultBookPicture" disabled>
-                                          <br>
+                                          <input class="form-control mb-2" type="text" id="defaultBookPicture" disabled>
+                          <button type="button" class="btn btn-danger mt-1 w-100" data-bs-dismiss="modal">İptal</button>
+                                          
                                       </form>
                                   </div>
                                   <div class="col-lg-6">
-                                      <h5 class="modal-title fw-bold text-center">Editing Informations</h5>
-                                      <hr>
+                                  <h5 class="modal-title fw-semibold text-center">Güncel Bilgiler</h5>
+                                  <hr class="mt-0">
                                       <form>
                                           <label for="bookID">Book Id:</label>
-                                          <input class="form-control" type="text" id="editBookID" disabled>
-                                          <br>
+                                          <input class="form-control mb-2" type="text" id="editBookID" disabled>
 
                                           <label for="bookName">Book Name:</label>
-                                          <input class="form-control" type="text" id="editBookName">
-                                          <br>
+                                          <input class="form-control mb-2" type="text" id="editBookName">
 
                                           <label for="bookWriter">Book Writer: </label>
-                                          <input class="form-control" type="text" id="editBookWriter">
-                                          <br>
+                                          <input class="form-control mb-2" type="text" id="editBookWriter">
 
                                           <label for="bookType">Book Type: </label>
-                                          <input class="form-control" type="text" id="editBookType">
-                                          <br>
+                                          <input class="form-control mb-2" type="text" id="editBookType">
 
                                           <label for="bookDate">Book Date: </label>
-                                          <input class="form-control" type="text" id="editBookDate">
-                                          <br>
+                                          <input class="form-control mb-2" type="text" id="editBookDate">
+                                        
                                           <label for="bookPicture">Book Picture: </label>
-                                          <input class="form-control" type="text" id="editBookPicture">
-                                          <br>
+                                          <input class="form-control mb-2" type="text" id="editBookPicture">
+                                         
                                       </form>
+                                      <button type="button" class="btn btn-success saveChanges mt-1 w-100"
+                                      data-bs-dismiss="modal">Bilgileri Güncelle</button>
+                                      
                                   </div>
-                                  <button type="button" class="btn btn-success saveChanges"
-                                      data-bs-dismiss="modal">Save Changes</button>
+                                  
                               </div>
+                              
                           </div>
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       </div>
 
                   </div>

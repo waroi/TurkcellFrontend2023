@@ -74,25 +74,24 @@ function deleteAllBooks() {
     deleteAllBooks.deleteAllBooksOnStorage();
     deleteAllBooks.checkInformationAllPage()
 }
+
+
+
 sortTitles = document.querySelectorAll("option");
 // sortOptions.addEventListener("click",()=>{
 
 // })
 sortOptions.addEventListener("change", () => {
-    console.log(typeof sortTitles)
-    Array.from(sortTitles).map(s => {
-        if (s.value == "azSort") {
-            changeSort("azsort")
-        }
-        else if (s.value == "zaSort") {
-            changeSort("zaSort")
-        }
-        else if (s.value == "dateSort") {
-            changeSort("dateSort")
-        }
-
-    });
+    // sortTitles.forEach(s => {
+    //     if (s.value == "azSort") {
+    //         changeSort("azsort")
+    //     }
+    // });
     // changeSort()
+    console.log(sortTitles[0])
+    if (sortTitles[0].value == "defaultSort") {
+        changeSort("defaultSort")
+    }
 })
 
 function changeSort(sortType) {

@@ -100,15 +100,15 @@ Storage.prototype.updateSelectedBook = function (selectedID) {
     allBooksOnLocalStorage.forEach(updateItemOnLS => {
         if (updateItemOnLS.bookID == selectedID) {
             //BOŞ MU DOLU MU KONTROLÜ LAZIM
-            // if (
-            //     editBookName.value == "" ||
-            //     editBookWriter.value == "" ||
-            //     editBookType.value == "" ||
-            //     editBookDate.value == "" ||
-            //     editBookPicture.value == ""
-            // ) {
-            //     return alert("Lütfen güncel bilgileri giriniz");
-            // }
+            if (
+                editBookName.value == "" ||
+                editBookWriter.value == "" ||
+                editBookType.value == "" ||
+                editBookDate.value == "" ||
+                editBookPicture.value == ""
+            ) {
+                return alert("Lütfen güncel bilgileri giriniz");
+            }
             updateItemOnLS.bookName = editBookName.value;
             updateItemOnLS.bookWriter = editBookWriter.value;
             updateItemOnLS.bookType = editBookType.value;
@@ -190,11 +190,11 @@ Storage.prototype.checkInformationAllPage = function () {
 Storage.prototype.filterOnLS = function (filterWord) {
     bookContainer.innerHTML = "";
     allBooksOnLocalStorage.forEach(x => {
-        if (x.bookType.toLowerCase() == filterWord || x.bookWriter.toLowerCase() == filterWord) {   
+        if (x.bookType.toLowerCase() == filterWord || x.bookWriter.toLowerCase() == filterWord) {
 
             ui.displayBookOnHtml(x)
         }
-        
+
     })
 }
 
