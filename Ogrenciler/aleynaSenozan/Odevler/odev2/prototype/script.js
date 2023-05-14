@@ -43,13 +43,15 @@ Storage.prototype.addBookToUI = function (book) {
   <td>${book.author}</td>
   <td>${book.category}</td>
   <td>${book.year}</td>
-  <td><span class="zoom-icon" data-img="${book.cover}"><i class="btn bi bi-zoom-in"></i></span></td>
+  <td><span class="zoom-icon" data-img="${
+    book.cover
+  }"><i class="btn bi bi-zoom-in"></i></span></td>
   <td><button id="update-${book.title.replace(
     /\s+/g,
     "-"
   )}" class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Güncelle</button></td>
 `;
-      // Büyüteç ikonuna tıklama olayı ekler
+  // Büyüteç ikonuna tıklama olayı ekler
   const zoomIcon = row.querySelector(".zoom-icon");
   zoomIcon.addEventListener("click", function () {
     // Modalı açmak için verileri alır
@@ -80,7 +82,7 @@ Storage.prototype.addBookToUI = function (book) {
         (input) => input.value === value
       )
     ) {
-      const div = document.createElement("div"); // Yeni bir div oluşturuyoruz.
+      const div = document.createElement("div"); // Yeni bir div oluşturur
       const input = document.createElement("input");
       const label = document.createElement("label");
       input.type = "checkbox";
@@ -90,9 +92,9 @@ Storage.prototype.addBookToUI = function (book) {
       label.htmlFor = value;
       label.textContent = value;
 
-      div.appendChild(input); // input ve label'ı div'in içine ekliyoruz.
+      div.appendChild(input); // input ve label'ı div'in içine ekler
       div.appendChild(label);
-      filterElement.appendChild(div); // div'i filtrelere ekliyoruz.
+      filterElement.appendChild(div); // div'i filtrelere ekle
     }
   };
 
@@ -383,9 +385,7 @@ function sortTable(column, num) {
 }
 
 // İkonları tıklandığında sıralama işlevini tetikler
-document
-  .querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill")
-  .forEach(function (icon) {
+document.querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill").forEach(function (icon) {
     icon.addEventListener("click", function (e) {
       const column = e.target.getAttribute("data-column");
       const num = Number(e.target.getAttribute("data-num"));
@@ -405,18 +405,18 @@ document
     });
   });
 
-// Kitap kapak modalı ve resim elementini seçin
+// Kitap kapak modalı ve resim elementini seçer
 const coverModal = document.getElementById("coverModal");
 const coverImage = document.getElementById("coverImage");
 
-// Modal açıldığında çalışacak fonksiyonu tanımlayın
+// Modal açıldığında çalışacak fonksiyonu tanımlar
 coverModal.addEventListener("show.bs.modal", function (event) {
-  // Resme tıkladığımızda resmin URL'sini ve büyük resim URL'sini alın
+  // Resme tıkladığımızda resmin URL'sini ve büyük resim URL'sini alır
   const button = event.relatedTarget;
   const imgUrl = button.getAttribute("data-img");
   const largeImgUrl = button.getAttribute("data-large-img");
   const bookUrl = button.getAttribute("data-url");
 
-  // Modal içindeki img elementinin src özelliğini güncelle
+  // Modal içindeki img elementinin src özelliğini günceller
   coverImage.src = largeImgUrl;
 });

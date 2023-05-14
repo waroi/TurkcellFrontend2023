@@ -39,7 +39,9 @@ class Storage {
       <td>${book.author}</td>
       <td>${book.category}</td>
       <td>${book.year}</td>
-      <td><span class="zoom-icon" data-img="${book.cover}"><i class="btn bi bi-zoom-in"></i></span></td>
+      <td><span class="zoom-icon" data-img="${
+        book.cover
+      }"><i class="btn bi bi-zoom-in"></i></span></td>
       <td><button id="update-${book.title.replace(
         /\s+/g,
         "-"
@@ -352,26 +354,24 @@ function sortTable(column, num) {
   }
 }
 
-document
-  .querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill")
-  .forEach(function (icon) {
-    icon.addEventListener
-    icon.addEventListener("click", function (e) {
-      const column = e.target.getAttribute("data-column");
-      const num = Number(e.target.getAttribute("data-num"));
-      sortTable(column, num);
+document.querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill").forEach(function (icon) {
+  icon.addEventListener;
+  icon.addEventListener("click", function (e) {
+    const column = e.target.getAttribute("data-column");
+    const num = Number(e.target.getAttribute("data-num"));
+    sortTable(column, num);
 
-      document
-        .querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill")
-        .forEach(function (icon) {
-          icon.classList.add("bi-caret-up-fill");
-          icon.classList.remove("bi-caret-down-fill");
-        });
+    document
+      .querySelectorAll(".bi-caret-up-fill, .bi-caret-down-fill")
+      .forEach(function (icon) {
+        icon.classList.add("bi-caret-up-fill");
+        icon.classList.remove("bi-caret-down-fill");
+      });
 
-      e.target.classList.toggle("bi-caret-up-fill");
-      e.target.classList.toggle("bi-caret-down-fill");
-    });
+    e.target.classList.toggle("bi-caret-up-fill");
+    e.target.classList.toggle("bi-caret-down-fill");
   });
+});
 
 const coverModal = document.getElementById("coverModal");
 const coverImage = document.getElementById("coverImage");
