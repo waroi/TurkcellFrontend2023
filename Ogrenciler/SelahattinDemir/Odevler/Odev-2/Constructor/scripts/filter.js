@@ -4,18 +4,15 @@ Filter.prototype.filterBooksFromFilter = function () {
   const bookType = document.getElementById("bookCategory").value;
   const bookWriter = document.getElementById("bookWriter").value;
 
-  const categories = document.querySelectorAll(
-    'input[name="categories"]:checked'
+  const categoriesAndAuthors = document.querySelectorAll(
+    'input[name="categoriesandauthors"]:checked'
   );
-  const category = Array.from(categories).map((input) => input.value);
-  const authors = document.querySelectorAll('input[name="authors"]:checked');
-  const author = Array.from(authors).map((input) => input.value);
+  const selectedCategoriesAndAuthors = Array.from(categoriesAndAuthors).map(
+    (input) => input.value
+  );
+  console.log(selectedCategoriesAndAuthors);
 
   let books = storage.getBookFromLocalStorage();
-  // console.log(books.filter((book) => book.type));
-  // console.log(books.filter((book) => book.category));
-  // console.log(books.filter((book) => book.writer));
-
   // Filter the books based on the query
   const filteredBooks = books.filter((book) => {
     if (bookType !== "" && book.type !== bookType) {
@@ -24,11 +21,19 @@ Filter.prototype.filterBooksFromFilter = function () {
     if (bookWriter !== "" && book.writer !== bookWriter) {
       return false;
     }
-    if (category.length > 0 && !category.includes(book.type)) {
-      return false;
-    }
-    if (author.length > 0 && !author.includes(book.writer.trim())) {
-      return false;
+    if (selectedCategoriesAndAuthors.length > 0) {
+      const bookCategoriesAndAuthors = [
+        book.type,
+        book.writer.replace(/ /g, ""),
+      ];
+      // console.log(book.writer.replace(/ /g, ""));
+      const matchingCategoriesAndAuthors = selectedCategoriesAndAuthors.filter(
+        (selectedCategoryAndAuthor) =>
+          bookCategoriesAndAuthors.includes(selectedCategoryAndAuthor)
+      );
+      if (matchingCategoriesAndAuthors.length === 0) {
+        return false;
+      }
     }
     return true;
   });
@@ -38,9 +43,9 @@ Filter.prototype.filterBooksFromFilter = function () {
 
   // Add the filtered books to the book list
   filteredBooks.forEach((book) => {
-    ui.addBookFromUI(book);
+    bookCard.addBookFromBookCard(book);
   });
-}
+};
 
 Filter.prototype.searchBookFromFilter = function (query) {
   let books = storage.getBookFromLocalStorage();
@@ -57,9 +62,9 @@ Filter.prototype.searchBookFromFilter = function (query) {
 
   // Add the filtered books to the book list
   filteredBooks.forEach((book) => {
-    ui.addBookFromUI(book);
+    bookCard.addBookFromBookCard(book);
   });
-}
+};
 
 Filter.prototype.sortBooksFromFilter = function (sortType) {
   let books = storage.getBookFromLocalStorage();
@@ -87,9 +92,6 @@ Filter.prototype.sortBooksFromFilter = function (sortType) {
 
   // Add sorted books to UI
   books.forEach((book) => {
-    ui.addBookFromUI(book);
+    bookCard.addBookFromBookCard(book);
   });
-
-  // Save sorted books to local storage
-  storage.saveBookFromLocalStorage(books);
 };
