@@ -46,17 +46,13 @@ Process.prototype.editBook = function (books, bookID, ui, form) {
 
 Process.prototype.filterByCategory = function (books, selectedCategory) {
   if (selectedCategory != "")
-    return books.filter(
-      (book) => book.category.toLowerCase() == selectedCategory.toLowerCase()
-    );
+    return books.filter((book) => book.category == selectedCategory);
   else if (selectedCategory == "") return books;
 };
 
 Process.prototype.filterByWriter = function (books, selectedWriter) {
   if (selectedWriter != "")
-    return books.filter(
-      (book) => book.writer.toLowerCase() == selectedWriter.toLowerCase()
-    );
+    return books.filter((book) => book.writer == selectedWriter);
   else if (selectedWriter == "") return books;
 };
 

@@ -16,7 +16,7 @@
   </head>
   <body>
     <header>
-      <div class="container my-5 d-flex justify-content-between add-area">
+      <div class="container my-5 d-flex justify-content-between">
         <button
           type="button"
           class="btn btn-secondary rounded rounded-circle"
@@ -25,7 +25,7 @@
         >
           <i class="fa-solid fa-plus"></i>
         </button>
-        <div class="dropdown filter-area">
+        <div class="dropdown">
           <button
             class="btn btn-secondary"
             type="button"
@@ -35,21 +35,21 @@
             <i class="fa-solid fa-filter"></i>
           </button>
           <ul class="dropdown-menu">
-            <li class="dropdown-item text-center">
-              <label for="categories">Filter by category</label> <br />
-              <select name="categories" id="categories">
+            <li class="dropdown-item">
+              <label for="categories">Filter by category</label>
+              <select name="categories" id="categories" class="my-5">
                 <option value="">All</option>
               </select>
             </li>
-            <li class="dropdown-item text-center">
-              <label for="writers">Filter by writer</label> <br />
-              <select name="writers" id="writers">
+            <li class="dropdown-item">
+              <label for="writers">Filter by writer</label>
+              <select name="writers" id="writers" class="my-5">
                 <option value="">All</option>
               </select>
             </li>
           </ul>
         </div>
-        <div class="dropdown sort-area">
+        <div class="dropdown">
           <button
             class="btn btn-secondary"
             type="button"
@@ -59,9 +59,9 @@
             <i class="fa-solid fa-sort"></i>
           </button>
           <ul class="dropdown-menu">
-            <li class="dropdown-item text-center">
-              <label for="writers">Sort</label> <br />
-              <select name="sort-books" id="sort-books">
+            <li class="dropdown-item">
+              <label for="writers">Sort</label>
+              <select name="sort-books" id="sort-books" class="my-5">
                 <option value="">Adding order</option>
                 <option value="a-z">A-Z</option>
                 <option value="z-a">Z-A</option>
@@ -81,11 +81,11 @@
             <i class="fa-solid fa-search"></i>
           </button>
           <ul class="dropdown-menu">
-            <li class="dropdown-item text-center">
+            <li class="dropdown-item">
               <label for="search-book">Search by book name</label> <br />
               <input type="text" name="search-book" id="search-book" />
             </li>
-            <li class="dropdown-item text-center">
+            <li class="dropdown-item">
               <label for="search-writer">Search by writer</label> <br />
               <input type="text" name="search-writer" id="search-writer" />
             </li>

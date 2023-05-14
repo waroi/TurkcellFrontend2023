@@ -20,20 +20,18 @@ export function UI(display) {
   };
 
   this.uniqueCategories = function (books) {
-    const categoriesSet = new Set(
-      books.map((book) => book.category.toUpperCase())
-    );
+    const categoriesSet = new Set(books.map((book) => book.category));
     categorySelect.innerHTML = "";
-    categorySelect.innerHTML += `<option value="">Tümü</option>`;
+    categorySelect.innerHTML += `<option value="">All</option>`;
     categorySelect.innerHTML += Array.from(categoriesSet).map((category) => {
       return createOption(category);
     });
   };
 
   this.uniqueWriters = function (books) {
-    const writersSet = new Set(books.map((book) => book.writer.toUpperCase()));
+    const writersSet = new Set(books.map((book) => book.writer));
     writerSelect.innerHTML = "";
-    writerSelect.innerHTML += `<option value="">Tümü</option>`;
+    writerSelect.innerHTML += `<option value="">All</option>`;
     writerSelect.innerHTML += Array.from(writersSet).map((writer) => {
       return createOption(writer);
     });
@@ -55,14 +53,4 @@ UI.prototype.cardToModal = function (books, bookID) {
   bookCoverInp.value = book.coverURL;
   addBookBtn.classList.toggle("hidden");
   editBookBtn.classList.toggle("hidden");
-};
-
-UI.prototype.isEmpty = function () {
-  return (
-    bookNameInp.value == "" ||
-    bookWriterInp.value == "" ||
-    bookCategoryInp.value == "" ||
-    bookDateInp.value == "" ||
-    bookCoverInp.value == ""
-  );
 };

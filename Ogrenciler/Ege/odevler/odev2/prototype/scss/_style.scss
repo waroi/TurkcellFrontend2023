@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 .hidden {
   display: none;
 }
@@ -41,10 +44,48 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  .card-img-top {
+    height: 400px;
+    // object-fit: cover;
+  }
+
+  .book-title {
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;
+    font-size: 36px;
+  }
+
+  .book-release-date {
+    font-family: "Space Grotesk", sans-serif;
+  }
+  .book-writer,
+  .book-category {
+    font-family: "Poppins", sans-serif;
+  }
 }
 
-.dropdown-item {
+.dropdown-menu {
+  padding: 16px;
   backdrop-filter: blur(5px);
+  .dropdown-item {
+    padding: 16px;
+    border-radius: 16px;
+
+    label {
+      text-transform: capitalize;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 600;
+    }
+
+    select,
+    input {
+      border-radius: 10px;
+      padding: 5px 2px;
+      font-size: 1.2rem;
+    }
+  }
 }
 
 i {

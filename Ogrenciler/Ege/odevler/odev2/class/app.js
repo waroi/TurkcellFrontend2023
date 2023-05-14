@@ -26,7 +26,7 @@ if (books.length === 0) {
   books.push(
     new Book(
       "Ege'lerin Sessizliği",
-      "Ege Kara",
+      "Ege KARA",
       "Korku",
       "1998-04-08",
       "https://avatars.githubusercontent.com/u/83390653?v=4"
@@ -35,7 +35,7 @@ if (books.length === 0) {
   books.push(
     new Book(
       "Maksutoğulları",
-      "Varol Maksutoğlu",
+      "Varol MAKSUTOĞLU",
       "Fantastik",
       "1998-12-30",
       "https://avatars.githubusercontent.com/u/3173292?v=4"
@@ -49,22 +49,19 @@ if (books.length === 0) {
 userInterface.updateDisplay(books);
 userInterface.makeUniques(books);
 let currentBookID;
+let currentBooks = [...books];
 function handleEventListeners() {
   addBookBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    if (userInterface.isEmpty()) alert("Please fill out the entire form");
-    else process.addBook(books, userInterface, form);
+    process.addBook(books, userInterface, form);
   });
 
   bookCollectionRow.addEventListener("click", (e) => {
     if (e.target.classList.contains("book-delete")) {
-      let bookCard = e.target.closest(".col-lg-4");
-      // e.target.parentElement.parentElement.parentElement.parentElement;
+      let bookCard = e.target.parentElement.parentElement.parentElement;
       process.deleteBook(books, bookCard, bookCard.id);
     } else if (e.target.classList.contains("book-edit")) {
-      let bookCard = e.target.closest(".col-lg-4");
-      // e.target.parentElement.parentElement.parentElement.parentElement;
-
+      let bookCard = e.target.parentElement.parentElement.parentElement;
       currentBookID = bookCard.id;
       userInterface.cardToModal(books, currentBookID);
     }
@@ -81,8 +78,7 @@ function handleEventListeners() {
   editBookBtn.addEventListener("click", () => {
     addBookBtn.classList.toggle("hidden");
     editBookBtn.classList.toggle("hidden");
-    if (userInterface.isEmpty()) alert("Please fill out the entire form");
-    else process.editBook(books, currentBookID, userInterface, form);
+    process.editBook(books, currentBookID, userInterface, form);
   });
 
   categorySelect.addEventListener("change", (e) => {
