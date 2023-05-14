@@ -61,7 +61,7 @@ function handleEventListeners() {
     } else if (e.target.classList.contains("book-edit")) {
       let bookCard = e.target.parentElement.parentElement.parentElement;
       currentBookID = bookCard.id;
-      userInterface.cardToModal(books, currentBookID);
+      UI.cardToModal(books, currentBookID);
     }
   });
 

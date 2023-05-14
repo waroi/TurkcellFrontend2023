@@ -40,8 +40,8 @@ class UI {
   }
 
   makeUniques(books) {
-    uniqueCategories(books);
-    uniqueWriters(books);
+    this.uniqueCategories(books);
+    this.uniqueWriters(books);
   }
 
   static cardToModal(books, bookID) {
