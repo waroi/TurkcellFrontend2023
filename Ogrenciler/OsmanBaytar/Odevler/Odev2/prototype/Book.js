@@ -10,15 +10,15 @@ Book.prototype.createBox = function () {
     let cardBox = document.createElement("div");
     cardBox.className = "col-lg-4 col-md-6 my-3";
     let card = `
-    <div class="card">
+    <div class="card bg-light">
         <div class="card-img mx-auto">
             <img class="img-fluid card-image" src="${this.url}" />
         </div>
         <div class="card-body">
-            <h5 class="name my-2">${this.name}</h5>
-            <p class="writer">Writer: ${this.writer}</p>
-            <p class="category">Category: ${this.category}</p>
-            <p class="date">Date: ${this.date}</p>
+            <h5 class="name my-2 fs-3">${this.name}</h5>
+            <p class="writer fs-5"><span class="fs-6">Writer:</span> ${this.writer}</p>
+            <p class="category fs-5"><span class="fs-6">Category:</span> ${this.category}</p>
+            <p class="date fs-5"><span class="fs-6">Date:</span> ${this.date}</p>
         </div>
         <div class="card-button mb-3">
               <div class="row">
