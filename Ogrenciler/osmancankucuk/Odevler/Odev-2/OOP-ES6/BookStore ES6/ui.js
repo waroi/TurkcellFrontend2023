@@ -1,12 +1,4 @@
 const bookCollection = document.querySelector(".bookCollection");
-// const bookName = document.getElementById("bookNameInput");
-// const bookAuthor = document.getElementById("bookAuthorInput");
-// const bookRelaseDate = document.getElementById("releaseDateInput");
-// const bookUrl = document.getElementById("movieBannerInput");
-// const bookCategory = document.getElementById("bookCategoryInput");
-
-// const storage = new Storage();
-// function UI() {}
 
 class UI {
   static addBookToUI(newBook) {
