@@ -96,6 +96,7 @@ Storage.prototype.getWritersFromStorage = function () {
   return writers;
 }
 
+//filtreleme için kategori ve yazar bilgilerini al
 Storage.prototype.getBooksByCategoryAndWriters = function (category, writer) {
   let books = this.getBooksFromStorage();
   let filteredBooks = [];
