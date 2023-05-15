@@ -12,12 +12,16 @@ UIConstructor.prototype.showBook = function (books) {
     };
 
     const col = document.createElement("div");
-    col.classList.add("col-3");
+    col.classList.add(
+      "col-12",
+      "col-sm-6",
+      "col-md-4",
+      "col-lg-3",
+      "col-xxl-2"
+    );
 
     const card = document.createElement("div");
-    card.classList.add("card", "my-3", "mx-2");
-    card.getAttribute("style");
-    card.style.width = "18rem";
+    card.classList.add("card", "my-3");
     card.id = book.id;
 
     const img = document.createElement("img");
@@ -64,7 +68,7 @@ UIConstructor.prototype.showBook = function (books) {
     row.classList.add("row", "justify-content-center");
 
     const col5 = document.createElement("div");
-    col5.classList.add("col-5");
+    col5.classList.add("col-5", "col-xxl-6");
 
     const updateBtn = document.createElement("button");
     updateBtn.classList.add("btn", "btn-success");
@@ -75,7 +79,12 @@ UIConstructor.prototype.showBook = function (books) {
     updateBtn.appendChild(updateBtnText);
 
     const col5Flex = document.createElement("div");
-    col5Flex.classList.add("col-5", "d-flex", "justify-content-center");
+    col5Flex.classList.add(
+      "col-5",
+      "col-xxl-6",
+      "d-flex",
+      "justify-content-center"
+    );
 
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("btn", "btn-danger");
@@ -137,7 +146,11 @@ UIConstructor.prototype.showBook = function (books) {
 
     LocalConstructor.prototype.changeBookToLocalS(list);
     list = LocalConstructor.prototype.checkToLocalS();
-    location.reload();
+
+    while (bookList.firstChild) {
+      bookList.removeChild(bookList.lastChild);
+    }
+
     UIConstructor.prototype.showBook(list);
   }
 };
