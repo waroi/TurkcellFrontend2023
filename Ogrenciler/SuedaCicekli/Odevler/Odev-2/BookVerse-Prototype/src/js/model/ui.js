@@ -61,7 +61,7 @@ UI.prototype.addBookToUI = function () {
   // Filtreleme işlemi için
   if (selectedCategories.length > 0 || selectedWriters.length > 0) {
     console.log("Bir seçim ypaıldı. Burda tüm kitaplar yerine filtrelenmiş kitaplar getirilmeli.", selectedCategories, selectedWriters)
-    books = storage.getBooksByCategoryAndWriters(selectedCategories, selectedWriters);
+    books = storage.getBooksByCategoryAndWriters(selectedCategories, selectedWriters); //filtrelenmiş kitapları getirir
   } else {
     books = storage.getBooksFromStorage();
   }
