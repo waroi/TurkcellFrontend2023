@@ -10,10 +10,9 @@ Filter.prototype.filterBooksFromFilter = function () {
   const selectedCategoriesAndAuthors = Array.from(categoriesAndAuthors).map(
     (input) => input.value
   );
-  console.log(selectedCategoriesAndAuthors);
 
   let books = storage.getBookFromLocalStorage();
-  // Filter the books based on the query
+  // Kitapları sorguya göre filtreleyin
   const filteredBooks = books.filter((book) => {
     if (bookCategory !== "" && book.category !== bookCategory) {
       return false;
@@ -26,7 +25,6 @@ Filter.prototype.filterBooksFromFilter = function () {
         book.category.toLowerCase(),
         book.writer.replace(/ /g, "").toUpperCase(),
       ];
-      // console.log(book.writer.replace(/ /g, ""));
       const matchingCategoriesAndAuthors = selectedCategoriesAndAuthors.filter(
         (selectedCategoryAndAuthor) =>
           bookCategoriesAndAuthors.includes(selectedCategoryAndAuthor)
@@ -37,11 +35,9 @@ Filter.prototype.filterBooksFromFilter = function () {
     }
     return true;
   });
-
-  // Clear the book list
   bookList.innerHTML = "";
 
-  // Add the filtered books to the book list
+  // Filtrelenen kitapları kitap listesine ekleme
   filteredBooks.forEach((book) => {
     bookCard.addBookFromBookCard(book);
   });
@@ -50,17 +46,15 @@ Filter.prototype.filterBooksFromFilter = function () {
 Filter.prototype.searchBookFromFilter = function (query) {
   let books = storage.getBookFromLocalStorage();
 
-  // Filter the books based on the query
+  // Kitapları sorguya göre filtreleyin
   const filteredBooks = books.filter(
     (book) =>
       book.name.toLowerCase().includes(query.toLowerCase()) ||
       book.writer.toLowerCase().includes(query.toLowerCase())
   );
-
-  // Clear the book list
   bookList.innerHTML = "";
 
-  // Add the filtered books to the book list
+  // Filtrelenen kitapları kitap listesine ekleyin
   filteredBooks.forEach((book) => {
     bookCard.addBookFromBookCard(book);
   });
@@ -68,8 +62,8 @@ Filter.prototype.searchBookFromFilter = function (query) {
 
 Filter.prototype.sortBooksFromFilter = function (sortType) {
   let books = storage.getBookFromLocalStorage();
-  console.log(sortType);
 
+  // Kitapları sorguya göre sırala
   switch (sortType) {
     case "alphabetical-asc":
       books.sort((a, b) => a.name.localeCompare(b.name));
@@ -86,11 +80,9 @@ Filter.prototype.sortBooksFromFilter = function (sortType) {
     default:
       break;
   }
-
-  // Clear the book list
   bookList.innerHTML = "";
 
-  // Add sorted books to UI
+  // UI'ya sıralanmış kitaplar ekleyin
   books.forEach((book) => {
     bookCard.addBookFromBookCard(book);
   });

@@ -10,23 +10,22 @@ LocalStorage.prototype.saveBookFromLocalStorage = function (books) {
   localStorage.setItem("books", JSON.stringify(books));
 };
 
-// Local Storage'dan kitap silme
 LocalStorage.prototype.deleteFromLocalStorage = function (bookDeleteId) {
-  let books = storage.getBookFromLocalStorage();
+  let books = this.getBookFromLocalStorage();
   books.forEach((book, index) => {
     if (book.id == bookDeleteId) {
       books.splice(index, 1);
     }
   });
-  storage.saveBookFromLocalStorage(books);
+  this.saveBookFromLocalStorage(books);
 };
 
 LocalStorage.prototype.updateBookFromLocalStorage = function (book) {
-  let books = storage.getBookFromLocalStorage();
+  let books = this.getBookFromLocalStorage();
   books.forEach((bookone) => {
     if (bookone.id == book.id) {
       Object.assign(bookone, book);
     }
   });
-  storage.saveBookFromLocalStorage(books);
+  this.saveBookFromLocalStorage(books);
 };

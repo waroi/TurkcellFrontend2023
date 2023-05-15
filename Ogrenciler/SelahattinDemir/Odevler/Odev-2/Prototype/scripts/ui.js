@@ -1,5 +1,6 @@
 function UI() {}
 
+// Kitapları UI'a ekle
 UI.prototype.formListenSubmitFromUI = function (e) {
   const id = Date.now();
   const bookName = document.getElementById("bookName").value.trim();
