@@ -45,7 +45,7 @@ class Storage {
       <td><button id="update-${book.title.replace(
         /\s+/g,
         "-"
-      )}" class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Güncelle</button></td>
+      )}" class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Upd</button></td>
     `;
 
     const zoomIcon = row.querySelector(".zoom-icon");

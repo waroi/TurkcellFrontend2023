@@ -49,7 +49,7 @@ Storage.prototype.addBookToUI = function (book) {
   <td><button id="update-${book.title.replace(
     /\s+/g,
     "-"
-  )}" class="btn btn-primary"><i class="bi bi-pencil-fill"></i> <span class="d-none d-md-inline">Güncelle</span></button></td>
+  )}" class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Upd</button></td>
 `;
   // Büyüteç ikonuna tıklama olayı ekler
   const zoomIcon = row.querySelector(".zoom-icon");
@@ -94,7 +94,7 @@ Storage.prototype.addBookToUI = function (book) {
 
       div.appendChild(input); // input ve label'ı div'in içine ekler
       div.appendChild(label);
-      filterElement.appendChild(div); // div'i filtrelere ekler
+      filterElement.appendChild(div); // div'i filtrelere ekle
     }
   };
 
