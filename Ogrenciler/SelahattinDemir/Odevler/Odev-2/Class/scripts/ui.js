@@ -17,6 +17,7 @@ class UI {
       ImageUrl === ""
     ) {
       alert("Lütfen tüm alanları doldurunuz.");
+      return;
     }
 
     if (button.innerHTML === "Düzenle") {
