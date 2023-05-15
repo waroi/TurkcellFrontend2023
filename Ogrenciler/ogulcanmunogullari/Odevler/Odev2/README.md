@@ -9,6 +9,9 @@ npm install
 npm run scss
 ```
 
+- Yükleme aşamasında sorun çıkarsa package-lock.json ve node_modules silip tekrar deneyiniz.
+- Proje node_modules klasörü ile birlikte çalışmaktadır, yükleme yapmadan çalışmaz.
+
 ### Nasıl Kullanılır?
 
 - prototype.html/class.html dosyasını tarayıcıda açınız.
