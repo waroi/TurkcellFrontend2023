@@ -65,16 +65,34 @@ function handleEventListeners() {
     e.preventDefault();
     if (userInterface.isEmpty()) alert("Please fill out the entire form");
     else Process.addBook(books, userInterface, form);
+    // Reset inputs
+    categorySelect.value = "";
+    writerSelect.value = "";
+    sortSelect.value = "";
+    searchByName.value = "";
+    searchByWriter.value = "";
   });
 
   bookCollectionRow.addEventListener("click", (e) => {
     if (e.target.classList.contains("book-delete")) {
       let bookCard = e.target.closest(".col-lg-4");
       Process.deleteBook(books, bookCard, bookCard.id);
+      // Reset inputs
+      categorySelect.value = "";
+      writerSelect.value = "";
+      sortSelect.value = "";
+      searchByName.value = "";
+      searchByWriter.value = "";
     } else if (e.target.classList.contains("book-edit")) {
       let bookCard = e.target.closest(".col-lg-4");
       currentBookID = bookCard.id;
       userInterface.cardToModal(books, currentBookID);
+      // Reset inputs
+      categorySelect.value = "";
+      writerSelect.value = "";
+      sortSelect.value = "";
+      searchByName.value = "";
+      searchByWriter.value = "";
     }
   });
 
@@ -96,25 +114,50 @@ function handleEventListeners() {
   categorySelect.addEventListener("change", (e) => {
     const bookList = Process.filterByCategory(books, e.target.value);
     userInterface.updateDisplay(bookList);
+    // Reset other inputs
+    writerSelect.value = "";
+    sortSelect.value = "";
+    searchByName.value = "";
+    searchByWriter.value = "";
   });
 
   writerSelect.addEventListener("change", (e) => {
     const bookList = Process.filterByWriter(books, e.target.value);
     userInterface.updateDisplay(bookList);
+    // Reset other inputs
+    categorySelect.value = "";
+    sortSelect.value = "";
+    searchByName.value = "";
+    searchByWriter.value = "";
   });
 
   sortSelect.addEventListener("change", (e) => {
     const bookList = Process.sortBooks(books, e.target.value);
     userInterface.updateDisplay(bookList);
+    // Reset other inputs
+    categorySelect.value = "";
+    writerSelect.value = "";
+    searchByName.value = "";
+    searchByWriter.value = "";
   });
 
   searchByName.addEventListener("keyup", () => {
     const bookList = Process.searchBooks(books, searchByName.value);
     userInterface.updateDisplay(bookList);
+    // Reset other inputs
+    categorySelect.value = "";
+    writerSelect.value = "";
+    sortSelect.value = "";
+    searchByWriter.value = "";
   });
 
   searchByWriter.addEventListener("keyup", () => {
     const bookList = Process.searchWriter(books, searchByWriter.value);
     userInterface.updateDisplay(bookList);
+    // Reset other inputs
+    categorySelect.value = "";
+    writerSelect.value = "";
+    sortSelect.value = "";
+    searchByName.value = "";
   });
 }
