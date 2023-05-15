@@ -31,7 +31,6 @@ class UserInterface {
         storage.getLocalStorage() ? (localData = storage.getLocalStorage()) : (localData = []);
         localData.push(newBook);
         storage.setLocalStorage(localData);
-        console.log(localData);
         UI.addBox(newBook);
         UI.clearValues();
     }
