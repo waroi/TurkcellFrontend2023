@@ -23,31 +23,36 @@
 
     <section class="book-finder py-4">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-between">
           <div class="col-6">
-            <label for="search" class="text-white fs-4">Kitap Ara:</label>
-            <input
-              class="mt-2 py-1 px-2"
-              type="text"
-              id="search"
-              placeholder="Yazar veya Kitap Adı"
-            />
+            <div class="row">
+              <div class="col-12">
+                <label for="search" class="text-white fs-4">Kitap Ara:</label>
+                <input
+                  class="mt-2 py-1 px-2"
+                  type="text"
+                  id="search"
+                  placeholder="Yazar veya Kitap Adı"
+                />
+              </div>
+              <div class="col-12">
+                <label for="sorter" class="text-white fs-4"
+                  >Sıralama Yap:</label
+                >
 
-            <label for="sorter" class="text-white ms-3 fs-4"
-              >Sıralama Yap:</label
-            >
-
-            <select name="sorter-choose" id="sorter" class="py-1">
-              <option selected>Belirtilmemiş</option>
-              <option value="AtoZ">A'dan Z'ye</option>
-              <option value="ZtoA">Z'den A'ya</option>
-              <option value="OnDate">Tarihe Göre</option>
-            </select>
+                <select name="sorter-choose" id="sorter" class="py-1">
+                  <option selected>Belirtilmemiş</option>
+                  <option value="AtoZ">A'dan Z'ye</option>
+                  <option value="ZtoA">Z'den A'ya</option>
+                  <option value="OnDate">Tarihe Göre</option>
+                </select>
+              </div>
+            </div>
           </div>
           <div class="col-6 d-flex justify-content-end">
             <button
               type="button"
-              class="btn btn-primary"
+              class="btn btn-primary add-btn"
               data-bs-toggle="modal"
               data-bs-target="#addBookModal"
             >
@@ -212,9 +217,27 @@
         <div class="row mt-3 books" id="bookList"></div>
       </div>
     </section>
-    <footer class="bg-secondary pt-5">
+    <footer class="bg-secondary pt-5 mb-0">
       <div class="container">
-        <div class="row">
+        <div class="row pt-4">
+          <div class="col-6">
+            <h4>İletişim</h4>
+            <ul>
+              <li><a href="#" class="text-white">Bizi Arayın</a></li>
+              <li><a href="#" class="text-white">E-mail Yollayın</a></li>
+              <li><a href="#" class="text-white">Bizi Ziyaret Edin</a></li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <h4>Sorun Ve Öneriler İçin</h4>
+            <ul>
+              <li><a href="#" class="text-white">Canlı Destek</a></li>
+              <li><a href="#" class="text-white">Şikayet Formu</a></li>
+              <li><a href="#" class="text-white">Yardım Merkezi</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row pt-4">
           <div class="col-12 d-flex justify-content-center">
             <span
               >This page was made by
