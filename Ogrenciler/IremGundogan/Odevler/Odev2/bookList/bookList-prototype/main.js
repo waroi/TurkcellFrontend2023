@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", UI.displayBooks);
 const ui = new UI();
 const store = new Store();
+document.addEventListener("DOMContentLoaded", ui.displayBooks);
 document.querySelector("#add-book").addEventListener("click", (e) => {
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;

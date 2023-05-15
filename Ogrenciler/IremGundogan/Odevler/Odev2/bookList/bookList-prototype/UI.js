@@ -1,7 +1,9 @@
 function UI() {}
+const store1 = new Store();
+
 UI.prototype.displayBooks = function () {
-  const books = Store.getBooks();
-  books.forEach((book) => UI.addBookToList(book));
+  const books = store1.getBooks();
+  books.forEach((book) => UI.prototype.addBookToList(book));
 };
 
 UI.prototype.addBookToList = function (book) {
@@ -22,11 +24,13 @@ UI.prototype.addBookToList = function (book) {
         <p class="card-text">${book.category}</p>
       </div>
       <div class="card-footer slide slide2">
-        <button class="btn btn-primary btn-sm edit">
-          <i class="fa-solid fa-pencil" style="color: #fff"></i>
+        <button class="btn add-btn btn-sm edit">
+        EDIT 
+          <i class="fa-solid fa-pencil" style="color: blue"></i>
         </button>
-        <button class="btn btn-danger ml-auto btn-sm delete">
-          <i class="fa-solid fa-trash" style="color: #fff"></i>
+        <button class="btn add-btn ml-auto btn-sm delete">
+        DELETE 
+          <i class="fa-solid fa-trash" style="color:red"></i>
         </button>
       </div>
     </div>
