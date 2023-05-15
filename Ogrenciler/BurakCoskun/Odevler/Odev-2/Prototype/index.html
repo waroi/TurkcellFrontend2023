@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kütüphane Projesi</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">Kütüphane Projesi</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="d-flex flex-grow-1">
+              <form class="w-100">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="filter"
+                    placeholder="Kitap adı veya yazarına göre ara"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="d-flex">
+              <button
+                type="button"
+                class="btn btn-outline-light me-2"
+                data-bs-toggle="modal"
+                data-bs-target="#bookModal"
+              >
+                <i class="fas fa-plus"></i> Kitap Ekle
+              </button>
+              <button type="button" class="btn btn-outline-light" id="clearBtn">
+                <i class="fas fa-trash"></i> Tümünü Sil
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="container py-5">
+      <div class="row">
+        <div class="col-md-3">
+          <div
+            class="modal fade"
+            id="bookModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="bookModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="bookModalLabel">
+                    Kitap Bilgileri
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form id="bookForm">
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Kitap Adı</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="author" class="form-label">Yazar</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="author"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="genres" class="form-label">Kategori</label>
+                      <select id="genres" class="form-select" required>
+                        <option value="">Kategori Seçin</option>
+                        <option value="Adventure">Macera</option>
+                        <option value="Classic">Klasik</option>
+                        <option value="Fantasy">Fantastik</option>
+                        <option value="History">Tarih</option>
+                        <option value="Horror">Korku</option>
+                        <option value="Romance">Romantik</option>
+                        <option value="Sci-fi">Bilim Kurgu</option>
+                        <option value="Thriller">Gerilim</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="year" class="form-label"
+                        >Yazıldığı Tarih</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        max="2023"
+                        class="form-control"
+                        id="year"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="imageUrl" class="form-label"
+                        >Kapak Görsel URL</label
+                      >
+                      <input
+                        type="url"
+                        class="form-control"
+                        id="imageUrl"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      id="cancelBtn"
+                      type="button"
+                      class="btn btn-info d-none"
+                      data-bs-dismiss="modal"
+                    >
+                      Vazgeç
+                    </button>
+                    <button
+                      id="submitBtn"
+                      type="submit"
+                      class="btn btn-primary"
+                      data-bs-dismiss="modal"
+                    >
+                      Kitap Ekle
+                    </button>
+                    <button
+                      id="updateBtn"
+                      type="submit"
+                      class="btn btn-warning d-none"
+                      data-bs-dismiss="modal"
+                    >
+                      Kitap Güncelle
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3"></div>
+          <div class="row mb-3">
+            <div class="col-md-12">
+              <label class="form-label">Kategoriye Göre Filtrele</label>
+              <div id="categoryFilter">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="adventureCheckbox"
+                    value="Adventure"
+                  />
+                  <label class="form-check-label" for="adventureCheckbox"
+                    >Adventure</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="classicCheckbox"
+                    value="Classic"
+                  />
+                  <label class="form-check-label" for="classicCheckbox"
+                    >Classic</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="fantasyCheckbox"
+                    value="Fantasy"
+                  />
+                  <label class="form-check-label" for="fantasyCheckbox"
+                    >Fantasy</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="historyCheckbox"
+                    value="History"
+                  />
+                  <label class="form-check-label" for="historyCheckbox"
+                    >History</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="horrorCheckbox"
+                    value="Horror"
+                  />
+                  <label class="form-check-label" for="horrorCheckbox"
+                    >Horror</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="romanceCheckbox"
+                    value="Romance"
+                  />
+                  <label class="form-check-label" for="romanceCheckbox"
+                    >Romance</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="sciFiCheckbox"
+                    value="Sci-fi"
+                  />
+                  <label class="form-check-label" for="sciFiCheckbox"
+                    >Sci-Fi</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="thrillerCheckbox"
+                    value="Thriller"
+                  />
+                  <label class="form-check-label" for="thrillerCheckbox"
+                    >Thriller</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label for="authorSelect" class="form-label"
+              >Yazara Göre Filtrele</label
+            >
+            <select class="form-select" id="authorSelect">
+              <option value="All">Tüm Yazarlar</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-9 mt-5 mt-md-0">
+          <div class="mb-3">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <h1>Kitap Listesi</h1>
+              </div>
+              <div class="col-md-6 my-3 my-md-0">
+                <div class="d-flex align-items-center">
+                  <label for="orderSelect" class="form-label m-0 me-3"
+                    >Sıralama</label
+                  >
+                  <select class="form-select" id="orderSelect">
+                    <option value="default">Varsayılan</option>
+                    <option value="nameAZ">İsme Göre (A-Z)</option>
+                    <option value="nameZA">İsme Göre (Z-A)</option>
+                    <option value="yearAZ">Yıla Göre (Önce Eski)</option>
+                    <option value="yearZA">Yıla Göre (Önce Yeni)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="bookList" class="row gy-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./javascripts/localstorage.js"></script>
+    <script src="./javascripts/ui.js"></script>
+    <script src="./javascripts/books.js"></script>
+    <script src="./javascripts/app.js"></script>
+  </body>
+</html>
