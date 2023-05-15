@@ -1,0 +1,249 @@
+html,
+body {
+  scroll-behavior: smooth;
+}
+* {
+  font-family: "EB Garamond", serif;
+}
+
+ul[role="list"],
+ol[role="list"],
+ul,
+ol {
+  list-style: none;
+}
+
+@mixin transition {
+  -webkit-transition: all 300ms linear 0s;
+  -o-transition: all 300ms linear 0s;
+  transition: all 300ms linear 0s;
+}
+
+@mixin p80 {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+@mixin p144 {
+  padding-top: 144px;
+  padding-bottom: 144px;
+}
+
+//index- firstpage
+
+.index-img {
+  background-image: url("https://cdn.discordapp.com/attachments/1085908166174318725/1106603975807086692/pexels-ivo-rainha-1261180_1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 5;
+  position: absolute;
+}
+
+.index-container {
+  position: relative !important;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  text-align: center;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  h1 {
+    color: $primary;
+    font-size: 9vw;
+    margin-bottom: 5%;
+  }
+  a {
+    background-color: white;
+    border-color: transparent;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: larger;
+    &:hover {
+      background-color: $primary;
+      transition: all 0.5 ease;
+    }
+  }
+}
+
+//index- firstpage
+
+//mainpage
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.navbar {
+  z-index: 20;
+  .navbar-brand {
+    text-decoration: none;
+    font-size: 35px;
+  }
+}
+
+.addbook-section {
+  width: 100%;
+  background-color: black;
+  iframe {
+    position: relative;
+    z-index: 5;
+  }
+  .container {
+    z-index: 10;
+    position: relative;
+    top: 30%;
+    color: white;
+    button {
+      background: white !important;
+      color: black !important;
+      &:hover {
+        transition: all 0.5s ease !important;
+        background: $primary !important;
+      }
+    }
+  }
+}
+
+.bookshelf-section {
+  background-color: white;
+  @include p144;
+  .bookshelf {
+    width: 100%;
+    margin: 5rem auto;
+    text-align: center;
+    position: relative;
+    .bookgrid {
+      z-index: 2;
+      position: relative;
+      transform: translateY(-16px);
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        overflow: scroll;
+        li {
+          justify-self: center;
+          img {
+            display: block;
+            box-shadow: 0px -5px 20px 2px rgba(black, 0.3);
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            &:hover {
+              transition: all 0.5s ease;
+              transform: translateY(-10px);
+              cursor: grab;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.shelf-shadows {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  border-radius: 2px;
+  z-index: 1;
+  box-shadow: 0px -5px 3px 0px rgba(#aaa, 0.2),
+    0px 15px 20px 0px rgba(#aaa, 0.7), 0px 5px 5px 0px rgba(#777, 0.3);
+}
+
+.shelf {
+  background: $primary;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  border-radius: 2px;
+  z-index: 3;
+}
+
+.filter-section {
+  @include p80;
+}
+
+footer {
+  background-color: #f2f2f2;
+  padding-top: 0;
+  padding-bottom: 0;
+  .footer-top {
+    background-color: black;
+    color: white;
+    padding: 30px;
+  }
+  .footer-bottom {
+    background-color: #f2f2f2;
+    ul {
+      padding-left: 0;
+      li {
+        margin-top: 5px;
+        a {
+          color: black;
+          text-decoration: none;
+          opacity: 0.7;
+          font-size: 12px;
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.zoom-container {
+  overflow: hidden;
+}
+
+.zoom-img {
+  transition: transform 0.3s;
+}
+
+.zoom-img:hover {
+  transform: scale(1.2);
+}
+
+.modal-img-edit {
+  max-height: 500px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.video-background {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+
+  iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+
+    @media (min-aspect-ratio: 16/9) {
+      height: 56.25vw;
+    }
+
+    @media (max-aspect-ratio: 16/9) {
+      width: 177.78vh;
+    }
+  }
+}

@@ -15,6 +15,7 @@ UI.prototype.clearForm = function() {
 
 UI.prototype.createMovieCard = function(movie) {
   const movieCol = document.createElement('div');
+  movieCol.id = movie.id;
   movieCol.className = 'col-lg-3 col-sm-6 my-3 text-center';
   const movieCard = document.createElement('div');
   movieCard.className = 'card shadow';
@@ -24,7 +25,7 @@ UI.prototype.createMovieCard = function(movie) {
   movieImg.setAttribute('alt', movie.name);
   const movieBody = document.createElement('div');
   movieBody.className = 'card-body';
-  const cardBodyItems = `<h5 class="card-title text-center text-truncate">${name}</h5>
+  const cardBodyItems = `<h5 class="card-title text-center text-truncate">${movie.name}</h5>
   <h6 class="text-center text-success">${movie.type}</h6>
   <p class="card-text text-truncate">${movie.summary}</p>
   <h6 class="text-end">${movie.date}</h6>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script src="app.js" defer></script>
+  <title>Document</title>
+</head>
+
+<body class="bg-black">
+  <nav class="navbar bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand">izlendi.com</a>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" id="search-input" placeholder="Film Ara" aria-label="Search">
+      </form>
+    </div>
+  </nav>
+  <section>
+    <div class="container mt-5">
+        <div class="form-floating mb-3">
+          <input id="movie-name-input" class="form-control" required placeholder="">
+          <label for="movie-input">Film Adı</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input id="movie-type-input" class="form-control" required placeholder="">
+          <label for="movie-input">Tür</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input id="movie-director-input" class="form-control" required placeholder="">
+          <label for="movie-input">Yönetmen</label>
+        </div>
+        <div class="form-floating">
+          <input type="url" id="movie-url-input" class="form-control" required placeholder="">
+          <label for="movie-input">Poster Url</label>
+        </div>
+        <button id="add-movie" class="d-flex m-auto w-25 justify-content-center btn bg-danger mt-3 text-white">Film Ekle</button>
+        <button id="edit-movie" class="d-flex m-auto w-25 justify-content-center btn bg-warning mt-3 text-white d-none">Düzenle</button>
+        <p id="error-text" class="text-warning text-center mt-3 fw-bold"></p>
+    </div>
+  </section>
+  <section>
+    <div class="container mt-5">
+      <div class="row" id="film-collection">
+        </div>
+      </div>
+  </section>
+  <section class="mt-5">
+    <footer class="text-center text-white bg-white">
+      <div class="container p-1">
+        <section class="">
+          <p class="m-2"><a class="text-decoration-none text-danger fw-bolder" target="_blank" href="https://github.com/mchtkuk">Mücahit Kuk</a> <a class="text-decoration-none text-danger m-5 fw-bolder" target="_blank" href="https://github.com/bburcuymn">Burcu Yaman</a> <a class="text-decoration-none text-danger fw-bolder" target="_blank" href="https://github.com/senozanAleyna">Aleyna Şenozan</a>
+          </p>
+        </section>
+      </div>
+
+    </footer>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

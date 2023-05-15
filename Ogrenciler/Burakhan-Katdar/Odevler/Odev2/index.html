@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katdar Kütüphanesi</title>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <form id="form" class="row d-flex my-3">
+        <div class="col-12 col-md-4">
+          <div class="inputs d-flex flex-column gap-2">
+            <label for="kitapAdi">Kitap Adı:</label>
+            <input
+              class="line2"
+              type="text"
+              name="x"
+              id="kitapAdi"
+              placeholder="Nutuk"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="inputs d-flex flex-column gap-2">
+            <label for="kitapTuru">Kitap Türü:</label>
+            <input
+              type="text"
+              name="x"
+              placeholder="Tarih, Ekonomi vb."
+              id="kitapTuru"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="inputs d-flex flex-column gap-2">
+            <label for="kitapPuani">Kitap Yazarı:</label>
+            <input type="text" name="x" id="kitapPuani" required />
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="inputs d-flex flex-column gap-2">
+            <label for="kitapYili">Kitap Yılı:</label>
+            <input
+              type="number"
+              min="1888"
+              max="2023"
+              name="x"
+              id="kitapYili"
+              placeholder="1999"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="inputs d-flex flex-column gap-2">
+            <label for="kitapResmi">Kitap Resmi:</label>
+            <input type="text" name="x" id="kitapResmi" required />
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="inputs d-flex flex-column gap-2">
+            <label for="kitapAciklamasi">Kitap Açıklaması:</label>
+            <input type="text" name="x" id="kitapAciklamasi" required />
+          </div>
+        </div>
+
+        <div class="col-6 mt-3 d-flex mx-auto">
+          <button class="w-100 btn btn-success" type="submit" id="ekleButton">
+            Ekle
+          </button>
+          <button
+            class="d-none w-100 btn btn-warning"
+            type="submit"
+            id="uygulaButton"
+          >
+            Uygula
+          </button>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col-12 mt-2 col-md-8 mx-auto my-4">
+          <input
+            class="w-100"
+            type="search"
+            name="search"
+            id="inputSearch"
+            placeholder="Search.."
+          />
+        </div>
+        <div class="dropdown col-12 mt-2 col-md-4 mx-auto my-4">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sırala
+          </button>
+          <ul id="dropdownMenu" class="dropdown-menu">
+            <li><a id="asc" class="dropdown-item" href="">A'dan Z'ye Sırala</a></li>
+            <li><a id="desc" class="dropdown-item" href="">Z'den A'ya Sırala</a></li>
+            <li><a id="tarihArtan" class="dropdown-item" href="">Eskiden Yeniye Göre Sırala</a></li>
+            <li><a id="tarihAzalan" class="dropdown-item" href="">Yenden Eskiye Göre Sırala</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="row">
+        <ul
+          id="kitaplarContainer"
+          class="col-12 col-md-11 d-flex flex-wrap order-1 order-md-0 gap-3"
+        ></ul>
+        <ul
+          class="filter col-12 col-md-1 order-0 order-md-1 d-flex gap-3 list-unstyled flex-md-column gap-md-2"
+          id="filtreContainer"
+        ></ul>
+        
+      </div>
+      
+    </div>
+
+    <script src="./Class/appClass.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+  </body>
+</html>

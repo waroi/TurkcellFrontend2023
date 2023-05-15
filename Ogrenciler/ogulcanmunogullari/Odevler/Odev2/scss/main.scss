@@ -1,0 +1,75 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+body {
+ background-image: url('../assets/tile.jpg');
+}
+
+.clickable {
+ cursor: pointer;
+ &:hover {
+  box-shadow: 0 0 20px 0 rgba(255, 180, 95, 0.5);
+ }
+}
+
+.text-wheat {
+ color: #f6f1e9;
+}
+.bg-wheat {
+ background: #f6f1e9;
+}
+.bg-brown {
+ background: #4f200d;
+}
+// Then add additional custom code here
+#libraryBooks {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.5em;
+}
+.libraryDiv {
+ cursor: pointer;
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.libraryText {
+ position: absolute;
+ font-size: 1.5em;
+}
+
+.helper-text {
+ padding: 1em 2em;
+}
+
+.helper {
+ position: fixed;
+ right: 10px;
+ bottom: 10px;
+ width: 30px;
+ height: 30px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ padding: 1em;
+ border-radius: 50%;
+ @extend .bg-brown;
+ @extend .text-wheat;
+ font-size: 2em;
+ &:hover {
+  box-shadow: 0 0 20px 0 #4f200d;
+ }
+}
+
+@media screen and (min-width: 768px) {
+ .helper {
+  right: 50px;
+  bottom: 50px;
+ }
+}
