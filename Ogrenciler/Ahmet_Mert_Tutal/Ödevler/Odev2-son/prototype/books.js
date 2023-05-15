@@ -30,7 +30,7 @@ Books.prototype.addBook = function (e) {
             
         }
       });
-    console.log(kayıtlikitaplar);
+    
     if(bookPoster === '' || bookTitle === '' || bookCategory === '' || bookYear === '' || bookAuthor === '') {
       ui.alertMessage('Lütfen tüm alanları doldurunuz.');
       ui.clearForm();
@@ -115,15 +115,13 @@ Books.prototype.addBook = function (e) {
       const title = book.bookTitle.toLowerCase();
       const author = book.bookAuthor.toLowerCase();
       const category = book.bookCategory.toLowerCase();
-      const bookYear = book.bookYear.toLowerCase();
+      const bookYear = book.bookYear;
   
-      if (title.includes(filterValue) || author.includes(filterValue) || category.includes(filterValue) || bookYear.includes(filterValue)) {
+      if (title.includes(filterValue) || author.includes(filterValue) || category.includes(filterValue) || String(bookYear).includes(filterValue)) {
         filteredBooks.push(book);
-        console.log("filtrelenenler",filteredBooks);
       }
     });
   
- 
     let sortedBooks = [...filteredBooks];
     if (sortValue === 'AtoZ') {
       sortedBooks.sort((a, b) => {
@@ -137,29 +135,20 @@ Books.prototype.addBook = function (e) {
         if (a.bookTitle.toLowerCase() < b.bookTitle.toLowerCase()) return 1;
         return 0;
       });
-    } else if (sortValue === 'OnDate') {
+    } else if (sortValue === 'OnDateAsc') {
       sortedBooks.sort((a, b) => a.bookYear - b.bookYear);
+    } else if (sortValue === 'OnDateDesc') {
+      sortedBooks.sort((a, b) => b.bookYear - a.bookYear);
     }
   
     storedBooks.forEach(function (book) {
       document.getElementById(book.id).style.display = 'none';
-      
     });
-
-    sortedBooks.forEach(function (book) {
-      
-      const bookItem = document.getElementById(book.id);
-      console.log("filteredbooks",filteredBooks);
-      
-      storedBooks.forEach(function(x){
-        if(x.id == book.id){
-          document.getElementById(x.id).style.display = 'block';
-          console.log("gösterilenler",x)
-        }
   
-
-      }); 
-      bookList.appendChild(bookItem); 
+    sortedBooks.forEach(function (book) {
+      const bookItem = document.getElementById(book.id);
+      document.getElementById(book.id).style.display = 'block';
+      bookList.appendChild(bookItem);
     });
   }
   
