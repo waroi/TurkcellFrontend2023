@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book List</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://i.pinimg.com/564x/27/52/8c/27528cfe9bbdb8b0e553b1af50afe346.jpg"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container mt-2 bg-orange p-4 rounded-5">
+      <!-- Filter -->
+      <div class="mt-1">
+        <div class="row">
+          <div class="form-group col-lg-4 col-sm-12">
+            <h5 for="sort">Filter by Category:</h5>
+            <select class="custom-select" id="filterCategory">
+              <option selected>Choose...</option>
+              <option value="fiction">Fiction</option>
+              <option value="nonfiction">Non-Fiction</option>
+              <option value="Fantastic">Fantastic</option>
+              <option value="mystery">Mystery</option>
+              <!-- Add as many categories as you need -->
+            </select>
+          </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <h5 for="filterAuthor">Filter by Author</h5>
+            <select class="form-control" id="filterAuthor">
+              <option>Choose...</option>
+              <!-- Other options will be added dynamically -->
+            </select>
+          </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <h5 for="sort">Sort by:</h5>
+            <select class="form-control" id="sort">
+              <option value="none">None</option>
+              <option value="title-asc">Title (A-Z)</option>
+              <option value="title-desc">Title (Z-A)</option>
+              <option value="date-asc">Date (asc)</option>
+              <option value="date-desc">Date (desc)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Book Button -->
+      <div class="row">
+        <div class="input-group col-lg-4 col-sm-12 mb-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search by title or author"
+            id="searchInput"
+          />
+
+          <button class="btn bg-warning" type="button" id="searchButton">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <div class="col-md-12 mb-2 ml-auto d-flex justify-content-end">
+          <button
+            type="button"
+            class="btn add-btn border-0"
+            id="add-btn"
+            data-toggle="modal"
+            data-target="#addBookModal"
+          >
+            Add Book
+          </button>
+        </div>
+      </div>
+
+      <!-- Add Book Modal -->
+      <div
+        class="modal fade"
+        id="addBookModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="addBookModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="addBookModalLabel">Book Details</h4>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">X</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="book-form">
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" id="title" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="author">Author</label>
+                  <input type="text" id="author" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="year">Year</label>
+                  <input type="text" id="year" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="category">Category</label>
+                  <select id="category" class="form-control">
+                    <option value="">--Choose a Category--</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="nonfiction">Non-Fiction</option>
+                    <option value="Fantastic">Fantastic</option>
+                    <option value="mystery">Mystery</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="image">Image URL</label>
+                  <input type="text" id="image" class="form-control" />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" id="add-book" class="btn add-btn">
+                Add Book
+              </button>
+              <button type="button" id="edit-book" class="btn add-btn d-none">
+                Edit Book
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+      <div id="book-list" class="row"></div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Book.js"></script>
+    <script src="UI.js"></script>
+    <script src="Store.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
