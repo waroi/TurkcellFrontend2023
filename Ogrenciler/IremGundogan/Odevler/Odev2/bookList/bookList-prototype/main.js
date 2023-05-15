@@ -1,18 +1,13 @@
-// Event: Display Books
 document.addEventListener("DOMContentLoaded", UI.displayBooks);
-// Event: Add a Book
 const ui = new UI();
 const store = new Store();
-
 document.querySelector("#add-book").addEventListener("click", (e) => {
-  // Get form values
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
   const date = document.querySelector("#year").value;
   const category = document.querySelector("#category").value;
   const image = document.querySelector("#image").value;
   let id = 1;
-  // Validate
   if (
     title === "" ||
     author === "" ||
@@ -22,32 +17,25 @@ document.querySelector("#add-book").addEventListener("click", (e) => {
   ) {
     ui.showAlert("Please fill in all fields", "danger");
   } else {
-    // Instantiate book
     const book = new Book(title, author, date, category, image, id);
-    // Add Book to UI
     ui.addBookToList(book);
 
-    // Add book to store
     store.addBook(book);
 
-    // Clear fields
     ui.clearFields();
 
-    // Close the modal
     $("#addBookModal").modal("hide");
 
     id++;
   }
 });
 document.querySelector("#edit-book").addEventListener("click", (e) => {
-  // Get form values
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
   const date = document.querySelector("#year").value;
   const category = document.querySelector("#category").value;
   const image = document.querySelector("#image").value;
 
-  // Validate
   if (
     title === "" ||
     author === "" ||
@@ -59,7 +47,6 @@ document.querySelector("#edit-book").addEventListener("click", (e) => {
   } else {
     const id = document.querySelector("#book-form").dataset.id;
     if (id) {
-      // Update existing book
       const book = store.getBook(id);
       ui.updateBookFields(book);
       store.updateBook(book);
@@ -69,9 +56,7 @@ document.querySelector("#edit-book").addEventListener("click", (e) => {
       document.getElementById("book-list").innerHTML = "";
       ui.displayBooks();
     }
-    // Clear fields
     ui.clearFields();
-    // Close the modal
     document.querySelector("#addBookModal").click();
   }
 });
@@ -80,14 +65,12 @@ document.querySelector("#book-form").addEventListener("submit", (e) => {
   const id = document.querySelector("#book-form").dataset.id;
 
   if (id) {
-    // Update existing book
     const book = store.getBook(id);
     ui.updateBookFields(book);
     store.updateBook(book);
 
     ui.showAlert("Book Updated", "success");
   } else {
-    // Add new book
     const book = new Book(title, author, date, category, image, id);
 
     ui.addBookToList(book);
@@ -99,7 +82,6 @@ document.querySelector("#book-form").addEventListener("submit", (e) => {
   ui.clearFields();
 });
 
-// Event: Remove a Book
 document.querySelector("#book-list").addEventListener("click", (e) => {
   if (e.target.classList.contains("edit")) {
     const id = e.target.parentElement.parentElement.id;
@@ -111,13 +93,10 @@ document.querySelector("#book-list").addEventListener("click", (e) => {
     document.getElementById("add-book").classList.add("d-none");
     modal.show();
   } else if (e.target.classList.contains("delete")) {
-    // Remove book from UI and get its ID
     const id = ui.deleteBook(e.target);
 
-    // Remove book from local storage
     store.removeBook(id);
 
-    // Show success message
     ui.showAlert("Book Removed", "success");
   }
 });
@@ -134,17 +113,14 @@ function filterAndSearch() {
 
   let filteredBooks = store.getBooks();
 
-  // Filter by category, if a category other than "Choose..." is selected
   if (category !== "Choose...") {
     filteredBooks = filteredBooks.filter((book) => book.category === category);
   }
 
-  // Filter by author, if an author other than "Choose..." is selected
   if (author !== "Choose...") {
     filteredBooks = filteredBooks.filter((book) => book.author === author);
   }
 
-  // Filter by search term, if a term is entered
   if (term !== "") {
     filteredBooks = filteredBooks.filter(
       (book) =>
@@ -168,10 +144,8 @@ function filterAndSearch() {
       break;
   }
 
-  // Clear UI
   ui.clearList();
 
-  // Display filtered books
   filteredBooks.forEach((book) => ui.addBookToList(book));
 }
 
@@ -193,7 +167,6 @@ document
   .addEventListener("click", filterAndSearch);
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Check if the books are already in the store
   const storedBooks = store.getBooks();
   const book1 = new Book(
     "Half-Blood Prince",
@@ -212,18 +185,14 @@ document.addEventListener("DOMContentLoaded", () => {
     "98"
   );
   if (storedBooks.length === 0) {
-    // Add the books to the store
     store.addBook(book1);
     store.addBook(book2);
     ui.displayBooks();
   }
-  // Get all unique authors
   const authors = [...new Set(store.getBooks().map((book) => book.author))];
 
-  // Get the author filter select element
   const authorFilter = document.querySelector("#filterAuthor");
 
-  // Create an option element for each author and append to the select element
   authors.forEach((author) => {
     const option = document.createElement("option");
 
@@ -231,5 +200,4 @@ document.addEventListener("DOMContentLoaded", () => {
     option.textContent = author;
     authorFilter.appendChild(option);
   });
-  // Display the books in the UI
 });

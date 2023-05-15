@@ -34,7 +34,6 @@ UI.prototype.addBookToList = function (book) {
   list.appendChild(card);
 };
 
-// Other UI methods such as clearFields, deleteBook, showAlert etc.
 UI.prototype.showAlert = function (message, className) {
   const div = document.createElement("div");
   div.className = `alert alert-${className}`;
@@ -42,7 +41,6 @@ UI.prototype.showAlert = function (message, className) {
 
   document.querySelector("body").appendChild(div);
 
-  // Disappear in 3 seconds
   setTimeout(() => document.querySelector(".alert").remove(), 2000);
 };
 
@@ -54,7 +52,6 @@ UI.prototype.clearFields = function () {
   document.querySelector("#image").value = "";
 };
 
-// Other methods such as deleteBook, filterBooks, sortBooks etc.
 UI.prototype.deleteBook = function (el) {
   if (el.classList.contains("delete")) {
     const id = el.parentElement.parentElement.dataset.id;
@@ -76,7 +73,6 @@ UI.prototype.filterBooks = function (e) {
 UI.prototype.clearList = function () {
   const bookList = document.querySelector("#book-list");
 
-  // Simple and fast way to clear child elements
   while (bookList.firstChild) {
     bookList.removeChild(bookList.firstChild);
   }

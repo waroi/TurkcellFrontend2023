@@ -36,7 +36,7 @@ class UI {
     list.appendChild(card);
   }
 
-  // Other UI methods such as clearFields, deleteBook, showAlert etc.
+
   static showAlert(message, className) {
     const div = document.createElement("div");
     div.className = `alert alert-${className}`;
@@ -44,7 +44,6 @@ class UI {
 
     document.querySelector("body").appendChild(div);
 
-    // Disappear in 3 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 2000);
   }
 
@@ -56,7 +55,7 @@ class UI {
     document.querySelector("#image").value = "";
   }
 
-  // Other methods such as deleteBook, filterBooks, sortBooks etc.
+ 
   static deleteBook(el) {
     if (el.classList.contains("delete")) {
       const id = el.parentElement.parentElement.dataset.id;
@@ -78,7 +77,6 @@ class UI {
   static clearList() {
     const bookList = document.querySelector("#book-list");
 
-    // Simple and fast way to clear child elements
     while (bookList.firstChild) {
       bookList.removeChild(bookList.firstChild);
     }

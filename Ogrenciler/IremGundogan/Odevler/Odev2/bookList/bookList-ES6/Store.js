@@ -23,7 +23,7 @@ class Store {
     localStorage.setItem("books", JSON.stringify(books));
   }
 
-  // Other methods such as removeBook
+
   static removeBook(year) {
     const books = Store.getBooks();
 

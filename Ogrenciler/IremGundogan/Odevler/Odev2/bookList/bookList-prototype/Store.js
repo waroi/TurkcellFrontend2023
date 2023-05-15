@@ -23,7 +23,6 @@ Store.prototype.addBook = function (book) {
   localStorage.setItem("books", JSON.stringify(books));
 };
 
-// Other methods such as removeBook
 Store.prototype.removeBook = function (year) {
   const books = Store.prototype.getBooks();
 
