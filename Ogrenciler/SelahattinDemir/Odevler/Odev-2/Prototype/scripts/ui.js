@@ -4,16 +4,17 @@ function UI() {}
 UI.prototype.formListenSubmitFromUI = function (e) {
   const id = Date.now();
   const bookName = document.getElementById("bookName").value.trim();
-  const bookCategory= document.getElementById("bookCategory").value.trim();
+  const bookCategory = document.getElementById("bookCategory").value.trim();
   const bookDate = document.getElementById("bookDate").value.trim();
   const bookWriter = document.getElementById("bookWriter").value.trim();
   const ImageUrl = document.getElementById("imgUrl").value.trim();
   const button = document.getElementById("addOrEditButton");
   const title = document.getElementById("booksModalLabel");
+  const sort = document.getElementById("sort");
 
   if (
     bookName === "" ||
-    bookCategory=== "" ||
+    bookCategory === "" ||
     bookDate === "" ||
     bookWriter === "" ||
     ImageUrl === ""
@@ -33,6 +34,7 @@ UI.prototype.formListenSubmitFromUI = function (e) {
       bookWriter
     );
     storage.updateBookFromLocalStorage(book);
+    filter.sortBooksFromFilter(sort.value);
     // butonu düzenle
     button.innerHTML = "Ekle";
     button.className = "btn btn-success w-25";
@@ -50,6 +52,7 @@ UI.prototype.formListenSubmitFromUI = function (e) {
       bookWriter
     );
     saveLocalStorage(book);
+    filter.sortBooksFromFilter(sort.value);
   }
   e.preventDefault();
 };
