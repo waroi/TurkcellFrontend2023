@@ -26,7 +26,7 @@ UIConstructor.prototype.showBook = function (books) {
 
     const img = document.createElement("img");
     img.classList.add("card-img-top");
-    img.src = `"${book.url}"`;
+    img.src = `${book.url}`;
     img.alt = "images";
 
     const cardBody = document.createElement("div");
