@@ -7,7 +7,7 @@ function BookManager() {
   }
 }
 
-BookManager.prototype.addBook = function (event) {
+BookManager.prototype.addBook = function(event) {
   event.preventDefault();
 
   const form = event.target;
@@ -39,8 +39,7 @@ BookManager.prototype.addBook = function (event) {
   this.renderBooks();
 };
 
-
-const searchBook = () => {
+const searchBook = function() {
   const searchTerm = document.querySelector(".searchInput").value.toLowerCase();
   const books = document.querySelectorAll(".card");
 
@@ -51,7 +50,7 @@ const searchBook = () => {
     const text = book.querySelector(".card-title").textContent.toLowerCase();
     const text2 = book.querySelector(".writer").textContent.toLowerCase();
     const category = book.querySelector(".category").textContent.toLowerCase();
-    
+
     const isMatch = text.includes(searchTerm) || text2.includes(searchTerm);
     const isCategoryMatch = selectedCategoryValue === "" || category === selectedCategoryValue.toLowerCase();
 
@@ -70,12 +69,7 @@ const searchBook = () => {
   }
 };
 
-
-
-const searchInput = document.querySelector(".searchInput");
-searchInput.addEventListener("input", searchBook);
-
-BookManager.prototype.renderBooks = function () {
+BookManager.prototype.renderBooks = function() {
   const sortSelect = document.getElementById("sortSelect");
   const bookCard = document.getElementById("bookCard");
 
@@ -177,7 +171,7 @@ BookManager.prototype.renderBooks = function () {
   });
 };
 
-BookManager.prototype.getCategories = function () {
+BookManager.prototype.getCategories = function() {
   const categories = new Set();
 
   this.books.forEach((book) => {
@@ -187,7 +181,7 @@ BookManager.prototype.getCategories = function () {
   return Array.from(categories);
 };
 
-BookManager.prototype.sortBooks = function (sortOption) {
+BookManager.prototype.sortBooks = function(sortOption) {
   if (sortOption === "name") {
     this.books.sort((a, b) => {
       const bookA = a.bookName.toLowerCase();
@@ -228,24 +222,28 @@ BookManager.prototype.sortBooks = function (sortOption) {
     });
   }
 };
-const bookMangr = new BookManager();
+
+const bookManger = new BookManager();
 const sortSelect = document.getElementById("sortSelect");
+
 sortSelect.addEventListener("change", () => {
   const searchInput = document.querySelector(".searchInput");
   searchInput.addEventListener("input", searchBook);
 
-  bookMangr.sortBooks(sortSelect.value);
-  bookMangr.renderBooks();
+  bookManger.sortBooks(sortSelect.value);
+  bookManger.renderBooks();
 });
+
 searchInput = document.querySelector(".searchInput");
 searchInput.addEventListener("input", searchBook);
-BookManager.prototype.deleteBook = function (index) {
+
+BookManager.prototype.deleteBook = function(index) {
   this.books.splice(index, 1);
   localStorage.setItem("books", JSON.stringify(this.books));
   this.renderBooks();
 };
 
-BookManager.prototype.updateBook = function (index) {
+BookManager.prototype.updateBook = function(index) {
   const book = this.books[index];
   const form = document.getElementById("bookForm");
   form.elements.bookName.value = book.bookName;
@@ -264,15 +262,13 @@ BookManager.prototype.updateBook = function (index) {
   });
 };
 
-BookManager.prototype.performUpdate = function (index) {
+BookManager.prototype.performUpdate = function(index) {
   const form = document.getElementById("bookForm");
   const bookName = form.elements.bookName.value;
   const writer = form.elements.writer.value;
   const year = form.elements.year.value;
   const type = form.elements.type.value;
   const posterUrl = form.elements.posterUrl.value;
-
-
 
   const updatedBook = {
     bookName,
@@ -289,7 +285,7 @@ BookManager.prototype.performUpdate = function (index) {
   this.renderBooks();
 };
 
-form = document.getElementById("bookForm");
+const form = document.getElementById("bookForm");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -299,7 +295,7 @@ form.addEventListener("submit", (event) => {
   const type = form.elements.type.value;
   const posterUrl = form.elements.posterUrl.value;
 
-  const updatedBook = {
+  const newBook = {
     bookName,
     writer,
     year,
@@ -307,18 +303,23 @@ form.addEventListener("submit", (event) => {
     posterUrl,
   };
 
-  this.books[index] = updatedBook;
-  localStorage.setItem("books", JSON.stringify(this.books));
- 
-  modal.hide();
-  this.renderBooks();
+  if (bookName === "" || writer === "" || year === "" || type === "" || posterUrl === "") {
+    alert("Lütfen tüm alanları doldurun.");
+    return;
+  }
+
+  bookManger.books.push(newBook);
+  localStorage.setItem("books", JSON.stringify(bookManger.books));
+
+  form.reset();
+  bookManger.renderBooks();
 });
+
 const bookManager = new BookManager();
 
-
 const bookForm = document.getElementById("bookForm");
-bookForm.addEventListener("submit", function (event) {
+bookForm.addEventListener("submit", function(event) {
   event.preventDefault();
-  bookMangr.addBook(event);
+  bookManager.addBook(event);
 });
 
