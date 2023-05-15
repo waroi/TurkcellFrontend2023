@@ -124,7 +124,7 @@ class UI {
       element.target.parentElement.parentElement.parentElement.children[0].src = document.getElementById('editurlinput').value;
       editingModal.hide();
       LStorage.updateBookFromStorage(oldBook, newBook);
-      UI.showAlert('Book successfully updated!', 'danger');
+      UI.showAlert('Book successfully updated!', 'secondary');
     });
   }
 
@@ -148,8 +148,8 @@ class UI {
 
     const books = LStorage.getBooksFromStorage();
 
-    bookNames.forEach(function (bookName) {
-      books.forEach(function (book) {
+    bookNames.map(function (bookName) {
+      books.map(function (book) {
         if (book.name.toLowerCase() == bookName) {
           UI.addBookToUI(book);
         }
@@ -164,8 +164,8 @@ class UI {
 
     const books = LStorage.getBooksFromStorage();
 
-    bookDates.forEach(function (bookDate) {
-      books.forEach(function (book) {
+    bookDates.map(function (bookDate) {
+      books.map(function (book) {
         let booksInUI = document.getElementById('booklist');
         if (book.date == bookDate && booksInUI.innerHTML.indexOf(book.name) == -1) {
           UI.addBookToUI(book);
@@ -174,35 +174,22 @@ class UI {
     })
   }
 
-  static filterBooks(filteredBooksWithAuthor, filteredBooksWithCategory) {
-    UI.deleteAllBooksFromUI();
-    console.log(filteredBooksWithAuthor);
-    console.log(filteredBooksWithCategory);
+  static filterBooks(filteredBooksWithAuthor) {
+    ui.deleteAllBooksFromUI();
 
-    const books = LStorage.getBooksFromStorage();
+    const books = storage.getBooksFromStorage();
 
-    filteredBooksWithAuthor.forEach(function (filter) {
-      books.forEach(function (book) {
+    filteredBooksWithAuthor.map(function (filter) {
+      books.map(function (book) {
         let booksInUI = document.getElementById('booklist');
-        if (book.author == filter.author) {
+        if (book.author == filter.author && book.category == filter.category) {
           if (booksInUI.innerHTML.indexOf(book.name) == -1) {
-            UI.addBookToUI(book);
+            ui.addBookToUI(book);
           }
 
         }
       })
     })
 
-    filteredBooksWithCategory.forEach(function (filter) {
-
-      books.forEach(function (book) {
-        let booksInUI = document.getElementById('booklist');
-        if (book.category == filter.category) {
-          if (booksInUI.innerHTML.indexOf(book.name) == -1) {
-            UI.addBookToUI(book);
-          }
-        }
-      })
-    })
   }
 }

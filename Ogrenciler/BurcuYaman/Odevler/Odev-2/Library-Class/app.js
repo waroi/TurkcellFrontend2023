@@ -112,7 +112,7 @@ function deleteBook(e) {
     if (e.target.id === 'deleteButton') {
         UI.deleteBookFromUI(e.target);
         LStorage.deleteBookFromStorage(e.target.parentElement.parentElement.children[0].textContent);
-        UI.showAlert('Book successfully deleted!', 'danger');
+        UI.showAlert('Book successfully deleted!', 'secondary');
     }
 }
 
@@ -179,6 +179,7 @@ function sortBookOldest(e) {
 
 function filterBooks() {
 
+
     const checkboxAuthor = document.querySelectorAll('input[type="checkbox"].authorcheckbox');
     const checkboxCategory = document.querySelectorAll('input[type="checkbox"].categorycheckbox');
 
@@ -188,14 +189,12 @@ function filterBooks() {
     checkboxAuthor.forEach(function (checkbox) {
         if (checkbox.checked) {
             selectedAuthors.push(checkbox.id);
-            // console.log(selectedAuthors);
         }
     });
 
     checkboxCategory.forEach(function (checkbox) {
         if (checkbox.checked) {
             selectedCategory.push(checkbox.id);
-            // console.log(selectedCategory);
         }
     });
 
@@ -208,9 +207,32 @@ function filterBooks() {
     const filteredBooksWithCategory = books.filter(function (book) {
         return selectedCategory.includes(book.category);
     });
+    const filteredbooks = [];
 
-    UI.filterBooks(filteredBooksWithAuthor, filteredBooksWithCategory);
+    if (filteredBooksWithAuthor.length !== 0) {
+        filteredBooksWithAuthor.forEach(function (book) {
+            if (filteredBooksWithCategory.length !== 0 && filteredBooksWithAuthor.length !== 0 && !filteredbooks.includes(book)) {
+                filteredBooksWithCategory.forEach(function (book2) {
+                    if (book.category === book2.category && book.author === book2.author) {
+                        filteredbooks.push(book);
+                    }
+                });
+            } else if (filteredBooksWithCategory.length === 0 && filteredBooksWithAuthor.length !== 0 && !filteredbooks.includes(book)) {
+                filteredbooks.push(book);
+            }
+        });
 
+    } else if (filteredBooksWithAuthor.length === 0 && filteredBooksWithCategory.length !== 0) {
+        filteredBooksWithCategory.forEach(function (book) {
+            filteredbooks.push(book);
+        });
+    } else {
+        books.forEach(function (book) {
+            filteredbooks.push(book);
+        });
+    }
+
+    UI.filterBooks(filteredbooks);
     let modalFilter = bootstrap.Modal.getInstance(document.getElementById('filterModal'));
     modalFilter.hide();
 
