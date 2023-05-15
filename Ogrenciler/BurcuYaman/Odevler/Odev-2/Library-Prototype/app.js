@@ -38,7 +38,7 @@ function eventListeners() {
 
 function starterCond() {
     if (storage.getBooksFromStorage().length === 0) {
-        console.log('localstorage empty');
+
         storage.addBookToStorage(
             new Book(
                 'Otomatik Portakal ',
