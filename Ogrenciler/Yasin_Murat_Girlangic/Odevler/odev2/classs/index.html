@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title>YMG Kitab Evi</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+
+            <!-- navbar baslangıc -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">YMG | KİTAP EVİ</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ustnavbar" aria-controls="ustnavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse justify-content-end" id="ustnavbar">
+                    <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 gap-4">
+                      <li class="nav-item">
+                        <a class="nav-link active fa fa-home" aria-current="page" href="#">Anasayfa</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link fa fa-map-marker" href="#">hakkimizda</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fa fa-book" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Kitaplar
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Fyodor Dostoyevski Kumarbaz</a></li>
+                          <li><a class="dropdown-item" href="#">Lev Nikolayeviç Tolstoy Anna Karenina</a></li>
+                          <li><a class="dropdown-item" href="#">Lev Nikolayeviç Tolstoy İnsan Neyle Yaşar?</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link fa fa-question" href="#">SIKCA Sorulan Sorular</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link fa fa-arrow-right" href="#">cok Satanlar</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link fa fa-phone" href="#">iletisim</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link fa fa-shopping-cart" href="#">Sepetim</a>
+                      </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                    <div class="input-group">
+                      <input class="form-control" type="search" placeholder="Hangi kitabı arıyorsunuz?" aria-label="search"/>
+                      <button class="btn btn-outline-secondary" type="submit">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </nav>
+              <!-- navbar bitis -->
+          
+            <!-- kitap ekleme baslangic -->
+            <div class="container w-75 bg-white bg-info p-md-5 pb-1">
+        <div id="card-1">
+            <h1 class="text-center p-3">
+                <i class="fa fa-address-card" aria-hidden="true"></i>
+                Kitap Kaydı 
+            </h1>
+            <form id="kitap-form" name="form">
+                <input id="kitap-name" class="form-control mb-3" type="text" placeholder="Kitap Adı">
+                <input id="yazar-name" class="form-control mb-3" type="text" placeholder="Yazar Adı">
+                <input id="katagori" class="form-control mb-3" type="text" placeholder="katagori">
+                <input id="yayım-date" class="form-control date-color mb-3" type="date" placeholder="Tarih">
+                <input id="kapak-URL" class="form-control mb-3" type="url" placeholder="URL">
+                <button id="kitap-add" type="submit" class="btn btn-secondary w-100">Kitabı Ekle</button>
+            </form>
+        </div>
+        <div id="card-2" class="mt-5">
+            <div class="kitap-search d-flex justify-content-around align-items-center">
+                <div class="input-group kitap-search-item h-50">
+                    <input type="text" id="filter" class="form-control" placeholder="Kitap adı giriniz" aria-describedby="search-btn">
+                    <button class="btn btn-outline-primary " type="button" id="search-btn">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <button id="clear-book" class="btn btn-outline-secondary rounded-pill p-0 px-4 py-2">Kitapları Sil</button>
+            </div>
+            <ul id="book-list" class="list-group mt-3 mb-5"></ul>
+        </div>
+            </div>
+            <!-- kitap ekleme bitis -->
+
+          <!-- iletişim baslangıc -->
+          <section class="p-5 text-center bg-danger" id="iletisim">
+            <div class="container">
+              <h2 class="mb-5 fw-bold">İletişim</h2>
+              <hr class="cizgi"><i class="fa fa-book kitaplogobeyaz"></i>
+              <form class="col-md-10 text-start m-auto">
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label for="ad" class="form-label">Ad</label>
+                    <input type="text" class="form-control" id="ad" />
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label for="soyad" class="form-label">Soyad</label>
+                    <input type="text" class="form-control" id="soyad" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="Email1" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="Email1" />
+                </div>
+                <div class="mb-3">
+                  <label for="konu" class="form-label">Konu</label>
+                  <input type="text" class="form-control" id="konu" />
+                </div>
+                <div>
+                  <label for="Textarea" class="mb-3">Mesajınız</label>
+                  <textarea class="form-control" placeholder="Mesajınızı buraya yazabilirsiniz.." id="Textarea" style="height: 150px">
+                  </textarea>
+                </div>
+                <button type="submit" class="btn btn-outline-secondary mt-3 rounded-pill p-0 px-4 py-2">Mesajı Gönder</button>
+              </form>
+      
+            </div>
+          </section>
+          <!-- iletişim bitis -->
+          
+          <!-- footer baslangıc -->
+          <section class="p-5 text-center bg-primary">
+            <div class="container">
+              <footer class="py-5">
+                <div class="row">
+                  <div class="col-md-2">
+                    <h5>YMG | Kitap Evi</h5>
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-2">
+                        <a href="#" class="nav-link p-0 text-muted"
+                          >Anasayfa</a
+                        >
+                      </li>
+                      <li class="nav-item mb-2">
+                        <a href="#" class="nav-link p-0 text-muted"
+                          >Hakkımızda</a
+                        >
+                      </li>
+                      <li class="nav-item mb-2">
+                        <a href="#" class="nav-link p-0 text-muted">SSS</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-2">
+                    <h5>İletişim Bilgileri</h5>
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-2">
+                        <a href="https://goo.gl/maps/wtqwCyuXsLmQsrkE6" class="nav-link p-0 text-muted"
+                          ><i class="fa fa-map-marker"></i> İstanbul Kadıköy</a
+                        >
+                      </li>
+                      <li class="nav-item mb-2">
+                        <a href="#" class="nav-link p-0 text-muted"
+                          ><i class="fa fa-phone"></i> +90 555 444 33 22</a
+                        >
+                      </li>
+                      <li class="nav-item mb-2">
+                        <a href="#" class="nav-link p-0 text-muted"
+                          ><i class="fa fa-envelope"></i> ymgkitap@turkcell.com</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 mx-md-5">
+                    <form>
+                      <h5>Kitapevi'mize Kayıp Olabilirsiniz</h5>
+                      <p>İndirimlerden yararlanmak için kayıt olunmalıdır.</p>
+                      <div class="d-flex w-100 gap-2">
+                        <input type="text" class="form-control" placeholder="Email adresiniz"/>
+                        <button class="btn btn-outline-secondary px-4 py-2" type="button">Kayıt</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between py-4 my-4 border-top">
+                  <span>Tüm hakları saklıdır &copy; | 2023 </span>
+                  <span>designed by <a href="https://instagram.com/yasingrlangc?igshid=YmMyMTA2M2Y=" class="text-decoration-none text-dark fw-bold">Yasin Murat GIRLANIÇ</a></span>
+                  <ul class="list-unstyled d-flex">
+                    <li class="ms-3 sosyalmedyaicon">
+                      <a class="link-dark" href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="ms-3 sosyalmedyaicon">
+                      <a class="link-dark" href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                    <li class="ms-3 sosyalmedyaicon">
+                      <a class="link-dark" href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </footer>
+            </div>
+            </section>
+          <!-- footer bitis -->
+      
+          
+
+    <script src="./js/project.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+  </body>
+</html>
