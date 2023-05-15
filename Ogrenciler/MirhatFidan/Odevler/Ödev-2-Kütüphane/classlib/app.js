@@ -1,6 +1,6 @@
-import Book from "./classItem/library.js";
-import  UI  from "./classItem/ui.js";
-import Storage  from "./classItem/storage.js";
+import Book from "/library.js";
+import  UI  from "./ui.js";
+import Storage  from "./storage.js";
 
 const library = document.querySelector("#books");
 const bookAdd = document.querySelector("#add-button");
