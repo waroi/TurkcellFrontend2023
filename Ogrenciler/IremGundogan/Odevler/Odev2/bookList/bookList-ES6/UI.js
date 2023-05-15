@@ -60,7 +60,7 @@ class UI {
   static deleteBook(el) {
     if (el.classList.contains("delete")) {
       const id = el.parentElement.parentElement.dataset.id;
-      el.parentElement.parentElement.remove();
+      el.parentElement.parentElement.parentElement.remove();
       return id;
     }
   }
