@@ -50,11 +50,9 @@ if (books.length === 0) {
       "https://i.dr.com.tr/cache/600x600-0/originals/0001999887001-1.jpg"
     )
   );
-  books[0].id = "egeID";
-  books[1].id = "varolID";
-  books[2].id = "thirdID";
-  books[3].id = "fourthID";
-  books[4].id = "fifthID";
+  books[0].id = "exampleZeroID";
+  books[1].id = "exampleOneID";
+  books[2].id = "exampleTwoID";
   localStorage.setItem("bookStorage", JSON.stringify(books));
 }
 //#endregion
