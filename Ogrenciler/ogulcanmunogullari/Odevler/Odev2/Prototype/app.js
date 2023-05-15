@@ -28,15 +28,20 @@ ui.getLibrary();
 //Load
 //Reception
 receptionEnterButton.addEventListener('click', () => {
- const user = new UserP(userNameInput.value, userIdInput.value);
- store.enterStore(user);
- ui.purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
- store.user.setUserPurchase(ui.getPurchaseHistory());
- openInventoryButton.classList.remove('d-none');
- userNameInput.value = '';
- userIdInput.value = '';
- receptionEnter.classList.add('d-none');
- receptionProcess.classList.remove('d-none');
+ if (userNameInput.value && userIdInput.value) {
+  const user = new UserP(userNameInput.value, userIdInput.value);
+  store.enterStore(user);
+  ui.purchaseHistory =
+   JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+  store.user.setUserPurchase(ui.getPurchaseHistory());
+  openInventoryButton.classList.remove('d-none');
+  userNameInput.value = '';
+  userIdInput.value = '';
+  receptionEnter.classList.add('d-none');
+  receptionProcess.classList.remove('d-none');
+ } else {
+  alert('Lütfen Tüm Alanları Doldurunuz');
+ }
 });
 
 donateButton.addEventListener('click', () => {

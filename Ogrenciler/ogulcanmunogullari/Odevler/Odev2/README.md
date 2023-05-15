@@ -14,6 +14,7 @@ npm run scss
 
 ### Nasıl Kullanılır?
 
+- Başka projelerle çakışmaması adına localStorage verilerinizi siliniz.
 - prototype.html/class.html dosyasını tarayıcıda açınız.
 - ? Kısmından nasıl kullanıldığını okuyabilir ya da buradan devam edebilirsiniz.
 - İlk olarak bu proje gerçek bir kütüphane gibi işlemesi için tasarlanmıştır.
