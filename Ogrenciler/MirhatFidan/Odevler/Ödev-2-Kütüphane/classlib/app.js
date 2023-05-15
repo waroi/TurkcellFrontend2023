@@ -1,4 +1,4 @@
-import Book from "/library.js";
+import Book from "./library.js";
 import  UI  from "./ui.js";
 import Storage  from "./storage.js";
 
