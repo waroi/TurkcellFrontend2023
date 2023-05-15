@@ -42,15 +42,14 @@ function formListenSubmitEvent(e) {
   e.preventDefault();
   bookList.innerHTML = "";
   ui.formListenSubmitFromUI(e);
-  showBook();
   showAuthor();
   showCategory();
   form.reset();
   categoryForm.reset();
   authorForm.reset();
   searchInput.value = "";
-  sort.value = "Sırala";
 }
+
 // Kitap objesini local storage'a kaydet
 function saveLocalStorage(book) {
   let books = storage.getBookFromLocalStorage();
@@ -58,7 +57,6 @@ function saveLocalStorage(book) {
   storage.saveBookFromLocalStorage(books);
 }
 
-// kitap objesini göster
 function showBook() {
   const books = storage.getBookFromLocalStorage();
   books.forEach((book) => {

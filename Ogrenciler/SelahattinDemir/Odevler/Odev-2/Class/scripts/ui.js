@@ -8,6 +8,7 @@ class UI {
     const ImageUrl = document.getElementById("imgUrl").value.trim();
     const button = document.getElementById("addOrEditButton");
     const title = document.getElementById("booksModalLabel");
+    const sort = document.getElementById("sort");
 
     if (
       bookName === "" ||
@@ -31,6 +32,8 @@ class UI {
         bookWriter
       );
       LocalStorage.updateBookFromLocalStorage(book);
+      Filter.sortBooksFromFilter(sort.value);
+
       // butonu düzenle
       button.innerHTML = "Ekle";
       button.className = "btn btn-success w-25";
@@ -48,6 +51,7 @@ class UI {
         bookWriter
       );
       saveLocalStorage(book);
+      Filter.sortBooksFromFilter(sort.value);
     }
     e.preventDefault();
   }
