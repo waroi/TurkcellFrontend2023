@@ -94,10 +94,6 @@ UI.prototype.clearForm = function () {
 
 UI.prototype.showBooks = function (books) {
   bookList.innerHTML = "";
-
-  // books.forEach(function (book) {
-  //   ui.addBook(book);
-  // });
   const searchValue = bookSearch.value.trim().toLowerCase();
   const selectedGenres = Array.from(
     document.querySelectorAll(".form-check-input:checked")
