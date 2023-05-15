@@ -3,15 +3,16 @@ function UI() {}
 UI.prototype.formListenSubmitFromUI = function (e) {
   const id = Date.now();
   const bookName = document.getElementById("bookName").value.trim();
-  const bookType = document.getElementById("bookCategory").value.trim();
+  const bookCategory= document.getElementById("bookCategory").value.trim();
   const bookDate = document.getElementById("bookDate").value.trim();
   const bookWriter = document.getElementById("bookWriter").value.trim();
   const ImageUrl = document.getElementById("imgUrl").value.trim();
   const button = document.getElementById("addOrEditButton");
+  const title = document.getElementById("booksModalLabel");
 
   if (
     bookName === "" ||
-    bookType === "" ||
+    bookCategory=== "" ||
     bookDate === "" ||
     bookWriter === "" ||
     ImageUrl === ""
@@ -25,7 +26,7 @@ UI.prototype.formListenSubmitFromUI = function (e) {
       bookEditId,
       ImageUrl,
       bookName,
-      bookType,
+      bookCategory,
       bookDate,
       bookWriter
     );
@@ -34,12 +35,15 @@ UI.prototype.formListenSubmitFromUI = function (e) {
     button.innerHTML = "Ekle";
     button.className = "btn btn-success w-25";
     delete button.dataset.editBookId;
+
+    // title düzenle
+    title.innerHTML = "Kitap Ekle";
   } else {
     const book = new Books(
       id,
       ImageUrl,
       bookName,
-      bookType,
+      bookCategory,
       bookDate,
       bookWriter
     );
@@ -56,8 +60,9 @@ UI.prototype.editBookFromUI = function (e) {
     books.forEach((book) => {
       if (book.id == bookChangeId) {
         const button = document.getElementById("addOrEditButton");
+        const title = document.getElementById("booksModalLabel");
         const bookName = document.getElementById("bookName");
-        const bookType = document.getElementById("bookCategory");
+        const bookCategory = document.getElementById("bookCategory");
         const bookDate = document.getElementById("bookDate");
         const bookWriter = document.getElementById("bookWriter");
         const ImageUrl = document.getElementById("imgUrl");
@@ -66,7 +71,7 @@ UI.prototype.editBookFromUI = function (e) {
         form.id = book.id;
         ImageUrl.value = book.imageUrl;
         bookName.value = book.name;
-        bookType.value = book.type;
+        bookCategory.value = book.category;
         bookDate.value = book.date;
         bookWriter.value = book.writer;
 
@@ -74,6 +79,9 @@ UI.prototype.editBookFromUI = function (e) {
         button.innerHTML = "Düzenle";
         button.className = "btn btn-warning w-25";
         button.dataset.editBookId = bookChangeId;
+
+        // title düzenle
+        title.innerHTML = "Kitap Düzenle";
       }
     });
   }

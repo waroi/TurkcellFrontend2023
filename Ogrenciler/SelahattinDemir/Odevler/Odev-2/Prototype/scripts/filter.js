@@ -1,7 +1,7 @@
 function Filter() {}
 
 Filter.prototype.filterBooksFromFilter = function () {
-  const bookType = document.getElementById("bookCategory").value;
+  const bookCategory = document.getElementById("bookCategory").value;
   const bookWriter = document.getElementById("bookWriter").value;
 
   const categoriesAndAuthors = document.querySelectorAll(
@@ -15,7 +15,7 @@ Filter.prototype.filterBooksFromFilter = function () {
   let books = storage.getBookFromLocalStorage();
   // Filter the books based on the query
   const filteredBooks = books.filter((book) => {
-    if (bookType !== "" && book.type !== bookType) {
+    if (bookCategory !== "" && book.category !== bookCategory) {
       return false;
     }
     if (bookWriter !== "" && book.writer !== bookWriter) {
@@ -23,8 +23,8 @@ Filter.prototype.filterBooksFromFilter = function () {
     }
     if (selectedCategoriesAndAuthors.length > 0) {
       const bookCategoriesAndAuthors = [
-        book.type,
-        book.writer.replace(/ /g, ""),
+        book.category.toLowerCase(),
+        book.writer.replace(/ /g, "").toUpperCase(),
       ];
       // console.log(book.writer.replace(/ /g, ""));
       const matchingCategoriesAndAuthors = selectedCategoriesAndAuthors.filter(
