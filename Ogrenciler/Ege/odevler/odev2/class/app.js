@@ -76,7 +76,7 @@ function handleEventListeners() {
   bookCollectionRow.addEventListener("click", (e) => {
     if (e.target.classList.contains("book-delete")) {
       let bookCard = e.target.closest(".col-lg-4");
-      Process.deleteBook(books, bookCard, bookCard.id);
+      Process.deleteBook(books, bookCard, bookCard.id, userInterface);
       // Reset inputs
       categorySelect.value = "";
       writerSelect.value = "";
