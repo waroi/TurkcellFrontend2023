@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+.hidden {
+  display: none;
+}
+
+.user {
+  text-align: right;
+}
+
+nav {
+  font-size: 24px;
+}
+
+.modal-body input {
+  width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #ffe5b4,
+    #fdd49b,
+    #fdc384,
+    #fdb070,
+    #fe9c60,
+    #ff9b59,
+    #ff9b52,
+    #ff9a4a,
+    #ffae49,
+    #ffc34b,
+    #ffd752,
+    #fbec5d
+  );
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-transform: capitalize;
+  .card-img-top {
+    height: 500px;
+    // object-fit: cover;
+  }
+
+  .book-title {
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;
+    font-size: 36px;
+  }
+
+  .book-release-date {
+    font-family: "Space Grotesk", sans-serif;
+  }
+  .book-writer,
+  .book-category {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+  }
+
+  .book-category {
+    font-size: 1rem;
+  }
+}
+
+.dropdown-menu {
+  padding: 16px;
+  backdrop-filter: blur(5px);
+  .dropdown-item {
+    padding: 16px;
+    border-radius: 16px;
+
+    label {
+      text-transform: capitalize;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 600;
+    }
+
+    select,
+    input {
+      border-radius: 10px;
+      padding: 5px 2px;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+i {
+  pointer-events: none;
+  font-size: 2rem;
+}
+
+.hero {
+  font-size: 128px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #ff6e4a 0px 0px 20px, #ff6e4a 0px 0px 30px, #ff6e4a 0px 0px 40px,
+    #ff6e4a 0px 0px 50px, #ff6e4a 0px 0px 75px;
+}
+
+.modal-content {
+  backdrop-filter: blur(5px);
+
+  .modal-header {
+    background-image: url(https://img.freepik.com/free-vector/sunset-sunrise-ocean-nature-landscape_33099-2244.jpg?w=1380&t=st=1684093899~exp=1684094499~hmac=54059f7eaab5a67d47c04a6008b9c94e2d7d26b05e34ac51eb6bbaf9539ea5a0);
+    background-size: cover;
+    .modal-title {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  label {
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    margin: 16px 0 8px 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+  }
+
+  input {
+    border-radius: 10px;
+    padding: 5px 2px;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .hero {
+    font-size: 64px;
+  }
+}

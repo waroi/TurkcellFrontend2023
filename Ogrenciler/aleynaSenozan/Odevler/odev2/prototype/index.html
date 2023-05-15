@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kitap Listesi</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href=".\style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+    
+    <div class="banner">
+      <p class="banner-text">Find the <span class="book-color">book</span> you are looking for easier to read !</p>
+      <img src=".\image.png" alt="Banner Image" class="banner-img">
+    </div>
+    
+    
+    <div class="container mt-5">
+      <div class="row">
+        <aside class="col-md-3">
+          <div class="accordion" id="filterAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="false"
+                    aria-controls="collapseOne"
+                  >
+                    Yazara Göre
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#filterAccordion"
+                >
+                  <div class="accordion-body">
+                      <div class="accordion-body">
+                        <div id="author-filter">
+                          <input type="checkbox" id="author1" name="author1" value="Colleen Hoover">
+                          <label for="author1">Colleen Hoover</label>
+                          <br>
+                          <input type="checkbox" id="author2" name="author2" value="Stephen King">
+                          <label for="author2">Stephen King</label>
+                          <br>
+                          <input type="checkbox" id="author3" name="author3" value="Javier Zamora">
+                          <label for="author3">Javier Zamora</label>
+                          <br>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Kategoriye Göre
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#filterAccordion"
+              >
+                <div class="accordion-body">
+                    <div class="accordion-body">
+                      <div id="category-filter">
+                        <input type="checkbox" id="category1" name="category1" value="Novel">
+                        <label for="category1">Novel</label>
+                        <br>
+                        <input type="checkbox" id="category2" name="category2" value="Science">
+                        <label for="category2">Science</label>
+                        <br>
+                        <input type="checkbox" id="category3" name="category3" value="Biography">
+                        <label for="category3">Biography</label>
+                        <br>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Yıla Göre
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingThree"
+                data-bs-parent="#filterAccordion"
+              >
+                <div class="accordion-body">
+                    <div class="accordion-body">
+                      <div id="year-filter">
+                        <input type="checkbox" id="year1" name="year1" value="2022">
+                        <label for="year1">2022</label>
+                        <br>
+                        <input type="checkbox" id="year2" name="year2" value="2021">
+                        <label for="year2">2021</label>
+                        <br>
+                        <input type="checkbox" id="year3" name="year3" value="2023">
+                        <label for="year2">2023</label>
+                        <br>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <main class="col-md-9">
+            <header class="mb-3 d-flex justify-content-between header">
+              <div>
+                <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#addBookModal">
+                  <i class="bi bi-plus-circle-fill"></i> Ekle
+                </button>
+                <button class="btn btn-danger" id="delete-button">
+                  <i class="bi bi-trash-fill"></i> Sil
+                </button>
+              </div>
+              
+                <div class="input-group w-auto">
+                  <span class="input-group-text"><i class="bi bi-search"></i></span>
+                  <input
+                    type="search"
+                    class="form-control"
+                    placeholder="Ara"
+                    aria-label="Ara"
+                    id="search"
+                  />
+                </div>
+              </header>
+          <table class="table-responsive">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <input type="checkbox" aria-label="Tümünü seç" />
+                </th>
+                <th scope="col">
+                  Kitap adı <i class="bi bi-caret-up-fill" data-column="title" data-num="1"></i>
+
+                </th>
+                <th scope="col">Yazarı <i class="bi bi-caret-up-fill" data-column="title" data-num="1"></i>
+                </th>
+                <th scope="col">
+                  Kategori <i class="bi bi-caret-up-fill" data-column="title" data-num="1"></i>
+
+                </th>
+                <th scope="col">
+                  Yazıldığı tarih <i class="bi bi-caret-up-fill" data-column="title" data-num="1"></i>
+                </i>
+                </th>
+                <th scope="col">Kapak görsel URL'si</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>Reminders of Him</td>
+                <td>Colleen Hoover</td>
+                <td>Novel</td>
+                <td>2022</td>
+                <td>
+                  <button class="btn bi bi-zoom-in" data-bs-toggle="modal" data-bs-target="#coverModal" data-url="https://www.amazon.com/Reminders-Him-Novel-Colleen-Hoover/dp/1542025605/ref=lp_17296221011_1_5?sbo=RZvfv//HxDF+O5021pAnSA==" data-img="https://m.media-amazon.com/images/I/418HLIXlxCL._SX331_BO1,204,203,200_.jpg" data-large-img="https://m.media-amazon.com/images/I/418HLIXlxCL._SX331_BO1,204,203,200_.jpg">
+                  
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>Fairy Tale</td>
+                <td>Stephen King</td>
+                <td>Science</td>
+                <td>2021</td>
+                <td>
+                  <button class="btn bi bi-zoom-in" data-bs-toggle="modal" data-bs-target="#coverModal" data-url="https://www.amazon.com/Reminders-Him-Novel-Colleen-Hoover/dp/1542025605/ref=lp_17296221011_1_5?sbo=RZvfv//HxDF+O5021pAnSA==" data-img="https://m.media-amazon.com/images/I/51ECRZXoGyL._SX327_BO1,204,203,200_.jpg" data-large-img="https://m.media-amazon.com/images/I/51ECRZXoGyL._SX327_BO1,204,203,200_.jpg">
+                    
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>Solito</td>
+                <td>Javier Zamora</td>
+                <td>Biography</td>
+                <td>2023</td>
+                <td>
+                  <button class=" btn bi bi-zoom-in" data-bs-toggle="modal" data-bs-target="#coverModal" data-url="https://www.amazon.com/Reminders-Him-Novel-Colleen-Hoover/dp/1542025605/ref=lp_17296221011_1_5?sbo=RZvfv//HxDF+O5021pAnSA==" data-img="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9780861544738/solito-9780861544738_hr.jpg" data-large-img="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9780861544738/solito-9780861544738_hr.jpg">
+                    
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </main>
+      </div>
+    </div>
+  
+    <div
+      class="modal fade"
+      id="addBookModal"
+      tabindex="-1"
+      aria-labelledby="addBookModalLabel"
+      aria-hidden="true"
+    >
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header" id="modal-header-image">
+      <h5 class="modal-title" id="addBookModalLabel">Yeni Kitap Ekle</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body d-flex align-items-start">
+      <form id="book-form" class="modal-form">
+              <div class="mb-3">
+                <label for="title" class="form-label">Kitap Adı</label>
+                <input type="text" class="form-control" id="title" />
+              </div>
+              <div class="mb-3">
+                <label for="author" class="form-label">Yazar</label>
+                <input type="text" class="form-control" id="author" />
+              </div>
+              <div class="mb-3">
+                <label for="category" class="form-label">Kategori</label>
+                <input type="text" class="form-control" id="category" />
+              </div>
+              <div class="mb-3">
+                <label for="year" class="form-label">Yazıldığı Tarih</label>
+                <input type="text" class="form-control" id="year" />
+              </div>
+              <div class="mb-3">
+                <label for="cover" class="form-label"
+                  >Kapak Görsel URL'si</label
+                >
+                <input type="text" class="form-control" id="cover" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Kapat
+            </button>
+            <button type="button" class="btn btn-primary" id="save-button">
+              Kaydet
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" tabindex="-1" id="updateBookModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Kitap Bilgilerini Güncelle</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="update-book-form">
+              <div class="form-group">
+                <label for="update-title">Kitap Adı</label>
+                <input type="text" id="update-title" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="update-author">Yazar</label>
+                <input type="text" id="update-author" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="update-category">Kategori</label>
+                <input type="text" id="update-category" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="update-year">Yıl</label>
+                <input type="text" id="update-year" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="update-cover">Kapak URL</label>
+                <input type="text" id="update-cover" class="form-control">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+            <button type="button" id="update-button" class="btn btn-primary">Güncelle</button>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Kapak Görseli Modal -->
+<div class="modal fade" id="coverModal" tabindex="-1" aria-labelledby="coverModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="coverModalLabel">Kitap Kapak</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img id="coverImage" src="" alt="Kitap Kapak">
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
