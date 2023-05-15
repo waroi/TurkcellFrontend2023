@@ -1,12 +1,16 @@
 :root {
-  --color1: #5b507a;
-  --color2: #5b618a;
-  --color3: #9eadc8;
-  --color4: #b9e28c;
-  --color5: #d6d84f;
+  --color1: #171717;
+  --color2: #444444;
+  --color3: #da0037;
+  --color4: #ededed;
+  --color5: #fff;
 }
 body {
   background-color: var(--color2);
+}
+
+#inputCard label {
+  color: var(--color3);
 }
 
 .card {
@@ -21,9 +25,6 @@ body {
   background: var(--color1);
   margin-top: 50px;
 }
-.card:first-child {
-  border-radius: 10px !important;
-}
 .card:nth-child(even) {
   border-radius: 0px 25px 25px 0px;
 }
@@ -32,10 +33,6 @@ body {
 }
 
 .imgBx {
-  /* position: absolute; */
-  /* top: 540%; */
-  /* z-index: 1; */
-  /* width: 100%; */
   height: 220px;
   transition: 0.5s;
   margin-top: 10px;
@@ -50,8 +47,6 @@ body {
   width: 100%;
   min-width: 200px;
   height: 280px;
-  /* margin-top: 10px; */
-  /* padding-top: 56.25%; 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 
 .contentBx {
@@ -59,7 +54,6 @@ body {
   bottom: 0%;
   width: 100%;
   height: 100px;
-  /* text-align: center; */
   transition: 1s;
   z-index: 2;
 }
@@ -73,37 +67,12 @@ body {
   position: relative;
   font-weight: 600;
   letter-spacing: 1px;
-  color: var(--color5);
+  color: var(--color3);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   width: 90%;
   margin: 0;
-  /* display: inline-block; */
-  /* z-index: 9995416359; */
-}
-
-.tooltiptext {
-  visibility: hidden;
-  /* width: 500px; */
-  font-size: 20px;
-  background-color: rgba(255, 0, 0, 0);
-  color: #ff0000;
-  /* text-align: center; */
-  border-radius: 6px;
-  /* padding: 5px 0; */
-  /* content: " "; */
-  position: absolute;
-  top: -40%; /* adjust the distance from the top as needed */
-  /* left: -30%; */
-  /* z-index: 9995416359;  */
-  white-space: nowrap;
-  overflow: visible;
-  box-sizing: content-box;
-}
-
-.title-tooltip:hover .tooltiptext {
-  visibility: visible;
 }
 
 .publication-year,
@@ -117,7 +86,6 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  /* width: 90%; */
 }
 
 .card:hover .contentBx .author {
@@ -142,9 +110,7 @@ body {
   color: var(--color5);
   font-weight: 300;
   font-size: 14px;
-  /* text-transform: uppercase; */
   letter-spacing: 2px;
-  /* margin-right: 10px; */
   margin-top: 2px;
   margin-bottom: 5px;
 }
