@@ -58,7 +58,7 @@
                             <label for="cover-url-input">Cover Image URL</label>
                             <input type="url" class="form-control" id="cover-url-input" required>
                         </div>
-                        <button type="submit" class="btn btn-primary submit-btn">Add</button>
+                        <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">Add</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </form>
                 </div>
@@ -87,17 +87,19 @@
                 </select>
             </div>
             <div class="sort">
-                <label for="category-filter">Sort:</label>
-                <select id="category-filter">
-                    <option value="">sort A-Z</option>
-                    <option value="">sort Z-A</option>
-                    <option value="">older first</option>
-                    <option value="">newer first</option>
+                <label for="sortSelect">Sort:</label>
+                <select id="sortSelect">
+                    <option value="default">Default</option>
+                    <option value="az">sort A-Z</option>
+                    <option value="za">sort Z-A</option>
+                    <option value="oldest">older first</option>
+                    <option value="newest">newer first</option>
                 </select>
             </div>
         </div>
     </div>
     <div class="row justify-content-center flex-wrap" id="book-list"> </div>
+    <div id="bookContainer"></div>
 
     <!-- jQuery and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

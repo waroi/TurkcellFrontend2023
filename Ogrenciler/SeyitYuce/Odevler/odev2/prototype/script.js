@@ -7,8 +7,9 @@ const coverUrlInput = document.getElementById("cover-url-input");
 
 const modal = document.getElementById("add-book-modal");
 
-const authorFilter = document.getElementById("author-filter");
-const categoryFilter = document.getElementById("category-filter");
+// Get the author and category filter select elements
+const authorFilterSelect = document.getElementById("author-filter");
+const categoryFilterSelect = document.getElementById("category-filter");
 
 // Define the Book class
 function Book(name, author, category, date, coverUrl) {
@@ -22,17 +23,27 @@ function Book(name, author, category, date, coverUrl) {
 // Define the Bookshelf class
 function Bookshelf() {
   this.books = JSON.parse(localStorage.getItem("books")) || [];
+
+  if (!Array.isArray(this.books)) {
+    this.books = [];
+  }
 }
 
 // Add a new book to the bookshelf
-Bookshelf.prototype.addBook = function (book) {
-  this.books.push(book);
-  this.addBooktoLocalStorage(book);
-  $('#add-book-modal').modal('hide');
-  $('body').removeClass('modal-open');
-  $('.modal-backdrop').remove();
-  addBookForm.reset(); // access addBookForm element globally
-}
+Bookshelf.prototype.addBook = function () {
+  // Get the books from localStorage
+  const books = this.books;
+
+
+  // Save the updated books array to localStorage
+  localStorage.setItem("books", JSON.stringify(books));
+
+  // Update the bookshelf's list of books
+  this.books = books;
+
+  // Re-render the book list
+  this.render();
+};
 
 Bookshelf.prototype.addBooktoLocalStorage = function (book) {
   const books = JSON.parse(localStorage.getItem("books")) || [];
@@ -63,11 +74,8 @@ Bookshelf.prototype.editBook = function (index) {
   dateInput.value = book.date;
   coverUrlInput.value = book.coverUrl;
 
-  // Capture the bookshelf object in a variable
-  const self = this;
-
   // Add an event listener to the form submit button to save the changes
-  const submitButton = document.getElementById("submit-button");
+  const submitButton = document.getElementById("submit-btn");
   submitButton.addEventListener("click", function () {
     // Update the book object with the new information
     book.name = nameInput.value;
@@ -77,14 +85,27 @@ Bookshelf.prototype.editBook = function (index) {
     book.coverUrl = coverUrlInput.value;
 
     // Update the books array in localStorage
-    self.books.splice(index, 1);
-    self.updateLocalStorage();
+    books.splice(index, 1, book);
+    localStorage.setItem("books", JSON.stringify(books));
 
     // Re-render the book list
-    // self.render();
+    bookshelf.render();
 
     // Close the modal
     modal.style.display = "none";
+  });
+};
+
+const searchInput = document.getElementById("search-input")
+Bookshelf.prototype.searchBook = function (e) {
+  const books = JSON.parse(localStorage.getItem("books")) || [];
+  const pressedKey = searchInput.value.trim().toLowerCase();
+
+  books.filter((book) => {
+    if (book.name.toLowerCase().includes(pressedKey) || book.author.toLowerCase().includes(pressedKey)) {
+      console.log(book)
+      return book
+    }
   });
 };
 
@@ -92,9 +113,6 @@ const bookList = document.getElementById("book-list");
 Bookshelf.prototype.render = function () {
   bookList.innerHTML = "";
   const books = JSON.parse(localStorage.getItem("books")) || [];
-
-  const authorFilter = document.getElementById("author-filter").value;
-  const categoryFilter = document.getElementById("category-filter").value;
 
   for (let i = 0; i < books.length; i++) {
     const book = books[i];
@@ -157,10 +175,6 @@ Bookshelf.prototype.addNewItemsToFilterInput = function () {
     categoryOptions.add(book.category);
   });
 
-  // Get the author and category filter select elements
-  const authorFilterSelect = document.getElementById("author-filter");
-  const categoryFilterSelect = document.getElementById("category-filter");
-
   // Remove any existing options from the select elements
   authorFilterSelect.innerHTML = "";
   categoryFilterSelect.innerHTML = "";
@@ -190,30 +204,63 @@ Bookshelf.prototype.addNewItemsToFilterInput = function () {
     option.text = category;
     categoryFilterSelect.add(option);
   });
+
+  // Add event listeners to the filter select elements
+  authorFilterSelect.addEventListener("change", filterBooks);
+  categoryFilterSelect.addEventListener("change", filterBooks);
+
+  // Define the filter function
+  function filterBooks() {
+    const selectedAuthor = authorFilterSelect.value;
+    const selectedCategory = categoryFilterSelect.value;
+
+    // Filter the books list
+    const filteredBooks = books.filter(function (book) {
+      return (selectedAuthor === "" || book.author === selectedAuthor) &&
+        (selectedCategory === "" || book.category === selectedCategory);
+    });
+
+    // Render the filtered list of books
+    bookshelf.render(filteredBooks);
+    printItems(filteredBooks, bookshelf);
+
+  }
+}
+function printItems(filteredBooks) {
+  for (const book of filteredBooks) {
+    console.log(book);
+  }
 }
 
-const searchInput = document.getElementById("search-input")
 
-Bookshelf.prototype.searchBook = function () {
-  const books = JSON.parse(localStorage.getItem("books")) || [];
 
-  // Iterate over all the book elements in the book list
-  const bookElements = document.querySelectorAll(".card");
-  bookElements.forEach((bookElement) => {
-    const bookTitle = bookElement.querySelector(".title-tooltip").textContent.toLowerCase();
-    const bookAuthor = bookElement.querySelector(".author").textContent.toLowerCase();
+const sortSelect = document.getElementById("sortSelect");
+Bookshelf.prototype.sortBooks = function () {
+  const selectedValue = sortSelect.value;
 
-    // Check if the book matches the search query
-    if (
-      bookTitle.includes(searchInput.value.toLowerCase()) ||
-      bookAuthor.includes(searchInput.value.toLowerCase())
-    ) {
-      bookElement.classList.add("search-match");
-    } else {
-      bookElement.classList.remove("search-match");
-    }
-  });
-};
+  bookList.innerHTML = "";
+
+  if (selectedValue === "default") {
+    this.render(this.books);
+  } else if (selectedValue === "az") {
+    this.books.sort((a, b) => (a.name < b.name ? -1 : 1));
+    this.books = bookshelf.books;
+    this.render(this.books);
+  } else if (selectedValue === "za") {
+    this.books.sort((a, b) => (a.name > b.name ? -1 : 1));
+    this.books = bookshelf.books;
+    this.render(this.books);
+  } else if (selectedValue === "newest") {
+    this.books.sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
+    this.books = bookshelf.books;
+    this.render();
+  } else if (selectedValue === "oldest") {
+    this.books.sort((a, b) => (new Date(a.date) > new Date(b.date) ? 1 : -1));
+    this.books = bookshelf.books;
+    this.render();
+  }
+  return this.render()
+}
 
 const addBookForm = document.getElementById("add-book-form");
 addBookForm.addEventListener("submit", function (event) {
@@ -229,24 +276,15 @@ addBookForm.addEventListener("submit", function (event) {
   bookshelf.render();
 });
 
-searchInput.addEventListener("keyup", function (e) {
-  const searchTerm = e.target.value.toLowerCase();
-  const filteredBooks = bookshelf.books.filter(function (book) {
-    return (
-      book.name.toLowerCase().includes(searchTerm) ||
-      book.author.toLowerCase().includes(searchTerm) ||
-      book.category.toLowerCase().includes(searchTerm)
-    );
-  });
-  bookList.innerHTML = "";
-  filteredBooks.forEach(function (book, i) {
-    const bookElement = createBookElement(book, i);
-    bookList.appendChild(bookElement);
-  });
+searchInput.addEventListener("keyup", function () {
+  bookshelf.searchBook()
 });
 
+sortSelect.addEventListener("change", () => {
+  bookshelf.sortBooks();
+  bookshelf.render();
 
-
+})
 
 const bookshelf = new Bookshelf();
 bookshelf.addNewItemsToFilterInput();
