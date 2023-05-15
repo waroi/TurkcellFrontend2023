@@ -19,7 +19,7 @@ LStorage.prototype.getBooksFromStorage = function () {
 
 LStorage.prototype.deleteBookFromStorage = function (bookName) {
     let books = this.getBooksFromStorage();
-    books.forEach(function (book, index) {
+    books.map(function (book, index) {
         if (book.name === bookName) {
             books.splice(index, 1);
         }
@@ -30,7 +30,7 @@ LStorage.prototype.deleteBookFromStorage = function (bookName) {
 
 LStorage.prototype.updateBookFromStorage = function (oldBook, updatedBook) {
     let books = this.getBooksFromStorage();
-    books.forEach(function (book, index) {
+    books.map(function (book, index) {
         if (book.name === oldBook.name) {
             books.splice(index, 1, updatedBook);
         }
