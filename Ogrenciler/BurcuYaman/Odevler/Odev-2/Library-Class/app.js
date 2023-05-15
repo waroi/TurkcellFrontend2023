@@ -13,8 +13,6 @@ const authorcheckbox = document.querySelector('.authorcheckbox');
 const categorycheckbox = document.querySelector('.categorycheckbox');
 const warningModal = document.querySelector('#warningmodal');
 
-const ui = new UI();
-const storage = new LStorage();
 
 eventListeners();
 
@@ -37,9 +35,8 @@ function eventListeners() {
 }
 
 function starterCond() {
-    if (storage.getBooksFromStorage().length === 0) {
-        console.log('localstorage empty');
-        storage.addBookToStorage(
+    if (LStorage.getBooksFromStorage().length === 0) {
+        LStorage.addBookToStorage(
             new Book(
                 'Otomatik Portakal ',
                 'Anthony Burgess',
@@ -49,7 +46,7 @@ function starterCond() {
 
             )
         );
-        storage.addBookToStorage(
+        LStorage.addBookToStorage(
             new Book(
                 'Hayvan Çiftliği',
                 'George Orwell',
@@ -58,7 +55,7 @@ function starterCond() {
                 'https://i.dr.com.tr/cache/500x400-0/originals/0000000064031-1.jpg'
             )
         );
-        storage.addBookToStorage(
+        LStorage.addBookToStorage(
             new Book(
                 'Seker Portakalı',
                 'Jose Mauro De Vasconcelos ',
@@ -81,9 +78,9 @@ function starterCond() {
 }
 
 function showBooks() {
-    let books = storage.getBooksFromStorage();
+    let books = LStorage.getBooksFromStorage();
     books.forEach(function (book) {
-        ui.addBookToUI(book);
+        UI.addBookToUI(book);
     });
 }
 
@@ -95,15 +92,15 @@ function addNewBook(e) {
     const url = document.getElementById('urlinput').value;
 
     if (name === '' || author === '' || category === '' || date === '' || url === '') {
-        ui.showAlert('Please fill in all fields!', 'danger');
+        UI.showAlert('Please fill in all fields!', 'danger');
 
     } else {
         const newBook = new Book(name, author, category, date, url);
-        ui.addBookToUI(newBook);
-        storage.addBookToStorage(newBook);
-        ui.showAlert('Book successfully added!', 'danger');
+        UI.addBookToUI(newBook);
+        LStorage.addBookToStorage(newBook);
+        UI.showAlert('Book successfully added!', 'danger');
 
-        ui.clearInputs(document.getElementById('booknameinput'), document.getElementById('bookauthorinput'), document.getElementById('bookcategoryinput'), document.getElementById('datepublicationinput'), document.getElementById('urlinput'));
+        UI.clearInputs(document.getElementById('booknameinput'), document.getElementById('bookauthorinput'), document.getElementById('bookcategoryinput'), document.getElementById('datepublicationinput'), document.getElementById('urlinput'));
 
         let addingModal = bootstrap.Modal.getInstance(document.getElementById('addNewBookModal'));
         addingModal.hide();
@@ -113,70 +110,70 @@ function addNewBook(e) {
 
 function deleteBook(e) {
     if (e.target.id === 'deleteButton') {
-        ui.deleteBookFromUI(e.target);
-        storage.deleteBookFromStorage(e.target.parentElement.parentElement.children[0].textContent);
-        ui.showAlert('Book successfully deleted!', 'danger');
+        UI.deleteBookFromUI(e.target);
+        LStorage.deleteBookFromStorage(e.target.parentElement.parentElement.children[0].textContent);
+        UI.showAlert('Book successfully deleted!', 'danger');
     }
 }
 
 function updateBook(e) {
     if (e.target.id === 'editButton') {
-        ui.updateBookFromUI(e);
+        UI.updateBookFromUI(e);
     }
 
 }
 
 function searchBook(e) {
     const searchValue = e.target.value.toLowerCase();
-    ui.searchBook(searchValue);
+    UI.searchBook(searchValue);
 }
 
 function sortBookAz(e) {
 
-    const books = storage.getBooksFromStorage();
+    const books = LStorage.getBooksFromStorage();
     const bookNames = books.map(function (book) {
         return book.name.toLowerCase();
     }
     );
 
     bookNames.sort();
-    ui.sortBookAz(bookNames);
+    UI.sortBookAz(bookNames);
 
 }
 
 function sortBookZa(e) {
-    const books = storage.getBooksFromStorage();
+    const books = LStorage.getBooksFromStorage();
     const bookNames = books.map(function (book) {
         return book.name.toLowerCase();
     }
     );
 
     bookNames.sort().reverse();
-    ui.sortBookAz(bookNames);
+    UI.sortBookAz(bookNames);
 
 }
 
 function sortBookLatest(e) {
-    const books = storage.getBooksFromStorage();
+    const books = LStorage.getBooksFromStorage();
     const bookDates = books.map(function (book) {
         return book.date;
     }
     );
 
     bookDates.sort().reverse();
-    ui.sortBookDates(bookDates);
+    UI.sortBookDates(bookDates);
 
 }
 
 function sortBookOldest(e) {
-    const books = storage.getBooksFromStorage();
+    const books = LStorage.getBooksFromStorage();
     const bookDates = books.map(function (book) {
         return book.date;
     }
     );
     console.log(bookDates);
     bookDates.sort();
-    ui.sortBookDates(bookDates);
+    UI.sortBookDates(bookDates);
 
 }
 
@@ -202,7 +199,7 @@ function filterBooks() {
         }
     });
 
-    const books = storage.getBooksFromStorage();
+    const books = LStorage.getBooksFromStorage();
 
     const filteredBooksWithAuthor = books.filter(function (book) {
         return selectedAuthors.includes(book.author);
@@ -212,7 +209,7 @@ function filterBooks() {
         return selectedCategory.includes(book.category);
     });
 
-    ui.filterBooks(filteredBooksWithAuthor, filteredBooksWithCategory);
+    UI.filterBooks(filteredBooksWithAuthor, filteredBooksWithCategory);
 
     let modalFilter = bootstrap.Modal.getInstance(document.getElementById('filterModal'));
     modalFilter.hide();
