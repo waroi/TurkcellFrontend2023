@@ -21,7 +21,7 @@ addBookButton.addEventListener("click", () => {
   };
 
   if (bookTitle === "" || bookAuthor === "" || bookYear === "" || bookCategory === "" || bookPoster === "") {
-    alert("Lütfen kitap ile ilgili bilgileri doldurunuz","danger");
+    alert("Lütfen kitap ile ilgili bilgileri doldurunuz");
     return;
   }
 

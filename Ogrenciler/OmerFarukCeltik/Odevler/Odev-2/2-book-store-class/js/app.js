@@ -89,7 +89,7 @@ function addBook(e) {
     Storage.setBooksToStorage();
     bookCategorySet = new Set(bookArray.map((book) => book.category));
     bookAuthorSet = new Set(bookArray.map((book) => book.author));
-    console.log(bookCategorySet);
+    // console.log(bookCategorySet);
     createBookFilters();
   }
 }
@@ -104,7 +104,7 @@ function cardsEditnDeleteCatch(e) {
   // edit card
   else if (e.target.classList.contains("edit-button")) {
     editCurrentCardInput(currentCardUI);
-    console.log(currentCardUI);
+    // console.log(currentCardUI);
   }
   bookCategorySet = new Set(bookArray.map((book) => book.category));
   bookAuthorSet = new Set(bookArray.map((book) => book.author));
@@ -132,7 +132,7 @@ function editCurrentCardInput(currentCardUI) {
 
 function completeCardEdit(e, id) {
   let editedBook = bookArray.find((book) => book.id == id);
-  console.log(editedBook);
+  // console.log(editedBook);
   editedBook.bookName = bookNameInput.value;
   editedBook.author = authorInput.value;
   editedBook.category = categoryInput.value;
@@ -151,7 +151,7 @@ function searchBooksByNameAndAuthor(e) {
   let searchValue = e.target.value.toLowerCase();
   if (searchValue.length >= 3) {
     let bookFounded = bookArray.find((book) => book.bookName.toLowerCase().includes(searchValue));
-    console.log(bookFounded);
+    // console.log(bookFounded);
     cardUpdateToUI(bookFounded);
   } else {
     cardUpdateToUI();
