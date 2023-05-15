@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./app.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <div class="container">
+        <div class="row w-100 text-center">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div>
+              <form id="sortForm">
+                <label for="sortShape">Select Sort Shape</label>
+                <select
+                  class="form-control my-2"
+                  id="sortShape"
+                  name="sortShape"
+                >
+                  <option value="A-Z">Start To End</option>
+                  <option value="Z-A">End To Start</option>
+                </select>
+                <label for="sortCategory">Select Sort Category</label>
+                <select
+                  class="form-control my-2"
+                  id="sortCategory"
+                  name="sortCategory"
+                >
+                  <option value="name">Sort With Name</option>
+                  <option value="date">Sort With Release Date</option>
+                </select>
+                <button class="w-100 btn btn-secondary my-4" type="submit">
+                  Sort
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div>
+              <form action="" id="filterForm">
+                <label for="filterCategory">Choose Category</label>
+                <select
+                  placeholder="asd"
+                  class="form-control my-2"
+                  id="filterCategory"
+                  name="filterCategory"
+                >
+                  <option value=""></option>
+                  <option value="action-adventure">Action and Adventure</option>
+                  <option value="historical">Historical Fiction</option>
+                  <option value="classics">Classics</option>
+                  <option value="comic">Comic Book</option>
+                  <option value="horror">Horror</option>
+                  <option value="drama">Drama</option>
+                </select>
+                <label for="filterAuthor">Filter Author</label>
+                <input
+                  class="form-control my-2"
+                  type="text"
+                  id="filterAuthor"
+                  name="author"
+                  value=""
+                />
+                <button
+                  class="btn btn-secondary w-100 my-4"
+                  type="click"
+                  id="filterButton"
+                >
+                  Filter
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 d-flex align-items-center">
+            <form id="searchForm" class="d-flex align-items-center w-100">
+              <input
+                class="form-control w-100"
+                type="text"
+                id="searchInput"
+                placeholder="Yazar ya da kitap adi giriniz."
+              />
+
+              <button class="btn btn-secondary ms-2" type="click">Ara</button>
+            </form>
+          </div>
+          <div class="col-12 col-md-6 col-lg-2 d-flex align-items-center">
+            <button
+              type="button"
+              class="btn btn-primary w-100 my-5"
+              data-bs-toggle="modal"
+              data-bs-target="#inputModal"
+              id="addBookButton"
+            >
+              Add Book+
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="modal fade"
+      id="inputModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="row g-3 needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="bookNameInput" class="form-label">Book Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bookNameInput"
+                  placeholder="Book Name"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please choose a username.</div>
+              </div>
+              <div class="mb-3">
+                <label for="bookAuthorInput" class="form-label">Author</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bookAuthorInput"
+                  placeholder="Author Name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="releaseDateInput" class="form-label"
+                  >Release Date</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="releaseDateInput"
+                  placeholder="Release Year"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="bookCategoryInput">Select Category</label>
+                <select class="form-control" id="bookCategoryInput">
+                  <option value="action-adventure">Action and Adventure</option>
+                  <option value="historical">Historical Fiction</option>
+                  <option value="classics">Classics</option>
+                  <option value="comic">Comic Book</option>
+                  <option value="horror">Horror</option>
+                  <option value="drama">Drama</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="movieBannerInput" class="form-label"
+                  >Movie Banner URL</label
+                >
+                <input type="url" class="form-control" id="movieBannerInput" />
+              </div>
+
+              <button type="click" class="btn btn-primary" id="add-book">
+                Submit
+              </button>
+              <button
+                type="click"
+                class="btn btn-primary"
+                id="edit-book"
+                style="display: none"
+              >
+                Edit
+              </button>
+            </form>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row bookCollection mt-3 ps-5 pt-5"></div>
+    </div>
+
+    <script src="ui.js"></script>
+    <script src="storage.js"></script>
+    <script src="book.js"></script>
+    <script src="app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    =
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
