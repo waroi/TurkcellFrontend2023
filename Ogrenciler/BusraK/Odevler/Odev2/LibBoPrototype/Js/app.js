@@ -53,11 +53,11 @@ window.addEventListener("DOMContentLoaded", () => {
     storage.setBookLocalStorage(
       new Books(
         1,
-        "https://i.dr.com.tr/cache/500x400-0/originals/0000000204878-1.jpg",
-        "Improbable",
-        "Detective",
-        2006,
-        "Adam Fawer"
+        "https://m.media-amazon.com/images/I/41v0JhxLPIL._SY498_BO1,204,203,200_.jpg",
+        "name of the wind",
+        "Fantasy",
+        2011,
+        "Patrick Rothfuss"
       )
     );
 
