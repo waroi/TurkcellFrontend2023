@@ -42,6 +42,7 @@ function formListenSubmitEvent(e) {
   categoryForm.reset();
   authorForm.reset();
   searchInput.value = "";
+  sort.value = "Sırala";
 }
 // Kitap objesini local storage'a kaydet
 function saveLocalStorage(book) {
