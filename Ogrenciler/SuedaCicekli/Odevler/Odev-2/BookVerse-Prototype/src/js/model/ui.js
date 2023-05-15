@@ -12,6 +12,7 @@ const summaryInput = document.getElementById('summaryInput');
 const urlInput = document.getElementById('urlInput');
 const rankSelect = document.getElementById('rankSelect');
 const bookListArea = document.getElementById('bookListArea');
+const formError = document.getElementById('form-error');
 
 // Edit form verilerini al
 const editBookForm = document.querySelector('#editBookForm');
@@ -33,18 +34,24 @@ const editButtonArea = document.getElementById('edit-button-area');
 UI.prototype.main = function () {
   sorting.main();
   addBookForm.addEventListener('submit', function (e) {
-    ui.addBook();
+    ui.addBook(e);
   });
 }
 
-UI.prototype.addBook = function () {
+UI.prototype.addBook = function (e) {
   const bookId = storage.generateId();
   //Book nesnesi oluşturuyoruz
 
-  const book = new Book(bookId, bookNameInput.value, authorNameInput.value, yearInput.value, categorySelect.value, summaryInput.value, urlInput.value, rankSelect.value);
-  console.log(book, rankSelect.value);
-  storage.saveBook(book); //LS'ye kaydetme
-  this.addBookToUI();
+  if (bookNameInput.value === "" || authorNameInput.value === "" || yearInput.value === "" || categorySelect.value === "" || summaryInput.value === "" || urlInput.value === "" || rankSelect.value === "") {
+    e.preventDefault();
+    formError.innerHTML = "All fields are required. Please fill in all fields";
+  } else {
+
+    const book = new Book(bookId, bookNameInput.value, authorNameInput.value, yearInput.value, categorySelect.value, summaryInput.value, urlInput.value, rankSelect.value);
+    console.log(book, rankSelect.value);
+    storage.saveBook(book); //LS'ye kaydetme
+    this.addBookToUI();
+  }
 }
 
 // Kitap ekleme , LS'dan dataları alıp ekrana basan 
