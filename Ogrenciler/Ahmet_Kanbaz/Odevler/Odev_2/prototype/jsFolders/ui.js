@@ -29,7 +29,7 @@ UI.prototype.addBookToUI = function(book) {
     <div class="col-6 ps-0">
       <div class="card-body ps-0 pt-3">
         <h6 class="card-title text-center mb-3 text-truncate getAllBooks">${book.name}</h6>
-        <span class="card-text bg-danger rounded px-2 py-1">${book.category}</span>
+        <span class="card-text text-success px-2 py-1">${book.category}</span>
         <p class="card-text fst-italic fw-bolder text-end mt-3 mb-2">${book.date}</p>
         <p class="border-top mb-0 text-center pt-2 text-truncate getAllDirectors">${book.author}</p>
         <div class="d-flex justify-content-around pt-2 cardIcon">
@@ -101,6 +101,7 @@ UI.prototype.addCategories2UI = function(books) {
   ui.addCategoriesAndAuthor2UI4ListGroup(directorDropDown, directors, myAuthorSet);
 }
 
+
 UI.prototype.addCategoriesAndAuthor2UI4ListGroup = function(dropDown, listGroup, tempSet) {
   dropDown.innerHTML = '';
   listGroup.innerHTML = '';
@@ -136,12 +137,7 @@ UI.prototype.allBooks4UIScreen = function() {
     filteredBooks = books.filter((book) => book.id == getAllBooks.id);
     filteredBooksTempArray.push(filteredBooks[0]);
   }
-  if(filteredBooksTempArray == '') {
-    return books;
-  }
-  else {
-    return filteredBooksTempArray;
-  }
+  return filteredBooksTempArray;
 }
 
 UI.prototype.deleteAllBooksFromUI = function() {
@@ -151,6 +147,7 @@ UI.prototype.deleteAllBooksFromUI = function() {
 
 UI.prototype.showAllBooksFromUI = function() {
   const books = storage.getBooksFromLocalStorage();
+  searchBook.value = '';
   ui.updateDisplay(books);
 }
 
