@@ -31,6 +31,123 @@ if (check) {
   UIConstructor.prototype.showBook(check);
 }
 
+let flag = 0;
+
+check.map((item) => {
+  if (item.name == "Olasılıksız" || item.name == "Denemeler") {
+    flag = 1;
+  }
+});
+
+if (flag == 0) {
+  addTwoObject();
+}
+
+function addTwoObject() {
+  let books = [];
+  let Object1 = new BookConstructor(
+    "Olasılıksız",
+    "Adam Fawer",
+    "2005",
+    "Bilim-Kurgu",
+    "https://i.dr.com.tr/cache/500x400-0/originals/0000000204878-1.jpg",
+    765
+  );
+  let Object2 = new BookConstructor(
+    "Denemeler",
+    "Montaigne",
+    "1580",
+    "Deneme",
+    "https://www.iskultur.com.tr/dosyalar/2006/04/denemeler-5.png",
+    181
+  );
+  books.push(Object1);
+  books.push(Object2);
+  check.push(Object1);
+  check.push(Object2);
+  LocalConstructor.prototype.changeBookToLocalS(check);
+  UIConstructor.prototype.showBook(books);
+}
+
+function createFilter() {
+  let setCategory = new Set();
+  let setWriter = new Set();
+
+  check.map((item) => {
+    setCategory.add(item.category);
+  });
+
+  setCategory.forEach((item) => {
+    let option = document.createElement("option");
+    option.text = item;
+    option.value = item;
+    categoryFilter.add(option);
+  });
+
+  check.map((item) => {
+    setWriter.add(item.writer);
+  });
+
+  setWriter.forEach((item) => {
+    let option = document.createElement("option");
+    option.text = item;
+    option.value = item;
+    writerFilter.add(option);
+  });
+}
+
+createFilter();
+
+categoryFilter.addEventListener("change", () => {
+  if (categoryFilter.value == "Belirtilmemiş") {
+    bookList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        child.classList.remove("d-none");
+      }
+    });
+  } else {
+    bookList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        child.classList.add("d-none");
+      }
+    });
+
+    bookList.childNodes.forEach((child) => {
+      if (
+        categoryFilter.value ==
+        child.childNodes[0].childNodes[1].childNodes[6].innerHTML
+      ) {
+        child.classList.remove("d-none");
+      }
+    });
+  }
+});
+
+writerFilter.addEventListener("change", () => {
+  if (writerFilter.value == "Belirtilmemiş") {
+    bookList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        child.classList.remove("d-none");
+      }
+    });
+  } else {
+    bookList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        child.classList.add("d-none");
+      }
+    });
+
+    bookList.childNodes.forEach((child) => {
+      if (
+        writerFilter.value ==
+        child.childNodes[0].childNodes[1].childNodes[2].innerHTML
+      ) {
+        child.classList.remove("d-none");
+      }
+    });
+  }
+});
+
 orderList.addEventListener("change", () => {
   switch (orderList.value) {
     case "AtoZ":
@@ -168,7 +285,7 @@ function formClicked() {
         return;
       }
       if (key == "date") {
-        let min = 1800;
+        let min = 1500;
         let max = 2023;
         if (
           Number(newBook[key].value) < min ||
@@ -183,6 +300,8 @@ function formClicked() {
   books.push(newBook);
   check.push(newBook);
   LocalConstructor.prototype.changeBookToLocalS(check);
+  check = LocalConstructor.prototype.checkToLocalS();
+  location.reload();
   UIConstructor.prototype.showBook(books);
 }
 

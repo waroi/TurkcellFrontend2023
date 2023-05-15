@@ -137,7 +137,11 @@ UIConstructor.prototype.showBook = function (books) {
 
     LocalConstructor.prototype.changeBookToLocalS(list);
     list = LocalConstructor.prototype.checkToLocalS();
-    location.reload();
+
+    while (bookList.firstChild) {
+      bookList.removeChild(bookList.lastChild);
+    }
+
     UIConstructor.prototype.showBook(list);
   }
 };
