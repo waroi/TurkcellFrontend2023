@@ -1,0 +1,97 @@
+body {
+  background-color: #27187e;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+}
+.container {
+  padding: 1.5em 1.5em;
+}
+
+#myBtn {
+  background-color: rgba(0, 0, 0, 0);
+  position: fixed;
+  bottom: 10px;
+  float: right;
+  right: 5%;
+
+  max-width: 60px;
+  width: 100%;
+  font-size: 12px;
+  border: #10182800;
+  padding: 0.5px;
+}
+
+#fullscreen-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("https://i.pinimg.com/564x/11/ca/b2/11cab2617d09658a8496f524b5ec09c1.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: rgba(255, 128, 31, 0.444) 0px 1px 1px 0px inset,
+    rgba(236, 140, 4, 0.142) 0px 50px 100px -20px,
+    rgba(252, 252, 252, 0.3) 0px 30px 60px -30px;
+  border-radius: 1em;
+  transition: 0.3s;
+}
+.category-list {
+  box-shadow: rgba(253, 253, 253, 0.1) 0px 1px 1px 0px inset,
+    rgba(248, 248, 248, 0.142) 0px 50px 100px -20px,
+    rgba(252, 252, 252, 0.3) 0px 30px 60px -30px;
+}
+.form-check:hover {
+  background-color: #ff8600;
+  border-radius: 0.5em;
+  padding-left: 2em;
+}
+.modal-content {
+  color: aliceblue;
+  background-color: #27187ed5;
+}
+.card-img-top {
+  border-radius: 1em;
+  transition: transform 0.7s ease-in-out;
+}
+
+.card-group:hover .card-img-top {
+  transform: rotate3d(0, 1, 0, 40deg);
+  border-left: 10px solid #ff8600;
+}
+
+.card-group:hover .card-img-top ::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  transform: rotateY(90deg);
+  transform-origin: 0 50%;
+  filter: brightness(70%);
+  background-image: url(“https://images.pexels.com/photos/2832039/pexels-photo-2832039.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260”);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 766px) {
+  .card-group {
+    height: 100%;
+  }
+  .main-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .category-list {
+    gap: 1.2em;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

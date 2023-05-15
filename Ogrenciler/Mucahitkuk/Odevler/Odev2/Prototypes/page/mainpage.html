@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&display=swap" rel="stylesheet">
+  <link href="../css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="../js/app.js" defer></script>
+  <script src="https://kit.fontawesome.com/5e36563075.js" crossorigin="anonymous"></script>
+  <title>LibraryWorm</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar bg-body-tertiary bg-black position-fixed w-100">
+      <div class="container">
+        <a class="navbar-brand" href="#">LibraryWorm</a>
+        <!-- Button trigger modal -->
+        <a href="#bookshelf" class="btn btn-primary link-bookshelf">Go To Bookshelf</a>
+    </nav>
+    </div>
+  </header>
+  <section class="addbook-section bg-primary">
+    <div class="video-background">
+      <iframe
+        src="https://www.youtube.com/embed/CHFif_y2TyM?start=40&controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=CHFif_y2TyM"
+        frameborder="0" allowfullscreen></iframe>
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-lg-12">
+            <div class="title">
+              <h2 data-aos="fade-right" data-aos-duration="1000">This is LibraryWorm</h2>
+              <h3 data-aos="fade-left" data-aos-duration="1500">It's Your Personal Library, Where You Can Add Books and
+                Edit Them As You Wish</h3>
+              <h3 data-aos="fade-right" data-aos-duration="2000">Go Ahead, Press the Button and See the Magic Happens
+              </h3>
+            </div>
+            <button data-bs-toggle="modal" data-bs-target="#addModalBook" data-aos="fade-up" data-aos-duration="2750"
+              id="addBook-index" class="btn bg-black text-white w-25 mt-5">Add Book</button>
+            <!-- Modal -->
+
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="addModalBook" tabindex="-1" aria-labelledby="addModalBookLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addModalBookLabel">Add Book to Bookshelf</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="card mb-3">
+                <img src="https://c1.wallpaperflare.com/preview/127/366/443/library-book-bookshelf-read.jpg"
+                  class="card-img-top" alt="...">
+                <div class="card-body">
+                  <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-12">
+                      <label for="bookNameInput" class="form-label">Book's Name</label>
+                      <input type="text" class="form-control" id="bookNameInput" required>
+                      <label for="bookAuthorInput" class="form-label mt-2">Author</label>
+                      <input type="text" class="form-control" id="bookAuthorInput" required>
+                      <label for="bookWrittenDateInput" class="form-label mt-2">Written Date</label>
+                      <div class="input-group has-validation">
+                        <input type="date" class="form-control" id="bookWrittenDateInput"
+                          aria-describedby="inputGroupPrepend" required>
+                      </div>
+                      <label for="bookGenreInput" class="form-label mt-2">Genre</label>
+                      <select class="form-select" id="bookGenreInput" required>
+                        <option selected disabled value="">Please Select a Genre</option>
+                        <option>Action</option>
+                        <option>Sci-Fi</option>
+                        <option>Fantasy</option>
+                        <option>Horror</option>
+                        <option>Crime</option>
+                        <option>Adventure</option>
+                      </select>
+                      <label for="bookCoverUrlInput" class="form-label mt-2">Book Cover URL</label>
+                      <input type="text" class="form-control" id="bookCoverUrlInput" required>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="row">
+                <div class="col-12 d-flex">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  <button id="clear-button" type="button" class="btn btn-warning">Clear</button>
+                  <button id="edit-button" type="button" class="btn btn-info d-none">Save Changes</button>
+                  <button class="btn btn-primary" href="#" id="add-book">Add</button>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <section class="filter-section bg-black text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-lg-12">
+          <div class="title">
+            <h2>Are You Lost in Library <br>
+              Feel Free to Use Search & Filter System</h2>
+          </div>
+          <div class="input-area mt-5">
+            <h4>Search by Book and Author Name</h4>
+            <input id="search-input" type="text" class="w-25">
+            <h4 class="mt-5">Arange the books based on A-Z, Z-A and Written Date</h4>
+            <div class="form-floating">
+              <select class="form-select w-25 p-0 text-center m-auto" id="floatingSelect"
+                aria-label="Floating label select example">
+                <option selected>Arange the Books by selection</option>
+                <option value="1">A-Z</option>
+                <option value="2">Z-A</option>
+                <option value="3">Written Date (Old to new)</option>
+                <option value="4">Written Date (New to old)</option>
+              </select>
+            </div>
+            <div class="row mt-5">
+              <div class="col-6">
+                <h2>Genre Search</h2>
+                <select class="form-select w-50 h-75 p-0 m-auto text-center" id="genreSelect">
+                  <option selected>All</option>
+                  <option>Action</option>
+                  <option>Sci-Fi</option>
+                  <option>Fantasy</option>
+                  <option>Horror</option>
+                  <option>Crime</option>
+                  <option>Adventure</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <h2>Author Search</h2>
+                <select class="form-select w-50 h-75 p-0 m-auto text-center" id="authorSelect">
+                  <option selected>All</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bookshelf-section" id="bookshelf">
+    <div class="title">
+      <h2 class="text-center mb-5">Bookshelf</h2>
+    </div>
+    <div class="bookshelf">
+      <div class="bookgrid">
+        <ul id="book-collection">
+        </ul>
+      </div>
+      <div class="shelf-shadows">
+        <div class="shelf"></div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <section class="footer-top border-top border-secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h5>Follow LibraryWorm
+              <span class="m-1"><i class="fa-brands fa-square-facebook"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-instagram"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-twitter"></i></span>
+            </h5>
+            <span>Created By </span><a target="_blank" href="https://github.com/mchtkuk"
+              class="primary-color text-decoration-none">Mücahit Kuk</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footer-bottom mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-sm">
+            <div class="title">
+              <h6>Browse</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">Store</a>
+              </li>
+              <li>
+                <a href="#">Promoted Books</a>
+              </li>
+              <li>
+                <a href="#">Plans</a>
+              </li>
+              <li>
+                <a href="#">Merch</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>Resources</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">News</a>
+              </li>
+              <li>
+                <a href="#">Support
+                </a>
+              </li>
+              <li>
+                <a href="#">Feedback</a>
+              </li>
+              <li>
+                <a href="#">Community Standards</a>
+              </li>
+            </ul>
+          </div>
+          <div class="row mt-5">
+            <div class="col">
+              <i class="fa-solid fa-earth-americas"></i>
+              <span>English ( United States )</span>
+              <p class="mt-2">© 2023 LibraryWorm USA, All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+    </section>
+  </footer>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>

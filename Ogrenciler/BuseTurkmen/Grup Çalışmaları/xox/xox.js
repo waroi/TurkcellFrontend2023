@@ -46,7 +46,6 @@ function turnPlayer() {
     } else if (player === "O") {
         player = "X";
         playerText.textContent = `${player} Oyuncusu Sıra Sende !`
-
     }
 }
 
@@ -82,22 +81,18 @@ function checkTie() {
 }
 
 function resetGame() {
-    // Oyun değişkenlerini ve durumunu sıfırla
     player = "X";
     gameOver = false;
     winner = null;
 
-    // Blokları temizle ve etkinlikleri kaldır
     boxs.forEach(box => {
         box.textContent = "";
         box.style.color = "black";
         box.style.pointerEvents = 'auto';
     });
 
-    // Hata mesajını temizle
     errorText.textContent = "";
 
-    // Oyun başlama metnini güncelle
     playerText.textContent = `${player} Oyuncusu Sıra Sende !`;
 }
 

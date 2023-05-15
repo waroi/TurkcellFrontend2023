@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+      integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <title>Open Library</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-light border-bottom">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html">
+          <img src="./assets/logo.png" alt="logo" width="140" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end gap-5"
+          id="navbarSupportedContent"
+        >
+          <form class="d-flex m-2" role="search" id="ss">
+            <input
+              class="form-control me-2 border-secondary"
+              type="search"
+              placeholder="Search Book or Author"
+              aria-label="Search"
+              id="searchInput"
+            />
+            <i class="bi bi-search-heart-fill fs-4 text-secondary"></i>
+          </form>
+
+          <button
+            class="btn btn-secondary btn-md"
+            id="addBookModal"
+            data-bs-toggle="modal"
+            data-bs-target="#addNewBookModal"
+          >
+            <i class="bi bi-plus-circle me-2"></i> Add New Book
+          </button>
+
+          <div
+            class="modal fade"
+            id="addNewBookModal"
+            tabindex="-1"
+            aria-labelledby="addNewBookModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header bg-secondary text-light">
+                  <h1 class="modal-title fs-5" id="addNewBookModalLabel">
+                    Add a New Book
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="booknameinput" class="form-label"
+                        >Name:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="booknameinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="bookauthorinput" class="form-label"
+                        >Author:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="bookauthorinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="bookcategoryinput" class="form-label"
+                        >Category:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="bookcategoryinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="datepublicationinput" class="form-label"
+                        >Date of Publication:
+                      </label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="datepublicationinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="urlinput" class="form-label"
+                        >Url of the Book Cover:
+                      </label>
+                      <input type="text" class="form-control" id="urlinput" />
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    id="addLibraryButton"
+                  >
+                    Add the Book
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="modal fade"
+            id="editBookModal"
+            tabindex="-1"
+            aria-labelledby="editBookModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header text-light bg-secondary">
+                  <h1 class="modal-title fs-5" id="editBookModalLabel">
+                    Edit the Book
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="editbooknameinput" class="form-label"
+                        >Name:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editbooknameinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="editbookauthorinput" class="form-label"
+                        >Author:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editbookauthorinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="editbookcategoryinput" class="form-label"
+                        >Category:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editbookcategoryinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="editdatepublicationinput" class="form-label"
+                        >Date of Publication:
+                      </label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="editdatepublicationinput"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="editurlinput" class="form-label"
+                        >Url of the Book Cover:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editurlinput"
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    id="saveChanges"
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="alert"></div>
+    </nav>
+    <div class="banner d-flex justify-content-center align-items-center">
+      <div class="col-12">
+        <h1 class="text-center mt-5 mb-5 text-light fs-1 fw-bold">
+          Welcome to Open Library
+        </h1>
+      </div>
+    </div>
+    <main class="pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h4 class="text-center mt-5 border-bottom fs-3 text-secondary">
+              Our Books
+            </h4>
+          </div>
+        </div>
+        <div class="filterSort d-flex justify-content-end gap-5 mt-3">
+          <button
+            class="btn btn-outline-secondary"
+            id="filter"
+            data-bs-toggle="modal"
+            data-bs-target="#filterModal"
+          >
+            Filter
+          </button>
+          <!-- Modal for filter -->
+          <div
+            class="modal fade"
+            id="filterModal"
+            tabindex="-1"
+            aria-labelledby="filterModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header text-light bg-secondary">
+                  <h1 class="modal-title fs-5" id="filterModalLabel">
+                    Filter by :
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div id="filterauthor">
+                    <h6 class="border-bottom">Author</h6>
+                  </div>
+
+                  <div id="filtercategory">
+                    <h6 class="border-bottom">Category</h6>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    id="filterbooksbutton"
+                  >
+                    Filter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sorting -->
+          <div class="dropdown">
+            <button
+              class="btn btn-outline-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              id="sortby"
+            >
+              Sort By
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" id="sortAz">A-Z</a></li>
+              <li><a class="dropdown-item" href="#" id="sortZa">Z-A</a></li>
+              <li>
+                <a class="dropdown-item" href="#" id="sortLatest">Latest</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" id="sortOldest">Oldest</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row books" id="booklist"></div>
+      </div>
+    </main>
+
+    <footer
+      class="text-center text-lg-start bg-light text-muted border-top pt-5"
+    >
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3"></i>Open Library
+              </h6>
+              <p>
+                You can add, delete, edit, sort and filter the book you want on
+                our page. You can also search by book title and author.
+              </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+              <p>
+                <a href="#!" class="text-reset">Poems</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Exam Books</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Classics</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">History</a>
+              </p>
+            </div>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+              <p>
+                <a href="#!" class="text-reset">Pricing</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Settings</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Orders</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Help</a>
+              </p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+              <p><i class="fas fa-home me-3"></i> Eskişehir, Turkey 264400</p>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                openlibrary@gmail.com
+              </p>
+              <p><i class="fas fa-phone me-3"></i> 0 222 222 22 22</p>
+              <p><i class="fas fa-print me-3"></i> 0 333 333 33 33</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(201, 170, 154, 0.05)"
+      >
+        © 2023 Copyright:
+        <a class="text-reset fw-bold" href="^#">openlibrary.com</a>
+      </div>
+      >
+    </footer>
+    <script src="./book.js"></script>
+    <script src="./ui.js"></script>
+    <script src="./storage.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

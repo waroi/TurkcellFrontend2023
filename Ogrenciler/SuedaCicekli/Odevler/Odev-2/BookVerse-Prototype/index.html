@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookVerse</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="./src/css/main.css">
+  <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+  <nav class="navbar  justify-content-center">
+    <a class="navbar-brand" href="#">
+      <img src="./src/Assets/Logo/bookverseDark.png" alt="BookVerse">
+    </a>
+  </nav>
+
+
+  <div class="home  py-3">
+    <div class="container">
+      <div class="row py-5 ">
+        <div
+          class=" col-md-12 col-lg-8 d-flex flex-column align-items-center justify-content-center p-4 text-primary  ">
+          <h1 class="fw-bold ">Add Your Next Literary Adventure to Bookverse 📚</h1>
+          <p class="mt-4 fw-normal">" Welcome to Bookverse, the perfect place to add your next thrilling literary
+            adventure. Step
+            into a world
+            where you can curate and share your favorite books, while discovering new and exciting reads. With
+            Bookverse,
+            your journey through the realms of literature becomes even more captivating. </p>
+        </div>
+        <div class="col-md-12 col-lg-4 col-md-12 justify-content-center position-relative d-lg-flex d-none ">
+          <img class="w-50 banner-image" src="./src/Assets/images/homeBook.png" alt="homeBook">
+        </div>
+      </div>
+
+    </div>
+    <div class="library-bar py-2">
+      <div class="container">
+        <div class="d-flex justify-content-md-between flex-wrap align-items-center ">
+          <div class="d-flex gap-3 text-center align-items-center bar-left order-md-0 order-0">
+            <h3 class="fw-bold m-0">Library</h3>
+          </div>
+          <div class="gap-3 d-flex mt-4 mt-md-0 align-items-center bar-right order-md-1 order-2">
+            <div class="dropdown sorting-button">
+              <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="./src/Assets/Icon/shorting.png" alt="">
+              </button>
+              <ul class="dropdown-menu p-3">
+                <li>
+                  <input class="form-check-input sortingCheckbox" type="checkbox" value="" id="default" checked />
+                  <label class="form-check-label" for="a-z">Default</label>
+                </li>
+                <li class="form-check">
+                  <input class="form-check-input sortingCheckbox" type="checkbox" value="" id="a-z" />
+                  <label class="form-check-label" for="a-z">Name (a-z)</label>
+                </li>
+                <li class="form-check">
+                  <input class="form-check-input sortingCheckbox" type="checkbox" value="" id="z-a" />
+                  <label class="form-check-label" for="z-a">Name (z-a)</label>
+                </li>
+                <li class="form-check">
+                  <input class="form-check-input sortingCheckbox" type="checkbox" value="" id="oldest-date" />
+                  <label class="form-check-label" for="oldest-date">Year (oldest)
+                  </label>
+                </li>
+                <li class="form-check">
+                  <input class="form-check-input sortingCheckbox" type="checkbox" value="" id="latest-date" />
+                  <label class="form-check-label" for="latest-date">Year (latest)
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="search-bar">
+              <div class="rounded d-flex order-xs-last">
+                <input type="search" class="form-control rounde search-input" id="searchInput" placeholder="Search"
+                  aria-label="Search" aria-describedby="search-addon" />
+              </div>
+            </div>
+
+            <div class="dropdown filter-button">
+              <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="./src/Assets/Icon/filter.png" alt="">
+              </button>
+              <ul class="dropdown-menu p-3 overflow-auto">
+                <div class="d-flex justify-content-between">
+                  <div class="left">
+                    <p class="fw-bold">Category</p>
+                    <div id="categoryFilterArea"></div>
+                  </div>
+                  <div class="rigth">
+                    <p class="fw-bold">Writers</p>
+                    <div id="writerFilterArea"></div>
+                  </div>
+                </div>
+              </ul>
+            </div>
+
+          </div>
+          <div class="addBookArea align-items-center ms-2 ms-md-0 h-100 order-md-2 order-1">
+            <button id="add-book" type="submit" class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal"
+              data-bs-target="#addBookModal" data-bs-action="create">
+              <img class="" src="./src/Assets/Icon/book.png" alt="">
+              <span class="d-none d-md-block ms-2">Add a Book</span>
+            </button>
+            <!--Add Book Modal -->
+            <div class="modal" id="addBookModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header border-0 d-flex justify-content-center">
+                    <h5 class="modal-title " id="exampleModalLabel">Add a Book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="filmAppendArea">
+                      <div class="container">
+                        <form id="addBookForm">
+                          <div class="form-outline mb-4 d-flex gap-2">
+                            <input type="text" id="bookNameInput" class="form-control" placeholder="Book Name" />
+                            <input type="text" id="authorNameInput" class="form-control" placeholder="Author" />
+                          </div>
+
+                          <div class="form-outline mb-4 d-flex gap-2 ">
+
+                            <div class="form-outline  w-50"><input min="1700" max="2023" type="number" id="yearInput"
+                                class="form-control " placeholder="Year" /></div>
+
+                            <div class="form-outline ">
+                              <select class="form-select" id="categorySelect" aria-label="Default select ">
+                                <option selected disabled>Select Book Category</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Biography">Biography</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="History">History</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Science">Science</option>
+                                <option value="Poetry">Poetry</option>
+                                <option value="Essay">Essay</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="form-outline mb-4">
+                            <textarea class="form-control" id="summaryInput" rows="5" placeholder="Summary"></textarea>
+                          </div>
+                          <div class="form-outline mb-4 d-flex gap-2">
+                            <div class="form-outline w-50"><input type="text" id="urlInput" class="form-control"
+                                placeholder="Image Url" /></div>
+                            <div class="form-outline w-50 ">
+                              <select class="form-select" id="rankSelect" aria-label="Default select example">
+                                <option selected>Rank</option>
+                                <option value=1>1</option>
+                                <option value=2>2</option>
+                                <option value=3>3</option>
+                                <option value=4>4</option>
+                                <option value=5>5</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="text-pink fw-medium text-danger" id="form-error"></div>
+                          <div class="modal-footer border-0 d-flex justify-content-center">
+                            <button type="button" id="cancelBtn" class="btn btn-danger"
+                              data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" id="editBtn" class="btn btn-success btn-block">Save</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="list-area py-5">
+      <div class="container d-flex flex-wrap">
+        <!--Edit Book Modal-->
+        <div class="modal" id="editBookModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header border-0 d-flex justify-content-center">
+                <h5 class="modal-title " id="exampleModalLabel">Edit a Book</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="filmAppendArea">
+                  <div class="container">
+                    <form id="editBookForm">
+                      <div class="form-outline mb-4 d-flex gap-2">
+                        <input type="text" id="bookNameInputEdit" class="form-control" placeholder="Book Name" />
+                        <input type="text" id="authorNameInputEdit" class="form-control" placeholder="Author" />
+                      </div>
+
+                      <div class="form-outline mb-4 d-flex gap-2 ">
+
+                        <div class="form-outline  w-50"><input min="1700" max="2023" type="number" id="yearInputEdit"
+                            class="form-control " placeholder="Year" /></div>
+
+                        <div class="form-outline ">
+                          <select class="form-select" id="categorySelectEdit" aria-label="Default select ">
+                            <option selected disabled>Select Book Category</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Biography">Biography</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="History">History</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Science">Science</option>
+                            <option value="Poetry">Poetry</option>
+                            <option value="Essay">Essay</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-outline mb-4 d-flex gap-2">
+                        <input type="text" id="editorInputEdit" class="form-control" placeholder="Editor" />
+                        <div class="form-outline w-100">
+                          <select id="languageSelectEdit" class="form-select" aria-label="Default select">
+                            <option value="language" selected>Language</option>
+                            <option value="Turkish">Turkish</option>
+                            <option value="English">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="French">French</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-outline mb-4 d-flex gap-2">
+                        <div class="form-outline w-50"><input type="text" id="urlInputEdit" class="form-control"
+                            placeholder="Image Url" /></div>
+                        <div class="form-outline w-50 ">
+                          <select class="form-select" id="rankSelectEdit" aria-label="Default select example">
+                            <option selected>Rank</option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <textarea class="form-control" id="summaryInputEdit" rows="5" placeholder="Summary"></textarea>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <textarea class="form-control" id="reviewInputEdit" rows="5" placeholder="Review"></textarea>
+                      </div>
+
+                      <div class="modal-footer border-0 d-flex justify-content-center" id="edit-button-area">
+
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row w-100" id="bookListArea">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container bg-primary text-center rounded-5 p-3">
+        <img src="./src/Assets/Logo/bookverseWhite.png" alt="">
+        <p class="text-success fs-6 fw-ligh mt-3">Designed and developed with ❤️ by <span
+            class="text-info">bookverse</span>
+          team |
+          Bookverse App, 2023</p>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"></script>
+    <script src="./src/js/model/search.js"></script>
+    <script src="./src/js/model/filter.js"></script>
+    <script src="./src/js/model/sorting.js"></script>
+    <script src="./src/js/model/ui.js"></script>
+    <script src="./src/js/model/book.js"></script>
+    <script src="./src/js/model/storage.js"></script>
+    <script src="./src/js/app.js"></script>
+
+</body>
+
+</html>

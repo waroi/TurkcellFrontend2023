@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+
+</head>
+
+<body>
+  <header>
+    <div class="upper bg-primary">
+      <div class="container">
+        <div class="row pt-120">
+          <h1 class="col-12 pt-120 text-secondary col-sm-6 display-1 fs-100 fw-bolder">
+            BOOK
+            </>
+            <div class="col-sm-6">
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="down bg-secondary pb-120">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <h1 class="col-12 text-primary col-sm-6 display-1 fw-bolder fs-100 ">
+              STORE
+              </>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- modal start -->
+  <div class="modal modal-lg fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <form class="modal-content">
+        <div class="modal-header border-5">
+          <h1 class="modal-title fs-3" id="addBookModalLabel">Book Info's</h1>
+          <button type="button" class="btn text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
+        </div>
+        <div id="modal-form" class="modal-body">
+          <div class="mb-3">
+            <label for="bookNameInput" class="form-label">Book Name:</label>
+            <input type="text" class="form-control" id="bookNameInput" placeholder="please enter book name...">
+          </div>
+          <div class="mb-3">
+            <label for="authorInput" class="form-label">Author:</label>
+            <input type="text" class="form-control" id="authorInput" placeholder="please enter author...">
+          </div>
+          <div class="mb-3">
+            <label for="categoryInput" class="form-label">Category:</label>
+            <input type="text" class="form-control" id="categoryInput" placeholder="please enter category...">
+          </div>
+          <div class="mb-3">
+            <label for="numberInput" class="form-label">Publication Date:</label>
+            <input type="number" class="form-control" id="numberInput" placeholder="please enter book name...">
+          </div>
+          <div class="mb-3">
+            <label for="urlInput" class="form-label">Book URL:</label>
+            <input type="url" class="form-control" id="urlInput" placeholder="please enter book name...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" id="save-book" data-bs-dismiss="modal" class="btn btn-success">Save changes</button>
+          <button type="button" id="edit-book" data-bs-dismiss="modal" class="btn btn-warning">Edit changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- modal end -->
+  <section class="bg-secondary">
+    <nav
+      class="navbar navbar-expand-md bg-primary bg-opacity-50 px-4 py-2 border-top border-primary border-5 border-opacity-100">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bookSearchContent"
+          aria-controls="bookSearchContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="bookSearchContent">
+          <button type="button" class="btn btn-warning my-4 my-md-0" data-bs-toggle="modal"
+            data-bs-target="#addBookModal">
+            <i class="fa-solid fa-plus fa-beat"></i> Add New Book
+          </button>
+          <div class="d-flex flex-column justify-content-between flex-sm-row">
+            <div class="dropdown mb-4 mb-sm-0">
+              <select id="sort-area" class="btn btn-primary me-4 px-4">
+                <option class="" value="" href="#">Sort By:</option>
+                <option class="" value="a/z" href="#">A-Z</option>
+                <option class="" value="z/a" href="#">Z-A</option>
+                <option class="" value="date" href="#">Date</option>
+              </select>
+            </div>
+            <form class="d-flex" role="search">
+              <input id="search-input" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-warning" id="search-button" type="submit">Search</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row flex-column-reverse flex-lg-row">
+        <div class="col-lg-9">
+          <div id="card-area" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 mt-4 g-4 pb-120">
+
+          </div>
+        </div>
+        <div class=" col-lg-3 mb-3">
+          <div class="mt-5 bg-primary px-4 py-2 rounded-3 pb-5">
+            <h2 class="h2 text-light border-bottom border-3">Filter</h2>
+            <div class="mt-4">
+              <h3 class="h3 text-light"><span class="border-bottom border-1">Category</span></h3>
+              <ul id="categoryFilterArea" class="list-group mt-3">
+
+              </ul>
+            </div>
+            <div class="mt-4">
+              <h3 class="h3 text-light"><span class="border-bottom border-1">author</span></h3>
+              <div class="accordion mt-4" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#authorCollapse" aria-expanded="true" aria-controls="authorCollapse">
+                      Select author
+                    </button>
+                  </h2>
+                  <div id="authorCollapse" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <ul id="authorFilterArea" class="list-group mt-3">
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <footer class="footer bg-primary py-5">
+    <div class="container">
+      <div class="row text-light align-items-center justify-content-center">
+        <div class="col-12 col-lg-6 gap-3 text-center">
+          <h6 class="fs-3 mb-4">Socials</h6>
+          <a class="text-decoration-none text-light fs-6" href="https://www.facebook.com/celtik.466/">
+            <span class=" p-2">
+              <i class="fa-brands  fa-facebook "></i>
+            </span>
+          </a>
+          <a class="text-decoration-none text-light fs-6" href="https://www.linkedin.com/in/omer-faruk-celtik/">
+            <span class=" p-2">
+              <i class="fa-brands fa-twitter"></i>
+            </span>
+          </a>
+          <a class="text-decoration-none text-light fs-6" href="https://github.com/omerceltikk">
+            <span class=" p-2 me-1">
+              <i class="fa-brands fa-github"></i>
+            </span>
+          </a>
+          <a class="text-decoration-none text-light fs-6" href="https://www.linkedin.com/in/omer-faruk-celtik/">
+            <span class="p-2">
+              <i class="fa-brands fa-behance"></i>
+            </span>
+          </a>
+          <a class="text-decoration-none text-light fs-6" href="https://www.instagram.com/omerceltikk/">
+            <span class="p-2">
+              <i class="fa-brands fa-instagram"></i>
+            </span>
+          </a>
+          <p class="opacity-75 text-center mt-5 text-light fs-7">
+            Copyright ©2023 All rights reserved | This template is made with by <a
+              class="text-light text-decoration-none" href="https://github.com/omerceltikk">omerceltikk</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="./js/app.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+    integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+    integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
