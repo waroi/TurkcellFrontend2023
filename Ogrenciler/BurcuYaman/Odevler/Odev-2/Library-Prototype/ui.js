@@ -7,27 +7,27 @@ UI.prototype.addBookToUI = function (newBook) {
   const filtercategory = document.getElementById('filtercategory');
 
   bookList.innerHTML += `
-    <div class="col-md-4">
-    <div class="card mt-4">
+    <div class="col-md-3">
+    <div class="card my-3 bg-transparent">
       <img
         src="${newBook.url}"
-        class="card-img-top"
+        class="card-img-top p-5"
         alt="..."
       />
-      <div class="card-body">
-        <h5 class="card-title" id="name">${newBook.name}</h5>
+      <div class="card-body ">
+        <h5 class="card-title fs-5 fw-bold" id="name">${newBook.name}</h5>
         <h6 class="card-title" id="author">${newBook.author}</h6>
-        <a href="#" class="btn btn-primary btn-sm my-2" id="category"
+        <a href="#" class="btn btn-primary btn-sm my-2 text-light" id="category"
           >${newBook.category}</a
         >
         <p class="card-text" id="date">${newBook.date}</p>
         <div class="justify-content-end d-flex gap-4">
-          <a href="#" class="btn btn-outline-success" id="editButton"
+          <a href="#" class="btn btn-success" id="editButton"
             >Edit</a
           >
           <a
             href="#"
-            class="btn btn-outline-danger text-end"
+            class="btn btn-danger text-end"
             id="deleteButton"
             >Delete</a
           >
@@ -51,10 +51,11 @@ UI.prototype.addBookToUI = function (newBook) {
                       </label>
                     </div>
   `;
-
-    filtercategory.innerHTML += ` <div class="form-check">
+  }
+  if (!filtercategory.innerHTML.includes(newBook.category)) {
+    filtercategory.innerHTML += ` <div class="form-check ">
   <input
-    class="form-check-input categorycheckbox"
+    class="form-check-input categorycheckbox "
     type="checkbox"
     value=""
     id="${newBook.category}"
@@ -66,9 +67,6 @@ UI.prototype.addBookToUI = function (newBook) {
 `;
   }
 
-
-
-
 };
 
 UI.prototype.clearInputs = function (element1, element2, element3, element4, element5) {
@@ -79,12 +77,19 @@ UI.prototype.clearInputs = function (element1, element2, element3, element4, ele
   element5.value = '';
 }
 
-//DÜZENLEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-UI.prototype.displayMessages = function (modalname) {
-  let warningModal = new bootstrap.Modal(document.getElementById(modalname));
-  warningModal.show();
-};
+UI.prototype.showAlert = function (message, type) {
+  const alert = document.getElementById('alert');
+  alert.innerHTML += ` 
+  <div class="alert text-center alert-${type}" role="alert">
+  ${message}
+</div>
+  `;
+  setTimeout(function () {
+    alert.innerHTML = '';
+  }
+    , 2000);
 
+}
 
 UI.prototype.deleteBookFromUI = function (element) {
   element.parentElement.parentElement.parentElement.parentElement.remove();
@@ -94,8 +99,6 @@ UI.prototype.deleteAllBooksFromUI = function () {
   const bookList = document.getElementById('booklist');
   bookList.innerHTML = '';
 };
-
-
 
 UI.prototype.updateBookFromUI = function (element) {
   let editingModal = new bootstrap.Modal(document.getElementById('editBookModal'));
@@ -125,7 +128,7 @@ UI.prototype.updateBookFromUI = function (element) {
     element.target.parentElement.parentElement.parentElement.children[0].src = document.getElementById('editurlinput').value;
     editingModal.hide();
     storage.updateBookFromStorage(oldBook, newBook);
-    ui.displayMessages('successedited');
+    ui.showAlert('Book successfully updated!', 'danger');
   });
 
 }
@@ -133,6 +136,7 @@ UI.prototype.updateBookFromUI = function (element) {
 UI.prototype.searchBook = function (searchValue) {
   const bookList = document.getElementById('booklist');
   const bookListItems = bookList.querySelectorAll('.card-body');
+
   bookListItems.forEach(function (bookListItem) {
     const text = bookListItem.children[0].textContent.toLowerCase();
     const author = bookListItem.children[1].textContent.toLowerCase();
@@ -141,10 +145,7 @@ UI.prototype.searchBook = function (searchValue) {
     } else {
       bookListItem.parentElement.parentElement.setAttribute('style', 'display : block');
     }
-  }
-
-  )
-
+  })
 }
 
 UI.prototype.sortBookAz = function (bookNames) {
@@ -160,11 +161,10 @@ UI.prototype.sortBookAz = function (bookNames) {
       }
     })
   })
-
-
 }
 
 UI.prototype.sortBookDates = function (bookDates) {
+
   ui.deleteAllBooksFromUI();
   console.log(bookDates);
 
@@ -178,12 +178,38 @@ UI.prototype.sortBookDates = function (bookDates) {
       }
     })
   })
+}
+
+UI.prototype.filterBooks = function (filteredBooksWithAuthor, filteredBooksWithCategory) {
+  ui.deleteAllBooksFromUI();
+  console.log(filteredBooksWithAuthor);
+  console.log(filteredBooksWithCategory);
+
+  const books = storage.getBooksFromStorage();
+
+  filteredBooksWithAuthor.forEach(function (filter) {
+    books.forEach(function (book) {
+      let booksInUI = document.getElementById('booklist');
+      if (book.author == filter.author) {
+        if (booksInUI.innerHTML.indexOf(book.name) == -1) {
+          ui.addBookToUI(book);
+        }
+
+      }
+    })
+  })
+
+  filteredBooksWithCategory.forEach(function (filter) {
+
+    books.forEach(function (book) {
+      let booksInUI = document.getElementById('booklist');
+      if (book.category == filter.category) {
+        if (booksInUI.innerHTML.indexOf(book.name) == -1) {
+          ui.addBookToUI(book);
+        }
+      }
+    })
+  })
 
 }
 
-
-UI.prototype.filterBook = function (filteredAuthor, filteredCategory) {
-  console.log(filteredAuthor);
-  console.log(filteredCategory);
-
-}
