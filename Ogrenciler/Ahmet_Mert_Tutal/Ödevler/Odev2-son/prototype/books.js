@@ -13,6 +13,7 @@ function Books( id, bookTitle, bookAuthor, bookYear, bookCategory, bookPoster) {
 Books.prototype.addBook = function (e) {
   document.getElementById("editBookButton").classList.add("d-none");
   document.getElementById("addBookButton").classList.remove("d-none");
+  document.getElementById("deleteBookButton").classList.add("d-none");
     // console.log("addbook çalıştı.",e);
     const id = Date.now();
     const bookPoster = bookPosterInput.value.trim();//trim() metodu stringin başındaki ve sonundaki boşlukları siler.
@@ -114,8 +115,9 @@ Books.prototype.addBook = function (e) {
       const title = book.bookTitle.toLowerCase();
       const author = book.bookAuthor.toLowerCase();
       const category = book.bookCategory.toLowerCase();
+      const bookYear = book.bookYear.toLowerCase();
   
-      if (title.includes(filterValue) || author.includes(filterValue) || category.includes(filterValue)) {
+      if (title.includes(filterValue) || author.includes(filterValue) || category.includes(filterValue) || bookYear.includes(filterValue)) {
         filteredBooks.push(book);
         console.log("filtrelenenler",filteredBooks);
       }
@@ -136,7 +138,7 @@ Books.prototype.addBook = function (e) {
         return 0;
       });
     } else if (sortValue === 'OnDate') {
-      sortedBooks.sort((a, b) => a.id - b.id);
+      sortedBooks.sort((a, b) => a.bookYear - b.bookYear);
     }
   
     storedBooks.forEach(function (book) {
