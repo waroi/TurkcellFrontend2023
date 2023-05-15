@@ -45,6 +45,10 @@ bookSort.addEventListener("change",(e)=>{storage.sortStorage(e.target.value)});
 
 testBtn.addEventListener("click",UI.writeTestData)
 
+let copyright = document.getElementById("copyright");
+const year = new Date().getFullYear();
+copyright.innerHTML = `${year} ©Copyright Kağan Coşkun`;
+
 
 storage.sortStorage(1);
 UI.filterAuthor();

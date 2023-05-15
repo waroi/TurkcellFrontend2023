@@ -24,10 +24,10 @@ createBox(){
       <hr/>
       <p class='card-text m-0 pb-2'> ${this.date}</p>
       
-        <div class='d-flex flex-wrap gap-3'>
-          <button class='btn btn-success'>Edit</button>
-          <button class='btn btn-danger'>Delete</button>
-        </div>
+      <div class='d-flex flex-wrap gap-3 justify-content-between'>
+      <button class='btn btn-success'><i class="fa-solid fa-pen-to-square"></i></button>
+      <button class='btn btn-danger'><i class="fa-solid fa-trash"></i></button>
+    </div>
       </div>
     </div>`;
   cardWrap.innerHTML = card;
