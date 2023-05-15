@@ -25,24 +25,6 @@ const books = localStorage.getItem("bookStorage")
 if (books.length === 0) {
   books.push(
     new Book(
-      "Ege'lerin Sessizliği",
-      "Ege Kara",
-      "Horror",
-      "1998-04-08",
-      "https://avatars.githubusercontent.com/u/83390653?v=4"
-    )
-  );
-  books.push(
-    new Book(
-      "Maksutoğulları",
-      "Varol Maksutoğlu",
-      "Fantasy",
-      "1998-12-30",
-      "https://avatars.githubusercontent.com/u/3173292?v=4"
-    )
-  );
-  books.push(
-    new Book(
       "Tutunamayanlar",
       "Oğuz Atay",
       "Fiction",
