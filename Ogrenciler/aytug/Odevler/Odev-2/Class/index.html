@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>KütüBahane | Class</title>
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+	</head>
+	<body>
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">KütüBahane</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Anasayfa</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Kitaplar</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Yazarlar</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Hakkımızda</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#"><i class="bi bi-telephone-fill"></i></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#"><i class="bi bi-cart3"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- HEADER -->
+		<section class="header my-4">
+			<div class="container">
+				<div id="carouselExample" class="carousel slide">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="../assets/img/library1.jpg" class="d-block w-100" alt="..." />
+						</div>
+						<div class="carousel-item">
+							<img src="../assets/img/library2.jpg" class="d-block w-100" alt="..." />
+						</div>
+						<div class="carousel-item">
+							<img src="../assets/img/library3.jpg" class="d-block w-100" alt="..." />
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- BAR -->
+		<section class="bar">
+			<div class="container mt-5 header">
+				<div class="row text-center justify-content-center align-items-center">
+					<div class="col-12 col-lg-8 mb-3">
+						<input type="text" class="w-100 searchArea" id="bookSearch" placeholder="Kitap veya Yazar arayın" />
+					</div>
+					<div class="col-12 col-lg-2 mb-3">
+						<button class="btn bg-success" data-bs-toggle="modal" data-bs-target="#createBookModal" id="newBook">
+							Kitap Ekle
+						</button>
+						<div
+							class="modal fade"
+							id="createBookModal"
+							tabindex="-1"
+							aria-labelledby="createBookModalLabel"
+							aria-hidden="true"
+						>
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="exampleModalLabel">Yeni Kitap Oluştur</h1>
+										<button
+											type="button"
+											class="btn-close cancelBtn"
+											data-bs-dismiss="modal"
+											aria-label="Close"
+										></button>
+									</div>
+									<form id="bookForm" aria-required="true">
+										<div class="modal-body">
+											<div class="row">
+												<div class="col-12 mb-3">
+													<label for="name" class="form-label">Kitap Adı</label>
+													<input
+														type="text"
+														class="form-control"
+														id="name"
+														aria-describedby="emailHelp"
+														name="name"
+														required
+													/>
+												</div>
+												<div class="col-12 mb-3">
+													<label for="author" class="form-label">Yazar</label>
+													<input
+														type="text"
+														class="form-control"
+														id="author"
+														aria-describedby="emailHelp"
+														name="author"
+														required
+													/>
+												</div>
+												<div class="col-12 mb-3">
+													<label for="category" class="form-label">Kategori</label>
+													<input
+														type="text"
+														class="form-control"
+														id="category"
+														aria-describedby="emailHelp"
+														name="category"
+														required
+													/>
+												</div>
+												<div class="col-12 mb-3">
+													<label for="year" class="form-label">Yıl</label>
+													<input
+														type="number"
+														class="form-control"
+														id="year"
+														aria-describedby="emailHelp"
+														name="year"
+														required
+													/>
+												</div>
+												<div class="col-12 mb-3">
+													<label for="summary" class="form-label">Özet</label>
+													<textarea
+														type="text"
+														class="form-control"
+														id="summary"
+														aria-describedby="emailHelp"
+														name="summary"
+														required
+													></textarea>
+												</div>
+												<div class="col-12 mb-3">
+													<label for="cover" class="form-label">Kapak Resmi</label>
+													<input
+														type="text"
+														class="form-control"
+														id="cover"
+														aria-describedby="emailHelp"
+														name="cover"
+														value="https://picsum.photos/200/300"
+														required
+													/>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="reset" class="btn btn-danger cancelBtn" data-bs-dismiss="modal">İptal Et</button>
+											<button type="submit" class="btn btn-success" name="submitBtn" id="submitBtn">Kaydet</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- BOOK LIST -->
+		<section class="book-list">
+			<div class="container mt-5">
+				<div class="row mt-5">
+					<div class="col-12 col-lg-3 px-3">
+						<div class="filtersWrapper">
+							<h3 class="text-center">Filtrele</h3>
+
+							<!-- ACORDION -->
+							<div class="accordion" id="accordionPanelsStayOpenExample">
+								<div class="accordion-item">
+									<h2 class="accordion-header">
+										<button
+											class="accordion-button"
+											type="button"
+											data-bs-toggle="collapse"
+											data-bs-target="#panelsStayOpen-collapseOne"
+											aria-expanded="true"
+											aria-controls="panelsStayOpen-collapseOne"
+										>
+											Kategori
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+										<div class="accordion-body">
+											<div class="col-12" id="categoryFilters"></div>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header">
+										<button
+											class="accordion-button"
+											type="button"
+											data-bs-toggle="collapse"
+											data-bs-target="#panelsStayOpen-collapseTwo"
+											aria-expanded="false"
+											aria-controls="panelsStayOpen-collapseTwo"
+										>
+											Yazar
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
+										<div class="accordion-body"><div class="col-12" id="authorFilters"></div></div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header">
+										<button
+											class="accordion-button"
+											type="button"
+											data-bs-toggle="collapse"
+											data-bs-target="#panelsStayOpen-collapseThree"
+											aria-expanded="false"
+											aria-controls="panelsStayOpen-collapseThree"
+										>
+											Sıralama
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
+										<div class="accordion-body">
+											<ul class="list-unstyled">
+												<li>
+													<input type="radio" name="sort" value="sortDefault" id="sortDefault" checked />
+													<label for="radio">Varsayılan</label>
+												</li>
+												<li>
+													<input type="radio" name="sort" value="sortAsc" id="sortAsc" />
+													<label for="radio">Alfabetik: A-Z</label>
+												</li>
+												<li>
+													<input type="radio" name="sort" value="sortDesc" id="sortDesc" />
+													<label for="radio">Alfabetik: Z-A</label>
+												</li>
+												<li>
+													<input type="radio" name="sort" value="sortDateAsc" id="sortDateAsc" />
+													<label for="radio">Tarihe Göre: Artan</label>
+												</li>
+												<li>
+													<input type="radio" name="sort" value="sortDateDesc" id="sortDateDesc" />
+													<label for="radio">Tarihe Göre: Azalan</label>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-9">
+						<div class="row g-3 mx-auto" id="bookContainerWrapper"></div>
+						<div class="mx-auto text-danger text-center fw-bold" id="noBookFound">
+							Filtrelerinize Göre Herhangi Bir Kitap Bulunamadı.
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- DIALOG -->
+		<dialog data-modal id="bookModal">
+			<img id="bCover" src="https://picsum.photos/200/300" alt="Cover of the Book" />
+			<p>
+				Kitabın Adı:
+				<span id="bName"></span>
+			</p>
+			<p>
+				Yazar:
+				<span id="bAuthor"></span>
+			</p>
+			<p>
+				Kategori:
+				<span id="bCategory"></span>
+			</p>
+			<p>
+				Yayımlanma Yılı:
+				<span id="bYear"></span>
+			</p>
+			<p>
+				Özet:
+				<span id="bSummary"></span>
+			</p>
+			<div class="d-flex justify-content-center gap-3">
+				<button class="btn edit mx-auto" data-bs-toggle="modal" data-bs-target="#createBookModal" id="editBook">
+					<i class="bi bi-pencil-fill text-warning fs-3"></i>
+				</button>
+				<button class="btn delete">
+					<i class="bi bi-trash3-fill text-danger fs-3"></i>
+				</button>
+				<button class="btn" id="closeBookModal"><i class="bi bi-x-lg"></i></button>
+			</div>
+		</dialog>
+
+		<!-- FOOTER -->
+		<footer class="bg-black text-white mt-5">
+			<div class="container py-5 px-3">
+				<div class="row">
+					<div class="col-6 col-lg-4 text-center">
+						<ul class="list-unstyled">
+							<p class="fw-bold">KütüBahane</p>
+							<li><a href="#">Hakkımızda</a></li>
+							<li><a href="#">İletişim</a></li>
+							<li><a href="#">Destek alın</a></li>
+							<li><a href="#">Yasal Bilgiler</a></li>
+						</ul>
+					</div>
+					<div class="col-6 col-lg-4 text-center">
+						<ul class="list-unstyled">
+							<p class="fw-bold">Faydalı Linkler</p>
+							<li><a href="#">Mağaza</a></li>
+							<li><a href="#">Kitaplar</a></li>
+							<li><a href="#">Yazarlar</a></li>
+						</ul>
+					</div>
+					<div class="col-12 col-lg-4 mt-4 mt-lg-0">
+						<div class="row">
+							<div class="col-12 text-center">
+								<p class="fw-bold">Bizi takip edin</p>
+								<ul class="list-group list-group-horizontal gap-3 justify-content-center list-unstyled">
+									<li>
+										<a href="https://github.com/aytugyesilyurt" target="_blank"><i class="bi bi-github"></i></a>
+									</li>
+									<li>
+										<a href="https://www.linkedin.com/in/aytugyesilyurt/" target="_blank">
+											<i class="bi bi-linkedin"></i>
+										</a>
+									</li>
+									<li>
+										<a href="https://www.instagram.com/agyesilyurt/" target="_blank"><i class="bi bi-instagram"></i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 text-center mt-5">
+						<p>
+							Bu sayfa ödev için oluşturulmuştur. Kullanılan örneklerin gerçek kişi, kurum, kuruluş, şirket veya ürünle
+							ilgisi yoktur. Tamamen hayal ürünüdür.
+						</p>
+						<p>Aytuğ YEŞİLYURT</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="./script/bookCtor.js"></script>
+		<script src="./script/storageCtor.js"></script>
+		<script src="./script/render.js"></script>
+		<script src="./script/app.js"></script>
+	</body>
+</html>
