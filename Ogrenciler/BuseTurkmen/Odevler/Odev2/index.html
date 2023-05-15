@@ -5,20 +5,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Kitap Ekleme Projesi</title>
+  <title>Kitap Listesi</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Convergence&family=Dekko&family=DynaPuff&family=Lobster&family=Rambla&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Convergence&family=Dekko&family=DynaPuff&family=Junge&family=Lobster&family=Rambla&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <div class="container">
-    <h1>Kitap Ekleme Projesi</h1>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBookModal">Kitap Ekle</button>
-    <div class="form-group mt-3">
-      <input type="text" class="form-control" id="searchInput" placeholder="Yazar Adı veya Kategori">
+
+  <div class="container" id="intro">
+    <h1>KİTAP LİSTEM</h1>
+    <div class="intro">
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addBookModal"><i class="fa-solid fa-plus fa-beat fa-2xl" style="color: #ffffff;"></i>   Listeye Yeni Kitap Eklemek için Tıkla</button>
+      <div class="form-group mt-3 d-flex flex-row">
+        <label for="bookTitle"><i class="fa-solid fa-magnifying-glass fa-2xl mt-5" style="color: #361f51;"></i></label>
+        <input type="text" class="form-control" id="searchInput" placeholder="Yazar Adı veya Kategori">
+      </div>
     </div>
     <div id="bookList" class="card-deck"></div>
   </div>
-
 
   <div class="modal fade" id="addBookModal" tabindex="-1" role="dialog" aria-labelledby="addBookModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -32,23 +45,23 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="bookTitle">Kitap Adı:</label>
+              <label for="bookTitle"><i class="fa-solid fa-book" style="color: #3675e2;"></i> Kitap Adı:</label>
               <input type="text" class="form-control" id="bookTitle">
             </div>
             <div class="form-group">
-              <label for="bookAuthor">Yazar Adı:</label>
+              <label for="bookAuthor"><i class="fa-solid fa-user" style="color: #3675e2;"></i> Yazar Adı:</label>
               <input type="text" class="form-control" id="bookAuthor">
             </div>
             <div class="form-group">
-              <label for="bookYear">Yayın Yılı:</label>
-              <input type="text" class="form-control" id="bookYear">
+              <label for="bookYear"><i class="fa-solid fa-calendar-days" style="color: #3675e2;"></i> Yayın Yılı:</label>
+              <input type="number" class="form-control" id="bookYear">
             </div>
             <div class="form-group">
-              <label for="bookCategory">Kategori:</label>
+              <label for="bookCategory"><i class="fa-solid fa-eye" style="color: #3675e2;"></i> Kategori:</label>
               <input type="text" class="form-control" id="bookCategory">
             </div>
             <div class="form-group">
-              <label for="bookPoster">Poster URL:</label>
+              <label for="bookPoster"><i class="fa-solid fa-photo-film" style="color: #3675e2;"></i> Poster URL:</label>
               <input type="text" class="form-control" id="bookPoster">
             </div>
           </form>
@@ -59,10 +72,27 @@
         </div>
       </div>
     </div>
+  </div>
+
+<div class="footer">
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center d-flex flex-nowrap">
+        <a href="../Odev1/index.html" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"><h6><strong>BookShop</strong></h6></a>
+        <span class="mb-3 mb-md-0 text-muted" id="bookshopinfo"><p>Satış sayfamı ziyaret edebilirsiniz.</p></span>
+      </div>
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex g-5">
+        <li class="ms-3"><a class="text-muted" href="https://instagram.com/buseeturkmenn/?igshid=OTk0YzhjMDVIA=="><svg class="bi" width="35" height="35"><i class="fa-brands fa-instagram fa-xl" style="color: #45175e;"></i></use></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://www.linkedin.com/in/buse-t%C3%BCrkmen-2000bt/"><svg class="bi" width="35" height="35"><i class="fa-brands fa-linkedin fa-xl" style="color: #45175e;"></i></use></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://github.com/BuseTurkmen"><svg class="bi" width="35" height="35"><i class="fa-brands fa-github fa-xl" style="color: #45175e;"></i></use></svg></a></li>
+      </ul>
+    </footer>
+  </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVeG6B" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="asad.js"></script>
+<script src="iscript.js"></script>
 </body>
 </html>

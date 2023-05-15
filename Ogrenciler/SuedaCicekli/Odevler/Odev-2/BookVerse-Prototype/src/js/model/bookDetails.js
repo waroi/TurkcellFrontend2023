@@ -17,8 +17,11 @@ const breadCrumbName = document.querySelector('#breadcrumb-book-name');
 
 
 BookDetails.prototype.main = function () {
+  //urldeki parametreleri almak için URLSearchParams kullanılır
   var urlParams = new URLSearchParams(window.location.search);
+  //urlParams.get('id') ile id parametresinin değeri alınır
   let id = urlParams.get('id');
+
   let book = storage.getBookById(id);
   console.log(book);
   this.fillDetailPage(book);
@@ -45,6 +48,7 @@ BookDetails.prototype.fillDetailPage = function (book) {
   detailsReview.innerHTML = book.review;
 }
 
+// sayfa yüklendikten sonra main fonksiyonu çalıştırılır ve sayfadaki bilgiler doldurulur 
 window.addEventListener('load', function () {
   bookDetails.main();
 });
