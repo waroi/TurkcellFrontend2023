@@ -1,6 +1,6 @@
-import Book from "./prototypeItem/library.js";
-import { UI } from "./prototypeItem/ui.js";
-import { Storage } from "./prototypeItem/storage.js";
+import Book from "./classItem/library.js";
+import  UI  from "./classItem/ui.js";
+import Storage  from "./classItem/storage.js";
 
 const library = document.querySelector("#books");
 const bookAdd = document.querySelector("#add-button");
@@ -16,7 +16,6 @@ const modalClose = document.querySelector("#modal-close");
 handleEventListeners();
 
 const userInterface = new UI(library);
-const storage = new Storage();
 
 const books = localStorage.getItem("bookStorage")
   ? JSON.parse(localStorage.getItem("bookStorage"))
@@ -65,26 +64,25 @@ if (books.length === 0) {
 userInterface.updateDisplay(books);
 userInterface.makeUniques(books);
 let currentBookID;
-let currentBooks = [...books];
 function handleEventListeners() {
   bookAdd.addEventListener("click", (e) => {
     e.preventDefault();
-    storage.addBook(books, userInterface, form);
+    Storage.addBook(books, userInterface, form);
   });
 
   library.addEventListener("click", (e) => {
     if (e.target.classList.contains("book-delete")) {
       let bookWrap = e.target.parentElement.parentElement.parentElement;
-      storage.deleteBook(books, bookWrap, bookWrap.id);
+      Storage.deleteBook(books, bookWrap, bookWrap.id);
     } else if (e.target.classList.contains("book-edit")) {
       let bookWrap = e.target.parentElement.parentElement.parentElement;
       currentBookID = bookWrap.id;
-      userInterface.modalWrap(books, currentBookID);
+     UI.modalWrap(books, currentBookID);
     }
   });
 
   writer.addEventListener("change", (e) => {
-    const bookItem = storage.writerFilter(books, e.target.value);
+    const bookItem = Storage.writerFilter(books, e.target.value);
     userInterface.updateDisplay(bookItem);
   });
 
@@ -97,28 +95,28 @@ function handleEventListeners() {
   });
 
   sortBook.addEventListener("change", (e) => {
-    const bookItem = storage.sortBooks(books, e.target.value);
+    const bookItem = Storage.sortBooks(books, e.target.value);
     userInterface.updateDisplay(bookItem);
   });
 
   categoryAdd.addEventListener("change", (e) => { 
-    const bookItem = storage.categoryFilter(books, e.target.value);
+    const bookItem = Storage.categoryFilter(books, e.target.value);
     userInterface.updateDisplay(bookItem);
   });
 
   searchName.addEventListener("keyup", () => {
-    const bookItem = storage.searchBooks(books, searchName.value);
+    const bookItem = Storage.searchBooks(books, searchName.value);
     userInterface.updateDisplay(bookItem);
   });
 
   searchWriter.addEventListener("keyup", () => {
-    const bookItem = storage.searchWriter(books, searchWriter.value);
+    const bookItem = Storage.searchWriter(books, searchWriter.value);
     userInterface.updateDisplay(bookItem);
   });
 
   editBook.addEventListener("click", () => {
     bookAdd.classList.toggle("d-none");
     editBook.classList.toggle("d-none");
-    storage.editBook(books, currentBookID, userInterface, form);
+    Storage.editBook(books, currentBookID, userInterface, form);
   });
 }

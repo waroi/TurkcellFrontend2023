@@ -33,15 +33,17 @@ function createOption(value) {
   return `<option value="${value}">${value}</option>`;
 }
 
-export function UI(display) {
-  this.display = display;
+class UI {
+  constructor(display) {
+    this.display = display;
+  }
 
-  this.updateDisplay = function (books) {
+  updateDisplay = function (books) {
     this.display.innerHTML = "";
     books.map((book) => (this.display.innerHTML += createCard(book)));
   };
 
-  this.uqWriters = function (books) {
+  uqWriters = function (books) {
     const writersSet = new Set(books.map((book) => book.writer));
     writer.innerHTML = "";
     writer.innerHTML += `<option value="">Tümü</option>`;
@@ -50,7 +52,7 @@ export function UI(display) {
     });
   };
 
-  this.uqCategories = function (books) {
+  uqCategories = function (books) {
     const categoriesSet = new Set(books.map((book) => book.category));
     categoryAdd.innerHTML = "";
     categoryAdd.innerHTML += `<option value="">Tümü</option>`;
@@ -59,20 +61,24 @@ export function UI(display) {
     });
   };
 
-  this.makeUniques = function (books) {
+  makeUniques (books) {
     this.uqWriters(books);
     this.uqCategories(books);
   };
+
+
+  static modalWrap (books, bookID) {
+    const book = books.find((book) => book.id == bookID);
+
+    if(book){
+      nameBook.value = book.name;
+      writerBook.value = book.writer;
+      categoryBook.value = book.category;
+      dateBook.value = book.releaseDate;
+      imageBook.value = book.coverURL;
+      bookAdd.classList.toggle("d-none");
+      editBook.classList.toggle("d-none");
+    }
+  };
 }
-
-UI.prototype.modalWrap = function (books, bookID) {
-  const book = books.find((book) => book.id == bookID);
-  nameBook.value = book.name;
-  writerBook.value = book.writer;
-  categoryBook.value = book.category;
-  dateBook.value = book.releaseDate;
-  imageBook.value = book.coverURL;
-  bookAdd.classList.toggle("d-none");
-  editBook.classList.toggle("d-none");
-};
-
+export default UI;
