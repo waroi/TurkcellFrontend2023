@@ -200,7 +200,7 @@ function filterBooks() {
         }
     });
 
-    const books = LStorage.getBooksFromStorage();
+    const books = storage.getBooksFromStorage();
 
     const filteredBooksWithAuthor = books.filter(function (book) {
         return selectedAuthors.includes(book.author);
@@ -234,7 +234,7 @@ function filterBooks() {
         });
     }
 
-    UI.filterBooks(filteredbooks);
+    ui.filterBooks(filteredbooks);
     let modalFilter = bootstrap.Modal.getInstance(document.getElementById('filterModal'));
     modalFilter.hide();
 
