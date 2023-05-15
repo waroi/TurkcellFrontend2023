@@ -9,18 +9,34 @@ const writerName = document.getElementById("writerName");
 const bookCategory = document.getElementById("category");
 const releaseDate = document.getElementById("releaseDate");
 const bookImgUrl = document.getElementById("bookImgUrl");
+const modalBody = document.getElementById("modalBody");
 
 const saveButton = document.getElementById("saveBooks");
 
 const library = document.getElementById("sectionLibrary");
 
-const filter = document.getElementById("filter")
-eventListeners();
+const search = document.getElementById("search")
+
+const filter = document.querySelector(".selectSort")
+
+
 
 function eventListeners(e){
     saveButton.addEventListener("click",book.addBooks);
     document.addEventListener("DOMContentLoaded",book.loadAllBooks);
     library.addEventListener("click", book.deleteBook);
-    filter.addEventListener("keyup",book.filterBooks);
+
 
 }
+eventListeners();
+
+search.addEventListener("keyup",searchBook);
+function searchBook() {
+
+    const searcBookOnLS = new Storage();
+    searcBookOnLS.searchBookOnStorage(search.value);
+}
+search.addEventListener("focus", () => { search.value = "" });
+
+
+

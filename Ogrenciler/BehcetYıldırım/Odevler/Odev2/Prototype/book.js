@@ -1,5 +1,6 @@
 // Book Contructor
 function Book(name,writer,category,date,url){
+    this.id=  Math.floor(Math.random() * 1000000);
     this.name = name;
     this.writer=writer;
     this.category=category;
@@ -30,9 +31,9 @@ Book.prototype.addBooks = function(e){
 }
 
 Book.prototype.loadAllBooks = function(){
-    let films = storage.getBookFromStorage();
+    let books = storage.getBookFromStorage();
 
-    ui.loadAllBooksFromStorage(films);
+    ui.loadAllBooksFromStorage(books);
 }
 
 Book.prototype.deleteBook = function(e){
@@ -47,21 +48,3 @@ Book.prototype.deleteBook = function(e){
     }
 }
 
-Book.prototype.filterBooks = function(e){
-    const filterValue = e.target.value.toLowerCase();
-    const listItems = document.querySelectorAll(".bookBody");
-    // const listItemsWriter = document.querySelectorAll(".writerName");
-    if(filterValue != ""){
-        listItems.forEach(function(a){
-            const bookName = a.children[0].textContent.toLowerCase();
-            const writerName = a.children[1].textContent.toLowerCase();
-            if(bookName.indexOf(filterValue)=== -1 ){ 
-                a.parentElement.setAttribute("style","display : none !important");
-        
-            }else{
-                a.parentElement.parentElement.setAttribute("style","width:18rem; display : block"); 
-            }
-        })
-    }
-    
-}

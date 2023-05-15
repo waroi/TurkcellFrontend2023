@@ -23,13 +23,20 @@
   <body>
     <section id="sectionNavbar">
       <div class="cotainer">
-        <nav class="navbar bg-dark">
-          <div class="container">
-            <a class="navbar-brand text-white">Navbar</a>
+        <nav class="navbar">
+          <div
+            class="container d-flex justify-content-between align-items-center"
+          >
+            <a class="navbar-brand">
+              <img
+                src="../Prototype/img/Bodleian-logo-e1551357400295.png"
+                alt=""
+              />
+            </a>
             <div>
               <a
                 href="#"
-                class="me-3"
+                class="me-3 navbar-toggler"
                 data-bs-toggle="modal"
                 id="addBooksBtn"
                 data-bs-target="#booksModal"
@@ -40,20 +47,44 @@
         </nav>
       </div>
     </section>
-    <section class="sectionBanner">
-      <div class="container">
-        <input
-          type="text"
-          name="filter"
-          class="form-control"
-          id="filter"
-          placeholder="Bir Kitap Arayın"
+    <section id="sectionBanner">
+      <div class="banner-bg">
+        <img
+          src="https://www.glam.ox.ac.uk/sites/default/files/styles/listing_landscape_image/public/glam/images/media/BOD-Duke-Humfrey.jpg?itok=52zKkliy"
         />
+      </div>
+      <div class="container p-0">
+        <div class="d-flex justify-content-between">
+          <input
+            type="text"
+            name="filter"
+            class="my-2 w-50 form-control"
+            id="search"
+            placeholder="Bir Kitap Arayın"
+          />
+          <select
+            class="form-select py-1 w-25"
+            id="sortOptions"
+            aria-label="Sort books"
+          >
+            <option value="defaultSort" id="defaultSort" selected>
+              Varsayılan
+            </option>
+            <option value="azSort" id="azSort">A-Z'ye Sırala</option>
+            <option value="zaSort" id="zaSort">Z-A'ya Sırala</option>
+            <option value="dateSortIncrease" id="dateSortIncrease">
+              Tarih göre artan
+            </option>
+            <option value="dateSortDescend" id="dateSortDescend">
+              Tarihe göre azalan
+            </option>
+          </select>
+        </div>
       </div>
     </section>
     <section id="sectionLibrary">
       <div class="container">
-        <div class="row" id="bookList">
+        <div class="row gap-5" id="bookList">
           <!--? Kitaplar burada listelenecek. -->
         </div>
         <!--? Modal Yapısı -->
@@ -121,12 +152,12 @@
         </div>
       </div>
     </section>
-    <section class="secitonFooter sticky-bottom">
-      <footer class="bg-dark pt-5">
+    <section class="secitonFooter">
+      <footer class="footer-bg pt-5">
         <div class="container">
           <div class="row justify-content-between">
             <div class="col-lg-3 my-3 my-lg-0">
-              <h3 class="footer-title text-white">Kitapçı</h3>
+              <h3 class="footer-title text-white">Bodleian Libraries</h3>
               <ul class="list p-0">
                 <li class="mb-3">
                   <a href="#"
@@ -135,9 +166,8 @@
                 </li>
                 <li class="mb-3">
                   <a href="#"
-                    ><i class="fa-solid fa-location-dot"></i> Cianda Hse, 3rd
-                    Flr Koinange St. <br />
-                    Nairobi / KENYA</a
+                    ><i class="fa-solid fa-location-dot"></i> Broad St, Oxford
+                    OX1 3BG, Birleşik Krallık</a
                   >
                 </li>
               </ul>
@@ -171,7 +201,7 @@
           <div
             class="row footer-bottom d-flex justify-content-center align-items-center gap-5"
           >
-            <p class="text-primary text-end opacity-50 col-lg-3 col-5">
+            <p class="text-white text-end opacity-50 col-lg-3 col-5">
               Sait Behçet Yıldırım
             </p>
             <div class="col-lg-3 col-5 text-start footer-socials">
@@ -201,9 +231,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="storage.js"></script>
-
-    <script src="ui.js"></script>
     <script src="book.js"></script>
+    <script src="ui.js"></script>
+
     <script src="app.js"></script>
   </body>
 </html>
