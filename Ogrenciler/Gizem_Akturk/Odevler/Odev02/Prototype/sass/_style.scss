@@ -1,0 +1,87 @@
+$color2 : #ECD5F2;
+$color3 : #8679D9;
+$color4 : #504F8A;
+$bg-form : $color3;
+
+.bg-form {
+  background-color: $bg-form;
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .banner img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em;
+  }
+  
+  #book-form.active {
+    animation: toggle 0.5s ease-in-out;
+  }
+
+
+  
+  @keyframes toggle {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .alert-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#books-table {
+  overflow-x:auto;
+}
+
+#books-table tr:hover {
+  background-color: $color2;
+}
+
+
+@media screen and (max-width: 600px) {
+  
+  .banner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .banner img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 0.5em;
+
+    & h1 {
+      font-size: 2.5em;
+    }
+  }
+
+}
