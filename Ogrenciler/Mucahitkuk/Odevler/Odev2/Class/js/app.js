@@ -95,21 +95,21 @@ class UI {
     const booksArray = Array.from(bookList);
 
     switch (sortCriteria) {
-      case "1": // A-Z
+      case "1": 
         booksArray.sort((a, b) => {
           const titleA = a.querySelector(".bookName").textContent.toLowerCase();
           const titleB = b.querySelector(".bookName").textContent.toLowerCase();
           return titleA.localeCompare(titleB);
         });
         break;
-      case "2": // Z-A
+      case "2": 
         booksArray.sort((a, b) => {
           const titleA = a.querySelector(".bookName").textContent.toLowerCase();
           const titleB = b.querySelector(".bookName").textContent.toLowerCase();
           return titleB.localeCompare(titleA);
         });
         break;
-      case "3": // Written Date
+      case "3": 
         booksArray.sort((a, b) => {
           const dateA = a
             .querySelector(".bookWrittenDate")
@@ -120,7 +120,7 @@ class UI {
           return dateA.localeCompare(dateB);
         });
         break;
-      case "4": // Written Date
+      case "4": 
         booksArray.sort((a, b) => {
           const dateA = a
             .querySelector(".bookWrittenDate")
@@ -196,7 +196,7 @@ class UI {
     const bookGenre = document.createElement("h3");
     const bookWrittenDate = document.createElement("h3");
     const modalId = "modal-" + book.id;
-
+    ui.updateAuthorSelectOptions();
     bookName.innerText = book.name;
     bookAuthor.innerText = book.author;
     bookGenre.innerText = book.genre;
