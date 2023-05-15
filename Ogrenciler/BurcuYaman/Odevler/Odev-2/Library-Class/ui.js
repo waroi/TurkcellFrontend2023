@@ -175,16 +175,16 @@ class UI {
   }
 
   static filterBooks(filteredBooksWithAuthor) {
-    ui.deleteAllBooksFromUI();
+    UI.deleteAllBooksFromUI();
 
-    const books = storage.getBooksFromStorage();
+    const books = LStorage.getBooksFromStorage();
 
     filteredBooksWithAuthor.map(function (filter) {
       books.map(function (book) {
         let booksInUI = document.getElementById('booklist');
         if (book.author == filter.author && book.category == filter.category) {
           if (booksInUI.innerHTML.indexOf(book.name) == -1) {
-            ui.addBookToUI(book);
+            UI.addBookToUI(book);
           }
 
         }
