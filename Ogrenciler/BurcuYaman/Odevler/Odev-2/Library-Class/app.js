@@ -114,12 +114,14 @@ function deleteBook(e) {
         LStorage.deleteBookFromStorage(e.target.parentElement.parentElement.children[0].textContent);
         UI.showAlert('Book successfully deleted!', 'secondary');
     }
+    e.preventDefault();
 }
 
 function updateBook(e) {
     if (e.target.id === 'editButton') {
         UI.updateBookFromUI(e);
     }
+    e.preventDefault();
 
 }
 
@@ -138,7 +140,7 @@ function sortBookAz(e) {
 
     bookNames.sort();
     UI.sortBookAz(bookNames);
-
+    e.preventDefault();
 }
 
 function sortBookZa(e) {
@@ -150,7 +152,7 @@ function sortBookZa(e) {
 
     bookNames.sort().reverse();
     UI.sortBookAz(bookNames);
-
+    e.preventDefault();
 }
 
 function sortBookLatest(e) {
@@ -162,7 +164,7 @@ function sortBookLatest(e) {
 
     bookDates.sort().reverse();
     UI.sortBookDates(bookDates);
-
+    e.preventDefault();
 }
 
 function sortBookOldest(e) {
@@ -174,7 +176,7 @@ function sortBookOldest(e) {
     console.log(bookDates);
     bookDates.sort();
     UI.sortBookDates(bookDates);
-
+    e.preventDefault();
 }
 
 function filterBooks() {
@@ -235,5 +237,5 @@ function filterBooks() {
     UI.filterBooks(filteredbooks);
     let modalFilter = bootstrap.Modal.getInstance(document.getElementById('filterModal'));
     modalFilter.hide();
-
+    e.preventDefault();
 }
