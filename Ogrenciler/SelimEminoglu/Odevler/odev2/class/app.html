@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <header class="py-4">
+      <div class="container">
+        <div class="row flex-row justify-content-between">
+          <h1 class="text-white w-50">Book Wizard</h1>
+          <p
+            class="text-white fs-3 w-50 my-0 d-flex flex-wrap align-content-center justify-content-center"
+          >
+            "Kitapların Büyüsü İçerisinde Kaybolun"
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <section class="book-finder py-4">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-12">
+                <label for="search" class="text-white fs-4">Kitap Ara:</label>
+                <input
+                  class="mt-2 py-1 px-2"
+                  type="text"
+                  id="search"
+                  placeholder="Yazar veya Kitap Adı"
+                />
+              </div>
+              <div class="col-12">
+                <label for="sorter" class="text-white fs-4"
+                  >Sıralama Yap:</label
+                >
+
+                <select name="sorter-choose" id="sorter" class="py-1">
+                  <option selected>Belirtilmemiş</option>
+                  <option value="AtoZ">A'dan Z'ye</option>
+                  <option value="ZtoA">Z'den A'ya</option>
+                  <option value="OnDate">Tarihe Göre</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 d-flex justify-content-end">
+            <button
+              type="button"
+              class="btn btn-primary add-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#addBookModal"
+            >
+              Kitap Ekle
+            </button>
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="addBookModal"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+              >
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      Kitap Ekle
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <h2>Kitap Özellikleri</h2>
+                    <form class="book-form mt-3" id="form">
+                      <label for="bookName" class="w-100 fs-4 my-1"
+                        >Kitap Adı:</label
+                      >
+                      <input type="text" id="bookName" class="w-100" />
+                      <label for="bookWriter" class="w-100 fs-4 my-1"
+                        >Kitabın Yazarı:</label
+                      >
+                      <input type="text" id="bookWriter" class="w-100" />
+                      <label for="bookDate" class="w-100 fs-4 my-1"
+                        >Yazım Yılı:</label
+                      >
+                      <input type="text" id="bookDate" class="w-100" />
+                      <label for="bookCategory" class="w-100 fs-4 my-1"
+                        >Kategorisi:</label
+                      >
+                      <input type="text" id="bookCategory" class="w-100" />
+                      <label for="bookUrl" class="w-100 fs-4 my-1"
+                        >Kitap Resmi İçin URL:</label
+                      >
+                      <input type="text" id="bookUrl" class="w-100" />
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Kapat
+                    </button>
+                    <button type="button" class="btn btn-primary" id="addBook">
+                      Kitap Ekle
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="modal fade"
+              id="updateBookModal"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+              >
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      Kitap Güncelle
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <h2>Kitap Özellikleri</h2>
+                    <form class="book-form mt-3" id="formUpdate">
+                      <label for="bookName" class="w-100 fs-4 my-1"
+                        >Kitap Adı:</label
+                      >
+                      <input type="text" id="bookNameUpdate" class="w-100" />
+                      <label for="bookWriter" class="w-100 fs-4 my-1"
+                        >Kitabın Yazarı:</label
+                      >
+                      <input type="text" id="bookWriterUpdate" class="w-100" />
+                      <label for="bookDate" class="w-100 fs-4 my-1"
+                        >Yazım Yılı:</label
+                      >
+                      <input type="text" id="bookDateUpdate" class="w-100" />
+                      <label for="bookCategory" class="w-100 fs-4 my-1"
+                        >Kategorisi:</label
+                      >
+                      <input
+                        type="text"
+                        id="bookCategoryUpdate"
+                        class="w-100"
+                      />
+                      <label for="bookUrl" class="w-100 fs-4 my-1"
+                        >Kitap Resmi İçin URL:</label
+                      >
+                      <input type="text" id="bookUrlUpdate" class="w-100" />
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Kapat
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      id="updateBook"
+                    >
+                      Kitap Güncelle
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-4">
+            <h3 class="text-white">Filtreleme:</h3>
+          </div>
+          <div class="col-4">
+            <label for="category" class="text-white fs-4">Kategori:</label>
+            <select name="category" id="category" class="py-1">
+              <option selected>Belirtilmemiş</option>
+            </select>
+          </div>
+          <div class="col-4">
+            <label for="writer" class="text-white fs-4">Yazar:</label>
+            <select name="writer" id="writer" class="py-1">
+              <option selected>Belirtilmemiş</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3 books" id="bookList"></div>
+      </div>
+    </section>
+    <footer class="bg-secondary pt-5 mb-0">
+      <div class="container">
+        <div class="row pt-4">
+          <div class="col-6">
+            <h4>İletişim</h4>
+            <ul>
+              <li><a href="#" class="text-white">Bizi Arayın</a></li>
+              <li><a href="#" class="text-white">E-mail Yollayın</a></li>
+              <li><a href="#" class="text-white">Bizi Ziyaret Edin</a></li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <h4>Sorun Ve Öneriler İçin</h4>
+            <ul>
+              <li><a href="#" class="text-white">Canlı Destek</a></li>
+              <li><a href="#" class="text-white">Şikayet Formu</a></li>
+              <li><a href="#" class="text-white">Yardım Merkezi</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row pt-4">
+          <div class="col-12 d-flex justify-content-center">
+            <span
+              >This page was made by
+              <a href="https://github.com/SelimEminoglu61" class="text-info"
+                >Selim Eminoğlu</a
+              ></span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./app.js"></script>
+    <script src="./book.js"></script>
+    <script src="./UI.js"></script>
+    <script src="./local.js"></script>
+  </body>
+</html>

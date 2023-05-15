@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LibBo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://www.kindpng.com/picc/m/267-2675719_cat-sleeping-books-cat-sleeping-on-books-hd.png"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="row sticky-top justify-content-center navbar navbar-dark bg-dark rounded g-4 mt-2"
+      >
+        <h1 class="text-center col-md-1 me-4 text-white">LibBo</h1>
+        <div class="col-md-5">
+          <input
+            type="text"
+            id="bookSearch"
+            placeholder="search"
+            class="form-control"
+          />
+        </div>
+        <div class="col-md-2">
+          <select class="form-control" id="bookAuthorFilter">
+            <!--yazarları ekleyecek-->
+            <option value="All">All Authors</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select id="bookSort" class="form-control">
+            <option value="default">Default sorting</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+            <option value="old-new">old new</option>
+            <option value="new-old">new old</option>
+          </select>
+        </div>
+        <div class="col-md-1 d-flex justify-content-center">
+          <!-- Trigger the modal with a button -->
+          <button
+            type="button"
+            class="btn btn-warning rounded rounded-circle"
+            data-bs-toggle="modal"
+            data-bs-target="#myModal"
+          >
+            +
+          </button>
+        </div>
+      </div>
+      <div id="fullscreen-background"></div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="myModal"
+        tabindex="-1"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="myModalLabel">Input informations</h5>
+              <button
+                type="button"
+                class="btn-close bg-warning text-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form class="row g-3" id="film-form">
+                <div class="col-md-12">
+                  <h5>Enter book name</h5>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="bookName"
+                    placeholder="Enter book name"
+                  />
+                </div>
+                <div class="col-md-12">
+                  <h5>Enter author name</h5>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="bookAuthor"
+                    placeholder="Enter author name"
+                  />
+                </div>
+                <div class="col-md-12">
+                  <h5>Enter book type</h5>
+                  <select class="form-select" id="bookType">
+                    <option value="Adventure">Action & Adventure</option>
+                    <option value="Art">Art</option>
+                    <option value="Classic">Classic</option>
+                    <option value="Contemporary">Contemporary</option>
+                    <option value="Cooking">Cooking</option>
+                    <option value="Detective">Detective</option>
+                    <option value="Development">Development</option>
+                    <option value="Dystopian">Dystopian</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Health">Health</option>
+                    <option value="History">History</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Memoir">Memoir</option>
+                    <option value="Motivational">Motivational</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Poetry">Poetry</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Sci-fic">Science Fiction</option>
+                  </select>
+                </div>
+                <div class="col-md-12">
+                  <h5>Enter book date</h5>
+                  <input
+                    type="number"
+                    min="1887"
+                    max="2024"
+                    class="form-control"
+                    id="bookDate"
+                    placeholder="Enter year"
+                  />
+                </div>
+                <div class="col-md-12">
+                  <h5>Enter book image URL</h5>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="bookUrl"
+                    placeholder="Enter image URL"
+                  />
+                </div>
+                <div class="text-center modal-footer">
+                  <button
+                    type="button"
+                    id="addOrEditButton"
+                    class="btn btn-warning w-25"
+                    data-bs-dismiss="modal"
+                  >
+                    Add
+                  </button>
+                  <button
+                    type="button"
+                    id="editButton"
+                    class="btn btn-primary w-25"
+                    data-bs-dismiss="modal"
+                  >
+                    Edit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 main-section">
+        <div id="bookSearch" class="col-md-2 category-list text-light">
+          <h4>Categories</h4>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="Adventure"
+              value="Adventure"
+            />
+            <label class="form-check-label" for="AdventureCheckbox"
+              >Action & Adventure</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="art"
+              value="Art"
+            />
+            <label class="form-check-label" for="artCheckbox">Art</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="classic"
+              value="Classic"
+            />
+            <label class="form-check-label" for="classicCheckbox"
+              >Classic</label
+            >
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="contemporary"
+              value="Contemporary"
+            />
+            <label class="form-check-label" for="contemporaryCheckbox"
+              >Comtemporary</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="cooking"
+              value="Cooking"
+            />
+            <label class="form-check-label" for="cookingCheckbox"
+              >Cooking</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="detective"
+              value="Detective"
+            />
+            <label class="form-check-label" for="detectiveCheckbox"
+              >Detective</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="development"
+              value="Development"
+            />
+            <label class="form-check-label" for="developmentCheckbox"
+              >Development</label
+            >
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="dystopian"
+              value="Dystopian"
+            />
+            <label class="form-check-label" for="dystopianCheckbox"
+              >Dystopian</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="fantasy"
+              value="Fantasy"
+            />
+            <label class="form-check-label" for="fantasyCheckbox"
+              >Fantasy</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="health"
+              value="Health"
+            />
+            <label class="form-check-label" for="healthCheckbox">Health</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="history"
+              value="History"
+            />
+            <label class="form-check-label" for="historyCheckbox"
+              >History</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="horror"
+              value="Horror"
+            />
+            <label class="form-check-label" for="horrorCheckbox">Horror</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="memoir"
+              value="Memoir"
+            />
+            <label class="form-check-label" for="memoirCheckbox">Memoir</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="motivational"
+              value="Motivational"
+            />
+            <label class="form-check-label" for="selfHelpCheckbox"
+              >Motivational</label
+            >
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="mystery"
+              value="Mystery"
+            />
+            <label class="form-check-label" for="mysteryCheckbox"
+              >Mystery</label
+            >
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="personal"
+              value="Personal"
+            />
+            <label class="form-check-label" for="personalCheckbox"
+              >Personal</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="poetry"
+              value="Poetry"
+            />
+            <label class="form-check-label" for="poetryCheckbox">Poetry</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="romance"
+              value="Romance"
+            />
+            <label class="form-check-label" for="romanceCheckbox"
+              >Romance</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="Sci-fic"
+              value="Sci-fic"
+            />
+            <label class="form-check-label" for="sciFiCheckbox"
+              >Science Fiction</label
+            >
+          </div>
+        </div>
+
+        <div class="col-md-10"><div class="row" id="bookList"></div></div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="myModalPage"
+        tabindex="-1"
+        aria-labelledby="loadModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loadModalLabel">Welcome to LibBo</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              Hello, first of all, welcome. Here you can add new books, sort,
+              use filtering and see the list of your books. I hope you like it.
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-success"
+                data-bs-dismiss="modal"
+              >
+                Understand
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="myBtn">
+      <a href="#top">
+        <img href="#top" src="./book-icon.png" class="img-fluid"
+      /></a>
+    </button>
+    <script src="./Js/storage.js"></script>
+    <script src="./Js/ui.js"></script>
+    <script src="./Js/books.js"></script>
+    <script src="./Js/app.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <script>
+    var myModalPage = new bootstrap.Modal(
+      document.getElementById("myModalPage"),
+      {}
+    );
+    myModalPage.show();
+  </script>
+</html>

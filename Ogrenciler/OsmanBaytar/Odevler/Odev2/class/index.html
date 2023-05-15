@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://www.amigos.org/sites/default/files/simply-e_web.png">
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand fs-2" href="#">
+          <img
+            src="https://www.amigos.org/sites/default/files/simply-e_web.png"
+            alt="Logo"
+            width="50"
+            height="40"
+            class="d-inline-block align-text-center"
+          />
+          My Library
+        </a>
+      </div>
+    </nav>
+
+    <section class="mt-5" id="first-box">
+      <div class="container">
+        <div class="row align-items-center border border-2 bg-light">
+          <div class="col-sm-5 my-3">
+            <h4 class="mb-3">Search by Name</h4>
+            <input type="text" placeholder="Search with" id="search-input" />
+          </div>
+          <div class="col-sm-3 my-3">
+            <h4 class="mb-3">Filter By</h4>
+            <select name="filter" id="filter-by">
+              <option value="none">None</option>
+              <option value="category">Category</option>
+              <option value="writer">Writer</option>
+            </select>
+            <h4 class="mb-3 my-3">Filter With</h4>
+            <select name="filter" id="filter-with">
+             
+            </select>
+          </div>
+          <div class="col-sm-3 my-3">
+            <h4 class="mb-3">Sort By</h4>
+            <select name="sort" id="sort-select">
+              <option value="default">Default</option>
+              <option value="a-z">A-Z</option>
+              <option value="z-a">Z-A</option>
+              <option value="dateNew">Date(New)</option>
+              <option value="dateOld">Date(Old)</option>
+            </select>
+          </div>
+          <div class="col-sm-1 my-3">
+            <i class="fa-solid fa-circle-plus my-auto fs-4" id="addModal"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-5 d-none" id="modalBox">
+      <div class="container" id="modalBoxInside">
+        <div class="row border border-2">
+          <div class="col-md-8 mx-auto mb-3">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="mt-3 fs-5">Name of the Book</p>
+                <div><input type="text" id="addName" /></div>
+
+                <p class="mt-3 fs-5">Name of the Writer</p>
+                <div><input type="text" id="addWriter" /></div>
+
+                <p class="mt-3 fs-5">Category</p>
+                <div><input type="text" id="addCategory" /></div>
+              </div>
+              <div class="col-sm-6">
+                <p class="mt-3 fs-5">Date</p>
+                <div><input type="date" id="addDate" /></div>
+
+                <p class="mt-3 fs-5">Url</p>
+                <div><input type="url" id="addUrl" /></div>
+
+                <button class="btn btn-success mt-5" id="addBookArea">
+                  Add Book
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-5">
+      <div class="container">
+        <div class="row" id="bookUI"></div>
+      </div>
+    </section>
+
+   
+      <footer class="bg-dark text-center text-white mt-5"> 
+        <div class="container p-4 pb-0">          
+          <section class="mb-4">       
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="#!"
+              role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>     
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="#!"
+              role="button"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="#!"
+              role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="#!"
+              role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="#!"
+              role="button"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="#!"
+              role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+        </div>
+        <div
+          class="text-center p-3 fs-4"
+          style="background-color: rgba(0, 0, 0, 0.2)"
+        >
+          OSMAN BAYTAR   
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="Book.js"></script>
+    <script src="Storage.js"></script>
+    <script src="UserInterface.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

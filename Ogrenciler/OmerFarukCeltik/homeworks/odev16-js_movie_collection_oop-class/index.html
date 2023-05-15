@@ -1,75 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script defer src="app.js"></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <div class="movie-inputs">
-      <div class="container">
-        <form>
-          <div class="mb-3">
-            <label for="movieNameInput" class="form-label">Movie Name</label>
-            <input type="text" class="form-control" id="movieNameInput" />
-          </div>
-          <div class="mb-3">
-            <label for="movieDirectorInput" class="form-label"
-              >Movie Director</label
-            >
-            <input type="text" class="form-control" id="movieDirectorInput" />
-          </div>
-          <div class="mb-3">
-            <label for="movieYearInput" class="form-label"
-              >Movie Release Year</label
-            >
-            <input type="number" class="form-control" id="movieYearInput" />
-          </div>
-          <div class="mb-3">
-            <label for="movieGenreInput" class="form-label">Movie Genre</label>
-            <input type="text" class="form-control" id="movieGenreInput" />
-          </div>
-          <div class="mb-3">
-            <label for="movieBannerInput" class="form-label"
-              >Movie Banner URL</label
-            >
-            <input type="url" class="form-control" id="movieBannerInput" />
-          </div>
 
-          <button type="submit" class="btn btn-primary" id="add-movie">
-            Submit
-          </button>
-          <button
-            type="submit"
-            class="btn btn-warning"
-            id="edit-movie"
-            style="display: none"
-          >
-            Edit
-          </button>
-        </form>
-      </div>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</head>
 
-    <div class="movie-collection-area mt-3">
-      <div class="container">
-        <div class="row movie-collection"></div>
-      </div>
+<body>
+  <div class="movie-inputs">
+    <div class="container">
+      <form>
+        <div class="mb-3">
+          <label for="movieNameInput" class="form-label">Movie Name</label>
+          <input type="text" class="form-control" id="movieNameInput" />
+        </div>
+        <div class="mb-3">
+          <label for="movieDirectorInput" class="form-label">Movie Director</label>
+          <input type="text" class="form-control" id="movieDirectorInput" />
+        </div>
+        <div class="mb-3">
+          <label for="movieYearInput" class="form-label">Movie Release Year</label>
+          <input type="number" class="form-control" id="movieYearInput" />
+        </div>
+        <div class="mb-3">
+          <label for="movieGenreInput" class="form-label">Movie Genre</label>
+          <input type="text" class="form-control" id="movieGenreInput" />
+        </div>
+        <div class="mb-3">
+          <label for="movieBannerInput" class="form-label">Movie Banner URL</label>
+          <input type="url" class="form-control" id="movieBannerInput" />
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="add-movie">
+          Submit
+        </button>
+        <button type="submit" class="btn btn-warning" id="edit-movie" style="display: none">
+          Edit
+        </button>
+      </form>
     </div>
-  </body>
+  </div>
+
+  <div class="movie-collection-area mt-3">
+    <div class="container">
+      <div class="row movie-collection"></div>
+    </div>
+  </div>
+</body>
+
 </html>
