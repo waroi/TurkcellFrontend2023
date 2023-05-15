@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmet KANBAZ - BookStore - Prototype</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="./assets/bookStoreLogo.png" alt="bookStoreLogo" class="img-fluid" width="250px"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
+          <li class="nav-item text-black fw-semibold">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item text-black fw-semibold">
+            <a class="nav-link" href="#">Hakkımızda</a>
+          </li>
+          <li class="nav-item text-black fw-semibold">
+            <a class="nav-link" href="#">Yardım</a>
+          </li>
+          <li class="nav-item text-black fw-semibold">
+            <a class="nav-link" href="#">Sıkça Sorulan Sorular</a>
+          </li>
+          <li>
+            <div class="socials d-flex gap-1 ps-lg-2">
+              <a href="#" class="rounded-circle d-flex justify-content-center align-items-center"><span
+                  class="fa-brands fa-facebook-f text-white"></span></a>
+              <a href="#" class="rounded-circle d-flex justify-content-center align-items-center"><span
+                  class="fa-brands fa-instagram text-white"></span></a>
+              <a href="#" class="rounded-circle d-flex justify-content-center align-items-center"><span
+                  class="fa-brands fa-linkedin-in text-white"></span></a>
+              <a href="#" class="rounded-circle d-flex justify-content-center align-items-center"><span
+                class="fa-brands fa-github text-white"></span></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="py-5 bg-black text-white">
+    <div class="container pt-5 pb-4">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-6">
+          <img src="./assets/topSectionBook.jpg" alt="topSectionBook" class="img-fluid">
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4">
+            <h1>Kitaplar</h1>
+            <p class="pt-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam id architecto unde, ab cumque
+              expedita odit facilis sequi ratione vel?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row gap-4 gap-lg-0">
+        <div class="col-lg-3">
+          <div class="dropdown dropend">
+            <button class="btn btn-secondary dropdown-toggle px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Sıralama
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#">A - Z</a></li>
+              <li><a class="dropdown-item" href="#">Z - A</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Eskiden Yeniye</a></li>
+              <li><a class="dropdown-item" href="#">Yeniden Eskiye</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center">
+          <div class="input-group d-flex">
+            <input type="text" class="form-control" placeholder="Aramak için Kitap veya Yazar Adı Giriniz..." id="searchBook">
+          </div>
+        </div>
+        <div class="col-lg-3 d-flex justify-content-lg-end justify-content-center" data-bs-toggle="modal"
+          data-bs-target="#addBookModal" id="addNewBookButton">
+          <button class="btn btn-primary px-4 py-2 d-flex align-items-center">Kitap Ekle
+            <span class="fa-solid fa-book fa-xl ps-4"></span>
+            <span class="fa-solid fa-plus ps-1 align-self-start"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalLabel">BookStore</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="modalBookName" class="form-label">Kitap Adı</label>
+              <input type="text" class="form-control" id="modalBookName">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookAuthor" class="form-label">Yazar Adı - Soyadı</label>
+              <input type="text" class="form-control" id="modalBookAuthor">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookCategory" class="form-label">Kategori</label>
+              <input type="text" class="form-control" id="modalBookCategory">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookDate" class="form-label">Yazıldığı Tarih</label>
+              <input type="date" class="form-control" id="modalBookDate">
+            </div>
+            <div class="mb-3">
+              <label for="modalBookImageUrl" class="form-label">Kitabın Kapak Fotoğraf URL'i</label>
+              <input type="url" class="form-control" id="modalBookImageUrl">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+          <button type="button" class="btn btn-primary" id="createBookButton" data-bs-dismiss="modal">Kitap Oluştur</button>
+          <button type="button" class="btn btn-warning" id="updateButton" data-bs-dismiss="modal">Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-fixed bottom-0 end-0 p-3 toastZIndex">
+    <div id="toastMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+    </div>
+  </div>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 mb-4 d-block d-lg-none">
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="dropdown d-flex flex-column align-items-center">
+                <button class="btn btn-info mb-2 showAllBooksButton">Tüm Kitaplar</button>
+                <button class="btn btn-secondary dropdown-toggle px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Kategori
+                </button>
+                <ul class="dropdown-menu categoryDropDown">
+                </ul>
+              </div>
+            </div>
+            <div class="col-6 d-flex flex-column align-items-center">
+              <button class="btn btn-danger mb-2 allBookDelete">Tüm Kitapları Sil</button>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Yazar
+                </button>
+                <ul class="dropdown-menu directorDropDown">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 d-none d-lg-block">
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-info mb-4 showAllBooksButton">Tüm Kitaplar</button>
+              <h5 class="border-bottom border-black pb-3">Kategori</h5>
+              <div class="list-group categories">
+              </div>
+            </div>
+            <div class="col-6">
+              <button class="btn btn-danger mb-4 allBookDelete">Tüm Kitapları Sil</button>
+              <h5 class="border-bottom border-black pb-3">Yazar</h5>
+              <div class="list-group directors">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="row mb-4" id="bookList">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pt-5 pb-3 bg-black">
+    <div class="container">
+      <div class="row py-4">
+        <div class="col-lg-4 px-5">
+          <a href="#"><img src="./assets/bookStoreFooterImage.png" alt="bookStoreFooterImage" class="img-fluid" width="250px"></a>
+        </div>
+        <div class="col-lg-4 my-5 my-lg-0">
+          <h5 class="pb-3">Hakkımızda</h5>
+          <p class="w-75">2023 yılında açılan şirketimiz müşterilerine memnuniyetle hizmet vermektedir.</p>
+        </div>
+        <div class="col-lg-4">
+          <h5 class="pb-3">Sosyal Medya</h5>
+          <ul class="list-unstyled text-white">
+            <li><a href="#" class="text-decoration-none">Twitter</a></li>
+            <li><a href="#" class="text-decoration-none">Facebook</a></li>
+            <li><a href="#" class="text-decoration-none">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row border-top border-secondary">
+        <div class="col-lg-12 text-center pt-4">
+          <p><span class="fa-solid fa-book me-2"></span>Copyright © 2023 All rights reserved | This template is made
+            with by <a href="https://github.com/ahmetkanbaz" target="_blank" class="fst-italic fs-6 ps-1">Ahmet
+              KANBAZ</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="./jsfolders/storage.js"></script>
+  <script src="./jsfolders/ui.js"></script>
+  <script src="./jsfolders/books.js"></script>
+  <script src="./jsfolders/filter.js"></script>
+  <script src="./jsfolders//app.js"></script>
+</body>
+</html>

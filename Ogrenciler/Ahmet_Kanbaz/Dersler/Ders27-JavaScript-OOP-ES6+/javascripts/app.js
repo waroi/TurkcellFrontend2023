@@ -1,9 +1,5 @@
-const storage = new Storage();
-const ui = new UI();
-const movies = new Movies();
-
-//Get Form Elements
-const movieImageUrl = document.getElementById("imgUrl");
+//Get Elements
+const movieUrl = document.getElementById("imgUrl");
 const movieName = document.getElementById("filmAdi");
 const movieType = document.getElementById("filmTur");
 const movieDate = document.getElementById("filmTarih");
@@ -15,22 +11,23 @@ const addMovieButton = document.getElementById("addMovieButton");
 const movieList = document.getElementById("movieList");
 
 //Get Modal Elements
+const modalBody = document.getElementById("modalBody");
 const modalImage = document.getElementById("modalImg");
 const modalImageUrl = document.getElementById("modalimgUrl");
 const modalMovieName = document.getElementById("modalfilmAdi");
 const modalMovieType = document.getElementById("modalfilmTur");
 const modalMovieDate = document.getElementById("modalfilmTarih");
 const modalMovieDirector = document.getElementById("modalfilmYonetmen");
-const modalMovieSummary = document.getElementById("modalFilmSummary");
+const modalMovieSummary = document.getElementById("modalfilmOzet");
 
-const saveEditChanges = document.getElementById("saveChanges");
+const saveModalChanges = document.getElementById("saveChanges");
 
 addEventListeners();
 
 function addEventListeners() {
-  document.addEventListener("DOMContentLoaded", storage.showMoviesFromLocalStorage);
-  addMovieButton.addEventListener('click', movies.addMovie);
-  movieList.addEventListener('click', movies.deleteMovie);
-  movieList.addEventListener('click', movies.editMovie);
-  saveEditChanges.addEventListener('click', movies.saveEditMovie);
+  document.addEventListener("DOMContentLoaded", LocalStorage.showMoviesFromLocalStorage);
+  addMovieButton.addEventListener("click", Movies.addMovie);
+  movieList.addEventListener("click", Movies.deleteMovie);
+  movieList.addEventListener("click", Movies.editMovie);
+  saveModalChanges.addEventListener("click", Movies.saveEditMovie);
 }
