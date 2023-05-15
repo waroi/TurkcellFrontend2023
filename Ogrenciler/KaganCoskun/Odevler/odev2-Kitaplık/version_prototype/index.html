@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kaganley Library</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+  </head>
+  <body>
+    <p class="bg-warning text-center m-0">Test Dataları için TEST butonuna basınız.</p>
+    <header class="shadow-sm p-1 mb-5 bg-body-tertiary ">
+      <div class="container">
+        <div class="row pb-4  justify-content-between align-items-center">
+          <img src="./logo.svg" class="col-lg-10"></img>
+
+      <div class="col-lg-8 text-lg-end">
+        <button  type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#addBook">
+          <i class="fa-solid fa-book-medical" style="color: #ffffff;"></i> Add New Book
+        </button>
+        <button class="btn btn-danger" id="testData">TEST</button>
+      </div>
+        </div>
+      </div>
+    </header>
+    <div class="container my-3">
+    
+  <div class="row">
+    <div class="col-lg-5 border border-2" >
+      <form class="col-30 text-center py-2" id="categoryForm">
+        <input class="form-control" type="text" id="categoryName" placeholder="Category Name">
+        <button class="btn btn-primary my-1" type="submit">Add New Category</button>
+      </form>
+      <h4>Category</h4>
+      <div id="categoryFilter">
+        
+      </div>
+      <hr>
+      <h4>Authors</h4>
+      <div id="authorFilter">
+        
+      </div>
+      <div class="form-check">
+          <input class="form-check-input d-none" type="radio" name="filter" id="clearFilter"> 
+          <label class="form-check-label fs-5 text-center py-3 cursorPointer" for="clearFilter">
+            Clear Filter
+          </label>
+        </div>
+    </div>
+    <div class="col-lg-25">
+      <div class="row justify-content-between my-3">
+        <div class="mb-3 col-lg-12">
+          <input type="text" class="form-control" id="bookSearch" placeholder="Search">
+        </div>
+        <div class="mb-3 col-lg-3">
+          <select class="form-select cursorPointer" id="bookSort" aria-label="Default select example">
+            <option value="1">A-Z</option>
+            <option value="2">Z-A</option>
+            <option value="3">Date</option>
+          </select>
+        </div>
+      </div>
+      <div class="row g-4" id="bookUI"></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="addBook" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addBookLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addBookLabel">Add New Book</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="bookForm">
+      <div class="modal-body">
+        
+        <div  class="row position-relative">
+              <div class="col-30 mb-3">
+                <input class="form-control  col-lg-15 col-sm-30" id="title" type="text" placeholder="Book Name" required>
+              </div>    
+              <div class=" col-lg-15 col-sm-30 mb-3">
+                <label for="category">Category</label>
+                <select class="form-select" id="category" aria-label="Default select example" required>
+                  
+                </select>
+              </div>
+              <div class="col-lg-15 col-sm-30 mb-3">
+                <label for="date">Publication Date</label>
+                <input class="form-control  col-lg-15 col-sm-30" id="date" type="month"  required>
+              </div>
+              <div class="col-lg-15 col-sm-30 mb-3">
+                <label for="author">Author Name</label>
+                <input class="form-control  col-lg-15 col-sm-30" id="author" type="text"  required>
+              </div>
+              <div class="col-lg-15 col-sm-30 mb-3">
+                <label for="author">Cover URL</label>
+                <input class="form-control  col-lg-15 col-sm-30" id="coverUrl" type="text"  required>
+              </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="clsBtn">Close</button>
+        <button type="submit" class="btn btn-primary" id="bookFormBtn" >Create</button> 
+      </div>
+    </form>
+    </div>
+  </div>
+ 
+</div>
+
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Kaganley Library</strong>
+      <small>Now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body bg-danger">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+</div>
+<hr>
+<p class="text-center" id="copyright"></p>
+
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="./constructors/BookConstructor.js"></script>
+    <script src="./constructors/Storage.js"></script>
+    <script src="./constructors/UserInterface.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
