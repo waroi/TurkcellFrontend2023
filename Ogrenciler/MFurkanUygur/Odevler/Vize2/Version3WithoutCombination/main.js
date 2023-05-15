@@ -9,17 +9,14 @@ const deleteAllButton = document.getElementById("deleteAll");
 
 const searchBookInput = document.getElementById("searchBook")
 
-//Books Class
-class Books {
-    constructor(bookName, bookWriter, bookType, bookDate, bookPicture) {
-        this.bookName = bookName;
-        this.bookWriter = bookWriter;
-        this.bookType = bookType;
-        this.bookDate = bookDate;
-        this.bookPicture = bookPicture;
-        this.bookID = Math.floor(Math.random() * 1000000);
-    }
-
+//Books Object
+function Books(bookName, bookWriter, bookType, bookDate, bookPicture) {
+    this.bookName = bookName;
+    this.bookWriter = bookWriter;
+    this.bookType = bookType;
+    this.bookDate = bookDate;
+    this.bookPicture = bookPicture;
+    this.bookID = Math.floor(Math.random() * 1000000);
 }
 
 addButton.addEventListener("click", addBook);

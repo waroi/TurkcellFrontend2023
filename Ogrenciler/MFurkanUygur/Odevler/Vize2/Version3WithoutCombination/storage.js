@@ -212,19 +212,19 @@ Storage.prototype.checkInformationAllPage = function () {
 //Filtrelenen kitapların ekrana basımı
 Storage.prototype.filterOnLS = function (filterWord) {
     bookContainer.innerHTML = "";
-    let filteredArray = [];
+    // let filteredArray = [];
     allBooksOnLocalStorage.forEach(x => {
         if (x.bookType.toLowerCase() == filterWord || x.bookWriter.toLowerCase() == filterWord) {
-            filteredArray.push(x);
-            console.log(filteredArray)
-            // ui.displayBookOnHtml(x)
+            // filteredArray.push(x);
+            // console.log(filteredArray)
+            ui.displayBookOnHtml(x)
         }
     })
 
 
-    allBooksOnLocalStorage = filteredArray
+    // allBooksOnLocalStorage = filteredArray
     // this.checkInformationAllPage()
-    filteredArray.forEach(x => { ui.displayBookOnHtml(x) })
+    // filteredArray.forEach(x => { ui.displayBookOnHtml(x) })
 
 
 }
@@ -236,7 +236,7 @@ Storage.prototype.sortBooks = function (sortType) {
         let sortArray =
             allBooksOnLocalStorage
                 .map(x => x)
-                .sort((a, b) => (a.bookName > b.bookName) ? 1 : ((b.bookName > a.bookName) ? -1 : 0))
+                .sort((a, b) => (a.bookName.toLocaleLowerCase() > b.bookName.toLocaleLowerCase()) ? 1 : ((b.bookName.toLocaleLowerCase() > a.bookName.toLocaleLowerCase()) ? -1 : 0))
         bookContainer.innerHTML = "";
         sortArray.map(e => e).forEach(e => {
             ui.displayBookOnHtml(e)
@@ -246,7 +246,7 @@ Storage.prototype.sortBooks = function (sortType) {
         let sortArray =
             allBooksOnLocalStorage
                 .map(x => x)
-                .sort((a, b) => (a.bookName < b.bookName) ? 1 : ((b.bookName < a.bookName) ? -1 : 0))
+                .sort((a, b) => (a.bookName.toLocaleLowerCase() < b.bookName.toLocaleLowerCase()) ? 1 : ((b.bookName.toLocaleLowerCase() < a.bookName.toLocaleLowerCase()) ? -1 : 0))
         bookContainer.innerHTML = "";
         sortArray.forEach(e => {
             ui.displayBookOnHtml(e)
@@ -289,7 +289,7 @@ Storage.prototype.deleteAllBooksOnStorage = function () {
     // while (allBooksOnHtml.length > 0) {
     //     bookContainer.removeChild(bookContainer.firstChild);
     // }
-    console.log("silindi");
+    alert("Local Storage Temizlendi")
     //??GEREK VAR MI emin değilim
     allBooks = [];
     allBooksOnLocalStorage = [];
