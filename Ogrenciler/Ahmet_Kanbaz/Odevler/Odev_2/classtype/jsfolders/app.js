@@ -45,7 +45,7 @@ function addEventListeners() {
 
 loadMovieAdd();
 function loadMovieAdd(){     
-      if (localStorage.getItem("ahmethomeworktwolocal") === null) {
+      if (localStorage.getItem("ahmethomeworktwolocalClass") === null) {
         Storage.setBook2LocalStorage(new Books(
             "ahmetId",
             "Gece Yarısı Kütüphanesi",
@@ -87,5 +87,5 @@ function loadMovieAdd(){
             "https://i.dr.com.tr/cache/500x400-0/originals/0001816754001-1.jpg"
             ));
      } 
-     localStorage.setItem("ahmethomeworktwolocal", "ahmethomeworktwolocal");
+     localStorage.setItem("ahmethomeworktwolocalClass", "ahmethomeworktwolocalClass");
 }
