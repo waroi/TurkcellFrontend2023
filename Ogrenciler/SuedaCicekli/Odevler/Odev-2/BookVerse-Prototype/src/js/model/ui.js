@@ -42,7 +42,7 @@ UI.prototype.addBook = function (e) {
   const bookId = storage.generateId();
   //Book nesnesi oluşturuyoruz
 
-  if (bookNameInput.value === "" || authorNameInput.value === "" || yearInput.value === "" || categorySelect.value === "" || summaryInput.value === "" || urlInput.value === "" || rankSelect.value === "") {
+  if (bookNameInput.value === "" || authorNameInput.value === "" || yearInput.value === "" || categorySelect.value === "" || summaryInput.value === "" || rankSelect.value === "") {
     e.preventDefault();
     formError.innerHTML = "All fields are required. Please fill in all fields";
   } else {
@@ -57,24 +57,29 @@ UI.prototype.addBook = function (e) {
 // Kitap ekleme , LS'dan dataları alıp ekrana basan 
 UI.prototype.addBookToUI = function () {
   let books;
+
+  // Filtreleme işlemi için
   if (selectedCategories.length > 0 || selectedWriters.length > 0) {
     console.log("Bir seçim ypaıldı. Burda tüm kitaplar yerine filtrelenmiş kitaplar getirilmeli.", selectedCategories, selectedWriters)
-    books = storage.getBooksByCategoryAndWriters(selectedCategories, selectedWriters);
+    books = storage.getBooksByCategoryAndWriters(selectedCategories, selectedWriters); //filtrelenmiş kitapları getirir
   } else {
     books = storage.getBooksFromStorage();
   }
 
+  // search işlemi için
   if (searchKeyword !== "") {
     books = books.filter((book) => {
       // Arama kelimesi kitap adında veya yazar adında geçiyorsa true döndürür
       return book.name.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-        book.author.toLowerCase().includes(searchKeyword.toLowerCase());
+        book.author.toLowerCase().includes(searchKeyword.toLowerCase())
     }
     )
   }
 
+  // Kitapları sıralama
   sorting.sortBooks(books);
 
+  // Kitapları ekrana basma
   bookListArea.innerHTML = "";
   books.forEach((book) => {
 
@@ -123,7 +128,8 @@ UI.prototype.addBookToUI = function () {
 
 //Json dosyasından kitapları çekme
 UI.prototype.addMockData = function () {
-  console.log(storage.getBooksFromStorage())
+
+  // storagedaki kitap sayısı 0 ise json dosyasından kitapları çek
   if (storage.getBooksFromStorage().length === 0) {
     fetch('./src/data/books.json')
       .then(response => response.json())
@@ -133,12 +139,15 @@ UI.prototype.addMockData = function () {
           const mockBook = new Book(bookId, book.name, book.author, book.year, book.category, book.summary, book.url, book.rank, book.editor, book.language, book.review,);
           storage.saveBook(mockBook);
         });
+        //jsondan çekilen kitapları ekrana bas
         this.addBookToUI();
       })
   }
 }
 
 // Kitap bilgilerini doldurma (id edit butonundan gönderiliyor)
+
+//edit modalindeki formda save butonuna basıldığında kitap bilgilerini güncelleme
 UI.prototype.createModalButtons = function (id) {
   editButtonArea.innerHTML = ``;
   editButtonArea.innerHTML += `
@@ -165,6 +174,7 @@ UI.prototype.updateBook = function (id) {
 
 UI.prototype.routeToBookDetails = function (id) {
   // bookDetail.html sayfasını açmak için window.location.href kullanılır
+  //bookDetails 'ın main fonks çağrılır
 
   window.location.href = "./src/pages/bookDetails.html?id=" + id;
   bookDetails.main();

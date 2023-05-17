@@ -1,6 +1,8 @@
 # Vize 2 / Javascript-Bootstrap-HTML
 
-# Uyarı: Local Storage'da depolanan dizinin adı diğer projelerde yer alan dizilerle aynı olabilir. Lütfen tarayıcının local storage'ını temizleyip sayfayı yenileyin.
+### Uyarı: Local Storage'da depolanan dizinin adı diğer projelerde yer alan dizilerle aynı olabilir. Lütfen tarayıcının local storage'ını temizleyip sayfayı yenileyin.
+
+### Uyarı: Uygulamayı "Mozilla Firefox Developer Edition" ile açınız.
 
  <h3>Prototype ve Class yapısı kullanılarak OOP mantığına uygun bir kütüphane uygulaması yapılmıştır. </h3>
  <hr>

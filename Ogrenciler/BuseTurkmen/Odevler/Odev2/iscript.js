@@ -20,6 +20,11 @@ addBookButton.addEventListener("click", () => {
     poster: bookPoster
   };
 
+  if (bookTitle === "" || bookAuthor === "" || bookYear === "" || bookCategory === "" || bookPoster === "") {
+    alert("Lütfen kitap ile ilgili bilgileri doldurunuz");
+    return;
+  }
+
   books.push(newBook);
 
   displayBooks(books);
@@ -41,7 +46,6 @@ function clearForm() {
 // Filtreleme işlemi
 searchInput.addEventListener("keyup", () => {
   const searchTerm = searchInput.value.toLowerCase();
-
   const filteredBooks = books.filter(book => {
     return (
       book.author.toLowerCase().includes(searchTerm) ||
@@ -64,24 +68,25 @@ const sampleBook = {
 
 const sampleBook2 = {
   title: "Kadınlar Ülkesi",
-  author: "Charlotte Perkin Stetson",
+  author: "Charlotte Perkin Gılman",
   year: "2018",
   category: "Bilim Kurgu",
-  poster: "https://www.iskultur.com.tr/dosyalar/2022/01/Kadinlar-Ulkesi-2.png"
+  poster: "./resim/Kadinlar-Ulkesi-2.png"
 };
 
 books.push(sampleBook);
 books.push(sampleBook2);
+
+localStorage.setItem("books" , JSON.stringify(books))
 
 displayBooks(books);
 
 // Kitaplar listeleme işlemi
 function displayBooks(books) {
     bookList.innerHTML = "";
-  
     books.forEach((book, index) => {
       const card = document.createElement("div");
-      card.className = "card";
+      card.className = "card col-lg-3 col-sm-12";
       card.innerHTML = `
         <img src="${book.poster}" class="card-img-top" alt="${book.title}">
         <div class="card-body">
@@ -101,8 +106,9 @@ function displayBooks(books) {
     books.splice(index, 1);
     displayBooks(books);
   }
+
+  localStorage.setItem("books", JSON.stringify(books));
   
-  // Kitap düzenleme işlemi
   function editBook(index) {
     const book = books[index];
     const bookTitle = document.getElementById("bookTitle");
@@ -119,7 +125,7 @@ function displayBooks(books) {
   
     // Kitap ekleme butonunu kitap düzenleme butonuna çevir
     addBookButton.innerHTML = "Kitap Düzenle";
-    addBookButton.removeEventListener("click", addBook);
+    addBookButton.removeEventListener("click", books);
     addBookButton.addEventListener("click", () => {
       // Kitap düzenleme işlemini gerçekleştir
       book.title = bookTitle.value;
@@ -130,12 +136,32 @@ function displayBooks(books) {
   
       displayBooks(books);
       clearForm();
+      $('#addBookModal').modal('hide');
+      
+      localStorage.setItem("books", JSON.stringify(books));
   
       // Kitap düzenleme butonunu kitap ekleme butonuna çevir
       addBookButton.innerHTML = "Kitap Ekle";
       addBookButton.removeEventListener("click", editBook);
-      addBookButton.addEventListener("click", addBook);
+      addBookButton.addEventListener("click", books);
+      
     });
+    
+    // Modal'ı aç
+    $('#addBookModal').modal('show');
+
+    // displayBooks();
+    // // bookList();
+
+    $('#addBookModal').on('hidden.bs.modal', function () {
+      clearForm();
+    })
+
+    deleteBook(index) ;
+    books.splice(index,1);
+    displayBooks(books);
+    bookList()
   }
+
   
-  
+

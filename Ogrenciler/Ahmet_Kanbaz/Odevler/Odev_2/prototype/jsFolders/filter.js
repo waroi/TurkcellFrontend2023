@@ -16,7 +16,6 @@ Filter.prototype.searchBook2UI = function(getAllBooksName, getAllDirectors, sear
 
 Filter.prototype.sortBook2UI = function(value) {
   const uiAllBooks4SortBooks = ui.allBooks4UIScreen();
-
   function sortBooksWithName(a, b) {
     let x = a.name.toLowerCase();
     let y = b.name.toLowerCase();

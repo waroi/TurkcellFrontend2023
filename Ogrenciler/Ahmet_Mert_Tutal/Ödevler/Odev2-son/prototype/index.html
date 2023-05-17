@@ -14,6 +14,7 @@
     function bookEdit(id){
     document.getElementById("editBookButton").classList.remove("d-none");
     document.getElementById("addBookButton").classList.add("d-none");
+    document.getElementById("deleteBookButton").classList.remove("d-none");
     console.log("amo");
     const books = storage.getBooksFromLocalStorage();
     const bookChangeId = id;
@@ -120,7 +121,9 @@ document.getElementById("bookAuthor").value="";
         <option selected>Belirtilmemiş</option>
         <option value="AtoZ">A'dan Z'ye</option>
         <option value="ZtoA">Z'den A'ya</option>
-        <option value="OnDate">Tarihe Göre</option>
+        <option value="OnDateAsc">Tarihe Göre</option>
+        <option value="OnDateDesc">Tarihe Göre</option>
+
       </select>
       <label for="yazar" class="text-white ms-3 fs-4"
       >Yazar ya da Tür filtrele</label
@@ -179,7 +182,7 @@ document.getElementById("bookAuthor").value="";
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
                 <button type="button" class="btn btn-secondary " data-dismiss="modal" id="deleteBookButton">Silme</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="addBookButton">Kaydet</button>
-                <button type="button" class="btn btn-primary data-dismiss="modal" d-none" id="editBookButton">Edit</button>
+                <button type="button" class="btn btn-primary " data-dismiss="modal" d-none" id="editBookButton">Edit</button>
                 <p class="d-none" id="changedBook"></p>
               </div>
             </div>

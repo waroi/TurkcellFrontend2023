@@ -30,9 +30,11 @@ function addEventListeners() {
       filterBooks("AtoZ");
     } else if (sortValue === "ZtoA") {
       filterBooks("ZtoA");
-    } else if (sortValue === "OnDate") {
-      filterBooks("OnDate");
-    } else {
+    } else if (sortValue === "OnDateasc") {
+      filterBooks("OnDateasc");
+    } else if (sortValue === "OnDatedesc") {
+      filterBooks("OnDatedesc");}
+    else {
       filterBooks("default");
     }
   });

@@ -21,6 +21,7 @@ function eventListeners() {
 }
 function addMovie(e) {
   e.preventDefault();
+  debugger;
 
   const name = nameElement.value;
   const director = directorElement.value;

@@ -96,10 +96,14 @@ Storage.prototype.getWritersFromStorage = function () {
   return writers;
 }
 
-Storage.prototype.getBooksByCategoryAndWriters = function (category, writer) {
+//filtreleme için kategori ve yazar bilgilerini al
+Storage.prototype.getBooksByCategoryAndWriters = function (category, writer) { //Ui.js deki selectedCategories ve selectedWriters arraylerini alır
   let books = this.getBooksFromStorage();
   let filteredBooks = [];
   books.forEach((book) => {
+
+    //category ve writer şartlartları için ortak elemanları getirir
+    //category.includes(book.category) -> category arrayinde book.category var mı diye bakar
     if ((category.length == 0 ? true : category.includes(book.category)) && (writer.length == 0 ? true : writer.includes(book.author))) {
       filteredBooks.push(book);
     }
