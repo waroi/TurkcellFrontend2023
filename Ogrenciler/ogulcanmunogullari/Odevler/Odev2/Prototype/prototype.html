@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="tr">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prototype Kütüphane</title>
+  <link rel="icon" type="image/x-icon" href="/assets/raf.png" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link
+   rel="stylesheet"
+   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+ </head>
+ <body>
+  <div class="py-3 bg-brown">
+   <div class="col-12 col-md-6 mx-md-auto row mx-auto">
+    <div
+     class="col-4 text-center d-flex justify-content-center align-items-stretch align-items-md-center">
+     <div
+      class="clickable p-1 rounded-2 bg-wheat"
+      data-bs-toggle="modal"
+      data-bs-target="#receptionModal"
+      id="openReception">
+      <span class="material-symbols-outlined"> emoji_people </span>
+      <p>Resepsiyon</p>
+     </div>
+    </div>
+    <div
+     class="col-4 text-center d-flex justify-content-center align-items-stretch align-items-md-center">
+     <div
+      class="clickable p-1 rounded-2 bg-wheat d-none"
+      id="openInventoryButton"
+      data-bs-toggle="modal"
+      data-bs-target="#inventoryModal">
+      <span class="material-symbols-outlined"> business_center </span>
+      <p>Envanter</p>
+     </div>
+    </div>
+
+    <div
+     class="col-4 text-center d-flex justify-content-center align-items-stretch align-items-md-center">
+     <div
+      class="clickable p-1 rounded-2 bg-wheat"
+      id="pcOpen"
+      data-bs-toggle="modal"
+      data-bs-target="#pcModal">
+      <span class="material-symbols-outlined"> computer </span>
+      <p>PC Kullan</p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="container d-flex flex-column justify-content-between">
+   <div
+    class="modal fade"
+    id="receptionModal"
+    tabindex="-1"
+    aria-labelledby="receptionModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <div class="modal-header">
+       <h1 class="modal-title fs-5" id="receptionModalLabel">Resepsiyon</h1>
+       <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="receptionEnter">
+       <div class="d-flex flex-wrap w-100 gap-1 mb-1">
+        <input
+         type="text"
+         class="flex-fill form-control"
+         placeholder="Adınız"
+         id="userNameInput" />
+        <input
+         type="text"
+         class="flex-fill form-control"
+         placeholder="TC'niz"
+         id="userIdInput" />
+       </div>
+       <button class="btn btn-primary" id="receptionEnterButton">
+        Giriş Yap
+       </button>
+      </div>
+      <div class="modal-body d-none" id="receptionProcess">
+       <p>Yapmak istediğiniz işlemi seçiniz</p>
+       <div class="d-flex flex-wrap justify-content-between w-100 gap-1 mb-1">
+        <button class="btn btn-primary flex-fill" id="donateButton">
+         Bağış Yap
+        </button>
+        <button class="btn btn-primary flex-fill" id="rentButton">
+         Kirala
+        </button>
+        <button class="btn btn-primary flex-fill" id="searchBookButton">
+         Kitap Ara
+        </button>
+        <button class="btn btn-primary flex-fill" id="bringButton">
+         Kitapları Bırak
+        </button>
+        <button class="btn btn-danger flex-fill" id="leaveButton">
+         Çıkış Yap
+        </button>
+       </div>
+      </div>
+      <div class="modal-body d-none" id="receptionDonate">
+       <p>Bağışlayacağınız Kitabı Girin</p>
+       <p class="text-secondary">
+        Tür girerken 2-3 kelime olanları aralarında " "(boşluk) ile ayırarak
+        farklı türleri de ", " (virgül + boşluk) bırakarak ayırınız.
+       </p>
+       <form id="donateForm">
+        <div class="d-flex flex-wrap justify-content-between w-100 gap-1 mb-1">
+         <input
+          type="text"
+          class="flex-fill form-control"
+          placeholder="Kitap Adı"
+          id="donateTitleInput" />
+         <input
+          type="text"
+          class="flex-fill form-control"
+          placeholder="Yazar Adı"
+          id="donateAuthorInput" />
+         <input
+          type="text"
+          class="flex-fill form-control"
+          placeholder="Basım Yılı"
+          id="donatePublishDateInput" />
+         <input
+          type="text"
+          class="flex-fill form-control"
+          placeholder="Tür 'bilim-kurgu vb.'"
+          id="donateGenreInput" />
+         <input
+          type="text"
+          class="flex-fill form-control"
+          placeholder="Kitap Kapağı URL"
+          id="donateUrlInput" />
+         <button type="submit" class="btn btn-success flex-fill">Ekle</button>
+         <button type="reset" class="btn btn-warning flex-fill">Temizle</button>
+        </div>
+       </form>
+       <button class="btn btn-primary" id="backDonateButton">Geri Dön</button>
+      </div>
+      <div class="modal-body d-none" id="receptionRent">
+       <p>Envanterinizdeki Kitapları Kiralamak istiyor musunuz?</p>
+       <button class="btn btn-primary" id="rentingButton">Evet</button>
+       <button class="btn btn-primary" id="rentBackButton">Geri Dön</button>
+      </div>
+      <div class="modal-body d-none" id="receptionSearch">
+       <p>Aramak istediğiniz kitabın adını giriniz.</p>
+       <input
+        type="text"
+        class="flex-fill"
+        placeholder="Kitap Adı"
+        id="searchTitleInput" />
+       <p>Kitabı şuradan alabilirsiniz: <span id="searchResult"></span></p>
+       <button class="btn btn-primary" id="searchButton">Ara</button>
+       <button class="btn btn-primary" id="backButton">Geri Dön</button>
+      </div>
+      <div class="modal-body d-none" id="receptionBring">
+       <p>
+        Kiraladığınız kitapları zamanında getirdiğiniz için teşekkür ederiz.
+       </p>
+       <button class="btn btn-primary" id="bringingButton">
+        Kitapları Bırak
+       </button>
+       <button class="btn btn-primary" id="bringBackButton">Geri Dön</button>
+      </div>
+      <div class="modal-footer">
+       <button
+        type="button"
+        class="btn btn-secondary flex-fill"
+        data-bs-dismiss="modal">
+        Resepsiyonu Kapat
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div
+    class="modal fade"
+    id="pcModal"
+    tabindex="-1"
+    aria-labelledby="pcModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+     <div class="modal-content">
+      <div class="modal-header">
+       <h1 class="modal-title fs-5" id="pcModalLabel">Bilgisayar İşlemleri</h1>
+       <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="">
+       <div class="d-flex flex-wrap">
+        <select class="form-select mb-2" id="authorsFilter"></select>
+        <select class="form-select mb-2" id="categoriesFilter"></select>
+        <select class="form-select" id="sortFilter"></select>
+        <input
+         class="mt-2 form-control"
+         type="search"
+         id="searchFilter"
+         placeholder="Yazar / Kitap Ara" />
+       </div>
+       <div class="my-1 d-flex">
+        <button class="btn btn-primary flex-fill" id="resetFilterButton">
+         Filtre Sıfırla
+        </button>
+       </div>
+       <div id="filteredBooks" class="d-flex flex-wrap gap-1"></div>
+      </div>
+
+      <div class="modal-footer">
+       <button
+        type="button"
+        class="btn btn-secondary flex-fill"
+        data-bs-dismiss="modal">
+        Pc Kapat
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div
+    id="libraryBooks"
+    class="justify-content-center justify-content-sm-between py-5"></div>
+   <div
+    class="modal fade"
+    id="library"
+    tabindex="-1"
+    aria-labelledby="libraryLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+     <div class="modal-content">
+      <div class="modal-header">
+       <h1 class="modal-title fs-5" id="libraryLabel">Kitabını al</h1>
+       <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        id="libraryCloseButton"
+        aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex flex-wrap gap-1" id="libraryModalRaf">
+       Raf
+      </div>
+      <div class="modal-footer">
+       <button
+        type="button"
+        class="btn btn-secondary flex-fill"
+        data-bs-dismiss="modal">
+        Geri Dön
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+
+   <div
+    class="modal fade"
+    id="inventoryModal"
+    tabindex="-1"
+    aria-labelledby="inventoryLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+     <div class="modal-content">
+      <div class="modal-header">
+       <h1 class="modal-title fs-5" id="inventoryLabel">Envanter</h1>
+       <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        id="inventoryCloseButton"
+        aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex flex-wrap gap-1" id="inventoryModalRaf">
+       <div id="inventoryList" class="d-flex flex-wrap gap-1 w-100"></div>
+       <form class="d-none" id="changeSelectedBook">
+        <div class="w-100 gap-1 mb-1">
+         <input
+          type="text"
+          class="flex-fill form-control"
+          placeholder="Kitap Adı"
+          id="changeTitleInput" />
+         <input
+          type="text"
+          class="flex-fill form-control"
+          placeholder="Yazar Adı"
+          id="changeAuthorInput" />
+         <input
+          type="text"
+          class="flex-fill form-control"
+          placeholder="Basım Yılı"
+          id="changePublishDateInput" />
+         <input
+          type="text"
+          class="flex-fill form-control"
+          placeholder="Tür 'bilim-kurgu vb.'"
+          id="changeGenreInput" />
+         <input
+          type="text"
+          class="flex-fill form-control"
+          placeholder="Kitap Kapağı URL"
+          id="changeUrlInput" />
+         <button type="submit" class="btn btn-primary flex-fill">
+          Değiştir
+         </button>
+         <button
+          id="changeFormReset"
+          type="reset"
+          class="btn btn-warning flex-fill">
+          Temizle
+         </button>
+        </div>
+       </form>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="helper" data-bs-toggle="modal" data-bs-target="#helperModal">
+    ?
+   </div>
+   <div
+    class="modal fade"
+    id="helperModal"
+    tabindex="-1"
+    aria-labelledby="helperLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+     <div class="modal-content">
+      <div class="modal-header">
+       <h1 class="modal-title fs-5" id="helperLabel">Nasıl Çalışır?</h1>
+       <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        id="helperCloseButton"
+        aria-label="Close"></button>
+      </div>
+      <div class="helper-text">
+       <p>Öncelikle Resepsiyondan Giriş Yapmalısınız</p>
+       <p>İki çeşit kitap arama yöntemi vardır</p>
+       <p>Bilgisayar İşlemleri</p>
+       <p>
+        *Yazar, Kategori ve Sıralama seçenekleri ile filtreleme yapabilirsiniz
+       </p>
+       <p>Resepsiyon İşlemleri</p>
+       <p>
+        *Kitap kiralama, Kitap bağışlama, Kitap arama, kiraladığınız kitapları
+        geri bırakma
+       </p>
+       <p>
+        Kitap kiralamak için kitabı PC ya da Resepsiyondan aratarak ilgili
+        Raftan Envanterinize eklemeniz gerekmektedir.
+       </p>
+       <p>
+        Kiraladığınız kitabı geri bırakmak için tekrar bilgilerinizle giriş
+        yapmalısınız.
+       </p>
+       <p>
+        Envanterinizdeki kitapları bırakabilir ya da yanlış olduğunu
+        düşünüyorsanız değiştirebilirsiniz.
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="./app.js" type="module"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ </body>
+</html>

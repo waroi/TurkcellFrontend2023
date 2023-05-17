@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prototype</title>
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <section class="hero">
+      <div
+        class="container d-flex flex-column flex-lg-row justify-content-between align-items-center"
+      >
+        <div class="hero-first">Eges</div>
+        <div class="hero-second">&</div>
+        <div class="hero-third">Books</div>
+      </div>
+    </section>
+
+    <section class="utilities">
+      <div class="container my-5 d-flex justify-content-between add-area">
+        <button
+          type="button"
+          class="btn btn-secondary rounded rounded-circle"
+          data-bs-toggle="modal"
+          data-bs-target="#addModal"
+        >
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="dropdown filter-area">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-filter"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item text-center">
+              <label for="categories">Filter by category</label> <br />
+              <select name="categories" id="categories">
+                <option value="">All</option>
+              </select>
+            </li>
+            <li class="dropdown-item text-center">
+              <label for="writers">Filter by writer</label> <br />
+              <select name="writers" id="writers">
+                <option value="">All</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+        <div class="dropdown sort-area">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-sort"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item text-center">
+              <label for="writers">Sort</label> <br />
+              <select name="sort-books" id="sort-books">
+                <option value="">Adding order</option>
+                <option value="a-z">A-Z</option>
+                <option value="z-a">Z-A</option>
+                <option value="new-old">New to old</option>
+                <option value="old-new">Old to new</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+        <div class="dropdown search-area">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-search"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item text-center">
+              <label for="search-book">Search by book name</label> <br />
+              <input type="text" name="search-book" id="search-book" />
+            </li>
+            <li class="dropdown-item text-center">
+              <label for="search-writer">Search by writer</label> <br />
+              <input type="text" name="search-writer" id="search-writer" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="modal fade"
+      id="addModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title text-white" id="staticBackdropLabel">
+              Add a book
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              id="modal-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <label for="book-name">Book Name</label>
+              <input type="text" name="book-name" id="book-name" />
+              <label for="book-writer">Book Writer</label>
+              <input type="text" name="book-writer" id="book-writer" />
+              <label for="book-category">Book Category</label>
+              <input type="text" name="book-category" id="book-category" />
+              <label for="book-date">Book Date</label>
+              <input type="date" name="book-date" id="book-date" />
+              <label for="book-cover">Book Cover</label>
+              <input type="url" name="book-cover" id="book-cover" />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              class="btn btn-primary"
+              id="add-submit"
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              class="btn btn-warning hidden"
+              id="edit-submit"
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="books">
+      <div class="container">
+        <div class="row" id="book-collection"></div>
+      </div>
+    </section>
+
+    <!-- Bootstrap Script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Miro Library</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;900&family=Sedgwick+Ave+Display&display=swap"
+      rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg  py-3">
+      <div class="container mobile">
+        <h3 class="fs-5 pt-2 logo text-white">MİRO LIBRARY</h3>
+        <div class="navbar-text mx-auto text-white">Kitap koleksiyonunuza ürün eklemek için butona tıklayınız...</div>
+        <button type="button" class="btn addbtn" data-bs-toggle="modal" data-bs-target="#addModal">
+        <i class="fa-solid fa-plus-minus"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="container my-5 ">
+      <div class="card card-body cardWrap">
+        <div class="row inputWrap">
+          <div class="col-12 col-lg-3">
+            <label for="categories">Kategori</label>
+            <select  name="categories" id="categories" class="mb-5 py-2 mt-2 form-select">
+              <option value="">Tümü</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-3">
+            <label class="" for="writers">Yazar</label>
+            <select name="writers" id="writers" class="mb-5 py-2 mt-2 form-select">
+              <option value="">Tümü</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-3">
+            <label class="" for="writers">Sırala</label>
+            <select name="sort-books" id="sort-books" class="mb-5 py-2 mt-2 form-select">
+              <option value="">Birini seçiniz...</option>
+              <option value="a-z">A-Z</option>
+              <option value="z-a">Z-A</option>
+              <option value="new-old">Yeniden eskiye</option>
+              <option value="old-new">Eskiden yeniye</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <label for="search-book">Kitap adı ile ara</label>
+        <input type="text" class="form-control mb-4" name="search-book" id="search-book" />
+        <label for="search-writer">Yazar adı ile ara</label>
+        <input type="text" class="form-control mb-4" name="search-writer" id="search-writer" />
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="addModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Lütfen kitap bilgilerini giriniz.
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              id="modal-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <label for="book-name">Kitap Adı Giriniz</label>
+              <input type="text" name="book-name" id="book-name" class="mb-2" />
+              <label for="book-writer">Yazar Adı Giriniz</label>
+              <input type="text" name="book-writer" id="book-writer" class="mb-2" />
+              <label for="book-category">Kategori Seçiniz</label>
+              <input type="text" name="book-category" id="book-category" class="mb-2" />
+              <label for="book-date">Yayın Tarihi Giriniz</label>
+              <input type="date" name="book-date" id="book-date" class="mb-2" />
+              <label for="book-cover">Kapak Resmi Ekleyiniz</label>
+              <input type="url" name="book-cover" id="book-cover" />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              class="btn btn-success"
+              id="add-button"
+            >
+              EKLE
+            </button>
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              class="btn btn-warning d-none"
+              id="edit-button"
+            >
+              DÜZENLE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="library">
+      <div class="container">
+        <div class="row" id="books"></div>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

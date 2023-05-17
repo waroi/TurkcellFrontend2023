@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Kitaplık Yönetim Paneli</title>
+  </head>
+  <body>
+    <div class="container" style="margin-top: 20px">
+      <div class="card row">
+        <div class="card-header">Kitaplık Yönetim Paneli - Prototype</div>
+        
+        <div class="card-body bg-light">
+          <div>
+            <button type="button" class="btn btn-primary p-3" data-toggle="modal" data-target="#myModal" id="resetModal">
+              Kitap Ekle
+            </button>
+            <input type="text" class="ml-2 p-2 w-25" id="bookSearch" placeholder="Kitap veya Yazar Ara...">
+            <div class="dropdown w-50">
+              <select class="form-control mt-3" id="categoryDropdown">
+                <option>Kategori Seçimi...</option>
+                <option>Hepsi</option>
+              </select>
+            </div>
+            <div class="dropdown w-50">
+              <select class="form-control my-3" id="authorDropdown">
+                <option>Yazar Seçimi...</option>
+                <option>Hepsi</option>
+              </select>
+            </div>
+            <div class="btn btn-danger" id="sortAZ">A-Z</div>
+            <div class="btn btn-danger" id="sortZA">Z-A</div>
+            <div class="btn btn-danger" id="sortDate">Tarih</div>
+          </div>
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Kitap Bilgileri</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="bookName">Kitap Adı:</label>
+                                <input type="text" class="form-control" id="bookName">
+                            </div>
+                            <div class="form-group">
+                                <label for="bookAuthor">Yazarı:</label>
+                                <input type="text" class="form-control" id="bookAuthor">
+                            </div>
+                            <div class="form-group">
+                                <label for="bookCategory">Kategorisi:</label>
+                                <input type="text" class="form-control" id="bookCategory">
+                            </div>
+                            <div class="form-group">
+                                <label for="bookDate">Yazıldığı Tarih:</label>
+                                <input type="text" class="form-control" id="bookDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="bookCoverUrl">Kapak Görsel URL'si:</label>
+                                <input type="text" class="form-control" id="bookCoverUrl">
+                            </div>
+                        </div>
+                        <div class="modal-footer" id="modalFooter">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                            <button type="submit" class="btn btn-primary" id="saveButton">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+          </form>
+        </div>
+        <div class="card-body">
+          <hr />
+          <h5 class="card-title" id="films-title">Kitaplar</h5>
+          <hr />
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Kitap Kapağı</th>
+                <th scope="col">Kitap Adı </th>
+                <th scope="col">Yazarı</th>
+                <th scope="col">Tarihi</th>
+                <th scope="col">Kategorisi</th>
+              </tr>
+            </thead>
+            <tbody id="books">
+            </tbody>
+          </table>
+          <hr />
+          <a id="clear-books" class="btn btn-dark" href="#"
+            >Tüm Kitapları Sil</a
+          >
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="ui.js"></script>
+    <script src="storage.js"></script>
+    <script src="book.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

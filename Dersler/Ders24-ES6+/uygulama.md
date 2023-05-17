@@ -10,6 +10,8 @@
 
 - localstorage kullanılacak.
 
+- UI constructor, Film Constructor ve Storage constructor olacak.
+
 # XOX Oyunu
 
 - 3x3'lük bir tablo olacak, bu tablo üzerinde X ve O işaretleri yer alacak.

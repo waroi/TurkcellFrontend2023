@@ -9,7 +9,15 @@
   <body>
     <div class="container">
       <h1>Tic Tac Toe</h1>
-      <h3 id="player">X Başla!</h3>
+      <div id="players">
+        <input type="text" id="player1" placeholder="Oyuncu 1" />
+        <input type="text" id="player2" placeholder="Oyuncu 2" />
+        <button id="startgame">Oyuna Başla</button>
+      </div>
+      <h3 id="hint">Oyuncu 1 'X' ile Başlar</h3>
+      <div id="status">
+        <h2 id="siraText">Sıra: <span id="player"></span></h2>
+      </div>
       <div id="game"></div>
       <div id="restartBtn"></div>
     </div>

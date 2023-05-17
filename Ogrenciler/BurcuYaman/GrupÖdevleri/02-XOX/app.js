@@ -1,40 +1,60 @@
 const game = document.getElementById('game');
 const board = Array(9).fill(null);
 const playerText = document.getElementById('player');
-const restratButton = document.getElementById('restartBtn');
+const restartButton = document.getElementById('restartBtn');
+const startGame = document.getElementById('startgame');
+const hintText = document.getElementById('hint');
+const statusArea = document.getElementById('status');
+const siraText = document.getElementById('siraText');
 let player = 'X';
+let player1Name;
+let player2Name;
+let currentPlayer;
 
+startGame.addEventListener('click', startGamexox);
 
-// Oyuna Başlarken Kullanıcıdan Oyuncu İsimleri alınabilir. X ve O yerine isimler yazılabilir.
+// Oyunun Başlatılması
 
+function startGamexox() {
+  player1Name = document.getElementById("player1").value;
+  player2Name = document.getElementById("player2").value;
+  if (player1Name === "" || player2Name === "") {
+    alert("Lütfen Oyuncu İsimlerini Giriniz");
+    return;
+  }
+  hintText.textContent = "Oyun Başladı";
+  statusArea.style.display = 'block';
+  currentPlayer = player1Name;
+  document.getElementById("player").textContent = `${currentPlayer} (X)`;
+  Array.from({ length: 9 }).map(() => {
+    const kutu = document.createElement('div');
+    kutu.className = 'kutu';
+    game.appendChild(kutu);
+  });
+  startGame.style.display = 'none';
+}
 
-Array.from({ length: 9 }).map(() => {
-  const kutu = document.createElement('div');
-  kutu.className = 'kutu';
-  game.appendChild(kutu);
-});
 
 game.addEventListener('click', (e) => {
   const kutu = e.target;
   const index = Array.from(game.children).indexOf(kutu);
-
   if (board[index] === null) {
     board[index] = player;
     kutu.textContent = player;
-    let color = player === 'X' ? 'lightcoral' : 'aqua';
+    let color = player === 'X' ? 'rgb(175, 92, 128)' : 'rgb(30, 74, 124)';
     kutu.style.color = color;
 
-    playerText.textContent = player === 'X' ? "O'nun sırası" : "X'in sırası";
+    playerText.textContent = player === 'X' ? `${player2Name} (O)` : `${player1Name} (X)`;
 
 
     if (checkWin()) {
-      playerText.textContent = player === 'X' ? "X KAZANDI !" : "O KAZANDI !";
+      siraText.textContent = player === 'X' ? `${player1Name} Kazandı` : `${player2Name} Kazandı`;
       Array.from(game.children).map((kutu) => {
         kutu.style.pointerEvents = 'none';
       });
       restartBtn();
     } else if (checkTie()) {
-      playerText.textContent = "Berabere !";
+      siraText.textContent = "Berabere !";
       Array.from(game.children).map((kutu) => {
         kutu.style.pointerEvents = 'none';
       });
@@ -47,51 +67,29 @@ game.addEventListener('click', (e) => {
 });
 
 function checkWin() {
-  //yatay
-  if (board[0] === board[1] && board[1] === board[2] && board[0] !== null) {
-    return true;
-  }
-  if (board[3] === board[4] && board[4] === board[5] && board[3] !== null) {
-    return true;
-  }
-  if (board[6] === board[7] && board[7] === board[8] && board[6] !== null) {
-    return true;
-  }
-  //dikey
-  if (board[0] === board[3] && board[3] === board[6] && board[0] !== null) {
-    return true;
-  }
-  if (board[1] === board[4] && board[4] === board[7] && board[1] !== null) {
-    return true;
-  }
-  if (board[2] === board[5] && board[5] === board[8] && board[2] !== null) {
-    return true;
-  }
-  //çapraz
-  if (board[0] === board[4] && board[4] === board[8] && board[0] !== null) {
-    return true;
-  }
-  if (board[2] === board[4] && board[4] === board[6] && board[2] !== null) {
-    return true;
-  }
-  return false;
+  const winConditions = [
+    //yatay
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    //dikey
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    //çapraz
+    [0, 4, 8], [2, 4, 6]
+  ];
+
+  return winConditions.some(([a, b, c]) => {
+    return board[a] !== null && board[a] === board[b] && board[b] === board[c];
+  });
 }
 
 function checkTie() {
-  for (let i = 0; i < board.length; i++) {
-    if (board[i] === null) {
-      return false;
-    }
-  }
-  return true;
+  return board.every((cell) => cell !== null);
 }
 
 function restartBtn() {
   let restartBtn = document.createElement('button');
   restartBtn.textContent = 'Tekrar Oyna!';
   restartBtn.className = 'restartBtn';
-
-  restratButton.appendChild(restartBtn);
+  restartButton.appendChild(restartBtn);
   restartBtn.addEventListener('click', () => {
     window.location.reload();
   });

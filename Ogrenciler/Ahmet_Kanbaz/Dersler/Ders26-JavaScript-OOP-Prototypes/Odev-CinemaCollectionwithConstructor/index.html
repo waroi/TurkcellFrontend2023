@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinema Collection with Constructor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <header class="bg-dark d-none d-lg-block">
+    <nav class="navbar navbar-expand-lg container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content"
+        aria-controls="navbar-content" aria-expanded="false" aria-label="toggle-navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse row justify-content-center" id="navbar-content">
+        <div class="col-2 text-white text-center">
+          <h5>Cinema Collection</h5>
+        </div>
+
+        <ul class="navbar-nav col-10 justify-content-between">
+          <li class="nav-item">
+            <a class="nav-link text-light text-hover text-hover-nav" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light text-hover text-hover-nav" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light text-hover text-hover-nav" href="#">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light text-hover text-hover-nav" href="#">Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light text-hover text-hover-nav" href="#">Blogs</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section class="hero py-5 ">
+    <div class="container mt-2">
+      <div class="mb-5">
+        <form>
+          <div class="my-2">
+            <label for="imgUrl" class="form-label">Filmin Afiş Url'i</label>
+            <input type="text" class="form-control" id="imgUrl" placeholder="https://...">
+          </div>
+          <div class="mb-2">
+            <label for="filmAdi" class="form-label">Filmin Adı</label>
+            <input type="text" class="form-control" id="filmAdi" placeholder="">
+          </div>
+          <div class="mb-2">
+            <label for="filmTur" class="form-label">Filmin Türü</label>
+            <input type="text" class="form-control" id="filmTur" placeholder="Korku, Aksiyon, Eğlence vb...">
+          </div>
+          <div class="mb-2">
+            <label for="filmTarih" class="form-label">Filmin Çıkış Tarihi</label>
+            <input type="date" class="form-control" id="filmTarih">
+          </div>
+          <div class="mb-2">
+            <label for="filmYonetmen" class="form-label">Filmin Yönetmeni</label>
+            <input type="text" class="form-control" id="filmYonetmen" placeholder="">
+          </div>
+          <div class="mb-3">
+            <label for="filmOzet" class="form-label">Filmin Özeti</label>
+            <textarea class="form-control h-25" id="filmOzet" rows="3"></textarea>
+          </div>
+          <button type="button" class="btn btn-warning py-2 px-4 add-movie-btn" id="addMovieButton">Filmi Ekle</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="container my-5">
+    <div class="row mb-4" id="movieList">
+      <!-- Buraya JavaScript ile film listesi gelmektedir. -->
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="moviesModal" tabindex="-1" aria-labelledby="moviesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="moviesModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <div class="my-3 d-flex justify-content-center">
+            <img src="" alt="" id="modalImg" class="img-fluid">
+          </div>
+          <div class="my-2">
+            <label for="modalimgUrl" class="form-label">Filmin Afiş Url'i</label>
+            <input type="text" class="form-control" id="modalimgUrl" placeholder="https://...">
+          </div>
+          <div class="mb-2">
+            <label for="modalfilmAdi" class="form-label">Filmin Adı</label>
+            <input type="text" class="form-control" id="modalfilmAdi" />
+          </div>
+          <div class="mb-2">
+            <label for="modalfilmTur" class="form-label">Filmin Türü</label>
+            <input type="text" class="form-control" id="modalfilmTur" placeholder="Korku, Aksiyon, Eğlence vb...">
+          </div>
+          <div class="mb-2">
+            <label for="modalfilmTarih" class="form-label">Filmin Çıkış Tarihi</label>
+            <input type="date" class="form-control" id="modalfilmTarih">
+          </div>
+          <div class="mb-2">
+            <label for="modalfilmYonetmen" class="form-label">Filmin Yönetmeni</label>
+            <input type="text" class="form-control" id="modalfilmYonetmen" placeholder="">
+          </div>
+          <div class="mb-3">
+            <label for="modalFilmSummary" class="form-label">Filmin Özeti</label>
+            <textarea class="form-control" id="modalFilmSummary" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary py-2 px-4" data-bs-dismiss="modal">Kapat</button>
+          <button type="button" class="btn btn-primary py-2 px-4" id="saveChanges">Değişiklikleri Kaydet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header d-flex justify-content-between">
+        <strong class="me-auto">Sinema Koleksiyonu</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Film Başarıyla Eklendi.
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-light mt-3 pt-5">
+    <div class="container">
+      <div class="footer-top">
+        <div class="row">
+          <div class="col-md-6 col-lg-3 about-footer mt-3">
+            <h3 class="fw-semibold">MUP Movie Center</h3>
+            <ul>
+              <li class="my-3"><a href="tel:(010) 1234 4321"><i
+                    class="fas fa-phone fa-flip-horizontal me-3"></i>+90 (507) 999 99 99</a></li>
+              <li class="my-3"><i class="fas fa-map-marker-alt me-3"></i>
+                1/22 Shire Street
+                <br />The Prancing Pony Inn,
+                <br />Middle Earth
+              </li>
+            </ul>
+            <a href="" class="btn bg-warning join-btn text-uppercase py-2 px-4 mt-3">Join US</a>
+          </div>
+          <div class="col-md-6 col-lg-2 page-more-info">
+            <div class="footer-title">
+              <h4 class="fw-semibold">Page links</h4>
+            </div>
+            <ul>
+              <li class="mt-3"><a class="text-hover" href="#">Home</a></li>
+              <li class="mt-3"><a class="text-hover" href="#">About</a></li>
+              <li class="mt-3"><a class="text-hover text-hover-nav" href="#">Testimonial</a></li>
+              <li class="mt-3"><a class="text-hover" href="#">Blog</a></li>
+              <li class="mt-3"><a class="text-hover" href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-lg-3 page-more-info">
+            <div class="footer-title">
+              <h4 class="fw-semibold">More Info</h4>
+            </div>
+            <ul>
+              <li class="mt-3"><a class="text-hover" href="#">ERU Iluvatar</a></li>
+              <li class="mt-3"><a class="text-hover" href="#">Aman</a></li>
+              <li class="mt-3"><a class="text-hover" href="#">Arda</a></li>
+              <li class="mt-3"><a class="text-hover" href="#">Valar</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-4 open-hours my-0">
+            <div class="footer-title text-end d-flex justify-content-between open-hour">
+              <h4 class="fw-semibold">Open hours</h4>
+              <ul class="footer-social d-flex my-0 ">
+                <li class="me-2 text-center"><a href="" target="_blank"><i
+                      class="fab fa-facebook-f bg-warning text-dark"></i></a></li>
+                <li class="me-2 text-center"><a href="" target="_blank"><i
+                      class="fab fa-instagram bg-warning text-dark"></i></a></li>
+                <li class="text-center"><a href="" target="_blank"><i
+                      class="fab fa-linkedin-in bg-warning text-dark"></i></a></li>
+
+              </ul>
+            </div>
+            <table class="table text-light">
+              <tbody>
+                <tr class="mt-4">
+                  <td class="mt-5"><i class="far fa-clock me-2"></i>Monday Thursday</td>
+                  <td class="mt-5">9:00am - 5:00pm</td>
+                </tr>
+                <tr class="mt-4">
+                  <td class="mt-5"><i class="far fa-clock me-2"></i>Friday</td>
+                  <td class="mt-5">9:00am - 4:00pm</td>
+                </tr>
+                <tr class="mt-4">
+                  <td class="mt-5"><i class="far fa-clock me-2"></i>Sturday</td>
+                  <td class="mt-5">9:00am - 1:30pm</td>
+                </tr>
+                <tr class="mt-4">
+                  <td class="mt-5"><i class="far fa-clock me-2"></i>Sunday</td>
+                  <td class="mt-5">9:30am - 12:00pm</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <hr class="text-secondary">
+      <div class="footer-bottom mt-4">
+        <div class="row">
+          <div class="col-12 text-center py-3">
+            <p class="fs-6">Copyright @ 2023 All rights reserved</p>
+            <p class="fs-6">Ahmet KANBAZ / Gizem AKTÜRK / Ahmet Mert TUTAL</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="./jsFolders/storage.js"></script>
+  <script src="./jsFolders/ui.js"></script>
+  <script src="./jsFolders/movie.js"></script>
+  <script src="./jsFolders/app.js"></script>
+</body>
+
+</html>

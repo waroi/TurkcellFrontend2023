@@ -8,7 +8,6 @@ const movieList = document.getElementById('movieList');
 
 const addMovie = document.getElementById('addMovieButton');
 
-
 const modalBody = document.getElementById('modalBody');
 const modalImg = document.getElementById('modalImg');
 const modalimgUrl = document.getElementById('modalimgUrl');
@@ -62,7 +61,7 @@ function loadItems() {
 
 function addMovieCard(url, name, type, date, director, context) {
   const movieCol = document.createElement('div');
-  movieCol.className = 'col-lg-3 col-sm-6 my-3';
+  movieCol.className = 'col-lg-3 col-sm-6 my-3 text-center';
   const movieCard = document.createElement('div');
   movieCard.className = 'card shadow';
   const movieImg = document.createElement('img');
@@ -71,13 +70,13 @@ function addMovieCard(url, name, type, date, director, context) {
   movieImg.setAttribute('alt', name);
   const movieBody = document.createElement('div');
   movieBody.className = 'card-body';
-  const cardBodyItems = `<h5 class="card-title text-center">${name}</h5>
+  const cardBodyItems = `<h5 class="card-title text-center text-truncate">${name}</h5>
   <h6 class="text-center text-success">${type}</h6>
   <p class="card-text text-truncate">${context}</p>
   <h6 class="text-end">${date}</h6>
-  <h6 class="text-end">${director}</h6>
+  <h6 class="text-end text-secondary">${director}</h6>
   <div class="d-flex justify-content-around my-3">
-    <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="fa-solid fa-pen-to-square fa-lg"></span></a>
+    <a href="#" class="me-3" data-bs-toggle="modal" data-bs-target="#moviesModal"><span class="fa-solid fa-pen-to-square fa-lg"></span></a>
     <a href="#"><span class="fa-solid fa-trash fa-lg"></span></a>
   </div>`;
   movieBody.innerHTML = cardBodyItems;
@@ -148,7 +147,7 @@ function saveChangesFunc(e) {
     }
   });
   localStorage.setItem('movies', JSON.stringify(movies));
-  window.location.reload();
+  location.reload();
   e.preventDefault();
 }
 

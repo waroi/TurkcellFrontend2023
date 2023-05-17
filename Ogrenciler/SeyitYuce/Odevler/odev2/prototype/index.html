@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bookshelf</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand mr-0" href="#">Bookshelf</a>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add-book-modal">
+                    Add Book
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="modal fade" id="add-book-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add-book-modal-label">Add Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-book-form">
+                        <div class="form-group">
+                            <label for="book-name-input">Book Name</label>
+                            <input type="text" class="form-control" id="book-name-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="author-input">Author</label>
+                            <input type="text" class="form-control" id="author-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category-input">Category</label>
+                            <input type="text" class="form-control" id="category-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date-input">Date of Writing</label>
+                            <input type="datetime" class="form-control" id="date-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cover-url-input">Cover Image URL</label>
+                            <input type="url" class="form-control" id="cover-url-input" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">Add</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card h-100 p-3 w-100 mx-auto rounded mt-0" id="inputCard">
+        <form class="d-flex my-2" role="search">
+            <input type="text" class="form-control" placeholder="Search" aria-label="search" id="search-input">
+            <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </form>
+
+        <div class="d-flex justify-content-between">
+            <div>
+                <label for="author-filter">Author:</label>
+                <select id="author-filter">
+                    <option value="">All</option>
+                </select>
+            </div>
+            <div>
+                <label for="category-filter">Category:</label>
+                <select id="category-filter">
+                    <option value="">All</option>
+                </select>
+            </div>
+            <div class="sort">
+                <label for="sortSelect">Sort:</label>
+                <select id="sortSelect">
+                    <option value="default">Default</option>
+                    <option value="az">sort A-Z</option>
+                    <option value="za">sort Z-A</option>
+                    <option value="oldest">older first</option>
+                    <option value="newest">newer first</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center flex-wrap" id="book-list"> </div>
+    <div id="bookContainer"></div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-M0mJnhRbJeqvQDc3gn9qjWPN6zZ6i2t/xLJmDZoqO6QnCAb7p5qn1eqf3bO7nrxO"
+        crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>

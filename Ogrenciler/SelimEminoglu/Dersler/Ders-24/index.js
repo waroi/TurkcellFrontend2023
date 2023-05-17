@@ -175,3 +175,9 @@
 // console.log(mySet2.has(11));
 
 // mySet2.foreach((value)=>console.log(value));
+
+
+// Farklı dizi methodları
+
+// arr.every() bu method içerisindeki koşul arr dizisnde tüm elemanlar için doğruysa true döner
+// arr.some() bu method ise içerisinde en az 1 tane eleman koşulu sağlıyorsa true döndürür
