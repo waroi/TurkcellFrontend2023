@@ -12,11 +12,21 @@
 
 //json dosyası okuma
 
-function getJsonFile() {
-  fetch("users.json")
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
-}
+// function getJsonFile() {
+//   fetch("users.json")
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err));
+// }
 
-getJsonFile();
+// getJsonFile();
+
+//API ile çalışmak
+
+// function getApi() {
+//   fetch("https://jsonplaceholder.typicode.com/users")
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err));
+// }
+// getApi();
