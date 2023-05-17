@@ -61,14 +61,14 @@ const request = new Request("https://jsonplaceholder.typicode.com/posts");
 // 		console.log(err);
 // 	});
 
-// request
-// 	.post("https://jsonplaceholder.typicode.com/posts", {
-// 		userId: 101,
-// 		title: "Yeni Başlık",
-// 		body: "Yeni İçerik",
-// 	})
-// 	.then((data) => console.log(data))
-// 	.catch((err) => console.log(err));
+request
+	.post({
+		userId: 11,
+		title: "Ahmet",
+		body: "Furkan",
+	})
+	.then((data) => console.log(data))
+	.catch((err) => console.log(err));
 
 // request
 // 	.put(1, {
