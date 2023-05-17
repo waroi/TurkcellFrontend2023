@@ -4,9 +4,7 @@ let tableBody = document.querySelector("#tableBody");
 
 
 function getData(){
-    
     fetch("https://jsonplaceholder.typicode.com/users").then((response)=>response.json()).then((data)=>writeUi(data)).catch((err)=>console.error(err));
-    
 }
 
 
