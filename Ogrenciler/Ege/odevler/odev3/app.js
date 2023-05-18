@@ -40,3 +40,14 @@ editData.addEventListener("click", () => {
       console.error("Error:", error);
     });
 });
+
+deleteData.addEventListener("click", () => {
+  request
+    .delete(url, 1)
+    .then((response) => {
+      console.log("Response:", response);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+});

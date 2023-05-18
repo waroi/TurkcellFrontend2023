@@ -40,6 +40,19 @@ class Request {
     const result = await response.json();
     return result;
   }
+
+  async delete(url, id) {
+    const response = await fetch(`${url}/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Request failed");
+    }
+
+    const result = await response.json();
+    return result;
+  }
 }
 
 export default Request;
