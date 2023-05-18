@@ -128,7 +128,7 @@ UI.prototype.updateBookFromUI = function (element) {
     element.target.parentElement.parentElement.parentElement.children[0].src = document.getElementById('editurlinput').value;
     editingModal.hide();
     storage.updateBookFromStorage(oldBook, newBook);
-    ui.showAlert('Book successfully updated!', 'danger');
+    ui.showAlert('Book successfully updated!', 'secondary');
   });
 
 }
@@ -154,8 +154,8 @@ UI.prototype.sortBookAz = function (bookNames) {
 
   const books = storage.getBooksFromStorage();
 
-  bookNames.forEach(function (bookName) {
-    books.forEach(function (book) {
+  bookNames.map(function (bookName) {
+    books.map(function (book) {
       if (book.name.toLowerCase() == bookName) {
         ui.addBookToUI(book);
       }
@@ -170,8 +170,8 @@ UI.prototype.sortBookDates = function (bookDates) {
 
   const books = storage.getBooksFromStorage();
 
-  bookDates.forEach(function (bookDate) {
-    books.forEach(function (book) {
+  bookDates.map(function (bookDate) {
+    books.map(function (book) {
       let booksInUI = document.getElementById('booklist');
       if (book.date == bookDate && booksInUI.innerHTML.indexOf(book.name) == -1) {
         ui.addBookToUI(book);
@@ -180,17 +180,15 @@ UI.prototype.sortBookDates = function (bookDates) {
   })
 }
 
-UI.prototype.filterBooks = function (filteredBooksWithAuthor, filteredBooksWithCategory) {
+UI.prototype.filterBooks = function (filteredBooksWithAuthor) {
   ui.deleteAllBooksFromUI();
-  console.log(filteredBooksWithAuthor);
-  console.log(filteredBooksWithCategory);
 
   const books = storage.getBooksFromStorage();
 
-  filteredBooksWithAuthor.forEach(function (filter) {
-    books.forEach(function (book) {
+  filteredBooksWithAuthor.map(function (filter) {
+    books.map(function (book) {
       let booksInUI = document.getElementById('booklist');
-      if (book.author == filter.author) {
+      if (book.author == filter.author && book.category == filter.category) {
         if (booksInUI.innerHTML.indexOf(book.name) == -1) {
           ui.addBookToUI(book);
         }
@@ -199,17 +197,6 @@ UI.prototype.filterBooks = function (filteredBooksWithAuthor, filteredBooksWithC
     })
   })
 
-  filteredBooksWithCategory.forEach(function (filter) {
-
-    books.forEach(function (book) {
-      let booksInUI = document.getElementById('booklist');
-      if (book.category == filter.category) {
-        if (booksInUI.innerHTML.indexOf(book.name) == -1) {
-          ui.addBookToUI(book);
-        }
-      }
-    })
-  })
 
 }
 

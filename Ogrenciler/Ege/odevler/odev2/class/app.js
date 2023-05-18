@@ -25,24 +25,6 @@ const books = localStorage.getItem("bookStorage")
 if (books.length === 0) {
   books.push(
     new Book(
-      "Ege'lerin Sessizliği",
-      "Ege Kara",
-      "Horror",
-      "1998-04-08",
-      "https://avatars.githubusercontent.com/u/83390653?v=4"
-    )
-  );
-  books.push(
-    new Book(
-      "Maksutoğulları",
-      "Varol Maksutoğlu",
-      "Fantasy",
-      "1998-12-30",
-      "https://avatars.githubusercontent.com/u/3173292?v=4"
-    )
-  );
-  books.push(
-    new Book(
       "Tutunamayanlar",
       "Oğuz Atay",
       "Fiction",
@@ -68,11 +50,9 @@ if (books.length === 0) {
       "https://i.dr.com.tr/cache/600x600-0/originals/0001999887001-1.jpg"
     )
   );
-  books[0].id = "egeID";
-  books[1].id = "varolID";
-  books[2].id = "thirdID";
-  books[3].id = "fourthID";
-  books[4].id = "fifthID";
+  books[0].id = "exampleZeroID";
+  books[1].id = "exampleOneID";
+  books[2].id = "exampleTwoID";
   localStorage.setItem("bookStorage", JSON.stringify(books));
 }
 //#endregion
@@ -85,16 +65,34 @@ function handleEventListeners() {
     e.preventDefault();
     if (userInterface.isEmpty()) alert("Please fill out the entire form");
     else Process.addBook(books, userInterface, form);
+    // Reset inputs
+    categorySelect.value = "";
+    writerSelect.value = "";
+    sortSelect.value = "";
+    searchByName.value = "";
+    searchByWriter.value = "";
   });
 
   bookCollectionRow.addEventListener("click", (e) => {
     if (e.target.classList.contains("book-delete")) {
       let bookCard = e.target.closest(".col-lg-4");
-      Process.deleteBook(books, bookCard, bookCard.id);
+      Process.deleteBook(books, bookCard, bookCard.id, userInterface);
+      // Reset inputs
+      categorySelect.value = "";
+      writerSelect.value = "";
+      sortSelect.value = "";
+      searchByName.value = "";
+      searchByWriter.value = "";
     } else if (e.target.classList.contains("book-edit")) {
       let bookCard = e.target.closest(".col-lg-4");
       currentBookID = bookCard.id;
       userInterface.cardToModal(books, currentBookID);
+      // Reset inputs
+      categorySelect.value = "";
+      writerSelect.value = "";
+      sortSelect.value = "";
+      searchByName.value = "";
+      searchByWriter.value = "";
     }
   });
 
@@ -116,25 +114,50 @@ function handleEventListeners() {
   categorySelect.addEventListener("change", (e) => {
     const bookList = Process.filterByCategory(books, e.target.value);
     userInterface.updateDisplay(bookList);
+    // Reset other inputs
+    writerSelect.value = "";
+    sortSelect.value = "";
+    searchByName.value = "";
+    searchByWriter.value = "";
   });
 
   writerSelect.addEventListener("change", (e) => {
     const bookList = Process.filterByWriter(books, e.target.value);
     userInterface.updateDisplay(bookList);
+    // Reset other inputs
+    categorySelect.value = "";
+    sortSelect.value = "";
+    searchByName.value = "";
+    searchByWriter.value = "";
   });
 
   sortSelect.addEventListener("change", (e) => {
     const bookList = Process.sortBooks(books, e.target.value);
     userInterface.updateDisplay(bookList);
+    // Reset other inputs
+    categorySelect.value = "";
+    writerSelect.value = "";
+    searchByName.value = "";
+    searchByWriter.value = "";
   });
 
   searchByName.addEventListener("keyup", () => {
     const bookList = Process.searchBooks(books, searchByName.value);
     userInterface.updateDisplay(bookList);
+    // Reset other inputs
+    categorySelect.value = "";
+    writerSelect.value = "";
+    sortSelect.value = "";
+    searchByWriter.value = "";
   });
 
   searchByWriter.addEventListener("keyup", () => {
     const bookList = Process.searchWriter(books, searchByWriter.value);
     userInterface.updateDisplay(bookList);
+    // Reset other inputs
+    categorySelect.value = "";
+    writerSelect.value = "";
+    sortSelect.value = "";
+    searchByName.value = "";
   });
 }

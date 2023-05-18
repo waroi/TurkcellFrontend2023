@@ -248,11 +248,11 @@ Books.prototype.sortBook = function (e) {
     sortedBooks = books.sort(function (x, y) {
       return y.name.localeCompare(x.name);
     });
-  } else if (option === "old-new") {
+  } else if (option === "new-old") {
     sortedBooks = books.sort(function (x, y) {
       return y.date - x.date;
     });
-  } else if (option === "new-old") {
+  } else if (option === "old-new") {
     sortedBooks = books.sort(function (x, y) {
       return x.date - y.date;
     });

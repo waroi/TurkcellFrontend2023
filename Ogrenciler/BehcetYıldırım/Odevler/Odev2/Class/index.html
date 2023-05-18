@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css  " />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <title>Kitapçı</title>
+  </head>
+  <body>
+    <section id="sectionNavbar">
+      <div class="cotainer">
+        <nav class="navbar">
+          <div
+            class="container d-flex justify-content-between align-items-center"
+          >
+            <a class="navbar-brand">
+              <img src="../Class/img/Bodleian-logo-e1551357400295.png" alt="" />
+            </a>
+            <div>
+              <a
+                href="#"
+                class="me-3 navbar-toggler"
+                data-bs-toggle="modal"
+                id="addBooksBtn"
+                data-bs-target="#booksModal"
+                ><i class="fa-solid fa-plus"></i
+              ></a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+    <section id="sectionBanner">
+      <div class="banner-bg">
+        <img
+          src="https://www.glam.ox.ac.uk/sites/default/files/styles/listing_landscape_image/public/glam/images/media/BOD-Duke-Humfrey.jpg?itok=52zKkliy"
+        />
+      </div>
+      <div class="container p-0">
+        <div class="d-flex justify-content-between">
+          <input
+            type="text"
+            name="filter"
+            class="my-2 w-50 form-control"
+            id="search"
+            placeholder="Bir Kitap Arayın"
+          />
+          <select
+            class="form-select py-1 w-25"
+            id="sortOptions"
+            aria-label="Sort books"
+          >
+            <option value="defaultSort" id="defaultSort" selected>
+              Varsayılan
+            </option>
+            <option value="azSort" id="azSort">A-Z'ye Sırala</option>
+            <option value="zaSort" id="zaSort">Z-A'ya Sırala</option>
+            <option value="dateSortIncrease" id="dateSortIncrease">
+              Tarih göre artan
+            </option>
+            <option value="dateSortDescend" id="dateSortDescend">
+              Tarihe göre azalan
+            </option>
+          </select>
+        </div>
+      </div>
+    </section>
+    <section id="sectionLibrary">
+      <div class="container">
+        <div class="row gap-5" id="bookList">
+          <!--? Kitaplar burada listelenecek. -->
+        </div>
+        <!--? Modal Yapısı -->
+        <div class="modal fade" id="booksModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="booksModalLabel">
+                  Kitap Ekle
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body" id="modalBody">
+                <div class="my-3 d-flex justify-content-center">
+                  <img src="" alt="" id="modalImg" class="img-fluid" />
+                </div>
+                <div class="mb-2">
+                  <label for="bookName" class="form-label">Kitabın Adı</label>
+                  <input type="text" class="form-control" id="bookName" />
+                </div>
+                <div class="mb-2">
+                  <label for="writerName" class="form-label">Yazarı</label>
+                  <input type="text" class="form-control" id="writerName" />
+                </div>
+                <div class="mb-2">
+                  <label for="category" class="form-label">Kategori</label>
+                  <input type="text" class="form-control" id="category" />
+                </div>
+                <div class="mb-2">
+                  <label for="releaseDate" class="form-label"
+                    >Yayın tarihi
+                  </label>
+                  <input type="date" class="form-control" id="releaseDate" />
+                </div>
+                <div class="my-2">
+                  <label for="bookimgUrl" class="form-label"
+                    >Kitap Kapağı(Url)</label
+                  >
+                  <input type="text" class="form-control" id="bookImgUrl" />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary py-2 px-4"
+                  data-bs-dismiss="modal"
+                >
+                  İptal
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary py-2 px-4"
+                  id="saveBooks"
+                >
+                  Kaydet
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="secitonFooter">
+      <footer class="footer-bg pt-5">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-lg-3 my-3 my-lg-0">
+              <h3 class="footer-title text-white">Bodleian Libraries</h3>
+              <ul class="list p-0">
+                <li class="mb-3">
+                  <a href="#"
+                    ><i class="fa-solid fa-phone"></i> +90 (332) 333 3333</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a href="#"
+                    ><i class="fa-solid fa-location-dot"></i> Broad St, Oxford
+                    OX1 3BG, Birleşik Krallık</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-5 my-3 my-lg-0">
+              <h6 class="footer-title">Abonelik</h6>
+              <p class="text-white opacity-50">
+                İndirimlerden haberdar olmak istiyorsanız abone olabilirsiniz.
+              </p>
+              <div class="d-flex gap-3 mt-5">
+                <input
+                  type="email"
+                  name="email"
+                  id=""
+                  placeholder="Your email address"
+                />
+                <button class="btn sub-btn">Subscribe</button>
+              </div>
+            </div>
+            <div class="col-lg-3 my-3 my-lg-0">
+              <h6 class="footer-title">Şirket</h6>
+              <ul class="list p-0">
+                <li class="mb-3"><a href="#">Hakkımızda</a></li>
+                <li class="mb-3">
+                  <a href="#">Sıkça Sorulan Sorular</a>
+                </li>
+                <li class="mb-3"><a href="#">İletişim</a></li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="row footer-bottom d-flex justify-content-center align-items-center gap-5"
+          >
+            <p class="text-white text-end opacity-50 col-lg-3 col-5">
+              Sait Behçet Yıldırım
+            </p>
+            <div class="col-lg-3 col-5 text-start footer-socials">
+              <a href="#" target="_blank"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" target="_blank"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/sait-behcet-yildirim/"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="https://github.com/Behcetyildirim" target="_blank"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="storage.js"></script>
+    <script src="book.js"></script>
+    <script src="ui.js"></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -38,7 +38,7 @@ function eventListeners() {
 
 function starterCond() {
     if (storage.getBooksFromStorage().length === 0) {
-        console.log('localstorage empty');
+
         storage.addBookToStorage(
             new Book(
                 'Otomatik Portakal ',
@@ -53,7 +53,7 @@ function starterCond() {
             new Book(
                 'Hayvan Çiftliği',
                 'George Orwell',
-                'Poem',
+                'Poetry',
                 '2010-07-25',
                 'https://i.dr.com.tr/cache/500x400-0/originals/0000000064031-1.jpg'
             )
@@ -115,14 +115,16 @@ function deleteBook(e) {
     if (e.target.id === 'deleteButton') {
         ui.deleteBookFromUI(e.target);
         storage.deleteBookFromStorage(e.target.parentElement.parentElement.children[0].textContent);
-        ui.showAlert('Book successfully deleted!', 'danger');
+        ui.showAlert('Book successfully deleted!', 'secondary');
     }
+    e.preventDefault();
 }
 
 function updateBook(e) {
     if (e.target.id === 'editButton') {
         ui.updateBookFromUI(e);
     }
+    e.preventDefault();
 
 }
 
@@ -141,6 +143,7 @@ function sortBookAz(e) {
 
     bookNames.sort();
     ui.sortBookAz(bookNames);
+    e.preventDefault();
 
 }
 
@@ -153,6 +156,7 @@ function sortBookZa(e) {
 
     bookNames.sort().reverse();
     ui.sortBookAz(bookNames);
+    e.preventDefault();
 
 }
 
@@ -165,6 +169,7 @@ function sortBookLatest(e) {
 
     bookDates.sort().reverse();
     ui.sortBookDates(bookDates);
+    e.preventDefault();
 
 }
 
@@ -177,6 +182,7 @@ function sortBookOldest(e) {
     console.log(bookDates);
     bookDates.sort();
     ui.sortBookDates(bookDates);
+    e.preventDefault();
 
 }
 
@@ -191,14 +197,12 @@ function filterBooks() {
     checkboxAuthor.forEach(function (checkbox) {
         if (checkbox.checked) {
             selectedAuthors.push(checkbox.id);
-            // console.log(selectedAuthors);
         }
     });
 
     checkboxCategory.forEach(function (checkbox) {
         if (checkbox.checked) {
             selectedCategory.push(checkbox.id);
-            // console.log(selectedCategory);
         }
     });
 
@@ -211,10 +215,33 @@ function filterBooks() {
     const filteredBooksWithCategory = books.filter(function (book) {
         return selectedCategory.includes(book.category);
     });
+    const filteredbooks = [];
 
-    ui.filterBooks(filteredBooksWithAuthor, filteredBooksWithCategory);
+    if (filteredBooksWithAuthor.length !== 0) {
+        filteredBooksWithAuthor.forEach(function (book) {
+            if (filteredBooksWithCategory.length !== 0 && filteredBooksWithAuthor.length !== 0 && !filteredbooks.includes(book)) {
+                filteredBooksWithCategory.forEach(function (book2) {
+                    if (book.category === book2.category && book.author === book2.author) {
+                        filteredbooks.push(book);
+                    }
+                });
+            } else if (filteredBooksWithCategory.length === 0 && filteredBooksWithAuthor.length !== 0 && !filteredbooks.includes(book)) {
+                filteredbooks.push(book);
+            }
+        });
 
+    } else if (filteredBooksWithAuthor.length === 0 && filteredBooksWithCategory.length !== 0) {
+        filteredBooksWithCategory.forEach(function (book) {
+            filteredbooks.push(book);
+        });
+    } else {
+        books.forEach(function (book) {
+            filteredbooks.push(book);
+        });
+    }
+
+    ui.filterBooks(filteredbooks);
     let modalFilter = bootstrap.Modal.getInstance(document.getElementById('filterModal'));
     modalFilter.hide();
-
+    e.preventDefault();
 }

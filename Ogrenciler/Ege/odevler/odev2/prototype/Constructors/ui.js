@@ -24,7 +24,7 @@ export function UI(display) {
       books.map((book) => book.category.toUpperCase())
     );
     categorySelect.innerHTML = "";
-    categorySelect.innerHTML += `<option value="">Tümü</option>`;
+    categorySelect.innerHTML += `<option value="">All</option>`;
     categorySelect.innerHTML += Array.from(categoriesSet).map((category) => {
       return createOption(category);
     });
@@ -33,7 +33,7 @@ export function UI(display) {
   this.uniqueWriters = function (books) {
     const writersSet = new Set(books.map((book) => book.writer.toUpperCase()));
     writerSelect.innerHTML = "";
-    writerSelect.innerHTML += `<option value="">Tümü</option>`;
+    writerSelect.innerHTML += `<option value="">All</option>`;
     writerSelect.innerHTML += Array.from(writersSet).map((writer) => {
       return createOption(writer);
     });

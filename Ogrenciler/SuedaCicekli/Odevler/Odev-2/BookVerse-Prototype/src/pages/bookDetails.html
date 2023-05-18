@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookVerse- Details</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="shortcut icon" href="../../public/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="bg-light">
+  <nav class="navbar bg-body-tertiary justify-content-center">
+    <a class="navbar-brand" href="../../index.html">
+      <img src="../Assets/Logo/bookverseDark.png" alt="BookVerse">
+    </a>
+  </nav>
+
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-book-name"></li>
+      </ol>
+    </nav>
+  </div>
+  <div class="bookDetails mt-5">
+    <div class="container">
+      <div class="absolute-area">
+        <div class="row image-details">
+          <div class="col-lg-5 col-md-12 text-center" id="details-url">
+          </div>
+          <div class="col-lg-7 col-md-12 d-flex ps-lg-5 ps-md-0 pt-md-5 book-title-area ">
+            <div class="card-body">
+              <div class=" d-flex gap-1  justify-content-center" id="details-rank"></div>
+              <h5 class="text-primary mt-3" id="details-title"></h5>
+              <h6 class="fs-4 text-secondary mt-3" id="details-author"></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="book-explanation bg-white rounded-4 p-5 mt-5">
+        <!-- <a href="../index.html">
+          <div class="curl"></div>
+        </a> -->
+        <!-- <div class="text-lg-end text-center ">
+          <button class="btn btn-primary"><img src="../Assets/Icon/edit.png" alt=""> Edit This Book</button>
+          <button class="btn btn-info ms-1"><img src="../Assets/Icon/delete.png" alt=""></button>
+        </div> -->
+        <div class="mt-5 ">
+          <div class="row">
+            <div class="col-lg-8 col-md-12">
+              <h4 class="fs-5 fw-bold ">Description</h4>
+              <p class="fs-6 fw-light" id="details-summary"></p>
+              <h4 class="fs-5 fw-bold ">Review</h4>
+              <p class="fs-6" id="details-review"></p>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <h4 class="fs-5 fw-bold ">Publication Date</h4>
+              <p class="fs-6" id="details-year"></p>
+              <h4 class="fs-5 fw-bold ">Category</h4>
+              <p class="fs-6" id="details-category"></p>
+              <h4 class="fs-5 fw-bold ">Language</h4>
+              <p class="fs-6" id="details-language"></p>
+              <h4 class="fs-5 fw-bold ">Editor</h4>
+              <p class="fs-6" id="details-editor"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer mt-4 mb-3">
+    <div class="container bg-primary text-center rounded-5 p-3">
+      <a href="../../index.html"><img src="../Assets/Logo/bookverseWhite.png" alt=""></a>
+      <p class="text-success fs-6 fw-ligh mt-3">Designed and developed with ❤️ by <span
+          class="text-info">bookverse</span>
+        team |
+        Bookverse App, 2023</p>
+    </div>
+  </div>
+  <script src="../js/model/ui.js"></script>
+  <script src="../js/model/storage.js"></script>
+  <script src="../js/model/bookDetails.js"></script>
+</body>
+
+</html>

@@ -34,7 +34,6 @@ UserInterface.prototype.addBook = function () {
     storage.getLocalStorage() ? (localData = storage.getLocalStorage()) : (localData = []);
     localData.push(newBook);
     storage.setLocalStorage(localData);
-    console.log(localData);
     UI.addBox(newBook);
     UI.clearValues();
 }
@@ -80,9 +79,6 @@ UserInterface.prototype.editBook = function (book) {
 UserInterface.prototype.loadUI = function () {
     filterBy.value = "none";
     let fullData = storage.getFullStorage();
-    // if (UserInterface.prototype.sortValues()) {
-    //     fullData = UserInterface.prototype.sortValues();
-    // }
 
     bookUI.innerHTML = "";
     fullData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
@@ -92,17 +88,6 @@ UserInterface.prototype.sortValues = function () {
     const select = document.getElementById("sort-select");
     const condition = select.options[select.selectedIndex].value;
     let data = storage.getIntersectedStorage();
-
-    // if (UserInterface.prototype.search() != []) {
-    //     data = UserInterface.prototype.search();
-    // }
-    // else if (UserInterface.prototype.filterCategory() != []) {
-    //     data = UserInterface.prototype.filterCategory();
-    //     console.log(data);
-    // }
-    // else {
-    //     data = storage.getFullStorage();
-    // }
 
     if (condition == "default") {
         return data;
@@ -228,23 +213,11 @@ UserInterface.prototype.filterWriter = function () {
     return filteredData;
 }
 
-
-// UserInterface.prototype.resetFilter = function () {
-//     let filterValue = filterWith.value.toLowerCase();
-//     let fullData = storage.getFullStorage();
-//     bookUI.innerHTML = "";
-//     if (filterValue == "") {
-//         fullData.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
-//     }
-// }
-
-
 UserInterface.prototype.loadIntersectedUI = function () {
     let data = storage.getIntersectedStorage();
     if (UserInterface.prototype.sortValues()) {
         data = UserInterface.prototype.sortValues();
     }
-    console.log("intersected");
     bookUI.innerHTML = "";
     data.map((data) => UI.addBox(new Book(data.name, data.writer, data.category, data.date, data.url)));
 }

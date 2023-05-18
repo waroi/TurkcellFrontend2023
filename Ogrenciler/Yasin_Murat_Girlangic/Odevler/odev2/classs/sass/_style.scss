@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+$grirenk: #343a40;
+.h {
+    max-height: 250px;
+}
+.date-color {
+    color: rgba(53, 65, 54, 0.788);
+}
+ul li:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.container {
+    border: 5px 0;
+    border-style: none;
+    border-color: $secondary;
+}
+#clear-movies {
+    width: 30%;
+    margin-left: 10px;
+}
+
+body{
+    padding-top: 50px;
+    font-family: 'Raleway', sans-serif;
+    background-color: white;
+}
+.cizgi{
+    border: none;
+    border-top: 3px solid $grirenk;
+    max-width: 250px;
+    margin: 25px auto;
+}
+.kitaplogogri{
+    color: $grirenk;
+    position: relative;
+    top: -55px;
+    font-size: 40px;
+    border: 10px solid $primary;
+    background-color: $primary;
+}
+.kitaplogobeyaz{
+    color: $grirenk;
+    position: relative;
+    top: -55px;
+    font-size: 40px;
+    border: 10px solid $danger;
+    background-color: $danger;
+}
+
+.sosyalmedyaicon{
+    &:hover{
+        transform: scale(2.2);
+        transition: 0.5s;
+    }
+}
+@media only screen and (max-width: 780px) {
+    .movie-search {
+        flex-direction: column;
+        .movie-search-item {
+            margin-bottom: 10px;
+        }
+    }
+    #clear-movies {
+        width: 100%;
+        margin-left: 0px;
+    }
+}

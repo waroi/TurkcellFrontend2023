@@ -10744,22 +10744,21 @@ body {
 }
 
 .card {
-  /* From https://css.glass */
   background: rgba(255, 255, 255, 0.5) !important;
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  text-transform: capitalize;
 }
 .card .card-img-top {
-  height: 400px;
+  height: 500px;
 }
 .card .book-title {
   font-family: "Dancing Script", cursive;
   font-weight: 700;
   font-size: 36px;
-  text-transform: capitalize;
 }
 .card .book-release-date {
   font-family: "Space Grotesk", sans-serif;
@@ -10808,13 +10807,15 @@ i {
   text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px, #ff6e4a 0px 0px 20px, #ff6e4a 0px 0px 30px, #ff6e4a 0px 0px 40px, #ff6e4a 0px 0px 50px, #ff6e4a 0px 0px 75px;
 }
 
-.modal-header {
+.modal-content {
+  backdrop-filter: blur(5px);
+}
+.modal-content .modal-header {
   background-image: url(https://img.freepik.com/free-vector/sunset-sunrise-ocean-nature-landscape_33099-2244.jpg?w=1380&t=st=1684093899~exp=1684094499~hmac=54059f7eaab5a67d47c04a6008b9c94e2d7d26b05e34ac51eb6bbaf9539ea5a0);
   background-size: cover;
 }
-
-.modal-content {
-  backdrop-filter: blur(5px);
+.modal-content .modal-header .modal-title h1, .modal-content .modal-header .modal-title .h1 {
+  font-size: 2rem;
 }
 .modal-content label {
   text-transform: capitalize;
@@ -10829,10 +10830,6 @@ i {
   font-size: 1.2rem;
   outline: none;
   border: none;
-}
-
-.modal-title h1, .modal-title .h1 {
-  font-size: 2rem;
 }
 
 @media screen and (max-width: 992px) {

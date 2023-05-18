@@ -23,11 +23,12 @@ Process.prototype.addBook = function (books, ui, form) {
   ui.makeUniques(books);
 };
 
-Process.prototype.deleteBook = function (books, bookCard, bookID) {
+Process.prototype.deleteBook = function (books, bookCard, bookID, ui) {
   bookCard.remove();
   const book = books.find((book) => book.id == bookID);
   books.splice(books.indexOf(book), 1);
   localStorage.setItem("bookStorage", JSON.stringify(books));
+  ui.makeUniques(books);
 };
 
 Process.prototype.editBook = function (books, bookID, ui, form) {

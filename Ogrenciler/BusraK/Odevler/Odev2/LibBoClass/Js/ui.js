@@ -95,10 +95,6 @@ class UI {
 
   showBooks(books) {
     bookList.innerHTML = "";
-
-    // books.forEach(function (book) {
-    //   ui.addBook(book);
-    // });
     const searchValue = bookSearch.value.trim().toLowerCase();
     const selectedGenres = Array.from(
       document.querySelectorAll(".form-check-input:checked")

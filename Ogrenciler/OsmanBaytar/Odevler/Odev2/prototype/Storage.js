@@ -11,7 +11,8 @@ StorageConstructor.prototype.setLocalStorage = function (localData) {
 }
 
 StorageConstructor.prototype.deleteLocalStorage = function (name) {
-    let localData = storage.getLocalStorage(); let index = localData.indexOf(localData.find((item) => item.name === name));
+    let localData = storage.getLocalStorage();
+    let index = localData.indexOf(localData.find((item) => item.name === name));
     localData.splice(index, 1);
     storage.setLocalStorage(localData);
 }
@@ -24,7 +25,6 @@ StorageConstructor.prototype.editLocalStorage = function () {
         localData.find((item) => item.name === tempData.name)
     );
     localData[index] = newBook;
-    console.log(localData);
     StorageConstructor.prototype.setLocalStorage(localData);
     UI.clearValues()
     UI.loadUI();

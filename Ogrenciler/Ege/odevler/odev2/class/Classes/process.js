@@ -22,11 +22,12 @@ class Process {
     ui.makeUniques(books);
   }
 
-  static deleteBook(books, bookCard, bookID) {
+  static deleteBook(books, bookCard, bookID, ui) {
     bookCard.remove();
     const book = books.find((book) => book.id == bookID);
     books.splice(books.indexOf(book), 1);
     localStorage.setItem("bookStorage", JSON.stringify(books));
+    ui.makeUniques(books);
   }
 
   static editBook(books, bookID, ui, form) {
