@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="d-lg-flex">
+        <nav class="col-lg-3 navbar navbar-expand-lg border border-black d-lg-flex flex-column py-lg-5">
+            <div class="container-fluid d-lg-flex d-lg-flex flex-lg-column position-lg-fixed">
+                <a class="navbar-brand" href="#">Bloğumsu</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav d-lg-flex flex-lg-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+
+                        <li>
+                            <a href="#" type="button" class="btn btn-outline-secondary" id="addBtn"
+                                data-bs-toggle="modal" data-bs-target="#addModal">
+                                Add New
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-lg col-12 col-lg-6 border border-black py-lg-5" id="blogList"> </div>
+
+        <!-- addModal -->
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="addModalLabel">Add New Blog</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column gap-2">
+                        <div class="input-group">
+                            <span class="input-group-text w-25">Title</span>
+                            <input type="text" aria-label="Title" class="form-control"
+                                placeholder="The Future of Artificial Intelligence">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text w-25">Content</span>
+                            <input type="text" aria-label="Content" class="form-control"
+                                placeholder="Artificial Intelligence (AI) is rapidly evolving...">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text w-25">Author</span>
+                            <input type="text" aria-label="Author" class="form-control" placeholder="John Doe">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text w-25">Category</span>
+                            <input type="text" aria-label="Category" class="form-control" placeholder="Futuristic">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text w-25">Image Url</span>
+                            <input type="text" aria-label="image-url" class="form-control"
+                                placeholder="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTbJ6q6nCvC-F8ctwjE8F_gh176HK1p-EcKg&usqp=CAU">
+                        </div>
+                        <!-- <div class="d-flex flex-column">
+                            <label class="fs-4" for="blog-content">Content</label>
+                            <input class="ps-2" type="text" id="blog-content" placeholder="content">
+                        </div> -->
+                        <!-- <div class="d-flex flex-column">
+                            <label class="fs-4" for="blog-author">Author</label>
+                            <input class="ps-2" type="text" id="blog-author" placeholder="author">
+                        </div> -->
+                        <!-- <div class="d-flex flex-column">
+                            <label class="fs-4" for="blog-category">Category</label>
+                            <input class="ps-2" type="text" id="blog-category" placeholder="category">
+                        </div>
+                        <div class="d-flex flex-column">
+                            <label class="fs-4" for="blog-image">Image Url</label>
+                            <input class="ps-2" type="text" id="blog-image" placeholder="image url">
+                        </div> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- editModal -->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="editModalLabel">Add New Blog</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column gap-2">
+                        <div class="input-group">
+                            <span class="input-group-text w-25">Title</span>
+                            <input type="text" aria-label="Title" class="form-control"
+                                placeholder="The Future of Artificial Intelligence">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text w-25">Content</span>
+                            <input type="text" aria-label="Content" class="form-control"
+                                placeholder="Artificial Intelligence (AI) is rapidly evolving...">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text w-25">Author</span>
+                            <input type="text" aria-label="Author" class="form-control" placeholder="John Doe">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text w-25">Category</span>
+                            <input type="text" aria-label="Category" class="form-control" placeholder="Futuristic">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text w-25">Image Url</span>
+                            <input type="text" aria-label="image-url" class="form-control"
+                                placeholder="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTbJ6q6nCvC-F8ctwjE8F_gh176HK1p-EcKg&usqp=CAU">
+                        </div>
+                        <!-- <div class="d-flex flex-column">
+                            <label class="fs-4" for="blog-content">Content</label>
+                            <input class="ps-2" type="text" id="blog-content" placeholder="content">
+                        </div> -->
+                        <!-- <div class="d-flex flex-column">
+                            <label class="fs-4" for="blog-author">Author</label>
+                            <input class="ps-2" type="text" id="blog-author" placeholder="author">
+                        </div> -->
+                        <!-- <div class="d-flex flex-column">
+                            <label class="fs-4" for="blog-category">Category</label>
+                            <input class="ps-2" type="text" id="blog-category" placeholder="category">
+                        </div>
+                        <div class="d-flex flex-column">
+                            <label class="fs-4" for="blog-image">Image Url</label>
+                            <input class="ps-2" type="text" id="blog-image" placeholder="image url">
+                        </div> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- contentModal -->
+        <div class="modal fade" id="contentModal" tabindex="-1" aria-labelledby="contentModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title fs-5" id="contentModalLabel">Content Modal</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- deleteModal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="deleteModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you really sure?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-primary">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container col-12 col-lg-3 border border-black py-lg-5">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Type a keyword">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
+                        class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div>
+                <h4>Categories</h4>
+                <ul class="list-group list-group-numbered list-group-flush" id="categoryList">
+                </ul>
+            </div>
+            <div>
+                <h4>Archives</h4>
+                <ol class="list-group list-group-numbered list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto fw-bold">
+                            Subheading
+                        </div>
+                        <span class="badge bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            Subheading
+                        </div>
+                        <span class="badge bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            Subheading
+                        </div>
+                        <span class="badge bg-primary rounded-pill">14</span>
+                    </li>
+                </ol>
+            </div>
+            <div>
+                <h4>Tags</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto fw-bold">
+                            Subheading
+                        </div>
+                        <span class="badge bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            Subheading
+
+                        </div>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
