@@ -1,6 +1,6 @@
 function blogCard(blog) {
   return `
-  <div class="col-md-6" id="${blog.id}">
+  <div class="col-lg-6 my-3" id="${blog.id}">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">${blog.title}</h5>
@@ -12,6 +12,7 @@ function blogCard(blog) {
         <button
           type="button"
           class="btn btn-primary"
+          id="see-blog"
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop"
         >

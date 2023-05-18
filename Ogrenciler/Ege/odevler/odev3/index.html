@@ -14,10 +14,12 @@
 
     <!-- Blog Preview Card -->
     <div class="container">
-      <div class="col-lg-8" id="blogs">
-        <div class="row" id="blog-row"></div>
+      <div class="row">
+        <div class="col-lg-8" id="blogs">
+          <div class="row" id="blog-row"></div>
+        </div>
+        <div class="col-lg-4" id="ads"></div>
       </div>
-      <div class="col-lg-4" id="ads"></div>
     </div>
 
     <!-- Modal -->
@@ -30,7 +32,7 @@
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">
@@ -43,7 +45,7 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body" id="blog-body">...</div>
           <div class="modal-footer">
             <button
               type="button"
@@ -52,7 +54,13 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              class="btn btn-primary"
+            >
+              Understood
+            </button>
           </div>
         </div>
       </div>
