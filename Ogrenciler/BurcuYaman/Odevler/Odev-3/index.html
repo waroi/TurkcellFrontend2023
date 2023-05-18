@@ -137,6 +137,128 @@
               </div>
             </div>
 
+            <!-- Update  post modal -->
+            <div
+              class="modal fade"
+              id="updateModal"
+              tabindex="-1"
+              aria-labelledby="updateModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header bg-primary text-light">
+                    <h1 class="modal-title fs-5" id="updateModalLabel">
+                      Edit Your Post
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="d-flex w-100 gap-2">
+                        <div class="mb-3 w-50">
+                          <label for="updateAuthor" class="form-label"
+                            >Your Name:
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="updateAuthor"
+                          />
+                        </div>
+                        <div class="mb-3 w-50">
+                          <label for="updateTitle" class="form-label"
+                            >Title:
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="updateTitle"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="updateCategory" class="form-label"
+                          >In which category will you write?
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="updateCategory"
+                          placeholder="e.g. Technology, Science, Culture, Music, Sport etc."
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="updateContent" class="form-label"
+                          >You can write here:</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="updateContent"
+                          rows="5"
+                        ></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="updateDate" class="form-label"
+                          >Date of Publication:
+                        </label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="updateDate"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="updateUrl" class="form-label"
+                          >Url of the Post Cover:
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="updateUrl"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      id="updateButton"
+                    >
+                      Update
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Read More modal -->
+            <div
+              class="modal fade"
+              id="readMoreModal"
+              tabindex="-1"
+              aria-labelledby="readMoreModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content" id="modal-content"></div>
+              </div>
+            </div>
+
             <a class="fs-5" id="signIn">Sign In</a>
           </div>
           <div class="col-md-8 logo d-flex justify-content-center">
@@ -167,7 +289,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg- mx-auto gap-3">
+          <ul class="navbar-nav me-auto mb-lg- m-auto gap-3">
             <li class="nav-item d-flex justify-content-center">
               <a class="nav-link active fw-bold" aria-current="page" href="#"
                 >Home</a
@@ -191,7 +313,7 @@
     </nav>
 
     <div class="container mb-5">
-      <div class="row banner my-5">
+      <div class="row banner mt-5">
         <div class="m-auto w-50 text-center text-light">
           <h1>WELCOME TO BLOGGY!</h1>
           <p>
@@ -203,7 +325,32 @@
         </div>
       </div>
 
-      <div class="row content">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-3 pointer" id="breadcrumb"></ol>
+      </nav>
+
+      <div class="row sortBy justify-content-end mt-4 me-1">
+        <div class="w-25 d-flex justify-content-end">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Sort By
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" id="sortAz">A-Z</a></li>
+              <li><a class="dropdown-item" href="#" id="sortZa">Z-A</a></li>
+              <li><a class="dropdown-item" href="#" id="latest">Latest</a></li>
+              <li><a class="dropdown-item" href="#" id="oldest">Oldest</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row content mt-1">
         <div class="col-md-3 asidemenu mt-4">
           <aside>
             <div class="row search">
@@ -211,9 +358,10 @@
                 <input
                   type="text"
                   class="form-control-lg"
-                  placeholder="Search"
+                  placeholder="Search by Title or Author"
                   aria-label="Search"
                   aria-describedby="searchButton"
+                  id="searchInput"
                 />
                 <button
                   class="btn btn-secondary"
@@ -224,6 +372,7 @@
                 </button>
               </div>
             </div>
+
             <div class="row categories mt-3">
               <h4>Categories</h4>
               <div
@@ -325,7 +474,7 @@
         </div>
         <div class="col-md-9">
           <section class="d-flex flex-wrap" id="post-list">
-            <div class="col-md-6 mt-4 d-flex justify-content-center">
+            <!-- <div class="col-md-6 mt-4 d-flex justify-content-center">
               <div class="card mx-3">
                 <img
                   src="https://picsum.photos/200"
@@ -456,7 +605,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </section>
         </div>
       </div>
