@@ -24,7 +24,7 @@ function updateDisplay() {
 
 function handleEventListeners() {
   blogRow.addEventListener("click", (e) => {
-    if (e.target.id === "see-blog") {
+    if (e.target.classList.contains("see-blog")) {
       const blogCard = e.target.closest(".col-lg-6");
       console.log(blogCard.id);
       Request.get(url)
@@ -34,6 +34,20 @@ function handleEventListeners() {
           blogHeading.textContent = `In ${blog.title}, ${blog.author} says...`;
         })
         .catch((err) => console.log(err));
+    } else if (e.target.classList.contains("edit-blog")) {
+      const blogCard = e.target.closest(".col-lg-6");
+      console.log("do edit", blogCard.id);
+    } else if (e.target.classList.contains("delete-blog")) {
+      const blogCard = e.target.closest(".col-lg-6");
+      console.log("do delete", blogCard.id);
+      Request.delete(url, blogCard.id)
+        .then((response) => {
+          console.log("Response:", response);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      updateDisplay();
     }
   });
 }

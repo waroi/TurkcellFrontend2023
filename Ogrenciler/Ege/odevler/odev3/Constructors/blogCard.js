@@ -18,15 +18,14 @@ function blogCard(blog) {
         <p class="card-text">${blog.text.slice(0, 25)}...</p>
         <button
           type="button"
-          class="btn btn-primary"
-          id="see-blog"
+          class="btn btn-primary see-blog"
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop"
         >
           See in full
         </button>
-        <button type="button" class="btn btn-warning">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-warning edit-blog">Edit</button>
+        <button type="button" class="btn btn-danger delete-blog">Delete</button>
       </div>
       </div>
       </div>
