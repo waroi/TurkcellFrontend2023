@@ -8,6 +8,11 @@ const postData = {
   title: "mEge-Merver",
   text: "morem mipsum molor",
 };
+const editedPostData = {
+  author: "lEge Karal",
+  title: "lEge-Lerver",
+  text: "lorem lipsum lolor",
+};
 
 // request
 //   .get("http://localhost:3000/blogs")
@@ -22,5 +27,16 @@ addData.addEventListener("click", () => {
     })
     .catch((error) => {
       console.error(error);
+    });
+});
+
+editData.addEventListener("click", () => {
+  request
+    .put(url, editedPostData, 1)
+    .then((response) => {
+      console.log("Response:", response);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
     });
 });

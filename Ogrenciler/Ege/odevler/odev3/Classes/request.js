@@ -23,6 +23,23 @@ class Request {
     const result = await response.json();
     return result;
   }
+
+  async put(url, data, id) {
+    const response = await fetch(`${url}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Request failed");
+    }
+
+    const result = await response.json();
+    return result;
+  }
 }
 
 export default Request;
