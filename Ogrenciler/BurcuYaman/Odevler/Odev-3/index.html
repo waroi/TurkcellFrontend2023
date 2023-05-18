@@ -14,24 +14,532 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./css/main.css" />
+
     <title>BloggY</title>
   </head>
   <body>
     <header>
-      <div class="row topnav">
-        <div class="col-md-2 topnav-item">
-          <a class="write">Write</a>
-          <a class="sign">Sign In</a>
-        </div>
-        <div class="col-md-8 logo d-flex justify-content-center">
-          <img src="./assets/logo.png" alt="logo" />
-        </div>
-        <div class="col-md-2 socialicons">
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-facebook"></i>
+      <div class="container">
+        <div class="row topnav">
+          <div
+            class="col-md-2 topnav-item d-flex justify-content-start gap-3 my-auto"
+          >
+            <a
+              class="fs-5 pointer"
+              id="writePost"
+              data-bs-toggle="modal"
+              data-bs-target="#addNewPostModal"
+              >Write</a
+            >
+
+            <!-- Add new post modal -->
+            <div
+              class="modal fade"
+              id="addNewPostModal"
+              tabindex="-1"
+              aria-labelledby="addNewPostModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header bg-primary text-light">
+                    <h1 class="modal-title fs-5" id="addNewPostModalLabel">
+                      Write a New Post
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="d-flex w-100 gap-2">
+                        <div class="mb-3 w-50">
+                          <label for="postAuthorInput" class="form-label"
+                            >Your Name:
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="postAuthorInput"
+                          />
+                        </div>
+                        <div class="mb-3 w-50">
+                          <label for="postTitleInput" class="form-label"
+                            >Title:
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="postTitleInput"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="postCategoryInput" class="form-label"
+                          >In which category will you write?
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="postCategoryInput"
+                          placeholder="e.g. Technology, Science, Culture, Music, Sport etc."
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="postContentInput" class="form-label"
+                          >You can write here:</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="postContentInput"
+                          rows="5"
+                        ></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="datePublicationInput" class="form-label"
+                          >Date of Publication:
+                        </label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="datePublicationInput"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="urlInput" class="form-label"
+                          >Url of the Post Cover:
+                        </label>
+                        <input type="text" class="form-control" id="urlInput" />
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      id="addListButton"
+                    >
+                      Share
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a class="fs-5" id="signIn">Sign In</a>
+          </div>
+          <div class="col-md-8 logo d-flex justify-content-center">
+            <img src="./assets/logo.png" alt="logo" />
+          </div>
+          <div
+            class="col-md-2 socialicons d-flex justify-content-end gap-3 my-auto"
+          >
+            <i class="fa-brands fa-instagram fs-5"></i>
+            <i class="fa-brands fa-twitter fs-5"></i>
+            <i class="fa-brands fa-facebook fs-5"></i>
+          </div>
         </div>
       </div>
     </header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg- mx-auto gap-3">
+            <li class="nav-item d-flex justify-content-center">
+              <a class="nav-link active fw-bold" aria-current="page" href="#"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+              <a class="nav-link fw-medium" href="#">Pages</a>
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+              <a class="nav-link fw-medium" href="#">Blog</a>
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+              <a class="nav-link fw-medium" href="#">Shop</a>
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+              <a class="nav-link fw-medium" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mb-5">
+      <div class="row banner my-5">
+        <div class="m-auto w-50 text-center text-light">
+          <h1>WELCOME TO BLOGGY!</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+            deleniti, ducimus saepe distinctio id delectus? Perferendis
+            temporibus dolorum voluptas nesciunt velit rem iusto, omnis, cumque
+            qui porro consequatur esse reprehenderit.
+          </p>
+        </div>
+      </div>
+
+      <div class="row content">
+        <div class="col-md-3 asidemenu mt-4">
+          <aside>
+            <div class="row search">
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control-lg"
+                  placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="searchButton"
+                />
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  id="searchButton"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </div>
+            <div class="row categories mt-3">
+              <h4>Categories</h4>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-light pointer"
+                id="culture"
+              >
+                Culture
+              </div>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-light pointer"
+                id="technology"
+              >
+                Technology
+              </div>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-light pointer"
+                id="science"
+              >
+                Science
+              </div>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-light pointer"
+                id="music"
+              >
+                Music
+              </div>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-light pointer"
+                id="sport"
+              >
+                Sport
+              </div>
+            </div>
+            <div class="row top-posts mt-2 bg-secondary pt-3">
+              <h4>Top Posts</h4>
+              <div class="row toppost my-2">
+                <div class="col-md-2 text-center fw-bold fs-2 ps-4">1</div>
+                <div class="col-md-10 ps-4">
+                  <div class="row fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </div>
+                  <div class="row text-info">CATEGORY - DATE</div>
+                </div>
+              </div>
+              <div class="row toppost my-2">
+                <div class="col-md-2 text-center fw-bold fs-2 ps-4">2</div>
+                <div class="col-md-10 ps-4">
+                  <div class="row fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </div>
+                  <div class="row text-info">CATEGORY - DATE</div>
+                </div>
+              </div>
+              <div class="row toppost my-2">
+                <div class="col-md-2 text-center fw-bold fs-2 ps-4">3</div>
+                <div class="col-md-10 ps-4">
+                  <div class="row fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </div>
+                  <div class="row text-info">CATEGORY - DATE</div>
+                </div>
+              </div>
+              <div class="row toppost my-2">
+                <div class="col-md-2 text-center fw-bold fs-2 ps-4">4</div>
+                <div class="col-md-10 ps-4">
+                  <div class="row fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </div>
+                  <div class="row text-info">CATEGORY - DATE</div>
+                </div>
+              </div>
+              <div class="row toppost my-2">
+                <div class="col-md-2 text-center fw-bold fs-2 ps-4">5</div>
+                <div class="col-md-10 ps-4">
+                  <div class="row fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </div>
+                  <div class="row text-info">CATEGORY - DATE</div>
+                </div>
+              </div>
+            </div>
+            <div class="row instagram d-flex gap-1 flex-wrap my-3">
+              <h4>Instagram</h4>
+              <div class="insta-img d-flex justify-content-between flex-wrap">
+                <img src="./assets/instagram/inst-1.png" alt="" class="mb-1" />
+
+                <img src="./assets/instagram/inst-2.png" alt="" class="mb-1" />
+
+                <img src="./assets/instagram/inst-3.png" alt="" class="mb-1" />
+
+                <img src="./assets/instagram/inst-4.png" alt="" class="mb-1" />
+
+                <img src="./assets/instagram/inst-5.png" alt="" class="mb-1" />
+
+                <img src="./assets/instagram/inst-6.png" alt="" class="mb-1" />
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="col-md-9">
+          <section class="d-flex flex-wrap" id="post-list">
+            <div class="col-md-6 mt-4 d-flex justify-content-center">
+              <div class="card mx-3">
+                <img
+                  src="https://picsum.photos/200"
+                  class="card-img-top"
+                  alt="..."
+                  id="post-img"
+                />
+                <div class="card-body">
+                  <h5 class="card-title" id="post-title">Başlık</h5>
+                  <div class="author-date text-info">
+                    <span id="post-author"> Yazar </span>
+                    <span id="post-date"> Date </span>
+                  </div>
+                  <p
+                    class="border border-primary mt-3 px-3 py-1 rounded-end-4 w-25"
+                    id="post-category"
+                  >
+                    Category
+                  </p>
+                  <p class="card-text" id="post-content">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+
+                  <div class="d-flex justify-content-end">
+                    <a href="#" class="btn btn-primary" id="readMore"
+                      >Read More</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mt-4 d-flex justify-content-center">
+              <div class="card mx-3">
+                <img
+                  src="https://picsum.photos/200"
+                  class="card-img-top"
+                  alt="..."
+                  id="post-img"
+                />
+                <div class="card-body">
+                  <h5 class="card-title" id="post-title">Başlık</h5>
+                  <div class="author-date text-info">
+                    <span id="post-author"> Yazar </span>
+                    <span id="post-date"> Date </span>
+                  </div>
+                  <p
+                    class="border border-primary mt-3 px-3 py-1 rounded-end-4 w-25"
+                    id="post-category"
+                  >
+                    Category
+                  </p>
+                  <p class="card-text" id="post-content">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+
+                  <div class="d-flex justify-content-end">
+                    <a href="#" class="btn btn-primary" id="readMore"
+                      >Read More</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mt-4 d-flex justify-content-center">
+              <div class="card mx-3">
+                <img
+                  src="https://picsum.photos/200"
+                  class="card-img-top"
+                  alt="..."
+                  id="post-img"
+                />
+                <div class="card-body">
+                  <h5 class="card-title" id="post-title">Başlık</h5>
+                  <div class="author-date text-info">
+                    <span id="post-author"> Yazar </span>
+                    <span id="post-date"> Date </span>
+                  </div>
+                  <p
+                    class="border border-primary mt-3 px-3 py-1 rounded-end-4 w-25"
+                    id="post-category"
+                  >
+                    Category
+                  </p>
+                  <p class="card-text" id="post-content">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+
+                  <div class="d-flex justify-content-end">
+                    <a href="#" class="btn btn-primary" id="readMore"
+                      >Read More</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mt-4 d-flex justify-content-center">
+              <div class="card mx-3">
+                <img
+                  src="https://picsum.photos/200"
+                  class="card-img-top"
+                  alt="..."
+                  id="post-img"
+                />
+                <div class="card-body">
+                  <h5 class="card-title" id="post-title">Başlık</h5>
+                  <div class="author-date text-info">
+                    <span id="post-author"> Yazar </span>
+                    <span id="post-date"> Date </span>
+                  </div>
+                  <p
+                    class="border border-primary mt-3 px-3 py-1 rounded-end-4 w-25"
+                    id="post-category"
+                  >
+                    Category
+                  </p>
+                  <p class="card-text" id="post-content">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+
+                  <div class="d-flex justify-content-end">
+                    <a href="#" class="btn btn-primary" id="readMore"
+                      >Read More</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <footer
+      class="text-center text-white mt-5"
+      style="background-color: #f1f1f1"
+    >
+      <!-- Grid container -->
+      <div class="container pt-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+
+          <!-- Twitter -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-twitter"></i
+          ></a>
+
+          <!-- Google -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-google"></i
+          ></a>
+
+          <!-- Instagram -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-instagram"></i
+          ></a>
+
+          <!-- Linkedin -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <!-- Github -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center text-dark p-3 bg-secondary"
+        style="background-color: rgba(0, 0, 0, 0.2)"
+      >
+        © 2020 Copyright:
+        <a class="text-dark" href="#">BloggY.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+    <script src="./src/request.js"></script>
+    <script src="./src/ui.js"></script>
+    <script src="./src/app.js"></script>
   </body>
 </html>
