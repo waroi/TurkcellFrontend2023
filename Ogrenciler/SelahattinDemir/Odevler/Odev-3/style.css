@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.card-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  animation: spin 2s linear infinite;
+}
+.card-img:hover {
+  animation-play-state: paused;
+}
+/* .img, picture{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+.card-img::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  bottom: -12px;
+  left: -12px;
+  background: linear-gradient(
+    135deg,
+    #96c0ff 0%,
+    #6c4f9d 25%,
+    #d42635 50%,
+    #f58437 75%,
+    #ffe295 100%
+  );
+  z-index: -6;
+  border-radius: 1000px;
+  transform: rotate(0deg);
+}
+.card-img::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  bottom: -6px;
+  left: -6px;
+  background-color: #141518;
+  z-index: -3;
+  border-radius: 1000px;
+}
+
+.card-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100ch;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  } /* 0. karede dönüş açısı 0 derecedir */
+  100% {
+    transform: rotate(360deg);
+  } /* 100. karede dönüş açısı 360 derecedir (tam bir tur) */
+}
