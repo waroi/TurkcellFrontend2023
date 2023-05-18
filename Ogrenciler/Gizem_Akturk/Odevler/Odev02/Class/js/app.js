@@ -1,5 +1,3 @@
-const storage = new LocalStorage();
-const ui = new UI();
 const book = new Book();
 
 const [
@@ -63,57 +61,33 @@ const [filterByAuthor, filterByCategory] = [
     'filter-category'
 ].map(id => document.getElementById(id));
 
-
 // Event Listeners
-eventListeners();
 
-function eventListeners() {
-    bookForm.addEventListener('submit', addBook);
-    deleteAllBooks.addEventListener('click', clearAllBooks);
-    document.addEventListener('DOMContentLoaded', showAllBooks);
+bookForm.addEventListener('submit', addBook);
+deleteAllBooks.addEventListener('click', clearAllBooks);
+document.addEventListener('DOMContentLoaded', showAllBooks);
 
-    filter.addEventListener('keyup', function (e) {
-        ui.searchBooks(e);
-    });
+filter.addEventListener('keyup', (e) => UI.searchBooks(e));
 
-    toggleForm.addEventListener('click', function () {
-        ui.toggleForm();
-    });
+toggleForm.addEventListener('click', () => UI.toggleForm());
 
-    modalSaveChanges.addEventListener('click', function (e) {
-        book.saveChanges(e);
-    });
+modalSaveChanges.addEventListener('click', (e) => book.saveChanges(e));
 
-    columnID.addEventListener('click', function () {
-        ui.sortBooksByID();
-    });
+columnID.addEventListener('click', () => UI.sortBooksByID());
 
-    columnBookName.addEventListener('click', function () {
-        ui.sortBooksByName();
-    });
+columnBookName.addEventListener('click', () => UI.sortBooksByName());
 
-    columnAuthor.addEventListener('click', function () {
-        ui.sortBooksByAuthor();
-    });
+columnAuthor.addEventListener('click', () => UI.sortBooksByAuthor());
 
-    columnCategory.addEventListener('click', function () {
-        ui.sortBooksByCategory();
-    });
+columnCategory.addEventListener('click', () => UI.sortBooksByCategory());
 
-    columnDate.addEventListener('click', function () {
-        ui.sortBooksByDate();
-    });
+columnDate.addEventListener('click', () => UI.sortBooksByDate());
 
-    // filter by author when value changed
-    filterByAuthor.addEventListener('change', function (e) {
-        ui.filterBooks(filterByAuthor.value, filterByCategory.value);
-    } );
+// filter by author when value changed
+filterByAuthor.addEventListener('change', (e) => UI.filterBooks(filterByAuthor.value, filterByCategory.value));
 
-    // filter by category when value changed
-    filterByCategory.addEventListener('change', function (e) {
-        ui.filterBooks(filterByAuthor.value, filterByCategory.value);
-    });
-}
+// filter by category when value changed
+filterByCategory.addEventListener('change', (e) => UI.filterBooks(filterByAuthor.value, filterByCategory.value));
 
 // Functions
 function addBook(e) {
@@ -121,59 +95,47 @@ function addBook(e) {
     resetFilter();
 }
 
-function deleteBook(e) {
-    book.deleteBook(e);
-    resetFilter();
-}
 
 function clearAllBooks(e) {
-    book.clearAllBooks(e);
-    resetFilter();
-}
-
-function previewBook(e) {
-    book.previewBook(e);
-}
-
-function editBook(e) {
-    book.editBook(e);
+    Book.clearAllBooks(e);
     resetFilter();
 }
 
 function showAllBooks() {
-    storage.showAllBooksFromLocalStorage();
+    LocalStorage.showAllBooksFromLocalStorage();
 }
+
 
 function resetFilter() {
     filterByAuthor.value = 'all';
     filterByCategory.value = 'all';
-    ui.filterBooks(filterByAuthor.value, filterByCategory.value);
+    UI.filterBooks(filterByAuthor.value, filterByCategory.value);
 }
 
 // Seed Data
 const book1 = new Book(1, 'The Alchemist', 'Paulo Coelho', 'Adventure', '1988', 'https://books.google.com.tr/books/publisher/content?id=PIEyCgAAQBAJ&hl=tr&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U0FAiU6SihRsZ_dr2fi-HxHmgh6Yg&w=1280');
 const book2 = new Book(2, 'The Kite Runner', 'Khaled Hosseini', 'Fiction', '2003', 'https://img.kitapyurdu.com/v1/getImage/fn:126812/wh:true/wi:800');
 
-// if don't have any book in local storage, add seed data
+// if don't have any book in local Storage, add seed data
 
 document.addEventListener('DOMContentLoaded', function () {
-    const books = storage.getBooksFromLocalStorage();
-    if (books.length === 0) {
-        storage.addBookToLocalStorage(book1);
-        storage.addBookToLocalStorage(book2);
+    const books = LocalStorage.getBooksFromLocalStorage();
+    books.length === 0 ? (
+        LocalStorage.addBookToLocalStorage(book1),
+        LocalStorage.addBookToLocalStorage(book2),
 
-        ui.addBookToUI(book1);
-        ui.addBookToUI(book2);
-    }
+        UI.addBookToUI(book1),
+        UI.addBookToUI(book2)
+    ) : null;
 
-    ui.toggleForm();
+    UI.toggleForm();
 
     // add options to filter by author
     fetchOptionsFilterByAuthor();
 });
 
 function fetchOptionsFilterByAuthor() {
-    const books = storage.getBooksFromLocalStorage();
+    const books = LocalStorage.getBooksFromLocalStorage();
     const authors = books.map(function (book) {
         return book.author;
     });
