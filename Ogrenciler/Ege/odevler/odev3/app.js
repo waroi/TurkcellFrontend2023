@@ -4,9 +4,9 @@ import blogCard from "./Constructors/blogCard.js";
 
 const blogRow = document.querySelector("#blog-row");
 const blogBody = document.querySelector("#blog-body");
+const blogHeading = document.querySelector("#blog-heading");
 
 const url = "http://localhost:3000/blogs";
-let blogs = [];
 
 updateDisplay();
 handleEventListeners();
@@ -28,12 +28,11 @@ function handleEventListeners() {
       const blogCard = e.target.closest(".col-lg-6");
       console.log(blogCard.id);
       Request.get(url)
-        .then(
-          (data) =>
-            (blogBody.textContent = data.find(
-              (item) => item.id == blogCard.id
-            ).text)
-        )
+        .then((data) => {
+          const blog = data.find((item) => item.id == blogCard.id);
+          blogBody.textContent = blog.text;
+          blogHeading.textContent = `In ${blog.title}, ${blog.author} says...`;
+        })
         .catch((err) => console.log(err));
     }
   });
