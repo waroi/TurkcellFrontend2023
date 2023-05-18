@@ -1,13 +1,13 @@
 class Request {
-  async get(url) {
+  static async get(url) {
     const response = await fetch(url);
     if (!response.ok) throw new Error("Veri alımında bir hata oluştu");
 
-    const data = await response.json();
-    return data;
+    const result = await response.json();
+    return result;
   }
 
-  async post(url, data) {
+  static async post(url, data) {
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -24,7 +24,7 @@ class Request {
     return result;
   }
 
-  async put(url, data, id) {
+  static async put(url, data, id) {
     const response = await fetch(`${url}/${id}`, {
       method: "PUT",
       headers: {
@@ -41,7 +41,7 @@ class Request {
     return result;
   }
 
-  async delete(url, id) {
+  static async delete(url, id) {
     const response = await fetch(`${url}/${id}`, {
       method: "DELETE",
     });

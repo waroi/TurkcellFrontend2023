@@ -1,53 +1,17 @@
 import Request from "./Classes/request.js";
+import Blog from "./Classes/blog.js";
+import blogCard from "./Constructors/blogCard.js";
 
-const request = new Request();
+const blogRow = document.querySelector("#blog-row");
 
 const url = "http://localhost:3000/blogs";
-const postData = {
-  author: "mEge Karam",
-  title: "mEge-Merver",
-  text: "morem mipsum molor",
-};
-const editedPostData = {
-  author: "lEge Karal",
-  title: "lEge-Lerver",
-  text: "lorem lipsum lolor",
-};
 
-// request
-//   .get("http://localhost:3000/blogs")
-//   .then((data) => console.log(data))
-//   .catch((err) => console.log(err));
+Request.get("http://localhost:3000/blogs")
+  .then((data) => updateDisplay(data))
+  .catch((err) => console.log(err));
 
-addData.addEventListener("click", () => {
-  request
-    .post(url, postData)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
+function updateDisplay(blogs) {
+  blogRow.innerHTML = "";
 
-editData.addEventListener("click", () => {
-  request
-    .put(url, editedPostData, 1)
-    .then((response) => {
-      console.log("Response:", response);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-});
-
-deleteData.addEventListener("click", () => {
-  request
-    .delete(url, 1)
-    .then((response) => {
-      console.log("Response:", response);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-});
+  blogRow.innerHTML += blogs.map((blog) => blogCard(blog));
+}
