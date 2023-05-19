@@ -1,7 +1,7 @@
 import Request from "./Classes/request.js";
 import Blog from "./Classes/blog.js";
-import blogCard from "./Constructors/blogCard.js";
-import createOption from "./Constructors/option.js";
+import blogCard from "./Components/blogCard.js";
+import createOption from "./Components/option.js";
 
 const blogRow = document.querySelector("#blog-row");
 const blogBody = document.querySelector("#blog-body");
@@ -15,6 +15,7 @@ const submitEditBtn = document.querySelector("#edit-btn");
 const addBtn = document.querySelector("#add-btn");
 const blogForm = document.querySelector("#blog-form");
 const categorySelect = document.querySelector("#category-select");
+const searchArea = document.querySelector("#search-area");
 
 const url = "http://localhost:3000/blogs";
 
@@ -124,6 +125,25 @@ function handleEventListeners() {
     } else filterByCategory(e.target.value);
     console.log("I am in event listener");
   });
+  searchArea.addEventListener("keyup", (e) => {
+    Request.get(url)
+      .then((data) => {
+        addBooksToUI(
+          data.filter(
+            (blog) =>
+              blog.author
+                .toLowerCase()
+                .includes(e.target.value.toLowerCase()) ||
+              blog.title.toLowerCase().includes(e.target.value.toLowerCase())
+          )
+        );
+      })
+      .catch((err) => console.log(err));
+    if (categorySelect.value != "") {
+      // console.log(categorySelect.value);
+      filterByCategory(categorySelect.value);
+    }
+  });
 }
 
 function submitEdit(blog) {
@@ -171,13 +191,14 @@ function filterByCategory(selectedCategory) {
   console.log("I am in filterByCategory");
   Request.get(url).then((data) => {
     data.map((blog) => {
-      const blogCard = document.getElementById(`${blog.id}`);
-      if (blog.category.toLowerCase() != selectedCategory.toLowerCase()) {
-        blogCard.classList.add("d-none");
-        console.log(blogCard);
-      } else {
-        // document.getElementById(`${blog.id}`).style.display = "unset";
-        blogCard.classList.remove("d-none");
+      const blogCard = document.querySelector(`#${blog.id}`);
+      if (blogCard) {
+        if (blog.category.toLowerCase() != selectedCategory.toLowerCase()) {
+          blogCard.classList.add("d-none");
+          console.log(blogCard);
+        } else {
+          blogCard.classList.remove("d-none");
+        }
       }
     });
   });

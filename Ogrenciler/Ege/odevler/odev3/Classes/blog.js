@@ -7,7 +7,7 @@ class Blog {
     this.releaseDate = releaseDate;
     this.releaseTime = releaseTime;
     this.image = image;
-    this.id = Date.now();
+    this.id = `ID_${Date.now()}`;
   }
 }
 
