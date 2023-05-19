@@ -1,4 +1,5 @@
-let UI = new UserInterface();
+const UI = new UserInterface();
+const storage = new StorageConstructor();
 isEdit = false;
 
 function getData() {
@@ -17,3 +18,8 @@ function getData() {
 const addPostArea = document.getElementById("addPostArea");
 addPostArea.addEventListener("click", UI.addBlog);
 
+// document.addEventListener("DOMContentLoaded", UI.loadUI);
+
+document.addEventListener("DOMContentLoaded", UI.sortValues);
+
+console.log(storage.getStoragefromJson());
