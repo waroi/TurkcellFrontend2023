@@ -11,6 +11,8 @@ const blogTextInp = document.querySelector("#blog-text");
 const blogImgInp = document.querySelector("#blog-image");
 const blogCatInp = document.querySelector("#blog-category");
 const submitEditBtn = document.querySelector("#edit-btn");
+const addBtn = document.querySelector("#add-btn");
+const blogForm = document.querySelector("#blog-form");
 
 const url = "http://localhost:3000/blogs";
 
@@ -52,9 +54,10 @@ function handleEventListeners() {
           blogTextInp.value = data.text;
           blogImgInp.value = data.image;
           blogCatInp.value = data.category;
+          currentBlog = data;
           submitEditBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            submitEdit(data);
+            submitEdit(currentBlog);
           });
         })
         .catch((err) => console.log(err));
@@ -70,6 +73,27 @@ function handleEventListeners() {
         });
       updateDisplay();
     }
+  });
+  addBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const today = new Date();
+    const postData = new Blog(
+      blogAuthorInp.value,
+      blogTitleInp.value,
+      blogTextInp.value,
+      blogCatInp.value,
+      today.getDate(),
+      today.getHours(),
+      blogImgInp.value
+    );
+    Request.post(url, postData)
+      .then((response) => {
+        console.log(response);
+        blogForm.reset();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   });
 }
 
@@ -87,6 +111,7 @@ function submitEdit(blog) {
   Request.put(url, editedPostData, blog.id)
     .then((response) => {
       console.log("Response:", response);
+      blogForm.reset();
     })
     .catch((error) => {
       console.error("Error:", error);
