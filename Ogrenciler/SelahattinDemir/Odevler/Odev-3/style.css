@@ -12,11 +12,24 @@ body {
 .card-img {
   width: 250px;
   height: 250px;
-  object-fit: cover;
   animation: spin 2s linear infinite;
+  animation-play-state: paused;
+}
+.music-img{
+ height: 100%;
+  object-fit: cover;
+}
+.music-name{
+  word-break: break-all;
+  min-height: 75px;
+}
+
+.manuel-shadow{
+  box-shadow: 0 0 9px 0 rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
 }
 .card-img:hover {
-  animation-play-state: paused;
+  animation-play-state: unset;
 }
 /* .img, picture{
   width: 100%;
