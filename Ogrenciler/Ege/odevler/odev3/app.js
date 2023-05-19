@@ -15,6 +15,7 @@ const submitEditBtn = document.querySelector("#edit-btn");
 const addBtn = document.querySelector("#add-btn");
 const blogForm = document.querySelector("#blog-form");
 const categorySelect = document.querySelector("#category-select");
+const sortSelect = document.querySelector("#sort-select");
 const searchArea = document.querySelector("#search-area");
 
 const url = "http://localhost:3000/blogs";
@@ -126,23 +127,10 @@ function handleEventListeners() {
     console.log("I am in event listener");
   });
   searchArea.addEventListener("keyup", (e) => {
-    Request.get(url)
-      .then((data) => {
-        addBooksToUI(
-          data.filter(
-            (blog) =>
-              blog.author
-                .toLowerCase()
-                .includes(e.target.value.toLowerCase()) ||
-              blog.title.toLowerCase().includes(e.target.value.toLowerCase())
-          )
-        );
-      })
-      .catch((err) => console.log(err));
-    if (categorySelect.value != "") {
-      // console.log(categorySelect.value);
-      filterByCategory(categorySelect.value);
-    }
+    search(e.target.value);
+  });
+  sortSelect.addEventListener("change", (e) => {
+    sort(e.target.value);
   });
 }
 
@@ -202,4 +190,56 @@ function filterByCategory(selectedCategory) {
       }
     });
   });
+}
+
+function search(searchValue) {
+  Request.get(url)
+    .then((data) => {
+      addBooksToUI(
+        data.filter(
+          (blog) =>
+            blog.author.toLowerCase().includes(searchValue.toLowerCase()) ||
+            blog.title.toLowerCase().includes(searchValue.toLowerCase())
+        )
+      );
+    })
+    .catch((err) => console.log(err));
+  if (categorySelect.value != "") filterByCategory(categorySelect.value);
+}
+
+function sort(sortType) {
+  Request.get(url).then((data) => {
+    if (sortType == "new-old") addBooksToUI([...data].sort(compareDates));
+    else if (sortType == "old-new")
+      addBooksToUI([...data].sort(compareDates).reverse());
+    else if (sortType == "title-a-z")
+      addBooksToUI([...data].sort(compareTitles));
+    else if (sortType == "title-z-a")
+      addBooksToUI([...data].sort(compareTitles).reverse());
+    else if (sortType == "author-a-z")
+      addBooksToUI([...data].sort(compareAuthors));
+    else if (sortType == "author-z-a")
+      addBooksToUI([...data].sort(compareAuthors).reverse());
+    else updateDisplay();
+  });
+
+  if (categorySelect.value != "") filterByCategory(categorySelect.value);
+}
+
+function compareDates(a, b) {
+  if (a.releaseDate.toLowerCase() > b.releaseDate.toLowerCase()) return 1;
+  if (a.releaseDate.toLowerCase() < b.releaseDate.toLowerCase()) return -1;
+  return 0;
+}
+
+function compareTitles(a, b) {
+  if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
+  if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
+  return 0;
+}
+
+function compareAuthors(a, b) {
+  if (a.author.toLowerCase() > b.author.toLowerCase()) return 1;
+  if (a.author.toLowerCase() < b.author.toLowerCase()) return -1;
+  return 0;
 }
