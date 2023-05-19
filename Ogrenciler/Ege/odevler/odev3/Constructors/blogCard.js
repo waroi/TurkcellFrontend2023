@@ -20,7 +20,7 @@ function blogCard(blog) {
           type="button"
           class="btn btn-primary see-blog"
           data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop"
+          data-bs-target="#blog-modal"
         >
           See in full
         </button>
