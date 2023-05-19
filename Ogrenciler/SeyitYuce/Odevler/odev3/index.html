@@ -19,7 +19,7 @@
 <body>
     <div class="d-lg-flex">
         <nav class="col-lg-3 navbar navbar-expand-lg border border-black d-lg-flex flex-column py-lg-5">
-            <div class="container-fluid d-lg-flex d-lg-flex flex-lg-column position-lg-fixed">
+            <div class="container-fluid d-lg-flex d-lg-flex flex-lg-column navCon">
                 <a class="navbar-brand" href="#">Bloğumsu</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -39,7 +39,7 @@
                         </li>
 
                         <li>
-                            <a href="#" type="button" class="btn btn-outline-secondary" id="addBtn"
+                            <a href="#" type="button" class="btn btn-outline-secondary" id="openAddModalBtn"
                                 data-bs-toggle="modal" data-bs-target="#addModal">
                                 Add New
                             </a>
@@ -48,6 +48,8 @@
                 </div>
             </div>
         </nav>
+
+        <!-- List of blogs -->
         <div class="container-lg col-12 col-lg-6 border border-black py-lg-5" id="blogList"> </div>
 
         <!-- addModal -->
@@ -62,46 +64,33 @@
                         <div class="input-group">
                             <span class="input-group-text w-25">Title</span>
                             <input type="text" aria-label="Title" class="form-control"
-                                placeholder="The Future of Artificial Intelligence">
+                                placeholder="The Future of Artificial Intelligence" id="addBlogTitle">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Content</span>
                             <input type="text" aria-label="Content" class="form-control"
-                                placeholder="Artificial Intelligence (AI) is rapidly evolving...">
+                                placeholder="Artificial Intelligence (AI) is rapidly evolving..." id="addBlogContent">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Author</span>
-                            <input type="text" aria-label="Author" class="form-control" placeholder="John Doe">
+                            <input type="text" aria-label="Author" class="form-control" placeholder="John Doe"
+                                id="addBlogAuthor">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Category</span>
-                            <input type="text" aria-label="Category" class="form-control" placeholder="Futuristic">
+                            <input type="text" aria-label="Category" class="form-control" placeholder="Futuristic"
+                                id="addBlogCategory">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Image Url</span>
                             <input type="text" aria-label="image-url" class="form-control"
-                                placeholder="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTbJ6q6nCvC-F8ctwjE8F_gh176HK1p-EcKg&usqp=CAU">
+                                placeholder="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTbJ6q6nCvC-F8ctwjE8F_gh176HK1p-EcKg&usqp=CAU"
+                                id="addBlogImageUrl">
                         </div>
-                        <!-- <div class="d-flex flex-column">
-                            <label class="fs-4" for="blog-content">Content</label>
-                            <input class="ps-2" type="text" id="blog-content" placeholder="content">
-                        </div> -->
-                        <!-- <div class="d-flex flex-column">
-                            <label class="fs-4" for="blog-author">Author</label>
-                            <input class="ps-2" type="text" id="blog-author" placeholder="author">
-                        </div> -->
-                        <!-- <div class="d-flex flex-column">
-                            <label class="fs-4" for="blog-category">Category</label>
-                            <input class="ps-2" type="text" id="blog-category" placeholder="category">
-                        </div>
-                        <div class="d-flex flex-column">
-                            <label class="fs-4" for="blog-image">Image Url</label>
-                            <input class="ps-2" type="text" id="blog-image" placeholder="image url">
-                        </div> -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary " id="addBlogBtn">Add New Blog</button>
                     </div>
                 </div>
             </div>
@@ -194,7 +183,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-primary">Yes</button>
+                        <button type="button" class="btn btn-primary" id="confirmDeleteBtn">Yes</button>
                     </div>
                 </div>
             </div>
@@ -209,52 +198,24 @@
             <div>
                 <h4>Categories</h4>
                 <ul class="list-group list-group-numbered list-group-flush" id="categoryList">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div type="button" class="ms-2 me-auto blog-category" data-category="all">All</div>
+                        <span class="badge bg-primary rounded-pill"></span>
+                    </li>
                 </ul>
             </div>
-            <div>
-                <h4>Archives</h4>
-                <ol class="list-group list-group-numbered list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto fw-bold">
-                            Subheading
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            Subheading
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            Subheading
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                    </li>
-                </ol>
-            </div>
-            <div>
-                <h4>Tags</h4>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto fw-bold">
-                            Subheading
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            Subheading
-
-                        </div>
-            </div>
         </div>
-    </div>
-    <script src="./index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
+        <i class="fa-regular fa-pen-to-square"></i> Edit
+   </button>
+   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="deleteBlogBtn">
+       <i class="fa-solid fa-trash"></i> Delete 
+   </button> -->
+        <script src="./index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
