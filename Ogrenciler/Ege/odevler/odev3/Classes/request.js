@@ -24,7 +24,7 @@ class Request {
     return result;
   }
 
-  static async put(url, data, id) {
+  static async put(url, data, id = "") {
     const response = await fetch(`${url}/${id}`, {
       method: "PUT",
       headers: {

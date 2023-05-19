@@ -1,6 +1,7 @@
 import Request from "./Classes/request.js";
 import Blog from "./Classes/blog.js";
 import blogCard from "./Constructors/blogCard.js";
+import createOption from "./Constructors/option.js";
 
 const blogRow = document.querySelector("#blog-row");
 const blogBody = document.querySelector("#blog-body");
@@ -13,20 +14,39 @@ const blogCatInp = document.querySelector("#blog-category");
 const submitEditBtn = document.querySelector("#edit-btn");
 const addBtn = document.querySelector("#add-btn");
 const blogForm = document.querySelector("#blog-form");
+const categorySelect = document.querySelector("#category-select");
 
 const url = "http://localhost:3000/blogs";
 
 let currentBlog;
+let currentBlogs = [];
 
+// Request.get(url)
+//   .then((data) => (currentBlogs = [...data]))
+//   .then((a) => console.log(currentBlogs))
+//   .catch((err) => console.log(err));
+
+// setTimeout(() => {
+//   console.log(currentBlogs);
+// }, 3000);
+
+// console.log(currentBlogs);
 updateDisplay();
+makeUniques();
 handleEventListeners();
 
 function addBooksToUI(blogs) {
+  console.log("I am in addBooksToUI");
   blogRow.innerHTML = "";
   blogRow.innerHTML += blogs.map((blog) => blogCard(blog)).join("");
+  // blogRow.innerHTML += blogs
+  //   .filter((blog) => blog.isVisible)
+  //   .map((blog) => blogCard(blog))
+  //   .join("");
 }
 
 function updateDisplay() {
+  console.log("I am in updateDisplay");
   Request.get(url)
     .then((data) => addBooksToUI(data))
     .catch((err) => console.log(err));
@@ -58,6 +78,7 @@ function handleEventListeners() {
           submitEditBtn.addEventListener("click", (e) => {
             e.preventDefault();
             submitEdit(currentBlog);
+            updateDisplay();
           });
         })
         .catch((err) => console.log(err));
@@ -94,6 +115,14 @@ function handleEventListeners() {
       .catch((error) => {
         console.error(error);
       });
+    updateDisplay();
+  });
+  categorySelect.addEventListener("change", (e) => {
+    e.preventDefault();
+    if (e.target.value == "") {
+      updateDisplay();
+    } else filterByCategory(e.target.value);
+    console.log("I am in event listener");
   });
 }
 
@@ -106,6 +135,7 @@ function submitEdit(blog) {
     releaseDate: blog.releaseDate,
     releaseTime: blog.releaseTime,
     image: blogImgInp.value,
+    isVisible: blog.isVisible,
     id: blog.id,
   };
   Request.put(url, editedPostData, blog.id)
@@ -116,4 +146,39 @@ function submitEdit(blog) {
     .catch((error) => {
       console.error("Error:", error);
     });
+}
+
+function uniqueCategories(blogs) {
+  const categoriesSet = new Set(
+    blogs.map((blog) => blog.category.toUpperCase())
+  );
+  categorySelect.innerHTML = "";
+  categorySelect.innerHTML += `<option value="">All</option>`;
+  categorySelect.innerHTML += Array.from(categoriesSet)
+    .map((category) => {
+      return createOption(category);
+    })
+    .join("");
+}
+
+function makeUniques() {
+  Request.get(url)
+    .then((data) => uniqueCategories(data))
+    .catch((err) => console.log(err));
+}
+
+function filterByCategory(selectedCategory) {
+  console.log("I am in filterByCategory");
+  Request.get(url).then((data) => {
+    data.map((blog) => {
+      const blogCard = document.getElementById(`${blog.id}`);
+      if (blog.category.toLowerCase() != selectedCategory.toLowerCase()) {
+        blogCard.classList.add("d-none");
+        console.log(blogCard);
+      } else {
+        // document.getElementById(`${blog.id}`).style.display = "unset";
+        blogCard.classList.remove("d-none");
+      }
+    });
+  });
 }
