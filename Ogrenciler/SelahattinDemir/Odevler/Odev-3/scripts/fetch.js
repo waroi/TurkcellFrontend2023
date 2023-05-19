@@ -39,8 +39,8 @@ class Fetch {
         "Content-type": "application/json",
       },
     });
-    const resData = await "Müzik Silindi.";
-    return resData;
+    const responseData = await response.json();
+    return responseData;
   }
 }
 

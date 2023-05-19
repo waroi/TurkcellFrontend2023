@@ -1,5 +1,6 @@
 import Music from "./Components/music.js";
 import Fetch from "./fetch.js";
+import Filter from "./filter.js";
 
 class UI {
   // static async formListenSubmitFromUI(e) {
@@ -78,6 +79,82 @@ class UI {
   //   }
   //   e.preventDefault();
   // }
+  // static async formListenSubmitFromUI(e) {
+  //   e.preventDefault();
+
+  //   const id = Date.now();
+  //   const musicName = document.getElementById("musicName").value.trim();
+  //   const musicCategory = document.getElementById("musicCategory").value.trim();
+  //   const musicDate = document.getElementById("musicDate").value.trim();
+  //   const musicClock = document.getElementById("musicClock").value.trim();
+  //   const musicWriter = document.getElementById("musicWriter").value.trim();
+  //   const musicTextContent = document
+  //     .getElementById("musicTextContent")
+  //     .value.trim();
+  //   const ImageUrl = document.getElementById("imgUrl").value.trim();
+  //   const button = document.getElementById("addOrEditButton");
+  //   const title = document.getElementById("booksModalLabel");
+  //   const request = new Fetch("http://localhost:3000/posts");
+
+  //   if (
+  //     musicName === "" ||
+  //     musicCategory === "" ||
+  //     musicDate === "" ||
+  //     musicClock === "" ||
+  //     musicWriter === "" ||
+  //     musicTextContent === "" ||
+  //     ImageUrl === ""
+  //   ) {
+  //     alert("Lütfen tüm alanları doldurunuz.");
+  //     return;
+  //   }
+
+  //   if (button.innerHTML === "Düzenle") {
+  //     const musicEditId = button.dataset.editMusicId;
+  //     const music = new Music(
+  //       musicEditId,
+  //       ImageUrl,
+  //       musicName,
+  //       musicCategory,
+  //       musicDate,
+  //       musicWriter,
+  //       musicClock,
+  //       musicTextContent
+  //     );
+
+  //     await request
+  //       .put(musicEditId, music)
+  //       .then((data) => {
+  //         console.log(data);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+
+  //     // Butonu düzenle
+  //     button.innerHTML = "Ekle";
+  //     button.className = "btn btn-success w-25";
+  //     delete button.dataset.editMusicId;
+
+  //     // Başlık düzenle
+  //     title.innerHTML = "Müzik Ekle";
+  //   } else {
+  //     const music = new Music(
+  //       id,
+  //       ImageUrl,
+  //       musicName,
+  //       musicCategory,
+  //       musicDate,
+  //       musicClock,
+  //       musicWriter,
+  //       musicTextContent
+  //     );
+
+  //     await request.post(music);
+  //     console.log(music);
+  //   }
+  // }
+
   static async formListenSubmitFromUI(e) {
     e.preventDefault();
 
@@ -92,7 +169,7 @@ class UI {
       .value.trim();
     const ImageUrl = document.getElementById("imgUrl").value.trim();
     const button = document.getElementById("addOrEditButton");
-    const title = document.getElementById("booksModalLabel");
+    const title = document.getElementById("musicModalLabel");
     const request = new Fetch("http://localhost:3000/posts");
 
     if (
@@ -117,10 +194,10 @@ class UI {
         musicCategory,
         musicDate,
         musicWriter,
-        musicClock,
-        musicTextContent
+        musicTextContent,
+        musicClock
       );
-
+      Filter.sortMusicsFromFilter(sort.value);
       await request
         .put(musicEditId, music)
         .then((data) => {
@@ -129,6 +206,8 @@ class UI {
         .catch((err) => {
           console.log(err);
         });
+
+      showMusic();
 
       // Butonu düzenle
       button.innerHTML = "Ekle";
@@ -145,21 +224,16 @@ class UI {
         musicCategory,
         musicDate,
         musicWriter,
-        musicClock,
-        musicTextContent
+        musicTextContent,
+        musicClock
       );
 
-      await request
-        .post(music)
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      Filter.sortMusicsFromFilter(sort.value);
+      await request.post(music);
+      showMusic();
     }
   }
-  static editBookFromUI(e) {
+  static editMusicFromUI(e) {
     if (e.target.classList.contains("fa-pen-to-square")) {
       const music = e.target.closest(".col-lg-3");
       const musicChangeId = music.id;
@@ -197,7 +271,7 @@ class UI {
     }
   }
 
-  static deleteBookFromUI(e) {
+  static deleteMusicFromUI(e) {
     if (e.target.classList.contains("fa-trash")) {
       const music = e.target.closest(".col-lg-3");
       const musicId = music.id;

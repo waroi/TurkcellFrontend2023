@@ -3,6 +3,7 @@ import Checkbox from "./Components/checkbox.js";
 import Fetch from "./fetch.js";
 import Detail from "./Components/detailModal.js";
 import UI from "./ui.js";
+import Filter from "./filter.js";
 
 const request = new Fetch("http://localhost:3000/posts");
 
@@ -23,20 +24,20 @@ function addEventListeners() {
   document.addEventListener("DOMContentLoaded", showAuthor);
   document.addEventListener("DOMContentLoaded", showCategory);
   addBookBtn.addEventListener("click", formListenSubmitEvent);
-  musicList.addEventListener("click", UI.deleteBookFromUI);
-  musicList.addEventListener("click", UI.editBookFromUI);
-  // sort.addEventListener("change", function () {
-  //   Filter.sortBooksFromFilter(this.value);
-  // });
-  // searchInput.addEventListener("keyup", function () {
-  //   Filter.searchBookFromFilter(this.value);
-  // });
-  // categoryForm.addEventListener("change", function () {
-  //   Filter.filterBooksFromFilter();
-  // });
-  // authorForm.addEventListener("change", function () {
-  //   Filter.filterBooksFromFilter();
-  // });
+  musicList.addEventListener("click", UI.deleteMusicFromUI);
+  musicList.addEventListener("click", UI.editMusicFromUI);
+  sort.addEventListener("change", function () {
+    Filter.sortMusicsFromFilter(this.value);
+  });
+  searchInput.addEventListener("keyup", function () {
+    Filter.searchMusicFromFilter(this.value);
+  });
+  categoryForm.addEventListener("change", function () {
+    Filter.filterMusicsFromFilter();
+  });
+  authorForm.addEventListener("change", function () {
+    Filter.filterMusicsFromFilter();
+  });
 }
 
 function formListenSubmitEvent(e) {

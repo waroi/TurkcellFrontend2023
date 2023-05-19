@@ -1,7 +1,7 @@
 class MusicCard {
   static addMusicFromMusicCard(music) {
     musicList.innerHTML += `
-    <div class="col-md-6 col-lg-3 my-5" id="${music.id}">
+    <div class="col-md-6 col-lg-3 my-5 px-3 " id="${music.id}">
       <div class="d-flex align-items-center justify-content-center">
         <a data-bs-toggle="modal" data-bs-target="#a${music.id}">
           <picture class="card-img position-relative d-block">
@@ -11,7 +11,7 @@ class MusicCard {
               type="image/webp"
             />
             <img
-              class="rounded-circle overflow-hidden w-100 d-block img-fluid"
+              class="rounded-circle music-img overflow-hidden w-100 d-block img-fluid"
               src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271%27%20height%3D%271%27%20style%3D%27background%3Atransparent%27%2F%3E"
               srcset="
               ${music.imageUrl}488w,
@@ -25,8 +25,8 @@ class MusicCard {
           </picture>
         </a>
       </div>
-      <div class="card-body mt-4">
-        <h3 class="card-title text-light">${music.name}</h3>
+      <div class="card-body manuel-shadow p-3 mt-4">
+        <h3 class="card-title music-name text-light">${music.name}</h3>
         <h6 class="text-center text-success fs-5">${music.writer}</h6>
         <p class="card-text overflow-hidden text-light">${music.textContent}</p>
         <p class="card-text text-truncate text-light">${music.category}</p>
