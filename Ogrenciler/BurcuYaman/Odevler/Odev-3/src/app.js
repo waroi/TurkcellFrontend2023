@@ -34,7 +34,6 @@ function eventListeners() {
     postList.addEventListener('click', readMorePost);
     searchInput.addEventListener('keyup', searchPost);
     categories.addEventListener('click', filterPost);
-    goHome.addEventListener('click', getAllItems);
     sortAz.addEventListener('click', sortPostAz);
     sortZa.addEventListener('click', sortPostZa);
     sortLatest.addEventListener('click', sortPostLatest);
@@ -83,34 +82,29 @@ function addPost(e) {
                 console.log(err);
             }
             );
-
-
-
     }
-
-    function deletePost(e) {
-    }
+    e.preventDefault();
 }
 
 function deletePost(e) {
+    console.log(e.target);
     if (e.target.id === 'deletePost') {
         console.log(e.target.parentElement.parentElement.parentElement.parentElement.getAttribute("id"))
-        ui.deletePostFromUI(e.target);
-        const id = e.target.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
+
+        const id = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
+        console.log(id);
         request
             .delete(id)
             .then((message) => {
                 console.log(message);
+                ui.deletePostFromUI(e.target);
             }
             )
             .catch((err) => {
                 console.log(err);
             }
             );
-
-
     }
-    e.preventDefault();
 };
 
 function updatePost(e) {
@@ -125,7 +119,8 @@ function updatePost(e) {
         const updateUrl = document.querySelector("#updateUrl");
         const updateDate = document.querySelector("#updateDate");
         const updateButton = document.querySelector("#updateButton");
-        const id = e.target.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
+        console.log(e.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id"))
+        const id = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
         const card = e.target.parentElement.parentElement.parentElement.parentElement;
         console.log(card);
         request
@@ -173,12 +168,9 @@ function updatePost(e) {
 function readMorePost(e) {
     if (e.target.id === 'readMore') {
         console.log(e.target.parentElement.parentElement.parentElement)
-
-
-
         ui.readMorePostFromUI(e.target.parentElement.parentElement.parentElement);
-
     }
+    e.preventDefault();
 }
 
 function searchPost(e) {
@@ -186,12 +178,88 @@ function searchPost(e) {
     ui.searchPostInUI(searchValue);
 }
 
-function filterPost(e) {
+const filteredPosts = [];
 
+function filterPost(e, filteredPosts) {
+    // goHome.addEventListener('click', getAllItems);
+    this.filteredPosts = filteredPosts;
+    filteredPosts = [];
     const category = e.target.id;
-    ui.filterPostInUI(category);
+    ui.filterPostInUI(category, filteredPosts);
+    e.preventDefault();
 }
 
 function sortPostAz(e) {
-    ui.sortPostAz();
+    const postList = document.querySelectorAll("#post-title");
+    const postListArray = Array.from(postList);
+    const sortedPosts = [];
+    postListArray.sort(function (a, b) {
+        return a.textContent.localeCompare(b.textContent);
+    }
+    );
+    postListArray.map(function (post) {
+        const card = post.parentElement.parentElement.parentElement;
+        if (card.style.display !== "none") {
+            sortedPosts.push(card);
+        }
+    });
+    ui.sortPost(sortedPosts);
+    e.preventDefault();
+}
+function sortPostZa(e) {
+    const postList = document.querySelectorAll("#post-title");
+    const postListArray = Array.from(postList);
+    const sortedPosts = [];
+    postListArray.sort(function (a, b) {
+        return b.textContent.localeCompare(a.textContent);
+    }
+    );
+
+    postListArray.map(function (post) {
+        const card = post.parentElement.parentElement.parentElement;
+        if (card.style.display !== "none") {
+            console.log(card);
+            sortedPosts.push(card);
+        }
+    });
+    ui.sortPost(sortedPosts);
+    e.preventDefault();
+}
+
+function sortPostLatest(e) {
+    const postList = document.querySelectorAll("#post-date");
+    const postListArray = Array.from(postList);
+    const sortedPosts = [];
+    postListArray.sort(function (a, b) {
+        return b.textContent.localeCompare(a.textContent);
+    }
+    );
+    postListArray.map(function (post) {
+        const card = post.parentElement;
+        if (card.parentElement.parentElement.parentElement.style.display !== "none") {
+            sortedPosts.push(card.parentElement.parentElement.parentElement);
+        }
+    });
+    ui.sortPost(sortedPosts);
+    e.preventDefault();
+}
+
+function sortPostOldest(e) {
+    const postList = document.querySelectorAll("#post-date");
+    const postListArray = Array.from(postList);
+    const sortedPosts = [];
+    postListArray.sort(function (a, b) {
+        return a.textContent.localeCompare(b.textContent);
+    }
+    );
+
+    postListArray.map(function (post) {
+        const card = post.parentElement;
+        if (card.parentElement.parentElement.parentElement.style.display !== "none") {
+            sortedPosts.push(card.parentElement.parentElement.parentElement);
+        }
+    });
+
+    ui.sortPost(sortedPosts);
+    e.preventDefault();
 }
