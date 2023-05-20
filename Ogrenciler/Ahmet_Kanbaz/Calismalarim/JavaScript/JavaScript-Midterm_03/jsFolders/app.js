@@ -25,6 +25,8 @@ const addNewBlogButton = document.getElementById('addBlogButton');
 
 const toast = document.getElementById("toastMessage");
 
+const categoriesFilter = document.getElementById('categoriesFilter');
+
 addEventListeners();
 
 
@@ -33,5 +35,6 @@ function addEventListeners() {
   addNewBlogButton.addEventListener('click', UI.clearModalForm);
   createNewBlogButton.addEventListener('click', Blogs.addBlog);
   blogsList.addEventListener('click', Blogs.detailBlog);
+  blogsList.addEventListener('click', Blogs.updateBlog);
   blogsList.addEventListener('click', Blogs.deleteBlog);
 }

@@ -13,11 +13,9 @@ class UI {
           </div>
           <div
             class="blogCardBack w-100 h-100 d-flex justify-content-evenly align-items-center position-absolute">
-            <a href="#" class="px-3 py-2 rounded" data-bs-toggle="modal"
-              data-bs-target="#addAndUpdateBlogModal"><span class="fa-solid fa-edit"></span></a>
-            <a href="#" class="px-3 py-2 rounded" data-bs-toggle="modal" data-bs-target="#infoBlogModal"><span
-                class="fa-solid fa-eye"></span></a>
-            <a href="#" class="px-3 py-2 rounded"><span class="fa-solid fa-trash"></span></a>
+            <span class="px-3 py-2 rounded fa-solid fa-edit" data-bs-toggle="modal" data-bs-target="#addAndUpdateBlogModal"></span>
+            <span class="fa-solid fa-eye px-3 py-2 rounded" data-bs-toggle="modal" data-bs-target="#infoBlogModal"></span>
+            <span class="fa-solid fa-trash px-3 py-2 rounded"></span>
           </div>
         </div>
       </div>
@@ -63,7 +61,48 @@ class UI {
     infoModalAuthor.textContent = detailBlog.author;
   }
 
+  static updateBlogToUI = function(updateBlogDetail) {
+    modalTitle.textContent = 'Blog Güncelle';
+    modalBlogName.value = updateBlogDetail.name;
+    modalAuthorName.value = updateBlogDetail.author;
+    modalBlogCategoryName.value = updateBlogDetail.category;
+    modalBlogContent.value = updateBlogDetail.content;
+    modalBlogImageUrl.value = updateBlogDetail.imageUrl;
+    updateBlogButton.style.display = 'block';
+    createNewBlogButton.style.display = 'none';
+    const currentDate = new Date();
+    updateBlogButton.addEventListener('click', function(e) {
+      let updateBlog = {
+        id: updateBlogDetail.id,
+        name: modalBlogName.value,
+        author: modalAuthorName.value,
+        category: modalBlogCategoryName.value,
+        content: modalBlogContent.value,
+        imageUrl: modalBlogImageUrl.value,
+        date:
+          currentDate.getDate() +
+          "/" +
+          (currentDate.getMonth() + 1) +
+          "/" +
+          currentDate.getFullYear() +
+          " " +
+          currentDate.getHours() +
+          ":" +
+          currentDate.getMinutes() +
+          ":" +
+          currentDate.getSeconds()
+        };
+        Request.updateBlogFromRequest(updateBlog.id, updateBlog);
+      e.preventDefault();
+    })
+  }
+
   static deleteBlogFromUI = function(deleteBlog) {
     deleteBlog.remove();
+  }
+
+  static showFilterCategories = function() {
+    const allBlogs = crud.get();
+    console.log(allBlogs);
   }
 }

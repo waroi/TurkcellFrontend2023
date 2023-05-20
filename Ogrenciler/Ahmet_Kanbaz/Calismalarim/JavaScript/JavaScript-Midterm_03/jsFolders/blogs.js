@@ -50,16 +50,24 @@ class Blogs {
   };
 
   static detailBlog = function(e) {
-    if(e.target.className === 'fa-solid fa-eye') {
-      const detailBlogId = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.id;
-      Request.getBlogDetailFromRequest(detailBlogId)
+    if(e.target.classList.contains('fa-eye')) {
+      const detailBlogId = e.target.parentElement.parentElement.parentElement.parentElement.id;
+      Request.getBlogDetailFromRequest(detailBlogId);
+    }
+    e.preventDefault();
+  }
+
+  static updateBlog = function(e) {
+    if(e.target.classList.contains('fa-edit')) {
+      const updateBlogId = e.target.parentElement.parentElement.parentElement.parentElement.id;
+      Request.updateBlogDetailFromRequest(updateBlogId);
     }
     e.preventDefault();
   }
 
   static deleteBlog = function(e) {
-    if(e.target.className === 'fa-solid fa-trash') {
-      const deleteBlog = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+    if(e.target.classList.contains('fa-trash')) {
+      const deleteBlog = e.target.parentElement.parentElement.parentElement.parentElement;
       if(confirm('Blogu silmek istediğinize emin misiniz?')) {
         UI.deleteBlogFromUI(deleteBlog);
         Request.deleteBlogFromRequest(deleteBlog.id);
