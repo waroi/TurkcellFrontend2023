@@ -21,18 +21,7 @@ const searchArea = document.querySelector("#search-area");
 const url = "http://localhost:3000/blogs";
 
 let currentBlog;
-let currentBlogs = [];
 
-// Request.get(url)
-//   .then((data) => (currentBlogs = [...data]))
-//   .then((a) => console.log(currentBlogs))
-//   .catch((err) => console.log(err));
-
-// setTimeout(() => {
-//   console.log(currentBlogs);
-// }, 3000);
-
-// console.log(currentBlogs);
 updateDisplay();
 makeUniques();
 handleEventListeners();
@@ -41,10 +30,6 @@ function addBooksToUI(blogs) {
   console.log("I am in addBooksToUI");
   blogRow.innerHTML = "";
   blogRow.innerHTML += blogs.map((blog) => blogCard(blog)).join("");
-  // blogRow.innerHTML += blogs
-  //   .filter((blog) => blog.isVisible)
-  //   .map((blog) => blogCard(blog))
-  //   .join("");
 }
 
 function updateDisplay() {
@@ -217,16 +202,20 @@ function sort(sortType) {
       addBooksToUI([...data].sort(compareAuthors));
     else if (sortType == "author-z-a")
       addBooksToUI([...data].sort(compareAuthors).reverse());
-    else updateDisplay();
+    else addBooksToUI([...data]);
   });
 
   if (categorySelect.value != "") filterByCategory(categorySelect.value);
 }
 
 function compareDates(a, b) {
-  if (a.releaseDate.toLowerCase() > b.releaseDate.toLowerCase()) return 1;
-  if (a.releaseDate.toLowerCase() < b.releaseDate.toLowerCase()) return -1;
-  return 0;
+  if (a.releaseDate.toLowerCase() > b.releaseDate.toLowerCase()) return -1;
+  else if (a.releaseDate.toLowerCase() < b.releaseDate.toLowerCase()) return 1;
+  else {
+    if (a.releaseTime > b.releaseTime) return -1;
+    else if (a.releaseTime < b.releaseTime) return 1;
+    else return 0;
+  }
 }
 
 function compareTitles(a, b) {
