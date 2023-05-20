@@ -35,8 +35,10 @@
 
             <a class="fs-5 pointer" id="signIn">Sign In</a>
           </div>
-          <div class="col-md-8 logo d-flex justify-content-center">
-            <img src="./assets/logo.png" alt="logo" />
+          <div
+            class="col-md-8 logo d-flex justify-content-center align-item-center"
+          >
+            <img src="./assets/logo.png" alt="logo" class="mt-2" />
           </div>
           <div
             class="col-md-2 socialicons d-flex justify-content-end gap-3 my-auto"
@@ -116,7 +118,7 @@
       aria-labelledby="addNewPostModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header bg-primary text-light">
             <h1 class="modal-title fs-5" id="addNewPostModalLabel">
@@ -152,12 +154,24 @@
                 <label for="postCategoryInput" class="form-label"
                   >In which category will you write?
                 </label>
-                <input
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  id="postCategoryInput"
+                >
+                  <option value="Culture" selected>Culture</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Science">Science</option>
+                  <option value="Music">Music</option>
+                  <option value="Sport">Sport</option>
+                </select>
+
+                <!-- <input
                   type="text"
                   class="form-control"
                   id="postCategoryInput"
                   placeholder="e.g. Technology, Science, Culture, Music, Sport etc."
-                />
+                /> -->
               </div>
               <div class="mb-3">
                 <label for="postContentInput" class="form-label"
@@ -221,9 +235,7 @@
       </nav>
 
       <div class="row sortBy justify-content-end gap-3 mt-4 me-1">
-        <div
-          class="w-25 d-flex justify-content-start mobileFilter d-none categories"
-        >
+        <div class="w-25 d-flex justify-content-start mobileFilter d-none">
           <div class="dropdown">
             <button
               class="btn btn-secondary dropdown-toggle"
@@ -233,46 +245,27 @@
             >
               Filter
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu mobileCategories">
               <li>
-                <a
-                  class="dropdown-item categorie text-light"
-                  href="#"
-                  id="culture"
+                <a class="dropdown-item categorie" href="#" id="culture"
                   >Culture</a
                 >
               </li>
               <li>
-                <a
-                  class="dropdown-item categorie text-light"
-                  href="#"
-                  id="technology"
+                <a class="dropdown-item categorie" href="#" id="technology"
                   >Technology</a
                 >
               </li>
               <li>
-                <a
-                  class="dropdown-item categorie text-light"
-                  href="#"
-                  id="science"
+                <a class="dropdown-item categorie" href="#" id="science"
                   >Science</a
                 >
               </li>
               <li>
-                <a
-                  class="dropdown-item categorie text-light"
-                  href="#"
-                  id="music"
-                  >Music</a
-                >
+                <a class="dropdown-item categorie" href="#" id="music">Music</a>
               </li>
               <li>
-                <a
-                  class="dropdown-item categorie text-light"
-                  href="#"
-                  id="sport"
-                  >Sport</a
-                >
+                <a class="dropdown-item categorie" href="#" id="sport">Sport</a>
               </li>
             </ul>
           </div>
@@ -340,7 +333,6 @@
                 </button>
               </div> -->
             </div>
-
             <div class="row categories mt-3">
               <h4>Categories</h4>
               <div
@@ -382,7 +374,7 @@
                   <div class="row fw-bold">
                     Lorem ipsum dolor sit amet consectetur adipisicing.
                   </div>
-                  <div class="row text-info">CATEGORY - DATE</div>
+                  <div class="row text-info">TECHNOLOGY - 01.02.2023</div>
                 </div>
               </div>
               <div class="row toppost my-2">
@@ -391,7 +383,7 @@
                   <div class="row fw-bold">
                     Lorem ipsum dolor sit amet consectetur adipisicing.
                   </div>
-                  <div class="row text-info">CATEGORY - DATE</div>
+                  <div class="row text-info">CULTURE - 12.02.2023</div>
                 </div>
               </div>
               <div class="row toppost my-2">
@@ -400,7 +392,7 @@
                   <div class="row fw-bold">
                     Lorem ipsum dolor sit amet consectetur adipisicing.
                   </div>
-                  <div class="row text-info">CATEGORY - DATE</div>
+                  <div class="row text-info">MUSIC - 25.03.2023</div>
                 </div>
               </div>
               <div class="row toppost my-2">
@@ -409,7 +401,7 @@
                   <div class="row fw-bold">
                     Lorem ipsum dolor sit amet consectetur adipisicing.
                   </div>
-                  <div class="row text-info">CATEGORY - DATE</div>
+                  <div class="row text-info">SPORT - 26.04.2023</div>
                 </div>
               </div>
               <div class="row toppost my-2">
@@ -418,13 +410,13 @@
                   <div class="row fw-bold">
                     Lorem ipsum dolor sit amet consectetur adipisicing.
                   </div>
-                  <div class="row text-info">CATEGORY - DATE</div>
+                  <div class="row text-info">SCIENCE - 09.05.2023</div>
                 </div>
               </div>
             </div>
             <div class="row instagram d-flex gap-1 flex-wrap my-3">
               <h4>Instagram</h4>
-              <div class="insta-img d-flex justify-content-between flex-wrap">
+              <div class="insta-img d-flex justify-content-around flex-wrap">
                 <img src="./assets/instagram/inst-1.png" alt="" class="mb-1" />
 
                 <img src="./assets/instagram/inst-2.png" alt="" class="mb-1" />
@@ -436,6 +428,80 @@
                 <img src="./assets/instagram/inst-5.png" alt="" class="mb-1" />
 
                 <img src="./assets/instagram/inst-6.png" alt="" class="mb-1" />
+              </div>
+            </div>
+            <div class="row">
+              <div
+                id="carouselPost"
+                class="carousel slide"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-indicators">
+                  <button
+                    type="button"
+                    data-bs-target="#carouselPost"
+                    data-bs-slide-to="0"
+                    class="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#carouselPost"
+                    data-bs-slide-to="1"
+                    aria-label="Slide 2"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#carouselPost"
+                    data-bs-slide-to="2"
+                    aria-label="Slide 3"
+                  ></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="./assets/music.png"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                      <p>
+                        Some representative placeholder content for the first
+                        slide.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="./assets/science.png"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>
+                        Some representative placeholder content for the second
+                        slide.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="./assets/sport.png"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>
+                        Some representative placeholder content for the third
+                        slide.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </aside>
@@ -486,12 +552,17 @@
                 <label for="updateCategory" class="form-label"
                   >In which category will you write?
                 </label>
-                <input
-                  type="text"
-                  class="form-control"
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
                   id="updateCategory"
-                  placeholder="e.g. Technology, Science, Culture, Music, Sport etc."
-                />
+                >
+                  <option value="Culture" selected>Culture</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Science">Science</option>
+                  <option value="Music">Music</option>
+                  <option value="Sport">Sport</option>
+                </select>
               </div>
               <div class="mb-3">
                 <label for="updateContent" class="form-label"
@@ -546,10 +617,7 @@
       </div>
     </div>
 
-    <footer
-      class="text-center text-white mt-5"
-      style="background-color: #f1f1f1"
-    >
+    <footer class="text-center text-white mt-5 bg-body-tertiary">
       <div class="container pt-4">
         <section class="mb-4">
           <a
@@ -602,10 +670,7 @@
         </section>
       </div>
 
-      <div
-        class="text-center text-dark p-3 bg-secondary"
-        style="background-color: rgba(0, 0, 0, 0.2)"
-      >
+      <div class="text-center text-dark p-3 bg-secondary">
         © 2020 Copyright:
         <a class="text-dark" href="#">BloggY.com</a>
       </div>

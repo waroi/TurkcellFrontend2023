@@ -12,6 +12,7 @@ const updateButton = document.querySelector("#updatePost");
 const readMore = document.querySelector("#readMore");
 const searchInput = document.querySelector('#searchInput');
 const categories = document.querySelector('.categories');
+const mobileCategories = document.querySelector('.mobileCategories');
 const goHome = document.querySelector('#goHome');
 const sortAz = document.querySelector('#sortAz');
 const sortZa = document.querySelector('#sortZa');
@@ -34,6 +35,7 @@ function eventListeners() {
     postList.addEventListener('click', readMorePost);
     searchInput.addEventListener('keyup', searchPost);
     categories.addEventListener('click', filterPost);
+    mobileCategories.addEventListener('click', filterPost);
     sortAz.addEventListener('click', sortPostAz);
     sortZa.addEventListener('click', sortPostZa);
     sortLatest.addEventListener('click', sortPostLatest);
@@ -187,6 +189,7 @@ const filteredPosts = [];
 
 function filterPost(e, filteredPosts) {
     // goHome.addEventListener('click', getAllItems);
+    console.log("dsadsa")
     this.filteredPosts = filteredPosts;
     filteredPosts = [];
     const category = e.target.id;

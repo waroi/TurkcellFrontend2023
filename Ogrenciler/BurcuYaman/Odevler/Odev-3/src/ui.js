@@ -8,8 +8,8 @@ class UI {
   }
   addPostToUI(post) {
     const postList = document.getElementById("post-list");
-    postList.innerHTML += `<div class="col-md-4 mt-4 d-flex justify-content-center" id=${post.id}> 
-        <div class="card mx-3 w-100 postCard" >
+    postList.innerHTML += `<div class="col-md-4 mt-4 d-flex justify-content-center postCard" id=${post.id}> 
+        <div class="card mx-3 w-100 " >
         <img
           src="${post.url}"
           class="card-img-top overflow-hidden"
@@ -23,7 +23,7 @@ class UI {
             <div id="post-date"> ${post.date} </div>
           </div>
           <p
-            class="border border-primary mt-3 px-3 py-1 rounded-end-4 w-50"
+            class="border border-primary mt-3 px-3 py-1 rounded-end-4 w-50 bg-secondary"
             id="post-category"
           >
           ${post.category}
@@ -73,8 +73,8 @@ class UI {
   }
 
   updatePostFromUI(post, card) {
-    card.innerHTML = `<div class="col-md-4 mt-4 d-flex justify-content-center" id=${post.id}> 
-    <div class="card mx-3 w-100 postCard" >
+    card.innerHTML = `<div class="col-md-4 mt-4 d-flex justify-content-center postCard" id=${post.id}> 
+    <div class="card mx-3 w-100 " >
     <img
       src="${post.url}"
       class="card-img-top overflow-hidden"
@@ -143,7 +143,7 @@ class UI {
       aria-label="Close"
     ></button>
   </div>
-  <div class="modal-body">
+  <div class="modal-body p-5">
     <div class="row" id="postContentInModal">
      
         <img
@@ -153,14 +153,14 @@ class UI {
         />
     
       <div class="row" id="postInfo">
-        <h2 id="postTitleInModal" class="fw-bold">${postTitle}</h2>
+        <h2 id="postTitleInModal" class="fw-bold mt-4">${postTitle}</h2>
         <div class="div d-flex gap-4 text-info">
           <p id="postAuthorInModal">${postAuthor}</p>
           <p id="postDateInModal">${postDate}</p>
         </div>
         <p
           id="postCategoryInModal"
-          class="border border-primary mt-3 px-3 py-1 rounded-end-4 w-25"
+          class="border border-primary mt-3 ms-2 px-3 py-1 rounded-end-4 w-25 bg-secondary"
         >${postCategory}</p>
         <p id="postContentInModal"> ${postContent}</p>
       </div>
@@ -227,8 +227,8 @@ class UI {
       const category = post.children[0].children[1].children[2].textContent;
       const content = post.children[0].children[1].children[3].textContent;
 
-      postList.innerHTML += `<div class="col-md-4 mt-4 d-flex justify-content-center" id=${id}> 
-      <div class="card mx-3 w-100 postCard" >
+      postList.innerHTML += `<div class="col-md-4 mt-4 d-flex justify-content-center postCard" id=${id}> 
+      <div class="card mx-3 w-100 " >
       <img
         src="${url}"
         class="card-img-top overflow-hidden"
