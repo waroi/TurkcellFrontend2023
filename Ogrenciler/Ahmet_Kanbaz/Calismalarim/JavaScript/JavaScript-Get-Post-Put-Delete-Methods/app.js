@@ -46,14 +46,14 @@ function updateBlog() {
     authorId: 4,
     categoryId: 5
   };
-  request.put(1, updateBlog)
+  request.put(5, updateBlog)
     .then(updateBlog => console.log(updateBlog))
     .catch(err => console.log(err));
 
 }
 
 function deleteBlog() {
-  request.delete(1)
+  request.delete(5)
     .then((response) => console.log(response))
     .catch((error) => console.log(error));
 }
