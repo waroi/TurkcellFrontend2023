@@ -37,13 +37,12 @@ class UI {
                     t.blogWriter.toLowerCase().indexOf(inputValue) > -1) {
                     ui.displayCompareResult(t)
                     console.log("buldu")
+                    spesificSearchDatas = []
                 }
             })
         }
-        else {
-            console.log("yok")
-        }
-        spesificSearchDatas = []
+        console.log("Anlık", spesificSearchDatas)
+
     }
     displayCompareResult(oneData) {
         allBlogs.innerHTML += this.createTag(oneData)
@@ -87,7 +86,7 @@ class UI {
         searchBlogInput.addEventListener("focus", () => { searchBlogInput.value = "" })
     }
     globalCompare(globalDatas, inputValue) {
-        allBlogs.innerHTML=""
+        allBlogs.innerHTML = ""
         console.log(globalDatas)
         globalDatas.forEach(x => {
             if (inputValue != null) {
@@ -159,20 +158,12 @@ class UI {
         })
     }
     showDefaultInfo(data) {
-        // const defaultBlogName = document.getElementById("defaultBlogName");
-        // const defaultBlogWriter = document.getElementById("defaultBlogWriter");
-        // const defaultBlogText = document.getElementById("defaultBlogText");
-        // const defaultBlogCategory = document.getElementById("defaultBlogCategory");
-        // const defaultBlogPicture = document.getElementById("defaultBlogPicture");
-
-        // console.log(data.blogName)
-
         defaultBlogID.value = data.id
-        defaultBlogName.value = data.blogName;
-        defaultBlogWriter.value = data.blogWriter;
-        defaultBlogText.value = data.blogText;
-        defaultBlogCategory.value = data.blogCategory;
-        defaultBlogPicture.value = data.blogPicture;
+        document.getElementById("defaultBlogName").value = data.blogName;
+        document.getElementById("defaultBlogWriter").value = data.blogWriter;
+        document.getElementById("defaultBlogText").value = data.blogText;
+        document.getElementById("defaultBlogCategory").value = data.blogCategory;
+        document.getElementById("defaultBlogPicture").value = data.blogPicture;
 
         //Burayı silebilirim
         editBlogID.value = data.id
@@ -186,14 +177,9 @@ class UI {
                 data.forEach(x => {
                     allCategories.push(x.blogCategory)
                     const uniquecategoryTags = new Set();
-                    // const uniqueTypeTags = new Set();
 
                     allCategories.forEach(uniquecategoryTags.add, uniquecategoryTags);
-                    // typeTags.forEach(uniqueTypeTags.add, uniqueTypeTags);
-
-                    blogCategories.innerHTML = "";
-                    // typeFilterTag.innerHTML = "";
-                    blogCategories.innerHTML += `
+                    blogCategories.innerHTML = `
                         <div class="p-0 m-0">
                             <input type="radio" id="all" checked name="name" class="form-check-input filter-writer-tag">
                             <label for="filterCheckBox">Hepsi</label>
@@ -207,15 +193,6 @@ class UI {
                             
                         </div>`;
                     }
-
-                    // for (let eachTypeTag of uniqueTypeTags) {
-                    //     typeFilterTag.innerHTML += `
-                    //     <div class="p-0 m-0">
-                    //         <input type="radio" name="name" class="form-check-input filter-tag">
-                    //         <label for="filterCheckBox">${eachTypeTag}</label>
-                    //     </div>
-                    //     `;
-                    // }
                 })
             })
             .catch((err) => console.log(err));
@@ -239,50 +216,113 @@ class UI {
                 })
             })
             .catch((err) => console.log(err));
-        // // let filteredArray = [];
-        // allBooksOnLocalStorage.forEach(x => {
-        //     if (x.bookType.toLowerCase() == filterWord || x.bookWriter.toLowerCase() == filterWord) {
-        //         // filteredArray.push(x);
-        //         // console.log(filteredArray)
-        //         ui.displayBookOnHtml(x)
-        //     }
-        // })
+    }
+
+    displayGlobalSearch() {
+
+    }
+    globalSortBlogs(sortTypeID) {
+        console.log(spesificSearchDatas)
+        if (sortTypeID == "azSort") {
+            let azSortDatas =
+                spesificSearchDatas
+                    .map(x => x)
+                    .sort((a, b) => (a.blogName > b.blogName) ? 1 : ((b.blogName > a.blogName) ? -1 : 0))
+            allBlogs.innerHTML = "";
+
+            ui.displayAllPosts(azSortDatas);
+        }
+        else if (sortTypeID == "zaSort") {
+            let azSortDatas =
+                spesificSearchDatas
+                    .map(x => x)
+                    .sort((a, b) => (a.blogName < b.blogName) ? 1 : ((b.blogName < a.blogName) ? -1 : 0))
+            allBlogs.innerHTML = "";
+
+            ui.displayAllPosts(azSortDatas);
+
+        }
+
+        else if (sortTypeID == "dateSortIncrease") {
+            let azSortDatas =
+                spesificSearchDatas
+                    .map(x => x)
+                    .sort((a, b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0))
+            allBlogs.innerHTML = "";
+
+            ui.displayAllPosts(azSortDatas);
+
+        }
+
+        else if (sortTypeID == "dateSortDescend") {
+            let azSortDatas =
+                spesificSearchDatas
+                    .map(x => x)
+                    .sort((a, b) => (a.date < b.date) ? 1 : ((b.date < a.date) ? -1 : 0))
+            allBlogs.innerHTML = "";
+
+            ui.displayAllPosts(azSortDatas);
 
 
-        // allBooksOnLocalStorage = filteredArray
-        // this.checkInformationAllPage()
-        // filteredArray.forEach(x => { ui.displayBookOnHtml(x) })
+        }
+        // if (sortTypeID == "azSort") {
+        //     allBlogs.innerHTML="";
+
+        //     http
+        //         .get('http://localhost:3000/posts?_sort=blogName')
+        //         .then((data) => {
+        //             ui.displayAllPosts(data)
+        //         })
+        //         .catch((err) => console.log(err));
+        // }
+        // else if (sortTypeID == "zaSort") {
+        //     allBlogs.innerHTML="";
+
+        // }
+        // else if (sortTypeID == "dateSortIncrease") {
+        //     allBlogs.innerHTML="";
+
+        // }
+        // else if (sortTypeID == "dateSortDescend") {
+        //     allBlogs.innerHTML="";
+        //     http
+        //     .get('http://localhost:3000/posts?_sort=date&_order=desc')
+        //     .then((data) => {
+        //         ui.displayAllPosts(data)
+        //     })
+        //     .catch((err) => console.log(err));
+        // }
+        // else {
 
 
+        // }
     }
 
     createTag(b) {
         return `
-      <div class="col-12 col-sm-6 col-lg-4 mb-4 ">
-        <div class="card h-100  border border-1 border-dark my-3 " id="${b.id}">
-
-            <div class="text-center">
-            resim
-                <img src="${b.blogPicture}" class="card-img-top img-fluid " alt="${b.blogPicture}">
-            </div>
-            <div class="card-body  text-dark bottom-0 w-100 bg-light opacity-100">
-            <h5 class="card-title m-0 fw-bold">${b.blogName}</h5>
-
-                <h5 class="card-title m-0 fw-bold">${b.blogWriter}</h5>
-                <span class="card-text">date: ${b.date}</span>
-                <p class="card-text  mb-3 fw-semibold">text:   ${b.blogText}</p>
-                <div class="d-flex justify-content-between mb-3">
-                    <span class="card-text">category: ${b.blogCategory}</span>
-                    <span class="card-text">id: ${b.id}</span>
-                    
+      <div class="col-12 col-sm-6 col-lg-3 mb-4 ">
+        <div class="card h-100 my-3 position-relative" id="${b.id}">
+                <img src="${b.blogPicture}" class="card-img-top blog-img-specs img-fluid " alt="${b.blogPicture}">
+          
+            <div class="card-body text-black mb-0 pb-0 position-absolute w-100 bottom-0 bg-light">
+            <h5 class="card-title fs-3 m-0 fw-bold">${b.blogName}</h5>
+                <h5 class="card-title fs-2 m-0 fw-bold">${b.blogWriter}</h5>
+                <p class="card-text fs-1 my-2 "> ${b.blogText}</p>
+                <span class="card-text fs-1"> ${b.blogCategory}</span>
+                <div class="text-end mb-1">
+                    <p class="card-text  m-0 p-0 fs-8"> ${b.date}</p>
 
                 </div>
-                <div class=" d-flex ">
-                    <button class="btn btn-danger w-50 me-2 delete-btn">Sil</button>
-                    <button type="button" class="btn btn-primary w-50 ms-2 edit-btn" data-bs-toggle="modal"
+                <hr class="text-danger m-0">
+                <div class=" d-flex justify-content-around ">
+                
+                    <button class="btn  inspect-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button type="button" class="btn edit-btn" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">
-                        Düzenle
+                        <i class="fa-solid fa-pencil"></i>
                     </button>
+                    <button class="btn delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                    
                     <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

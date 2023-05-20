@@ -8,7 +8,6 @@
 - arama (başlık ve yazara göre) inputu olacak, listede filtreleme yapacak
 
 
-
 - Yeni blog yazısı oluşturabilecek
 - var olan bir yazıyı güncelleyebilecek
 - seçtiği yazıyı silebilecek

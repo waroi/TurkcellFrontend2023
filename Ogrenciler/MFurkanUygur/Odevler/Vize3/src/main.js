@@ -1,8 +1,7 @@
-document.addEventListener("DOMContentLoaded", getPosts)
-
 const http = new Http()
 const ui = new UI()
 
+document.addEventListener("DOMContentLoaded", getPosts)
 function getPosts() {
     http
         .get('http://localhost:3000/posts')
@@ -57,12 +56,11 @@ function addPost() {
     }
 
 }
-const allFilterTag = document.getElementById("all")
-console.log(allFilterTag)
+
 const blogCategoriesBtn = document.querySelectorAll("#blogCategories");
-filterCaategoryBtn(blogCategoriesBtn);
+filterCategoryBtn(blogCategoriesBtn);
 //Filter buttonları
-function filterCaategoryBtn(blogCategoriesBtn) {
+function filterCategoryBtn(blogCategoriesBtn) {
     blogCategoriesBtn.forEach(e => {
         e.addEventListener("click", (f) => {
             let filterCategoryName = f.target.parentElement.children[1].innerHTML;
@@ -71,7 +69,15 @@ function filterCaategoryBtn(blogCategoriesBtn) {
         })
     })
 }
-
+sortTitles = document.querySelectorAll("option");
+sortTitles.forEach(s => {
+    s.addEventListener("click", sortType)
+})
+function sortType(sortType) {
+    let tempSortTypeID = sortType.explicitOriginalTarget.id;
+    console.log(tempSortTypeID)
+    ui.globalSortBlogs(tempSortTypeID)
+}
 
 // const clearFilterBtn = document.getElementById("clearFilters");
 // clearFilterBtn.addEventListener("click", () => {
