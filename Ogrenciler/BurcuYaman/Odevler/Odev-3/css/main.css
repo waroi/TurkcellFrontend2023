@@ -11859,6 +11859,19 @@ a {
   cursor: pointer;
 }
 
+#alert {
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+#alert .alert {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+}
+
 .topnav {
   overflow-x: hidden;
   margin: 0;
@@ -11867,6 +11880,17 @@ a {
 }
 .topnav .logo img {
   width: 200px;
+}
+.topnav a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 4px;
+  background: #37005d;
+  transition: width 0.3s;
+}
+.topnav a:hover::after {
+  width: 100%;
 }
 
 .container .banner {
@@ -11921,6 +11945,24 @@ a {
 .container #post-list .card #post-img img {
   height: 300px;
   object-fit: cover;
+}
+
+@media screen and (max-width: 720px) {
+  .categories,
+  .top-posts,
+  .instagram,
+  .topnav-item,
+  .socialicons {
+    display: none !important;
+  }
+  .mobileWrite,
+  .mobileSign,
+  .mobileFilter {
+    display: block !important;
+  }
+  .container .banner .banner-content {
+    width: 80% !important;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

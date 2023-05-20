@@ -62,7 +62,7 @@ function addPost(e) {
     const datePublication = datePublicationInput.value.trim();
 
     if (postAuthor === "" || postTitle === "" || postContent === "" || postCategory === "" || url === "" || datePublication === "") {
-        alert("Lütfen Boş Alan Bırakmayınız.");
+        ui.showAlert('Please fill in all fields!', 'danger');
     }
     else {
         request
@@ -76,6 +76,28 @@ function addPost(e) {
             })
             .then((post) => {
                 ui.addPostToUI(post);
+                ui.showAlert('Post added successfully!', 'success');
+            }
+            )
+            .catch((err) => {
+                console.log(err);
+            }
+            );
+    }
+
+    e.preventDefault();
+}
+
+function deletePost(e) {
+    console.log(e.target);
+    if (e.target.id === 'deletePost') {
+        const id = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
+        request
+            .delete(id)
+            .then((message) => {
+                console.log(message);
+                ui.deletePostFromUI(e.target);
+                ui.showAlert('Post deleted successfully!', 'danger');
             }
             )
             .catch((err) => {
@@ -84,27 +106,6 @@ function addPost(e) {
             );
     }
     e.preventDefault();
-}
-
-function deletePost(e) {
-    console.log(e.target);
-    if (e.target.id === 'deletePost') {
-        console.log(e.target.parentElement.parentElement.parentElement.parentElement.getAttribute("id"))
-
-        const id = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
-        console.log(id);
-        request
-            .delete(id)
-            .then((message) => {
-                console.log(message);
-                ui.deletePostFromUI(e.target);
-            }
-            )
-            .catch((err) => {
-                console.log(err);
-            }
-            );
-    }
 };
 
 function updatePost(e) {
@@ -154,6 +155,8 @@ function updatePost(e) {
                 })
                 .then((post) => {
                     ui.updatePostFromUI(post, card);
+                    ui.showAlert('Post updated successfully!', 'success');
+
                 }
                 )
                 .catch((err) => {
@@ -161,8 +164,10 @@ function updatePost(e) {
                 }
                 );
             e.preventDefault();
+
         });
     }
+    e.preventDefault();
 }
 
 function readMorePost(e) {

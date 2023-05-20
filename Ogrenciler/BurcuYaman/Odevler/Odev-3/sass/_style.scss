@@ -12,6 +12,18 @@ a {
 .pointer {
   cursor: pointer;
 }
+#alert {
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  .alert {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+}
 
 .topnav {
   overflow-x: hidden;
@@ -21,6 +33,19 @@ a {
   .logo {
     img {
       width: 200px;
+    }
+  }
+  a {
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 4px;
+      background: $primary;
+      transition: width 0.3s;
+    }
+    &:hover::after {
+      width: 100%;
     }
   }
 }

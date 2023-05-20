@@ -34,15 +34,15 @@ class UI {
 
           <div class="d-flex justify-content-between">
           <div class="d-flex justify-content-start gap-1">
-          <a href="#" class="btn btn-danger rounded-circle d-flex justify-content-center align-items-center" id="deletePost"
-              ><i class="fa-solid fa-trash-can"></i></a
+          <a href="#" class="btn btn-sm btn-danger  d-flex justify-content-center align-items-center" id="deletePost"
+              >Delete</a
             >
-            <a href="#" class="btn btn-success rounded-circle d-flex justify-content-center align-items-center" id="updatePost"
-            ><i class="fa-solid fa-square-pen"></i></a
+            <a href="#" class="btn btn-sm  btn-success  d-flex justify-content-center align-items-center" id="updatePost"
+            >Update</a
           >
           </div>
           <div class="d-flex justify-content-end">
-            <a href="#" class="btn btn-outline-primary" id="readMore"
+            <a href="#" class="btn btn-sm btn-outline-primary" id="readMore"
               >Read More</a
             >
             </div>
@@ -62,6 +62,7 @@ class UI {
     element6.value = "";
     element7.value = "";
   }
+
   deletePostFromUI(e) {
     e.parentElement.parentElement.parentElement.parentElement.remove();
   }
@@ -273,4 +274,19 @@ class UI {
     }
     );
   };
+
+  showAlert(message, type) {
+    const alert = document.getElementById('alert');
+    alert.innerHTML += ` 
+    <div class="alert text-center alert-${type}" role="alert">
+    ${message}
+  </div>
+    `;
+    setTimeout(function () {
+      alert.innerHTML = '';
+    }
+      , 3000);
+  }
+
 }
+
