@@ -1,0 +1,46 @@
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #6f2da8,
+    #5e3494,
+    #50377f,
+    #453769,
+    #3c3652,
+    #38334a,
+    #353143,
+    #312e3b,
+    #302941,
+    #302445,
+    #301e4a,
+    #32174d
+  );
+}
+
+.card {
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+  .card-title {
+    color: $warning;
+  }
+  .card-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .card-text {
+    color: white;
+  }
+
+  &:hover {
+    box-shadow: rgba($color: $warning, $alpha: 0.07) 0px 1px 2px,
+      rgba($color: $warning, $alpha: 0.07) 0px 2px 4px,
+      rgba($color: $warning, $alpha: 0.07) 0px 4px 8px,
+      rgba($color: $warning, $alpha: 0.07) 0px 8px 16px,
+      rgba($color: $warning, $alpha: 0.07) 0px 16px 32px,
+      rgba($color: $warning, $alpha: 0.07) 0px 32px 64px;
+  }
+}
+
+label {
+  color: $warning;
+}
