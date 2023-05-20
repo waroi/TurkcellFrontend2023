@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <header class="py-4 bg-body-tertiary d-none d-lg-block">
+  <header class="pt-4 bg-body-tertiary d-none d-lg-block">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-4 d-flex justify-content-center">
@@ -24,7 +24,7 @@
     </div>
   </header>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary pb-4 sticky-top border-bottom">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary py-4 sticky-top border-bottom">
     <div class="container">
       <a class="navbar-brand d-lg-none" href="#"><img src="./assets/blogPageMobilLogo.png" alt="blogPageHeaderTopLogo"
           class="img-fluid" width="150px"></a>
@@ -106,8 +106,8 @@
     <div class="container">
       <div class="row gap-4 gap-lg-0">
         <div class="col-lg-5 d-flex justify-content-evenly justify-content-lg-start gap-lg-5">
-          <button class="btn btn-info">Tüm Bloglar</button>
-          <div class="dropdown dropend ms-lg-5">
+          <button class="btn btn-info" id="allBlogsButton">Tüm Bloglar</button>
+          <div class="dropdown dropend ms-lg-5" id="sortBlogs">
             <button class="btn btn-secondary dropdown-toggle px-4" type="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               Sıralama
@@ -121,7 +121,7 @@
         </div>
         <div class="col-lg-5 d-flex justify-content-center">
           <div class="input-group">
-            <input type="search" class="form-control rounded-5" placeholder="Blog Başlığı veya Yazar Adı Giriniz...">
+            <input type="search" class="form-control rounded-5" placeholder="Blog Başlığı veya Yazar Adı Giriniz..." id="searchInput">
           </div>
         </div>
         <div class="col-lg-2 d-flex justify-content-lg-end justify-content-center">
@@ -148,7 +148,7 @@
           </div>
         </div>
         <div class="col-lg-9">
-          <div class="row">
+          <div class="row blogsList">
             <div class="col-lg-4">
               <div class="card blogCards shadow">
                 <div class="innerBlogCard w-100 h-100 position-relative">
@@ -197,77 +197,59 @@
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modalLabel">Yeni Blog Ekle / Blog Güncelleme</h1>
+          <h1 class="modal-title fs-5" id="modalLabel"></h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form>
             <div class="mb-3">
-              <label for="modalBlogName" class="form-label">Blog Adı</label>
-              <input type="text" class="form-control" id="modalBlogName">
+              <label for="modalBlogAdi" class="form-label">Blog Adı</label>
+              <input type="text" class="form-control" id="modalBlogAdi">
             </div>
             <div class="row mb-3">
               <div class="col-lg-6">
-                <label for="modalAuthorName" class="form-label">Yazar Adı</label>
-                <input type="text" class="form-control" id="modalAuthorName">
+                <label for="modalYazarAdi" class="form-label">Yazar Adı</label>
+                <input type="text" class="form-control" id="modalYazarAdi">
               </div>
               <div class="col-lg-6">
-                <label for="modalBlogCategoryName" class="form-label">Kategori</label>
-                <input type="text" class="form-control" id="modalBlogCategoryName">
+                <label for="modalBlogKategoriAdi" class="form-label">Kategori</label>
+                <input type="text" class="form-control" id="modalBlogKategoriAdi">
               </div>
             </div>
             <div class="mb-3">
-              <label for="modalBlogContent" class="form-label">Blog İçeriği</label>
-              <textarea name="modalBlogContent" id="modalBlogContent" cols="30" rows="4"
+              <label for="modalBlogDetay" class="form-label">Blog İçeriği</label>
+              <textarea name="modalBlogDetay" id="modalBlogDetay" cols="30" rows="4"
                 class="form-control"></textarea>
             </div>
             <div class="mb-3">
-              <label for="modalBlogImageUrl" class="form-label">Blog Fotoğraf URL'i</label>
-              <input type="url" class="form-control" id="modalBlogImageUrl">
+              <label for="modalBlogResimUrl" class="form-label">Blog Fotoğraf URL'i</label>
+              <input type="url" class="form-control" id="modalBlogResimUrl">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="createNewBlogButton">Blog Oluştur</button>
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="updateBlogButton">Güncelle</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="yeniBlogButonu">Blog Oluştur</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="blogGuncellemeButonu">Güncelle</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal fade" id="infoBlogModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="infoModalLabel">Blog Adı</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="text-center border-bottom pb-3">
-            <img
-              src="https://b2846093.smushcdn.com/2846093/wp-content/uploads/2023/04/Food-from-Oaxaca-Mexico.jpg?lossy=1&strip=1&webp=1"
-              alt="infoModalImage" class="img-fluid" width="50%" id="infoModalImage">
-          </div>
-          <div class="pt-3">
-            <div class="d-flex justify-content-around">
-              <span class="fst-italic" id="infoModalCategory">Kategori</span>
-              <span id="infoModalDate">Date</span>
-            </div>
-            <p class="py-4" id="infoModalBlogContent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
-            <p class="text-center pt-3 border-top" id="infoModalAuthor">Yazar Adı</p>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-        </div>
-      </div>
+  
+
+  <div class="position-fixed bottom-0 end-0 p-3 toastZIndex">
+    <div id="toastMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
+  <script src="./jsFolders/crud.js"></script>
+  <script src="./jsFolders/request.js"></script>
+  <script src="./jsFolders/ui.js"></script>
+  <script src="./jsFolders/blogs.js"></script>
   <script src="./jsFolders/app.js"></script>
 </body>
 
