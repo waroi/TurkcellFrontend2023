@@ -5192,7 +5192,7 @@ textarea.form-control-lg {
   --bs-modal-width: 500px;
   --bs-modal-padding: 1rem;
   --bs-modal-margin: 0.5rem;
-  --bs-modal-color: ;
+  --bs-modal-color: #000;
   --bs-modal-bg: rgba(255, 255, 255, 0.6);
   --bs-modal-border-color: var(--bs-border-color-translucent);
   --bs-modal-border-width: 1px;
@@ -6010,7 +6010,7 @@ textarea.form-control-lg {
   --bs-offcanvas-height: 30vh;
   --bs-offcanvas-padding-x: 1rem;
   --bs-offcanvas-padding-y: 1rem;
-  --bs-offcanvas-color: ;
+  --bs-offcanvas-color: #000;
   --bs-offcanvas-bg: rgba(255, 255, 255, 0.6);
   --bs-offcanvas-border-width: 1px;
   --bs-offcanvas-border-color: var(--bs-border-color-translucent);
@@ -10724,6 +10724,16 @@ body {
   background-image: linear-gradient(to right top, #6f2da8, #5e3494, #50377f, #453769, #3c3652, #38334a, #353143, #312e3b, #302941, #302445, #301e4a, #32174d);
 }
 
+label {
+  color: #ffe135;
+  font-size: 1.25rem;
+}
+
+.title h1, .title .h1 {
+  text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
+  color: #fff;
+}
+
 .card {
   backdrop-filter: blur(10px);
   transition: 0.3s;
@@ -10752,8 +10762,9 @@ body {
   backdrop-filter: blur(5px);
 }
 .modal-content .modal-header {
-  background-image: url(https://wallpapers.com/images/featured/vrkkolsv6wuzovg0.jpg);
+  background-image: url(https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
   background-size: cover;
+  background-position: center;
 }
 .modal-content .modal-header .modal-title h1, .modal-content .modal-header .modal-title .h1 {
   font-size: 2rem;
@@ -10763,14 +10774,15 @@ body {
   text-indent: 1rem;
 }
 
+.form-control,
+.form-select {
+  border: #6f2da8 1px solid;
+}
+
 #utilities {
   position: sticky;
   top: 2rem;
-  height: 100vh;
-}
-
-label {
-  color: #ffe135;
+  height: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

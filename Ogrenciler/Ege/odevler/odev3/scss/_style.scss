@@ -17,6 +17,20 @@ body {
   );
 }
 
+label {
+  color: $warning;
+  font-size: 1.25rem;
+}
+
+.title {
+  h1 {
+    // text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $warning,
+    //   0 0 30px $warning, 0 0 40px $warning, 0 0 55px $warning, 0 0 75px $warning;
+    text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
+    color: #fff;
+  }
+}
+
 .card {
   backdrop-filter: blur(10px);
   transition: 0.3s;
@@ -53,8 +67,9 @@ body {
   backdrop-filter: blur(5px);
 
   .modal-header {
-    background-image: url(https://wallpapers.com/images/featured/vrkkolsv6wuzovg0.jpg);
+    background-image: url(https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
     background-size: cover;
+    background-position: center;
     .modal-title {
       h1 {
         font-size: 2rem;
@@ -68,12 +83,13 @@ body {
   }
 }
 
+.form-control,
+.form-select {
+  border: $primary 1px solid;
+}
+
 #utilities {
   position: sticky;
   top: 2rem;
-  height: 100vh;
-}
-
-label {
-  color: $warning;
+  height: 100%;
 }

@@ -16,43 +16,11 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- <button id="addData">Add Data</button>
-    <button id="editData">Edit Data</button>
-    <button id="deleteData">Delete Data</button> -->
-
-    <!-- Blog Add-Edit Form -->
-    <section id="add-edit" class="my-5">
-      <div class="container">
-        <form id="blog-form">
-          <div class="mb-3">
-            <label for="blog-author" class="form-label">Author Name</label>
-            <input type="text" class="form-control" id="blog-author" />
-          </div>
-          <div class="mb-3">
-            <label for="blog-title" class="form-label">Blog Title</label>
-            <input type="text" class="form-control" id="blog-title" />
-          </div>
-          <div class="mb-3">
-            <label for="blog-text" class="form-label">Blog Text</label>
-            <textarea class="form-control" id="blog-text" rows="3"></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="blog-image" class="form-label">Summary Image URL</label>
-            <input type="url" class="form-control" id="blog-image" />
-          </div>
-          <div class="mb-3">
-            <label for="blog-category" class="form-label">Category</label>
-            <input type="text" class="form-control" id="blog-category" />
-          </div>
-          <button class="btn btn-success" id="add-btn">Submit</button>
-          <button class="btn btn-warning" id="edit-btn">Edit</button>
-          <button type="reset" class="btn btn-info">Reset</button>
-        </form>
-      </div>
+    <section class="title text-center">
+      <h1 class="display-1 fw-bolder">Eges & Blogs</h1>
     </section>
-
     <!-- Blog Preview Card -->
-    <section id="preview-blog">
+    <section id="preview-blog" class="my-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-9" id="blogs">
@@ -60,7 +28,7 @@
           </div>
           <div class="col-lg-3" id="utilities">
             <label for="category-select">Filter by category</label>
-            <select class="form-select" id="category-select">
+            <select class="form-select bg-dark text-white" id="category-select">
               <option selected>All</option>
             </select>
             <label for="search-area">Search by author or blog title</label>
@@ -68,10 +36,10 @@
               type="text"
               name="search-area"
               id="search-area"
-              class="form-control"
+              class="form-control bg-dark text-white"
             />
             <label for="sort-select">Sort by</label>
-            <select class="form-select" id="sort-select">
+            <select class="form-select bg-dark text-white" id="sort-select">
               <option selected>Default</option>
               <option value="new-old">Date(New-Old)</option>
               <option value="old-new">Date(Old-New)</option>
@@ -82,6 +50,57 @@
             </select>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Blog Add-Edit Form -->
+    <section id="add-edit" class="my-5">
+      <div class="container">
+        <form id="blog-form">
+          <div class="mb-3">
+            <label for="blog-author" class="form-label">Author Name</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white"
+              id="blog-author"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blog-title" class="form-label">Blog Title</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white"
+              id="blog-title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blog-text" class="form-label">Blog Text</label>
+            <textarea
+              class="form-control bg-dark text-white"
+              id="blog-text"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="blog-image" class="form-label">Summary Image URL</label>
+            <input
+              type="url"
+              class="form-control bg-dark text-white"
+              id="blog-image"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blog-category" class="form-label">Category</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white"
+              id="blog-category"
+            />
+          </div>
+          <button class="btn btn-success" id="add-btn">Submit</button>
+          <button class="btn btn-warning" id="edit-btn">Edit</button>
+          <button type="reset" class="btn btn-info">Reset</button>
+        </form>
       </div>
     </section>
 
