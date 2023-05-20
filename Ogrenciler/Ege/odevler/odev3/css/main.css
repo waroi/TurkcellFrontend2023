@@ -4290,7 +4290,7 @@ textarea.form-control-lg {
 
 .accordion {
   --bs-accordion-color: #212529;
-  --bs-accordion-bg: #fff;
+  --bs-accordion-bg: rgba(255, 255, 255, 0.25);
   --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   --bs-accordion-border-color: var(--bs-border-color);
   --bs-accordion-border-width: 1px;
@@ -5193,15 +5193,15 @@ textarea.form-control-lg {
   --bs-modal-padding: 1rem;
   --bs-modal-margin: 0.5rem;
   --bs-modal-color: ;
-  --bs-modal-bg: #fff;
+  --bs-modal-bg: rgba(255, 255, 255, 0.6);
   --bs-modal-border-color: var(--bs-border-color-translucent);
   --bs-modal-border-width: 1px;
   --bs-modal-border-radius: 0.5rem;
   --bs-modal-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   --bs-modal-inner-border-radius: calc(0.5rem - 1px);
   --bs-modal-header-padding-x: 1rem;
-  --bs-modal-header-padding-y: 1rem;
-  --bs-modal-header-padding: 1rem 1rem;
+  --bs-modal-header-padding-y: 3rem;
+  --bs-modal-header-padding: 3rem 1rem;
   --bs-modal-header-border-color: var(--bs-border-color);
   --bs-modal-header-border-width: 1px;
   --bs-modal-title-line-height: 1.5;
@@ -6011,7 +6011,7 @@ textarea.form-control-lg {
   --bs-offcanvas-padding-x: 1rem;
   --bs-offcanvas-padding-y: 1rem;
   --bs-offcanvas-color: ;
-  --bs-offcanvas-bg: #fff;
+  --bs-offcanvas-bg: rgba(255, 255, 255, 0.6);
   --bs-offcanvas-border-width: 1px;
   --bs-offcanvas-border-color: var(--bs-border-color-translucent);
   --bs-offcanvas-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
@@ -10730,15 +10730,43 @@ body {
 }
 .card .card-title {
   color: #ffe135;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 .card .card-subtitle {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+  font-style: italic;
 }
 .card .card-text {
   color: white;
 }
+.card i {
+  pointer-events: none;
+}
 .card:hover {
   box-shadow: rgba(255, 225, 53, 0.07) 0px 1px 2px, rgba(255, 225, 53, 0.07) 0px 2px 4px, rgba(255, 225, 53, 0.07) 0px 4px 8px, rgba(255, 225, 53, 0.07) 0px 8px 16px, rgba(255, 225, 53, 0.07) 0px 16px 32px, rgba(255, 225, 53, 0.07) 0px 32px 64px;
+}
+
+.modal-content {
+  backdrop-filter: blur(5px);
+}
+.modal-content .modal-header {
+  background-image: url(https://wallpapers.com/images/featured/vrkkolsv6wuzovg0.jpg);
+  background-size: cover;
+}
+.modal-content .modal-header .modal-title h1, .modal-content .modal-header .modal-title .h1 {
+  font-size: 2rem;
+}
+.modal-content .modal-body {
+  font-size: 1.25rem;
+  text-indent: 1rem;
+}
+
+#utilities {
+  position: sticky;
+  top: 2rem;
+  height: 100vh;
 }
 
 label {

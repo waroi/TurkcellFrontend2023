@@ -22,13 +22,21 @@ body {
   transition: 0.3s;
   .card-title {
     color: $warning;
+    font-weight: 600;
+    text-transform: capitalize;
   }
   .card-subtitle {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 400;
+    font-style: italic;
   }
 
   .card-text {
     color: white;
+  }
+
+  i {
+    pointer-events: none;
   }
 
   &:hover {
@@ -39,6 +47,31 @@ body {
       rgba($color: $warning, $alpha: 0.07) 0px 16px 32px,
       rgba($color: $warning, $alpha: 0.07) 0px 32px 64px;
   }
+}
+
+.modal-content {
+  backdrop-filter: blur(5px);
+
+  .modal-header {
+    background-image: url(https://wallpapers.com/images/featured/vrkkolsv6wuzovg0.jpg);
+    background-size: cover;
+    .modal-title {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .modal-body {
+    font-size: 1.25rem;
+    text-indent: 1rem;
+  }
+}
+
+#utilities {
+  position: sticky;
+  top: 2rem;
+  height: 100vh;
 }
 
 label {

@@ -99,14 +99,11 @@ function handleEventListeners() {
   });
   addBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    const today = new Date();
     const postData = new Blog(
       blogAuthorInp.value,
       blogTitleInp.value,
       blogTextInp.value,
       blogCatInp.value,
-      today.getDate(),
-      today.getHours(),
       blogImgInp.value
     );
     Request.post(url, postData)
