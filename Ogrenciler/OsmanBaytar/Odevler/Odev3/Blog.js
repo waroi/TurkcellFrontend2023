@@ -12,12 +12,12 @@ class Blog {
         let cardBox = document.createElement("div");
         cardBox.className = "col-lg-4 col-sm-6 card border-0 mx-auto mt-5";
         let card = `
-        <div class="row image-and-p">
+        <div class="row image-and-p p-3">
             <img
                 class="img-fluid card-image col-lg-3"
                 src="${this.url}"   
             />
-            <p class="card-text d-none col-lg-9">${this.text}</p>
+            <p class="card-text d-none col-lg-9 my-3">${this.text}</p>
         </div>
         <div class="card-body">
             <h6 class="fw-bold">${this.title}</h6>

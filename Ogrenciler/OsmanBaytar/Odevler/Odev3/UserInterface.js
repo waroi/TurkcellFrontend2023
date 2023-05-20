@@ -25,7 +25,7 @@ class UserInterface {
         })
 
         card.querySelector(".btn-warning").addEventListener("click", function () {
-            UI.editBlog(blog);
+            UI.editBlog(newBlog);
         })
 
 
@@ -46,7 +46,8 @@ class UserInterface {
 
     editBlog = function (blog) {
         isEdit = true;
-        document.getElementById("addName").value = blog.name;
+        document.getElementById("addTitle").value = blog.title;
+        document.getElementById("addText").value = blog.text;
         document.getElementById("addWriter").value = blog.writer;
         document.getElementById("addCategory").value = blog.category;
         document.getElementById("addDate").value = blog.date;

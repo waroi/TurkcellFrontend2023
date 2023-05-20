@@ -4,7 +4,7 @@ class StorageConstructor {
 
     getStoragefromJson = function () {
         request.get()
-            .then((array) => array)
+            .then((data) => console.log(data))
             .catch((err) => console.log(err));
     }
 
