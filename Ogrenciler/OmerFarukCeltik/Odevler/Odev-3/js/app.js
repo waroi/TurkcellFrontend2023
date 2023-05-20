@@ -1,11 +1,9 @@
 // import BlogData from "./bookConstructor.js";
-import createCard from "./components/cardComponent.js";
+import UI from "./uiClass.js";
+import Request from "./requestClass.js";
 import contentModalPage from "./components/modalPaginationComponent.js";
-import latestAreaComponent from "./components/latestAreaComponent.js";
 console.log(Date.now());
-import sortCardsDateAndAlphabetic from "./functions/sortCardsFunction.js";
-import categoryFiltercomponent from "./components/filterComponent.js";
-
+// input
 let contentTitleInput = document.querySelector("#contentTitleInput");
 let authorInput = document.querySelector("#authorInput");
 let categoryInput = document.querySelector("#categoryInput");
@@ -13,172 +11,51 @@ let dateInput = document.querySelector("#dateInput");
 let urlInput = document.querySelector("#urlInput");
 let scoreInput = document.querySelector("#scoreInput");
 let contentTextarea = document.querySelector("#contentTextarea");
-let saveBookButton = document.querySelector("#save-book");
-let editBookButton = document.querySelector("#edit-book");
+let searchInput = document.querySelector("#search-input");
+let navbarSearchInput = document.querySelector("#navbar-search");
+// button
+let saveContentButton = document.querySelector("#save-book");
+let editContentButton = document.querySelector("#edit-book");
 let globalCardArea = document.querySelector("#globalCardArea");
+let searchButton = document.querySelector("#search-button");
+let addNewContentButton = document.querySelector("#addNewContentButton");
+// area
 let viewModalContent = document.querySelector("#view-modal-content");
 let latestContentArea = document.querySelector("#latest-content-area");
-
-let searchInput = document.querySelector("#search-input");
-let searchButton = document.querySelector("#search-button");
 let sortOptionArea = document.querySelector("#sort-area");
-let navbarSearchInput = document.querySelector("#navbar-search");
 let categoryFilterArea = document.querySelector("#category-filter-area");
-let formCheckAll = document.querySelectorAll(".form-check")
+let form = document.querySelector("form");
+
 // let categoryFilterParent = document.querySelector("#categoryFilterParent")
 
-
-
-class Request {
-  constructor(title, author, category, publicationDate, banner, score, content) {
-    this.url = "http://localhost:3000/contents";
-    this.id = Date.now();
-    this.contentTitle = title;
-    this.author = author;
-    this.category = category;
-    this.publicationDate = publicationDate;
-    this.banner = banner;
-    this.comments = 5,
-      this.score = score,
-      this.content = content
-  }
-  async get(id) {
-    return new Promise((resolve, reject) => {
-      fetch(id ? `${this.url}/${id}` : this.url)
-        .then((response) => response.json())
-        .then((data) => resolve(data))
-        .catch((err) => reject(err, "Veri alınamadı."));
-    });
-  }
-  async post(e) {
-    return new Promise((resolve, reject) => {
-      fetch(this.url, {
-        method: "POST",
-        body: JSON.stringify({
-          "id": this.id,
-          "name": this.name,
-          "author": this.author,
-          "category": this.category,
-          "publicationDate": this.publicationDate,
-          "banner": this.banner
-        }),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => resolve(data))
-        .catch((err) => reject(err));
-    });
-  }
-  async put(id, data) {
-    return new Promise((resolve, reject) => {
-      fetch(`${this.url}/${id}`, {
-        method: "PUT",
-        body: JSON.stringify(data),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => resolve(data))
-        .catch((err) => reject(err));
-    });
-  }
-  async delete(id) {
-    return new Promise((resolve, reject) => {
-      fetch(`${this.url}/${id}`, {
-        method: "DELETE",
-      })
-        .then((response) => response.json())
-        .then(() => resolve("Veri silindi."))
-        .catch((err) => reject(err));
-    });
-  }
-}
 const request = new Request();
-
-class UI {
-  static isEmpty() {
-    //   return (
-    //     bookNameInput.value == "" ||
-    //     authorInput.value == "" ||
-    //     categoryInput.value == "" ||
-    //     numberInput.value == "" ||
-    //     numberInput.value == ""
-    // )
-  };
-  async refreshAndAddContentToUI(searchValue, sortValue,navbarSearchValue,checkedValue) {
-    globalCardArea.innerHTML = "";
-    await request.get().then((res) => {
-      if (searchValue || sortValue || navbarSearchValue || checkedValue) {
-        if (searchValue) {
-          globalCardArea.innerHTML = "";
-          res.map((item) => {
-            if (item.contentTitle.toLowerCase().includes(searchValue.toLowerCase()) || 
-            item.author.toLowerCase().includes(searchValue.toLowerCase()) ||
-             item.category.toLowerCase().includes(searchValue.toLowerCase())) {
-              globalCardArea.innerHTML += createCard(item);
-            }
-          });
-        } 
-        else if(navbarSearchValue) {
-          globalCardArea.innerHTML = "";
-          res.map((item) => {
-            if (item.category.toLowerCase().includes(navbarSearchValue.toLowerCase())){
-              globalCardArea.innerHTML += createCard(item);
-            }
-          });
-        } else if (sortValue) {
-          let arr = sortCardsDateAndAlphabetic(sortValue, res);
-          arr.map((item) => globalCardArea.innerHTML += createCard(item))
-        }else if(checkedValue){
-          globalCardArea.innerHTML = "";
-          res.map((item) => {
-            if (item.category.toLowerCase().includes(checkedValue.toLowerCase())){
-              globalCardArea.innerHTML += createCard(item);
-            }
-          });
-        }
-      }
-      else {
-        globalCardArea.innerHTML = "";
-        res.map((item) => {
-          globalCardArea.innerHTML += createCard(item);
-        })
-      }
-      latestContentArea.innerHTML = latestAreaComponent(res);
-    });
-
-  };
-  static resetAllInput() {
-    // form.reset()
-  };
-  static addCategoryFilterToUI(set) {
-     set.forEach((item) => {
-      categoryFilterArea.innerHTML += categoryFiltercomponent(item);
-     })
-  }
-}
 
 eventListeners();
 function eventListeners() {
-  saveBookButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    addBook(e);
-    e.stopPropagation();
-  });
-  editBookButton.addEventListener("click", (e) => completeEditContent(contentCurrentId, e))
-  globalCardArea.addEventListener("click", (e) => globalCardAreaClickFunctions(e));
+  saveContentButton.addEventListener("click", (e) => addBook(e));
+  editContentButton.addEventListener("click", (e) => completeEditContent(contentCurrentId, e))
+  globalCardArea.addEventListener("click", (e) => { globalCardAreaClickFunctions(e);; toggleButtons(e) });
   latestContentArea.addEventListener("click", (e) => globalCardAreaClickFunctions(e));
   searchButton.addEventListener("click", (e) => searchAndSortContents(e));
   sortOptionArea.addEventListener("change", (e) => searchAndSortContents(e));
-  navbarSearchInput.addEventListener("keypress", (e) => e.key=="Enter" ? searchAndSortContents(e) : null);
-  categoryFilterArea.addEventListener("click",(e) => categoryFilterStatus(e));
+  navbarSearchInput.addEventListener("keypress", (e) => e.key == "Enter" ? searchAndSortContents(e) : null);
+  categoryFilterArea.addEventListener("click", (e) => categoryFilterStatus(e));
+  addNewContentButton.addEventListener("click", (e) => toggleButtons(e))
 }
-
+function toggleButtons(e) { 
+  form.reset();
+  if (e.target.id == "addNewContentButton") {
+    saveContentButton.classList.add("d-block");
+    saveContentButton.classList.remove("d-none");
+    editContentButton.classList.add("d-none");
+    editContentButton.classList.remove("d-block");
+  } else if (e.target.innerHTML == "Edit") {
+    saveContentButton.classList.remove("d-block");
+    saveContentButton.classList.add("d-none");
+    editContentButton.classList.remove("d-none");
+    editContentButton.classList.add("d-block");
+  }
+}
 let ui = new UI();
 ui.refreshAndAddContentToUI();
 let contentCurrentId;
@@ -201,7 +78,7 @@ async function globalCardAreaClickFunctions(e) {
       .then((data) => viewModalContent.innerHTML = data);
   }
 }
-async function deleteContent(targetId, e) {
+export async function deleteContent(targetId, e) {
   await request.delete(targetId);
   await ui.refreshAndAddContentToUI();
 }
@@ -217,7 +94,7 @@ async function editContent(targetId, e) {
     contentTextarea.value = content.content;
   })
 }
-async function completeEditContent(contentCurrentId, e) {
+export async function completeEditContent(contentCurrentId, e) {
   console.log(contentCurrentId);
   e.preventDefault();
   e.stopPropagation();
@@ -234,51 +111,51 @@ async function completeEditContent(contentCurrentId, e) {
   await ui.refreshAndAddContentToUI();
 }
 
-function searchAndSortContents(e) {
+export function searchAndSortContents(e) {
   e.preventDefault();
-  if (searchInput.value.length >= 3 || sortOptionArea.value || navbarSearchInput.value.length >=3) {
-    ui.refreshAndAddContentToUI(searchInput.value,sortOptionArea.value,navbarSearchInput.value);
-  }else{
+  if (searchInput.value.length >= 3 || sortOptionArea.value || navbarSearchInput.value.length >= 3) {
+    ui.refreshAndAddContentToUI(searchInput.value, sortOptionArea.value, navbarSearchInput.value);
+  } else {
     ui.refreshAndAddContentToUI();
   }
 }
 categoryFilterList()
-async function categoryFilterList(){
+async function categoryFilterList() {
   const categorySet = new Set();
   await request.get().then((data) => data.map((item) => categorySet.add(item.category)));
   await console.log(categorySet);
   await UI.addCategoryFilterToUI(categorySet);
 }
-function categoryFilterStatus(e){
+export function categoryFilterStatus(e) {
   e.target.checked == true ? e.target.parentElement.children[1].classList.add("active") : e.target.parentElement.children[1].classList.remove("active");
-  
-  if(e.target.checked){
-   ui.refreshAndAddContentToUI(null, null, null,e.target.value);
-  }else{
+
+  if (e.target.checked) {
+    ui.refreshAndAddContentToUI(null, null, null, e.target.value);
+  } else {
     ui.refreshAndAddContentToUI();
   }
 }
 
 
 function addBook(e) {
-  let newContent = new Request(
-    contentTitleInput.value,
-    authorInput.value,
-    categoryInput.value,
-    dateInput.value,
-    urlInput.value,
-    Number(scoreInput.value),
-    contentTextarea.value
-  );
-  // bookArray.push(newBook);
-  // UI.refreshAndAddContentToUI(newBook);
-  // UI.resetAllInput();
-  // bookCategorySet = new Set(bookArray.map((book) => book.category));
-  // bookAuthorSet = new Set(bookArray.map((book) => book.author));
-  // console.log(bookCategorySet);
-  // createBookFilters();
-  // console.log(newContent);
-  // ui.refreshAndAddContentToUI();
-  // newContent.post(e).catch((err) => console.log(err));
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  e.stopPropagation();
+  if (UI.isEmpty() || contentTextarea.value.length <= 140) {
+  //   document.body.innerHTML += `
+  //   <div class="alert alert-danger" role="alert">
+  // A simple success alert—check it out!
+  // </div>`
+  } else {
+    let newContent = new Request(
+      contentTitleInput.value,
+      authorInput.value,
+      categoryInput.value,
+      dateInput.value,
+      urlInput.value,
+      Number(scoreInput.value),
+      contentTextarea.value
+    );
+    newContent.post().catch((err) => console.log(err));
+  }
 }
-// addBook();
