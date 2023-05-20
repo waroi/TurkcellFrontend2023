@@ -26,19 +26,24 @@ function addEventListeners() {
   addBookBtn.addEventListener("click", formListenSubmitEvent);
   musicList.addEventListener("click", UI.deleteMusicFromUI);
   musicList.addEventListener("click", UI.editMusicFromUI);
+    
   sort.addEventListener("change", function () {
     Filter.sortMusicsFromFilter(this.value);
   });
+
   searchInput.addEventListener("keyup", function () {
     Filter.searchMusicFromFilter(this.value);
   });
+
   categoryForm.addEventListener("change", function () {
     Filter.filterMusicsFromFilter();
   });
+
   authorForm.addEventListener("change", function () {
     Filter.filterMusicsFromFilter();
   });
 }
+
 
 function formListenSubmitEvent(e) {
   e.preventDefault();
