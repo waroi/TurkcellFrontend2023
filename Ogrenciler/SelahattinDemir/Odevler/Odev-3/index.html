@@ -1,51 +1,3 @@
-<!-- <div class="col-12 col-md-6 col-lg-4 d-flex">
-      <div class="card mb-5">
-      <div class=" position-relative">
-      <a data-bs-toggle="modal" data-bs-target="#a${post.id}">
-              <img class="card-img post-img" width="100%" height="400" src="${post.imageUrl}" alt="image" >
-        <a href="#" class="btn btn-light btn-sm mx-auto d-block p-1 fs-6 ctg">${post.category}</a>
-      </a>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title post-title">${post.title}</h4>
-          <h2 class= "card-text post-author filter-author">${post.author}</h2>
-          <p class="card-text post-content">${post.textContent}</p>
-      <div class="d-flex space-between  justify-content-between mt-2">
-    <button type="button" class="btn btn-sm btn-outline-primary fs-6 py-1 px-4" data-id="${post.id}" id="edit-post">Edit</button>
-    <button type="button" class="btn btn-sm btn-outline-danger fs-6 py-1 px-4" id="delete-post" data-id="${post.id}">Delete</button>
-        </div>
-        </div>
-        <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
-          <div class="views">
-              ${post.date}
-          </div>
-          <div class="stats">
-           	<i class="far fa-eye"></i> 1347
-            <i class="far fa-comment"></i> 12
-          </div>
-          </div>
-  </div>
-</div> -->
-<!-- Modal -->
-<!-- <div class="modal fade" id="a${post.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title mx-auto" id="myModalLabel">${post.title}</h4>
-      </div>
-      <div class="modal-body">
-        <img class="card-img-top mb-3" width="100%" height="320" src="${post.imageUrl}">
-          <h3 class= "card-text post-author img-fluid filter-author mb-3">Yazar: ${post.author}</h3>
-          <p class="card-text post-content">${post.textContent}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -54,23 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Evi</title>
 
-    <!-- Bootstrap 5.3.0-alpha3 kullanıldı. -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="css/main.css" />
 
     <!-- fontawesome.com'dan alınan ikonlar kullanıldı. -->
-    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
   <body class="bg-dark">
-    <header>
+    <!-- <header>
       <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
           <a
@@ -98,10 +43,18 @@
             <form class="d-flex ms-lg-5 mt-3 mt-lg-0" role="search">
               <select class="form-control" id="sort">
                 <option value="Sırala">Sırala</option>
-                <option value="alphabetical-asc-title">A'dan Z'ye başlık</option>
-                <option value="alphabetical-desc-title">Z'den A'ya başlık</option>
-                <option value="alphabetical-asc-writer">A'dan Z'ye yazar</option>
-                <option value="alphabetical-desc-writer">Z'den A'ya yazar</option>
+                <option value="alphabetical-asc-title">
+                  A'dan Z'ye başlık
+                </option>
+                <option value="alphabetical-desc-title">
+                  Z'den A'ya başlık
+                </option>
+                <option value="alphabetical-asc-writer">
+                  A'dan Z'ye yazar
+                </option>
+                <option value="alphabetical-desc-writer">
+                  Z'den A'ya yazar
+                </option>
                 <option value="date-asc">
                   Tarihe Göre (En Eski - En Yeni)
                 </option>
@@ -161,7 +114,7 @@
           </div>
         </div>
       </nav>
-    </header>
+    </header> -->
     <!-- Müzik eklemek veya düzenlemek için modal oluşturuldu. -->
     <div
       class="modal fade"
@@ -299,6 +252,7 @@
         </div>
       </div>
     </section>
+
     <footer class="pt-3 bg-dark">
       <div class="container">
         <div class="row pt-3">
@@ -427,6 +381,102 @@
       </div>
     </footer>
 
+    <div class="filter-float__wrapper fixed-bottom mb-3">
+      <div
+        class="filter-content px-4 d-inline-flex flex-wrap align-items-center"
+      >
+        <form class="py-2" role="search">
+          <input
+            id="search-input"
+            class="form-control bg-dark text-light py-2"
+            type="search"
+            placeholder="Kitap ve Yazar Ara"
+            aria-label="Search"
+          />
+        </form>
+        <div class="ms-2 sort">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-sort"></i>
+          </button>
+          <ul class="custom-select-options dropdown-menu" id="sort">
+            <li value="alphabetical-asc-title">A'dan Z'ye başlık</li>
+            <li value="alphabetical-desc-title">Z'den A'ya başlık</li>
+            <li value="alphabetical-asc-writer">A'dan Z'ye yazar</li>
+            <li value="alphabetical-desc-writer">Z'den A'ya yazar</li>
+            <li value="date-asc">Tarihe Göre (En Eski - En Yeni)</li>
+            <li value="date-desc">Tarihe Göre (En Yeni - En Eski)</li>
+          </ul>
+        </div>
+        <!-- <select class="form-control" id="sort">
+            <option value="Sırala">Sırala</option>
+            <option value="alphabetical-asc-title">
+              A'dan Z'ye başlık
+            </option>
+            <option value="alphabetical-desc-title">
+              Z'den A'ya başlık
+            </option>
+            <option value="alphabetical-asc-writer">
+              A'dan Z'ye yazar
+            </option>
+            <option value="alphabetical-desc-writer">
+              Z'den A'ya yazar
+            </option>
+            <option value="date-asc">
+              Tarihe Göre (En Eski - En Yeni)
+            </option>
+            <option value="date-desc">
+              Tarihe Göre (En Yeni - En Eski)
+            </option>
+          </select> -->
+        <ul class="d-flex mx-0 list-unstyled mt-0 mt-lg-3 ms-2">
+          <li class="nav-item me-3">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <form
+              class="custom-select-options dropdown-menu"
+              id="category-form"
+            >
+              <div id="category-list"></div>
+            </form>
+          </li>
+          <li class="nav-item">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-person"></i>
+            </button>
+            <form class="custom-select-options dropdown-menu" id="author-form">
+              <div id="author-list"></div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="add-blog">
+      <a
+        class="mode-btn"
+        href="#"
+        data-bs-toggle="modal"
+        data-bs-target="#musicModal"
+      >
+        <i class="fa-solid fa-plus fs-1 icon"></i>
+      </a>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

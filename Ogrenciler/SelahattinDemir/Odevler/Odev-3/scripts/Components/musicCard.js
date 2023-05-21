@@ -1,10 +1,10 @@
 class MusicCard {
   static addMusicFromMusicCard(music) {
     musicList.innerHTML += `
-    <div class="col-md-6 col-lg-3 my-5 px-3 " id="${music.id}">
-      <div class="d-flex align-items-center justify-content-center">
+    <div class="col-md-6 col-lg-3 my-5 px-3 blog-card" id="${music.id}">
+      <div class="d-flex align-items-center justify-content-center card-img ms-0 ms-lg-3">
         <a data-bs-toggle="modal" data-bs-target="#a${music.id}">
-          <picture class="card-img position-relative d-block">
+          <picture class="position-relative d-block">
             <source
               srcset=${music.imageUrl}
               sizes="100vw"
@@ -25,7 +25,7 @@ class MusicCard {
           </picture>
         </a>
       </div>
-      <div class="card-body manuel-shadow p-3 mt-4">
+      <div class="card-body card-shadow p-3 mt-4">
         <h3 class="card-title music-name text-light">${music.name}</h3>
         <h6 class="text-center text-success fs-5">${music.writer}</h6>
         <p class="card-text overflow-hidden text-light">${music.textContent}</p>
@@ -43,8 +43,8 @@ class MusicCard {
           <a href="#" class="text-danger"><span class="fa-solid fa-trash fa-lg"></span></a>
         </div>
         <div class="d-flex justify-content-between">
-           	<span class="text-light"><i class="far fa-eye "></i> 1347</span>
-            <span class="text-light"><i class="far fa-comment"></i> 12</span> 
+           	<span class="text-light"><i class="far fa-eye "></i> 685</span>
+            <span class="text-light"><i class="far fa-comment"></i> 98</span> 
           </div>
       </div>
     </div>

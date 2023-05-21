@@ -102,8 +102,7 @@
       );
       z-index: -6;
       border-radius: 1000px;
-      transition: transform 0.5s;
-      transform: rotate(0deg);
+      transition: transform 10s;
     }
     &::after {
       content: "";
@@ -119,7 +118,14 @@
     }
     &:hover {
       &::before {
-        transform: rotate(360deg);
+        background: linear-gradient(
+          135deg,
+          #96c0ff 100%,
+          #6c4f9d 75%,
+          #d42635 50%,
+          #f58437 25%,
+          #ffe295 0%
+        );
       }
     }
   }
