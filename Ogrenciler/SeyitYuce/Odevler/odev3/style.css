@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
 }
+
 /* *::before {
   content: "";
   visibility: hidden;
@@ -13,7 +14,10 @@ a {
 li::before {
   visibility: hidden;
 }
-
+.mainCon {
+  width: 100%;
+}
+/* 
 .blog-item {
   position: sticky;
   top: 0;
@@ -21,7 +25,7 @@ li::before {
   padding: 1.5rem;
   box-shadow: 0 -0.5rem 1rem rgba(0 0 0 / 0.15);
   border-radius: 4px;
-}
+} */
 
 .card-body h2 {
   text-overflow: ellipsis;
@@ -40,8 +44,8 @@ li::before {
 }
 .sticky-div {
   position: absolute;
-  top: 3%;
-  left: 95%;
+  top: 0%;
+  left: 92%;
   height: 100%;
   width: fit-content;
   margin: 0;
@@ -54,12 +58,18 @@ li::before {
   color: #fd6767;
   padding: 10px;
 }
+.card-text-modal {
+  height: fit-content;
+  max-height: 300px;
+  overflow-y: auto;
+}
 
 @media screen and (min-width: 992px) {
-  .navCon {
-    position: fixed;
-  }
+  .navCon,
   .filter-container {
     position: fixed;
+  }
+  body {
+    overflow-x: hidden;
   }
 }

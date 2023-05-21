@@ -1,8 +1,182 @@
 const addNewButton = document.getElementById('addBlogBtn');
 const modal = document.getElementById('cardModal');
 const blogList = document.getElementById('blogList');
-let confirmDeleteBtns = document.querySelectorAll(".confirmDeleteBtn");
-const deleteBlogBtns = document.getElementsByClassName("delete-blog-btn");
+const confirmDeleteBtns = document.querySelectorAll(".confirmDeleteBtn");
+const deleteBlogBtns = document.querySelectorAll(".delete-blog-btn");
+
+function filterBlogs() {
+  const blogCategories = document.querySelectorAll('.blog-category');
+  for (const category of blogCategories) {
+    category.addEventListener('click', async (e) => {
+      const clickedCategory = e.target.dataset.category;
+      const clickedCategoryId = e.target.dataset;
+      console.log(clickedCategoryId)
+      console.log(clickedCategory)
+      try {
+        let response;
+        if (clickedCategory === "all") {
+          response = await fetch(`http://localhost:3000/blogs`);
+        } else {
+          response = await fetch(`http://localhost:3000/blogs?category=${clickedCategory}`);
+          sortBlogs()
+        }
+        if (!response.ok) {
+          throw new Error('Failed to fetch blogs');
+        }
+        const data = await response.json();
+        console.log(data);
+        displayFilteredBlogs(data);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  }
+}
+function displayFilteredBlogs(blogs) {
+  // Clear the existing blog list
+
+  blogList.innerHTML = '';
+
+  // Process the filtered blog data and generate HTML
+  blogs.forEach(blog => {
+    // Create a new list item for each blog
+    const listItem = document.createElement('div');
+    listItem.classList = "card mb-3 blog-item";
+    listItem.innerHTML = `
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img id="blogImage" src="${blog.image}" class="w-100 rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <a href="#">
+                          <h2 class="card-title" data-bs-toggle="modal" data-bs-target="#contentModal">${blog.title}</h2>
+                        </a>
+                        <div class="d-flex justify-content-between me-5 my-4">
+                          <span><i class="fa-solid fa-calendar-days"></i> ${blog.date}</span>
+                          <span><i class="fa-regular fa-folder-open"></i> ${capitalize(blog.category)}</span>
+                          <span><i class="fa-solid fa-feather-pointed"></i> ${capitalize(blog.author)}</span>
+                        </div>
+                        <p class="card-text">${blog.content}</p>
+                        <button type="button" class="btn btn-primary edit-blog-btn" data-bs-toggle="modal" data-bs-target="#editModal">
+                          <i class="fa-regular fa-pen-to-square"></i> Edit
+                        </button>
+                        <button type="button" class="btn btn-primary delete-blog-btn">
+                          <i class="fa-solid fa-trash"></i> Delete 
+                        </button>
+                      </div>
+                    </div>
+                  </div>`;
+
+    // Append the list item to the blog list
+    blogList.appendChild(listItem);
+  });
+}
+function updateCategoryList(category) {
+  const categoryList = document.getElementById('categoryList');
+  const existingCategory = categoryList.querySelector(`li div[data-category="${category}"]`);
+  const capitalizedCategory = capitalize(category);
+
+  if (!existingCategory) {
+    const listItem = document.createElement('li');
+    listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start');
+    listItem.innerHTML = `
+      <div type="button" class="ms-2 me-auto blog-category" data-category="${category}">${capitalizedCategory}</div>
+      <span class="badge bg-primary rounded-pill"></span>
+    `;
+
+    categoryList.appendChild(listItem);
+
+    const blogs = Array.from(document.querySelectorAll('.blog-category'));
+    const categoryCount = blogs.filter(blog => blog.dataset.category === category).length;
+    const badge = listItem.querySelector('.badge');
+    badge.textContent = categoryCount;
+  }
+}
+async function sortBlogs() {
+  const sortBlog = document.querySelectorAll('.blog-sort');
+
+  sortBlog.forEach((sort) => {
+    sort.addEventListener('click', async (e) => {
+      const sortValue = e.target.innerText;
+      const response = await fetch('http://localhost:3000/blogs');
+      const data = await response.json();
+      // if (sortValue === "Newer first") {
+      //   data.sort((a, b) => {
+      //     const dateA = new Date(a.date);
+      //     const dateB = new Date(b.date);
+      //     return dateB - dateA;
+      //   })
+      // } else if (sortValue === "Older first") {
+      //   data.sort((a, b) => {
+      //     const dateA = new Date(a.date);
+      //     const dateB = new Date(b.date);
+      //     return dateA - dateB;
+      //   })
+      // }
+      // if (sortValue === "Title(ascending)") {
+      //   data.sort((a, b) => {
+      //     return a.title.localeCompare(b.title);
+      //   })
+
+      // } else if (sortValue === "Title(descending)") {
+      //   data.sort((a, b) => {
+      //     return b.title.localeCompare(a.title);
+      //   })
+      // }
+      // if (sortValue === "Author(ascending)") {
+      //   data.sort((a, b) => {
+      //     let authorAscending = a.author.localeCompare(b.author);
+      //     console.log(authorAscending);
+      //     return authorAscending;
+      //   })
+      // } else if (sortValue === "Author(descending)") {
+      //   data.sort((a, b) => {
+      //     return b.author.localeCompare(a.author);
+      //   })
+      // }
+      switch (sortValue) {
+        case " Newer first":
+          data.sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return dateB - dateA;
+          })
+          break;
+        case " Older first":
+          data.sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return dateA - dateB;
+          })
+          break;
+        case " Title(ascending)":
+          data.sort((a, b) => {
+            return a.title.localeCompare(b.title);
+          })
+          break;
+        case "Title(descending)":
+          data.sort((a, b) => {
+            return b.title.localeCompare(a.title);
+          })
+          break;
+        case " Author(ascending)":
+          data.sort((a, b) => {
+            let authorAscending = a.author.localeCompare(b.author);
+            return authorAscending;
+          })
+          break;
+        case " Author(descending)":
+          data.sort((a, b) => {
+            return b.author.localeCompare(a.author);
+          })
+          break;
+      }
+
+      displayFilteredBlogs(data);
+    });
+  });
+}
 
 class Request {
   get() {
@@ -47,183 +221,6 @@ class Request {
             blogList.appendChild(listItem);
           });
 
-
-
-          function updateCategoryList(category) {
-            const categoryList = document.getElementById('categoryList');
-            const existingCategory = categoryList.querySelector(`li div[data-category="${category}"]`);
-            const capitalizedCategory = capitalize(category);
-
-            if (!existingCategory) {
-              const listItem = document.createElement('li');
-              listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start');
-              listItem.innerHTML = `
-                <div type="button" class="ms-2 me-auto blog-category" data-category="${category}">${capitalizedCategory}</div>
-                <span class="badge bg-primary rounded-pill"></span>
-              `;
-
-              categoryList.appendChild(listItem);
-
-              const blogs = Array.from(document.querySelectorAll('.blog-category'));
-              const categoryCount = blogs.filter(blog => blog.dataset.category === category).length;
-              const badge = listItem.querySelector('.badge');
-              badge.textContent = categoryCount;
-            }
-          }
-          const request = new Request();
-          function filterBlogs() {
-            const blogCategories = document.querySelectorAll('.blog-category');
-            for (const category of blogCategories) {
-              category.addEventListener('click', async (e) => {
-                const clickedCategory = e.target.dataset.category;
-                try {
-                  let response;
-                  if (clickedCategory === "all") {
-                    response = await fetch(`http://localhost:3000/blogs`);
-                  } else {
-                    response = await fetch(`http://localhost:3000/blogs?category=${clickedCategory}`);
-                    sortBlogs()
-                  }
-                  if (!response.ok) {
-                    throw new Error('Failed to fetch blogs');
-                  }
-                  const data = await response.json();
-                  console.log(data);
-                  displayFilteredBlogs(data);
-                } catch (error) {
-                  console.error(error);
-                }
-              });
-            }
-          }
-          function displayFilteredBlogs(blogs) {
-            // Clear the existing blog list
-
-            blogList.innerHTML = '';
-
-            // Process the filtered blog data and generate HTML
-            blogs.forEach(blog => {
-              // Create a new list item for each blog
-              const listItem = document.createElement('div');
-              listItem.classList = "card mb-3 blog-item";
-              listItem.innerHTML = `
-                            <div class="row g-0">
-                              <div class="col-md-4">
-                                <img id="blogImage" src="${blog.image}" class="w-100 rounded-start" alt="...">
-                              </div>
-                              <div class="col-md-8">
-                                <div class="card-body">
-                                  <a href="#">
-                                    <h2 class="card-title" data-bs-toggle="modal" data-bs-target="#contentModal">${blog.title}</h2>
-                                  </a>
-                                  <div class="d-flex justify-content-between me-5 my-4">
-                                    <span><i class="fa-solid fa-calendar-days"></i> ${blog.date}</span>
-                                    <span><i class="fa-regular fa-folder-open"></i> ${capitalize(blog.category)}</span>
-                                    <span><i class="fa-solid fa-feather-pointed"></i> ${capitalize(blog.author)}</span>
-                                  </div>
-                                  <p class="card-text">${blog.content}</p>
-                                  <button type="button" class="btn btn-primary edit-blog-btn" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <i class="fa-regular fa-pen-to-square"></i> Edit
-                                  </button>
-                                  <button type="button" class="btn btn-primary delete-blog-btn">
-                                    <i class="fa-solid fa-trash"></i> Delete 
-                                  </button>
-                                </div>
-                              </div>
-                            </div>`;
-
-              // Append the list item to the blog list
-              blogList.appendChild(listItem);
-            });
-          }
-          filterBlogs()
-
-          async function sortBlogs() {
-            const sortBlog = document.querySelectorAll('.blog-sort');
-
-            sortBlog.forEach((sort) => {
-              sort.addEventListener('click', async (e) => {
-                const sortValue = e.target.innerText;
-                const response = await fetch('http://localhost:3000/blogs');
-                const data = await response.json();
-                // if (sortValue === "Newer first") {
-                //   data.sort((a, b) => {
-                //     const dateA = new Date(a.date);
-                //     const dateB = new Date(b.date);
-                //     return dateB - dateA;
-                //   })
-                // } else if (sortValue === "Older first") {
-                //   data.sort((a, b) => {
-                //     const dateA = new Date(a.date);
-                //     const dateB = new Date(b.date);
-                //     return dateA - dateB;
-                //   })
-                // }
-                // if (sortValue === "Title(ascending)") {
-                //   data.sort((a, b) => {
-                //     return a.title.localeCompare(b.title);
-                //   })
-
-                // } else if (sortValue === "Title(descending)") {
-                //   data.sort((a, b) => {
-                //     return b.title.localeCompare(a.title);
-                //   })
-                // }
-                // if (sortValue === "Author(ascending)") {
-                //   data.sort((a, b) => {
-                //     let authorAscending = a.author.localeCompare(b.author);
-                //     console.log(authorAscending);
-                //     return authorAscending;
-                //   })
-                // } else if (sortValue === "Author(descending)") {
-                //   data.sort((a, b) => {
-                //     return b.author.localeCompare(a.author);
-                //   })
-                // }
-                switch (sortValue) {
-                  case " Newer first":
-                    data.sort((a, b) => {
-                      const dateA = new Date(a.date);
-                      const dateB = new Date(b.date);
-                      return dateB - dateA;
-                    })
-                    break;
-                  case " Older first":
-                    data.sort((a, b) => {
-                      const dateA = new Date(a.date);
-                      const dateB = new Date(b.date);
-                      return dateA - dateB;
-                    })
-                    break;
-                  case " Title(ascending)":
-                    data.sort((a, b) => {
-                      return a.title.localeCompare(b.title);
-                    })
-                    break;
-                  case "Title(descending)":
-                    data.sort((a, b) => {
-                      return b.title.localeCompare(a.title);
-                    })
-                    break;
-                  case " Author(ascending)":
-                    data.sort((a, b) => {
-                      let authorAscending = a.author.localeCompare(b.author);
-                      return authorAscending;
-                    })
-                    break;
-                  case " Author(descending)":
-                    data.sort((a, b) => {
-                      return b.author.localeCompare(a.author);
-                    })
-                    break;
-                }
-
-                displayFilteredBlogs(data);
-              });
-            });
-          }
-          sortBlogs()
-
           const searchInput = document.getElementById('searchInput');
           searchInput.addEventListener('keyup', () => {
             const searchInput = document.getElementById('searchInput').value.toLowerCase();
@@ -237,6 +234,10 @@ class Request {
 
             displayFilteredBlogs(filteredBlogs);
           });
+
+          filterBlogs()
+          sortBlogs()
+
         })
         .catch((err) => reject(new Error("Veri alınamadı")));
     });
@@ -255,15 +256,16 @@ class Request {
         .catch((err) => reject(err));
     })
   }
-  delete(blogId) {
+  delete() {
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:3000/blogs/${blogId}`, {
+      fetch("http://localhost:3000/blogs", {
         method: "DELETE",
       })
         .then((response) => response.json())
         .then((data) => {
           resolve(data)
           console.log(data)
+
         }
         )
         .catch((err) => reject(err));
@@ -347,6 +349,21 @@ document.addEventListener('click', (e) => {
 });
 
 const request = new Request();
+// window.onload = (e) => {
+//   window.addEventListener("click", (e) => {
+//     e.preventDefault()
+//     console.log(e.target.dataset);
+//   });
+// }
+// Call the delete method when a delete button is clicked
+window.addEventListener("click", (e) => {
+  e.preventDefault()
+  // console.log(e.target.dataset);
+
+});
+
+
+// const request = new Request();
 request
   .get("http://localhost:3000/blogs")
   .then((data) => {
