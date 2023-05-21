@@ -17,10 +17,10 @@
     <script src="https://kit.fontawesome.com/5e36563075.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-primary">
+<body class="" >
     <nav class="navbar navbar-expand-lg bg-dark m-0 p-0 d-flex ">
         <div class="container d-flex justify-content-center  ">
-            <a class="navbar-brand fw-semibold text-black  fs-8 " href="#"><span
+            <a class="navbar-brand fw-semibold text-black  fs-10 " href="#"><span
                     class="text-danger fw-bolder fs-6 ">B</span>lockpick</a>
             <!-- <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -34,42 +34,74 @@
             </div> -->
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-4 mb-4 ">
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <div class="container">
-
+    <div class="container main-content">
         <div class="row mt-3">
             <div class="bg-danger" id="globalSearchBlogs"></div>
 
-            <div class="col-lg-2">
+            <div class="col-lg-2 bg-light rounded-2 py-2">
                 <button type="button" class="btn btn-warning w-100 mb-2 fw-bold" data-bs-toggle="modal"
-                    data-bs-target="#addBook">
-                    Kitap Ekle
+                    data-bs-target="#addBook">Blog Ekle
                 </button>
-                <div class="">
-                    <h6 class="mb-0">Kategoriler:</h6>
-                    <hr class="my-1">
-                    <div id="blogCategories" class="mb-3">
+                <div class="modal fade" id="addBook" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                    aria-labelledby="addBookLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-3" id="addBookLabel">Yeni İçerik Ekleyebilirsiniz!</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- <form> -->
+                                <label for="blogName">Başlık </label>
+                                <input class="form-control fs-1 mb-2 mt-1" placeholder="Yazınızın adını giriniz..."
+                                    type="text" id="blogName">
 
+                                <label for="blogWriter">Yazar: </label>
+                                <input class="form-control py-1 fs-1 mb-2 mt-1" placeholder="Yazar ismini giriniz..."
+                                    type="text" id="blogWriter">
+
+                                <label for="blogText">Metin:</label>
+                                <textarea type="text" class="form-control fs-1 mb-2 mt-1" id="blogText" cols="30"
+                                    rows="2" placeholder="Blog içeriğini giriniz..."></textarea>
+
+                                <label for="blogCategory">Tür </label>
+                                <input class="form-control py-1 fs-1 mb-2 mt-1" placeholder="Blog türünü giriniz..."
+                                    type="text" id="blogCategory">
+
+                                <label for="blogPicture">Görsel: </label>
+                                <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                    placeholder="Blog görselini giriniz..." id="blogPicture">
+
+
+
+                                <button type="submit" class="btn btn-success w-100 my-3 " id="addButton"
+                                    data-bs-dismiss="modal">Ekle</button>
+                                <button type="button" class="btn btn-danger w-100"
+                                    data-bs-dismiss="modal">İptal</button>
+                                <!-- </form> -->
+                            </div>
+                        </div>
                     </div>
-                    <select class="form-select py-1 " id="sortOptions" aria-label="Sort books">
-                        <option selected>Seçiniz</option>
-                        <option value="azSort" id="azSort">A-z</option>
-                        <option value="zaSort" id="zaSort">Z-a</option>
-                        <option value="dateSortIncrease" id="dateSortIncrease">Tarih göre artan</option>
-                        <option value="dateSortDescend" id="dateSortDescend">Tarihe göre azalan</option>
-
+                </div>
+                <div class="">
+                    <h6 class="mb-0 fw-bold fs-2 ">Kategoriler:</h6>
+                    <hr class="my-1">
+                    <select id="blogCategories" class="mb-3 form-select py-1 fs-1">
                     </select>
+                    <div>
+                        <h6 class="mb-0 fw-bold fs-2 " id="sortCategories">Sıralama:</h6>
+                        <hr class="my-1">
 
+                        <select class="form-select py-1 fs-1 " id="sortOptions" aria-label="Sort blogs">
+                            <option selected value="Varsayılan"  id="Varsayılan" >Varsayılan</option>
+                            <option value="azSort" id="azSort">A-z</option>
+                            <option value="zaSort" id="zaSort">Z-a</option>
+                            <option value="dateSortIncrease" id="dateSortIncrease">Tarih göre artan</option>
+                            <option value="dateSortDescend" id="dateSortDescend">Tarihe göre azalan</option>
+
+                        </select>
+                    </div>
                 </div>
             </div>
             <!-- <div class="accordion accordion-flush mb-2" id="filterBookButton">
@@ -98,11 +130,11 @@
                         </div>
                     </div>
                 </div> -->
-            <div class="col-lg-10">
+            <div class="col-lg-10 ">
                 <div class="row justify-content-end">
                     <div class="col-lg-3 mb-3">
-                        <input class="form-control fs-1 py-2" placeholder="Aramak için yaz bekleme... " type="text"
-                            id="searchBlog">
+                        <input class="form-control border border-1 fs-1 py-2" placeholder="Aramak için yaz bekleme... "
+                            type="text" id="searchBlog">
 
                     </div>
 
@@ -114,46 +146,7 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="addBook" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="addBookLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-3" id="addBookLabel">Yeni İçerik Ekleyebilirsiniz!</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- <form> -->
-                            <label for="blogName">Başlık </label>
-                            <input class="form-control fs-1 mb-2 mt-1" placeholder="Yazınızın adını giriniz..."
-                                type="text" id="blogName">
 
-                            <label for="blogWriter">Yazar: </label>
-                            <input class="form-control py-1 fs-1 mb-2 mt-1" placeholder="Yazar ismini giriniz..."
-                                type="text" id="blogWriter">
-
-                            <label for="blogText">Metin:</label>
-                            <textarea type="text" class="form-control fs-1 mb-2 mt-1" id="blogText" cols="30" rows="2"
-                                placeholder="Blog içeriğini giriniz..."></textarea>
-
-                            <label for="blogCategory">Tür </label>
-                            <input class="form-control py-1 fs-1 mb-2 mt-1" placeholder="Kitap türünü giriniz..."
-                                type="text" id="blogCategory">
-
-                            <label for="blogPicture">Görsel: </label>
-                            <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
-                                placeholder="Blog görselini giriniz..." id="blogPicture">
-
-
-
-                            <button type="submit" class="btn btn-success w-100 my-3 " id="addButton"
-                                data-bs-dismiss="modal">Ekle</button>
-                            <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal">İptal</button>
-                        <!-- </form> -->
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- <label for="blogName">Başlık </label>
         <input class="form-control py-1 fs-6 mb-2 mt-1" placeholder="Yazınızın adını giriniz..." type="text" id="blogName">
     

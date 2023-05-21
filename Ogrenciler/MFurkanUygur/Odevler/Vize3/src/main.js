@@ -36,8 +36,6 @@ function addPost() {
 
     if (blogName == "" || blogWriter == "" || blogText == "" || blogCategory == "" || blogPicture == "") {
         alert("doldur")
-        console.log("doldur")
-
     }
     else {
         const data = {
@@ -51,31 +49,30 @@ function addPost() {
                 getPosts()
             })
             .catch((err) => console.log(err));
-
-
     }
-
 }
 
-const blogCategoriesBtn = document.querySelectorAll("#blogCategories");
-filterCategoryBtn(blogCategoriesBtn);
-//Filter buttonları
-function filterCategoryBtn(blogCategoriesBtn) {
-    blogCategoriesBtn.forEach(e => {
-        e.addEventListener("click", (f) => {
-            let filterCategoryName = f.target.parentElement.children[1].innerHTML;
-            console.log(filterCategoryName);
-            ui.displayBlogFromCategory(filterCategoryName)
-        })
-    })
-}
-sortTitles = document.querySelectorAll("option");
-sortTitles.forEach(s => {
-    s.addEventListener("click", sortType)
+const blogCategoriesBtn = document.querySelector("#blogCategories");
+blogCategoriesBtn.addEventListener("change", (e) => {
+    ui.displayBlogFromCategory(e.target.value)
 })
+sortTitles = document.querySelector("#sortOptions");
+console.log(sortTitles)
+sortTitles.addEventListener("change", (e) => {
+    ui.globalSortBlogs(e.target.value)
+})
+// sortTitles.forEach(s => {
+//     s.addEventListener("click", sortType)
+// })
+// sortTitles = document.querySelectorAll("option");
+// sortTitles.forEach(s => {
+//     s.addEventListener("click", sortType)
+// })
+
 function sortType(sortType) {
     let tempSortTypeID = sortType.explicitOriginalTarget.id;
-    console.log(tempSortTypeID)
+    // console.log(tempSortTypeID)
+
     ui.globalSortBlogs(tempSortTypeID)
 }
 

@@ -5,22 +5,27 @@ class UI {
         //Aramanın özel bir categoride çalışması için dizi oluşturduk verileri attık
         spesificSearchDatas.push(oneData);
         //bu diziyi arama fonksiyonuna gönderdik
-        this.searchBlog(spesificSearchDatas)
+        this.searchBlog(spesificSearchDatas);
+        this.sortFilteredItem(spesificSearchDatas)
 
         allBlogs.innerHTML += this.createTag(oneData)
         const deletePostBtns = document.querySelectorAll(".delete-btn");
         this.deleteBtn(deletePostBtns);
-
         //Her card yapısına edit butonu ekledik
         const editPostBtns = document.querySelectorAll(".edit-btn");
         this.editBtn(editPostBtns);
-
         //Her card'ta bulunan edit butonuyla açılan modalda yer alan save changes butonu
         const saveChangesBtns = document.querySelectorAll(".saveChanges");
         this.saveBtn(saveChangesBtns)
+        //Her card'ta bulunan inspect butonuyla açılan modal
+        const inspectBtns = document.querySelectorAll(".inspect-btn");
+        this.inspectBtn(inspectBtns);
     }
+
+
     //Category'e bağlı arama fonksiyonu
     searchBlog(uniqueBlogs) {
+        globalDatas = []
         //Arama inputunun değerini aldık ve bunu, diziyle beraber karşılaştırma yapmak için compareSearchInputValueAndBlog gönderdik
         const searchBlogInput = document.getElementById("searchBlog")
         searchBlogInput.addEventListener("keyup", () => {
@@ -29,6 +34,7 @@ class UI {
         searchBlogInput.addEventListener("focus", () => { searchBlogInput.value = "" })
 
     }
+
     compareSearchInputValueAndBlog(arr, inputValue) {
         allBlogs.innerHTML = ""
         if (inputValue != null) {
@@ -36,58 +42,62 @@ class UI {
                 if (t.blogName.toLowerCase().indexOf(inputValue) > -1 ||
                     t.blogWriter.toLowerCase().indexOf(inputValue) > -1) {
                     ui.displayCompareResult(t)
-                    console.log("buldu")
                     spesificSearchDatas = []
                 }
             })
         }
-        console.log("Anlık", spesificSearchDatas)
-
     }
     displayCompareResult(oneData) {
         allBlogs.innerHTML += this.createTag(oneData)
-
         const deletePostBtns = document.querySelectorAll(".delete-btn");
         this.deleteBtn(deletePostBtns);
-
         //Her card yapısına edit butonu ekledik
         const editPostBtns = document.querySelectorAll(".edit-btn");
         this.editBtn(editPostBtns);
-
         //Her card'ta bulunan edit butonuyla açılan modalda yer alan save changes butonu
         const saveChangesBtns = document.querySelectorAll(".saveChanges");
         this.saveBtn(saveChangesBtns)
+        const inspectBtns = document.querySelectorAll(".inspect-btn");
+        this.inspectBtn(inspectBtns);
     }
 
     displayAllPosts(data) {
-
-        // console.log(data)
         data.forEach(data => {
             allBlogs.innerHTML += this.createTag(data)
             globalDatas.push(data)
-            this.globalSearch(globalDatas)
         });
+
+        this.globalSearch(globalDatas)
+        // this.globalSortBlogs(globalDatas)
         const deletePostBtns = document.querySelectorAll(".delete-btn");
         this.deleteBtn(deletePostBtns);
-
         //Her card yapısına edit butonu ekledik
         const editPostBtns = document.querySelectorAll(".edit-btn");
         this.editBtn(editPostBtns);
-
         //Her card'ta bulunan edit butonuyla açılan modalda yer alan save changes butonu
         const saveChangesBtns = document.querySelectorAll(".saveChanges");
         this.saveBtn(saveChangesBtns)
+
+        const inspectBtns = document.querySelectorAll(".inspect-btn");
+        this.inspectBtn(inspectBtns);
     }
+
+    // globalSortBlogs(globalDatas) {
+    //     console.log(globalDatas)
+    // }
+
+
     globalSearch(globalDatas) {
+        spesificSearchDatas = []
         const searchBlogInput = document.getElementById("searchBlog")
         searchBlogInput.addEventListener("keyup", () => {
             this.globalCompare(globalDatas, searchBlogInput.value)
         })
         searchBlogInput.addEventListener("focus", () => { searchBlogInput.value = "" })
     }
+
     globalCompare(globalDatas, inputValue) {
         allBlogs.innerHTML = ""
-        console.log(globalDatas)
         globalDatas.forEach(x => {
             if (inputValue != null) {
                 if (x.blogName.toLowerCase().indexOf(inputValue) > -1 ||
@@ -98,6 +108,7 @@ class UI {
             }
         })
     }
+
     saveBtn(saveChangesBtns) {
         saveChangesBtns.forEach(e => {
             e.addEventListener("click", (e) => {
@@ -135,7 +146,6 @@ class UI {
                     .delete(`http://localhost:3000/posts/${selectedPostTempID}`)
                     .then(data => {
                         ui.displayAllPosts(data)
-
                     })
                     .catch((err) => console.log(err));
             })
@@ -157,6 +167,7 @@ class UI {
             })
         })
     }
+
     showDefaultInfo(data) {
         defaultBlogID.value = data.id
         document.getElementById("defaultBlogName").value = data.blogName;
@@ -169,35 +180,49 @@ class UI {
         editBlogID.value = data.id
     }
 
+    inspectBtn(inspectBtns) {
+        inspectBtns.forEach(e => {
+            e.addEventListener("click", (e) => {
+                let editedPostTempID = e.target.parentElement.parentElement.parentElement.id;
+                console.log(editedPostTempID)
+                http
+                    .get(`http://localhost:3000/posts/${editedPostTempID}`)
+                    .then(data => {
+                        this.inspectModalInfo(data)
+                    })
+                    .catch((err) => console.log(err));
+            })
+        })
+    }
+    inspectModalInfo(data) {
+        inspectModalLabel.innerHTML = data.blogName;
+        inspectModalImg.src = data.blogPicture;
+        inspectModalText.innerHTML = data.blogText
+    }
     checkInformationAllPage = function () {
         let allCategories = [];
         http
             .get('http://localhost:3000/posts')
             .then((data) => {
                 data.forEach(x => {
-                    allCategories.push(x.blogCategory)
+
+                    allCategories.push(x.blogCategory.toLowerCase())
                     const uniquecategoryTags = new Set();
 
                     allCategories.forEach(uniquecategoryTags.add, uniquecategoryTags);
                     blogCategories.innerHTML = `
-                        <div class="p-0 m-0">
-                            <input type="radio" id="all" checked name="name" class="form-check-input filter-writer-tag">
-                            <label for="filterCheckBox">Hepsi</label>
-                            
-                        </div>`;
+                        <option class="p-0 m-0" value="Hepsi">Hepsi
+                        </option>`;
                     for (let eachCategoryTag of uniquecategoryTags) {
                         blogCategories.innerHTML += `
-                        <div class="p-0 m-0">
-                            <input type="radio" name="name" class="form-check-input filter-writer-tag">
-                            <label for="filterCheckBox">${eachCategoryTag}</label>
-                            
-                        </div>`;
+                        <option value="${eachCategoryTag}" class="p-0 m-0  ">
+                        ${eachCategoryTag}
+                        </option>`;
                     }
                 })
             })
             .catch((err) => console.log(err));
     }
-
     displayBlogFromCategory(filterWord) {
         console.log(filterWord)
         allBlogs.innerHTML = ""
@@ -207,95 +232,125 @@ class UI {
                 data.forEach(x => {
                     if (filterWord == "Hepsi") {
                         ui.displayOnePost(x)
-
                     }
                     else if (x.blogCategory.toLowerCase() == filterWord.toLowerCase()) {
                         ui.displayOnePost(x)
-
                     }
                 })
             })
             .catch((err) => console.log(err));
     }
 
-    displayGlobalSearch() {
 
+    sortFilteredItem(uniqueBlogs) {
+        sortTitles = document.querySelector("#sortOptions");
+        sortTitles.addEventListener("change", (e) => {
+            this.compareFilteredItemsForSort(uniqueBlogs, e.target.value)
+            // spesificSearchDatas = [];
+            globalDatas = []
+        })
     }
+    compareFilteredItemsForSort(arr, filterName) {
+        // console.log(arr)
+        allBlogs.innerHTML = ""
+        if (filterName == "azSort") {
+            let azSortDatas =
+                arr.map(x => x)
+                    .sort((a, b) => (a.blogName.toLowerCase() > b.blogName.toLowerCase()) ? 1 : ((b.blogName.toLowerCase() > a.blogName.toLowerCase()) ? -1 : 0))
+            this.displayFilteredAndSortedResult(azSortDatas);
+        }
+        else if (filterName == "zaSort") {
+            let zaSortDatas =
+                arr.map(x => x)
+                    .sort((a, b) => (a.blogName.toLowerCase() < b.blogName) ? 1 : ((b.blogName < a.blogName) ? -1 : 0))
+            this.displayFilteredAndSortedResult(zaSortDatas);
+        }
+
+        else if (filterName == "dateSortIncrease") {
+            let dateSortIncreaseDatas =
+                arr.map(x => x)
+                    .sort((a, b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0))
+            this.displayFilteredAndSortedResult(dateSortIncreaseDatas);
+        }
+
+        else if (filterName == "dateSortDescend") {
+            let dateSortDescendDatas =
+                arr.map(x => x)
+                    .sort((a, b) => (a.date < b.date) ? 1 : ((b.date < a.date) ? -1 : 0))
+            this.displayFilteredAndSortedResult(dateSortDescendDatas);
+        }
+        else if (filterName == "Varsayılan") {
+            this.displayFilteredAndSortedResult(arr)
+        }
+    }
+    displayFilteredAndSortedResult(oneData) {
+        console.log("en son combination", oneData)
+        allBlogs.innerHTML = ""
+        oneData.forEach(x => {
+            allBlogs.innerHTML += this.createTag(x)
+        })
+        spesificSearchDatas = []
+        const deletePostBtns = document.querySelectorAll(".delete-btn");
+        this.deleteBtn(deletePostBtns);
+        //Her card yapısına edit butonu ekledik
+        const editPostBtns = document.querySelectorAll(".edit-btn");
+        this.editBtn(editPostBtns);
+        //Her card'ta bulunan edit butonuyla açılan modalda yer alan save changes butonu
+        const saveChangesBtns = document.querySelectorAll(".saveChanges");
+        this.saveBtn(saveChangesBtns)
+        //Her card'ta bulunan inspect butonuyla açılan modal
+        const inspectBtns = document.querySelectorAll(".inspect-btn");
+        this.inspectBtn(inspectBtns);
+    }
+
     globalSortBlogs(sortTypeID) {
-        console.log(spesificSearchDatas)
+        allBlogs.innerHTML = ""
         if (sortTypeID == "azSort") {
             let azSortDatas =
-                spesificSearchDatas
-                    .map(x => x)
-                    .sort((a, b) => (a.blogName > b.blogName) ? 1 : ((b.blogName > a.blogName) ? -1 : 0))
-            allBlogs.innerHTML = "";
-
-            ui.displayAllPosts(azSortDatas);
+                globalDatas.map(x => x)
+                    .sort((a, b) => (a.blogName.toLowerCase() > b.blogName.toLowerCase()) ? 1 : ((b.blogName.toLowerCase() > a.blogName.toLowerCase()) ? -1 : 0))
+            this.displayGlobalSort(azSortDatas);
         }
         else if (sortTypeID == "zaSort") {
-            let azSortDatas =
-                spesificSearchDatas
-                    .map(x => x)
-                    .sort((a, b) => (a.blogName < b.blogName) ? 1 : ((b.blogName < a.blogName) ? -1 : 0))
-            allBlogs.innerHTML = "";
-
-            ui.displayAllPosts(azSortDatas);
-
+            let zaSortDatas =
+                globalDatas.map(x => x)
+                    .sort((a, b) => (a.blogName.toLowerCase() < b.blogName) ? 1 : ((b.blogName < a.blogName) ? -1 : 0))
+            this.displayGlobalSort(zaSortDatas);
         }
 
         else if (sortTypeID == "dateSortIncrease") {
-            let azSortDatas =
-                spesificSearchDatas
-                    .map(x => x)
+            let dateSortIncreaseDatas =
+                globalDatas.map(x => x)
                     .sort((a, b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0))
-            allBlogs.innerHTML = "";
-
-            ui.displayAllPosts(azSortDatas);
-
+            this.displayGlobalSort(dateSortIncreaseDatas);
         }
 
         else if (sortTypeID == "dateSortDescend") {
-            let azSortDatas =
-                spesificSearchDatas
-                    .map(x => x)
+            let dateSortDescendDatas =
+                globalDatas.map(x => x)
                     .sort((a, b) => (a.date < b.date) ? 1 : ((b.date < a.date) ? -1 : 0))
-            allBlogs.innerHTML = "";
-
-            ui.displayAllPosts(azSortDatas);
-
-
+            this.displayGlobalSort(dateSortDescendDatas);
         }
-        // if (sortTypeID == "azSort") {
-        //     allBlogs.innerHTML="";
+        else if (sortTypeID == "Varsayılan") {
+            this.displayAllPosts(globalDatas)
+        }
 
-        //     http
-        //         .get('http://localhost:3000/posts?_sort=blogName')
-        //         .then((data) => {
-        //             ui.displayAllPosts(data)
-        //         })
-        //         .catch((err) => console.log(err));
-        // }
-        // else if (sortTypeID == "zaSort") {
-        //     allBlogs.innerHTML="";
-
-        // }
-        // else if (sortTypeID == "dateSortIncrease") {
-        //     allBlogs.innerHTML="";
-
-        // }
-        // else if (sortTypeID == "dateSortDescend") {
-        //     allBlogs.innerHTML="";
-        //     http
-        //     .get('http://localhost:3000/posts?_sort=date&_order=desc')
-        //     .then((data) => {
-        //         ui.displayAllPosts(data)
-        //     })
-        //     .catch((err) => console.log(err));
-        // }
-        // else {
-
-
-        // }
+    }
+    displayGlobalSort(oneData) {
+        oneData.forEach(x => {
+            allBlogs.innerHTML += this.createTag(x)
+        })
+        const deletePostBtns = document.querySelectorAll(".delete-btn");
+        this.deleteBtn(deletePostBtns);
+        //Her card yapısına edit butonu ekledik
+        const editPostBtns = document.querySelectorAll(".edit-btn");
+        this.editBtn(editPostBtns);
+        //Her card'ta bulunan edit butonuyla açılan modalda yer alan save changes butonu
+        const saveChangesBtns = document.querySelectorAll(".saveChanges");
+        this.saveBtn(saveChangesBtns)
+        //Her card'ta bulunan inspect butonuyla açılan modal
+        const inspectBtns = document.querySelectorAll(".inspect-btn");
+        this.inspectBtn(inspectBtns);
     }
 
     createTag(b) {
@@ -307,7 +362,6 @@ class UI {
             <div class="card-body text-black mb-0 pb-0 position-absolute w-100 bottom-0 bg-light">
             <h5 class="card-title fs-3 m-0 fw-bold">${b.blogName}</h5>
                 <h5 class="card-title fs-2 m-0 fw-bold">${b.blogWriter}</h5>
-                <p class="card-text fs-1 my-2 "> ${b.blogText}</p>
                 <span class="card-text fs-1"> ${b.blogCategory}</span>
                 <div class="text-end mb-1">
                     <p class="card-text  m-0 p-0 fs-8"> ${b.date}</p>
@@ -316,74 +370,107 @@ class UI {
                 <hr class="text-danger m-0">
                 <div class=" d-flex justify-content-around ">
                 
-                    <button class="btn  inspect-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn inspect-btn" data-bs-toggle="modal" data-bs-target="#inspectModal">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal  fade" id="inspectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="inspectModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered ">
+                        <div class="modal-content">
+                          <div class="modal-header align-item-center">
+                            <h1 class="modal-title fw-bold fs-4" id="inspectModalLabel"></h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                          <div class="row">
+                             <div class="col-lg-4 mb-3 text-center">
+                                <img src="" id="inspectModalImg" class="img-fluid">
+                             </div>
+                             <div class="col-lg-8">
+                                <h6 class="fw-semibold m-0 p-0"">Blog İncelemesi</h6>
+                                <hr class="m-0 p-0">
+                                <p class="fs-1 my-2 " id="inspectModalText"></p>
+
+                             </div>
+                          </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
                     <button type="button" class="btn edit-btn" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">
+                        data-bs-target="#editModal">
                         <i class="fa-solid fa-pencil"></i>
                     </button>
                     <button class="btn delete-btn"><i class="fa-regular fa-trash-can"></i></button>
                     
                     <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal  fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg  modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Kitap Bilgileri</h1>
+                                    <h1 class="modal-title fs-4" id="editModalLabel">Blog Bilgileri</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body px-5">
                                     <div class="row">
-                                        <div class="col-lg-6 fw-semibold ">
-                                            <h5 class="modal-title fw-semibold text-center">Anlık Bilgiler</h5>
+                                        <div class="col-lg-4 mb-3 ">
+                                            <h5 class="modal-title  text-center">Anlık Bilgiler</h5>
                                             <hr class="mt-0">
                                             <form>
-                                                <label for="blogID">Blog Id:</label>
-                                                <input class="form-control mb-2" type="text" id="defaultBlogID" disabled>
+                                                <label for="blogID" class=" d-none">Blog Id:</label>
+                                                <input class="form-control mb-2 fs-2 d-none" type="text" id="defaultBlogID" disabled>
     
                                                 <label for="blogName">Blog Name:</label>
-                                                <input class="form-control mb-2" type="text" id="defaultBlogName" disabled>
+                                                <input class="form-control mb-2 fs-2" type="text" id="defaultBlogName" disabled>
     
                                                 <label for="blogWriter">Blog Writer: </label>
-                                                <input class="form-control mb-2" type="text" id="defaultBlogWriter"
+                                                <input class="form-control mb-2 fs-2" type="text" id="defaultBlogWriter"
                                                     disabled>
     
                                                 <label for="blogType">Blog Text: </label>
-                                                <textarea  class="form-control mb-2" type="text" id="defaultBlogText"  cols="30" rows="5" disabled>
+                                                <textarea  class="form-control mb-2 fs-2" type="text" id="defaultBlogText"  cols="10" rows="1" disabled>
                                                 </textarea>
                                                 <label for="blogDate">Blog Category: </label>
-                                                <input class="form-control mb-2" type="text" id="defaultBlogCategory" disabled>
+                                                <input class="form-control mb-2 fs-2" type="text" id="defaultBlogCategory" disabled>
     
                                                 <label for="blogPicture">Blog Picture: </label>
-                                                <input class="form-control mb-2" type="text" id="defaultBlogPicture"
+                                                <input class="form-control mb-2 fs-2" type="text" id="defaultBlogPicture"
                                                     disabled>
                                                 <button type="button" class="btn btn-danger mt-1 w-100"
                                                     data-bs-dismiss="modal">İptal</button>
     
                                             </form>
                                         </div>
-                                        <div class="col-lg-6">
-                                            <h5 class="modal-title fw-semibold text-center">Güncel Bilgiler</h5>
+                                        <div class="col-lg-8 ">
+                                            <h5 class="modal-title text-center">Güncel Bilgiler</h5>
                                             <hr class="mt-0">
                                             <form>
-                                                <label for="blogID">Blog Id:</label>
-                                                <input class="form-control mb-2" type="text" id="editBlogID" disabled>
+                                                <label for="blogID" class=" d-none">Blog Id:</label>
+                                                <input class="form-control mb-2 fs-2  d-none" type="text" id="editBlogID" disabled>
     
                                                 <label for="blogName">Blog Name:</label>
-                                                <input class="form-control mb-2" type="text" id="editBlogName">
+                                                <input class="form-control mb-2 fs-2" type="text" id="editBlogName">
     
                                                 <label for="blogWriter">Blog Writer: </label>
-                                                <input class="form-control mb-2" type="text" id="editBlogWriter">
+                                                <input class="form-control mb-2 fs-2" type="text" id="editBlogWriter">
     
                                                 <label for="blogType">Blog Text: </label>
-                                                <textarea class="form-control mb-2" type="text" id="editBlogText"  cols="30" rows="5"></textarea>
+                                                <textarea class="form-control mb-2 fs-2" type="text" id="editBlogText"  cols="30" rows="1"></textarea>
     
                                                 <label for="blogDate">Blog Category: </label>
-                                                <input class="form-control mb-2" type="text" id="editBlogCategory">
+                                                <input class="form-control mb-2 fs-2" type="text" id="editBlogCategory">
     
                                                 <label for="blogPicture">Blog Picture: </label>
-                                                <input class="form-control mb-2" type="text" id="editBlogPicture">
+                                                <input class="form-control mb-2 fs-2" type="text" id="editBlogPicture">
     
                                             </form>
                                             <button type="button" class="btn btn-success saveChanges mt-1 w-100"
