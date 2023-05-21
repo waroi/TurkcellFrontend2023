@@ -1,30 +1,3 @@
-// window.addEventListener('DOMContentLoaded', () => {
-//     let scrollPos = 0;
-//     const mainNav = document.getElementById('mainNav');
-//     const headerHeight = mainNav.clientHeight;
-//     window.addEventListener('scroll', function() {
-//         const currentTop = document.body.getBoundingClientRect().top * -1;
-//         if ( currentTop < scrollPos) {
-//             // Scrolling Up
-//             if (currentTop > 0 && mainNav.classList.contains('is-fixed')) {
-//                 mainNav.classList.add('is-visible');
-//             } else {
-//                 console.log(123);
-//                 mainNav.classList.remove('is-visible', 'is-fixed');
-//             }
-//         } else {
-//             // Scrolling Down
-//             mainNav.classList.remove(['is-visible']);
-//             if (currentTop > headerHeight && !mainNav.classList.contains('is-fixed')) {
-//                 mainNav.classList.add('is-fixed');
-//             }
-//         }
-//         scrollPos = currentTop;
-//     });
-// })
-
-let dataID;
-
 let category = document.getElementById("blogCategory");
 let title = document.getElementById("blogTitle");
 let fullName = document.getElementById("fullName");
@@ -35,6 +8,8 @@ let modalContent = document.getElementById("modalContent");
 let myModal = document.getElementById("myModal");
 let searchInput = document.getElementById("searchInput");
 let filterSelect = document.getElementById("filterSelect");
+let sortSelect = document.getElementById("sortSelect");
+let clearPreferencesBtn = document.getElementById("clearPreferences");
 
 let request = new BlogRequest();
 let ui = new UserInterface();
@@ -52,6 +27,8 @@ blogList.addEventListener("click", showModal);
 updateBlogButton.addEventListener("click", updateBlog);
 searchInput.addEventListener("keyup", searchForABlog);
 filterSelect.addEventListener("change", filterBlogs);
+sortSelect.addEventListener("change", sortBlogs);
+clearPreferencesBtn.addEventListener("click", clearPreferences);
 
 document.addEventListener("DOMContentLoaded", async function () {
     await getAllBlogsFromServer();
@@ -74,12 +51,13 @@ function addNewBlog(event) {
         .catch((err) => console.log(err));
 
     clearInputs();
+    sortBlogs();
 }
 
 function deleteBlog(e) {
     //e.preventDefault();
     if (e.target.id == "deleteBlog" || e.target.parentElement.parentElement.id == "deleteBlog") {
-        const parent = e.target.closest('.col-4');
+        const parent = e.target.closest('.col-12');
         const dataID = parent.getAttribute('dataid');
         request.delete(dataID).then((data) => data).catch((err) => err);
         ui.deleteBlogFromUI(parent);
@@ -88,7 +66,7 @@ function deleteBlog(e) {
 
 function editBlog(e) {
     if (e.target.id == "editBlog" || e.target.parentElement.parentElement.id == "editBlog") {
-        const parent = e.target.closest('.col-4');
+        const parent = e.target.closest('.col-12');
         dataID = parent.getAttribute('dataid');
 
         newBlogButton.classList.add("d-none");
@@ -144,8 +122,8 @@ async function getAllBlogsFromServer() {
 
 function searchForABlog(e) {
     const filterValue = e.target.value.toLowerCase();
-    const books = document.querySelectorAll(".blog-item");
-    books.forEach((blogItem) => {
+    const blogs = document.querySelectorAll(".blog-item");
+    blogs.forEach((blogItem) => {
         const text = blogItem.textContent.toLowerCase();
         if (text.includes(filterValue)) {
             blogItem.classList.remove("d-none");
@@ -179,12 +157,77 @@ function filterBlogs() {
             blog.classList.add("d-none");
         }
     });
+    resetSortValue();
+}
+
+function resetSortValue(){
+    sortSelect.value = "choose";
+    sortBlogs();
+}
+
+function clearPreferences(){
+    searchInput.value = "";
+    sortSelect.value = "choose";
+    filterSelect.value = "Hepsi";
+    filterBlogs();
+    sortBlogs();
+}
+
+
+function sortBlogs() {
+    let sortSelectValue = sortSelect.value;
+
+    if(sortSelectValue == "choose"){
+        return;
+    }
+    
+    var parts = sortSelectValue.split("-");
+    var sortType = parts[0]; 
+    var orderType = parts[1];
+    let sortValue;
+    let isAZ;
+
+    if(orderType == "az"){
+        isAZ = true;
+    }
+    else{
+        isAZ = false;
+    }
+
+    if(sortType == "title"){
+        sortValue = ".card-title";
+    }
+    else if(sortType == "author"){
+        sortValue = ".blog-author";
+    }
+    else if(sortType == "date"){
+        sortValue = ".blog-date"
+    }
+
+    const blogs = document.querySelectorAll('.blog-item');
+    const sortedBlogs = [...blogs].sort((a, b) => {
+        const contentA = a.querySelector(sortValue).textContent;
+        const contentB = b.querySelector(sortValue).textContent;
+        if (isAZ) {
+            return contentA.localeCompare(contentB);
+        }
+        else {
+            return contentB.localeCompare(contentA);
+        }
+    });
+
+    sortedBlogs.forEach(blog => {
+        blogList.appendChild(blog);
+    });
+    // isSortAz = true;
+    // isSortZa = false;
+    // isSortDate = false;
 }
 
 async function showModal(e) {
     if (e.target.id == "seeMore") {
         let blogToShow;
-        const parent = e.target.closest('.col-4');
+        const parent = e.target.closest('.col-12');
         dataID = parent.getAttribute('dataid');
 
         try {

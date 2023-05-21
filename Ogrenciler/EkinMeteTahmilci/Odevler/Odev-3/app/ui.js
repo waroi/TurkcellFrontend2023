@@ -8,7 +8,7 @@ class UserInterface {
             shortContent += '...';
         }
 
-        blogList.innerHTML += `<div class="col-4 col-sm-1 col-md-4 col-lg-4 mt-3 blog-item" dataID ="${newBlogObject.id}">
+        blogList.innerHTML += `<div class="col-12 col-sm-4 col-md-4 col-lg-4 mt-3 blog-item" dataID ="${newBlogObject.id}">
         <div class="card">
             <img class="card-img"
                 src="${newBlogObject.image}"
@@ -18,7 +18,7 @@ class UserInterface {
             </div>
             <div class="card-body">
                 <h4 class="card-title">${newBlogObject.title}</h4>
-                <small class="text-muted cat">
+                <small class="text-muted cat blog-author">
                     <i class="fa fa-user text-danger"></i> ${newBlogObject.author}
                 </small>
                 <p class="card-text">${shortContent}</p>
@@ -27,7 +27,7 @@ class UserInterface {
                 <a class="btn btn-danger" id="deleteBlog"><i class="fas fa-trash"></i></a>
             </div>
             <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
-                <div class="views">${newBlogObject.date}
+                <div class="views blog-date">${newBlogObject.date}
                 </div>
                 <div class="stats">
                     <i class="far fa-eye"></i> 1342
@@ -36,6 +36,7 @@ class UserInterface {
             </div>
         </div>
     </div>`
+    sortBlogs();
     }
 
     deleteBlogFromUI(element) {
@@ -52,7 +53,7 @@ class UserInterface {
         
         let blogToBeUpdate = document.querySelector(`[dataID="${dataID}"]`);
         blogToBeUpdate.innerHTML = "";
-        blogToBeUpdate.innerHTML = `<div class="card blog-item">
+        blogToBeUpdate.innerHTML = `<div class="card">
             <img class="card-img"
                 src="${updatedBlogObject.image}"
                 alt="Bologna">
@@ -61,7 +62,7 @@ class UserInterface {
             </div>
             <div class="card-body">
                 <h4 class="card-title">${updatedBlogObject.title}</h4>
-                <small class="text-muted cat">
+                <small class="text-muted cat blog-author">
                     <i class="fa fa-user text-danger"></i> ${updatedBlogObject.author}
                 </small>
                 <p class="card-text">${shortContent}</p>
@@ -70,7 +71,7 @@ class UserInterface {
                 <a class="btn btn-danger" id="deleteBlog"><i class="fas fa-trash"></i></a>
             </div>
             <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
-                <div class="views">${updatedBlogObject.date}
+                <div class="views blog-date">${updatedBlogObject.date}
                 </div>
                 <div class="stats">
                     <i class="far fa-eye"></i> 1342
@@ -79,6 +80,7 @@ class UserInterface {
             </div>
         </div>
     </div>`
+    sortBlogs();
     }
 
     showModal(blogToShow) {
