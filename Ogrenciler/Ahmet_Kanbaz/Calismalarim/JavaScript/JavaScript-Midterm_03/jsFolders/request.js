@@ -7,16 +7,18 @@ class Request {
       });
     })
     .catch((error) => UI.alertMessage(error));
-    UI.showFilterCategories(blogs);
+    UI.showFilterCategories();
   }
 
   static addNewBlogToRequest = function(blog) {
     const newBlog = crud.post(blog);
     newBlog.then((response) => UI.createNewBlogToUI(response))
     .catch((error) => UI.alertMessage(error));
+    UI.showFilterCategories();
   }
 
   static getBlogDetailFromRequest = function(getDetailBlogId) {
+    Filter.getCheckedCategory();
     const detailBlog = crud.getSingleBlog(getDetailBlogId);
     detailBlog
       .then((response) => UI.detailBlogToUI(response))
@@ -33,11 +35,29 @@ class Request {
   static updateBlogFromRequest = function(updateBlogId, updateBlog) {
     const updatedBlog = crud.put(updateBlogId, updateBlog);
     updatedBlog
-      .then((response) => UI.toastMessage('Blog Başarılı Bir Şekilde Güncellendi.'))
+      .then((response) => {
+        UI.toastMessage('Blog Başarılı Bir Şekilde Güncellendi.');
+        location.reload();
+      })
       .catch((error) => UI.alertMessage(error));
   }
 
   static deleteBlogFromRequest = function(deleteBlogId) {
     crud.delete(deleteBlogId);
+    UI.showFilterCategories();
+  }
+
+  static getBlogsFromRequestForCategory = function(category) {
+    const filterBlogsWithCategory = [];
+    const blogs = crud.get();
+    blogs.then((response) => {
+      response.map((blog) => {
+        if (blog.category === category) {
+          filterBlogsWithCategory.push(blog);
+        }
+      });
+    })
+    .catch((error) => UI.alertMessage(error));
+    return filterBlogsWithCategory;
   }
 }

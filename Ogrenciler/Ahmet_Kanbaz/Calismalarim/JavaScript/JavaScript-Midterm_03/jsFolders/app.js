@@ -26,6 +26,10 @@ const addNewBlogButton = document.getElementById('addBlogButton');
 const toast = document.getElementById("toastMessage");
 
 const categoriesFilter = document.querySelector('.categoriesFilter');
+const categoriesFilterDropDown = document.querySelector('.categoriesFilterDropDown');
+
+const searchInput = document.getElementById('searchInput');
+const dropDownItemForSort = document.querySelectorAll('.dropSort');
 
 addEventListeners();
 
@@ -37,4 +41,10 @@ function addEventListeners() {
   blogsList.addEventListener('click', Blogs.detailBlog);
   blogsList.addEventListener('click', Blogs.updateBlog);
   blogsList.addEventListener('click', Blogs.deleteBlog);
+  categoriesFilter.addEventListener('change', Filter.getCheckedCategory);
+  categoriesFilterDropDown.addEventListener('change', Filter.getCheckedCategoryFromDropDown);
+  dropDownItemForSort.forEach(function(item) {
+    item.addEventListener('click', Filter.getSortDropDown);
+  });
+  searchInput.addEventListener('keyup', Filter.getSearchInput);
 }

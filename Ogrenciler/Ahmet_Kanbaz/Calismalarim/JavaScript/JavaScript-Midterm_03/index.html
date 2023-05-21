@@ -66,7 +66,7 @@
         <div class="col-lg-7 topSectionCards ps-lg-5">
           <div class="row">
             <h3 class="pb-3 border-bottom border-secondary">Blog Yazıları</h3>
-            <div class="col-lg-4 py-3">
+            <div class="col-md-4 col-12 py-3">
               <div class="card h-100 border-0 shadow-lg">
                 <img src="https://preview.colorlib.com/theme/philosophy/images/thumbs/masonry/tulips-400.jpg"
                   class="img-fluid" alt="">
@@ -76,7 +76,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 py-3">
+            <div class="col-md-4 col-12 py-3">
               <div class="card h-100 border-0 shadow-lg">
                 <img src="https://preview.colorlib.com/theme/philosophy/images/thumbs/masonry/shutterbug-400.jpg"
                   class="img-fluid" alt="">
@@ -86,7 +86,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 py-3">
+            <div class="col-md-4 col-12 py-3">
               <div class="card h-100 border-0 shadow-lg">
                 <img src="https://preview.colorlib.com/theme/philosophy/images/thumbs/masonry/cookies-400.jpg"
                   class="img-fluid" alt="">
@@ -107,15 +107,21 @@
       <div class="row gap-4 gap-lg-0">
         <div class="col-lg-5 d-flex justify-content-evenly justify-content-lg-start gap-lg-5">
           <button class="btn btn-info" id="allBlogsButton">Tüm Bloglar</button>
-          <div class="dropdown dropend ms-lg-5" id="sortBlogs">
+          <div class="dropdown ms-lg-5" id="sortBlogs">
             <button class="btn btn-secondary dropdown-toggle px-4" type="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               Sıralama
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li class="border-bottom"><span class="dropdown-item-text">Başlığa Göre</span></li>
+              <li><a class="dropdown-item dropSort" href="#">A - Z</a></li>
+              <li><a class="dropdown-item dropSort" href="#">Z - A</a></li>
+              <li class="border-bottom py-1"><span class="dropdown-item-text">Yazara Göre</span></li>
+              <li><a class="dropdown-item dropSort" href="#">A - Z</a></li>
+              <li><a class="dropdown-item dropSort" href="#">Z - A</a></li>
+              <li class="border-bottom"><span class="dropdown-item-text">Tarihe Göre</span></li>
+              <li><a class="dropdown-item dropSort" href="#">Eskiden Yeniye</a></li>
+              <li><a class="dropdown-item dropSort" href="#">Yeniden Eskiye</a></li>
             </ul>
           </div>
         </div>
@@ -143,53 +149,12 @@
               aria-expanded="false">
               Kategori
             </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <ul class="dropdown-menu categoriesFilterDropDown">
             </ul>
           </div>
         </div>
         <div class="col-lg-9">
           <div class="row blogsList">
-            <div class="col-lg-4">
-              <div class="card blogCards shadow">
-                <div class="innerBlogCard w-100 h-100 position-relative">
-                  <div class="blogCardFront w-100 h-100 position-absolute">
-                    <img
-                      src="https://i.nefisyemektarifleri.com/2023/05/17/evde-en-iyi-makarna-nasil-yapilir-5-puf-noktasi-1.jpg"
-                      alt="Avatar" class="px-1 pt-1 img-fluid object-fit-cover blogCardsImage h-100">
-                  </div>
-                  <div
-                    class="blogCardBack w-100 h-100 d-flex justify-content-evenly align-items-center position-absolute">
-                    <a href="#" class="px-3 py-2 rounded" data-bs-toggle="modal"
-                      data-bs-target="#addAndUpdateBlogModal"><span class="fa-solid fa-edit"></span></a>
-                    <a href="#" class="px-3 py-2 rounded" data-bs-toggle="modal" data-bs-target="#infoBlogModal"><span
-                        class="fa-solid fa-eye"></span></a>
-                    <a href="#" class="px-3 py-2 rounded"><span class="fa-solid fa-trash"></span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="card blogCards shadow">
-                <div class="innerBlogCard w-100 h-100 position-relative">
-                  <div class="blogCardFront w-100 h-100 position-absolute">
-                    <img
-                      src="https://i.nefisyemektarifleri.com/2023/05/17/filtre-kahve-nedir-nasil-icilir-enfes-oneriler-320x213.jpg"
-                      alt="Avatar" class="px-1 pt-1 img-fluid object-fit-cover blogCardsImage h-100">
-                  </div>
-                  <div
-                    class="blogCardBack w-100 h-100 d-flex justify-content-evenly align-items-center position-absolute">
-                    <a href="#" class="px-3 py-2 rounded" data-bs-toggle="modal"
-                      data-bs-target="#addAndUpdateBlogModal"><span class="fa-solid fa-edit"></span></a>
-                    <a href="#" class="px-3 py-2 rounded" data-bs-toggle="modal" data-bs-target="#infoBlogModal"><span
-                        class="fa-solid fa-eye"></span></a>
-                    <a href="#" class="px-3 py-2 rounded"><span class="fa-solid fa-trash"></span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -277,6 +242,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <script src="./jsFolders/crud.js"></script>
+  <script src="./jsFolders/filter.js"></script>
   <script src="./jsFolders/request.js"></script>
   <script src="./jsFolders/ui.js"></script>
   <script src="./jsFolders/blogs.js"></script>

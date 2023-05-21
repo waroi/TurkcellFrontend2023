@@ -2,7 +2,7 @@ class UI {
   static createNewBlogToUI = function (blog) {
     const newBlogCol = document.createElement("div");
     newBlogCol.id = blog.id;
-    newBlogCol.className = "col-lg-4 mb-4";
+    newBlogCol.className = "col-lg-4 col-md-6 mb-4";
     newBlogCol.innerHTML = `
       <div class="card blogCards shadow">
         <div class="innerBlogCard w-100 h-100 position-relative">
@@ -101,14 +101,10 @@ class UI {
     deleteBlog.remove();
   }
 
-  static addCheckBoxFromCheckBox(checkbox) {
-    categoriesFilter.innerHTML +=`<li class = 'mb-2>
-    <input type="checkbox" id="${checkbox}" class="btn-check" autocomplete="off">
-    <label for="${checkbox}" class="btn btn-outline-success px-5" for="${checkbox}">${checkbox}</label>
-  </li>`;
-  }
-
-  static showFilterCategories = function(blogs) {
+  static showFilterCategories = function() {
+    const blogs = crud.getBlogsForCategories();
+    categoriesFilterDropDown.innerHTML = '';
+    categoriesFilter.innerHTML = '';
     const tempBlogs = [];
     blogs
       .then((blog) => {
@@ -116,8 +112,17 @@ class UI {
           tempBlogs.push(element.category);
         });
         const uniqueBlogs = [...new Set(tempBlogs)];
-        uniqueBlogs.forEach((element) => {
-          this.addCheckBoxFromCheckBox(element);
+        uniqueBlogs.sort().map((element) => {
+          const categoriesLi = document.createElement('li');
+          categoriesLi.className = 'mb-2';
+          categoriesLi.innerHTML += `<input type="checkbox" id="${element}" value="${element}" class="btn-check" autocomplete="off">
+          <label for="${element}" class="btn btn-outline-success px-5">${element}</label>`;
+          const categoriesDropDownLi = document.createElement('li');
+          categoriesDropDownLi.className='ps-1'
+          categoriesDropDownLi.innerHTML=`<input type="checkbox" id="${element}" value="${element}"">
+          <label for="${element}">${element}</label>`;
+          categoriesFilterDropDown.appendChild(categoriesDropDownLi);
+          categoriesFilter.appendChild(categoriesLi);
         });
       })
       .catch((error) => this.alertMessage(error));

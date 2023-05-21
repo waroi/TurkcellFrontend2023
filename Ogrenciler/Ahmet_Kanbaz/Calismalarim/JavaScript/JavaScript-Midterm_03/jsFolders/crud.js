@@ -61,4 +61,18 @@ class Crud {
     const responseData = await response.json();
     return responseData;
   }
+
+  async getBlogsForCategories() {
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        try {
+          const response = await fetch(this.url);
+          const veriler = await response.json();
+          resolve(veriler);
+        } catch (error) {
+          reject(error);
+        }
+      }, 100);
+    });
+  }
 }
