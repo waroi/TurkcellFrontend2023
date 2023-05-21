@@ -9,7 +9,7 @@ class UserInterface {
     addBlog = function () {
         let newBlog = getData();
         UI.addCard(newBlog);
-        UI.clearValues();
+        // UI.clearValues();
     }
 
     findIdtoDelete = function (getData) {
@@ -63,6 +63,7 @@ class UserInterface {
     }
 
     editBlog = function (blog) {
+        UI.createModal();
         document.getElementById("addTitle").value = blog.title;
         document.getElementById("addText").value = blog.text;
         document.getElementById("addWriter").value = blog.writer;
@@ -208,7 +209,7 @@ class UserInterface {
         }
 
         blogUI.innerHTML = "";
-        intersectedData.map((data) => UI.addCard(new Blog(data.title, data.text, data.writer, data.date, data.category, data.url)));
+        intersectedData.map((data) => UI.addCard(new Blog(data.title, data.text, data.writer, data.date.replace("T", " "), data.category, data.url)));
     }
 
     clearFilter = function () {
@@ -260,6 +261,16 @@ class UserInterface {
         fullData = fullData.sort((a, b) => b.date.localeCompare(a.date));
         let firstFive = fullData.slice(0, 5);
         shortNews.innerHTML = "";
-        firstFive.map((data) => UI.addLatestNews(new Blog(data.title, data.text, data.writer, data.date, data.category, data.url)));
+        firstFive.map((data) => UI.addLatestNews(new Blog(data.title, data.text, data.writer, data.date.replace("T", " "), data.category, data.url)));
+    }
+
+    createModal = function () {
+        let modal = document.getElementById("modalBoxOutside");
+        if (modal.classList == "d-none") {
+            modal.classList.remove("d-none");
+        }
+        else {
+            modal.classList.add("d-none");
+        }
     }
 }

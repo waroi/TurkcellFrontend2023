@@ -70,3 +70,6 @@ addPostArea.addEventListener("click", function () {
             console.log('POST Error:', error);
         });
 })
+
+let firstAddBlog = document.getElementById("firstAddBlog");
+firstAddBlog.addEventListener("click", UI.createModal);
