@@ -1,5 +1,8 @@
 const http = new Http()
 const ui = new UI()
+const toastTrigger = document.getElementById('addButton');
+const toastLiveExample = document.getElementById('liveToastforAddBtn')
+const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
 
 document.addEventListener("DOMContentLoaded", getPosts)
 function getPosts() {
@@ -15,6 +18,7 @@ function getPosts() {
     blogText.value = "";
     blogCategory.value = "";
     blogPicture.value = ""
+
 }
 
 
@@ -32,15 +36,20 @@ function addPost() {
     const year = date.getFullYear();
     const hour = `${date.getHours()}`.padStart(2, 0);
     const min = `${date.getMinutes()}`.padStart(2, 0);
-    const sec = `${date.getSeconds()}`.padStart(2, 0)
+    const sec = `${date.getSeconds()}`.padStart(2, 0);
+
+    const data = {
+        blogName, blogWriter, blogText, blogCategory, blogPicture, date: `${day}/${month}/${year},${hour}:${min}:${sec}`
+    }
 
     if (blogName == "" || blogWriter == "" || blogText == "" || blogCategory == "" || blogPicture == "") {
-        alert("doldur")
+
+        toastTrigger.addEventListener('click', () => {
+            toastBootstrap.show()
+        })
     }
     else {
-        const data = {
-            blogName, blogWriter, blogText, blogCategory, blogPicture, date: `${day}/${month}/${year}, ${hour}:${min}:${sec}`
-        }
+
         console.log("başarılı")
         http
             .post('http://localhost:3000/posts', data)
@@ -57,7 +66,7 @@ blogCategoriesBtn.addEventListener("change", (e) => {
     ui.displayBlogFromCategory(e.target.value)
 })
 sortTitles = document.querySelector("#sortOptions");
-console.log(sortTitles)
+// console.log(sortTitles)
 sortTitles.addEventListener("change", (e) => {
     ui.globalSortBlogs(e.target.value)
 })

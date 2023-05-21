@@ -128,10 +128,22 @@ class UI {
                 const sec = `${date.getSeconds()}`.padStart(2, 0)
 
                 const updateData = { blogName, blogWriter, blogText, blogCategory, blogPicture, date: `${day}/${month}/${year}, ${hour}:${min}:${sec}` }
-                http
-                    .put(`http://localhost:3000/posts/${selectedPostTempID}`, updateData)
-                    .then(data => { data })
-                    .catch(err => console.log(err))
+                const toastTrigger = document.getElementById('saveChange');
+                const toastLiveExample = document.getElementById('liveToastforSaveChangeBtn')
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+
+                if (blogName == "" || blogWriter == "" || blogText == "" || blogCategory == "" || blogPicture == "") {
+                    toastTrigger.addEventListener('click', () => {
+                        toastBootstrap.show()
+                    })
+                }
+                else {
+                    http
+                        .put(`http://localhost:3000/posts/${selectedPostTempID}`, updateData)
+                        .then(data => { data })
+                        .catch(err => console.log(err))
+                }
+
             })
         })
     }
@@ -262,7 +274,7 @@ class UI {
         else if (filterName == "zaSort") {
             let zaSortDatas =
                 arr.map(x => x)
-                    .sort((a, b) => (a.blogName.toLowerCase() < b.blogName) ? 1 : ((b.blogName < a.blogName) ? -1 : 0))
+                    .sort((a, b) => (a.blogName.toLowerCase() < b.blogName.toLowerCase()) ? 1 : ((b.blogName.toLowerCase() < a.blogName.toLowerCase()) ? -1 : 0))
             this.displayFilteredAndSortedResult(zaSortDatas);
         }
 
@@ -304,21 +316,26 @@ class UI {
     }
 
     globalSortBlogs(sortTypeID) {
-        allBlogs.innerHTML = ""
         if (sortTypeID == "azSort") {
+            allBlogs.innerHTML = ""
+
             let azSortDatas =
                 globalDatas.map(x => x)
                     .sort((a, b) => (a.blogName.toLowerCase() > b.blogName.toLowerCase()) ? 1 : ((b.blogName.toLowerCase() > a.blogName.toLowerCase()) ? -1 : 0))
             this.displayGlobalSort(azSortDatas);
         }
         else if (sortTypeID == "zaSort") {
+            allBlogs.innerHTML = ""
+
             let zaSortDatas =
                 globalDatas.map(x => x)
-                    .sort((a, b) => (a.blogName.toLowerCase() < b.blogName) ? 1 : ((b.blogName < a.blogName) ? -1 : 0))
+                    .sort((a, b) => (a.blogName.toLowerCase() < b.blogName.toLowerCase()) ? 1 : ((b.blogName.toLowerCase() < a.blogName.toLowerCase()) ? -1 : 0))
             this.displayGlobalSort(zaSortDatas);
         }
 
         else if (sortTypeID == "dateSortIncrease") {
+            allBlogs.innerHTML = ""
+
             let dateSortIncreaseDatas =
                 globalDatas.map(x => x)
                     .sort((a, b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0))
@@ -326,17 +343,22 @@ class UI {
         }
 
         else if (sortTypeID == "dateSortDescend") {
+            allBlogs.innerHTML = ""
+
             let dateSortDescendDatas =
                 globalDatas.map(x => x)
                     .sort((a, b) => (a.date < b.date) ? 1 : ((b.date < a.date) ? -1 : 0))
             this.displayGlobalSort(dateSortDescendDatas);
         }
         else if (sortTypeID == "Varsayılan") {
+            allBlogs.innerHTML = ""
+
             this.displayAllPosts(globalDatas)
         }
 
     }
     displayGlobalSort(oneData) {
+        // allBlogs.innerHTML = ""
         oneData.forEach(x => {
             allBlogs.innerHTML += this.createTag(x)
         })
@@ -372,7 +394,7 @@ class UI {
                 
                     <!-- Button trigger modal -->
                     <button type="button" class="btn inspect-btn" data-bs-toggle="modal" data-bs-target="#inspectModal">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-circle-info"></i>
                     </button>
                     
                     <!-- Modal -->
@@ -473,7 +495,7 @@ class UI {
                                                 <input class="form-control mb-2 fs-2" type="text" id="editBlogPicture">
     
                                             </form>
-                                            <button type="button" class="btn btn-success saveChanges mt-1 w-100"
+                                            <button type="button" id="saveChange" class="btn btn-success saveChanges mt-1 w-100"
                                                 data-bs-dismiss="modal">Bilgileri Güncelle</button>
     
                                         </div>
@@ -486,6 +508,17 @@ class UI {
                         </div>
     
                     </div>
+                    <div id="liveToastforSaveChangeBtn"
+                    class="toast align-items-center text-bg-danger border-0 position-fixed bottom-0 end-0 py-1 my-2"
+                    role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body fw-bold fs-1 text-white">
+                          Güncellemek için tüm alanları doldurunuz!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
