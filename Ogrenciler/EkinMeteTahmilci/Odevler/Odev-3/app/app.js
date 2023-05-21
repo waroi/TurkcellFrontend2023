@@ -1,0 +1,39 @@
+// window.addEventListener('DOMContentLoaded', () => {
+//     let scrollPos = 0;
+//     const mainNav = document.getElementById('mainNav');
+//     const headerHeight = mainNav.clientHeight;
+//     window.addEventListener('scroll', function() {
+//         const currentTop = document.body.getBoundingClientRect().top * -1;
+//         if ( currentTop < scrollPos) {
+//             // Scrolling Up
+//             if (currentTop > 0 && mainNav.classList.contains('is-fixed')) {
+//                 mainNav.classList.add('is-visible');
+//             } else {
+//                 console.log(123);
+//                 mainNav.classList.remove('is-visible', 'is-fixed');
+//             }
+//         } else {
+//             // Scrolling Down
+//             mainNav.classList.remove(['is-visible']);
+//             if (currentTop > headerHeight && !mainNav.classList.contains('is-fixed')) {
+//                 mainNav.classList.add('is-fixed');
+//             }
+//         }
+//         scrollPos = currentTop;
+//     });
+// })
+let url = "http://localhost:3000/recipes";
+let request = new Request();
+
+function addNewBlog(){
+    let category = document.getElementById("blogCategory");
+    let title = document.getElementById("blogTitle");
+    let fullName = document.getElementById("fullName");
+    let image = document.getElementById("blokImage");
+    let date = document.getElementById("date");
+    let content = document.getElementById("content");
+
+    let newBlokObject = new blogObject(category, title, fullName, image, date, content)
+    request.post(newBlokObject);
+}
+

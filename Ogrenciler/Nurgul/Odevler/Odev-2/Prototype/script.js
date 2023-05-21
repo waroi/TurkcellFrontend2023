@@ -18,8 +18,11 @@ BookManager.prototype.addBook = function(event) {
   const posterUrl = form.elements.posterUrl.value;
   const searchInput = document.querySelector(".searchInput");
   searchInput.addEventListener("input", searchBook);
-
-  const newBook = {
+  if (bookName === '' || writer === '' || year === '' || type === '' || posterUrl === '') {
+    alert('Lütfen tüm alanları doldurun.');
+  
+  }
+  else{ const newBook = {
     bookName,
     writer,
     year,
@@ -27,16 +30,17 @@ BookManager.prototype.addBook = function(event) {
     posterUrl,
   };
 
-  if (bookName === '' || writer === '' || year === '' || type === '' || posterUrl === '') {
-    alert('Lütfen tüm alanları doldurun.');
-    return;
+
+    console.log("deneme");
+    this.books.push(newBook);
+    localStorage.setItem("books", JSON.stringify(this.books));
+  
+    form.reset();
+    this.renderBooks();
+
   }
+ 
 
-  this.books.push(newBook);
-  localStorage.setItem("books", JSON.stringify(this.books));
-
-  form.reset();
-  this.renderBooks();
 };
 
 const searchBook = function() {
@@ -294,7 +298,10 @@ form.addEventListener("submit", (event) => {
   const year = form.elements.year.value;
   const type = form.elements.type.value;
   const posterUrl = form.elements.posterUrl.value;
-
+  if (bookName === "" || writer === "" || year === "" || type === "" || posterUrl === "") {
+    alert("Lütfen tüm alanları doldurun.");
+   
+  }else{
   const newBook = {
     bookName,
     writer,
@@ -303,16 +310,15 @@ form.addEventListener("submit", (event) => {
     posterUrl,
   };
 
-  if (bookName === "" || writer === "" || year === "" || type === "" || posterUrl === "") {
-    alert("Lütfen tüm alanları doldurun.");
-    return;
+ bookManger.books.push(newBook);
+    localStorage.setItem("books", JSON.stringify(bookManger.books));
+  
+    form.reset();
+    bookManger.renderBooks();
+
   }
 
-  bookManger.books.push(newBook);
-  localStorage.setItem("books", JSON.stringify(bookManger.books));
-
-  form.reset();
-  bookManger.renderBooks();
+ 
 });
 
 const bookManager = new BookManager();
