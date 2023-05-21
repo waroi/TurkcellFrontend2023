@@ -7,185 +7,269 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vize3</title>
     <link rel="stylesheet" href="../Vize3/css/main.css">
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
-        integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
-        integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <script src="https://kit.fontawesome.com/5e36563075.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="">
-    <nav class="navbar navbar-expand-lg bg-dark m-0 p-0 d-flex ">
+<body>
+    <nav class="navbar navbar-expand-lg m-0 p-0 d-flex fixed-top ">
         <div class="container d-flex justify-content-center  ">
-            <a class="navbar-brand fw-semibold text-black  fs-10 " href="#"><span
+            <a class="navbar-brand fw-semibold text-white  fs-10 " href="#"><span
                     class="text-danger fw-bolder fs-6 ">B</span>lockpick</a>
-            <!-- <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon "></span>
-            </button> -->
-            <!-- <div class="collapse navbar-collapse bg-primary" id="navbarSupportedContent">
-                <div class="mt-4 mb-2">
-                    
-                </div>
-            </div> -->
         </div>
     </nav>
-    <section class="container main-content">
-        <div class="row mt-3">
-            <div class="bg-danger" id="globalSearchBlogs"></div>
-
-            <div class="col-lg-2 bg-light rounded-2 py-2">
-                <button type="button" class="btn btn-warning w-100 mb-2 fw-bold" data-bs-toggle="modal"
-                    data-bs-target="#addBook">Blog Ekle
-                </button>
-                <div class="modal fade" id="addBook" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                    aria-labelledby="addBookLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-3" id="addBookLabel">Yeni İçerik Ekleyebilirsiniz!</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- <form> -->
-                                <label for="blogName">Başlık </label>
-                                <input class="form-control fs-1 mb-2 mt-1" placeholder="Yazınızın adını giriniz..."
-                                    type="text" id="blogName">
-
-                                <label for="blogWriter">Yazar: </label>
-                                <input class="form-control py-1 fs-1 mb-2 mt-1" placeholder="Yazar ismini giriniz..."
-                                    type="text" id="blogWriter">
-
-                                <label for="blogText">Metin:</label>
-                                <textarea type="text" class="form-control fs-1 mb-2 mt-1" id="blogText" cols="30"
-                                    rows="2" placeholder="Blog içeriğini giriniz..."></textarea>
-
-                                <label for="blogCategory">Tür </label>
-                                <input class="form-control py-1 fs-1 mb-2 mt-1" placeholder="Blog türünü giriniz..."
-                                    type="text" id="blogCategory">
-
-                                <label for="blogPicture">Görsel: </label>
-                                <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
-                                    placeholder="Blog görselini giriniz..." id="blogPicture">
-
-                                <button type="submit" class="btn btn-success w-100 my-3 " id="addButton"
-                                    data-bs-dismiss="modal">Ekle</button>
-                                <button type="button" class="btn btn-danger w-100"
-                                    data-bs-dismiss="modal">İptal</button>
-                                <!-- </form> -->
-                            </div>
+    <section class="p-0 m-0">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+                <div class="carousel-item sliderItem1 active ">
+                    <div class=" d-flex flex-column justify-content-center align-items-center h-100 text-white  ">
+                        <div class="intro-title d-flex flex-column text-center rounded-4">
+                            <span class=" fw-bold">Assassin Creed</span>
+                            <span class=" text-uppercase">Black Flag</span>
                         </div>
                     </div>
                 </div>
-
-                <div id="liveToastforAddBtn"
-                    class="toast align-items-center text-bg-danger border-0 position-fixed bottom-0 end-0 py-1 my-2"
-                    role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="d-flex">
-                        <div class="toast-body fw-bold fs-1 text-white">
-                            Lütfen içerik eklemek için tüm alanları doldurunuz!
+                <div class="carousel-item sliderItem2">
+                    <div class=" d-flex flex-column justify-content-center align-items-center h-100 text-white  ">
+                        <div class="intro-title d-flex flex-column text-center rounded-4">
+                            <span class=" fw-bold">Assassin Creed</span>
+                            <span class=" text-uppercase">Unity</span>
                         </div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
                     </div>
                 </div>
+                <div class="carousel-item sliderItem3">
+                    <div class=" d-flex flex-column justify-content-center align-items-center h-100 text-white  ">
+                        <div class="intro-title d-flex flex-column text-center rounded-4">
+                            <span class=" fw-bold">God of War</span>
+                            <span class=" text-uppercase">Ragnarok</span>
 
-
-                <div class="">
-                    <h6 class="mb-0 fw-bold fs-2 ">Kategoriler:</h6>
-                    <hr class="my-1">
-                    <select id="blogCategories" class="mb-3 form-select py-1 fs-1">
-                    </select>
-                    <div>
-                        <h6 class="mb-0 fw-bold fs-2 " id="sortCategories">Sıralama:</h6>
-                        <hr class="my-1">
-
-                        <select class="form-select py-1 fs-1 " id="sortOptions" aria-label="Sort blogs">
-                            <option selected value="Varsayılan" id="Varsayılan">Varsayılan</option>
-                            <option value="azSort" id="azSort">A-z</option>
-                            <option value="zaSort" id="zaSort">Z-a</option>
-                            <option value="dateSortIncrease" id="dateSortIncrease">Tarih göre artan</option>
-                            <option value="dateSortDescend" id="dateSortDescend">Tarihe göre azalan</option>
-
-                        </select>
+                        </div>
                     </div>
+
+                </div>
+                <div class="carousel-item sliderItem4">
+                    <div class=" d-flex flex-column justify-content-center align-items-center h-100 text-white  ">
+                        <div class="intro-title d-flex flex-column text-center rounded-4">
+                            <span class=" fw-bold">The Last Of Us</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <!-- <div class="accordion accordion-flush mb-2" id="filterBookButton">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header ">
-                            <button class="btn btn-primary fw-bold w-100 collapsed " type="button"
-                                data-bs-toggle="collapse" data-bs-target="#bookFilterTags" aria-expanded="false"
-                                aria-controls="bookFilterTags">
-                                Filtreler
-                                <i class="bi-arrow-down"></i>
-                            </button>
-                        </h2>
-                        <div id="bookFilterTags"
-                            class="accordion-collapse  border border-1 border-black border-top-0"
-                            data-bs-parent="#filterBookButton">
-                            <div class="accordion-body ">
-                                <h6 class="mb-0">Kategoriler:</h6>
-                                <hr class="my-1">
-                                <div id="blogCategories" class="mb-3"></div>
-                                <h6 class="mb-0">Türüne göre:</h6>
-                                <hr class="my-1">
-                                <div id="typeFilterTag"></div> 
-                                <button class="btn btn-secondary w-100 mt-3" id="clearFilters">Filtreleri
-                                    Temizle</button>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="gradient"></div>
+        <div class="container main-container position-relative py-5">
+            <div class="row  mx-1">
+                <div class="bg-danger" id="globalSearchBlogs"></div>
+
+                <div class="col-lg-2 bg-light rounded-2 py-4 my-3 ">
+                    <button type="button" class="btn btn-danger w-100 mb-3 fw-semibold  fs-2" data-bs-toggle="modal"
+                        data-bs-target="#addBook">Blog Ekle
+                    </button>
+                    <div class="modal fade" id="addBook" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="addBookLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-3" id="addBookLabel">Yeni İçerik Ekleyebilirsiniz!</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- <form> -->
+                                    <label for="blogName">Başlık </label>
+                                    <input class="form-control fs-1 mb-2 mt-1" placeholder="Yazınızın adını giriniz..."
+                                        type="text" id="blogName">
+
+                                    <label for="blogWriter">Yazar: </label>
+                                    <input class="form-control py-1 fs-1 mb-2 mt-1"
+                                        placeholder="Yazar ismini giriniz..." type="text" id="blogWriter">
+
+                                    <label for="blogText">Metin:</label>
+                                    <textarea type="text" class="form-control fs-1 mb-2 mt-1" id="blogText" cols="30"
+                                        rows="2" placeholder="Blog içeriğini giriniz..."></textarea>
+
+                                    <label for="blogCategory">Tür </label>
+                                    <input class="form-control py-1 fs-1 mb-2 mt-1" placeholder="Blog türünü giriniz..."
+                                        type="text" id="blogCategory">
+
+                                    <label for="blogPicture">Görsel: </label>
+                                    <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                        placeholder="Blog görselini giriniz..." id="blogPicture">
+
+                                    <button type="submit" class="btn btn-success w-100 my-3 " id="addButton"
+                                        data-bs-dismiss="modal">Ekle</button>
+                                    <button type="button" class="btn btn-danger w-100"
+                                        data-bs-dismiss="modal">İptal</button>
+                                    <!-- </form> -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div> -->
-            <div class="col-lg-10 ">
-                <div class="row justify-content-end">
-                    <div class="col-lg-3 mb-3">
-                        <input class="form-control border border-1 fs-1 py-2" placeholder="Aramak için yaz bekleme... "
-                            type="text" id="searchBlog">
 
+                    <div id="liveToastforAddBtn"
+                        class="toast align-items-center text-bg-danger border-0 position-fixed bottom-0 end-0 py-1 my-2"
+                        role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body fw-bold fs-1 text-white">
+                                Lütfen içerik eklemek için tüm alanları doldurunuz!
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                                aria-label="Close"></button>
+                        </div>
                     </div>
+                    <div class="categories-plate">
+                        <h6 class="mb-0 fw-bold fs-2 ">Kategoriler:</h6>
+                        <hr class="my-1">
+                        <select id="blogCategories" class="mb-3 form-select py-1 fs-1">
+                        </select>
+                        <div>
+                            <h6 class="mb-0 fw-bold fs-2 " id="sortCategories">Sıralama:</h6>
+                            <hr class="my-1">
 
-                    <!-- <label for="searchBlog" class="text-white fw-semibold"> Ara:</label> -->
+                            <select class="form-select py-1 fs-1 " id="sortOptions" aria-label="Sort blogs">
+                                <option selected value="Varsayılan" id="Varsayılan">Varsayılan</option>
+                                <option value="azSort" id="azSort">A-z</option>
+                                <option value="zaSort" id="zaSort">Z-a</option>
+                                <option value="dateSortIncrease" id="dateSortIncrease">Tarih göre artan</option>
+                                <option value="dateSortDescend" id="dateSortDescend">Tarihe göre azalan</option>
+
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <div id="allBlogs" class="row"></div>
-
+                <div class="col-lg-10 py-3 my-0 ">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-3 mb-3">
+                            <input class="form-control border border-1 fs-1 py-2"
+                                placeholder="Aramak için yaz bekleme... " type="text" id="searchBlog">
+                        </div>
+                    </div>
+                    <div id="allBlogs" class="row "></div>
+                </div>
             </div>
         </div>
-
-        <!-- Modal -->
-
-        <!-- <label for="blogName">Başlık </label>
-        <input class="form-control py-1 fs-6 mb-2 mt-1" placeholder="Yazınızın adını giriniz..." type="text" id="blogName">
-    
-        <label for="blogWriter">Yazar: </label>
-        <input class="form-control py-1 fs-6 mb-2 mt-1" placeholder="Yazar ismini giriniz..." type="text" id="blogWriter">
-    
-        <label for="blogText">Metin:</label>
-        <textarea type="text" class="form-control" id="blogText" cols="30" rows="5"
-            placeholder="Blog içeriğini giriniz..."></textarea>
-    
-        <label for="blogCategory">Tür </label>
-        <input class="form-control py-1 fs-6 mb-2 mt-1" placeholder="Kitap türünü giriniz..." type="text" id="blogCategory">
-    
-        <label for="blogPicture">Görsel: </label>
-        <input class="form-control py-1 fs-6 mb-2 mt-1" type="text" placeholder="Blog görselini giriniz..."
-            id="blogPicture"> -->
-
-        <!-- <button id="ekle"> ekle</button> -->
-
-
     </section>
-    </div>
+
+    <footer class="footer bg-dark pt-4">
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col-lg-3 mt-4">
+                    <h6 class="text-white fw-bold">Bireysel</h6>
+
+                    <h6 class="text-white fst-italic fw-light">M.Furkan UYGUR</h6>
+                    <ul class="list p-0 mt-4">
+                        <li class="list-group-item text-white mt-2">
+                            <a href="https://github.com/mfurkanuygur" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-brands fa-github fa-xl me-3"></i>Github</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="https://mfurkanuygur.github.io" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-solid fa-user fa-xl me-3"></i>Hakkımda</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="https://www.instagram.com/mfrknu/" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-brands fa-instagram fa-xl me-3"></i>Instagram</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="https://www.linkedin.com/in/mfurkanuygur1"
+                                class="text-decoration-none text-white fs-2"><i
+                                    class="fa-brands fa-linkedin fa-xl me-3"></i>Linkedin</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="mailto: u.fe.uygur@gmail.com" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-brands fa-google fa-xl me-3"></i>u.fe.uygur@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mt-4">
+                    <h6 class="text-white fw-bold">Kurumsal</h6>
+                    <ul class="list p-0 mt-3">
+                        <li class="list-group-item text-white mt-2">
+                            <a href="#" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-solid fa-info-circle fa-xl me-3"></i>Biz Kimiz?</a>
+                        </li>
+
+                        <li class="list-group-item text-white mt-2">
+                            <a href="#" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-solid fa-shield-halved fa-xl me-3"></i>Kalite</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="#" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-solid fa-file-pen fa-xl me-3"></i>KVKK</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="#" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-solid fa-book fa-xl me-3"></i>İşlem
+                                Rehberi</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mt-4">
+                    <h6 class="text-white fw-bold">Diğer Hizmetlerimiz</h6>
+
+                    <ul class="list p-0 mt-3">
+                        <li class="list-group-item text-white mt-2">
+                            <a href="" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-solid fa-plane fa-xl me-3"></i>Yurtdışı
+                                Gönderim</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-solid fa-car fa-xl me-3"></i>Ücretsiz Kargo</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-solid fa-money-bill-transfer fa-xl me-2"></i>Ödeme Yöntemleri</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-2 mt-4">
+                    <h6 class="text-white fw-bold">İletişim</h6>
+                    <ul class="list p-0 mt-3">
+                        <li class="list-group-item text-white mt-2">
+                            <a href="" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-solid fa-phone fa-xl me-2 ms-1"></i>(123)
+                                456 78 90</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-brands fa-google fa-xl me-3"></i>e-Mail</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="mailto:u.fe.uygur@gmail.com" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-solid fa-location fa-xl me-3 "></i>Sivas/Biryer</a>
+                        </li>
+                        <li class="list-group-item   mt-2">
+                            <a href="" class="text-decoration-none text-white fs-2"><i
+                                    class="fa-solid fa-highlighter fa-lg me-3 "></i>Öneri Formu</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-center ">
+                <p class="text-white fst-italic fs-2">Turkcell Frontend Bootcamp Vize 3 Projesidir.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-
+    <script src="./src/slider.js"></script>
     <script src="./src/http.js"></script>
     <script src="./src/ui.js"></script>
     <script src="./src/main.js"></script>

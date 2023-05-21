@@ -1,5 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 nav {
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  background: rgba(25, 25, 25, 0.16);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(30px);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   a {
     font-family: "Shadows Into Light", cursive;
   }
@@ -7,7 +15,7 @@ nav {
 
 .blog-img-specs {
   // width: auto;
-  height: 320px;
+  // height: 320px;
 }
 
 i {
@@ -31,7 +39,6 @@ i {
 }
 .modal {
   background: rgba(25, 25, 25, 0.16);
-  border-radius: 15px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   border: 1px solid rgba(213, 209, 209, 0.28);
@@ -40,18 +47,77 @@ i {
 }
 .modal-content {
   background: rgba(255, 255, 255, 0.381);
-  border-radius: 15px;
+
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(213, 209, 209, 0.28);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
+@mixin bg-image($img) {
+  background-image: url($img);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+@mixin spanTag {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 60px;
+}
 
-// body {
-//   background-image: url("https://i0.wp.com/bilkentpost.bilkent.edu.tr/wp-content/uploads/2021/01/11-1.jpg?resize=800%2C533");
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   backdrop-filter: blur(5px);
+.sliderItem1 {
+  @include bg-image("../img/ezio.jpg");
+  @include spanTag();
+  background-position: top;
+}
 
-// }
+.sliderItem2 {
+  @include bg-image("../img/arno.jpg");
+  @include spanTag();
+
+  background-position: top;
+}
+.sliderItem3 {
+  @include bg-image("../img/gow.jpg");
+  @include spanTag();
+  background-position: top;
+}
+.sliderItem4 {
+  @include bg-image("../img/tlou.webp");
+  @include spanTag();
+  background-position: bottom;
+}
+.intro-title {
+  max-width: 400px;
+  min-width: 400px;
+  backdrop-filter: blur(5px);
+  padding: 20px;
+}
+.main-content {
+  @include bg-image("https://wallpaperaccess.com/full/4882896.jpg");
+  height: auto;
+  position: relative;
+  padding: 80px 0;
+
+  .gradient {
+    // background: linear-gradient(80deg, #377d8f 0%, #0a4157 100%);
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+  }
+  .main-container {
+    border-radius: 10px;
+    // background: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    background-color: rgba(255, 255, 255, 0.379);
+  }
+}

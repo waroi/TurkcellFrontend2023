@@ -377,7 +377,7 @@ class UI {
 
     createTag(b) {
         return `
-      <div class="col-12 col-sm-6 col-lg-3 mb-4 ">
+      <div class="col-12 col-sm-6 col-lg-3 mb-3 ">
         <div class="card h-100 my-3 position-relative" id="${b.id}">
                 <img src="${b.blogPicture}" class="card-img-top blog-img-specs img-fluid " alt="${b.blogPicture}">
           
