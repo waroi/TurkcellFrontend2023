@@ -10,11 +10,9 @@ class Request {
       fetch('http://localhost:3000/blogs')
         .then((response) => response.json())
         .then(data => {
-          // Process the blog data and generate HTML
           data.forEach(blog => {
-            // Create a new list item for each blog
             const listItem = document.createElement('div');
-            listItem.classList = "card mb-3 blog-item";
+            listItem.classList = "card mb-3 blog-item position-relative";
             listItem.innerHTML = `
               <div class="row g-0">
                 <div class="col-md-4">
@@ -28,8 +26,8 @@ class Request {
                     </a>
                     <div class="d-flex justify-content-between me-5 my-4">
                       <span><i class="fa-solid fa-calendar-days"></i> ${blog.date}</span>
-                      <span class="text-capitalize"><i class="fa-regular fa-folder-open"></i> ${blog.category}</span>
-                      <span class="text-capitalize"><i class="fa-solid fa-feather-pointed"></i> ${blog.author}</span>
+                      <span><i class="fa-regular fa-folder-open"></i> ${capitalize(blog.category)}</span>
+                      <span><i class="fa-solid fa-feather-pointed"></i> ${capitalize(blog.author)}</span>
                     </div>
                     <p class="card-text">${blog.content}</p>
                     <button type="button" class="btn btn-primary edit-blog-btn" data-bs-toggle="modal" data-bs-target="#editModal">
@@ -39,29 +37,28 @@ class Request {
                       <i class="fa-solid fa-trash"></i> Delete 
                     </button>
                   </div>
+                  <div class="sticky-div">
+                    <span class="sticky-span">${blog.id}</span>
+                  </div>
                 </div>
               </div>`;
-            // Update the category filter list
             updateCategoryList(blog.category);
 
-            // Append the list item to the blog list
             blogList.appendChild(listItem);
           });
 
-          // Update the category filter list
-          // Update the category filter list
-          // Update the category filter list
+
+
           function updateCategoryList(category) {
             const categoryList = document.getElementById('categoryList');
             const existingCategory = categoryList.querySelector(`li div[data-category="${category}"]`);
-            // const capitalizedCategory = category.trim().charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+            const capitalizedCategory = capitalize(category);
 
-            // Check if the category already exists in the filter list
             if (!existingCategory) {
               const listItem = document.createElement('li');
               listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start');
               listItem.innerHTML = `
-                <div type="button" class="ms-2 me-auto blog-category text-capitalize" data-category="${category}">${category}</div>
+                <div type="button" class="ms-2 me-auto blog-category" data-category="${category}">${capitalizedCategory}</div>
                 <span class="badge bg-primary rounded-pill"></span>
               `;
 
@@ -121,8 +118,8 @@ class Request {
                                   </a>
                                   <div class="d-flex justify-content-between me-5 my-4">
                                     <span><i class="fa-solid fa-calendar-days"></i> ${blog.date}</span>
-                                    <span><i class="fa-regular fa-folder-open"></i> ${blog.category}</span>
-                                    <span><i class="fa-solid fa-feather-pointed"></i> ${blog.author}</span>
+                                    <span><i class="fa-regular fa-folder-open"></i> ${capitalize(blog.category)}</span>
+                                    <span><i class="fa-solid fa-feather-pointed"></i> ${capitalize(blog.author)}</span>
                                   </div>
                                   <p class="card-text">${blog.content}</p>
                                   <button type="button" class="btn btn-primary edit-blog-btn" data-bs-toggle="modal" data-bs-target="#editModal">
@@ -141,14 +138,6 @@ class Request {
           }
           filterBlogs()
 
-          // function sortBlogs() {
-          //   const sortBlog = document.getElementById('blog-sort');
-          //   console.log(sortBlog)
-          //   sortBlog.addEventListener('change', async (e) => {
-          //     const sort = e.target.value;
-          //     console.log(sort)
-          //   })
-          // }
           async function sortBlogs() {
             const sortBlog = document.querySelectorAll('.blog-sort');
 
@@ -216,30 +205,38 @@ class Request {
                       return b.title.localeCompare(a.title);
                     })
                     break;
-                  case "Author(ascending)":
+                  case " Author(ascending)":
                     data.sort((a, b) => {
                       let authorAscending = a.author.localeCompare(b.author);
                       return authorAscending;
                     })
                     break;
-                  case "Author(descending)":
+                  case " Author(descending)":
                     data.sort((a, b) => {
                       return b.author.localeCompare(a.author);
                     })
                     break;
                 }
 
-
                 displayFilteredBlogs(data);
               });
             });
           }
-
-
           sortBlogs()
 
+          const searchInput = document.getElementById('searchInput');
+          searchInput.addEventListener('keyup', () => {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
 
+            // Filter blogs based on title or author match
+            const filteredBlogs = data.filter(blog => {
+              const title = blog.title.toLowerCase();
+              const author = blog.author.toLowerCase();
+              return title.includes(searchInput) || author.includes(searchInput);
+            });
 
+            displayFilteredBlogs(filteredBlogs);
+          });
         })
         .catch((err) => reject(new Error("Veri alınamadı")));
     });
@@ -273,27 +270,21 @@ class Request {
     })
   }
 }
+function capitalize(str) {
+  const words = str.trim().split(" ");
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].slice(1).toLowerCase();
+  }
+  return words.join(" ");
+}
 
-
-const request = new Request();
-request
-  .get("http://localhost:3000/blogs")
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-
-//Add new blog
 addNewButton.addEventListener('click', (e) => {
   e.preventDefault()
 
-  const titleValue = document.getElementById('addBlogTitle').value;
-  const contentValue = document.getElementById('addBlogContent').value;
-  const authorValue = document.getElementById('addBlogAuthor').value;
-  const categoryValue = document.getElementById('addBlogCategory').value;
+  const titleValue = document.getElementById('addBlogTitle').value.trim();
+  const contentValue = document.getElementById('addBlogContent').value.trim();
+  const authorValue = document.getElementById('addBlogAuthor').value.trim();
+  const categoryValue = capitalize(document.getElementById('addBlogCategory').value);
   const imageValue = document.getElementById('addBlogImageUrl').value;
 
   const date = new Date()
@@ -304,7 +295,14 @@ addNewButton.addEventListener('click', (e) => {
     content: contentValue,
     author: authorValue,
     category: categoryValue,
-    date: date.toISOString(),
+    date: date.toLocaleString("en-US", {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    }),
   };
 
   request
@@ -316,3 +314,44 @@ addNewButton.addEventListener('click', (e) => {
       console.error('Error adding blog:', error);
     });
 });
+
+document.addEventListener('click', (e) => {
+  const contentModal = document.querySelector('#contentModal');
+  if (e.target.classList.contains('card-title')) {
+    e.preventDefault();
+    const blogId = e.target.parentElement.parentElement.parentElement.parentElement;
+    contentModal.innerHTML = `
+    <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title fs-5" id="contentModalLabel">${blogId.children[1].childNodes[1].childNodes[1].childNodes[1].textContent}</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="${blogId.children[0].children[0].src}" alt=""
+                            class="w-100">
+                        <div class="d-flex flex-column">
+                            <span><i class="fa-solid fa-calendar-days"></i> ${blogId.children[1].childNodes[1].children[1].children[0].textContent}</span>
+                            <span><i class="fa-regular fa-folder-open"></i> ${blogId.children[1].childNodes[1].children[1].children[1].textContent}</span>
+                            <span><i class="fa-solid fa-feather-pointed"></i> ${blogId.children[1].childNodes[1].children[1].children[2].textContent} </span>
+                        </div>
+                        <p class="card-text-modal border">${blogId.children[1].childNodes[1].children[2].textContent}</p>                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+    `
+  }
+});
+
+const request = new Request();
+request
+  .get("http://localhost:3000/blogs")
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });

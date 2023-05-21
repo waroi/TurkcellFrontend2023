@@ -12,7 +12,15 @@ a {
 }
 li::before {
   visibility: hidden;
+}
 
+.blog-item {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 1.5rem;
+  box-shadow: 0 -0.5rem 1rem rgba(0 0 0 / 0.15);
+  border-radius: 4px;
 }
 
 .card-body h2 {
@@ -23,8 +31,35 @@ li::before {
 #blogImage {
   height: 20rem;
 }
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sticky-div {
+  position: absolute;
+  top: 3%;
+  left: 95%;
+  height: 100%;
+  width: fit-content;
+  margin: 0;
+}
+.sticky-span {
+  position: sticky;
+  font-size: 24px;
+  top: 0%;
+  left: 97%;
+  color: #fd6767;
+  padding: 10px;
+}
+
 @media screen and (min-width: 992px) {
   .navCon {
+    position: fixed;
+  }
+  .filter-container {
     position: fixed;
   }
 }

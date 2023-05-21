@@ -50,7 +50,8 @@
         </nav>
 
         <!-- List of blogs -->
-        <div class="container-lg col-12 col-lg-6 border border-black py-lg-5" id="blogList"> </div>
+        <div class="container-lg col-12 col-lg-6 border border-black py-lg-5" id="blogList">
+        </div>
 
         <!-- addModal -->
         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
@@ -155,16 +156,10 @@
         <div class="modal fade" id="contentModal" tabindex="-1" aria-labelledby="contentModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title fs-5" id="contentModalLabel">Content Modal</h3>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
+                    <div class="modal-header"> </div>
+                    <div class="modal-body"> </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -189,55 +184,57 @@
             </div>
         </div>
 
-        <div class="container col-12 col-lg-3 border border-black py-lg-5">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Type a keyword">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
-                        class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <div>
-                <h4>Categories</h4>
-                <ul class="list-group list-group-numbered list-group-flush" id="categoryList">
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div type="button" class="ms-2 me-auto blog-category" data-category="all">All</div>
-                        <span class="badge bg-primary rounded-pill"></span>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h4>Sort by</h4>
-                <ul class="list-group list-group-numbered list-group-flush" id="sortList">
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div type="button" class="ms-2 me-auto blog-sort" data-category="all"><i
-                                class="fa-solid fa-calendar-plus"></i> Newer first</div>
-                        <span class="badge bg-primary rounded-pill"></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div type="button" class="ms-2 me-auto blog-sort" data-category="all"> <i
-                                class="fa-solid fa-calendar-minus"></i> Older first</div>
-                        <span class="badge bg-primary rounded-pill"></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div type="button" class="ms-2 me-auto blog-sort" data-category="all"><i
-                                class="fa-solid fa-folder-plus"></i> Title(ascending)</div>
-                        <span class="badge bg-primary rounded-pill"></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div type="button" class="ms-2 me-auto blog-sort" data-category="all"><i
-                                class="fa-solid fa-folder-plus"></i> Title(descending)</div>
-                        <span class="badge bg-primary rounded-pill"></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div type="button" class="ms-2 me-auto blog-sort" data-category="all"><i
-                                class="fa-solid fa-person-circle-plus"></i> Author(ascending)</div>
-                        <span class="badge bg-primary rounded-pill"></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div type="button" class="ms-2 me-auto blog-sort" data-category="all"><i
-                                class="fa-solid fa-person-circle-minus"></i> Author(descending)</div>
-                        <span class="badge bg-primary rounded-pill"></span>
-                    </li>
-                </ul>
+        <div class="container-lg col-12 col-lg-3 border border-black py-lg-5 my-5 my-lg-0 w-100">
+            <div class="filter-container">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Type a keyword">
+                    <button class="btn btn-outline-secondary" type="button" id="searchButton"><i
+                            class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div>
+                    <h4>Categories</h4>
+                    <ul class="list-group list-group-numbered list-group-flush" id="categoryList">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div type="button" class="ms-2 me-auto blog-category" data-category="all">All</div>
+                            <span class="badge bg-primary rounded-pill"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Sort by</h4>
+                    <ul class="list-group list-group-numbered list-group-flush" id="sortList">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div type="button" class="ms-2 me-auto blog-sort" data-category="all"><i
+                                    class="fa-solid fa-calendar-plus"></i> Newer first</div>
+                            <span class="badge bg-primary rounded-pill"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div type="button" class="ms-2 me-auto blog-sort" data-category="all"> <i
+                                    class="fa-solid fa-calendar-minus"></i> Older first</div>
+                            <span class="badge bg-primary rounded-pill"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div type="button" class="ms-2 me-auto blog-sort" data-category="all"><i
+                                    class="fa-solid fa-folder-plus"></i> Title(ascending)</div>
+                            <span class="badge bg-primary rounded-pill"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div type="button" class="ms-2 me-auto blog-sort" data-category="all"><i
+                                    class="fa-solid fa-folder-plus"></i> Title(descending)</div>
+                            <span class="badge bg-primary rounded-pill"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div type="button" class="ms-2 me-auto blog-sort" data-category="all"><i
+                                    class="fa-solid fa-person-circle-plus"></i> Author(ascending)</div>
+                            <span class="badge bg-primary rounded-pill"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div type="button" class="ms-2 me-auto blog-sort" data-category="all"><i
+                                    class="fa-solid fa-person-circle-minus"></i> Author(descending)</div>
+                            <span class="badge bg-primary rounded-pill"></span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
