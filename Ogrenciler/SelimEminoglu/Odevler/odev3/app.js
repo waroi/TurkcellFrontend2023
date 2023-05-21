@@ -5,8 +5,8 @@ const searchİnput = document.getElementsByClassName("search-input");
 const authorList = document.getElementById("authorList");
 const blogList = document.getElementById("blogList");
 
-UI.showBlogs();
-UI.showAuthors();
+// UI.showBlogs();
+// UI.showAuthors();
 
 hiddenBtn[0].addEventListener("click", () => {
   console.log(search[0]);

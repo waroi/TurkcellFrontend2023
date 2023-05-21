@@ -174,9 +174,79 @@
         </div>
         <div class="row justify-content-end mb-3">
           <div class="col-3">
-            <button class="add-button">
+            <button
+              type="button"
+              class="add-button"
+              data-bs-target="addBlogModal"
+              data-bs-toggle="modal"
+            >
               Yeni Blog Yazısı Ekle <i class="fa-sharp fa-solid fa-plus"></i>
             </button>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="addBlogModal"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+          >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                  Kitap Ekle
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <h2>Kitap Özellikleri</h2>
+                <form class="book-form mt-3" id="form">
+                  <label for="bookName" class="w-100 fs-4 my-1"
+                    >Kitap Adı:</label
+                  >
+                  <input type="text" id="bookName" class="w-100" />
+                  <label for="bookWriter" class="w-100 fs-4 my-1"
+                    >Kitabın Yazarı:</label
+                  >
+                  <input type="text" id="bookWriter" class="w-100" />
+                  <label for="bookDate" class="w-100 fs-4 my-1"
+                    >Yazım Yılı:</label
+                  >
+                  <input type="text" id="bookDate" class="w-100" />
+                  <label for="bookCategory" class="w-100 fs-4 my-1"
+                    >Kategorisi:</label
+                  >
+                  <input type="text" id="bookCategory" class="w-100" />
+                  <label for="bookUrl" class="w-100 fs-4 my-1"
+                    >Kitap Resmi İçin URL:</label
+                  >
+                  <input type="text" id="bookUrl" class="w-100" />
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Kapat
+                </button>
+                <button type="button" class="btn btn-primary" id="addBook">
+                  Kitap Ekle
+                </button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row" id="blogList">
