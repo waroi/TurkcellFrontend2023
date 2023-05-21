@@ -1,84 +1,3 @@
-// class Request {
-//     constructor(url) {
-//         this.url = url;
-//         this.postedData = [];
-//     }
-
-//     get() {
-//         return new Promise((resolve, reject) => {
-//             fetch(this.url)
-//                 .then((response) => response.json())
-//                 .then((data) => resolve(data))
-//                 .catch((err) => reject(err, "Veri alınamadı."));
-//         });
-//     }
-
-//     post(data) {
-//         const isDataPosted = this.postedData.some((postedItem) => {
-//             return JSON.stringify(postedItem) === JSON.stringify(data);
-//         });
-//         if (isDataPosted) {
-//             return Promise.resolve('Data already posted');
-//         }
-//         return new Promise((resolve, reject) => {
-//             fetch(this.url, {
-//                 method: "POST",
-//                 body: JSON.stringify(data),
-//                 headers: {
-//                     "Content-type": "application/json",
-//                 },
-//             })
-//                 .then((response) => response.json())
-//                 .then((data) => resolve(data))
-//                 .catch((err) => reject(err));
-//         });
-//     }
-
-//     put(id, data) {
-//         return new Promise((resolve, reject) => {
-//             fetch(`${this.url}/${id}`, {
-//                 method: "PUT",
-//                 body: JSON.stringify(data),
-//                 headers: {
-//                     "Content-type": "application/json",
-//                 },
-//             })
-//                 .then((response) => response.json())
-//                 .then((data) => resolve(data))
-//                 .catch((err) => reject(err));
-//         });
-//     }
-
-//     delete(id) {
-//         return new Promise((resolve, reject) => {
-//             fetch(`${this.url}/${id}`, {
-//                 method: "DELETE",
-//             })
-//                 .then((response) => response.json())
-//                 .then(() => resolve("Veri silindi."))
-//                 .catch((err) => reject(err));
-//         });
-//     }
-// }
-
-// const request = new Request("http://localhost:3000/users");
-
-// request.get()
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err));
-
-// request.post({
-//     title: "Yeni Başlık",
-//     text: "Yeni içerik",
-//     writer: "2000",
-//     date: new Date("2022-03-25"),
-//     category: "sport",
-//     url: "https://blog.hubspot.com/hs-fs/hubfs/Google%20Drive%20Integration/dark%20website%20themes_22023.png?width=595&height=400&name=dark%20website%20themes_22023.png"
-// })
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err));
-
-
 class Request {
     constructor(url) {
         this.url = url;
@@ -136,9 +55,12 @@ class Request {
 const request = new Request("http://localhost:3000/users");
 
 
-// request.get()
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err));
+request.get()
+    .then((data) => {
+        UI.loadSearchedUI(data);
+        UI.loadLatestNews(data);
+    })
+    .catch((err) => console.log(err));
 
 // request.post({
 //     title: "Yeni Başlık",

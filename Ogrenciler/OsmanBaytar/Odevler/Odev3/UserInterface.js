@@ -4,13 +4,12 @@ let filterWith = document.getElementById("filter-with");
 let addPostArea = document.getElementById("addPostArea");
 let shortNews = document.getElementById("shortNews");
 
+
 class UserInterface {
     addBlog = function () {
         let newBlog = getData();
-        let jsonData;
-        storage.getStoragefromJson ? (jsonData = storage.getStoragefromJson()) : (jsonData = []);
         UI.addCard(newBlog);
-        UI.clearValues();
+        // UI.clearValues();
     }
 
     addCard = function (newBlog) {
@@ -57,7 +56,7 @@ class UserInterface {
         addPostArea.innerHTML = "Save";
 
         tempData = blog;
-        // window.scrollTo(0, 0);
+        window.scrollTo(0, document.body.scrollHeight)
     }
 
     openDisplay = function () {
@@ -66,8 +65,6 @@ class UserInterface {
         let boxArea = document.querySelector(".card");
         boxArea.classList.replace("col-lg-4", "col-12");
         boxArea.classList.remove("col-sm-6");
-        // let cardImage = document.querySelector(".card-image");
-        // cardImage.classList.add("w-25");
     }
 
     closeDisplay = function () {
@@ -76,88 +73,105 @@ class UserInterface {
         let boxArea = document.querySelector(".card");
         boxArea.classList.replace("col-12", "col-lg-4");
         boxArea.classList.add("col-sm-6");
-        // let cardImage = document.querySelector(".card-image");
-        // cardImage.classList.remove("w-25");
     }
 
-    loadUI = function () {
-        filterBy.value = "none";
-        fullData = storage.getStoragefromJson();
-        blogUI.innerHTML = "";
-        fullData.map((data) => UI.addCard(new Blog(data.title, data.text, data.writer, data.date, data.category, data.url)));
-    }
+    loadSearchedUI = function (fullData) {
 
-    sortValues = function () {
+        const searchInputValueTitle = document.getElementById("search-input-title").value;
+        const searchValueTitle = searchInputValueTitle.toLowerCase();
+        let lengthTitle = fullData.length;
+        let searchedDataTitle = [];
+        for (let i = 0; i < lengthTitle; i++) {
+            let title = fullData[i].title.toLowerCase();
+            if (title.includes(searchValueTitle)) {
+                searchedDataTitle = searchedDataTitle.concat(fullData[i])
+            }
+        }
+
+        const searchInputValueWriter = document.getElementById("search-input-writer").value;
+        const searchValueWriter = searchInputValueWriter.toLowerCase();
+        let lengthWriter = fullData.length;
+        let searchedDataWriter = [];
+        for (let i = 0; i < lengthWriter; i++) {
+            let writer = fullData[i].writer.toLowerCase();
+            if (writer.includes(searchValueWriter)) {
+                searchedDataWriter = searchedDataWriter.concat(fullData[i])
+            }
+        }
+
+        let intersectedData = searchedDataTitle.filter(element => searchedDataWriter.includes(element));
+        let filterValue = filterWith.value.toLowerCase();
+
+        let filterValueCategory = filterWith.value.toLowerCase();
+        let lengthFilterCategory = fullData.length;
+        let filteredDataCategory = [];
+        if (filterValue == "none" || filterValue == "") {
+            filteredDataCategory = fullData;
+        }
+        else {
+            for (let i = 0; i < lengthFilterCategory; i++) {
+                let category = fullData[i].category.toLowerCase();
+                if (category == filterValueCategory) {
+                    filteredDataCategory = filteredDataCategory.concat(fullData[i])
+                }
+            }
+        }
+
+        let filterValueWriter = filterWith.value.toLowerCase();
+        let lengthFilterWriter = fullData.length;
+        let filteredDataWriter = [];
+        if (filterValue == "none" || filterValue == "") {
+            filteredDataWriter = fullData;
+        }
+        else {
+
+            for (let i = 0; i < lengthFilterWriter; i++) {
+                let writer = fullData[i].writer.toLowerCase();
+
+                if (writer.includes(filterValueWriter)) {
+                    filteredDataWriter = filteredDataWriter.concat(fullData[i])
+
+                }
+            }
+        }
+
+        if (filteredDataCategory.length != 0 && filteredDataCategory.length != fullData.length) {
+            const findIntersection = intersectedData.filter(item => filteredDataCategory.includes(item));
+            intersectedData = findIntersection;
+
+        }
+        else if (filteredDataWriter.length != 0 && filteredDataWriter.length != fullData.length) {
+            const findIntersection = intersectedData.filter(item => filteredDataWriter.includes(item));
+            intersectedData = findIntersection;
+
+        }
+
         const select = document.getElementById("sort-select");
         const condition = select.options[select.selectedIndex].value;
-        let data = storage.getIntersectedStorage();
 
         if (condition == "default") {
-            return data;
+            intersectedData = intersectedData;
         }
         else if (condition == "title-a-z") {
-            data.sort((a, b) => a.title.localeCompare(b.title));
+            intersectedData = intersectedData.sort((a, b) => a.title.localeCompare(b.title));
         }
         else if (condition == "title-z-a") {
-            data.sort((a, b) => b.title.localeCompare(a.title));
+            intersectedData = intersectedData.sort((a, b) => b.title.localeCompare(a.title));
         }
         else if (condition == "writer-a-z") {
-            data.sort((a, b) => a.writer.localeCompare(b.writer));
+            intersectedData = intersectedData.sort((a, b) => a.writer.localeCompare(b.writer));
         }
         else if (condition == "writer-z-a") {
-            data.sort((a, b) => b.writer.localeCompare(a.writer));
+            intersectedData = intersectedData.sort((a, b) => b.writer.localeCompare(a.writer));
         }
         else if (condition == "dateNew") {
-            data.sort((a, b) => b.date.localeCompare(a.date));
+            intersectedData = intersectedData.sort((a, b) => b.date.localeCompare(a.date));
         }
         else if (condition == "dateOld") {
-            data.sort((a, b) => a.date.localeCompare(b.date));
+            intersectedData = intersectedData.sort((a, b) => a.date.localeCompare(b.date));
         }
-        return data;
-    }
 
-    sortCards = function () {
-        UI.loadIntersectedUI();
-    }
-
-    searchTitle = function () {
-        const searchInputValue = document.getElementById("search-input-title").value;
-        const searchValue = searchInputValue.toLowerCase();
-        let fullData = storage.getStoragefromJson();
-        let length = fullData.length;
-        let searchedData = [];
-        for (let i = 0; i < length; i++) {
-            let title = fullData[i].title.toLowerCase();
-            if (title.includes(searchValue)) {
-                searchedData = searchedData.concat(fullData[i])
-            }
-        }
-        return searchedData;
-    }
-
-    searchWriter = function () {
-        const searchInputValue = document.getElementById("search-input-writer").value;
-        const searchValue = searchInputValue.toLowerCase();
-        let fullData = storage.getStoragefromJson();
-        let length = fullData.length;
-        let searchedData = [];
-        for (let i = 0; i < length; i++) {
-            let writer = fullData[i].writer.toLowerCase();
-            if (writer.includes(searchValue)) {
-                searchedData = searchedData.concat(fullData[i])
-            }
-        }
-        return searchedData;
-    }
-
-    loadSearchedUI = function () {
-        let searchedDataTitle = UI.searchTitle();
-        let searchedDataWriter = UI.searchWriter();
-        let intersectedData = searchedDataTitle.filter(element => searchedDataWriter.includes(element));
-        if (UI.sortValues()) {
-            intersectedData = UI.sortValues();
-        }
-        bookUI.innerHTML = "";
+        blogUI.innerHTML = "";
         intersectedData.map((data) => UI.addCard(new Blog(data.title, data.text, data.writer, data.date, data.category, data.url)));
     }
 
@@ -165,9 +179,8 @@ class UserInterface {
         filterWith.innerHTML = "";
     }
 
-    addFilteredCategory = function () {
+    addFilteredCategory = function (data) {
         UI.clearFilter();
-        let data = storage.getFilteredCategoryStorage();
         let option = document.createElement("option");
         option.innerHTML = "None";
         filterWith.appendChild(option);
@@ -178,9 +191,8 @@ class UserInterface {
         }
     }
 
-    addFilteredWriter = function () {
+    addFilteredWriter = function (data) {
         UI.clearFilter();
-        let data = storage.getFilteredWriterStorage();
         let option = document.createElement("option");
         option.innerHTML = "None";
         filterWith.appendChild(option);
@@ -191,61 +203,16 @@ class UserInterface {
         }
     }
 
-    whichFilter = function () {
+    whichFilter = function (data) {
         if (filterBy.value == "category") {
-            UI.addFilteredCategory();
+            storage.getFilteredCategoryStorage(data);
         }
         else if (filterBy.value == "writer") {
-            UI.addFilteredWriter();
+            storage.getFilteredWriterStorage(data);
         }
         else {
             UI.clearFilter();
         }
-    }
-
-    filterCategory = function () {
-        let filterValue = filterWith.value.toLowerCase();
-        let fullData = storage.getStoragefromJson();
-        let length = fullData.length;
-        let filteredData = [];
-        if (filterValue == "none") {
-            fullData = storage.getStoragefromJson();
-            return fullData;
-        }
-        for (let i = 0; i < length; i++) {
-            let category = fullData[i].category.toLowerCase();
-            if (category == filterValue) {
-                filteredData = filteredData.concat(fullData[i])
-            }
-        }
-        return filteredData;
-    }
-
-    filterWriter = function () {
-        let filterValue = filterWith.value.toLowerCase();
-        let fullData = storage.getStoragefromJson();
-        let length = fullData.length;
-        let filteredData = [];
-        if (filterValue == "none") {
-            fullData = storage.getStoragefromJson();
-            return fullData;
-        }
-        for (let i = 0; i < length; i++) {
-            let writer = fullData[i].writer.toLowerCase();
-            if (writer.includes(filterValue)) {
-                filteredData = filteredData.concat(fullData[i])
-            }
-        }
-        return filteredData;
-    }
-
-    loadIntersectedUI = function () {
-        let data = storage.getIntersectedStorage();
-        if (UI.sortValues()) {
-            data = UI.sortValues();
-        }
-        blogUI.innerHTML = "";
-        data.map((data) => UI.addCard(new Blog(data.title, data.text, data.writer, data.date, data.category, data.url)));
     }
 
     addLatestNews = function (newLatest) {
@@ -253,10 +220,11 @@ class UserInterface {
         shortNews.appendChild(newShort);
     }
 
-    loadLatestNews = function () {
-        fullData = storage.getLatestNewsStorage();
+    loadLatestNews = function (fullData) {
+        fullData = fullData.sort((a, b) => b.date.localeCompare(a.date));
+        let firstFive = fullData.slice(0, 5);
         shortNews.innerHTML = "";
-        fullData.map((data) => UI.addLatestNews(new Blog(data.title, data.text, data.writer, data.date, data.category, data.url)));
+        firstFive.map((data) => UI.addLatestNews(new Blog(data.title, data.text, data.writer, data.date, data.category, data.url)));
     }
 }
 

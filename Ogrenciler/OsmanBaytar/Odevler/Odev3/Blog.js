@@ -10,7 +10,7 @@ class Blog {
 
     createCard = function () {
         let cardBox = document.createElement("div");
-        cardBox.className = "col-lg-4 col-sm-6 card border-0 mx-auto mt-5";
+        cardBox.className = "col-lg-4 col-md-6 card border-0 mx-auto mt-5";
         let card = `
         <div class="row image-and-p p-3">
             <img
@@ -37,7 +37,7 @@ class Blog {
     }
 
     createLatestPost = function () {
-        let postBox = document.getElementById("shortNews");
+        let postBox = document.createElement("div");
         postBox.className = "shortNews-box mt-3";
         let post = `
         <h5 class="mb-3">

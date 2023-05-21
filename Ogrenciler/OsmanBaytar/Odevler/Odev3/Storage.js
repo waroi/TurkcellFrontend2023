@@ -2,15 +2,14 @@ let tempData;
 
 class StorageConstructor {
 
-    getStoragefromJson = function () {
-        request.get()
-            .then((data) => {
-                const finalData = data;
-                console.log(finalData);
-                return finalData;
-            })
-            .catch((err) => console.log(err));
-    }
+    // getStoragefromJson = function () {
+    //     request.get()
+    //         .then((data) => {
+    //             const finalData = data;
+    //             return finalData;
+    //         })
+    //         .catch((err) => console.log(err));
+    // }
 
     editStoragefromJson = function () {
         isEdit = false;
@@ -27,8 +26,7 @@ class StorageConstructor {
         addPostArea.innerHTML = "Add Post";
     }
 
-    getFilteredCategoryStorage = function () {
-        let fullData = storage.getStoragefromJson();
+    getFilteredCategoryStorage = function (fullData) {
         let filteredCategoryData = [];
         let length = fullData.length;
         for (let i = 0; i < length; i++) {
@@ -37,11 +35,10 @@ class StorageConstructor {
         let uniqueFilteredCategoryData = filteredCategoryData.filter(function (item, index) {
             return filteredCategoryData.indexOf(item) === index;
         });
-        return uniqueFilteredCategoryData;
+        UI.addFilteredCategory(uniqueFilteredCategoryData);
     }
 
-    getFilteredWriterStorage = function () {
-        let fullData = storage.getStoragefromJson();
+    getFilteredWriterStorage = function (fullData) {
         let filteredWriterData = [];
         let length = fullData.length;
         for (let i = 0; i < length; i++) {
@@ -50,31 +47,6 @@ class StorageConstructor {
         let uniqueFilteredWriterData = filteredWriterData.filter(function (item, index) {
             return filteredWriterData.indexOf(item) === index;
         });
-        return uniqueFilteredWriterData;
-    }
-
-    getIntersectedStorage = function () {
-        let intersectedData = [];
-        let searchedTitleData = UI.searchTitle();
-        let searchedWriterData = UI.searchWriter();
-        let filteredCategoryData = UI.filterCategory();
-        let filteredWriterData = UI.filterWriter();
-
-        if (filteredCategoryData.length != 0) {
-            intersectedData = searchedTitleData.filter(element => {
-                return searchedWriterData.includes(element) && filteredCategoryData.includes(element);
-            })
-        }
-        else if (filteredWriterData.length != 0) {
-            intersectedData = searchedTitleData.filter(element => {
-                return searchedWriterData.includes(element) && filteredWriterData.includes(element);
-            })
-        }
-        return intersectedData;
-    }
-
-    getLatestNewsStorage = function () {
-        let data = storage.getStoragefromJson();
-        return data.slice(0.5);
+        UI.addFilteredWriter(uniqueFilteredWriterData);
     }
 }
