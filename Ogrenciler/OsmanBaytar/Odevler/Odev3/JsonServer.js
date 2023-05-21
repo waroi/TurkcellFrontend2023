@@ -52,7 +52,7 @@ class Request {
     }
 }
 
-const request = new Request("http://localhost:3000/users");
+const request = new Request("http://localhost:3000/blogs");
 
 
 request.get()

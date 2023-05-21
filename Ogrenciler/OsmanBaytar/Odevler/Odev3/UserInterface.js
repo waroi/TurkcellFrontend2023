@@ -12,15 +12,41 @@ class UserInterface {
         // UI.clearValues();
     }
 
+    findId = function (getData) {
+        let title = getData.title;
+        request.get()
+            .then((data) => {
+                data.forEach(function (item) {
+                    if (item.title == title) {
+                        console.log(item.id);
+                        request.delete(item.id)
+                            .then((data) => {
+                                console.log(data);
+                            })
+                            .catch((err) => console.log(err));
+                    }
+                })
+            })
+            .catch((err) => console.log(err));
+    }
+
     addCard = function (newBlog) {
         let card = newBlog.createCard();
         blogUI.appendChild(card);
         let cardImage = document.querySelector(".card-image");
 
+
         cardImage.addEventListener("click", UI.openDisplay);
+
         card.querySelector(".btn-danger").addEventListener("click", function () {
+            UI.findId(newBlog);
+            // console.log(index);
+            // request.delete(index)
+            //     .then((data) => {
+            //         console.log(data);
+            //     })
+            //     .catch((err) => console.log(err));
             card.remove();
-            // storage.deleteLocalStorage(book.name);
         })
 
         card.querySelector(".btn-warning").addEventListener("click", function () {
@@ -64,7 +90,7 @@ class UserInterface {
         pText.classList.replace("d-none", "d-block");
         let boxArea = document.querySelector(".card");
         boxArea.classList.replace("col-lg-4", "col-12");
-        boxArea.classList.remove("col-sm-6");
+        boxArea.classList.remove("col-md-6");
     }
 
     closeDisplay = function () {
@@ -72,7 +98,7 @@ class UserInterface {
         pText.classList.replace("d-block", "d-none");
         let boxArea = document.querySelector(".card");
         boxArea.classList.replace("col-12", "col-lg-4");
-        boxArea.classList.add("col-sm-6");
+        boxArea.classList.add("col-md-6");
     }
 
     loadSearchedUI = function (fullData) {
