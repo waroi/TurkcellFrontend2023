@@ -2,7 +2,24 @@ const request = new Request("http://localhost:3000/posts");
 const ui = new UI();
 addEventListeners();
 getAllPosts();
+
 const categoryItems = document.querySelectorAll(".actived");
+
+function showToast(msg) {
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveShow);
+  toastBody.textContent = msg;
+  toastBootstrap.show();
+  toastBootstrap.timeout = 500;
+}
+
+function isValidUrl(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
 
 function getAllPosts() {
   request
@@ -25,14 +42,11 @@ function populateOptions() {
 
       const types = new Set(posts.map((post) => post.type));
 
-      // Add default disabled option
       const defaultOption = document.createElement("option");
       defaultOption.value = "";
       defaultOption.text = "no option selected";
       defaultOption.disabled = false;
       postType.appendChild(defaultOption);
-
-      console.log(types);
 
       types.forEach((type) => {
         const existingOption = Array.from(postType.options).find(
@@ -115,7 +129,6 @@ function showPost(e) {
         posts.forEach(function (post) {
           if (post.id == id) {
             postShowUrl.src = post.url;
-            console.log(post.description);
             const lines = post.description.split("\n");
             const formattedContent = lines.join("<br>");
 
@@ -146,7 +159,6 @@ function filterAndSortPosts(e) {
 
   categoryItemss.forEach((item) => {
     item.classList.add(item.innerText.toLowerCase());
-    console.log(item);
     if (item.contains(clickedButton)) {
       if (item.classList.contains(item.innerText.toLowerCase())) {
         selectedCategory = item.innerText.toLowerCase();

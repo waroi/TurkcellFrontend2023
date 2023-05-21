@@ -33,3 +33,5 @@ const postShowTitle = document.querySelector("#postShowTitle");
 const postShowDescription = document.querySelector("#postShowDescription");
 
 const showButton = document.querySelector("#showButton");
+const toastLiveShow = document.getElementById("liveToast");
+const toastBody = document.querySelector(".toast-body");

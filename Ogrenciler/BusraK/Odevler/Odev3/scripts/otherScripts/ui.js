@@ -81,7 +81,6 @@ class UI {
   }
   clearForm(e) {
     postUrl.value = "";
-    // postName.value = "";
     postType.value = "";
     postAuthor.value = "";
     postTitle.value = "";

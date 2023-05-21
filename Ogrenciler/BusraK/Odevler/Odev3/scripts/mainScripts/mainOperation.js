@@ -1,7 +1,6 @@
 //silme ekleme güncelleme işlemleri
-function addPost(e) {
-  e.preventDefault();
 
+function addPost(e) {
   const title = postTitle.value.trim();
   const description = postDescription.value.trim();
   const url = postUrl.value.trim();
@@ -20,20 +19,17 @@ function addPost(e) {
     const existingOption = Array.from(postType.options).find(
       (option) => option.value === optionValue
     );
+    console.log(optionValue, existingOption);
 
     if (existingOption) {
-      alert("Option already exists");
-      return;
+      return showToast("This option already exists");
     } else {
       const option = document.createElement("option");
       option.value = optionValue;
       option.text = optionText;
       postType.appendChild(option);
-      type = optionText;
+      type = option.text;
     }
-  } else {
-    alert("Please select an option or enter a new one");
-    return;
   }
 
   if (
@@ -41,14 +37,13 @@ function addPost(e) {
     description === "" ||
     url === "" ||
     author === "" ||
-    type === "" ||
-    newOptionInput.value === "" ||
-    postType.value === ""
+    type === ""
   ) {
-    alert("Please fill all fields");
-    return;
+    return showToast("Please fill in all fields");
   }
-
+  if (!isValidUrl(postUrl.value.trim())) {
+    return showToast("url is not valid");
+  }
   const newpost = {
     title,
     description,
@@ -67,6 +62,7 @@ function addPost(e) {
 
   ui.clearForm();
 }
+
 const categoryItemsss = document.querySelectorAll(".actived");
 
 function deletePost(e) {
@@ -79,8 +75,6 @@ function deletePost(e) {
 
       .catch((err) => console.log(err));
   }
-
-  e.preventDefault();
 }
 
 function editPost(e) {
@@ -106,15 +100,28 @@ function editPost(e) {
       });
 
     postForm.addEventListener("submit", function (e) {
+      if (
+        postUrl.value.trim() === "" ||
+        postDescription.value.trim() === "" ||
+        postAuthor.value.trim() === "" ||
+        (postType.value.trim() === "" && newOptionInput.value.trim() === "") ||
+        postTitle.value.trim() === ""
+      ) {
+        return showToast("Please fill in all fields");
+      }
+      if (!isValidUrl(postUrl.value.trim())) {
+        return showToast("url is not valid");
+      }
       if (postType.value === "" && newOptionInput.value === "") {
-        alert("Please fill all fields");
-        return;
+        return showToast("Please fill in all fields");
       }
 
       if (postType.value !== "" && newOptionInput.value == "") {
         newOptionInput.value = postType.value;
-      } else if (postType.value !== "" && newOptionInput.value !== "") {
-        return alert("Please fill one fields");
+      }
+
+      if (postType.value !== "" && newOptionInput.value !== "") {
+        newOptionInput.value = postType.value;
       }
 
       request
@@ -131,10 +138,6 @@ function editPost(e) {
           console.log(post);
         })
         .catch((err) => console.log(err));
-
-      e.preventDefault();
     });
   }
-
-  e.preventDefault();
 }
