@@ -1,0 +1,177 @@
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #004b49,
+    #0b3745,
+    #1c2432,
+    #19141a,
+    #000000
+  );
+}
+
+label {
+  color: $warning;
+  font-size: 1.25rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+#hero {
+  background-image: url(https://rare-gallery.com/uploads/posts/1009322-fantasy-art-galaxy-artwork-anvil-mythology-screenshot-computer-wallpaper-fictional-character-special-effects.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 75vh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  .hero-text {
+    position: absolute;
+    z-index: 2;
+    h1,
+    h2 {
+      text-shadow: #474747 3px 5px 2px;
+    }
+    h1 {
+      animation: keepMoving 10s infinite;
+    }
+
+    h2 {
+      animation: gettingHit 10s infinite 7.5s;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(38, 67, 72, 0.5);
+    z-index: 1;
+  }
+}
+
+.card {
+  backdrop-filter: blur(10px);
+  transition: 0.3s all;
+  .card-title {
+    color: $warning;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  .card-subtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 400;
+    font-style: italic;
+    text-transform: capitalize;
+  }
+
+  .card-text {
+    color: white;
+  }
+
+  i {
+    pointer-events: none;
+  }
+
+  &:hover {
+    box-shadow: rgba($color: $warning, $alpha: 0.07) 0px 1px 2px,
+      rgba($color: $warning, $alpha: 0.07) 0px 2px 4px,
+      rgba($color: $warning, $alpha: 0.07) 0px 4px 8px,
+      rgba($color: $warning, $alpha: 0.07) 0px 8px 16px,
+      rgba($color: $warning, $alpha: 0.07) 0px 16px 32px,
+      rgba($color: $warning, $alpha: 0.07) 0px 32px 64px;
+
+    transform: translateY(-10px);
+  }
+}
+
+.modal-content {
+  backdrop-filter: blur(5px);
+
+  .modal-header {
+    background-image: url(https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+    background-size: cover;
+    background-position: center;
+    .modal-title {
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .modal-body {
+    font-size: 1.25rem;
+    text-indent: 1rem;
+  }
+}
+
+.form-control,
+.form-select {
+  border: $primary 1px solid;
+}
+
+#utilities {
+  position: sticky;
+  top: 2rem;
+  height: 100%;
+}
+
+#banners {
+  background-image: url(https://w0.peakpx.com/wallpaper/120/559/HD-wallpaper-typewriter-retro-vintage-black.jpg);
+  height: 50vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  .banner-text {
+    position: absolute;
+    z-index: 2;
+    h2,
+    p {
+      text-shadow: #474747 3px 5px 2px;
+    }
+  }
+  display: grid;
+  place-items: center;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(38, 67, 72, 0.5);
+    z-index: 1;
+  }
+}
+
+@keyframes keepMoving {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes gettingHit {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}

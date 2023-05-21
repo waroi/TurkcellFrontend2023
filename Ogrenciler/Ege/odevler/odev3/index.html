@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="hero">
+      <div class="hero-text text-center">
+        <h1 class="display-1 fw-bolder text-white">Eges & Blogs</h1>
+        <h2 class="display-2 text-white">Smithing words since 1998...</h2>
+      </div>
+    </section>
+
+    <section class="title text-center"></section>
+    <!-- Blog Preview Card -->
+    <section id="preview-blog" class="my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9" id="blogs">
+            <div class="row" id="blog-row"></div>
+          </div>
+          <div class="col-lg-3" id="utilities">
+            <label for="category-select">Filter by category</label>
+            <select class="form-select bg-dark text-white" id="category-select">
+              <option selected>All</option>
+            </select>
+            <label for="search-area">Search by author or blog title</label>
+            <input
+              type="text"
+              name="search-area"
+              id="search-area"
+              class="form-control bg-dark text-white"
+            />
+            <label for="sort-select">Sort by</label>
+            <select class="form-select bg-dark text-white" id="sort-select">
+              <option value="">Default</option>
+              <option value="new-old">Date(New-Old)</option>
+              <option value="old-new">Date(Old-New)</option>
+              <option value="title-a-z">A-Z(Title)</option>
+              <option value="title-z-a">Z-A(Title)</option>
+              <option value="author-a-z">A-Z(Author)</option>
+              <option value="author-z-a">Z-A(Author)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="banners">
+      <div class="banner-text text-center">
+        <h2 class="display-2 text-white">Words have power...</h2>
+        <p class="display-6 text-white">
+          Take your first step to become powerful
+        </p>
+      </div>
+    </section>
+
+    <!-- Blog Add-Edit Form -->
+    <section id="add-edit" class="my-5">
+      <div class="container">
+        <form id="blog-form">
+          <div class="mb-3">
+            <label for="blog-author" class="form-label">Author Name</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white"
+              id="blog-author"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blog-title" class="form-label">Blog Title</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white"
+              id="blog-title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blog-text" class="form-label">Blog Text</label>
+            <textarea
+              class="form-control bg-dark text-white"
+              id="blog-text"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="blog-image" class="form-label">Summary Image URL</label>
+            <input
+              type="url"
+              class="form-control bg-dark text-white"
+              id="blog-image"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blog-category" class="form-label">Category</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white"
+              id="blog-category"
+            />
+          </div>
+          <button class="btn btn-success fs-5" id="add-btn">Submit</button>
+          <button class="btn btn-warning d-none fs-5" id="edit-btn">
+            Edit
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <div
+      class="modal fade"
+      id="blog-modal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="blog-heading"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title text-white" id="blog-heading">
+              Modal title
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="blog-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              class="btn btn-primary"
+            >
+              Understood
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
