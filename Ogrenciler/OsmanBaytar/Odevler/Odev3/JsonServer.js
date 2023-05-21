@@ -135,6 +135,7 @@ class Request {
 
 const request = new Request("http://localhost:3000/users");
 
+
 // request.get()
 //     .then((data) => console.log(data))
 //     .catch((err) => console.log(err));

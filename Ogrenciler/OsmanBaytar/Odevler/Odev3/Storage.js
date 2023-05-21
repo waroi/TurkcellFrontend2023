@@ -4,7 +4,11 @@ class StorageConstructor {
 
     getStoragefromJson = function () {
         request.get()
-            .then((data) => console.log(data))
+            .then((data) => {
+                const finalData = data;
+                console.log(finalData);
+                return finalData;
+            })
             .catch((err) => console.log(err));
     }
 

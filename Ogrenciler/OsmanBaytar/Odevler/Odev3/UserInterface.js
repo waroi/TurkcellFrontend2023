@@ -61,7 +61,7 @@ class UserInterface {
     }
 
     openDisplay = function () {
-        const pText = document.querySelector(".card-text");
+        let pText = document.querySelector(".card-text");
         pText.classList.replace("d-none", "d-block");
         let boxArea = document.querySelector(".card");
         boxArea.classList.replace("col-lg-4", "col-12");
@@ -71,7 +71,7 @@ class UserInterface {
     }
 
     closeDisplay = function () {
-        const pText = document.querySelector(".card-text");
+        let pText = document.querySelector(".card-text");
         pText.classList.replace("d-block", "d-none");
         let boxArea = document.querySelector(".card");
         boxArea.classList.replace("col-12", "col-lg-4");
