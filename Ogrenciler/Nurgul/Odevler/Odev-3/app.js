@@ -7,6 +7,9 @@ class BlogManager {
     try {
       const response = await fetch(this.apiUrl);
       const blogs = await response.json();
+      blogs.forEach((blog) => {
+        blog.date = blog.date.replace("t", "");
+      });
       return blogs;
     } catch (error) {
       console.error("Error retrieving blogs:", error);
@@ -84,11 +87,13 @@ class BlogManager {
           const blogCard = document.createElement("div");
           blogCard.classList.add("col-xs-12", "col-sm-4");
           blogCard.innerHTML = `
-            <div class="cards" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url('${blog.img}');">
-              <div class="card-category">
-                ${blog.date}
-                <i class="fa-regular fa-clock" style="color: #fff"></i>
-              </div>
+            <div class="cards" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url('${
+              blog.img
+            }');">
+            <div class="card-category">
+            ${blog.date.replace("T", " ")} <!-- t harfini kaldır -->
+            <i class="fa-regular fa-clock" style="color: #fff"></i>
+          </div>
               <div class="card-description">
                 <h2>${blog.city}</h2> <h6>${blog.category} </h6>
                
@@ -129,8 +134,8 @@ function showModal(blog) {
           </div>
           <h6 class="categorys">${blog.category}</h6>
           <div class="modal-buttons">
-            <button type="button" class="btn btn-primary btn-2 " onclick="editBlog(${blog.id})">Güncelle</button>
-            <button type="button" class="btn btn-danger btn-3 " onclick="deleteBlog(${blog.id})">Sil</button>
+            <button type="button" class="btn btn-primary btn-2" id="updateButton" onclick="editBlog(${blog.id})">Güncelle</button>
+            <button type="button" class="btn btn-danger btn-3" onclick="deleteBlog(${blog.id})">Sil</button>
           </div>
         `;
 
@@ -174,7 +179,7 @@ function sortBlogs() {
       const dateA = new Date(a.querySelector(".card-category").innerText);
       const dateB = new Date(b.querySelector(".card-category").innerText);
       return dateA - dateB;
-    }
+    } 
   });
 
   // Mevcut blog kartlarını yeniden sıralanmış blog kartlarıyla değiştir
@@ -253,13 +258,12 @@ function searchBlogs() {
 }
 
 //Düzenle
+
 function editBlog(blogId) {
-  // Blogu almak için blogId'yi kullanarak API'ye istek yapın
   fetch(`http://localhost:3000/blogs/${blogId}`)
     .then((response) => response.json())
     .then((blog) => {
-      // Form elemanlarını alın
-      const editForm = document.getElementById("editForm"); // Edit formunu yakalayın
+      const editForm = document.getElementById("editForm");
 
       // Blog bilgilerini form elemanlarına yerleştirin
       editForm.elements.titleInput.value = blog.title;
@@ -271,23 +275,25 @@ function editBlog(blogId) {
       editForm.elements.photoInput.value = blog.img;
       editForm.elements.videoInput.value = blog.video;
 
-      // Edit Modal'i görüntüleyin
+      showModal(blog); 
+
       const editModal = new bootstrap.Modal(
         document.getElementById("editModal")
       );
       editModal.show();
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const updateButton = document.getElementById("updateButton");
-        updateButton.addEventListener("click", () => {
-          updateBlog(blogId, updatedBlog);
-        });
+      // Update butonuna olay dinleyici ekle
+
+      editForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Formun otomatik gönderilmesini engelle
+        updateBlog(blogId); // Güncelleme işlemini tetikle
       });
     })
     .catch((error) => {
       console.error("Hata:", error);
     });
 }
+
 async function updateBlog(blogId) {
   const editForm = document.getElementById("editForm");
 
