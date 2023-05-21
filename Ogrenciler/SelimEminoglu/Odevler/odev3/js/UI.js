@@ -32,7 +32,7 @@ class UI {
               />
             </div>
             <div class="col-7 pe-0">
-              <h4 class="mt-2 mb-0">${blog.title}}</h4>
+              <h4 class="mt-2 mb-0">${blog.title}</h4>
               <p class="mb-0">
                 <b>Yazar:</b><br />
                 ${blog.author}
