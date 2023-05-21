@@ -26,7 +26,7 @@ class Blog {
             <span class="shortNews-writer">${this.writer}</span>
             <span class="shortNews-date float-end">${this.date}</span>
             <div class="my-3">
-                <button class="btn btn-dark">Close</button>
+                <button class="btn btn-dark d-none">Close</button>
                 <button class="btn btn-warning">Edit</button>
                 <button class="btn btn-danger">Delete</button>
             </div>

@@ -9,16 +9,15 @@ class UserInterface {
     addBlog = function () {
         let newBlog = getData();
         UI.addCard(newBlog);
-        // UI.clearValues();
+        UI.clearValues();
     }
 
-    findId = function (getData) {
+    findIdtoDelete = function (getData) {
         let title = getData.title;
         request.get()
             .then((data) => {
                 data.forEach(function (item) {
                     if (item.title == title) {
-                        console.log(item.id);
                         request.delete(item.id)
                             .then((data) => {
                                 console.log(data);
@@ -39,13 +38,7 @@ class UserInterface {
         cardImage.addEventListener("click", UI.openDisplay);
 
         card.querySelector(".btn-danger").addEventListener("click", function () {
-            UI.findId(newBlog);
-            // console.log(index);
-            // request.delete(index)
-            //     .then((data) => {
-            //         console.log(data);
-            //     })
-            //     .catch((err) => console.log(err));
+            UI.findIdtoDelete(newBlog);
             card.remove();
         })
 
@@ -70,7 +63,6 @@ class UserInterface {
     }
 
     editBlog = function (blog) {
-        isEdit = true;
         document.getElementById("addTitle").value = blog.title;
         document.getElementById("addText").value = blog.text;
         document.getElementById("addWriter").value = blog.writer;
@@ -78,14 +70,30 @@ class UserInterface {
         document.getElementById("addDate").value = blog.date;
         document.getElementById("addUrl").value = blog.url;
 
-        addPostArea.classList.replace("btn-success", "btn-primary");
-        addPostArea.innerHTML = "Save";
-
-        tempData = blog;
         window.scrollTo(0, document.body.scrollHeight)
+
+        let editPostArea = document.getElementById("editPostArea");
+        editPostArea.addEventListener("click", function () {
+            let oldTitle = blog.title;
+            request.get()
+                .then((data) => {
+                    data.forEach(function (item) {
+                        if (item.title == oldTitle) {
+                            request.put(item.id, getData())
+                                .then((data) => {
+                                    console.log(data);
+                                })
+                                .catch((err) => console.log(err));
+                        }
+                    })
+                })
+                .catch((err) => console.log(err));
+        });
     }
 
     openDisplay = function () {
+        let closeButton = document.querySelector(".btn-dark");
+        closeButton.classList.remove("d-none");
         let pText = document.querySelector(".card-text");
         pText.classList.replace("d-none", "d-block");
         let boxArea = document.querySelector(".card");
@@ -94,6 +102,8 @@ class UserInterface {
     }
 
     closeDisplay = function () {
+        let closeButton = document.querySelector(".btn-dark");
+        closeButton.classList.add("d-none");
         let pText = document.querySelector(".card-text");
         pText.classList.replace("d-block", "d-none");
         let boxArea = document.querySelector(".card");
@@ -253,5 +263,3 @@ class UserInterface {
         firstFive.map((data) => UI.addLatestNews(new Blog(data.title, data.text, data.writer, data.date, data.category, data.url)));
     }
 }
-
-

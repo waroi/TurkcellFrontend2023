@@ -61,26 +61,3 @@ request.get()
         UI.loadLatestNews(data);
     })
     .catch((err) => console.log(err));
-
-// request.post({
-//     title: "Yeni Başlık",
-//     text: "Yeni içerik",
-//     writer: "2000",
-//     date: new Date("2022-03-25"),
-//     category: "sport",
-//     url: "https://blog.hubspot.com/hs-fs/hubfs/Google%20Drive%20Integration/dark%20website%20themes_22023.png?width=595&height=400&name=dark%20website%20themes_22023.png"
-// })
-//     .then((responseData) => {
-//         console.log('POST:', responseData);
-//     })
-//     .catch((error) => {
-//         console.log('POST Error:', error);
-//     });
-
-// request.put(5, { title: '25', text: '25', writer: '25', date: new Date("2022-03-25"), category: '25', url: '25' })
-//     .then((responseData) => {
-//         console.log('PUT:', responseData);
-//     })
-//     .catch((error) => {
-//         console.log('PUT Error:', error);
-//     });

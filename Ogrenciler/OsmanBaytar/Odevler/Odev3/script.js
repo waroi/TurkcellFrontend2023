@@ -1,11 +1,5 @@
 const UI = new UserInterface();
 const storage = new StorageConstructor();
-isEdit = false;
-
-function mainButton() {
-    isEdit ? storage.editStoragefromJson() : UI.addBlog();
-}
-addPostArea.addEventListener("click", mainButton);
 
 function getData() {
     let name = document.getElementById("addTitle").value;
@@ -66,6 +60,7 @@ sortSelect.addEventListener("click", function () {
 })
 
 addPostArea = document.getElementById("addPostArea");
+addPostArea.addEventListener("click", UI.addBlog);
 addPostArea.addEventListener("click", function () {
     request.post(getData())
         .then((responseData) => {
