@@ -38,7 +38,10 @@ function eventListeners() {
   latestContentArea.addEventListener("click", (e) => globalCardAreaClickFunctions(e));
   searchButton.addEventListener("click", (e) => searchAndSortContents(e));
   sortOptionArea.addEventListener("change", (e) => searchAndSortContents(e));
-  navbarSearchInput.addEventListener("keypress", (e) => e.key == "Enter" ? searchAndSortContents(e) : null);
+  navbarSearchInput.addEventListener("keypress", (e) =>{if( e.key == "Enter"){
+    searchAndSortContents(e);
+    window.location.href = "#footercon";
+  }});
   categoryFilterArea.addEventListener("click", (e) => categoryFilterStatus(e));
   addNewContentButton.addEventListener("click", (e) => toggleButtons(e))
 }
@@ -102,7 +105,7 @@ export async function completeEditContent(contentCurrentId, e) {
   await request.put(contentCurrentId, {
     "contentTitle": contentTitleInput.value,
     "author": authorInput.value,
-    "category": categoryInput.value,
+    "category": categoryInput.value.toLowerCase(),
     "publicationDate": dateInput.value,
     "banner": urlInput.value,
     "score": Number(scoreInput.value),
@@ -118,21 +121,34 @@ export function searchAndSortContents(e) {
   } else {
     ui.refreshAndAddContentToUI();
   }
+  if(navbarSearchInput){
+    for (let i = 0; i < categoryFilterArea.children.length; i++) {
+     let value = categoryFilterArea.children[i].innerText;
+      if(value.toLowerCase() == navbarSearchInput.value.toLowerCase())
+      categoryFilterArea.children[i].children[1].checked == true;
+      console.log(categoryFilterArea.children[i]);
+    }
+  }
 }
 categoryFilterList()
 async function categoryFilterList() {
   const categorySet = new Set();
   await request.get().then((data) => data.map((item) => categorySet.add(item.category)));
-  await console.log(categorySet);
   await UI.addCategoryFilterToUI(categorySet);
 }
 export function categoryFilterStatus(e) {
   e.target.checked == true ? e.target.parentElement.children[1].classList.add("active") : e.target.parentElement.children[1].classList.remove("active");
-
+  let parentChildren = e.target.parentElement.parentElement.children;
   if (e.target.checked) {
-    ui.refreshAndAddContentToUI(null, null, null, e.target.value);
-  } else {
-    ui.refreshAndAddContentToUI();
+    ui.refreshAndAddContentToUI(null, null, null, e.target.value,false);
+
+  } else if(e.target.checked == false) {
+    for (let i = 0; i < parentChildren.length; i++) {
+      parentChildren[i].children[0].checked = false;
+      parentChildren[i].children[1].classList.remove("active");
+      
+    }
+    ui.refreshAndAddContentToUI(null, null, null, null ,true);
   }
 }
 
@@ -142,15 +158,13 @@ function addBook(e) {
   e.stopImmediatePropagation();
   e.stopPropagation();
   if (UI.isEmpty() || contentTextarea.value.length <= 140) {
-  //   document.body.innerHTML += `
-  //   <div class="alert alert-danger" role="alert">
-  // A simple success alert—check it out!
-  // </div>`
+  alert("please complete all inputs correctly.")
   } else {
+
     let newContent = new Request(
       contentTitleInput.value,
       authorInput.value,
-      categoryInput.value,
+      categoryInput.value.toLowerCase(),
       dateInput.value,
       urlInput.value,
       Number(scoreInput.value),

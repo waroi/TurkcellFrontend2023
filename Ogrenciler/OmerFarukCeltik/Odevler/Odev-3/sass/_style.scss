@@ -43,6 +43,14 @@
   .header-content{
     .main-header{
       z-index: 100;
+      font-size: 3rem;
+    }
+    .font-second{
+      font-family: 'Ysabeau', sans-serif;
+      font-style: italic;
+      font-size: 2.5rem;
+      font-weight: 200;
+    
     }
   }
   .img-content{
@@ -59,12 +67,16 @@
   .header{
     background-image: none;
   }
-  // .header-all{
-  //   .header-content{
-  //     .main-header{
-  //       
-  //     }
-  //   }
+  .header-all{
+    .header-content{
+      .main-header{
+        font-size: 4rem;
+      }
+      .font-second{
+        font-size: 3rem;
+      }
+    }
+  }
     .img-content{
       position: relative;
       &::before{
@@ -91,7 +103,6 @@
         content: "";
         border-radius: 15px;
         z-index: -1;
-        
       }
       img{  
        width: 100%;
@@ -107,8 +118,13 @@
     background-image: none;
   }
   .header-all{
+    position: relative;
     .header-content{
-      .main-header{      
+      .main-header{  
+        font-size: 5rem;    
+      }
+      .font-second{
+        font-size: 4rem;
       }
     }
     .img-content{
@@ -140,7 +156,21 @@
 @media screen and (min-width:1600px){
   .header-all{
     .header-content{
-      .main-header{
+      .main-header{  
+        font-size: 7rem;    
+      }
+      .font-second{
+        font-size: 5rem;
+      }
+      &::before{
+        position: absolute;
+        z-index: -1;
+        width: 800px;
+        height: 700px;
+        background: #fff;
+        content: "";
+        left: -5%;
+        animation: borderAnimation2 4s ease-in-out 0s infinite alternate backwards;
       }
     }
     .img-content{
@@ -165,4 +195,9 @@
   0%   {border: 1px solid rgb(255, 255, 255);}
   50%  {border: 1px solid rgb(180, 180, 180);}
   100%   {border: 1px solid rgb(255, 255, 255);}
+}
+@keyframes borderAnimation2 {
+  0%   {border: 1px solid $primary;}
+  50%  {border: 1px solid rgb(180, 180, 180)}
+  100%   {border: 1px solid $primary;}
 }

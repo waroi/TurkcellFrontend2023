@@ -1,6 +1,6 @@
 function latestAreaComponent(data) {
   return `<div class="col-12 col-md-6 col-xl-8">
-  <div class="card my-4" data-bs-toggle="modal" id="${data[data.length-1].id}" data-bs-target="#viewModal">
+  <div class="card my-4" id="${data[data.length-1].id}" >
     <div class="row g-0">
       <div class="col-xl-6">
         <img
@@ -11,7 +11,7 @@ function latestAreaComponent(data) {
         <div class="card-body">
           <h5 class="card-title fs-4">${data[data.length-1].contentTitle}</h5>
           <div class="fs-5 my-2 fw-semibold">
-            Category:
+            Category:${data[data.length-1].category}
           </div>
           <p class="card-text">${data[data.length-1].content.slice(0,200)}...</p>
           <div>
@@ -32,14 +32,14 @@ function latestAreaComponent(data) {
   </div>
 </div>
 <div class="col-12 col-md-6 col-xl-4" id="${data[data.length-2].id}" >
-  <div class="card my-4 " data-bs-toggle="modal" data-bs-target="#viewModal">
+  <div class="card my-4 ">
     <img
       src="${data[data.length-2].banner}"
       class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title fs-4">${data[data.length-2].contentTitle}</h5>
       <div class="fs-5 my-2 fw-semibold">
-        Category:
+        Category:${data[data.length-2].category}
       </div>
       <p class="card-text">${data[data.length-2].content.slice(0,140)}...
       </p>
@@ -63,7 +63,7 @@ function latestAreaComponent(data) {
 <div class="col-12">
   <div class="row">
     <div class="col-12 col-md-6">
-      <div class="card my-4 " id="${data[data.length-3].id}" data-bs-toggle="modal" data-bs-target="#viewModal">
+      <div class="card my-4 " id="${data[data.length-3].id}" >
         <div class="row g-0">
           <div class="col-xxl-6">
             <img
@@ -74,7 +74,7 @@ function latestAreaComponent(data) {
             <div class="card-body">
               <h5 class="card-title fs-4">${data[data.length-3].contentTitle}</h5>
               <div class="fs-5 my-2 fw-semibold">
-                Category:
+                Category:${data[data.length-3].category}
               </div>
               <p class="card-text">${data[data.length-3].content.slice(0,140)}</p>
               <div>
@@ -95,7 +95,7 @@ function latestAreaComponent(data) {
       </div>
     </div>
     <div class="col-12 col-md-6 ">
-      <div class="card my-4 " id="${data[data.length-4].id}" data-bs-toggle="modal" data-bs-target="#viewModal">
+      <div class="card my-4 " id="${data[data.length-4].id}">
         <div class="row g-0">
           <div class="col-xxl-6">
             <img
@@ -106,7 +106,7 @@ function latestAreaComponent(data) {
             <div class="card-body">
               <h5 class="card-title fs-4">${data[data.length-4].contentTitle}</h5>
               <div class="fs-5 my-2 fw-semibold">
-                Category:
+                Category:${data[data.length-4].category}
               </div>
               <p class="card-text">${data[data.length-4].content.slice(0,140)}...</p>
               <div>

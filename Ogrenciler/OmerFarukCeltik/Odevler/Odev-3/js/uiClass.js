@@ -17,53 +17,64 @@ let dateInput = document.querySelector("#dateInput");
 let urlInput = document.querySelector("#urlInput");
 let scoreInput = document.querySelector("#scoreInput");
 let contentTextarea = document.querySelector("#contentTextarea");
-
+let arr = [];
 class UI {
   static isEmpty() {
-      return (
-        contentTitleInput.value == "" ||
-        authorInput.value == "" ||
-        categoryInput.value == "" ||
-        dateInput.value == "" ||
-        urlInput.value == "" ||
-        scoreInput.value == "" ||
-        contentTextarea.value == ""
+    return (
+      contentTitleInput.value == "" ||
+      authorInput.value == "" ||
+      categoryInput.value == "" ||
+      dateInput.value == "" ||
+      urlInput.value == "" ||
+      scoreInput.value == "" ||
+      contentTextarea.value == ""
     )
   };
-  async refreshAndAddContentToUI(searchValue, sortValue,navbarSearchValue,checkedValue) {
+  async refreshAndAddContentToUI(searchValue, sortValue, navbarSearchValue, checkedValue, zeroCheck) {
     globalCardArea.innerHTML = "";
     await request.get().then((res) => {
-      if (searchValue || sortValue || navbarSearchValue || checkedValue) {
+      if (searchValue || sortValue || checkedValue || zeroCheck) {
         if (searchValue) {
           globalCardArea.innerHTML = "";
           res.map((item) => {
-            if (item.contentTitle.toLowerCase().includes(searchValue.toLowerCase()) || 
-            item.author.toLowerCase().includes(searchValue.toLowerCase()) ||
-             item.category.toLowerCase().includes(searchValue.toLowerCase())) {
-              globalCardArea.innerHTML += createCard(item);
-            }
-          });
-        } 
-        else if(navbarSearchValue) {
-          globalCardArea.innerHTML = "";
-          res.map((item) => {
-            if (item.category.toLowerCase().includes(navbarSearchValue.toLowerCase())){
+            if (item.contentTitle.toLowerCase().includes(searchValue.toLowerCase()) ||
+              item.author.toLowerCase().includes(searchValue.toLowerCase()) ||
+              item.category.toLowerCase().includes(searchValue.toLowerCase())) {
               globalCardArea.innerHTML += createCard(item);
             }
           });
         } else if (sortValue) {
-          let arr = sortCardsDateAndAlphabetic(sortValue, res);
-          arr.map((item) => globalCardArea.innerHTML += createCard(item))
-        }else if(checkedValue){
-          globalCardArea.innerHTML = "";
+          let sortArr = sortCardsDateAndAlphabetic(sortValue, res);
+          sortArr.map((item) => globalCardArea.innerHTML += createCard(item))
+        }
+        else if (checkedValue) {
           res.map((item) => {
-            if (item.category.toLowerCase().includes(checkedValue.toLowerCase())){
-              globalCardArea.innerHTML += createCard(item);
+            if (item.category.toLowerCase().includes(checkedValue.toLowerCase())) {
+              globalCardArea.innerHTML = "";
+              arr.push(item);
+              arr.map((item) => globalCardArea.innerHTML += createCard(item));
+              // globalCardArea.innerHTML += createCard(item);
             }
           });
         }
+        else if (zeroCheck == true) {
+          arr = [];
+          globalCardArea.innerHTML = "";
+          res.map((item) => {
+            globalCardArea.innerHTML += createCard(item);
+          })
+        }
       }
-      else{
+      else if (navbarSearchValue) {
+        arr = [];
+        globalCardArea.innerHTML = "";
+        res.map((item) => {
+          if (item.category.toLowerCase().includes(navbarSearchValue.toLowerCase())) {
+            globalCardArea.innerHTML += createCard(item);
+          }
+        });
+      }
+      else {
         globalCardArea.innerHTML = "";
         res.map((item) => {
           globalCardArea.innerHTML += createCard(item);
@@ -71,15 +82,11 @@ class UI {
       }
       latestContentArea.innerHTML = latestAreaComponent(res);
     });
-
-  };
-  static resetAllInput() {
-    form.reset();
   };
   static addCategoryFilterToUI(set) {
-     set.forEach((item) => {
+    set.forEach((item) => {
       categoryFilterArea.innerHTML += categoryFiltercomponent(item);
-     })
+    })
   }
 }
 

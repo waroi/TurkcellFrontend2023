@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-primary ">
+  <nav id="homeNav" class="navbar navbar-expand-lg bg-primary ">
     <div class="container px-3">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#searchNavbar"
         aria-controls="searchNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,8 +50,8 @@
           <div class="col-12 col-lg-4">
             <div
               class="header-content  px-4 px-lg-0 d-flex flex-row flex-lg-column align-items-center align-items-lg-start justify-content-center">
-              <h1 class="h1 fs-50 py-120 py-lg-0 fw-lighter main-header">Explore Best Ideas And Share...</h1>
-              <a href="#addNewContentButton" class="btn w-50 m-5 btn-secondary">Explore Best Contents!</a>
+              <h1 class="h1 py-120 px-lg-4 py-lg-0 fw-lighter main-header"><span class="fw-normal">Explore</span> <span class="fw-light">Best Ideas</span><br> <span class="font-second">And Share...</span></h1>
+              <a href="#addNewContentButton" class="btn w-50 mx-4 my-4 my-xl-5 btn-secondary">Explore Best Contents!</a>
             </div>
           </div>
           <div class="d-none d-lg-block col-lg-5">
@@ -122,7 +122,7 @@
   
     </div>
   </section>
-
+  <a href="#homeNav" class="btn btn-secondary text-center py-3 px-4 rounded-circle bottom-0 end-0 position-fixed m-5"><i class="fa-solid fa-arrow-up fa-beat"></i></a>
 
   <footer class="footer bg-white py-5" id="footercon">
     <div class="container">
@@ -182,7 +182,7 @@
   <div class="modal modal-lg fade" id="addContentModal" tabindex="-1" aria-labelledby="addContentModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <form class="modal-content">
+      <form class="modal-content" novalidate>
         <div class="modal-header border-5">
           <h1 class="modal-title fs-3" id="addContentModalLabel">Content Info's</h1>
           <button type="button" class="btn text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
@@ -190,32 +190,32 @@
         <div id="modal-form" class="modal-body">
           <div class="mb-3">
             <label for="contentTitleInput" class="form-label fs-5">Content Header:</label>
-            <input type="text" class="form-control" id="contentTitleInput" placeholder="please enter book name...">
+            <input type="text" class="form-control is-valid" id="contentTitleInput" placeholder="please enter book name..." required>
           </div>
           <div class="mb-3">
             <label for="authorInput" class="form-label fs-5">Author:</label>
-            <input type="text" class="form-control" id="authorInput" placeholder="please enter author...">
+            <input type="text" class="form-control" id="authorInput" placeholder="please enter author..." required>
           </div>
           <div class="mb-3">
             <label for="categoryInput" class="form-label fs-5">Category:</label>
-            <input type="text" class="form-control" id="categoryInput" placeholder="please enter category...">
+            <input type="text" class="form-control" id="categoryInput" placeholder="please enter category..." required>
           </div>
           <div class="mb-3">
             <label for="dateInput" class="form-label fs-5">Date:</label>
-            <input type="date" class="form-control" id="dateInput" placeholder="please enter book name...">
+            <input type="date" class="form-control" id="dateInput" placeholder="please enter book name..." required>
           </div>
           <div class="mb-3">
             <label for="urlInput" class="form-label fs-5">Content Image URL:</label>
-            <input type="url" class="form-control" id="urlInput" placeholder="please enter image url...">
+            <input type="url" class="form-control" id="urlInput" placeholder="please enter image url..." required>
           </div>
           <div class="mb-3">
             <label for="scoreInput" class="form-label fs-5">Content Score:</label>
-            <input type="number" min="0" max="10" class="form-control" id="scoreInput" placeholder="please enter score 0 to 10...">
+            <input type="number" min="0" max="10" class="form-control" id="scoreInput" placeholder="please enter score 0 to 10..." required>
           </div>
 
           <div class="mb-3">
             <label for="contentTextarea" class="form-label fs-5">Content:</label>
-            <textarea class="form-control" id="contentTextarea" rows="3"></textarea>
+            <textarea class="form-control" id="contentTextarea" rows="3" minlength="140" placeholder="140 character required" required></textarea>
           </div>
         </div>
         <div class="modal-footer">
