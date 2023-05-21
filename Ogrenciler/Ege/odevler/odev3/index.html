@@ -16,9 +16,14 @@
     <title>Document</title>
   </head>
   <body>
-    <section class="title text-center">
-      <h1 class="display-1 fw-bolder">Eges & Blogs</h1>
+    <section id="hero">
+      <div class="hero-text text-center">
+        <h1 class="display-1 fw-bolder text-white">Eges & Blogs</h1>
+        <h2 class="display-2 text-white">Smithing words since 1998...</h2>
+      </div>
     </section>
+
+    <section class="title text-center"></section>
     <!-- Blog Preview Card -->
     <section id="preview-blog" class="my-5">
       <div class="container">
@@ -40,7 +45,7 @@
             />
             <label for="sort-select">Sort by</label>
             <select class="form-select bg-dark text-white" id="sort-select">
-              <option selected>Default</option>
+              <option value="">Default</option>
               <option value="new-old">Date(New-Old)</option>
               <option value="old-new">Date(Old-New)</option>
               <option value="title-a-z">A-Z(Title)</option>
@@ -50,6 +55,15 @@
             </select>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="banners">
+      <div class="banner-text text-center">
+        <h2 class="display-2 text-white">Words have power...</h2>
+        <p class="display-6 text-white">
+          Take your first step to become powerful
+        </p>
       </div>
     </section>
 
@@ -97,8 +111,10 @@
               id="blog-category"
             />
           </div>
-          <button class="btn btn-success" id="add-btn">Submit</button>
-          <button class="btn btn-warning d-none" id="edit-btn">Edit</button>
+          <button class="btn btn-success fs-5" id="add-btn">Submit</button>
+          <button class="btn btn-warning d-none fs-5" id="edit-btn">
+            Edit
+          </button>
         </form>
       </div>
     </section>
@@ -118,9 +134,9 @@
       >
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title text-white" id="blog-heading">
+            <h2 class="modal-title text-white" id="blog-heading">
               Modal title
-            </h1>
+            </h2>
             <button
               type="button"
               class="btn-close"

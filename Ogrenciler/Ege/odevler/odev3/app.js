@@ -10,13 +10,13 @@ const blogTitleInp = document.querySelector("#blog-title");
 const blogTextInp = document.querySelector("#blog-text");
 const blogImgInp = document.querySelector("#blog-image");
 const blogCatInp = document.querySelector("#blog-category");
-const submitEditBtn = document.querySelector("#edit-btn");
 const addBtn = document.querySelector("#add-btn");
 const blogForm = document.querySelector("#blog-form");
 const categorySelect = document.querySelector("#category-select");
 const sortSelect = document.querySelector("#sort-select");
 const searchArea = document.querySelector("#search-area");
 
+resetValues();
 UI.updateDisplay();
 UI.makeUniques();
 handleEventListeners();
@@ -35,8 +35,7 @@ function handleEventListeners() {
         blogTextInp,
         blogImgInp,
         blogCatInp,
-        blogForm,
-        submitEditBtn
+        blogForm
       );
     } else if (e.target.classList.contains("delete-blog")) {
       const blogCard = e.target.closest(".col-lg-6");
@@ -55,7 +54,7 @@ function handleEventListeners() {
         blogCatInp.value,
         blogImgInp.value
       );
-      Process.addBook(postData, blogForm);
+      Process.addBlog(postData, blogForm);
       UI.updateDisplay();
     } else alert("Please fill out the entire form.");
   });
@@ -77,4 +76,14 @@ function handleEventListeners() {
   sortSelect.addEventListener("change", (e) => {
     Process.sort(e.target.value);
   });
+}
+
+function resetValues() {
+  sortSelect.value = "";
+  searchArea.value = "";
+  blogAuthorInp.value = "";
+  blogTitleInp.value = "";
+  blogTextInp.value = "";
+  blogImgInp.value = "";
+  blogCatInp.value = "";
 }

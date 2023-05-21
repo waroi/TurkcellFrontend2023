@@ -2,13 +2,15 @@ import Request from "./request.js";
 import UI from "./ui.js";
 
 const url = "http://localhost:3000/blogs";
+
 const categorySelect = document.querySelector("#category-select");
+const searchArea = document.querySelector("#search-area");
 const submitEditBtn = document.querySelector("#edit-btn");
 const addBtn = document.querySelector("#add-btn");
 let currentBlog;
 
 class Process {
-  static addBook(postData, form) {
+  static addBlog(postData, form) {
     Request.post(url, postData)
       .then((response) => {
         console.log(response);
@@ -30,8 +32,10 @@ class Process {
   }
 
   static editBlog(id, authorInp, titleInp, textInp, imgInp, catInp, form) {
-    submitEditBtn.classList.toggle("d-none");
-    addBtn.classList.toggle("d-none");
+    if (!addBtn.classList.contains("d-none")) {
+      submitEditBtn.classList.toggle("d-none");
+      addBtn.classList.toggle("d-none");
+    }
     Request.get(`${url}/${id}`)
       .then((data) => {
         authorInp.value = data.author;

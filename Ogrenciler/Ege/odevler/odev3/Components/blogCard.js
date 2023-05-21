@@ -32,7 +32,7 @@ function blogCard(blog) {
         >
         <i class="fa-brands fa-readme"></i>
         </button>
-        <button type="button" class="btn btn-warning edit-blog"><i class="fa-solid fa-pen-to-square"></i></button>
+        <a href="#add-edit" class="btn btn-warning edit-blog"><i class="fa-solid fa-pen-to-square"></i></a>
         <button type="button" class="btn btn-danger delete-blog"><i class="fa-solid fa-trash"></i></button>
       </div>
       </div>
