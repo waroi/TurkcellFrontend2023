@@ -1,7 +1,7 @@
 const addNewButton = document.getElementById('addBlogBtn');
 const modal = document.getElementById('cardModal');
 const blogList = document.getElementById('blogList');
-const confirmDeleteBtns = document.querySelectorAll(".confirmDeleteBtn");
+const confirmDeleteBtn = document.querySelector(".confirmDeleteBtn");
 const deleteBlogBtns = document.querySelectorAll(".delete-blog-btn");
 
 function filterBlogs() {
@@ -33,13 +33,9 @@ function filterBlogs() {
   }
 }
 function displayFilteredBlogs(blogs) {
-  // Clear the existing blog list
-
   blogList.innerHTML = '';
 
-  // Process the filtered blog data and generate HTML
   blogs.forEach(blog => {
-    // Create a new list item for each blog
     const listItem = document.createElement('div');
     listItem.classList = "card mb-3 blog-item";
     listItem.innerHTML = `
@@ -68,7 +64,6 @@ function displayFilteredBlogs(blogs) {
                     </div>
                   </div>`;
 
-    // Append the list item to the blog list
     blogList.appendChild(listItem);
   });
 }
@@ -178,6 +173,33 @@ async function sortBlogs() {
   });
 }
 
+window.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (e.target.classList.contains("delete-blog-btn")) {
+    const deleteButton = e.target;
+    const listItem = deleteButton.closest(".blog-item");
+    const blogId = listItem.querySelector(".sticky-span").textContent;
+
+    confirmDeleteBtn.dataset.blogId = blogId;
+    console.log(blogId)
+  }
+
+});
+confirmDeleteBtn.addEventListener("click", () => {
+  const blogId = confirmDeleteBtn.dataset.blogId;
+  request
+    .delete(blogId)
+    .then(() => {
+      console.log("Blog deleted:", blogId);
+      const listItem = document.querySelector(`.blog-item .sticky-span[data-blog-id="${blogId}"]`).closest(".blog-item");
+      listItem.remove(); 
+    })
+    .catch((error) => {
+      console.error("Failed to delete blog:", error);
+    });
+});
+
 class Request {
   get() {
     return new Promise((resolve, reject) => {
@@ -207,7 +229,7 @@ class Request {
                     <button type="button" class="btn btn-primary edit-blog-btn" data-bs-toggle="modal" data-bs-target="#editModal">
                        <i class="fa-regular fa-pen-to-square"></i> Edit
                     </button>
-                    <button type="button" class="btn btn-primary delete-blog-btn">
+                    <button type="button" class="btn btn-primary delete-blog-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                       <i class="fa-solid fa-trash"></i> Delete 
                     </button>
                   </div>
@@ -256,22 +278,43 @@ class Request {
         .catch((err) => reject(err));
     })
   }
-  delete() {
+  put(blogId, updatedBlog) {
     return new Promise((resolve, reject) => {
-      fetch("http://localhost:3000/blogs", {
-        method: "DELETE",
+      fetch(`http://localhost:3000/blogs/${blogId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedBlog),
       })
         .then((response) => response.json())
         .then((data) => {
-          resolve(data)
-          console.log(data)
-
-        }
-        )
+          resolve(data);
+          console.log("Blog updated:", blogId);
+        })
         .catch((err) => reject(err));
-    })
+    });
   }
+
+  delete(blogId) {
+    return new Promise((resolve, reject) => {
+      fetch(`http://localhost:3000/blogs/${blogId}`, {
+        method: "DELETE",
+      })
+        .then((response) => {
+          if (response.ok) {
+            resolve();
+            console.log("Blog deleted:", blogId);
+          } else {
+            reject(new Error("Failed to delete blog"));
+          }
+        })
+        .catch((err) => reject(err));
+    });
+  }
+
 }
+
 function capitalize(str) {
   const words = str.trim().split(" ");
   for (let i = 0; i < words.length; i++) {
@@ -349,21 +392,6 @@ document.addEventListener('click', (e) => {
 });
 
 const request = new Request();
-// window.onload = (e) => {
-//   window.addEventListener("click", (e) => {
-//     e.preventDefault()
-//     console.log(e.target.dataset);
-//   });
-// }
-// Call the delete method when a delete button is clicked
-window.addEventListener("click", (e) => {
-  e.preventDefault()
-  // console.log(e.target.dataset);
-
-});
-
-
-// const request = new Request();
 request
   .get("http://localhost:3000/blogs")
   .then((data) => {
