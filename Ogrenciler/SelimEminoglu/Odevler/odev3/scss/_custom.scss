@@ -21,6 +21,71 @@ header {
     }
 }
 
+.search-div {
+    position: relative;
+    height: 3rem;
+    .search-input {
+        background-color: #fff;
+        border: 0;
+        font-size: 18px;
+        padding: 15px;
+        height: 3rem;
+        width: 2rem;
+        transition: width 0.3s ease;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.search-button {
+    width: 4rem;
+    height: 3rem;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 10%;
+    cursor: pointer;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    transition: transform 0.3s ease;
+    &:focus {
+        outline: none;
+    }
+}
+
+.search-div.active .search-input {
+    width: 13rem;
+}
+
+.search-div.active .search-button {
+    transform: translateX(198px);
+}
+
+.option-list {
+    background-color: $secondary;
+    color: white;
+    padding: 1rem;
+    border: 4px solid gray;
+    border-radius: 50%;
+    font-size: 16pt;
+    option {
+        font-size: 16pt;
+    }
+}
+
+.add-button {
+    padding: 1rem 1.5rem;
+    font-size: 12pt;
+    background-color: rgb(33, 61, 221);
+    color: white;
+    transition: all 0.5s;
+    &:hover {
+        background-color: $secondary;
+    }
+}
+
 .blog-card {
     height: 12rem;
     .card {
