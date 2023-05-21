@@ -89,9 +89,9 @@
     <div class="bg-light p-5">
         <div class="container my-2 bg-light">
             <div class="row">
-                <div class="col-3">
+                <div class="col-3 d-none d-sm-block">
                         <div class="panel mt-3 sticky-top">
-                            <h3 class="panel-title">Arama, Filtreleme ve Sıralama</h3>
+                            <h3 class="panel-title">Bugün Yemekte Ne Var?</h3>
                             <div class="row">
                                 <div class="col-md-12 mb-3">
                                     <label for="searchInput">Ara:</label>
@@ -111,13 +111,19 @@
                                 <div class="col-md-12 mb-3">
                                     <label for="sortSelect">Sırala:</label>
                                     <select id="sortSelect" class="form-control">
-                                        <option>Hepsi</option>
+                                        <option value="choose">Seçin...</option>
+                                        <option value="title-az">Başlık: A-Z</option>
+                                        <option value="title-za">Başlık: Z-A</option>
+                                        <option value="date-az">Tarih: Önce Eski</option>
+                                        <option value="date-za">Tarih: Önce Yeni</option>
+                                        <option value="author-az">Yazar: A-Z</option>
+                                        <option value="author-za">Yazar: Z-A</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button class="btn btn-primary">Temizle</button>
+                                    <button class="btn btn-primary" id="clearPreferences">Temizle</button>
                                 </div>
                             </div>
                         </div>
