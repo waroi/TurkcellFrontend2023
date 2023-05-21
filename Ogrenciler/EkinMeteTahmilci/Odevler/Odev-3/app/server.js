@@ -1,6 +1,6 @@
-class Request {
-    constructor(url){
-        this.url = url;
+class BlogRequest {
+    constructor(){
+        this.url = "http://localhost:3000/recipes";
     }
 
     async get() {
@@ -24,6 +24,7 @@ class Request {
             throw new Error("İstek başarısız oldu.");
         }
         const responseData = await response.json();
+        ui.addBlogToUI(responseData);
         return responseData;
     }
 
@@ -53,43 +54,3 @@ class Request {
         return responseData;
     }
 }
-
-// let request = new Request();
-
-// // GET request
-// request.get("http://localhost:3000/posts")
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err));
-
-// POST request
-// let postData = {
-//     userId: 100,
-//     title: "Yeni Başlık",
-//     body: "Yeni İçerik"
-// };
-
-// request.post("http://localhost:3000/posts", postData)
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err));
-
-// request.get("http://localhost:3000/posts")
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err));
-    
-
-// PUT request
-// let putData = {
-//     userId: 100,
-//     title: "Güncellenmiş Başlık",
-//     body: "Güncellenmiş İçerik"
-// };
-
-// request.put("http://localhost:3000/posts/1", putData)
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err));
-
-// DELETE request
-// request.delete("http://localhost:3000/posts/1")
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err));
-
