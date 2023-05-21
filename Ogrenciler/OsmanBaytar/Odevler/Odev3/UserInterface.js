@@ -66,8 +66,8 @@ class UserInterface {
         let boxArea = document.querySelector(".card");
         boxArea.classList.replace("col-lg-4", "col-12");
         boxArea.classList.remove("col-sm-6");
-        let cardImage = document.querySelector(".card-image");
-        cardImage.classList.add("w-25");
+        // let cardImage = document.querySelector(".card-image");
+        // cardImage.classList.add("w-25");
     }
 
     closeDisplay = function () {
@@ -76,8 +76,8 @@ class UserInterface {
         let boxArea = document.querySelector(".card");
         boxArea.classList.replace("col-12", "col-lg-4");
         boxArea.classList.add("col-sm-6");
-        let cardImage = document.querySelector(".card-image");
-        cardImage.classList.remove("w-25");
+        // let cardImage = document.querySelector(".card-image");
+        // cardImage.classList.remove("w-25");
     }
 
     loadUI = function () {
