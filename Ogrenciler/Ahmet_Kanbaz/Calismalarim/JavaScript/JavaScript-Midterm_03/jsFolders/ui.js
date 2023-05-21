@@ -101,8 +101,25 @@ class UI {
     deleteBlog.remove();
   }
 
-  static showFilterCategories = function() {
-    const allBlogs = crud.get();
-    console.log(allBlogs);
+  static addCheckBoxFromCheckBox(checkbox) {
+    categoriesFilter.innerHTML +=`<li class = 'mb-2>
+    <input type="checkbox" id="${checkbox}" class="btn-check" autocomplete="off">
+    <label for="${checkbox}" class="btn btn-outline-success px-5" for="${checkbox}">${checkbox}</label>
+  </li>`;
+  }
+
+  static showFilterCategories = function(blogs) {
+    const tempBlogs = [];
+    blogs
+      .then((blog) => {
+        blog.forEach((element) => {
+          tempBlogs.push(element.category);
+        });
+        const uniqueBlogs = [...new Set(tempBlogs)];
+        uniqueBlogs.forEach((element) => {
+          this.addCheckBoxFromCheckBox(element);
+        });
+      })
+      .catch((error) => this.alertMessage(error));
   }
 }

@@ -25,7 +25,7 @@ const addNewBlogButton = document.getElementById('addBlogButton');
 
 const toast = document.getElementById("toastMessage");
 
-const categoriesFilter = document.getElementById('categoriesFilter');
+const categoriesFilter = document.querySelector('.categoriesFilter');
 
 addEventListeners();
 

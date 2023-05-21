@@ -2,9 +2,12 @@ class Request {
   static showAllBlogsFromRequest = function() {
     const blogs = crud.get();
     blogs.then((response) => {
-      response.map((blog) => UI.createNewBlogToUI(blog));
+      response.map((blog) => {
+        UI.createNewBlogToUI(blog);
+      });
     })
     .catch((error) => UI.alertMessage(error));
+    UI.showFilterCategories(blogs);
   }
 
   static addNewBlogToRequest = function(blog) {
@@ -14,7 +17,6 @@ class Request {
   }
 
   static getBlogDetailFromRequest = function(getDetailBlogId) {
-    UI.showFilterCategories();
     const detailBlog = crud.getSingleBlog(getDetailBlogId);
     detailBlog
       .then((response) => UI.detailBlogToUI(response))

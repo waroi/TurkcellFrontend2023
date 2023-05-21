@@ -8,7 +8,7 @@ class Crud {
     if(!response.ok) {
       throw new Error('Bir hatayla karşılaşıldı.');
     }
-    const responseData = response.json();
+    const responseData = await response.json();
     return responseData;
   }
 
@@ -23,7 +23,7 @@ class Crud {
     if(!response.ok) {
       throw new Error('Bir hatayla karşılaşıldı.');
     }
-    const responseData = response.json();
+    const responseData = await response.json();
     return responseData;
   }
 
@@ -38,7 +38,7 @@ class Crud {
     if(!response.ok) {
       throw new Error('Bir hatayla karşılaşıldı.');
     }
-    const responseData = response.json();
+    const responseData = await response.json();
     return responseData;
   }
 
@@ -49,7 +49,7 @@ class Crud {
     if(!response.ok) {
       throw new Error('Bir hatayla karşılaşıldı.');
     }
-    const responseData = response.json();
+    const responseData = await response.json();
     return responseData;
   }
 
@@ -58,7 +58,7 @@ class Crud {
     if(!response.ok) {
       throw new Error('Bir hatayla karşılaşıldı.');
     }
-    const responseData = response.json();
+    const responseData = await response.json();
     return responseData;
   }
 }
