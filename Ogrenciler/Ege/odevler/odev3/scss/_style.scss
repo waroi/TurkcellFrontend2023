@@ -2,11 +2,11 @@ body {
   min-height: 100vh;
   background-image: linear-gradient(
     to right top,
-    #264348,
-    #2a444a,
-    #2e444c,
-    #32454e,
-    #36454f
+    #004b49,
+    #0b3745,
+    #1c2432,
+    #19141a,
+    #000000
   );
 }
 
@@ -36,6 +36,13 @@ a {
     h2 {
       text-shadow: #474747 3px 5px 2px;
     }
+    h1 {
+      animation: keepMoving 10s infinite;
+    }
+
+    h2 {
+      animation: gettingHit 10s infinite 7.5s;
+    }
   }
 
   &::before {
@@ -52,7 +59,7 @@ a {
 
 .card {
   backdrop-filter: blur(10px);
-  transition: 0.3s;
+  transition: 0.3s all;
   .card-title {
     color: $warning;
     font-weight: 600;
@@ -80,6 +87,8 @@ a {
       rgba($color: $warning, $alpha: 0.07) 0px 8px 16px,
       rgba($color: $warning, $alpha: 0.07) 0px 16px 32px,
       rgba($color: $warning, $alpha: 0.07) 0px 32px 64px;
+
+    transform: translateY(-10px);
   }
 }
 
@@ -140,5 +149,29 @@ a {
     height: 100%;
     background-color: rgba(38, 67, 72, 0.5);
     z-index: 1;
+  }
+}
+
+@keyframes keepMoving {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes gettingHit {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
