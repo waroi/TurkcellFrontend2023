@@ -1,0 +1,230 @@
+*{
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none ;
+}
+.active{
+    color: $primary !important;
+}
+section{
+  padding: 120px 0;
+}
+.logo{
+  width: 250px;
+}
+h2{
+  font-size: 48px;
+}
+
+//! ------ HOMEPAGE  ------ //
+.banner-bg{
+  position: absolute;
+  top: 130px;
+  left: 10%;
+  background-image: url("../Img/balloon.png");
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  width: 800px;
+  height: 800px;
+  z-index: -1;
+}
+.banner{
+  .banner-title{
+    animation: fadeInLeft 1.5s  ease-in-out;
+    h2{
+      margin-top: 25px ;
+      margin-bottom: 50px;
+    }
+    p{
+      font-size: 24px;
+    }
+  }
+  a{
+    padding: 18px 24px;
+    border-radius: 25px;
+  }
+}
+.sc-carousel{
+  background-color: #FFFCFA;
+}
+.customers{
+  h2{
+    margin-bottom: 50px;
+  }
+  img{
+    width:25%;
+    height: 130px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all .2s ease-in-out;
+    &:hover{
+      filter: grayscale(0);
+      opacity: 1;
+    }
+  }
+}
+.fb-home{
+  height: 163px;
+}
+//! ------ ABOUT US ------ //
+.bg-all{
+  background-image: url("../Img/about-left-img.jpg");
+  background-repeat: no-repeat;
+
+}
+.about-us{
+  p{
+    font-size: 24px;
+  }
+}
+//! ------ PRODUCTS ------ //
+.title{
+  background-image: url("../Img/title-bg.jpg");
+  background-size: cover;
+  opacity: 0.8;
+}
+.card{
+  border: none;
+  box-shadow: 1px 2px 12px 0px rgba(26,188,156,0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  width: 22rem;
+  &:before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 6%;
+    width: 97%;
+    height: 94%;
+    transform: rotate(0);
+    border-radius: 10px;
+    transition: all .5s cubic-bezier(.42,0,.14,1.02);
+    background-color: rgba(26,188,156,0.7);
+    z-index: -1;
+  }
+  &:hover::before{
+    transform: rotate(5deg);
+    height: 96%;
+  }
+  .card-body{
+    h5{
+      font-size: 25px;
+    }
+    p{
+      font-size: 1.5rem;
+    }
+    .btn{
+      margin-top: 15px;
+    }
+    .sale{
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      border-radius: 50%;
+      padding: 10px;
+      background-color: red;
+    }
+  }
+}
+//! ------ PRODUCTS DETAIL ------ //
+.ads-img{
+  width: 100%;
+}
+.info{
+  padding-left: 100px;
+  h1{
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+  p{
+
+    font-size: 24px;
+  }
+  .checked{
+    color: orange;
+  }
+  ul li{
+    color: $light;
+    font-size: 20px;
+    list-style-type:circle;
+  }
+  a{
+    font-size: 20px;
+    padding: 12px 18px;
+    border-radius: 25px;
+  }
+}
+//! ------ FOOTER ------ //
+footer{
+    .footer-title{
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 28px;
+    }
+    ul li a{
+      color: #fff;
+      font-size: 18px;
+      font-weight: 300;
+      text-decoration: none;
+    }
+    input{
+      max-width: 340px;
+      width: 100%;
+      border: 1px solid #333333;
+      font-size: 13px;
+      line-height: 40px;
+      padding-right: 40px;
+      height: 40px;
+      color: #999999;
+      border-radius: 20px;
+      background: #fff;
+      padding-left: 20px;
+    }
+    .sub-btn{
+    background-color: $primary;
+      color: #fff;
+      font-weight: 500;
+      line-height: 38px;
+      font-size: 12px;
+      padding: 0px 38px;
+      display: inline-block;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all 300ms linear 0s;
+      &:hover{
+        background: #04091e;
+        color: $primary ;
+        border: 1px solid $primary;
+      }
+    }
+    .footer-bottom{
+      padding-top: 85px;
+      .footer-socials a{
+        font-size: 18px;
+        line-height: 30px;
+        color: #fff;
+        margin-left: 6px;
+        transition: all 0.3s linear;
+        background: #1e2235;
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        display: inline-block;
+        transition: all 300ms linear 0s;
+        &:hover{
+          background: $primary;
+        }
+      }
+    }
+  }
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-300px);
+    }
+    to {
+      opacity: 1;
+    }
+  }
