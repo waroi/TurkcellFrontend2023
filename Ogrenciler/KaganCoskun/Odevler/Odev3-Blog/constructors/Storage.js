@@ -1,59 +1,68 @@
 class Storage{
-    setStorage(key,value){
-        localStorage.setItem(key,JSON.stringify(value));
+    constructor(url){
+        this.url = url;
     }
-    getStorage(key){
-        let value;
-        localStorage.getItem(key)===null ? value=[]:value=JSON.parse(localStorage.getItem(key));
-        return value;
+    async getAll(){
+        let response = await fetch(this.url);
+        let data = await response.json();
+        return data;
     }
-    deleteStorage(id){
-        let books = storage.getLocalStorage("book");
-        books.filter((item) => item.id !== id);
-        storage.setLocalStorage(books);
+    async get(id){
+        let response = await fetch(`${this.url}/${id}`);
+        let data = await response.json();
+        return data;
     }
-    editStorage(id){
-        isEdit=false;
-        const modal = bootstrap.Modal.getInstance(document.getElementById("addBook"));
-        modal.hide();
-
-        let books = storage.getStorage("book");
-        let newBook = UI.getFormInputs();
-        let index = books.findIndex(item => item.id === id);
-        index !== -1 ? books[index] = newBook : alert("something went wrong");
-        storage.setStorage("book",books);
-        UI.loadLocalBooks();
-        UI.changeSubmitBtn("add");
-        UI.resetForm();
-        UI.showToasty("Edit Successfully","success")
-
-
+    async createBlog(data){
+        let response = await fetch(this.url,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });       
+        let responseData = await response.json();
+        return responseData;
     }
-    sortStorage(value){
-      let az=false;
-      let za=false;
-      let date=false;
+    async update(id,data){
+        let response = await fetch(`${this.url}/${id}`,{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        let responseData = await response.json();
+        return responseData;
+    }
+    async deleteBlog(id){
+        let fetchOpt = { method: "delete"};
+         let response = await fetch(`${this.url}/${id} `, fetchOpt);
+         return response;
+    }  
 
-      switch (Number(value)) {
-        case 1:
-          az=true;
-          break;
-        case 2:
-          za=true;
-          break;
-        case 3:
-          date=true;
-          break;
-        default:
-          az=true;
-      }
+    async getCategories(){
+        let response = await fetch(`http://localhost:3004/categories`);
+        let data = await response.json();
+        return data;
+    }
+    
+    async getCategoriesById(id){
+        let response = await fetch(`http://localhost:3004/categories/${id}`);
+        let data = await response.json();
+        return data;
+    }
 
-      let books = storage.getStorage("book");
-      let sortedBooks;
-      az ? sortedBooks = books.sort((a,b)=>a.title.localeCompare(b.title)):"";
-      za ? sortedBooks = books.sort((a,b)=>b.title.localeCompare(a.title)):"";
-      date ? sortedBooks = books.sort((a,b)=>a.date.localeCompare(b.date)):"";
-      storage.setStorage("book",sortedBooks);
-      UI.loadLocalBooks();
+    async updateClap(id,clap){
+        let response = await fetch(`${this.url}/${id}`,{
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                clap: clap
+                })
+        });
+        let responseData = await response.json();
+        return responseData;
     }
 }

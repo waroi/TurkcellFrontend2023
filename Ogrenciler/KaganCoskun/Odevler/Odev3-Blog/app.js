@@ -26,7 +26,6 @@ window.onclick = function(event) {
 function submitForm(e){
     e.preventDefault();
     let inputValues = ui.getFormInputs();
-    console.log("isEdit",isEdit,"inputValues",inputValues,"editItemId",editItemId)
     isEdit ? ui.editBlogData(inputValues) : ui.addNewBlog(inputValues);
     e.preventDefault();
 }
@@ -38,3 +37,5 @@ blogForm.addEventListener('submit', submitForm);
 window.addEventListener('load', function() {ui.loadUi()});
 formClsBtn.addEventListener('click', function() {blogForm.reset(); isEdit = false; ui.changeSubmitBtn("add")});
 ui.writeCategories();
+
+ui.mostPopularBlogs();

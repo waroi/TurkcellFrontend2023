@@ -80,11 +80,8 @@
 
         <div class="col-md-4">
           <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">En Populer Yazılar</h5>
-              <p class="card-text">
-                Bu alanda yazar hakkında bilgi yer alabilir.
-              </p>
+            <div class="card-body " id="popularWrap">
+              <h5 class="card-title" >En Populer Yazılar</h5>
             </div>
           </div>
           <br />
@@ -227,8 +224,8 @@
               <h5 id="blogAuthor"></h5>
               <h6 id="blogDate"></h6>
               <h6 id="blogCategory" class="bg-info py-2 rounded-5 text-white"></h6>
-              <button id="clapsBtn" class="btn">
-                <span class="fs-5 clap">255</span>
+              <button id="clapBtn" class="btn">
+                <span class="fs-5" id="clap">255</span>
                 <i class="fa-solid fa-hands-clapping fa-xl"></i>
               </button>
               <button
@@ -246,9 +243,21 @@
       </div>
     </div>
 
-    <script src="Constructor.js"></script>
-    <script src="UserInterface.js"></script>
-    <script src="Storage.js"></script>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="ToastFeedback" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">KAGANLOG</strong>
+          <small>NOW</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body"></div>
+      </div>
+    </div>
+
+    <script src="./constructors/Constructor.js"></script>
+    <script src="./constructors/UserInterface.js"></script>
+    <script src="./constructors/Storage.js"></script>
     <script src="app.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
   </body>

@@ -25,9 +25,9 @@ class Blog{
         return blogCard;
     }
 
+
     async createBlogDetail(){
         let category =await storage.getCategoriesById(this.category)
-        console.log("createBlogDetail",this.id)
         document.getElementById("blogTitle").textContent = this.title;
         document.getElementById("blogContent").textContent = this.content;
         document.getElementById("blogAuthor").textContent = this.author;
@@ -35,6 +35,11 @@ class Blog{
         document.getElementById("blogCategory").textContent = category.name;
         const blogImage=document.querySelector(".blogImg");
         blogImage.src=this.imgUrl;
+
+
+        document.getElementById("clap").textContent = this.clap;
+
+        document.getElementById("clapBtn").addEventListener('click', () => {ui.updateClap(this.id)});
         
         document.getElementById("editBtn").addEventListener('click', () => {this.editBlog(this.id)});
         document.getElementById("deleteBlog").addEventListener('click', () => {ui.deleteBlog(this.id)});
@@ -43,9 +48,16 @@ class Blog{
         document.getElementById("blogViewer").style.display = "block";
     }
 
+    popularBlogCard(){
+        let popular = document.createElement('article');
+        popular.className = 'popular py-1';
+        popular.innerHTML = `<h6>${this?.title}</h6>`;
+        popular.addEventListener('click', () => {this.createBlogDetail()});
+        return popular;
+    }
+
     editBlog(id){
         editItemId = id;
-        console.log("editBlog",this.id)
         document.getElementById("title").value = this.title;
         document.getElementById("author").value = this.author;
         document.getElementById("category").value = this.category;
