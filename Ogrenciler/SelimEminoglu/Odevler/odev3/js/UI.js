@@ -35,9 +35,9 @@ class UI {
                 ${blog.author}
               </p>
               <p class="mb-0"><b>Kategori:</b> ${blog.category}</p>
-              <p class="mb-0"><b>Tarih:</b> ${blog.date}</p>
+              <p class="mb-0"><b>Tarih:</b> ${blog.date}-${blog.hour}</p>
               <div class="d-flex gap-4 mt-2">
-                <button class="card-button" id=updateButton>
+                <button class="card-button" id=updateButton data-bs-target="#updateBlogModal" data-bs-toggle="modal">
                   <i class="fa-solid fa-wrench"></i>
                 </button>
                 <button class="card-button" id=deleteButton>
@@ -49,14 +49,43 @@ class UI {
         </div>
       </div>`;
     });
-    const deleteButton = document.getElementById("deleteButton");
-    const updateButton = document.getElementById("updateButton");
 
-    deleteButton.addEventListener("click", () => {
-      console.log("sil");
-    });
-    updateButton.addEventListener("click", () => {
-      console.log("güncelle");
+    blogList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        child.childNodes[1].childNodes[1].childNodes[3].childNodes[9].childNodes[1].addEventListener(
+          "click",
+          () => {
+            console.log(child.id);
+            Request.getBlogs().then((response) => {
+              response.map((item) => {
+                if (item.id == child.id) {
+                  blogNameUpdate.value = item.title;
+                  blogTypeUpdate.value = item.body;
+                  blogWriterUpdate.value = item.author;
+                  blogDateUpdate.value = item.date;
+                  blogHourUpdate.value = item.hour;
+                  blogCategoryUpdate.value = item.category;
+                  blogUrlUpdate.value = item.url;
+                  blogAuthorPictureUpdate.value = item.authorPicture;
+                }
+              });
+            });
+          }
+        );
+
+        child.childNodes[1].childNodes[1].childNodes[3].childNodes[9].childNodes[3].addEventListener(
+          "click",
+          () => {
+            Request.deleteBlogsAndAuthors(
+              "http://localhost:3000/blogs/" + child.id
+            );
+
+            Request.deleteBlogsAndAuthors(
+              "http://localhost:3000/authors/" + child.id
+            );
+          }
+        );
+      }
     });
   }
 }

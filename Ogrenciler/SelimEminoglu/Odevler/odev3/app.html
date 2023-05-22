@@ -232,12 +232,11 @@
                       <label for="blogDate" class="w-100 fs-4 my-1"
                         >Yazım Tarihi:</label
                       >
-                      <input
-                        type="datetime-local"
-                        id="blogDate"
-                        class="w-100"
-                        required
-                      />
+                      <input type="date" id="blogDate" class="w-100" required />
+                      <label for="blogHour" class="w-100 fs-4 my-1"
+                        >Yazım Saati:</label
+                      >
+                      <input type="time" id="blogHour" class="w-100" required />
                       <label for="blogCategory" class="w-100 fs-4 my-1"
                         >Kategorisi:</label
                       >
@@ -260,7 +259,7 @@
                         id="blogType"
                         name="bookUrl"
                         required
-                        maxlength="350"
+                        maxlength="3500"
                         placeholder="Blog Yazınız..."
                       >
                       </textarea>
@@ -276,6 +275,127 @@
                     </button>
                     <button type="button" class="btn btn-primary" id="addBlog">
                       Blog Yazısı Ekle
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="updateBlogModal"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+              >
+                <div class="modal-content modal-shape">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      Blog Yazısını Güncelle
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <h2>Blog Özellikleri</h2>
+                    <form class="blog-form mt-3" id="form">
+                      <label for="blogNameUpdate" class="w-100 fs-4 my-1"
+                        >Blog Adı:</label
+                      >
+                      <input
+                        type="text"
+                        id="blogNameUpdate"
+                        required
+                        class="w-100"
+                      />
+                      <label for="blogWriterUpdate" class="w-100 fs-4 my-1"
+                        >Blog Yazarı:</label
+                      >
+                      <input
+                        type="text"
+                        id="blogWriterUpdate"
+                        required
+                        class="w-100"
+                      />
+                      <label
+                        for="blogAuthorPictureUpdate"
+                        class="w-100 fs-4 my-1"
+                        >Blog Yazarı Resmi(opsiyonel):</label
+                      >
+                      <input
+                        type="text"
+                        id="blogAuthorPictureUpdate"
+                        class="w-100"
+                      />
+
+                      <label for="blogDateUpdate" class="w-100 fs-4 my-1"
+                        >Yazım Tarihi:</label
+                      >
+                      <input
+                        type="date"
+                        id="blogDateUpdate"
+                        class="w-100"
+                        required
+                      />
+                      <label for="blogHourUpdate" class="w-100 fs-4 my-1"
+                        >Yazım Saati:</label
+                      >
+                      <input
+                        type="time"
+                        id="blogHourUpdate"
+                        class="w-100"
+                        required
+                      />
+                      <label for="blogCategoryUpdate" class="w-100 fs-4 my-1"
+                        >Kategorisi:</label
+                      >
+                      <input
+                        type="text"
+                        id="blogCategoryUpdate"
+                        required
+                        class="w-100"
+                      />
+                      <label for="blogUrlUpdate" class="w-100 fs-4 my-1"
+                        >Blog Resmi İçin URL(opsiyonel):</label
+                      >
+                      <input type="text" id="blogUrlUpdate" class="w-100" />
+                      <label for="blogTypeUpdate" class="w-100 fs-4 my-1"
+                        >Blog Yazısı:</label
+                      >
+                      <textarea
+                        rows="5"
+                        cols="60"
+                        id="blogTypeUpdate"
+                        name="bookUrl"
+                        required
+                        maxlength="3500"
+                      >
+                      </textarea>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Kapat
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="updateBlog"
+                    >
+                      Blog Yazısını Güncelle
                     </button>
                   </div>
                 </div>

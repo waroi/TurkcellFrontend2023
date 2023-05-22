@@ -11,9 +11,25 @@ const blogName = document.getElementById("blogName");
 const blogWriter = document.getElementById("blogWriter");
 const blogAuthorPicture = document.getElementById("blogAuthorPicture");
 const blogDate = document.getElementById("blogDate");
+const blogHour = document.getElementById("blogHour");
 const blogCategory = document.getElementById("blogCategory");
 const blogUrl = document.getElementById("blogUrl");
 const blogType = document.getElementById("blogType");
+
+const updateButton = document.getElementById("updateBlog");
+
+const blogNameUpdate = document.getElementById("blogNameUpdate");
+const blogWriterUpdate = document.getElementById("blogWriterUpdate");
+const blogAuthorPictureUpdate = document.getElementById(
+  "blogAuthorPictureUpdate"
+);
+const blogDateUpdate = document.getElementById("blogDateUpdate");
+const blogHourUpdate = document.getElementById("blogHourUpdate");
+const blogCategoryUpdate = document.getElementById("blogCategoryUpdate");
+const blogUrlUpdate = document.getElementById("blogUrlUpdate");
+const blogTypeUpdate = document.getElementById("blogTypeUpdate");
+
+addButton.addEventListener("click", addBlog);
 
 Request.getAuthors()
   .then((response) => UI.showAuthors(response))
@@ -23,23 +39,26 @@ Request.getBlogs()
   .then((response) => UI.showBlogs(response))
   .catch((err) => alert(err));
 
-addButton.addEventListener("click", addBlog);
-
 function addBlog() {
   let id = Date.now();
 
-  // Request.postBlogs({
-  //   id: id,
-  //   title: blogName.value,
-  //   body: blogType.value,
-  //   author: blogWriter.value,
-  //   date: blogDate,
-  //   category: blogCategory,
-  //   url: blogUrl,
-  //   authorPicture: blogAuthorPicture.value,
-  // })
-  //   .then((response) => console.log(response))
-  //   .catch((err) => console.log(err));
+  Request.postBlogsAndAuthors("http://localhost:3000/authors", {
+    id: id,
+    author: blogWriter.value,
+    authorPicture: blogAuthorPicture.value,
+  });
+
+  Request.postBlogsAndAuthors("http://localhost:3000/blogs", {
+    id: id,
+    title: blogName.value,
+    body: blogType.value,
+    author: blogWriter.value,
+    date: blogDate.value,
+    hour: blogHour.value,
+    category: blogCategory.value,
+    url: blogUrl.value,
+    authorPicture: blogAuthorPicture.value,
+  });
 }
 
 hiddenBtn[0].addEventListener("click", () => {
