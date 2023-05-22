@@ -134,7 +134,7 @@ function showModal(blog) {
           </div>
           <h6 class="categorys">${blog.category}</h6>
           <div class="modal-buttons">
-            <button type="button" class="btn btn-primary btn-2" id="updateButton" onclick="editBlog(${blog.id})">Güncelle</button>
+            <button type="button" class="btn btn-primary btn-2" id="updateButton" onclick="editBlog(${blog.id})">Düzenle</button>
             <button type="button" class="btn btn-danger btn-3" onclick="deleteBlog(${blog.id})">Sil</button>
           </div>
         `;
