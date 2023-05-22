@@ -16,6 +16,7 @@ const warningModal = document.querySelector('#warningmodal');
 const ui = new UI();
 const storage = new LStorage();
 
+
 eventListeners();
 
 function eventListeners() {

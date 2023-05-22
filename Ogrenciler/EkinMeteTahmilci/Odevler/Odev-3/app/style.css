@@ -83,13 +83,11 @@ blockquote {
 @media (min-width: 992px) {
   #mainNav {
     transition: background-color 0.2s;
-    /* Force Hardware Acceleration in WebKit */
     transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
   #mainNav.is-fixed {
-    /* when the user scrolls down, we hide the header right above the viewport */
     position: fixed;
     top: -83px;
     transition: transform 0.2s;
@@ -222,7 +220,9 @@ header.masthead .post-heading .meta a {
   }
 }
 
-
+.card{
+  min-width: 305px;
+}
   
 .card-img {
     border-bottom-left-radius: 0px;
@@ -238,10 +238,6 @@ header.masthead .post-heading .meta a {
     margin-bottom: 1rem;
 }
 
-.fa-users {
-    margin-left: 1rem;
-}
-
 .card-footer {
     font-size: 0.8rem;
 }
@@ -252,6 +248,11 @@ header.masthead .post-heading .meta a {
 
 .form-wrapper {
     animation: fadeInUp 1s ease;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
 @keyframes fadeInUp {
@@ -265,25 +266,52 @@ header.masthead .post-heading .meta a {
     }
 }
 
-.form-wrapper {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
 .blog-bg{
     background-image: url("./assets/img/image-bg.jpg");
     background-repeat: no-repeat;
     background-size:cover;
 }
 
-.masthead{
-    background-image: url('https://img.freepik.com/premium-photo/italian-food-with-ingredients_1220-4669.jpg?w=900');
-    background-repeat: no-repeat;
-    background-size:auto;
+.card-img-overlay {
+  pointer-events: none;
 }
 
 
+body {
+  background-color: #f8f9fa;
+}
 
+.panel {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.panel-title {
+  font-size: 24px;
+  color: #dc3545;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.card-img {
+  width: 305px;
+  height: 220px;
+  object-fit: cover;
+}
