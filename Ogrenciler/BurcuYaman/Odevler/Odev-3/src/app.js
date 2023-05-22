@@ -126,7 +126,7 @@ function updatePost(e) {
         request
             .get()
             .then((posts) => {
-                posts.forEach(post => {
+                posts.map(post => {
                     if (post.id == id) {
                         updateAuthor.value = post.author;
                         updateTitle.value = post.title;
