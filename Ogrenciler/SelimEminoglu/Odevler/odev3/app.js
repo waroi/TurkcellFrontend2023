@@ -17,7 +17,7 @@ const blogUrl = document.getElementById("blogUrl");
 const blogType = document.getElementById("blogType");
 
 const updateButton = document.getElementById("updateBlog");
-const updateBlogModal = document.getElementsByClassName("modal-dialog");
+const updateBlogModal = document.getElementById("updateBlogModal");
 
 const blogNameUpdate = document.getElementById("blogNameUpdate");
 const blogWriterUpdate = document.getElementById("blogWriterUpdate");
@@ -32,6 +32,8 @@ const blogTypeUpdate = document.getElementById("blogTypeUpdate");
 
 addButton.addEventListener("click", addBlog);
 updateButton.addEventListener("click", updateBlog);
+
+let updateİd;
 
 Request.getAuthors()
   .then((response) => UI.showAuthors(response))
@@ -79,7 +81,8 @@ function addBlog() {
 }
 
 function updateBlog() {
-  console.log(this);
+  updateİd = updateBlogModal.children[0].id;
+
   Request.putBlogsAndAuthors("http://localhost:3000/blogs/" + updateİd, {
     id: updateİd,
     title: blogNameUpdate.value,
