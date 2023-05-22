@@ -180,7 +180,6 @@ function editBlog(blog) {
     clearForm()
 }
 
-
 // Formu temizleme işlemi
 function clearForm() {
   document.getElementById("modalTitle").value = "";
