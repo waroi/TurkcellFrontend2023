@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  margin: 0 auto;
+  height: 3px;
+  background: #838383;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  transition: width 0.3s;
+}
+
+.topSection {
+  background-color: #F7F7F7;
+}
+
+.cardsBlogsSection {
+  background-color: #F2F2F2;
+}
+
+.topSectionCards {
+  padding-top: 150px;
+}
+
+.blogCards {
+  border-width: 30px;
+  background-color: transparent;
+  height: 350px;
+  perspective: 1000px;
+  border-image: url('https://i.pinimg.com/originals/bc/ff/c4/bcffc41668f73d79f173a136653334a7.jpg') 100 stretch;
+}
+
+.innerBlogCard {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.blogCards:hover .innerBlogCard {
+  transform: rotateY(180deg);
+}
+
+.blogCardFront, .blogCardBack {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.blogCardFront {
+  color: black;
+}
+
+.blogCardBack {
+  transform: rotateY(180deg);
+}
+
+.blogCardBack a {
+  color: black;
+  transition: all .3s ease-in-out;
+}
+
+.blogCardBack a:hover {
+  color: #838383;
+}
+
+.blogCardBack a:nth-child(1) {
+  background-color: rgb(64, 235, 235);
+}
+
+.blogCardBack a:nth-child(2) {
+  background-color: rgb(235, 190, 76);
+}
+
+.blogCardBack a:nth-child(3) {
+  background-color: rgb(229, 76, 76);
+}

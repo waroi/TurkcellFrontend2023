@@ -17,9 +17,9 @@ const warningModal = document.querySelector('#warningmodal');
 eventListeners();
 
 function eventListeners() {
-    modalEl.addEventListener('shown.bs.modal', function () {
-        addLibraryButton.addEventListener('click', addNewBook); // Modal butonuna event listener ekleme
-    });
+
+    addLibraryButton.addEventListener('click', addNewBook); // Modal butonuna event listener ekleme
+
     modalFilter.addEventListener('shown.bs.modal', function () {
         filterbooksbutton.addEventListener('click', filterBooks);
     });
@@ -69,8 +69,8 @@ function starterCond() {
         showBooks();
     }
 
-    const checkboxes = document.querySelectorAll(' input[type=checkbox');
-    checkboxes.forEach(function (checkbox) {
+    const checkboxes = document.querySelectorAll(' input[type=checkbox]');
+    checkboxes.map(function (checkbox) {
         checkbox.checked = false;
     }
     );
@@ -79,7 +79,7 @@ function starterCond() {
 
 function showBooks() {
     let books = LStorage.getBooksFromStorage();
-    books.forEach(function (book) {
+    books.map(function (book) {
         UI.addBookToUI(book);
     });
 }

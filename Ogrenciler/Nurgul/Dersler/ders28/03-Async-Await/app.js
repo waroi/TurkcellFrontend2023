@@ -12,6 +12,6 @@ class Request {
 const request = new Request();
 
 request
-  .get("http://localhost:3000/users")
+  .get("http://localhost:3000/posts")
   .then((data) => console.log(data))
   .catch((err) => console.log(err));

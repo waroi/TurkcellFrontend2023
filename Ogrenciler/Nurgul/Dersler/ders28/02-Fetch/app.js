@@ -76,32 +76,7 @@ class Request {
 
 const request = new Request();
 
-// request
-//   .get("https://jsonplaceholder.typicode.com/posts")
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
 
-// request
-//   .post("https://jsonplaceholder.typicode.com/posts", {
-//     userId: 100,
-//     title: "Yeni Başlık",
-//     body: "Yeni İçerik",
-//   })
-//   .then((data) => console.log(data))
-//   .catch((err) => console.log(err));
-
-// request
-//   .put("https://jsonplaceholder.typicode.com/posts/1", {
-//     userId: 100,
-//     title: "Yeni Başlık",
-//     body: "Yeni İçerik",
-//   })
-//   .then((data) => console.log(data))
-//   .catch((err) => console.log(err));
 
 request
   .delete("https://jsonplaceholder.typicode.com/posts/1")
