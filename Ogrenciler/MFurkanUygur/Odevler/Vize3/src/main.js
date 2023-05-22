@@ -1,8 +1,8 @@
 const http = new Http()
 const ui = new UI()
 const toastTrigger = document.getElementById('addButton');
-const toastLiveExample = document.getElementById('liveToastforAddBtn')
-const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+const liveToastforAddBtn = document.getElementById('liveToastforAddBtn')
+const toastBootstrap = bootstrap.Toast.getOrCreateInstance(liveToastforAddBtn)
 
 document.addEventListener("DOMContentLoaded", getPosts)
 function getPosts() {
@@ -66,66 +66,14 @@ blogCategoriesBtn.addEventListener("change", (e) => {
     ui.displayBlogFromCategory(e.target.value)
 })
 sortTitles = document.querySelector("#sortOptions");
-// console.log(sortTitles)
+
 sortTitles.addEventListener("change", (e) => {
     ui.globalSortBlogs(e.target.value)
 })
-// sortTitles.forEach(s => {
-//     s.addEventListener("click", sortType)
-// })
-// sortTitles = document.querySelectorAll("option");
-// sortTitles.forEach(s => {
-//     s.addEventListener("click", sortType)
-// })
+
 
 function sortType(sortType) {
     let tempSortTypeID = sortType.explicitOriginalTarget.id;
-    // console.log(tempSortTypeID)
-
     ui.globalSortBlogs(tempSortTypeID)
 }
 
-// const clearFilterBtn = document.getElementById("clearFilters");
-// clearFilterBtn.addEventListener("click", () => {
-//     blogCategoriesBtn.forEach(t => {
-//         Array.from(t.children).forEach(i => {
-//             i.children[0].checked = false
-//             http
-//                 .get('http://localhost:3000/posts')
-//                 .then((data) => {
-//                     allBlogs.innerHTML = "";
-//                     ui.displayAllPosts(data);
-//                     ui.checkInformationAllPage();
-//                 })
-//                 .catch((err) => console.log(err));
-//         })
-//     })
-// })
-
-// const searchBlogInput = document.getElementById("searchBlog")
-// searchBlogInput.addEventListener("keyup",()=> {
-//     console.log(searchBlogInput.value)
-// })
-// searchBlogInput.addEventListener("focus", () => { searchBlogInput.value = "" })
-
-// function globalSearch() {
-//     http
-//         .get('http://localhost:3000/posts')
-//         .then((data) => {
-//             data.forEach(x => {
-//                 if (searchBlogInput != null) {
-//                     if (x.blogName.toLowerCase().indexOf(searchBlogInput.value.toLowerCase()) > -1) {
-//                         console.log("buldu")
-//                         ui.displayOnePost(x);
-//                         ui.checkInformationAllPage();
-
-//                     }
-//                     else {
-//                         globalSearchBlogs.style="d-none"
-//                     }
-//                 }
-//             })
-
-//         })
-//         .catch((err) => console.log(err));
-// }

@@ -291,6 +291,22 @@ class UI {
                     .sort((a, b) => (a.date < b.date) ? 1 : ((b.date < a.date) ? -1 : 0))
             this.displayFilteredAndSortedResult(dateSortDescendDatas);
         }
+        else if (filterName == "azSortWriter") {
+            allBlogs.innerHTML = ""
+
+            let azSortWriterDatas =
+                arr.map(x => x)
+                    .sort((a, b) => (a.blogWriter.toLowerCase() > b.blogWriter.toLowerCase()) ? 1 : ((b.blogWriter.toLowerCase() > a.blogWriter.toLowerCase()) ? -1 : 0))
+            this.displayFilteredAndSortedResult(azSortWriterDatas);
+        }
+        else if (filterName == "zaSortWriter") {
+            allBlogs.innerHTML = ""
+
+            let zaSortWriterDatas =
+                arr.map(x => x)
+                    .sort((a, b) => (a.blogWriter.toLowerCase() < b.blogWriter.toLowerCase()) ? 1 : ((b.blogWriter.toLowerCase() < a.blogWriter.toLowerCase()) ? -1 : 0))
+            this.displayFilteredAndSortedResult(zaSortWriterDatas);
+        }
         else if (filterName == "Varsayılan") {
             this.displayFilteredAndSortedResult(arr)
         }
@@ -316,9 +332,9 @@ class UI {
     }
 
     globalSortBlogs(sortTypeID) {
+        console.log(sortTypeID)
         if (sortTypeID == "azSort") {
             allBlogs.innerHTML = ""
-
             let azSortDatas =
                 globalDatas.map(x => x)
                     .sort((a, b) => (a.blogName.toLowerCase() > b.blogName.toLowerCase()) ? 1 : ((b.blogName.toLowerCase() > a.blogName.toLowerCase()) ? -1 : 0))
@@ -326,16 +342,27 @@ class UI {
         }
         else if (sortTypeID == "zaSort") {
             allBlogs.innerHTML = ""
-
             let zaSortDatas =
                 globalDatas.map(x => x)
                     .sort((a, b) => (a.blogName.toLowerCase() < b.blogName.toLowerCase()) ? 1 : ((b.blogName.toLowerCase() < a.blogName.toLowerCase()) ? -1 : 0))
             this.displayGlobalSort(zaSortDatas);
         }
-
+        else if (sortTypeID == "azSortWriter") {
+            allBlogs.innerHTML = ""
+            let azSortWriterDatas =
+                globalDatas.map(x => x)
+                    .sort((a, b) => (a.blogWriter.toLowerCase() > b.blogWriter.toLowerCase()) ? 1 : ((b.blogWriter.toLowerCase() > a.blogWriter.toLowerCase()) ? -1 : 0))
+            this.displayGlobalSort(azSortWriterDatas);
+        }
+        else if (sortTypeID == "zaSortWriter") {
+            allBlogs.innerHTML = ""
+            let zaSortWriterDatas =
+                globalDatas.map(x => x)
+                    .sort((a, b) => (a.blogWriter.toLowerCase() < b.blogWriter.toLowerCase()) ? 1 : ((b.blogWriter.toLowerCase() < a.blogWriter.toLowerCase()) ? -1 : 0))
+            this.displayGlobalSort(zaSortWriterDatas);
+        }
         else if (sortTypeID == "dateSortIncrease") {
             allBlogs.innerHTML = ""
-
             let dateSortIncreaseDatas =
                 globalDatas.map(x => x)
                     .sort((a, b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0))
@@ -344,15 +371,14 @@ class UI {
 
         else if (sortTypeID == "dateSortDescend") {
             allBlogs.innerHTML = ""
-
             let dateSortDescendDatas =
                 globalDatas.map(x => x)
                     .sort((a, b) => (a.date < b.date) ? 1 : ((b.date < a.date) ? -1 : 0))
             this.displayGlobalSort(dateSortDescendDatas);
         }
+
         else if (sortTypeID == "Varsayılan") {
             allBlogs.innerHTML = ""
-
             this.displayAllPosts(globalDatas)
         }
 
@@ -380,7 +406,6 @@ class UI {
       <div class="col-12 col-sm-6 col-lg-3 mb-3 ">
         <div class="card h-100 my-3 position-relative" id="${b.id}">
                 <img src="${b.blogPicture}" class="card-img-top blog-img-specs img-fluid " alt="${b.blogPicture}">
-          
             <div class="card-body text-black mb-0 pb-0 position-absolute w-100 bottom-0 bg-light">
             <h5 class="card-title fs-3 m-0 fw-bold">${b.blogName}</h5>
                 <h5 class="card-title fs-2 m-0 fw-bold">${b.blogWriter}</h5>
@@ -419,7 +444,7 @@ class UI {
                           </div>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                            <button type="button" class="btn btn-danger text-white fw-bold fs-1" data-bs-dismiss="modal">Kapat</button>
                           </div>
                         </div>
                       </div>
@@ -467,7 +492,7 @@ class UI {
                                                 <label for="blogPicture">Blog Picture: </label>
                                                 <input class="form-control mb-2 fs-2" type="text" id="defaultBlogPicture"
                                                     disabled>
-                                                <button type="button" class="btn btn-danger mt-1 w-100"
+                                                <button type="button" class="btn btn-danger text-white fs-1  mt-1 w-100"
                                                     data-bs-dismiss="modal">İptal</button>
     
                                             </form>
@@ -495,7 +520,7 @@ class UI {
                                                 <input class="form-control mb-2 fs-2" type="text" id="editBlogPicture">
     
                                             </form>
-                                            <button type="button" id="saveChange" class="btn btn-success saveChanges mt-1 w-100"
+                                            <button type="button" id="saveChange" class="btn btn-success text-white fs-1 saveChanges mt-1 w-100"
                                                 data-bs-dismiss="modal">Bilgileri Güncelle</button>
     
                                         </div>

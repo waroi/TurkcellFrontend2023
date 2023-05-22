@@ -1,21 +1,35 @@
+@mixin bg-image($img) {
+  background-image: url($img);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+@mixin spanTag {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 60px;
+}
+@mixin glass-effect($px) {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  backdrop-filter: blur($px);
+}
+
 body {
   margin: 0;
   padding: 0;
 }
 nav {
+  @include glass-effect(30px);
   background: rgba(25, 25, 25, 0.16);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(30px);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  a {
-    font-family: "Shadows Into Light", cursive;
-  }
 }
-
+a {
+  font-family: "Shadows Into Light", cursive;
+}
 .blog-img-specs {
   // width: auto;
-  // height: 320px;
+  min-height: 300px;
 }
 
 i {
@@ -38,32 +52,16 @@ i {
   }
 }
 .modal {
+  @include glass-effect(5px);
   background: rgba(25, 25, 25, 0.16);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
   border: 1px solid rgba(213, 209, 209, 0.28);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .modal-content {
+  @include glass-effect(20px);
   background: rgba(255, 255, 255, 0.381);
-
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
   border: 1px solid rgba(213, 209, 209, 0.28);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-@mixin bg-image($img) {
-  background-image: url($img);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-}
-@mixin spanTag {
-  font-family: "Shadows Into Light", cursive;
-  font-size: 60px;
 }
 
 .sliderItem1 {
@@ -75,7 +73,6 @@ i {
 .sliderItem2 {
   @include bg-image("../img/arno.jpg");
   @include spanTag();
-
   background-position: top;
 }
 .sliderItem3 {
@@ -119,5 +116,28 @@ i {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
       rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     background-color: rgba(255, 255, 255, 0.379);
+  }
+}
+.toast {
+  position: relative;
+  z-index: 10;
+}
+.card-body {
+  max-height: 300px;
+}
+#blogCategories,.card-text,.card-title {
+  text-transform: capitalize;
+}
+#inspectModalText{
+  text-align: justify;
+}
+@media only screen and (max-width: 992px) {
+  .intro-title {
+    span {
+      font-size: 35px;
+    }
+  }
+  .sliderItem3 {
+    background-position: right;
   }
 }

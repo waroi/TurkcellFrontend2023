@@ -5,6 +5,7 @@
 
 - kategoriye göre filtreleme yapılabilecek
 - sıralama yapabilecek (tarih, başlık, yazar)
+
 - arama (başlık ve yazara göre) inputu olacak, listede filtreleme yapacak
 
 

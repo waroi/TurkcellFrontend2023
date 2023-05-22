@@ -70,12 +70,12 @@
 
     <section class="main-content">
         <div class="gradient"></div>
-        <div class="container main-container position-relative py-5">
-            <div class="row  mx-1">
-                <div class="bg-danger" id="globalSearchBlogs"></div>
+        <div class="container main-container  py-5">
+            <div class="row  mx-1 position-relative">
+                <div class="bg-danger " id="globalSearchBlogs"></div>
 
-                <div class="col-lg-2 bg-light rounded-2 py-4 my-3 ">
-                    <button type="button" class="btn btn-danger w-100 mb-3 fw-semibold  fs-2" data-bs-toggle="modal"
+                <div class="col-lg-2 bg-light rounded-2 py-4 my-3  ">
+                    <button type="button" class="btn btn-danger fs-1 text-white fw-bold w-100 mb-3" data-bs-toggle="modal"
                         data-bs-target="#addBook">Blog Ekle
                     </button>
                     <div class="modal fade" id="addBook" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -109,9 +109,9 @@
                                     <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
                                         placeholder="Blog görselini giriniz..." id="blogPicture">
 
-                                    <button type="submit" class="btn btn-success w-100 my-3 " id="addButton"
+                                    <button type="submit" class="btn btn-success fs-1 text-white fw-bold w-100 my-3 " id="addButton"
                                         data-bs-dismiss="modal">Ekle</button>
-                                    <button type="button" class="btn btn-danger w-100"
+                                    <button type="button" class="btn btn-danger fs-1 text-white fw-bold w-100"
                                         data-bs-dismiss="modal">İptal</button>
                                     <!-- </form> -->
                                 </div>
@@ -119,34 +119,33 @@
                         </div>
                     </div>
 
-                    <div id="liveToastforAddBtn"
-                        class="toast align-items-center text-bg-danger border-0 position-fixed bottom-0 end-0 py-1 my-2"
-                        role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="d-flex">
-                            <div class="toast-body fw-bold fs-1 text-white">
-                                Lütfen içerik eklemek için tüm alanları doldurunuz!
+
+                    <div class="sticky-top ">
+                        <div class="categories-plate ">
+                            <hr class="m-0 mb-1">
+                            <div class="text-center mb-3">
+                                <a class="navbar-brand fw-semibold text-black   fs-10 pb-3 " href="#"><span
+                                        class="text-danger fw-bolder fs-6 ">B</span>lockpick</a>
                             </div>
-                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                                aria-label="Close"></button>
-                        </div>
-                    </div>
-                    <div class="categories-plate">
-                        <h6 class="mb-0 fw-bold fs-2 ">Kategoriler:</h6>
-                        <hr class="my-1">
-                        <select id="blogCategories" class="mb-3 form-select py-1 fs-1">
-                        </select>
-                        <div>
-                            <h6 class="mb-0 fw-bold fs-2 " id="sortCategories">Sıralama:</h6>
+                            <h6 class="mb-0 fw-bold fs-2 ">Kategoriler:</h6>
                             <hr class="my-1">
-
-                            <select class="form-select py-1 fs-1 " id="sortOptions" aria-label="Sort blogs">
-                                <option selected value="Varsayılan" id="Varsayılan">Varsayılan</option>
-                                <option value="azSort" id="azSort">A-z</option>
-                                <option value="zaSort" id="zaSort">Z-a</option>
-                                <option value="dateSortIncrease" id="dateSortIncrease">Tarih göre artan</option>
-                                <option value="dateSortDescend" id="dateSortDescend">Tarihe göre azalan</option>
-
+                            <select id="blogCategories" class="mb-3 form-select py-1 fs-1">
                             </select>
+                            <div>
+                                <h6 class="mb-0 fw-bold fs-2 " id="sortCategories">Sıralama:</h6>
+                                <hr class="my-1">
+
+                                <select class="form-select py-1 fs-1 " id="sortOptions" aria-label="Sort blogs">
+                                    <option selected value="Varsayılan" id="Varsayılan">Varsayılan</option>
+                                    <option value="azSort" id="azSort">A-z (Ad)</option>
+                                    <option value="zaSort" id="zaSort">Z-a (Ad)</option>
+                                    <option value="azSortWriter" id="azSortWriter">A-z (Yazar)</option>
+                                    <option value="zaSortWriter" id="zaSortWriter">Z-a (Yazar)</option>
+                                    <option value="dateSortIncrease" id="dateSortIncrease">Tarih göre artan</option>
+                                    <option value="dateSortDescend" id="dateSortDescend">Tarihe göre azalan</option>
+
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -223,7 +222,7 @@
                     <ul class="list p-0 mt-3">
                         <li class="list-group-item text-white mt-2">
                             <a href="" class="text-decoration-none text-white fs-2"><i
-                                    class="fa-solid fa-plane fa-xl me-3"></i>Yurtdışı
+                                    class="fa-solid fa-plane fa-xl me-2"></i>Yurtdışı
                                 Gönderim</a>
                         </li>
                         <li class="list-group-item text-white mt-2">
@@ -269,7 +268,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-    <script src="./src/slider.js"></script>
     <script src="./src/http.js"></script>
     <script src="./src/ui.js"></script>
     <script src="./src/main.js"></script>
