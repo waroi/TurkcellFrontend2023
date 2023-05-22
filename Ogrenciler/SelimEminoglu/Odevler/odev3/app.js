@@ -30,8 +30,120 @@ const blogCategoryUpdate = document.getElementById("blogCategoryUpdate");
 const blogUrlUpdate = document.getElementById("blogUrlUpdate");
 const blogTypeUpdate = document.getElementById("blogTypeUpdate");
 
+const orderList = document.getElementById("sorter");
+
+const categoryFilter = document.getElementById("category");
+const writerFilter = document.getElementById("writer");
+
 addButton.addEventListener("click", addBlog);
 updateButton.addEventListener("click", updateBlog);
+
+orderList.addEventListener("change", () => {
+  switch (orderList.value) {
+    case "AtoZ":
+      Request.getBlogs().then((response) => {
+        let AtoZ = [];
+        let list = response;
+        let list2 = new Set();
+        let list3 = [];
+
+        list.map((item) => {
+          AtoZ.push(item.title);
+        });
+        AtoZ = AtoZ.sort();
+
+        for (let i = 0; i < AtoZ.length; i++) {
+          list.map((item) => {
+            if (AtoZ[i] === item.title) {
+              list2.add(item);
+            }
+          });
+        }
+        list2.forEach((item) => {
+          list3.push(item);
+        });
+
+        while (blogList.firstChild) {
+          blogList.removeChild(blogList.lastChild);
+        }
+
+        UI.showBlogs(list3);
+      });
+      break;
+    case "ZtoA":
+      Request.getBlogs().then((response) => {
+        let ZtoA = [];
+        let list = response;
+        let list2 = new Set();
+        let list3 = [];
+
+        list.map((item) => {
+          ZtoA.push(item.title);
+        });
+        ZtoA = ZtoA.sort().reverse();
+
+        for (let i = 0; i < ZtoA.length; i++) {
+          list.map((item) => {
+            if (ZtoA[i] === item.title) {
+              list2.add(item);
+            }
+          });
+        }
+        list2.forEach((item) => {
+          list3.push(item);
+        });
+
+        while (blogList.firstChild) {
+          blogList.removeChild(blogList.lastChild);
+        }
+
+        UI.showBlogs(list3);
+      });
+      break;
+    case "OnDate":
+      Request.getBlogs().then((response) => {
+        let onDate = [];
+        let list = response;
+        let list2 = new Set();
+        let list3 = [];
+
+        list.map((item) => {
+          onDate.push(item.date);
+        });
+        onDate = onDate.sort();
+
+        for (let i = 0; i < onDate.length; i++) {
+          list.map((item) => {
+            if (onDate[i] === item.date) {
+              list2.add(item);
+            }
+          });
+        }
+        list2.forEach((item) => {
+          list3.push(item);
+        });
+
+        while (blogList.firstChild) {
+          blogList.removeChild(blogList.lastChild);
+        }
+
+        UI.showBlogs(list3);
+      });
+      break;
+    default:
+      Request.getBlogs().then((response) => {
+        let rand = response;
+        let randList = rand.sort((a, b) => 0.5 - Math.random());
+        while (blogList.firstChild) {
+          blogList.removeChild(blogList.lastChild);
+        }
+
+        UI.showBlogs(randList);
+      });
+
+      break;
+  }
+});
 
 let updateİd;
 
