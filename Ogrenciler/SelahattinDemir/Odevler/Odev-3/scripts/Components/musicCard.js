@@ -38,8 +38,9 @@ class MusicCard {
           <a
             href="#"
             class="me-3 text-success"
-            data-bs-toggle="modal"
-            data-bs-target="#musicModal"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#staticBackdrop"
+            aria-controls="staticBackdrop"
             ><span class="fa-solid fa-pen-to-square fa-lg"></span
           ></a>
           <a href="#" class="text-danger"><span class="fa-solid fa-trash fa-lg"></span></a>

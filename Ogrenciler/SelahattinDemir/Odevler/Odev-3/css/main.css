@@ -10857,17 +10857,17 @@ textarea.form-control-lg {
   max-width: 100ch;
 }
 
-.filter-float__wrapper {
+.filter-float-wrapper {
   left: 35%;
   width: 460px;
 }
-.filter-float__wrapper .filter-content {
+.filter-float-wrapper .filter-content {
   color: #d3d3d3;
   gap: 6px;
   height: 70px;
   border-radius: 10px;
 }
-.filter-float__wrapper .filter-content::before {
+.filter-float-wrapper .filter-content::before {
   content: "";
   display: inline-block;
   position: absolute;
@@ -10882,7 +10882,7 @@ textarea.form-control-lg {
   background-position: 0 0;
   transition: background-position 0.6s;
 }
-.filter-float__wrapper .filter-content::after {
+.filter-float-wrapper .filter-content::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -10894,15 +10894,15 @@ textarea.form-control-lg {
   z-index: -3;
   border-radius: 1000px;
 }
-.filter-float__wrapper .filter-content:hover::before {
+.filter-float-wrapper .filter-content:hover::before {
   background-position: 100% 0;
   box-shadow: 0 0 25px 0 rgba(255, 255, 255, 0.5);
 }
-.filter-float__wrapper .custom-select-button {
+.filter-float-wrapper .custom-select-button {
   border-radius: 10px;
   cursor: pointer;
 }
-.filter-float__wrapper .custom-select-options {
+.filter-float-wrapper .custom-select-options {
   position: absolute;
   top: 100%;
   background-color: #333;
@@ -10911,15 +10911,15 @@ textarea.form-control-lg {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.filter-float__wrapper .custom-select-options li {
+.filter-float-wrapper .custom-select-options li {
   padding: 8px 20px;
   cursor: pointer;
 }
-.filter-float__wrapper .custom-select-options li:hover {
+.filter-float-wrapper .custom-select-options li:hover {
   background-color: #eee;
   color: #141518;
 }
-.filter-float__wrapper .custom-select-options li input[type=radio]:checked + label {
+.filter-float-wrapper .custom-select-options li input[type=radio]:checked + label {
   background-color: #eee;
   color: #141518;
   width: 90%;
@@ -11067,6 +11067,140 @@ textarea.form-control-lg {
   opacity: 0;
 }
 
+.footer-main {
+  border-bottom: 1px solid #222;
+  padding: 0 1.5vw;
+  background: #070708 url(https://www.webdesignerdepot.com/assets/ui/brand/bg-footer.webp) no-repeat center top;
+  background-size: cover;
+}
+.footer-main .footer-top {
+  padding: 0 1rem;
+}
+.footer-main .footer-top .paragraph {
+  font-size: 1rem;
+  color: #eee;
+}
+.footer-main .footer-top .paragraph .link-text {
+  color: #a5a4a8;
+  text-decoration: underline;
+}
+.footer-main .footer-top .paragraph .link-text:hover {
+  color: #f58335;
+}
+.footer-main .title {
+  font-size: 2.75rem;
+  margin: 0 0 0.3125rem;
+  display: inline-block;
+  color: #f58335;
+  background-image: linear-gradient(135deg, #96c0ff 0%, #6c4f9d 16%, #d42635 33%, #f58437 50%, #d42635 67%, #6c4f9d 84%, #96c0ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 0 0;
+  transition: background-position 0.6s;
+}
+.footer-main .title:hover {
+  background-position: 100% 0;
+}
+.footer-main .footer-middle {
+  max-width: 70%;
+  margin-top: 1em;
+}
+.footer-main .footer-middle form {
+  margin-bottom: 1.25em;
+}
+.footer-main .footer-middle form .form-email {
+  margin-right: 0.6em;
+}
+.footer-main .footer-middle form .form-email input {
+  display: inline-block;
+  width: 100%;
+  height: 4.375rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  text-transform: none;
+  text-indent: 0;
+  text-shadow: none;
+  padding: 1.6875em 1.875em;
+  border-radius: 0.625em;
+  border: none;
+}
+.footer-main .footer-middle form .form-submit {
+  position: relative;
+  z-index: 10;
+  background: none;
+}
+.footer-main .footer-middle form .form-submit::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(135deg, #96c0ff 0%, #6c4f9d 17%, #d42635 34%, #f58437 50%, #d42635 67%, #6c4f9d 84%, #96c0ff 100%);
+  background-size: 200% 100%;
+  transition: background-position 0.6s;
+  z-index: -10;
+  border-radius: 0.6875em;
+}
+.footer-main .footer-middle form .form-submit input {
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.812rem;
+  color: #fff;
+  width: 100%;
+  height: 4rem;
+  background: none;
+  border: none;
+}
+.footer-main .footer-middle form .form-submit::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  background-color: #000;
+  z-index: -5;
+  border-radius: 0.625em;
+}
+.footer-main .footer-middle form .form-submit:hover::before {
+  background-position: 100% 0;
+}
+.footer-main .footer-middle i:hover {
+  color: #f58335;
+}
+
+.offcanvas {
+  margin-top: 25px;
+  max-height: 700px;
+  background-color: #000;
+  color: #eee;
+}
+.offcanvas::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(135deg, #96c0ff 0%, #6c4f9d 17%, #d42635 34%, #f58437 50%, #d42635 67%, #6c4f9d 84%, #96c0ff 100%);
+  z-index: -10;
+  border-radius: 0.6875em;
+}
+
+.detailModal {
+  color: #eee;
+  background: linear-gradient(135deg, #96c0ff 0%, #6c4f9d 17%, #d42635 34%, #f58437 50%, #d42635 67%, #6c4f9d 84%, #96c0ff 100%);
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -11076,18 +11210,21 @@ textarea.form-control-lg {
   } /* 100. karede dönüş açısı 360 derecedir (tam bir tur) */
 }
 @media screen and (max-width: 769px) {
-  .filter-float__wrapper {
+  .header-hero .title-page {
+    font-size: 4rem;
+  }
+  .filter-float-wrapper {
     left: 20px;
     width: 330px;
   }
-  .filter-float__wrapper .filter-content {
+  .filter-float-wrapper .filter-content {
     justify-content: center;
     height: 100px;
   }
-  .filter-float__wrapper .filter-content #search-input {
+  .filter-float-wrapper .filter-content #search-input {
     width: 250px;
   }
-  .filter-float__wrapper .filter-content .sort {
+  .filter-float-wrapper .filter-content .sort {
     margin-top: -16px;
   }
   .mode-btn {
@@ -11097,6 +11234,22 @@ textarea.form-control-lg {
   .mode-btn::after {
     width: 83%;
     height: 83%;
+  }
+  .line-container {
+    display: none;
+  }
+  .footer-main .title {
+    font-size: 2rem;
+  }
+  .footer-main .form-email input {
+    height: 4rem;
+  }
+  .footer-main .form-submit {
+    width: 200px;
+    margin-top: 10px;
+  }
+  .offcanvas {
+    margin-top: 0px;
   }
 }
 

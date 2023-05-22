@@ -178,7 +178,7 @@
   }
 }
 
-.filter-float__wrapper {
+.filter-float-wrapper {
   left: 35%;
   width: 460px;
   .filter-content {
@@ -419,6 +419,179 @@
   }
 }
 
+.footer-main {
+  border-bottom: 1px solid #222;
+  padding: 0 1.5vw;
+  background: #070708
+    url(https://www.webdesignerdepot.com/assets/ui/brand/bg-footer.webp)
+    no-repeat center top;
+  background-size: cover;
+  .footer-top {
+    padding: 0 1rem;
+    .paragraph {
+      font-size: 1rem;
+      color: #eee;
+      .link-text {
+        color: #a5a4a8;
+        text-decoration: underline;
+        &:hover {
+          color: #f58335;
+        }
+      }
+    }
+  }
+  .title {
+    font-size: 2.75rem;
+    margin: 0 0 0.3125rem;
+    display: inline-block;
+    color: #f58335;
+    background-image: linear-gradient(
+      135deg,
+      #96c0ff 0%,
+      #6c4f9d 16%,
+      #d42635 33%,
+      #f58437 50%,
+      #d42635 67%,
+      #6c4f9d 84%,
+      #96c0ff 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 100%;
+    background-position: 0 0;
+    transition: background-position 0.6s;
+    &:hover {
+      background-position: 100% 0;
+    }
+  }
+  .footer-middle {
+    max-width: 70%;
+    margin-top: 1em;
+    form {
+      margin-bottom: 1.25em;
+      .form-email {
+        margin-right: 0.6em;
+        input {
+          display: inline-block;
+          width: 100%;
+          height: 4.375rem;
+          background: rgba(255, 255, 255, 0.1);
+          color: #ffffff;
+          font-family: inherit;
+          font-size: 1rem;
+          line-height: 1;
+          text-transform: none;
+          text-indent: 0;
+          text-shadow: none;
+          padding: 1.6875em 1.875em;
+          border-radius: 0.625em;
+          border: none;
+        }
+      }
+      .form-submit {
+        position: relative;
+        z-index: 10;
+        background: none;
+        &::before {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-image: linear-gradient(
+            135deg,
+            #96c0ff 0%,
+            #6c4f9d 17%,
+            #d42635 34%,
+            #f58437 50%,
+            #d42635 67%,
+            #6c4f9d 84%,
+            #96c0ff 100%
+          );
+          background-size: 200% 100%;
+          transition: background-position 0.6s;
+          z-index: -10;
+          border-radius: 0.6875em;
+        }
+        input {
+          font-weight: 600;
+          font-style: normal;
+          font-size: 1.812rem;
+          color: #fff;
+          width: 100%;
+          height: 4rem;
+          background: none;
+          border: none;
+        }
+        &::after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          bottom: 2px;
+          left: 2px;
+          background-color: #000;
+          z-index: -5;
+          border-radius: 0.625em;
+        }
+        &:hover {
+          &::before {
+            background-position: 100% 0;
+          }
+        }
+      }
+    }
+    i:hover {
+      color: #f58335;
+    }
+  }
+}
+
+.offcanvas {
+  margin-top: 25px;
+  max-height: 700px;
+  background-color: #000;
+  color: #eee;
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(
+      135deg,
+      #96c0ff 0%,
+      #6c4f9d 17%,
+      #d42635 34%,
+      #f58437 50%,
+      #d42635 67%,
+      #6c4f9d 84%,
+      #96c0ff 100%
+    );
+    z-index: -10;
+    border-radius: 0.6875em;
+  }
+}
+.detailModal {
+  color: #eee;
+  background: linear-gradient(
+    135deg,
+    #96c0ff 0%,
+    #6c4f9d 17%,
+    #d42635 34%,
+    #f58437 50%,
+    #d42635 67%,
+    #6c4f9d 84%,
+    #96c0ff 100%
+  );
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -429,7 +602,12 @@
 }
 
 @media screen and (max-width: 769px) {
-  .filter-float__wrapper {
+  .header-hero {
+    .title-page {
+      font-size: 4rem;
+    }
+  }
+  .filter-float-wrapper {
     left: 20px;
     width: 330px;
     .filter-content {
@@ -450,5 +628,25 @@
       width: 83%;
       height: 83%;
     }
+  }
+  .line-container {
+    display: none;
+  }
+  .footer-main {
+    .title {
+      font-size: 2rem;
+    }
+    .form-email {
+      input {
+        height: 4rem;
+      }
+    }
+    .form-submit {
+      width: 200px;
+      margin-top: 10px;
+    }
+  }
+  .offcanvas {
+    margin-top: 0px;
   }
 }

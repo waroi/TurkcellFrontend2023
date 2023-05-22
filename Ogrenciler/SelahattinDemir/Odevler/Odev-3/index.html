@@ -32,8 +32,88 @@
       </p>
     </header>
 
-    <!-- Müzik eklemek veya düzenlemek için modal oluşturuldu. -->
+    <!-- Müzik eklemek veya düzenlemek için offcanvas oluşturuldu. -->
     <div
+      class="offcanvas offcanvas-start"
+      data-bs-backdrop="static"
+      tabindex="-1"
+      id="staticBackdrop"
+      aria-labelledby="staticBackdropLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasLeftLabel">Müzik Ekle</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <form class="modal-body" id="music-form">
+          <div class="my-2">
+            <label for="imgUrl" class="form-label">Kapak Görsel Url'i</label>
+            <input
+              type="text"
+              class="form-control"
+              id="imgUrl"
+              placeholder="https://..."
+            />
+          </div>
+          <div class="mb-2">
+            <label for="musicName" class="form-label">Müziğin Adı</label>
+            <input type="text" class="form-control" id="musicName" />
+          </div>
+          <div class="mb-2">
+            <label for="musicCategory" class="form-label">Müziğin Türü</label>
+            <input type="text" class="form-control" id="musicCategory" />
+          </div>
+          <div class="mb-2">
+            <label for="musicDate" class="form-label">Blog Yazma Zamanı</label>
+            <input type="date" class="form-control" id="musicDate" />
+          </div>
+          <div class="mb-2">
+            <label for="musicClock" class="form-label">Blog Yazma Saati</label>
+            <input type="time" class="form-control" id="musicClock" />
+          </div>
+          <div class="mb-2">
+            <label for="musicWriter" class="form-label">İsminiz</label>
+            <input
+              type="text"
+              class="form-control"
+              id="musicWriter"
+              placeholder=""
+            />
+          </div>
+          <div class="mb-2">
+            <label for="musicTextContent" class="form-label"
+              >Blog Yazınız</label
+            >
+            <textarea class="form-control" id="musicTextContent"></textarea>
+          </div>
+        </form>
+        <div class="offcanvas-footer mt-3">
+          <button
+            type="button"
+            class="btn btn-secondary py-2 px-4"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
+            Kapat
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary py-2 px-4"
+            id="addOrEditButton"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
+            Ekle
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <div
       class="modal fade"
       id="musicModal"
       tabindex="-1"
@@ -67,27 +147,22 @@
             </div>
             <div class="mb-2">
               <label for="musicCategory" class="form-label">Müziğin Türü</label>
-              <input
-                type="text"
-                class="form-control"
-                id="musicCategory"
-                placeholder="Korku, Aksiyon, Eğlence vb..."
-              />
+              <input type="text" class="form-control" id="musicCategory" />
             </div>
             <div class="mb-2">
               <label for="musicDate" class="form-label"
-                >Müziğin Açıklama Zamanı</label
+                >Blog Yazma Zamanı</label
               >
               <input type="date" class="form-control" id="musicDate" />
             </div>
             <div class="mb-2">
               <label for="musicClock" class="form-label"
-                >Müziğin Açıklama Saati</label
+                >Blog Yazma Saati</label
               >
               <input type="time" class="form-control" id="musicClock" />
             </div>
             <div class="mb-2">
-              <label for="musicWriter" class="form-label">Müziğin Yazarı</label>
+              <label for="musicWriter" class="form-label">İsminiz</label>
               <input
                 type="text"
                 class="form-control"
@@ -96,13 +171,10 @@
               />
             </div>
             <div class="mb-2">
-              <label for="musicTextContent" class="form-label">Açıklama</label>
-              <input
-                type="text"
-                class="form-control"
-                id="musicTextContent"
-                placeholder=""
-              />
+              <label for="musicTextContent" class="form-label"
+                >Blog Yazınız</label
+              >
+              <input type="text" class="form-control" id="musicTextContent" />
             </div>
           </form>
           <div class="modal-footer">
@@ -124,7 +196,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <section class="musicList pt-5">
       <div class="container">
@@ -132,117 +204,34 @@
       </div>
     </section>
 
-    <footer class="pt-3 bg-dark">
+    <footer class="py-5 footer-main d-flex flex-column">
       <div class="container">
-        <div class="row pt-3">
-          <div class="col-md-3 my-auto pb-4">
-            <a class="d-flex align-items-center" href="#">
-              <i class="fa-solid fa-book-medical fs-1 text-light"></i>
-              <div class="ms-2">
-                <span class="fw-bold text-light">TURKCELL</span><br />
-                <span class="fw-bold text-light">KİTAPEVİ</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-3 mb-4">
-            <h4 class="footer-title text-light mb-3">Kullanıcı Bilgileri</h4>
-            <ul class="list p-0 list-unstyled">
-              <li class="mb-3">
-                <a class="text-light" href="#">Üyelik Sözleşmesi</a>
-              </li>
-              <li class="mb-3">
-                <a class="text-light" href="#"
-                  >İptal ve İade Koşulları Politikası</a
-                >
-              </li>
-              <li class="mb-3">
-                <a class="text-light" href="#">Öneri ve Şikayet</a>
-              </li>
-              <li class="mb-3">
-                <a class="text-light" href="#"
-                  >Gizlilik Sözleşmesi ve Çerez Politikası</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-4">
-            <h4 class="footer-title text-light mb-3">Hakkımızda</h4>
-            <ul class="list p-0 list-unstyled">
-              <li class="mb-3">
-                <a class="text-light" href="faq.html">Sıkça Sorulan Sorular</a>
-              </li>
-              <li class="mb-3">
-                <a class="text-light" href="#">Misyon ve Vizyon</a>
-              </li>
-              <li class="mb-3">
-                <a class="text-light" href="#">Ekip ve Personel</a>
-              </li>
-              <li>
-                <p class="text-light">Kitapevi Hakkında</p>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <h4 class="footer-title text-light mb-3">İletişim</h4>
-            <ul class="list p-0 list-unstyled">
-              <li class="mb-2">
-                <a class="text-light" href="#"
-                  >Aydınevler Mahallesi İnönü Caddesi No:20 Maltepe /
-                  İSTANBUL</a
-                >
-              </li>
-              <li class="mb-2">
-                <a class="text-light" href="mailto:info@mysite.com"
-                  >info@kitapevi.com</a
-                >
-              </li>
-              <li class="mb-2">
-                <a class="text-light" href="#">123-456-7890</a>
-              </li>
-              <li>
-                <p class="text-light">Mon - Fri: 9am - 9pm</p>
-              </li>
-            </ul>
+        <div class="footer-top d-flex flex-column">
+          <div class="footer-title">
+            <h2 class="title fw-bold">Harmonik bir ritimle devam edelim!</h2>
+            <p class="paragraph">
+              Blog Yazdığımızda Müzik Söyleriz, Ama Notaları Asla!
+              <a class="link-text" href="#">Gizlilik Politikamıza bakın.</a>
+            </p>
           </div>
         </div>
-        <div class="row pt-3">
-          <div class="col-md-9">
-            <h5 class="text-light">Faaliyetlerimiz</h5>
-            <div class="d-flex gap-3 my-3 align-items-center flex-wrap">
-              <img
-                src="https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Kategori/menu/fizy-logo.png?1773534948040"
-                alt=""
-                class="img-fluid"
-              />
-              <img
-                src="https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Kategori/menu/Yaani.png?1773534948040"
-                alt=""
-                class="img-fluid"
-              />
-              <img
-                src="https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Kategori/menu/bip-logo.png?1773534948040"
-                alt=""
-                class="img-fluid"
-              />
-              <img
-                src="https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Kategori/menu/LifeBox-Logo.png?1773534948040"
-                alt=""
-                class="img-fluid"
-              />
-              <img
-                src="https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Kategori/menu/platinum-logo.png?1773534948040"
-                alt=""
-                class="img-fluid"
-              />
-              <img
-                src="https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Kategori/menu/tv-plus-logo-yeni.png?1773534948040"
-                alt=""
-                class="img-fluid"
+        <div class="footer-middle">
+          <form method="post" class="row">
+            <div class="form-email ms-lg-3 col-md-7">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Adresiniz..."
               />
             </div>
-          </div>
-          <div class="col-md-3">
-            <h5 class="text-light mb-4">Bizi Takipte Kalın</h5>
+            <div class="form-submit col-md-3 ms-3 ms-lg-0">
+              <input type="submit" value="Abone Ol" />
+            </div>
+          </form>
+          <div>
+            <h2 class="title fw-bold ms-lg-3 me-1 me-lg-3">
+              Bizi Takipte Kalın:
+            </h2>
             <a href="#" class="text-light me-4"
               ><i class="fa-brands fa-2x fa-facebook"></i
             ></a>
@@ -261,7 +250,7 @@
     </footer>
 
     <!-- filter bar için oluşturuldu. -->
-    <div class="filter-float__wrapper fixed-bottom mb-3">
+    <div class="filter-float-wrapper fixed-bottom mb-3">
       <div
         class="filter-content px-4 d-inline-flex flex-wrap align-items-center"
       >
@@ -409,8 +398,9 @@
     <a
       class="mode-btn"
       href="#"
-      data-bs-toggle="modal"
-      data-bs-target="#musicModal"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#staticBackdrop"
+      aria-controls="staticBackdrop"
     >
       <i class="fa-solid fa-plus fs-1 icon"></i>
     </a>
