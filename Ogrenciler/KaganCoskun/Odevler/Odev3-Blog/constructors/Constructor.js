@@ -28,21 +28,75 @@ class Blog{
 
     async createBlogDetail(){
         let category =await storage.getCategoriesById(this.category)
-        document.getElementById("blogTitle").textContent = this.title;
-        document.getElementById("blogContent").textContent = this.content;
-        document.getElementById("blogAuthor").textContent = this.author;
-        document.getElementById("blogDate").textContent = this.date;
-        document.getElementById("blogCategory").textContent = category.name;
-        const blogImage=document.querySelector(".blogImg");
-        blogImage.src=this.imgUrl;
+        console.log(category)
+
+        let blogViewer = document.getElementById("blogViewer");
+        blogViewer.innerHTML = `
+        <div class="blog-content">
+        <div class="d-flex justify-content-between">
+          <h3 id="blogTitle">${this.title}</h3>
+          <span id="closeModalButton" class="close">&times;</span>
+        </div>
+        <div class="my-3">
+          <img
+            id="blogImg"
+            class="blogImg"
+            src="${this.imgUrl}"
+            alt=""
+          />
+          <div class="row my-3">
+            <p class="col-lg-10" id="blogContent">
+                ${this.content}
+            </p>
+            <div class="col-lg-2 text-center">
+              <h5 id="blogAuthor">Yazar: ${this.author}</h5>
+              <h6 id="blogDate">${this.date}</h6>
+              <h6 id="blogCategory" class="bg-info py-2 rounded-5 text-white">${category.name}</h6>
+              <button id="clapBtn" class="btn">
+                <span class="fs-5" id="clap">${this.clap}</span>
+                <i class="fa-solid fa-hands-clapping fa-xl"></i>
+              </button>
+              <button
+                id="editBtn"
+                class="btn btn-success w-100 my-1"
+                data-bs-toggle="modal"
+                data-bs-target="#addBlog"
+              >
+                Düzenle
+              </button>
+              <button id="deleteBlog" class="btn btn-danger w-100">Sil</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
 
 
-        document.getElementById("clap").textContent = this.clap;
 
-        document.getElementById("clapBtn").addEventListener('click', () => {ui.updateClap(this.id)});
+      blogViewer.querySelector("#closeModalButton").addEventListener('click', () => {blogViewer.style.display = "none";});
+
+       blogViewer.querySelector("#clapBtn").addEventListener('click', () => {ui.updateClap(this.id)});
+       blogViewer.querySelector("#editBtn").addEventListener('click', () => {this.editBlog(this.id)});
+       blogViewer.querySelector("#deleteBlog").addEventListener('click', () => {ui.deleteBlog(this.id)});
+
+
         
-        document.getElementById("editBtn").addEventListener('click', () => {this.editBlog(this.id)});
-        document.getElementById("deleteBlog").addEventListener('click', () => {ui.deleteBlog(this.id)});
+        
+
+        // document.getElementById("blogTitle").textContent = this.title;
+        // document.getElementById("blogContent").textContent = this.content;
+        // document.getElementById("blogAuthor").textContent = this.author;
+        // document.getElementById("blogDate").textContent = this.date;
+        // document.getElementById("blogCategory").textContent = category.name;
+        // const blogImage=document.querySelector(".blogImg");
+        // blogImage.src=this.imgUrl;
+
+
+        // document.getElementById("clap").textContent = this.clap;
+
+        // document.getElementById("clapBtn").addEventListener('click', () => {ui.updateClap(this.id)});
+        
+        // document.getElementById("editBtn").addEventListener('click', () => {this.editBlog(this.id)});
+        // document.getElementById("deleteBlog").addEventListener('click', () => {ui.deleteBlog(this.id)});
 
 
         document.getElementById("blogViewer").style.display = "block";

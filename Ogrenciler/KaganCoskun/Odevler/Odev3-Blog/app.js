@@ -13,9 +13,7 @@ let closeBlogDetailModal = document.getElementById("closeModalButton");
 let searchInput = document.getElementById("searchInput");
 let sortType = document.getElementById("sortType");
 
-closeBlogDetailModal.onclick = function() {
-    blogDetailModal.style.display = "none";
-}
+
 window.onclick = function(event) {
   if (event.target == blogDetailModal) {
     blogDetailModal.style.display = "none";

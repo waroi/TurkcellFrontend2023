@@ -12,8 +12,8 @@ blog ekleme +
 blog güncelleme +
 blog silme +
 blog detay gösterme +
-filterleme 
-kategorileri dinamik bir şekilde ekrana yazdırma
-blog eklendiğinde modalı kapat
-tosty bildirim ekle
+filterleme +
+kategorileri dinamik bir şekilde ekrana yazdırma +
+blog eklendiğinde modalı kapat +
+tosty bildirim ekle +
 
