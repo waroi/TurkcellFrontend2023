@@ -140,8 +140,6 @@ function deletePost(e) {
         detailDate.textContent = formattedDate;
         detailCategory.textContent = curData.category;
 
-        console.log(fo);
-
         console.log(formattedDate);
 
         // // strong.classList.add("ps-3");
