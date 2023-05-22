@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big Forest</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/e8251e66cd.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="bg-primary">
+      <div class="container-fluid">
+        <div class="row justify-content-between">
+          <div class="col-1">
+            <i class="fa-solid fa-tree text-success py-2"></i>
+          </div>
+          <div
+            class="col-5 d-flex flex-wrap justify-content-center align-content-center"
+          >
+            <h1 class="text-white">BİG FOREST</h1>
+          </div>
+          <div class="col-1 text-end">
+            <i class="fa-solid fa-tree text-success py-2"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav class="bg-secondary">
+      <div class="container">
+        <div class="row justify-content-center py-5">
+          <div class="col-2">
+            <button class="btn bg-secondary fs-4">
+              <a href="#blogs">Bloglar</a>
+            </button>
+          </div>
+          <div class="col-2">
+            <button class="btn bg-secondary fs-4">
+              <a href="#authors">Kişiler</a>
+            </button>
+          </div>
+          <div class="col-2">
+            <button class="btn bg-secondary fs-4">
+              <a href="#contact">İletişim</a>
+            </button>
+          </div>
+          <div class="col-2">
+            <button class="btn bg-secondary fs-4">
+              <a href="#about">Hakkımızda</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section>
+      <div id="carouselHeader" class="carousel slide">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselHeader"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselHeader"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselHeader"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://e0.pxfuel.com/wallpapers/861/1017/desktop-wallpaper-great-white-shark-shark-ipad.jpg"
+              class="d-block w-100"
+              alt="images"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="fs-2">Onlar Kadar Korkusuz Olmaya Çalışıyoruz</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://cdn.wallpapersafari.com/38/35/S5bpXI.jpg"
+              class="d-block w-100"
+              alt="images"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="fs-2">Onlar Kadar Kararlı Olmaya Çalışıyoruz</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://wallpapers.com/images/hd/2440x1440-gorilla-background-gx88vuo8uizpmxjd.jpg"
+              class="d-block w-100"
+              alt="images"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="fs-2">Onlar Kadar Koruyucu Olmaya Çalışıyoruz</h5>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselHeader"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselHeader"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+    <section class="bg-info py-5" id="blogs">
+      <div class="container">
+        <div class="row">
+          <h3 class="fs-1 d-flex justify-content-center">BLOGLAR</h3>
+        </div>
+        <div class="row my-3">
+          <div class="col-2 search-div">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Aramak İçin Yazın..."
+            />
+            <button class="search-button">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-4">
+            <label for="sorter" class="text-black fs-4">Sıralama:</label>
+
+            <select name="sorter-choose" id="sorter" class="option-list">
+              <option selected>Belirtilmemiş</option>
+              <option value="AtoZ">A'dan Z'ye</option>
+              <option value="ZtoA">Z'den A'ya</option>
+              <option value="OnDate">Tarihe Göre</option>
+            </select>
+          </div>
+          <div class="col-4">
+            <label for="category" class="text-black fs-4">Kategori:</label>
+            <select name="category" id="category" class="option-list">
+              <option selected>Belirtilmemiş</option>
+            </select>
+          </div>
+          <div class="col-4">
+            <label for="writer" class="text-black fs-4">Yazar:</label>
+            <select name="writer" id="writer" class="option-list">
+              <option selected>Belirtilmemiş</option>
+            </select>
+          </div>
+        </div>
+        <div class="row justify-content-end mb-3">
+          <div class="col-3">
+            <button
+              type="button"
+              class="add-button"
+              data-bs-target="#addBlogModal"
+              data-bs-toggle="modal"
+              id="addButton"
+            >
+              Yeni Blog Yazısı Ekle <i class="fa-sharp fa-solid fa-plus"></i>
+            </button>
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="addBlogModal"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+              >
+                <div class="modal-content modal-shape">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      Blog Yazısı Ekle
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <h2>Blog Özellikleri</h2>
+                    <form class="blog-form mt-3" id="form">
+                      <label for="blogName" class="w-100 fs-4 my-1"
+                        >Blog Adı:</label
+                      >
+                      <input type="text" id="blogName" required class="w-100" />
+                      <label for="blogWriter" class="w-100 fs-4 my-1"
+                        >Blog Yazarı:</label
+                      >
+                      <input
+                        type="text"
+                        id="blogWriter"
+                        required
+                        class="w-100"
+                      />
+                      <label for="blogAuthorPicture" class="w-100 fs-4 my-1"
+                        >Blog Yazarı Resmi(opsiyonel):</label
+                      >
+                      <input type="text" id="blogAuthorPicture" class="w-100" />
+
+                      <label for="blogDate" class="w-100 fs-4 my-1"
+                        >Yazım Tarihi:</label
+                      >
+                      <input type="date" id="blogDate" class="w-100" required />
+                      <label for="blogHour" class="w-100 fs-4 my-1"
+                        >Yazım Saati:</label
+                      >
+                      <input type="time" id="blogHour" class="w-100" required />
+                      <label for="blogCategory" class="w-100 fs-4 my-1"
+                        >Kategorisi:</label
+                      >
+                      <input
+                        type="text"
+                        id="blogCategory"
+                        required
+                        class="w-100"
+                      />
+                      <label for="blogUrl" class="w-100 fs-4 my-1"
+                        >Blog Resmi İçin URL(opsiyonel):</label
+                      >
+                      <input type="text" id="blogUrl" class="w-100" />
+                      <label for="blogType" class="w-100 fs-4 my-1"
+                        >Blog Yazısı:</label
+                      >
+                      <textarea
+                        rows="5"
+                        cols="60"
+                        id="blogType"
+                        name="bookUrl"
+                        required
+                        maxlength="3500"
+                        placeholder="Blog Yazınız..."
+                      >
+                      </textarea>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Kapat
+                    </button>
+                    <button type="button" class="btn btn-primary" id="addBlog">
+                      Blog Yazısı Ekle
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="updateBlogModal"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                id="1"
+              >
+                <div class="modal-content modal-shape">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      Blog Yazısını Güncelle
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <h2>Blog Özellikleri</h2>
+                    <form class="blog-form mt-3" id="form">
+                      <label for="blogNameUpdate" class="w-100 fs-4 my-1"
+                        >Blog Adı:</label
+                      >
+                      <input
+                        type="text"
+                        id="blogNameUpdate"
+                        required
+                        class="w-100"
+                      />
+                      <label for="blogWriterUpdate" class="w-100 fs-4 my-1"
+                        >Blog Yazarı:</label
+                      >
+                      <input
+                        type="text"
+                        id="blogWriterUpdate"
+                        required
+                        class="w-100"
+                      />
+                      <label
+                        for="blogAuthorPictureUpdate"
+                        class="w-100 fs-4 my-1"
+                        >Blog Yazarı Resmi(opsiyonel):</label
+                      >
+                      <input
+                        type="text"
+                        id="blogAuthorPictureUpdate"
+                        class="w-100"
+                      />
+
+                      <label for="blogDateUpdate" class="w-100 fs-4 my-1"
+                        >Yazım Tarihi:</label
+                      >
+                      <input
+                        type="date"
+                        id="blogDateUpdate"
+                        class="w-100"
+                        required
+                      />
+                      <label for="blogHourUpdate" class="w-100 fs-4 my-1"
+                        >Yazım Saati:</label
+                      >
+                      <input
+                        type="time"
+                        id="blogHourUpdate"
+                        class="w-100"
+                        required
+                      />
+                      <label for="blogCategoryUpdate" class="w-100 fs-4 my-1"
+                        >Kategorisi:</label
+                      >
+                      <input
+                        type="text"
+                        id="blogCategoryUpdate"
+                        required
+                        class="w-100"
+                      />
+                      <label for="blogUrlUpdate" class="w-100 fs-4 my-1"
+                        >Blog Resmi İçin URL(opsiyonel):</label
+                      >
+                      <input type="text" id="blogUrlUpdate" class="w-100" />
+                      <label for="blogTypeUpdate" class="w-100 fs-4 my-1"
+                        >Blog Yazısı:</label
+                      >
+                      <textarea
+                        rows="5"
+                        cols="60"
+                        id="blogTypeUpdate"
+                        name="bookUrl"
+                        required
+                        maxlength="3500"
+                      >
+                      </textarea>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Kapat
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="updateBlog"
+                    >
+                      Blog Yazısını Güncelle
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="blogList">
+          <div class="col-6 col-xl-4 blog-card mt-1">
+            <div class="card">
+              <div class="row h-100">
+                <div
+                  title="Metni Okumak İçin Resme Tıklayın"
+                  class="col-5 pe-0"
+                >
+                  <img
+                    src="https://static1.bigstockphoto.com/3/4/8/large1500/843779.jpg"
+                    alt="images"
+                  />
+                </div>
+                <div class="col-7 pe-0">
+                  <h4 class="mt-2 mb-0">Aslanlar</h4>
+                  <p class="mb-0">
+                    <b>Yazar:</b><br />
+                    Selim Eminoğlu
+                  </p>
+                  <p class="mb-0"><b>Kategori:</b> Memeliler</p>
+                  <p class="mb-0"><b>Tarih:</b> 21/05/2023-16:53</p>
+                  <div class="d-flex gap-4 mt-2">
+                    <button class="card-button">
+                      <i class="fa-solid fa-wrench"></i>
+                    </button>
+                    <button class="card-button">
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-success py-5" id="authors">
+      <div class="container">
+        <div class="row">
+          <h3 class="fs-1 d-flex justify-content-center">KİŞİLER</h3>
+        </div>
+        <div class="row justify-content-around author-list" id="authorList">
+          <div class="col-3 me-1">
+            <div class="row flex-column">
+              <div class="col-6 w-100 d-flex justify-content-center py-3">
+                <div class="auhtor-picture"></div>
+              </div>
+              <div class="col-6 w-100 text-center">
+                <h4>Selim Eminoğlu</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-info py-5" id="contact">
+      <div class="container">
+        <div class="row">
+          <h3 class="fs-1 d-flex justify-content-center">İLETİŞİM</h3>
+        </div>
+        <div class="row justify-content-between">
+          <div class="col-4">
+            <h3>Adresimiz</h3>
+            <a href="https://yandex.com.tr/harita/-/CCUoN4b~0D" class="fs-5"
+              >Trabzon/OF</a
+            >
+
+            <img
+              src="./Assets/images/harita.PNG"
+              alt="images"
+              class="map-image"
+            />
+          </div>
+          <div class="col-5 d-flex flex-column justify-content-center">
+            <h4>Telefon</h4>
+            <p>+90 0212 345 67 89</p>
+            <h4>Fax</h4>
+            <p>+90 0212 345 67 78</p>
+            <h4>E-posta</h4>
+            <p>big-forest@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-success py-5" id="about">
+      <div class="container">
+        <div class="row">
+          <h3 class="fs-1 d-flex justify-content-center">HAKKIMIZDA</h3>
+          <p class="fs-3 d-flex justify-content-center">
+            "Biz bir aileyiz,biz BİG FOREST'ız"
+          </p>
+        </div>
+        <div class="row pt-3 justify-content-center justify-content-xl-start">
+          <div class="col-6 col-xl-4">
+            <div
+              class="about-shape d-flex flex-column flex-wrap justify-content-center align-content-center"
+            >
+              <i class="fa-sharp fa-solid fa-shield text-center"></i>
+              <span class="text-center">Güvenilir</span>
+            </div>
+          </div>
+          <div class="col-6 d-none d-xl-flex flex-wrap align-content-center">
+            <p class="fs-5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+              tenetur aliquid hic temporibus ex iure consequatur molestias sed
+              excepturi iusto recusandae ratione in molestiae animi dignissimos
+              totam, enim modi necessitatibus sit nam delectus. Voluptas
+              similique delectus porro, dicta nihil maxime mollitia commodi
+              doloremque, soluta quisquam itaque sequi nobis eaque eos?
+            </p>
+          </div>
+        </div>
+        <div class="row pt-3 justify-content-center justify-content-xl-start">
+          <div class="col-6 d-none d-xl-flex flex-wrap align-content-center">
+            <p class="fs-5 text-end">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+              tenetur aliquid hic temporibus ex iure consequatur molestias sed
+              excepturi iusto recusandae ratione in molestiae animi dignissimos
+              totam, enim modi necessitatibus sit nam delectus. Voluptas
+              similique delectus porro, dicta nihil maxime mollitia commodi
+              doloremque, soluta quisquam itaque sequi nobis eaque eos?
+            </p>
+          </div>
+          <div class="col-6 col-xl-4 d-block d-xl-flex justify-content-end">
+            <div
+              class="about-shape d-flex flex-column flex-wrap justify-content-center align-content-center"
+            >
+              <i class="fa-solid fa-hand text-center"></i>
+              <span class="text-center">Tarafsız</span>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-3 justify-content-center justify-content-xl-start">
+          <div class="col-6 col-xl-4">
+            <div
+              class="about-shape d-flex flex-column flex-wrap justify-content-center align-content-center"
+            >
+              <i class="fa-solid fa-dove text-center"></i>
+              <span class="text-center">Barışçıl</span>
+            </div>
+          </div>
+          <div class="col-6 d-none d-xl-flex flex-wrap align-content-center">
+            <p class="fs-5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+              tenetur aliquid hic temporibus ex iure consequatur molestias sed
+              excepturi iusto recusandae ratione in molestiae animi dignissimos
+              totam, enim modi necessitatibus sit nam delectus. Voluptas
+              similique delectus porro, dicta nihil maxime mollitia commodi
+              doloremque, soluta quisquam itaque sequi nobis eaque eos?
+            </p>
+          </div>
+        </div>
+        <div class="row flex-column align-content-center pt-5">
+          <div class="col-6">
+            <p class="fs-5 fst-italic">
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+              saepe optio molestias quia consequatur, odit esse commodi aliquid
+              ducimus tempora earum maiores, iusto harum porro sunt, obcaecati
+              ut! Officiis perferendis aliquid quo ullam qui quibusdam nisi
+              voluptate iusto velit veniam, maxime voluptas impedit ut,
+              praesentium tempora dolorum sunt, laudantium magnam."
+            </p>
+          </div>
+          <div class="col-6 d-flex justify-content-end">
+            <div class="about-image me-3"></div>
+            <h4 class="fs-5 d-flex flex-wrap align-content-center">
+              Kurucu <br />Selim Eminoğlu
+            </h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-primary">
+      <div class="container">
+        <div class="row py-3">
+          <div
+            class="col-6 d-flex flex-column justify-content-center footer-left"
+          >
+            <h4 class="fs-3 text-white">Haberdar Olun</h4>
+            <label for="inputFooter" class="fs-4 text-white">E-postanız:</label>
+            <input
+              type="text"
+              name="inputFooter"
+              id="inputFooter"
+              placeholder="ornek@gmail.com"
+            />
+            <button type="submit" class="footer-button mt-2">Gönder</button>
+          </div>
+          <div class="col-6 d-flex flex-column justify-content-center">
+            <h4 class="pt-5 fs-3 text-white">Bizi Takip Edin</h4>
+            <ul class="social-media d-flex flex-column gap-2 list-unstyled">
+              <li>
+                <i class="fa-brands fa-facebook"></i
+                ><a href="#" class="text-secondary fs-5">facebook/Big_Forest</a>
+              </li>
+              <li>
+                <i class="fa-brands fa-instagram"></i
+                ><a href="#" class="text-secondary fs-5"
+                  >instagram/big_forest</a
+                >
+              </li>
+              <li>
+                <i class="fa-brands fa-twitter"></i
+                ><a href="#" class="text-secondary fs-5">twitter/bigForest</a>
+              </li>
+              <li>
+                <i class="fa-brands fa-linkedin"></i
+                ><a href="#" class="text-secondary fs-5">linkedin/Big_Forest</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <p class="m-0 fs-5">
+            This page was made by
+            <a href="https://github.com/SelimEminoglu61" class="text-black"
+              >Selim Eminoğlu</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./app.js"></script>
+    <script src="./js/UI.js"></script>
+    <script src="./js/Request.js"></script>
+  </body>
+</html>

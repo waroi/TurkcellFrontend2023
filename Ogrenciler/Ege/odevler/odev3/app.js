@@ -27,6 +27,9 @@ function handleEventListeners() {
       const blogCard = e.target.closest(".col-lg-6");
       Process.seeFullBlog(blogCard.id, blogBody, blogHeading);
     } else if (e.target.classList.contains("edit-blog")) {
+      sortSelect.value = "";
+      searchArea.value = "";
+      categorySelect.value = "";
       const blogCard = e.target.closest(".col-lg-6");
       Process.editBlog(
         blogCard.id,
@@ -37,6 +40,7 @@ function handleEventListeners() {
         blogCatInp,
         blogForm
       );
+      UI.updateDisplay();
     } else if (e.target.classList.contains("delete-blog")) {
       const blogCard = e.target.closest(".col-lg-6");
       Process.delete(blogCard.id);
@@ -62,7 +66,7 @@ function handleEventListeners() {
   categorySelect.addEventListener("change", (e) => {
     e.preventDefault();
     if (e.target.value == "") {
-      UI.updateDisplay();
+      Process.search(searchArea.value);
     } else Process.filterByCategory(e.target.value);
     if (sortSelect.value != "") {
       Process.sort(sortSelect.value);
@@ -71,10 +75,12 @@ function handleEventListeners() {
 
   searchArea.addEventListener("keyup", (e) => {
     Process.search(e.target.value);
+    sortSelect.value = "";
   });
 
   sortSelect.addEventListener("change", (e) => {
     Process.sort(e.target.value);
+    searchArea.value = "";
   });
 }
 

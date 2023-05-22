@@ -73,8 +73,19 @@ function createBlogCard(blog) {
   blogItem.appendChild(editButton);
   blogList.appendChild(blogItem);
 
-  return blogItem;
+  //   // Input alanlarından herhangi biri boş ise uyarı ver
+  // if (titleInout === "" || authorInout === "" || categoryInput === "" || dateInput === "" || timeInput === "" || imageInput === "" || contentInput === "") {
+  //   // Bootstrap uyarı stilini kullanarak uyarı mesajını göster
+  //   const alertDiv = document.createElement("div");
+  //   alertDiv.classList.add("alert", "alert-danger");
+  //   alertDiv.textContent = "Lütfen tüm alanları doldurun.";
+        
+  //   const modalAlert = document.getElementById("addBlogModal");
+  //   modalAlert.appendChild(alertDiv);
+  //   return;
+  // }
 
+  return blogItem;
 }
 
 // Bir blogu sil
@@ -89,7 +100,7 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-//Blog detaylarını modal olarak aç
+// Blog detaylarını modal olarak aç
 function openModal(blogId) {
   const blog = blogs.find(blog => blog.id === blogId);
   const modal = document.getElementById("myModal");
@@ -121,11 +132,11 @@ function openModal(blogId) {
     editBlog(blog);
   }
 
-  // window.onclick = function (event) {
-  //   if (event.target === modal) {
-  //     modal.style.display = "none";
-  //   }
-  // }
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
 }
 
 // Blogu düzenle
@@ -140,12 +151,12 @@ function editBlog(blog) {
     const modalUpdateButton = document.getElementById("modalUpdateButton");
 
   // Ekrandaki blog bilgilerini al
-    const updatedTitle = modalTitle.textContent;
-    const updatedAuthor = modalAuthor.textContent
-    const updatedCategory = modalCategory.textContent
-    const updatedDate = modalDate.textContent
-    const updatedImage = modalImage.src;
-    const updatedContent = modalContent.textContent;
+    const updatedTitle = titleInput.textContent;
+    const updatedAuthor = authorInput.textContent
+    const updatedCategory = categoryInput.textContent
+    const updatedDate = dateInput.textContent
+    const updatedImage = imageInput.src;
+    const updatedContent = contentInput.textContent;
 
     $('#addBlogModal').modal('show');
   
@@ -165,13 +176,23 @@ function editBlog(blog) {
   
   // Modalı kapat
     modal.style.display = "none";
+
+    clearForm()
 }
 
 
+// Formu temizleme işlemi
+function clearForm() {
+  document.getElementById("modalTitle").value = "";
+  document.getElementById("modalAuthor").value = "";
+  document.getElementById("modalDate").value = "";
+  document.getElementById("modalTime").value = "";
+  document.getElementById("modalCategory").value = "";
+  document.getElementById("moadlImagine").value = "";
+  document.getElementById("moadContent").value = "";
 
-
-
-
+  $('#addBlogModal').modal('hide');
+}
 
 const createBlogButton = document.getElementById("createBlogButton");
 createBlogButton.addEventListener("click", openCreateBlogModal);
@@ -262,5 +283,18 @@ fetch("http://localhost:3000/blogs").
         listBlogs();
     })
     .catch(error => console.log(error));
+
+    // async function fetchData() {
+    //   try {
+    //     const response = await fetch("http://localhost:3000/blogs");
+    //     const data = await response.json();
+    //     blogs = data;
+    //     listBlogs();
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
+    
+    // fetchData();
 
 createButton.addEventListener("click", createBlog);
