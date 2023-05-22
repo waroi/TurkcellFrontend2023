@@ -28,4 +28,18 @@ class Request {
         .catch((error) => reject(error));
     });
   }
+
+  static postBlogs(url = "http://localhost:3000/blogs", newBlog) {
+    return new Promise(function (resolve, reject) {
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(newBlog),
+        headers: {
+          "Content-type": "application/json;",
+        },
+      })
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+  }
 }

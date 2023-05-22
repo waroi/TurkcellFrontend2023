@@ -214,11 +214,16 @@
                       <label for="blogName" class="w-100 fs-4 my-1"
                         >Blog Adı:</label
                       >
-                      <input type="text" id="blogName" class="w-100" />
+                      <input type="text" id="blogName" required class="w-100" />
                       <label for="blogWriter" class="w-100 fs-4 my-1"
                         >Blog Yazarı:</label
                       >
-                      <input type="text" id="blogWriter" class="w-100" />
+                      <input
+                        type="text"
+                        id="blogWriter"
+                        required
+                        class="w-100"
+                      />
                       <label for="blogAuthorPicture" class="w-100 fs-4 my-1"
                         >Blog Yazarı Resmi(opsiyonel):</label
                       >
@@ -231,13 +236,19 @@
                         type="datetime-local"
                         id="blogDate"
                         class="w-100"
+                        required
                       />
                       <label for="blogCategory" class="w-100 fs-4 my-1"
                         >Kategorisi:</label
                       >
-                      <input type="text" id="blogCategory" class="w-100" />
+                      <input
+                        type="text"
+                        id="blogCategory"
+                        required
+                        class="w-100"
+                      />
                       <label for="blogUrl" class="w-100 fs-4 my-1"
-                        >Blog Resmi İçin URL:</label
+                        >Blog Resmi İçin URL(opsiyonel):</label
                       >
                       <input type="text" id="blogUrl" class="w-100" />
                       <label for="blogType" class="w-100 fs-4 my-1"
@@ -248,6 +259,7 @@
                         cols="60"
                         id="blogType"
                         name="bookUrl"
+                        required
                         maxlength="350"
                         placeholder="Blog Yazınız..."
                       >
@@ -262,7 +274,7 @@
                     >
                       Kapat
                     </button>
-                    <button type="button" class="btn btn-primary" id="addBook">
+                    <button type="button" class="btn btn-primary" id="addBlog">
                       Blog Yazısı Ekle
                     </button>
                   </div>
@@ -273,7 +285,7 @@
         </div>
 
         <div class="row" id="blogList">
-          <div class="col-4 blog-card">
+          <div class="col-4 blog-card mt-1">
             <div class="card">
               <div class="row h-100">
                 <div
@@ -313,7 +325,7 @@
         <div class="row">
           <h3 class="fs-1 d-flex justify-content-center">KİŞİLER</h3>
         </div>
-        <div class="row author-list" id="authorList">
+        <div class="row justify-content-around author-list" id="authorList">
           <div class="col-3 me-1">
             <div class="row flex-column">
               <div class="col-6 w-100 d-flex justify-content-center py-3">
