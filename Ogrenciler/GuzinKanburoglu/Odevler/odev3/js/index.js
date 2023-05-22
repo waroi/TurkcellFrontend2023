@@ -55,7 +55,7 @@ const renderPosts = async (term, uri) => {
           <button style="background-color: #F9CCD3" type="button" class="btn readMore" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Read more...
           </button>
-         <a href="/updateBlog.html?id=${ post.id }"> <button style="background-color: #F9CCD3" id="updateButton" type="button" class="btn deleteButton">
+         <a href="./updateBlog.html?id=${ post.id }"> <button style="background-color: #F9CCD3" id="updateButton" type="button" class="btn deleteButton">
             Update
           </button></a>
           <button style="background-color: #AA1945;" id="deleteButton" type="button" class="btn deleteButton text-light">
@@ -134,7 +134,7 @@ const filterFunc = async () => {
                     <button style="background-color: #F9CCD3" type="button" class="btn readMore" data-bs-toggle="modal" data-bs-target="#exampleModal">
                       Read more...
                     </button>
-                   <a href="/updateBlog.html?id=${ post.id }"> <button style="background-color: #F9CCD3" id="updateButton" type="button" class="btn deleteButton">
+                   <a href="./updateBlog.html?id=${ post.id }"> <button style="background-color: #F9CCD3" id="updateButton" type="button" class="btn deleteButton">
                       Update
                     </button></a>
                     <button style="background-color: #AA1945;" id="deleteButton" type="button" class="btn deleteButton text-light">
