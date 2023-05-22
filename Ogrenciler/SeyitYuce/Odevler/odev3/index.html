@@ -13,21 +13,21 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>Bloğumsu</title>
 </head>
 
 <body>
     <div class="d-lg-flex mainCon">
-        <nav class="col-lg-3 navbar navbar-expand-lg border border-black d-lg-flex flex-column py-lg-5">
-            <div class="container-fluid d-lg-flex d-lg-flex flex-lg-column navCon">
-                <a class="navbar-brand" href="#">Bloğumsu</a>
+        <nav class="col-lg-2 navbar navbar-expand-lg border border-black py-lg-5 d-flex flex-column">
+            <div class="container-fluid d-flex flex-lg-column navCon">
+                <a class="navbar-brand fs-1 ps-3" href="#">Bloğumsu</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav d-lg-flex flex-lg-column">
+                <div class="collapse navbar-collapse mt-lg-3 " id="navbarNavDropdown">
+                    <ul class="navbar-nav d-flex flex-row justify-content-around flex-lg-column gap-lg-4">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
@@ -37,7 +37,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pricing</a>
                         </li>
-
                         <li>
                             <a href="#" type="button" class="btn btn-outline-secondary" id="openAddModalBtn"
                                 data-bs-toggle="modal" data-bs-target="#addModal">
@@ -47,10 +46,13 @@
                     </ul>
                 </div>
             </div>
+            <div class="sign">
+                <img src="./sign.gif" alt="">
+            </div>
         </nav>
 
         <!-- List of blogs -->
-        <div class="container-lg col-12 col-lg-6 border border-black py-lg-5" id="blogList"> </div>
+        <div class="container-lg col-12 col-lg-7 border border-black py-lg-5" id="blogList"> </div>
 
         <!-- addModal -->
         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
@@ -107,46 +109,33 @@
                         <div class="input-group">
                             <span class="input-group-text w-25">Title</span>
                             <input type="text" aria-label="Title" class="form-control"
-                                placeholder="The Future of Artificial Intelligence">
+                                placeholder="The Future of Artificial Intelligence" id="editBlogTitle">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Content</span>
                             <input type="text" aria-label="Content" class="form-control"
-                                placeholder="Artificial Intelligence (AI) is rapidly evolving...">
+                                placeholder="Artificial Intelligence (AI) is rapidly evolving..." id="editBlogContent">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Author</span>
-                            <input type="text" aria-label="Author" class="form-control" placeholder="John Doe">
+                            <input type="text" aria-label="Author" class="form-control" placeholder="John Doe"
+                                id="editBlogAuthor">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Category</span>
-                            <input type="text" aria-label="Category" class="form-control" placeholder="Futuristic">
+                            <input type="text" aria-label="Category" class="form-control" placeholder="Futuristic"
+                                id="editBlogCategory">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Image Url</span>
                             <input type="text" aria-label="image-url" class="form-control"
-                                placeholder="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTbJ6q6nCvC-F8ctwjE8F_gh176HK1p-EcKg&usqp=CAU">
+                                placeholder="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTbJ6q6nCvC-F8ctwjE8F_gh176HK1p-EcKg&usqp=CAU"
+                                id="editBlogImageUrl">
                         </div>
-                        <!-- <div class="d-flex flex-column">
-                            <label class="fs-4" for="blog-content">Content</label>
-                            <input class="ps-2" type="text" id="blog-content" placeholder="content">
-                        </div> -->
-                        <!-- <div class="d-flex flex-column">
-                            <label class="fs-4" for="blog-author">Author</label>
-                            <input class="ps-2" type="text" id="blog-author" placeholder="author">
-                        </div> -->
-                        <!-- <div class="d-flex flex-column">
-                            <label class="fs-4" for="blog-category">Category</label>
-                            <input class="ps-2" type="text" id="blog-category" placeholder="category">
-                        </div>
-                        <div class="d-flex flex-column">
-                            <label class="fs-4" for="blog-image">Image Url</label>
-                            <input class="ps-2" type="text" id="blog-image" placeholder="image url">
-                        </div> -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary confirmEditBtn">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -168,22 +157,18 @@
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="deleteModalLabel">Modal title</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
+                    <div class="modal-body fs-2">
                         Are you really sure?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-primary confirmDeleteBtn">Yes</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-danger confirmDeleteBtn">Yes</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="container-lg col-12 col-lg-3 border border-black py-lg-5 my-5 my-lg-0 w-100">
+        <div class="container-lg col-12 col-lg-3 border border-black py-lg-5 my-lg-0 w-100">
             <div class="filter-container">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="searchInput" placeholder="Type a keyword">
@@ -236,17 +221,16 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
-        <i class="fa-regular fa-pen-to-square"></i> Edit
-   </button>
-   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="deleteBlogBtn">
-       <i class="fa-solid fa-trash"></i> Delete 
-   </button> -->
-        <script src="./index.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-            crossorigin="anonymous"></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/ui.js"></script>
+    <script src="./scripts/filter.js"></script>
+    <script src="./scripts/crud.js"></script>
+    <script src="./scripts/helpers.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
