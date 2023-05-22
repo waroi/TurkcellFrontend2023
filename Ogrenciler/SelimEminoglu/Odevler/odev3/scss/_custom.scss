@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    i {
+        font-size: 60px;
+    }
+    h1 {
+        font-family: "Dosis", sans-serif;
+    }
+}
+
+.carousel {
+    img {
+        height: 45rem;
+    }
+}
+
+.search-div {
+    position: relative;
+    height: 3rem;
+    .search-input {
+        background-color: #fff;
+        border: 0;
+        font-size: 18px;
+        padding: 15px;
+        height: 3rem;
+        width: 2rem;
+        transition: width 0.3s ease;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.search-button {
+    width: 4rem;
+    height: 3rem;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 10%;
+    cursor: pointer;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    transition: transform 0.3s ease;
+    &:focus {
+        outline: none;
+    }
+}
+
+.search-div.active .search-input {
+    width: 13rem;
+}
+
+.search-div.active .search-button {
+    transform: translateX(198px);
+}
+
+.option-list {
+    background-color: $secondary;
+    color: white;
+    padding: 1rem;
+    border: 4px solid gray;
+    border-radius: 50%;
+    font-size: 16pt;
+    option {
+        font-size: 16pt;
+    }
+}
+
+.add-button {
+    padding: 1rem 1.5rem;
+    font-size: 12pt;
+    background-color: rgb(33, 61, 221);
+    color: white;
+    transition: all 0.5s;
+    &:hover {
+        background-color: $secondary;
+    }
+}
+
+textarea {
+    resize: none;
+}
+
+.modal-shape {
+    width: 45rem;
+    height: 50rem;
+}
+
+.blog-card {
+    height: 12rem;
+    .card {
+        width: 100%;
+        height: 100%;
+        border: 7px inset black;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        .card-button {
+            width: 4rem;
+            height: 2rem;
+            i {
+                font-size: 14pt;
+            }
+        }
+    }
+}
+
+.author-list {
+    .col-3 {
+        border: 6px inset gray;
+        background-color: $info;
+    }
+    .auhtor-picture {
+        width: 7rem;
+        height: 7rem;
+        border: 2px solid black;
+        border-radius: 50%;
+        background-color: white;
+        background-image: url("../Assets/images/deneme.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+.map-image {
+    width: 100%;
+    height: 80%;
+}
+
+.about-image {
+    width: 6rem;
+    height: 6rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../Assets/images/deneme.jpg");
+}
+
+.about-shape {
+    width: 20rem;
+    height: 20rem;
+    border: 3px solid black;
+    border-radius: 50%;
+    i {
+        font-size: 9rem;
+    }
+    span {
+        font-size: 24pt;
+    }
+}
+
+#inputFooter {
+    width: 15rem;
+}
+
+.social-media {
+    i {
+        color: $secondary;
+        font-size: 24pt;
+        margin-right: 10px;
+    }
+}
+
+.footer-left {
+    border-right: 4px solid white;
+}
+
+.footer-button {
+    font-size: 14pt;
+    background-color: $secondary;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 8rem;
+    transition: all 0.5s;
+    &:hover {
+        background-color: $info;
+    }
+}

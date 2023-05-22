@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Convergence&family=Dekko&family=DynaPuff&family=Lobster&family=Rambla&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Convergence&family=Dekko&family=DynaPuff&family=Junge&family=Lobster&family=Rambla&display=swap" rel="stylesheet">
+  <title>EkoEylem</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarNav1">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Ana Sayfa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Hakkımızda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Yazılar</a>
+          </li>
+        </ul>
+      </div>
+      <img class="logo" src="./Resimler/logo.PNG">
+      <div class="collapse navbar-collapse" id="navbarNav2">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Yazarlar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sözlük</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">İletişim</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="section">
+      <div class="intro">
+        <button type="button" class="btn btn-success" id="createBlogButton" data-toggle="modal" data-target="#addBlogModal"><i class="fa-solid fa-plus fa-beat fa-2xl" style="color: #ffffff;"></i>   Yeni Blog Yazısı Oluştur</button>
+      </div>
+    <div class="filters">
+      <div>
+        <label for="searchInput">Ara:</label>
+        <input type="text" id="searchInput" placeholder="Başlık ve Yazar adı">
+      </div>
+      <div>
+        <label for="categoryFilter">Kategoriye Göre Filtrele:</label>
+        <select id="categoryFilter">
+          <option value="">Hepsi</option>
+          <option value="Atık Yönetimi">Atık Yönetimi</option>
+          <option value="Çevreci Tasarım">Çevreci Tasarım</option>
+          <option value="Su/Atıksu">Su/Atıksu</option>
+          <option value="Sürdürülebilirlik">Sürdürülebilirlik</option>
+        </select>
+      </div>
+      <div class="sıralama">
+        <label for="sort">Sırala:</label>
+        <input type="radio" name="sort" value="date" checked> Tarih
+        <input type="radio" name="sort" value="title"> Başlık
+        <input type="radio" name="sort" value="author"> Yazar
+      </div>
+    </div>
+  </main>
+
+  <div class="container" style="text-align: center;">
+    <div id="blogList"></div>
+  </div>
+
+  <div class="modal fade" id="addBlogModal" tabindex="-1" role="dialog" aria-labelledby="addBlogModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addBlogModalLabel">BLOG YAZISI YAZ</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="titleInput"><i class="fa-solid fa-pencil" style="color: rgb(89, 126, 34);"></i> Başlık:</label>
+              <input type="text" class="form-control" id="titleInput">
+            </div>
+            <div class="form-group">
+              <label for="authorInput"><i class="fa-solid fa-user" style="color: rgb(89, 126, 34);"></i> Yazar Adı:</label>
+              <input type="text" class="form-control" id="authorInput">
+            </div>
+            <div class="form-group">
+              <label for="categoryInput"><i class="fa-solid fa-eye" style="color: rgb(89, 126, 34);"></i> Kategori:</label>
+              <input type="text" class="form-control" id="categoryInput">
+            </div>
+            <div class="form-group">
+              <label for="dateInput"><i class="fa-solid fa-calendar-days" style="color: rgb(89, 126, 34);"></i> Tarih:</label>
+              <input type="number" class="form-control" id="dateInput">
+            </div>
+            <div class="form-group">
+              <label for="timeInput"><i class="fa-solid fa-clock" style="color: rgb(89, 126, 34);"></i> Saat:</label>
+              <input type="number" class="form-control" id="timeInput">
+            </div>
+            <div class="form-group">
+              <label for="imageInput"><i class="fa-solid fa-photo-film" style="color: rgb(89, 126, 34);"></i> Görsel:</label>
+              <input type="text" class="form-control" id="imageInput">
+            </div>
+            <div class="form-group">
+              <label for="contentInput"><i class="fa-regular fa-comment" style="color: rgb(89, 126, 34);"></i> İçerik:</label>
+              <input type="text" class="form-control" id="contentInput">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+          <button class="btn btn-success" id="addBlogButton">Ekle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalCategory"></p>
+    <p id="modalAuthor"></p>
+    <img id="modalImage" src="" alt="">
+    <p id="modalContent"></p>
+    <p id="modalDate"></p>
+    <!-- <button type="button" id="modalEditButton" class="edit-button btn btn-warning" data-dismiss="modal">Düzenle</button> -->
+    <button type="button" id="modalCloseButton" class="close-button btn btn-secondary" data-dismiss="modal">Kapat</button>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p style="color: rgb(9, 68, 11);"><b>Çevre Bilinci ve Ekoloji Platformu</b></p>
+      <p style="color: rgb(9, 73, 9);"><b>Created by BUSE TÜRKMEN</b></p>
+      <ul class="nav d-flex g-5">
+        <li class="ms-3"><a class="text-muted" href="https://instagram.com/buseeturkmenn/?igshid=OTk0YzhjMDVIA=="><svg class="bi" width="35" height="35"><i class="fa-brands fa-instagram fa-xl" style="color: rgb(9, 70, 9);"></i></use></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://www.linkedin.com/in/buse-t%C3%BCrkmen-2000bt/"><svg class="bi" width="35" height="35"><i class="fa-brands fa-linkedin fa-xl" style="color: rgb(9, 66, 9);"></i></use></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://github.com/BuseTurkmen"><svg class="bi" width="35" height="35"><i class="fa-brands fa-github fa-xl" style="color: rgb(9, 61, 9);"></i></use></svg></a></li>
+      </ul>
+    </footer>
+  </div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVeG6B" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+

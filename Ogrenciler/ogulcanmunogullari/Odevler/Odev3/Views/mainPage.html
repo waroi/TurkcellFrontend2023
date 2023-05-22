@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="tr">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZwiZZer Cubun</title>
+  <script src="../Controllers/mainApp.js" type="module" defer></script>
+  <link rel="stylesheet" href="../Styles/css/main.css" />
+  <link
+   rel="stylesheet"
+   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+ </head>
+ <body class="bg-dark">
+  <header class="py-3 border-bottom sticky-top bg-warning">
+   <div class="container d-flex justify-content-between align-items-center">
+    <h6 onclick="location.reload()" class="logo">ZwiZZer Cubun</h6>
+    <div>
+     <button
+      class="btn btn-success"
+      id="writeButton"
+      data-bs-toggle="modal"
+      data-bs-target="#writeModal">
+      Yaz
+     </button>
+     <button class="btn btn-danger" id="leaveButton">Çıkış</button>
+    </div>
+   </div>
+   <div class="d-none" id="redirectAlert"></div>
+  </header>
+  <div class="container">
+   <div class="modal fade" id="writeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+     <div class="modal-content">
+      <div class="modal-header bg-dark text-light">
+       <h1 class="modal-title fs-5" id="writeModalLabel">Blog Yaz</h1>
+       <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        id="writeFormReset2"
+        aria-label="Close"></button>
+      </div>
+      <form id="writeForm" class="modal-body bg-dark text-light">
+       <div class="d-none" id="writeAlert"></div>
+       <div class="form-floating mb-3">
+        <input
+         type="text"
+         class="form-control flex-fill bg-dark text-warning"
+         id="titleInput"
+         placeholder="Başlık" />
+        <label for="titleInput">Başlık</label>
+       </div>
+       <div class="form-floating mb-3">
+        <input
+         type="text"
+         class="form-control flex-fill bg-dark text-warning"
+         id="imgInput"
+         placeholder="Resim" />
+        <label for="imgInput">Resim</label>
+       </div>
+       <div class="mb-3">
+        <textarea
+         class="form-control p-2 bg-dark text-warning"
+         id="textInput"
+         style="height: 200px"
+         placeholder="Blog Yazınız"></textarea>
+        <div class="text-end"><span id="wordCount"></span> &nbsp;</div>
+       </div>
+      </form>
+      <div class="modal-footer bg-dark text-light">
+       <button class="btn btn-warning" id="writeFormReset1">Sıfırla</button>
+       <button type="button" class="btn btn-success" id="writePublish">
+        Paylaş
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+
+   <div class="modal fade" id="changedModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+     <div class="modal-content">
+      <div class="modal-header bg-dark text-light">
+       <h1 class="modal-title fs-5" id="changedModalLabel">
+        Blog Değiştirme, NO: <span id="changedBlogID"></span>
+       </h1>
+       <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        id="changedFormReset2"
+        aria-label="Close"></button>
+      </div>
+      <form id="changedForm" class="modal-body bg-dark text-light">
+       <div class="d-none" id="changedAlert"></div>
+       <div class="form-floating mb-3">
+        <input
+         type="text"
+         class="form-control flex-fill bg-dark text-warning"
+         id="changedTitleInput"
+         placeholder="Başlık" />
+        <label for="changedTitleInput">Başlık</label>
+       </div>
+       <div class="form-floating mb-3">
+        <input
+         type="text"
+         class="form-control flex-fill bg-dark text-warning"
+         id="changedImgInput"
+         placeholder="Resim" />
+        <label for="changedImgInput">Resim</label>
+       </div>
+       <div class="mb-3">
+        <textarea
+         class="form-control p-2 bg-dark text-warning"
+         id="changedTextInput"
+         style="height: 200px"
+         placeholder="Blog Yazınız"></textarea>
+        <div class="text-end"><span id="changedWordCount"></span> &nbsp;</div>
+       </div>
+      </form>
+      <div class="modal-footer bg-dark text-light">
+       <button class="btn btn-warning" id="changedFormReset1">Sıfırla</button>
+       <button type="button" class="btn btn-success" id="changedPublish">
+        Paylaş
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+   <main>
+    <div>
+     <input
+      class="form-control mt-1"
+      type="search"
+      placeholder="Author / Title / Text / Hashtag"
+      id="searchInput" />
+     <div class="d-flex mt-1 gap-1">
+      <select class="form-select" id="sortDate">
+       <option value="newest" selected>Yeniye Göre</option>
+       <option value="oldest">Eskiye Göre</option>
+      </select>
+      <select class="form-select" id="sortLike">
+       <option value="more" selected>Çok Beğeni</option>
+       <option value="less">Az Beğeni</option>
+      </select>
+     </div>
+     <div class="d-flex gap-1">
+      <button
+       class="btn btn-secondary w-100 mt-1"
+       type="button"
+       data-bs-toggle="collapse"
+       data-bs-target="#authorDIV"
+       aria-expanded="false"
+       aria-controls="authorDIV">
+       Show Authors
+      </button>
+      <button
+       class="btn btn-secondary w-100 mt-1"
+       type="button"
+       data-bs-toggle="collapse"
+       data-bs-target="#hashtagDIV"
+       aria-expanded="false"
+       aria-controls="hashtagDIV">
+       Show Hashtags
+      </button>
+     </div>
+    </div>
+
+    <div id="uiDIV" class="d-flex flex-row mt-3 gap-1 gap-sm-3">
+     <div class="collapse collapse-horizontal" id="authorDIV">
+      <ul class="text-light overflow-hidden list-group" id="authorUL"></ul>
+     </div>
+     <ul class="list-group gap-2 flex-fill" id="blogsDiv"></ul>
+     <div class="collapse collapse-horizontal" id="hashtagDIV">
+      <ul class="text-light overflow-hidden list-group" id="hashtagUL"></ul>
+     </div>
+    </div>
+   </main>
+  </div>
+
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ </body>
+</html>

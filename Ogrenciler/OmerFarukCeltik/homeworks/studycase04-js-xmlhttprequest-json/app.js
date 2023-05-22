@@ -7,8 +7,17 @@ btn.addEventListener("click", function(){
   xhr.onload = function() {
     if(this.status == 200){
       let parsedData = JSON.parse(this.responseText);
-      userstable.innerHTML += `
-      `
+      parsedData.forEach(item => {
+        userstable.innerHTML += `
+        <tr>
+        <th scope="row">1</th>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>${item.name} </td>
+      </tr>
+        `
+        
+      });
     }
   }
   xhr.send();

@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  margin: 0 auto;
+  height: 3px;
+  background: #838383;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  transition: width 0.3s;
+}
+
+.topSection {
+  background-color: #F7F7F7;
+}
+
+.cardsBlogsSection {
+  background-color: #F2F2F2;
+}
+
+.topSectionCards {
+  padding-top: 150px;
+}
+
+.blogCards {
+  border-width: 30px;
+  background-color: transparent;
+  height: 350px;
+  perspective: 1000px;
+  border-image: url('./assets/borderImage.jpg') 100 stretch;
+}
+
+.innerBlogCard {
+  transition: transform 1.1s;
+  transform-style: preserve-3d;
+}
+
+.blogCards:hover .innerBlogCard {
+  transform: rotateY(180deg);
+}
+
+.blogCardFront, .blogCardBack {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.blogCardFront {
+  color: black;
+}
+
+.blogCardBack {
+  transform: rotateY(180deg);
+}
+
+.blogCardBack span {
+  color: black;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+
+.blogCardBack span:hover {
+  color: #838383;
+}
+
+.blogCardBack span:nth-child(1) {
+  background-color: rgb(235, 190, 76);
+}
+
+.blogCardBack span:nth-child(2) {
+  background-color: rgb(64, 235, 235);
+}
+
+.blogCardBack span:nth-child(3) {
+  background-color: rgb(229, 76, 76);
+}
+
+textarea {
+  resize: none;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #000000;
+}
+
+input[type='text']::placeholder {
+  font-size: .9rem;
+  font-style: italic;
+}
+
+#addBlogButton {
+  background-color: #838383;
+  transition: all .5s ease-in-out;
+}
+
+#addBlogButton:hover {
+  background-color: #5b5b5b;
+  color: #FFFFFF;
+}
+
+.form-label {
+  font-size: .9rem;
+}
+
+.toastZIndex {
+  z-index: 11;
+}

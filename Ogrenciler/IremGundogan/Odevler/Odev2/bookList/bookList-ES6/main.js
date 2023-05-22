@@ -112,6 +112,7 @@ function filterAndSearch() {
   const term = document.querySelector("#searchInput").value.toLowerCase();
 
   let filteredBooks = Store.getBooks();
+  debugger
 
   if (category !== "Choose...") {
     filteredBooks = filteredBooks.filter((book) => book.category === category);
@@ -143,7 +144,7 @@ function filterAndSearch() {
       filteredBooks.sort((a, b) => new Date(b.date) - new Date(a.date));
       break;
   }
-
+  
   UI.clearList();
 
   filteredBooks.forEach((book) => UI.addBookToList(book));

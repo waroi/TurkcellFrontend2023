@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+</head>
+
+<body>
+  <nav id="homeNav" class="navbar navbar-expand-lg bg-primary ">
+    <div class="container px-3">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#searchNavbar"
+        aria-controls="searchNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-between" id="searchNavbar">
+        <a class="navbar-brand fs-4" href="#">
+          <i class="fa-solid fa-mug-hot me-2"></i>LiveWiki</a>
+        <div class="w-50 d-none d-md-block align-self-center">
+          <input class="form-control me-2" id="navbar-search" type="search" placeholder="Search by Category..." aria-label="Search">
+        </div>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#latcon">Latest Content</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#addNewContentButton">Blogs</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#footercon">Socials</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="header">
+    <div class="container">
+      <div class="header-all">
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-4">
+            <div
+              class="header-content  px-4 px-lg-0 d-flex flex-row flex-lg-column align-items-center align-items-lg-start justify-content-center">
+              <h1 class="h1 py-120 px-lg-4 py-lg-0 fw-lighter main-header"><span class="fw-normal">Explore</span> <span class="fw-light">Best Ideas</span><br> <span class="font-second">And Share...</span></h1>
+              <a href="#addNewContentButton" class="btn w-50 mx-4 my-4 my-xl-5 btn-secondary">Explore Best Contents!</a>
+            </div>
+          </div>
+          <div class="d-none d-lg-block col-lg-5">
+            <div class="img-content py-120">
+              <img
+                src="https://images.pexels.com/photos/12236018/pexels-photo-12236018.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="rounded-5  col-6 opacity-75" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="latcon">
+    <div class="container py-120">
+      <div class="p-4 p-lg-0">
+        <h2 class="h2 fs-25 border-1 border-bottom fw-lighter">Latest Contents</h2>
+      </div>
+      <div class="row" id="latest-content-area">
+        
+      </div>
+    </div>
+  </div>
+
+  <section class="section bg-white py-2 mb-0">
+    <div class="container">
+      <div id="categoryFilterParent" class="my-4 fs-5 border-1 border-bottom"><span class="">Categories:</span></div>
+      <div id="category-filter-area" class="d-flex pb-3">
+        
+      </div>
+    </div>
+  </section>
+
+<section class="section active-check pb-120">
+    <section class="section py-5">
+      <div class="container bg-white">
+        <div class="row flex-column flex-lg-row align-items-lg-center border-1 border px-4 py-3 rounded-pill">
+          <div
+            class="col-12 col-lg-8 d-flex align-items-center justify-content-between flex-column flex-sm-row my-3 my-lg-0">
+            <div>
+              <div id="addNewContentButton" class="btn btn-secondary px-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#addContentModal">
+                <i class="fa-solid fa-plus fa-beat "></i> Add new Content
+              </div>
+            </div>
+            <div class="dropdown">
+              <select id="sort-area" class="btn btn-primary">
+                <option class="" value="" href="#">Sort By:</option>
+                <option class="" value="a/z" href="#">A-Z</option>
+                <option class="" value="z/a" href="#">Z-A</option>
+                <option class="" value="date" href="#">Date</option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex mb-0 px-3 py-4 py-md-2 col-12 col-lg-4" role="search">
+            <input id="search-input" class="form-control me-2 w-100" type="search" placeholder="Search by Content Header,Author or Category..."
+              aria-label="Search">
+            <button class="btn btn-warning" id="search-button" type="submit">Search</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <div class="container">
+      <div class="row" id="globalCardArea">
+      </div>
+  
+    </div>
+  </section>
+  <a href="#homeNav" class="btn btn-secondary text-center py-3 px-4 rounded-circle bottom-0 end-0 position-fixed m-5"><i class="fa-solid fa-arrow-up fa-beat"></i></a>
+
+  <footer class="footer bg-white py-5" id="footercon">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-12 col-lg-6 gap-3 text-center">
+          <h6 class="fs-3 mb-4">Socials</h6>
+          <a class="text-decoration-none fs-6" href="https://www.facebook.com/celtik.466/">
+            <span class=" p-2">
+              <i class="fa-brands text-info  fa-facebook "></i>
+            </span>
+          </a>
+          <a class="text-decoration-none fs-6" href="https://www.linkedin.com/in/omer-faruk-celtik/">
+            <span class="p-2">
+              <i class="fa-brands text-info  fa-twitter"></i>
+            </span>
+          </a>
+          <a class="text-decoration-none fs-6" href="https://github.com/omerceltikk">
+            <span class=" p-2 me-1">
+              <i class="fa-brands text-info  fa-github"></i>
+            </span>
+          </a>
+          <a class="text-decoration-none fs-6" href="https://www.linkedin.com/in/omer-faruk-celtik/">
+            <span class="p-2">
+              <i class="fa-brands text-info  fa-behance"></i>
+            </span>
+          </a>
+          <a class="text-decoration-none fs-6" href="https://www.instagram.com/omerceltikk/">
+            <span class="p-2">
+              <i class="fa-brands text-info  fa-instagram"></i>
+            </span>
+          </a>
+          <p class="opacity-75 text-center mt-5 fs-7">
+            Copyright ©2023 All rights reserved | This template is made with by <a class=" text-info"
+              href="https://github.com/omerceltikk">omerceltikk</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, aut.</div> -->
+  <!-- <button id="btn">click</button> -->
+
+  <!-- modals -->
+  <!-- view modal -->
+  <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content" id="view-modal-content">
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- add modal start -->
+  <div class="modal modal-lg fade" id="addContentModal" tabindex="-1" aria-labelledby="addContentModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <form class="modal-content" novalidate>
+        <div class="modal-header border-5">
+          <h1 class="modal-title fs-3" id="addContentModalLabel">Content Info's</h1>
+          <button type="button" class="btn text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
+        </div>
+        <div id="modal-form" class="modal-body">
+          <div class="mb-3">
+            <label for="contentTitleInput" class="form-label fs-5">Content Header:</label>
+            <input type="text" class="form-control" id="contentTitleInput" placeholder="please enter book name..." required>
+          </div>
+          <div class="mb-3">
+            <label for="authorInput" class="form-label fs-5">Author:</label>
+            <input type="text" class="form-control" id="authorInput" placeholder="please enter author..." required>
+          </div>
+          <div class="mb-3">
+            <label for="categoryInput" class="form-label fs-5">Category:</label>
+            <input type="text" class="form-control" id="categoryInput" placeholder="please enter category..." required>
+          </div>
+          <div class="mb-3">
+            <label for="dateInput" class="form-label fs-5">Date:</label>
+            <input type="date" class="form-control" id="dateInput" placeholder="please enter book name..." required>
+          </div>
+          <div class="mb-3">
+            <label for="urlInput" class="form-label fs-5">Content Image URL:</label>
+            <input type="url" class="form-control" id="urlInput" placeholder="please enter image url..." required>
+          </div>
+          <div class="mb-3">
+            <label for="scoreInput" class="form-label fs-5">Content Score:</label>
+            <input type="number" min="0" max="10" class="form-control" id="scoreInput" placeholder="please enter score 0 to 10..." required>
+          </div>
+
+          <div class="mb-3">
+            <label for="contentTextarea" class="form-label fs-5">Content:</label>
+            <textarea class="form-control" id="contentTextarea" rows="3" minlength="140" placeholder="140 character required" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="close-button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" id="save-book" data-bs-dismiss="modal" class="btn btn-success">Save changes</button>
+          <button type="button" id="edit-book" data-bs-dismiss="modal" class="btn btn-warning">Edit changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- add modal end -->
+  
+  <script src="./js/app.js" type="module"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+    integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+    integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

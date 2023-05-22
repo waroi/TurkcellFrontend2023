@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Evi</title>
+
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- fontawesome.com'dan alınan ikonlar kullanıldı. -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-dark">
+    <header class="header-hero text-center">
+      <!-- Notalarla Bloger -->
+      <h1 class="title-page">
+        <span class="title-letter">N</span><span class="title-letter">o</span
+        ><span class="title-letter">t</span><span class="title-letter">a</span
+        ><span class="title-letter">l</span><span class="title-letter">a</span
+        ><span class="title-letter">r</span><span class="title-letter">l</span
+        ><span class="title-letter">a</span> <span class="title-letter">B</span
+        ><span class="title-letter">l</span><span class="title-letter">o</span
+        ><span class="title-letter">g</span><span class="title-letter">e</span
+        ><span class="title-letter">r</span>
+      </h1>
+      <p class="header-paragraph">
+        Siz yazın, biz notaları birbirine karıştıralım!
+      </p>
+    </header>
+    <div
+      id="toastContainer"
+      aria-live="polite"
+      aria-atomic="true"
+      class="tostr"
+    ></div>
+
+    <!-- Müzik eklemek veya düzenlemek için offcanvas oluşturuldu. -->
+    <div
+      class="offcanvas offcanvas-start"
+      data-bs-backdrop="static"
+      tabindex="-1"
+      id="staticBackdrop"
+      aria-labelledby="staticBackdropLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasLeftLabel">Müzik Ekle</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <form class="modal-body" id="music-form">
+          <div class="my-2">
+            <label for="imgUrl" class="form-label">Kapak Görsel Url'i</label>
+            <input
+              type="text"
+              class="form-control"
+              id="imgUrl"
+              placeholder="https://..."
+            />
+          </div>
+          <div class="mb-2">
+            <label for="musicName" class="form-label">Müziğin Adı</label>
+            <input type="text" class="form-control" id="musicName" />
+          </div>
+          <div class="mb-2">
+            <label for="musicCategory" class="form-label">Müziğin Türü</label>
+            <input type="text" class="form-control" id="musicCategory" />
+          </div>
+          <div class="mb-2">
+            <label for="musicDate" class="form-label">Blog Yazma Zamanı</label>
+            <input type="date" class="form-control" id="musicDate" />
+          </div>
+          <div class="mb-2">
+            <label for="musicClock" class="form-label">Blog Yazma Saati</label>
+            <input type="time" class="form-control" id="musicClock" />
+          </div>
+          <div class="mb-2">
+            <label for="musicWriter" class="form-label">İsminiz</label>
+            <input
+              type="text"
+              class="form-control"
+              id="musicWriter"
+              placeholder=""
+            />
+          </div>
+          <div class="mb-2">
+            <label for="musicTextContent" class="form-label"
+              >Blog Yazınız</label
+            >
+            <textarea class="form-control" id="musicTextContent"></textarea>
+          </div>
+        </form>
+        <div class="offcanvas-footer mt-3">
+          <button
+            type="button"
+            class="btn btn-secondary py-2 px-4"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
+            Kapat
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary py-2 px-4"
+            id="addOrEditButton"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
+            Ekle
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <div
+      class="modal fade"
+      id="musicModal"
+      tabindex="-1"
+      aria-labelledby="musicModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="musicModalLabel">Müzik Ekle</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form class="modal-body" id="music-form">
+            <div class="my-2">
+              <label for="imgUrl" class="form-label">Kapak Görsel Url'i</label>
+              <input
+                type="text"
+                class="form-control"
+                id="imgUrl"
+                placeholder="https://..."
+              />
+            </div>
+            <div class="mb-2">
+              <label for="musicName" class="form-label">Müziğin Adı</label>
+              <input type="text" class="form-control" id="musicName" />
+            </div>
+            <div class="mb-2">
+              <label for="musicCategory" class="form-label">Müziğin Türü</label>
+              <input type="text" class="form-control" id="musicCategory" />
+            </div>
+            <div class="mb-2">
+              <label for="musicDate" class="form-label"
+                >Blog Yazma Zamanı</label
+              >
+              <input type="date" class="form-control" id="musicDate" />
+            </div>
+            <div class="mb-2">
+              <label for="musicClock" class="form-label"
+                >Blog Yazma Saati</label
+              >
+              <input type="time" class="form-control" id="musicClock" />
+            </div>
+            <div class="mb-2">
+              <label for="musicWriter" class="form-label">İsminiz</label>
+              <input
+                type="text"
+                class="form-control"
+                id="musicWriter"
+                placeholder=""
+              />
+            </div>
+            <div class="mb-2">
+              <label for="musicTextContent" class="form-label"
+                >Blog Yazınız</label
+              >
+              <input type="text" class="form-control" id="musicTextContent" />
+            </div>
+          </form>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary py-2 px-4"
+              data-bs-dismiss="modal"
+            >
+              Kapat
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary py-2 px-4"
+              id="addOrEditButton"
+              data-bs-dismiss="modal"
+            >
+              Ekle
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <section class="musicList pt-5">
+      <div class="container">
+        <div class="row" id="musicList"></div>
+      </div>
+    </section>
+
+    <footer class="py-5 footer-main d-flex flex-column">
+      <div class="container">
+        <div class="footer-top d-flex flex-column">
+          <div class="footer-title">
+            <h2 class="title fw-bold">Harmonik bir ritimle devam edelim!</h2>
+            <p class="paragraph">
+              Blog Yazdığımızda Müzik Söyleriz, Ama Notaları Asla!
+              <a class="link-text" href="#">Gizlilik Politikamıza bakın.</a>
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <form method="post" class="row">
+            <div class="form-email ms-lg-3 col-md-7">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Adresiniz..."
+              />
+            </div>
+            <div class="form-submit col-md-3 ms-3 ms-lg-0">
+              <input type="submit" value="Abone Ol" />
+            </div>
+          </form>
+          <div>
+            <h2 class="title fw-bold ms-lg-3 me-1 me-lg-3">
+              Bizi Takipte Kalın:
+            </h2>
+            <a href="#" class="text-light me-4"
+              ><i class="fa-brands fa-2x fa-facebook"></i
+            ></a>
+            <a href="#" class="text-light me-4"
+              ><i class="fa-brands fa-2x fa-twitter"></i
+            ></a>
+            <a href="#" class="text-light me-4"
+              ><i class="fa-brands fa-2x fa-instagram"></i
+            ></a>
+            <a href="#" class="text-light"
+              ><i class="fa-brands fa-2x fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- filter bar için oluşturuldu. -->
+    <div class="filter-float-wrapper fixed-bottom mb-3">
+      <div
+        class="filter-content px-4 d-inline-flex flex-wrap align-items-center"
+      >
+        <form class="py-2" role="search">
+          <input
+            id="search-input"
+            class="form-control bg-dark text-light py-2"
+            type="search"
+            placeholder="Kitap ve Yazar Ara"
+            aria-label="Search"
+          />
+        </form>
+        <div class="ms-2 sort">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-sort"></i>
+          </button>
+          <ul class="custom-select-options dropdown-menu" id="sort">
+            <li value="">
+              <input
+                type="radio"
+                id="sort-default"
+                name="sort-option"
+                value="sort-default"
+                checked
+              />
+              <label for="sort-default">Sırala</label>
+            </li>
+            <li value="alphabetical-asc-title">
+              <input
+                type="radio"
+                id="alphabetical-asc-title"
+                name="sort-option"
+                value="alphabetical-asc-title"
+              />
+              <label for="alphabetical-asc-title">A'dan Z'ye başlık</label>
+            </li>
+            <li value="alphabetical-desc-title">
+              <input
+                type="radio"
+                id="alphabetical-desc-title"
+                name="sort-option"
+                value="alphabetical-desc-title"
+              />
+              <label for="alphabetical-desc-title">Z'den A'ya başlık</label>
+            </li>
+            <li value="alphabetical-asc-writer">
+              <input
+                type="radio"
+                id="alphabetical-asc-writer"
+                name="sort-option"
+                value="alphabetical-asc-writer"
+              />
+              <label for="alphabetical-asc-writer">A'dan Z'ye yazar</label>
+            </li>
+            <li value="alphabetical-desc-writer">
+              <input
+                type="radio"
+                id="alphabetical-desc-writer"
+                name="sort-option"
+                value="alphabetical-desc-writer"
+              />
+              <label for="alphabetical-desc-writer">Z'den A'ya yazar</label>
+            </li>
+            <li value="date-asc">
+              <input
+                type="radio"
+                id="date-asc"
+                name="sort-option"
+                value="date-asc"
+              />
+              <label for="date-asc">Tarihe Göre (En Eski - En Yeni)</label>
+            </li>
+            <li value="date-desc">
+              <input
+                type="radio"
+                id="date-desc"
+                name="sort-option"
+                value="date-desc"
+              />
+              <label for="date-desc">Tarihe Göre (En Yeni - En Eski)</label>
+            </li>
+          </ul>
+        </div>
+        <!-- <select class="form-control" id="sort">
+            <option value="Sırala">Sırala</option>
+            <option value="alphabetical-asc-title">
+              A'dan Z'ye başlık
+            </option>
+            <option value="alphabetical-desc-title">
+              Z'den A'ya başlık
+            </option>
+            <option value="alphabetical-asc-writer">
+              A'dan Z'ye yazar
+            </option>
+            <option value="alphabetical-desc-writer">
+              Z'den A'ya yazar
+            </option>
+            <option value="date-asc">
+              Tarihe Göre (En Eski - En Yeni)
+            </option>
+            <option value="date-desc">
+              Tarihe Göre (En Yeni - En Eski)
+            </option>
+          </select> -->
+        <ul class="d-flex mx-0 list-unstyled mt-0 mt-lg-3 ms-2">
+          <li class="nav-item me-3">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <form
+              class="custom-select-options dropdown-menu"
+              id="category-form"
+            >
+              <div id="category-list"></div>
+            </form>
+          </li>
+          <li class="nav-item">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-person"></i>
+            </button>
+            <form class="custom-select-options dropdown-menu" id="author-form">
+              <div id="author-list"></div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- blog eklemek için ikon oluşturuldu. -->
+    <a
+      class="mode-btn"
+      href="#"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#staticBackdrop"
+      aria-controls="staticBackdrop"
+    >
+      <i class="fa-solid fa-plus fs-1 icon"></i>
+    </a>
+
+    <!-- sayfa skroll oldukça çubukların görünmesi için oluşturuldu. -->
+    <section>
+      <div class="line-container">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="scripts/app.js" type="module"></script>
+  </body>
+</html>

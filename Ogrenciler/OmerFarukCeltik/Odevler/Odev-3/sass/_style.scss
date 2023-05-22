@@ -1,0 +1,203 @@
+//general
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  list-style-type: none;
+}
+// @mixin designMixin($d, $bg, $tr, $pos, $ov, $top, $r, $b, $l, $tr-orgn, $trfm, $cnt,$z) {
+//   display: $d;
+//   background: $bg;
+//   transition: $tr;
+//   position: $pos;
+//   overflow: $ov;
+//   top: $top;
+//   right: $r;
+//   bottom: $b;
+//   left: $l;
+//   transform: $trfm;
+//   content:$cnt;
+//   transform-origin: $tr-orgn;
+//   z-index:$z ;
+// }
+
+.active-check{
+  background-color: #fffcf7;
+  border-top-left-radius: 55px;
+  border-top-right-radius: 55px;
+  box-shadow: inset 0px 10px 11px -4px rgba(0,0,0,0.15);
+  border-top: 1px solid rgba(0,0,0,0.2);
+}
+.active{
+  font-weight: 600;
+  text-decoration: underline;
+}
+.form-check-label{
+  cursor: pointer;
+}
+.header{
+ background-image: url(" https://images.pexels.com/photos/1527934/pexels-photo-1527934.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+.header-all{
+  .header-content{
+    .main-header{
+      z-index: 100;
+      font-size: 3rem;
+    }
+    .font-second{
+      font-family: 'Ysabeau', sans-serif;
+      font-style: italic;
+      font-size: 2.5rem;
+      font-weight: 200;
+    
+    }
+  }
+  .img-content{
+    &::before{
+      transition: all 0.5s ease-in-out;
+    }
+    &::after{
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+@media screen and (min-width:992px){
+  .header{
+    background-image: none;
+  }
+  .header-all{
+    .header-content{
+      .main-header{
+        font-size: 4rem;
+      }
+      .font-second{
+        font-size: 3rem;
+      }
+    }
+  }
+    .img-content{
+      position: relative;
+      &::before{
+        animation: borderAnimation 4s ease-in-out 0s infinite alternate backwards;
+        // animation: name duration timing-function delay iteration-count direction fill-mode;
+        overflow: hidden;
+        width: 100%;
+        height: 40%;
+        position: absolute;
+        background-color: bisque;
+        content: "";
+        border-radius: 15px;
+        left: 50%;
+        top: 5%;
+      }
+      &::after{
+        overflow: hidden;
+        position: absolute;
+        width: 70%;
+        height: 30%;
+        background-color: #E1D4BB;
+        bottom: 10%;
+        right: -30%;
+        content: "";
+        border-radius: 15px;
+        z-index: -1;
+      }
+      img{  
+       width: 100%;
+       height: 100%;
+      }
+    }
+  }
+  
+
+
+@media screen and (min-width:1200px){
+  .header{
+    background-image: none;
+  }
+  .header-all{
+    position: relative;
+    .header-content{
+      .main-header{  
+        font-size: 5rem;    
+      }
+      .font-second{
+        font-size: 4rem;
+      }
+    }
+    .img-content{
+      &::before{
+        width: 100%;
+        height: 40%;
+        left: 50%;
+        top: 5%;
+      }
+      &::after{
+        width: 70%;
+        height: 30%;
+        bottom: 5%;
+        right: -40%;
+        z-index: -1;
+      }
+      img{  
+        width: 120%;
+        height: 120%;
+       }
+    }
+  }
+  
+}
+
+@media screen and (min-width:1400px){
+
+}
+@media screen and (min-width:1600px){
+  .header-all{
+    .header-content{
+      .main-header{  
+        font-size: 7rem;    
+      }
+      .font-second{
+        font-size: 5rem;
+      }
+      &::before{
+        position: absolute;
+        z-index: -1;
+        width: 800px;
+        height: 700px;
+        background: #fff;
+        content: "";
+        left: -5%;
+        animation: borderAnimation2 4s ease-in-out 0s infinite alternate backwards;
+      }
+    }
+    .img-content{
+      &::before{
+        width: 700px;
+        height: 500px;
+        left: 400px;
+        top: 20px;
+      }
+      &::after{
+        width: 700px;
+        height: 400px;
+        bottom: 0;
+        right: -300px;
+        z-index: -1;
+      }
+    }
+  }
+}
+
+@keyframes borderAnimation {
+  0%   {border: 1px solid rgb(255, 255, 255);}
+  50%  {border: 1px solid rgb(180, 180, 180);}
+  100%   {border: 1px solid rgb(255, 255, 255);}
+}
+@keyframes borderAnimation2 {
+  0%   {border: 1px solid $primary;}
+  50%  {border: 1px solid rgb(180, 180, 180)}
+  100%   {border: 1px solid $primary;}
+}
