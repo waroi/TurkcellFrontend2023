@@ -52,4 +52,19 @@ class Request {
         .catch((err) => reject(err));
     });
   }
+
+  static putBlogsAndAuthors(urlİd, data) {
+    return new Promise((resolve, reject) => {
+      fetch(urlİd, {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+  }
 }

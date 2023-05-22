@@ -1,16 +1,35 @@
 class UI {
   static showAuthors(authors) {
+    let list = new Set();
+    let list2 = new Set();
+    let list3 = [];
+    let list4 = [];
     authors.map((author) => {
-      authorList.innerHTML += `<div class="col-3 mt-1 me-1">
+      list.add(author.author.toUpperCase());
+      list2.add(author.url);
+    });
+
+    list.forEach((item) => {
+      list3.push(item);
+    });
+
+    list2.forEach((item) => {
+      list4.push(item);
+    });
+
+    authors.map((author, i) => {
+      if (list3[i]) {
+        authorList.innerHTML += `<div class="col-3 mt-1 me-1">
         <div class="row flex-column">
           <div class="col-6 w-100 d-flex justify-content-center py-3">
-            <div class="auhtor-picture" style="background-image:url("${author.url}")"></div>
+            <div class="auhtor-picture" style="background-image:url("${list4[i]}")"></div>
           </div>
           <div class="col-6 w-100 text-center">
-            <h4>${author.author}</h4>
+            <h4>${list3[i]}</h4>
           </div>
         </div>
       </div>`;
+      }
     });
   }
 
@@ -55,7 +74,7 @@ class UI {
         child.childNodes[1].childNodes[1].childNodes[3].childNodes[9].childNodes[1].addEventListener(
           "click",
           () => {
-            console.log(child.id);
+            console.log(updateBlogModal);
             Request.getBlogs().then((response) => {
               response.map((item) => {
                 if (item.id == child.id) {
