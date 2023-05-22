@@ -1,287 +1,365 @@
-class BookManager {
+class BlogManager {
   constructor() {
-    this.books = [];
-
-    // Yerel depoda (localStorage) "books" adında bir anahtar varsa, kayıtlı kitapları alır ve ekrana render eder.
-    if (localStorage.getItem("books")) {
-      this.books = JSON.parse(localStorage.getItem("books"));
-      this.renderBooks();
-    }
-    const searchInput = document.querySelector(".searchInput");
-    searchInput.addEventListener("input", this.searchBook.bind(this));
+    this.apiUrl = "http://localhost:3000/blogs";
   }
 
-  addBook(event) {
-    event.preventDefault();
-
-    const form = event.target;
-    const bookName = form.elements.bookName.value;
-    const writer = form.elements.writer.value;
-    const year = form.elements.year.value;
-    const type = form.elements.type.value;
-    const posterUrl = form.elements.posterUrl.value;
-
-    // Arama işlemi için input alanına dinleyici eklenir
-    const searchInput = document.querySelector(".searchInput");
-    searchInput.addEventListener("input", this.searchBook);
-
-    const newBook = {
-      bookName,
-      writer,
-      year,
-      type,
-      posterUrl,
-    };
-
-    // Eğer herhangi bir alan boş bırakıldıysa, uyarı verilir ve işlem durdurulur.
-    if (
-      bookName === "" ||
-      writer === "" ||
-      year === "" ||
-      type === "" ||
-      posterUrl === ""
-    ) {
-      alert("Lütfen tüm alanları doldurun.");
-      return;
+  async getBlogs() {
+    try {
+      const response = await fetch(this.apiUrl);
+      const blogs = await response.json();
+      return blogs;
+    } catch (error) {
+      console.error("Error retrieving blogs:", error);
+      return [];
     }
-
-    this.books.push(newBook);
-    localStorage.setItem("books", JSON.stringify(this.books));
-
-    form.reset();
-    this.renderBooks();
   }
-  
-  searchBook() {
-   
-    const searchTerm = document
-      .querySelector(".searchInput")
-      .value.toLowerCase();
-    const books = document.querySelectorAll(".card");
 
-    const selectedCategory = document.querySelector(
-      'input[name="category"]:checked'
-    );
-    const selectedCategoryValue = selectedCategory
-      ? selectedCategory.value
-      : "";
+  async addBlog(blog) {
+    try {
+      const response = await fetch(this.apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(blog),
+      });
 
-    books.forEach((book) => {
-      const text = book.querySelector(".card-title").textContent.toLowerCase();
-      const text2 = book.querySelector(".writer").textContent.toLowerCase();
-      const category = book
-        .querySelector(".category")
-        .textContent.toLowerCase();
-
-      const isMatch = text.includes(searchTerm) || text2.includes(searchTerm);
-      const isCategoryMatch =
-        selectedCategoryValue === "" ||
-        category === selectedCategoryValue.toLowerCase();
-
-      if (
-        (text.includes(searchTerm) || text2.includes(searchTerm)) &&
-        isCategoryMatch
-      ) {
-        book.style.display = "flex";
+      if (response.ok) {
+        console.log("Blog başarıyla eklendi.");
       } else {
-        book.style.display = "none";
+        console.error("Blog eklenirken bir hata oluştu.");
       }
-    });
-
-    const allRadio = document.getElementById("all");
-    if (allRadio.checked) {
-      books.forEach((book) => {
-        book.style.display = "flex";
+    } catch (error) {
+      console.error("Hata:", error);
+    }
+  }
+  async updateBlog(blogId, updatedBlog) {
+    try {
+      const response = await fetch(`${this.apiUrl}/${blogId}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(updatedBlog),
       });
+
+      if (response.ok) {
+        console.log("Blog başarıyla güncellendi.");
+      } else {
+        console.error("Blog güncellenirken bir hata oluştu.");
+      }
+    } catch (error) {
+      console.error("Hata:", error);
     }
   }
 
-  renderBooks() {
-    const sortSelect = document.getElementById("sortSelect");
-    const bookCard = document.getElementById("bookCard");
-
-    while (bookCard.firstChild) {
-      bookCard.firstChild.remove();
-    }
-  
-    this.sortBooks(sortSelect.value);
-
-    this.books.forEach((book, index) => {
-      const item = document.createElement("div");
-      item.className = "card";
-      item.setAttribute("style", "width: 18rem;");
-
-      const img = document.createElement("img");
-      img.className = "card-img-top";
-      img.setAttribute("src", book.posterUrl);
-      item.appendChild(img);
-
-      const body = document.createElement("div");
-      body.className = "card-body";
-      item.appendChild(body);
-      const header = document.createElement("h5");
-      header.className = "card-title";
-      header.textContent = book.bookName;
-      body.appendChild(header);
-
-      const list = document.createElement("ul");
-      list.className = "list-group";
-      item.appendChild(list);
-
-      const writerItem = document.createElement("li");
-      writerItem.className = "list-group-item writer";
-      writerItem.textContent = book.writer;
-      list.appendChild(writerItem);
-
-      const typeItem = document.createElement("li");
-      typeItem.className = "list-group-item category";
-      typeItem.textContent = book.type;
-      list.appendChild(typeItem);
-
-      const yearItem = document.createElement("li");
-      yearItem.className = "list-group-item";
-      yearItem.textContent = book.year;
-      list.appendChild(yearItem);
-
-      const buttons = document.createElement("li");
-      buttons.className = "d-flex justify-content-evenly";
-
-      const deleteButton = document.createElement("button");
-      deleteButton.className = "btn btn-danger";
-      deleteButton.setAttribute(
-        "style",
-        "padding-left: 40px; padding-right: 40px;"
-      );
-      deleteButton.textContent = "Sil";
-      deleteButton.addEventListener("click", () => {
-        this.deleteBook(index);
-      });
-      buttons.appendChild(deleteButton);
-
-      const updateButton = document.createElement("button");
-      updateButton.textContent = "Güncelle";
-      updateButton.className = "btn btn-success";
-      updateButton.addEventListener("click", () => {
-        this.updateBook(index);
+  async deleteBlog(blogId) {
+    try {
+      const url = `${this.apiUrl}/${blogId}`;
+      const response = await fetch(url, {
+        method: "DELETE",
       });
 
-      buttons.appendChild(updateButton);
-
-      list.appendChild(buttons);
-      bookCard.appendChild(item);
-    });
-
-    const radioButtons = document.querySelectorAll('input[name="category"]');
-
-    radioButtons.forEach((radio) => {
-      radio.addEventListener("change", this.searchBook);
-    });
-
-    // Radio butonlarını güncelle
-    const categoryContainer = document.getElementById("categoryContainer");
-    categoryContainer.innerHTML = "";
-
-    const categories = this.getCategories();
-
-    categories.forEach((category) => {
-      const label = document.createElement("label");
-      label.className = "radio-label";
-      label.textContent = category;
-
-      const radio = document.createElement("input");
-      radio.type = "radio";
-      radio.name = "category";
-      radio.value = category;
-      radio.addEventListener("change", this.searchBook);
-
-      label.appendChild(radio);
-      categoryContainer.appendChild(label);
-    });
-  }
-
-  getCategories() {
-    const categories = new Set();
-    this.books.forEach((book) => {
-      categories.add(book.type);
-    });
-
-    return Array.from(categories);
-  }
-
-  sortBooks(sortOption) {
-    if (sortOption === "name") {
-      this.books.sort((a, b) => {
-        const bookA = a.bookName.toLowerCase();
-        const bookB = b.bookName.toLowerCase();
-        if (bookA < bookB) {
-          return -1;
-        }
-        if (bookA > bookB) {
-          return 1;
-        }
-        return 0;
-      });
-    } else if (sortOption === "reverse-name") {
-      this.books.sort((a, b) => {
-        const bookA = a.bookName.toLowerCase();
-        const bookB = b.bookName.toLowerCase();
-        if (bookA < bookB) {
-          return 1;
-        }
-        if (bookA > bookB) {
-          return -1;
-        }
-        return 0;
-      });
-    } else if (sortOption === "year") {
-      this.books.sort((a, b) => {
-        const yearA = Number(a.year);
-        const yearB = Number(b.year);
-  
-        return yearA - yearB;
-      });
-    } else if (sortOption === "reverse-year") {
-      this.books.sort((a, b) => {
-        const yearA = Number(a.year);
-        const yearB = Number(b.year);
-  
-        return yearB - yearA;
-      });
+      if (response.ok) {
+        console.log("Blog başarıyla silindi.");
+      } else {
+        console.error("Blog silinirken bir hata oluştu.");
+      }
+    } catch (error) {
+      console.error("Hata:", error);
     }
   }
-  deleteBook(index) {
-    this.books.splice(index, 1);
-    localStorage.setItem("books", JSON.stringify(this.books));
-    this.renderBooks();
-  }
-  performUpdate(index) {
-    const form = document.getElementById("bookForm");
-    const bookName = form.elements.bookName.value;
-    const writer = form.elements.writer.value;
-    const year = form.elements.year.value;
-    const type = form.elements.type.value;
-    const posterUrl = form.elements.posterUrl.value;
-    const updatedBook = {
-      bookName,
-      writer,
-      year,
-      type,
-      posterUrl,
-    };
 
-    this.books[index] = updatedBook;
-    localStorage.setItem("books", JSON.stringify(this.books));
+  displayBlogs() {
+    this.getBlogs()
+      .then((blogs) => {
+        const container = document.createElement("div");
+        container.classList.add("container", "wrapper-grey", "padded");
 
-    form.reset();
-    this.renderBooks();
+        const row = document.createElement("div");
+        row.classList.add("container", "row");
+        container.appendChild(row);
+
+        blogs.forEach((blog) => {
+          const blogCard = document.createElement("div");
+          blogCard.classList.add("col-xs-12", "col-sm-4");
+          blogCard.innerHTML = `
+            <div class="cards" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url('${blog.img}');">
+              <div class="card-category">
+                ${blog.date}
+                <i class="fa-regular fa-clock" style="color: #fff"></i>
+              </div>
+              <div class="card-description">
+                <h2>${blog.city}</h2> <h6>${blog.category} </h6>
+               
+                <h4><a class="card-title">${blog.title}</a></h4>
+              </div>
+            </div>
+          `;
+
+          blogCard.addEventListener("click", () => {
+            showModal(blog);
+          });
+
+          row.appendChild(blogCard);
+        });
+
+        document.body.appendChild(container);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
 }
 
-const bookManager = new BookManager();
+const blogManager = new BlogManager();
+blogManager.displayBlogs();
+//Modal//
+function showModal(blog) {
+  const detailTitle = document.getElementById("detailTitle");
+  const detailBody = document.getElementById("detailBody");
 
-const bookForm = document.getElementById("bookForm");
+  detailTitle.textContent = blog.title;
 
-bookForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  bookManager.addBook(event);
+  detailBody.innerHTML = `
+          <iframe width="100%" height="315" src="${blog.video}" frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <p>${blog.article}</p>
+          <div class="writers">
+          <h4>${blog.writer}</h4>
+          </div>
+          <h6 class="categorys">${blog.category}</h6>
+          <div class="modal-buttons">
+            <button type="button" class="btn btn-primary btn-2 " onclick="editBlog(${blog.id})">Güncelle</button>
+            <button type="button" class="btn btn-danger btn-3 " onclick="deleteBlog(${blog.id})">Sil</button>
+          </div>
+        `;
+
+  const myDetail = new bootstrap.Modal(document.getElementById("myDetail"));
+  myDetail.show();
+}
+
+function deleteBlog(blogId) {
+  if (confirm("Bu blogu silmek istediğinize emin misiniz?")) {
+    blogManager.deleteBlog(blogId);
+  }
+}
+//Sıralama//
+document.addEventListener("DOMContentLoaded", () => {
+  const sortingSelect = document.getElementById("sortingSelect");
+  sortingSelect.addEventListener("change", sortBlogs);
+});
+
+function sortBlogs() {
+  const sortingSelect = document.getElementById("sortingSelect");
+  const sortOption = sortingSelect.value;
+
+  if (sortOption === "") {
+    return; // Sıralama seçilmediyse çıkış yap
+  }
+
+  const blogCardsContainer = document.querySelector(".row");
+  const blogCards = Array.from(
+    blogCardsContainer.getElementsByClassName("col-xs-12")
+  );
+
+  blogCards.sort((a, b) => {
+    const blogA = a.querySelector(".card-description").innerText.toLowerCase();
+    const blogB = b.querySelector(".card-description").innerText.toLowerCase();
+
+    if (sortOption === "A-Z") {
+      return blogA.localeCompare(blogB);
+    } else if (sortOption === "Z-A") {
+      return blogB.localeCompare(blogA);
+    } else if (sortOption === "tarih") {
+      const dateA = new Date(a.querySelector(".card-category").innerText);
+      const dateB = new Date(b.querySelector(".card-category").innerText);
+      return dateA - dateB;
+    }
+  });
+
+  // Mevcut blog kartlarını yeniden sıralanmış blog kartlarıyla değiştir
+  while (blogCardsContainer.firstChild) {
+    blogCardsContainer.firstChild.remove();
+  }
+
+  blogCards.forEach((blogCard) => {
+    blogCardsContainer.appendChild(blogCard);
+  });
+}
+//Filtreleme//
+document.addEventListener("DOMContentLoaded", () => {
+  const categorySelect = document.getElementById("categorySelect");
+  categorySelect.addEventListener("change", filterBlogsByCategory);
+
+  // Kategorileri API'den çekerek `<select>` menüsüne ekleyen fonksiyonu çağır
+  fetchCategories();
+});
+
+async function fetchCategories() {
+  try {
+    const response = await fetch("http://localhost:3000/blogs");
+    const data = await response.json();
+    const blogs = data;
+
+    const categories = blogs.map((blog) => blog.category);
+    const uniqueCategories = [...new Set(categories)];
+
+    const categorySelect = document.getElementById("categorySelect");
+    uniqueCategories.forEach((category) => {
+      const option = document.createElement("option");
+      option.value = category;
+      option.textContent = category;
+      categorySelect.appendChild(option);
+    });
+  } catch (error) {
+    console.error("Hata:", error);
+  }
+}
+
+function filterBlogsByCategory() {
+  const selectedCategory = document.getElementById("categorySelect").value;
+
+  const blogCards = Array.from(document.getElementsByClassName("col-xs-12"));
+  blogCards.forEach((blogCard) => {
+    const category = blogCard
+      .querySelector(".card-description h6")
+      .textContent.trim();
+
+    if (selectedCategory === "" || category === selectedCategory) {
+      blogCard.style.display = "block";
+    } else {
+      blogCard.style.display = "none";
+    }
+  });
+}
+//Search
+function searchBlogs() {
+  const searchInput = document
+    .getElementById("searchInput")
+    .value.toLowerCase();
+  const blogCards = Array.from(document.getElementsByClassName("col-xs-12"));
+
+  blogCards.forEach((blogCard) => {
+    const title = blogCard
+      .querySelector(".card-description h4")
+      .textContent.toLowerCase();
+
+    if (title.includes(searchInput)) {
+      blogCard.style.display = "block";
+    } else {
+      blogCard.style.display = "none";
+    }
+  });
+}
+
+//Düzenle
+function editBlog(blogId) {
+  // Blogu almak için blogId'yi kullanarak API'ye istek yapın
+  fetch(`http://localhost:3000/blogs/${blogId}`)
+    .then((response) => response.json())
+    .then((blog) => {
+      // Form elemanlarını alın
+      const editForm = document.getElementById("editForm"); // Edit formunu yakalayın
+
+      // Blog bilgilerini form elemanlarına yerleştirin
+      editForm.elements.titleInput.value = blog.title;
+      editForm.elements.contentInput.value = blog.article;
+      editForm.elements.authorInput.value = blog.writer;
+      editForm.elements.categoryInput.value = blog.category;
+      editForm.elements.cityInput.value = blog.city;
+      editForm.elements.dateInput.value = blog.date;
+      editForm.elements.photoInput.value = blog.img;
+      editForm.elements.videoInput.value = blog.video;
+
+      // Edit Modal'i görüntüleyin
+      const editModal = new bootstrap.Modal(
+        document.getElementById("editModal")
+      );
+      editModal.show();
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const updateButton = document.getElementById("updateButton");
+        updateButton.addEventListener("click", () => {
+          updateBlog(blogId, updatedBlog);
+        });
+      });
+    })
+    .catch((error) => {
+      console.error("Hata:", error);
+    });
+}
+async function updateBlog(blogId) {
+  const editForm = document.getElementById("editForm");
+
+  const updatedBlog = {
+    title: editForm.elements.titleInput.value,
+    article: editForm.elements.contentInput.value,
+    writer: editForm.elements.authorInput.value,
+    category: editForm.elements.categoryInput.value,
+    city: editForm.elements.cityInput.value,
+    date: editForm.elements.dateInput.value,
+    img: editForm.elements.photoInput.value,
+    video: editForm.elements.videoInput.value,
+  };
+
+  try {
+    await blogManager.updateBlog(blogId, updatedBlog);
+    console.log("Blog başarıyla güncellendi.");
+
+    // Başarılı güncelleme mesajını görüntüleyebilir veya başka bir işlem yapabilirsiniz.
+    // Örneğin, modalı kapatmak için aşağıdaki satırı ekleyebilirsiniz:
+    const editModal = new bootstrap.Modal(document.getElementById("editModal"));
+    editModal.hide();
+
+    // Sayfayı yenilemek veya başka bir işlem yapmak için aşağıdaki satırları ekleyebilirsiniz:
+    blogManager.displayBlogs(); // Blogları tekrar görüntüle
+  } catch (error) {
+    console.error("Hata:", error);
+  }
+}
+
+const modalTrigger = document.getElementById("newBlogModalTrigger");
+modalTrigger.addEventListener("click", () => {
+  const newBlogModal = new bootstrap.Modal(
+    document.getElementById("newBlogModal")
+  );
+  newBlogModal.show();
+});
+
+const blogForm = document.getElementById("blogForm");
+blogForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const title = document.getElementById("titleInput").value;
+  const article = document.getElementById("contentInput").value;
+  const writer = document.getElementById("authorInput").value;
+  const category = document.getElementById("countryInput").value;
+  const city = document.getElementById("cityInput").value;
+  const date = document.getElementById("dateInput").value;
+  const img = document.getElementById("photoInput").value;
+  const video = document.getElementById("videoInput").value;
+
+  const newBlog = {
+    title: title,
+    article: article,
+    writer: writer,
+    category: category,
+    city: city,
+    date: date,
+    img: img,
+    video: video,
+  };
+
+  blogManager.addBlog(newBlog);
+
+  const newBlogModal = new bootstrap.Modal(
+    document.getElementById("newBlogModal")
+  );
+  newBlogModal.hide();
+
+  // Formu sıfırla
+  blogForm.reset();
+
+  // Yeniden blogları görüntüle
+  blogManager.displayBlogs();
 });

@@ -29,6 +29,7 @@ class UI {
       })
       
       .map((kitap) => {
+        
         return kitapCard(kitap, this.degisiklik);
       })
       .join("");
