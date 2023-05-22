@@ -109,10 +109,10 @@ const request = new Request("https://jsonplaceholder.typicode.com/posts/");
 
 
 
-request
-.delete(1)
-.then((data) => console.log(data))
-.catch((err) => console.log(err));
+// request
+// .delete(1)
+// .then((data) => console.log(data))
+// .catch((err) => console.log(err));
 
 // request
 //   .get()

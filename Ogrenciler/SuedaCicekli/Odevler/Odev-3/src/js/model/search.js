@@ -4,6 +4,11 @@ class Search {
       searchKeyword = e.target.value;
       UI.addBlogToUI();
     })
+
+    searchInput.addEventListener('search', function (e) {
+      searchKeyword = "";
+      UI.addBlogToUI();
+    })
   }
 }
 

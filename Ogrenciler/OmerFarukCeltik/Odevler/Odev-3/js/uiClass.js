@@ -21,13 +21,13 @@ let arr = [];
 class UI {
   static isEmpty() {
     return (
-      contentTitleInput.value == "" ||
-      authorInput.value == "" ||
-      categoryInput.value == "" ||
+      contentTitleInput.value.length < 5 ||
+      authorInput.length < 5  ||
+      categoryInput.length < 5  ||
       dateInput.value == "" ||
       urlInput.value == "" ||
       scoreInput.value == "" ||
-      contentTextarea.value == ""
+      contentTextarea.value.length < 140 
     )
   };
   async refreshAndAddContentToUI(searchValue, sortValue, navbarSearchValue, checkedValue, zeroCheck) {

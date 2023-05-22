@@ -1,0 +1,107 @@
+.containerBlog{
+  display: grid;
+  grid-template-areas: 
+  "containerUp containerUp containerUp"
+  "blogList blogList sidebar"
+  "blogList blogList sidebar"
+
+}
+.banner{
+  background: url(../img/Behçet.png);
+  background-color: #a6a6a6;
+  padding-top: 210px;
+  padding-bottom: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+.deneme{
+  width: 28rem !important;
+  
+}
+.card-img-top{
+  width: 380px;
+  height: 250px;
+}
+.sidebar{
+  width: 280px;
+  h4{
+    font-family: 'Oswald';
+    font-weight: 400;
+    font-size: 18px;
+    padding: 10px 0;
+    background: url(../img/16393.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    
+  }
+  img{
+    width: 280px;
+    height: 350px;
+  }
+}
+.card{
+  border: none;
+  box-shadow: 1px 2px 12px 0px rgba(166,166,166,0.9);
+  transition: all 0.3s ease;
+  position: relative;
+  width: 28rem;
+  &:before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 6%;
+    width: 97%;
+    height: 94%;
+    transform: rotate(0);
+    border-radius: 10px;
+    transition: all .5s cubic-bezier(.42,0,.14,1.02);
+    background-color: rgba(166,166,166,0.7);
+    z-index: -1;
+  }
+  &:hover::before{
+    transform: rotate(5deg);
+    height: 96%;
+  }
+}
+.footer{
+  p{
+    margin:0 ;
+    font-family: 'Oswald';
+    font-weight: 400;
+    font-size: 18px;
+  }  
+    padding: 20px 0;
+    background: url(../img/16393.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.top { 
+  position: fixed;
+  bottom: 20px;
+  margin-right:10px; 
+  width: 36px;
+  height: 36px; 
+  text-decoration: none;
+  padding-top: 5px;
+  font-family: sans-serif;
+  color: #fff;
+  background: #5F6A6A;
+  border-radius: 50%;
+  white-space: nowrap;
+  text-align: center;
+  right: 0;
+  margin-right: 30px;
+}
+@media only screen and (max-width: 767px) {
+  .banner{
+      background-size: cover;
+  }
+  #blogList{
+      justify-content: center;
+  }
+  .sidebar{
+      display: none;
+  }
+}

@@ -35,7 +35,7 @@ class UI {
 
   static showBlogs(blogs) {
     blogs.map((blog) => {
-      blogList.innerHTML += `<div id=${blog.id} class="col-4 blog-card mt-1">
+      blogList.innerHTML += `<div id=${blog.id} class="col-6 col-xl-4 blog-card mt-1">
         <div class="card">
           <div class="row h-100">
             <div
@@ -74,10 +74,10 @@ class UI {
         child.childNodes[1].childNodes[1].childNodes[3].childNodes[9].childNodes[1].addEventListener(
           "click",
           () => {
-            console.log(updateBlogModal);
             Request.getBlogs().then((response) => {
               response.map((item) => {
                 if (item.id == child.id) {
+                  updateBlogModal.children[0].id = child.id;
                   blogNameUpdate.value = item.title;
                   blogTypeUpdate.value = item.body;
                   blogWriterUpdate.value = item.author;
