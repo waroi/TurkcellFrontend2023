@@ -37,7 +37,7 @@ class UI {
                   <div class="col-lg-12 mt-3">
                       <input
                       type="text"
-                      class="form-control"
+                  class="form-control"
                       id="editTitle"
                       placeholder="Başlık Düzenle"
                       />
@@ -53,9 +53,9 @@ class UI {
                   <div class="col-sm-12 col-lg-6 mt-3">
                       <select class="form-select" id="editCategory">
                       <option selected value="">Kategori</option>
-                      <option value="News">News</option>
-                      <option value="Dancers">Dancers</option>
-                      <option value="Dances">Dances</option>
+                      <option value="Yazılım Geliştirme">Yazılım Geliştirme</option>
+                      <option value="Araştırma">Araştırma</option>
+                      <option value="Kariyer Tavsiyeleri">Kariyer Tavsiyeleri</option>
                       </select>
                   </div>
                   <div class="col-lg-12 mt-3">
@@ -191,12 +191,12 @@ class UI {
                   />
               </div>
               <div class="col-sm-12 col-lg-6 mt-3">
-                  <select class="form-select" id="edit-category">
-                  <option selected value="">Kategori</option>
-                  <option value="News">News</option>
-                  <option value="Dancers">Dancers</option>
-                  <option value="Dances">Dances</option>
-                  </select>
+                   <select class="form-select" id="editCategory">
+                      <option selected value="">Kategori</option>
+                      <option value="Yazılım Geliştirme">Yazılım Geliştirme</option>
+                      <option value="Araştırma">Araştırma</option>
+                      <option value="Kariyer Tavsiyeleri">Kariyer Tavsiyeleri</option>
+                      </select>
               </div>
               <div class="col-lg-12 mt-3">
                   <input

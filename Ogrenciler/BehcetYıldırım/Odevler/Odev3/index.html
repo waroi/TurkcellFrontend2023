@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap demo</title>
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -24,15 +24,18 @@
       <div class="container-fluid banner"></div>
     </section>
     <section id="sectionBlog">
-      <div id="selectCategory" class="container">
-        <button
-          id="all"
-          type="button"
-          class="btn col-md-2 col-5 bg-secondary text-center text-white border-0 rounded-5 mt-2 me-2 p-1"
-        >
-          All
-        </button>
+      <div class="container">
+        <div id="selectCategory">
+          <button
+            id="all"
+            type="button"
+            class="btn col-md-2 col-5 bg-secondary text-center text-white border-0 rounded-5 mt-2 me-2 p-1"
+          >
+            All
+          </button>
+        </div>
       </div>
+
       <div
         class="bannerdown container d-lg-flex justify-content-between gap-5 my-3"
       >
@@ -51,6 +54,25 @@
             data-bs-target="#addModal"
           >
             <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="my-3 sorting d-flex align-items-center gap-2">
+          <button class="btn btn-dark px-5" id="sortByName">
+            A-Z'ye Sırala
+          </button>
+          <button class="btn btn-dark px-5" id="sortByNameReverse">
+            Z-A'ye Sırala
+          </button>
+          <button class="btn btn-dark px-4" id="sortByAuthor">
+            Yazara Göre Sırala
+          </button>
+          <button class="btn btn-dark" id="sortByDateOldest">
+            Eskiden Yeniye Göre Sırala
+          </button>
+          <button class="btn btn-dark" id="sortByDateNew">
+            Yeniden Eskiye Göre Sırala
           </button>
         </div>
       </div>
@@ -156,6 +178,10 @@
         </div>
       </div>
     </div>
+    <div class="continer-fluid text-center mt-5 footer">
+      <p class="text-white">2023 ❤ WITH LOVE FROM SAİT BEHCET YILDIRIM</p>
+    </div>
+    <a href="#" class="top"> &#8593;</a>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

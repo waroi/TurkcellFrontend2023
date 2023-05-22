@@ -10,7 +10,14 @@ const blogText = document.getElementById("blog");
 const addBtn = document.getElementById("saveBlog");
 const categories = document.getElementById("selectCategory");
 
+const sortByName = document.getElementById("sortByName");
+const sortByNameReverse = document.getElementById("sortByNameReverse");
+const sortByAuthor = document.getElementById("sortByAuthor");
+const sortByDateOldest = document.getElementById("sortByDateOldest");
+const sortByDateNew = document.getElementById("sortByDateNew");
+
 const request = new Request("http://localhost:3000/blogs");
+
 const ui = new UI();
 
 eventListeners();
@@ -22,6 +29,12 @@ function eventListeners() {
   blogList.addEventListener("click", editBlog);
   search.addEventListener("keyup", searchBlog);
   categories.addEventListener("click", filterCategory);
+
+  sortByName.addEventListener("click", sortByNameFromDB);
+  sortByNameReverse.addEventListener("click", sortByNameReverseFromDB);
+  sortByAuthor.addEventListener("click", sortByAuthorFromDB);
+  sortByDateOldest.addEventListener("click", sortByDateOldestFromDB);
+  sortByDateNew.addEventListener("click", sortByDateNewFromDB);
 }
 //!
 function defaultBlogs() {
@@ -34,7 +47,6 @@ function defaultBlogs() {
       console.log(err);
     });
 }
-
 //! Blog Ekleme
 function addBlog(e) {
   const blogTitle = title.value.trim();
@@ -43,7 +55,7 @@ function addBlog(e) {
   const blogPreview = preview.value.trim();
   const blogImg = photo.value.trim();
   const blogBody = blogText.value.trim();
-  const time = Date();
+  const time = new Date().toLocaleString();
 
   if (
     blogTitle === "" ||
@@ -99,6 +111,7 @@ function deleteBlog(e) {
       });
   }
 }
+
 //! Blod Edit
 function editBlog(e) {
   if (e.target.id === "editBlog") {
@@ -112,7 +125,7 @@ function editBlog(e) {
 
     let card = e.target.parentElement.parentElement;
     let id = e.target.parentElement.parentElement.firstElementChild.textContent;
-    let time = Date();
+    let time = new Date().toLocaleString();
 
     request
       .get()
@@ -165,8 +178,8 @@ async function createFilters() {
   let allArticle = await request.get();
   let categories = new Set(allArticle.map((article) => article.category));
   Array.from(categories).forEach((category) => {
-    const deneme = document.getElementById("selectCategory");
-    deneme.innerHTML += `
+    const clearUI = document.getElementById("selectCategory");
+    clearUI.innerHTML += `
     <button
           id="${category}"
           type="button"
@@ -177,9 +190,90 @@ async function createFilters() {
   });
 }
 createFilters();
-
+//! Kategoriye Göre Sıralama
 function filterCategory(e) {
   const blogCategories = document.querySelectorAll(".card-category");
   const selectedCategory = e.target.innerText;
   ui.filterBlogCategory(selectedCategory, blogCategories);
+}
+
+//! A-Z'ye göre sıralama
+const requestSortByName = new Request(
+  "http://localhost:3000/blogs?_sort=title"
+);
+function sortByNameFromDB() {
+  const clearUI = document.getElementById("blogList");
+  clearUI.innerHTML = "";
+  requestSortByName
+    .get()
+    .then((blogs) => {
+      ui.getAllBlogsFromDB(blogs);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+//! Z-A'ya göre sıralama
+const requestSortByNameReverse = new Request(
+  "http://localhost:3000/blogs?_sort=title&_order=desc"
+);
+function sortByNameReverseFromDB() {
+  const clearUI = document.getElementById("blogList");
+  clearUI.innerHTML = "";
+  requestSortByNameReverse
+    .get()
+    .then((blogs) => {
+      ui.getAllBlogsFromDB(blogs);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+//! Yazara Göre Sıralama
+const requestsortByAuthor = new Request(
+  "http://localhost:3000/blogs?_sort=author"
+);
+function sortByAuthorFromDB() {
+  const clearUI = document.getElementById("blogList");
+  clearUI.innerHTML = "";
+  requestsortByAuthor
+    .get()
+    .then((blogs) => {
+      ui.getAllBlogsFromDB(blogs);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+//! Eskiden Yeniye Göre Sıralama
+const requestsortByDateOldest = new Request(
+  "http://localhost:3000/blogs?_sort=date"
+);
+function sortByDateOldestFromDB() {
+  const clearUI = document.getElementById("blogList");
+  clearUI.innerHTML = "";
+  requestsortByDateOldest
+    .get()
+    .then((blogs) => {
+      ui.getAllBlogsFromDB(blogs);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+//! Yeniden Eskiye Göre Sırala
+const requestsortByDateNew = new Request(
+  "http://localhost:3000/blogs?_sort=date&_order=desc"
+);
+function sortByDateNewFromDB() {
+  const clearUI = document.getElementById("blogList");
+  clearUI.innerHTML = "";
+  requestsortByDateNew
+    .get()
+    .then((blogs) => {
+      ui.getAllBlogsFromDB(blogs);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
