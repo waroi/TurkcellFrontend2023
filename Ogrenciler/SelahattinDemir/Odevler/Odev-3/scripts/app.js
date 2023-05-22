@@ -20,15 +20,19 @@ const form = document.getElementById("music-form");
 addEventListeners();
 
 function addEventListeners() {
-  document.addEventListener("DOMContentLoaded", showMusic);
+  window.addEventListener("scroll", showLine);
+  window.addEventListener("scroll", noneFilterWrapper);
+  document.addEventListener("DOMContentLoaded", showMusics);
   document.addEventListener("DOMContentLoaded", showAuthor);
   document.addEventListener("DOMContentLoaded", showCategory);
   addBookBtn.addEventListener("click", formListenSubmitEvent);
   musicList.addEventListener("click", UI.deleteMusicFromUI);
   musicList.addEventListener("click", UI.editMusicFromUI);
-    
-  sort.addEventListener("change", function () {
-    Filter.sortMusicsFromFilter(this.value);
+
+  sort.addEventListener("click", function (e) {
+    let clickedItem = e.target;
+    let selectedValue = clickedItem.getAttribute("value");
+    Filter.sortMusicsFromFilter(selectedValue);
   });
 
   searchInput.addEventListener("keyup", function () {
@@ -44,11 +48,11 @@ function addEventListeners() {
   });
 }
 
-
-function formListenSubmitEvent(e) {
+async function formListenSubmitEvent(e) {
   e.preventDefault();
   musicList.innerHTML = "";
   UI.formListenSubmitFromUI(e);
+  showMusics();
   showAuthor();
   showCategory();
   form.reset();
@@ -57,7 +61,7 @@ function formListenSubmitEvent(e) {
   searchInput.value = "";
 }
 
-function showMusic() {
+function showMusics() {
   request
     .get()
     .then((data) => {
@@ -96,4 +100,34 @@ async function showCategory() {
   categoryList.innerHTML += Array.from(categoriesSet).map((category) =>
     Checkbox.addCheckboxFromCheckbox(category)
   );
+}
+
+// sayfa scroll edildiğinde çizgiyi göster
+function showLine() {
+  var scrollPosition = window.scrollY;
+  var lines = document.querySelectorAll(".line");
+
+  lines.forEach(function (line, index) {
+    var triggerPoint = (index + 1) * 300;
+    var opacity = 0;
+
+    if (scrollPosition >= triggerPoint) {
+      opacity = 1;
+    }
+
+    line.style.opacity = opacity;
+  });
+}
+
+// sayfa scroll edildiğinde filtreleme containerinı gizle
+function noneFilterWrapper() {
+  var wrapperDiv = document.querySelector(".filter-float-wrapper");
+  var scrollPosition = window.innerHeight + window.scrollY;
+  var documentHeight = document.documentElement.offsetHeight;
+
+  if (scrollPosition >= documentHeight) {
+    wrapperDiv.style.display = "none";
+  } else {
+    wrapperDiv.style.display = "block";
+  }
 }
