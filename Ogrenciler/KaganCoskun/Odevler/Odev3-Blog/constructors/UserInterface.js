@@ -8,8 +8,9 @@ class UserInterface{
         const content = document.getElementById("content").value;
         const imgUrl = document.getElementById("coverUrl").value;
         const date = new Date().toLocaleString();
+        const clap = isEdit ? editItemClap : 0;
 
-        return {title,content,author,date,category,imgUrl,id};
+        return {title,content,author,date,category,imgUrl,id,clap};
     }
 
     addNewBlog(bookData){
@@ -143,6 +144,7 @@ class UserInterface{
         sortType !== "Varsayılan"? blogs=ui.sortBlogs(blogs,sortType) : "";
         ui.loadUi(blogs)
     }
+
     updateClap(id){
         let clap = Number(document.getElementById("clap").textContent)
         storage.updateClap(id,clap+1).then(data => {
@@ -151,9 +153,10 @@ class UserInterface{
     }
    
 
-    mostPopularBlogs(){
+   async mostPopularBlogs(){
         let popularWrap = document.getElementById("popularWrap");
-        storage.getAll().then(data => {
+        popularWrap.innerHTML = `<h5 class="card-title">En Populer Yazılar</h5>`; 
+       await storage.getAll().then(data => {
             let mostPopularBlogs = data.sort((a,b) => b.clap - a.clap).slice(0,3);
             mostPopularBlogs.map(blog => {
                 blog = new Blog(blog.title,blog.content,blog.author,blog.date,blog.category,blog.imgUrl,blog.id,blog.clap);

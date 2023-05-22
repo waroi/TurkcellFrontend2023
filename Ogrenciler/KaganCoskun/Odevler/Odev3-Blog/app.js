@@ -1,5 +1,6 @@
 let isEdit = false;
 let editItemId;
+let editItemClap;
 const ui = new UserInterface();
 const storage = new Storage("http://localhost:3004/posts");
 
