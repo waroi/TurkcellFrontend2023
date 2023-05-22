@@ -108,7 +108,7 @@ function showLine() {
   var lines = document.querySelectorAll(".line");
 
   lines.forEach(function (line, index) {
-    var triggerPoint = (index + 1) * 300;
+    var triggerPoint = (index + 1) * 200;
     var opacity = 0;
 
     if (scrollPosition >= triggerPoint) {
