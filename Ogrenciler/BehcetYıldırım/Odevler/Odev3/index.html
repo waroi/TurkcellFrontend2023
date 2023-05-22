@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <section id="sectionBanner">
+      <div class="container-fluid banner"></div>
+    </section>
+    <section id="sectionBlog">
+      <div class="container">
+        <div id="selectCategory">
+          <button
+            id="all"
+            type="button"
+            class="btn col-md-2 col-5 bg-secondary text-center text-white border-0 rounded-5 mt-2 me-2 p-1"
+          >
+            All
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="bannerdown container d-lg-flex justify-content-between gap-5 my-3"
+      >
+        <input
+          id="search"
+          type="text"
+          class="searchInput form-control"
+          placeholder="Hangi Yazıyı Arıyorsunuz?"
+        />
+        <div class="col-4 d-flex gap-5">
+          <button
+            id="addBlogBtn"
+            type="button"
+            class="btn bg-secondary text-light"
+            data-bs-toggle="modal"
+            data-bs-target="#addModal"
+          >
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="my-3 sorting d-flex align-items-center gap-2">
+          <button class="btn btn-dark px-5" id="sortByName">
+            A-Z'ye Sırala
+          </button>
+          <button class="btn btn-dark px-5" id="sortByNameReverse">
+            Z-A'ye Sırala
+          </button>
+          <button class="btn btn-dark px-4" id="sortByAuthor">
+            Yazara Göre Sırala
+          </button>
+          <button class="btn btn-dark" id="sortByDateOldest">
+            Eskiden Yeniye Göre Sırala
+          </button>
+          <button class="btn btn-dark" id="sortByDateNew">
+            Yeniden Eskiye Göre Sırala
+          </button>
+        </div>
+      </div>
+      <div class="container containerBlog d-flex justify-content-between">
+        <!--! Blog yazıları burada listelenecek -->
+        <div id="blogList" class="d-flex flex-wrap blogList gap-5"></div>
+        <!-- ---------------------------------------------------------- -->
+        <aside class="sidebar">
+          <h4 class="text-white">MERHABA BEN BEHÇET</h4>
+          <img
+            class="bloggerImg"
+            src="./img/1ca4c549-6324-48b3-a85f-15bc67e3b59e.jpg"
+            alt=""
+          />
+          <p class="my-3 text-center">
+            Blog sayfama hoşgeldiniz. Welcome to my blog page.
+          </p>
+          <h4 class="text-white mt-5">FOLLOW ME</h4>
+          <div class="d-flex justify-content-center align-items-center gap-3">
+            <a href="#"
+              ><i class="fa-brands fa-instagram" style="color: gray"></i
+            ></a>
+            <a href="#"
+              ><i class="fa-brands fa-twitter" style="color: gray"></i
+            ></a>
+            <a href="#"
+              ><i class="fa-brands fa-github" style="color: gray"></i
+            ></a>
+            <a href="#"
+              ><i class="fa-solid fa-envelope" style="color: gray"></i
+            ></a>
+          </div>
+          <a class="text-decoration-none" href="mailto:saitbehcet@gmail.com"
+            ><h4 class="text-white mt-5">CONTACT ME</h4></a
+          >
+        </aside>
+      </div>
+    </section>
+    <!--! MODAL YAPISI -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="booksModalLabel">
+              Bir Blog Yazısı Ekleyin
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            <div class="mb-2">
+              <label for="bookName" class="form-label"
+                >Yazı Başlığı Giriniz</label
+              >
+              <input type="text" class="form-control" id="blogName" />
+            </div>
+            <div class="mb-2">
+              <label for="author" class="form-label">Yazar</label>
+              <input type="text" class="form-control" id="authorName" />
+            </div>
+            <div class="mb-2">
+              <label for="category" class="form-label">Kategori</label>
+              <input type="text" class="form-control" id="category" />
+            </div>
+            <div class="mb-2">
+              <label for="preview" class="form-label">Önyazı</label>
+              <input type="text" class="form-control" id="preview" />
+            </div>
+            <div class="my-2">
+              <label for="bookimgUrl" class="form-label">Resim Linki</label>
+              <input type="text" class="form-control" id="blogImgUrl" />
+            </div>
+            <div class="my-2">
+              <label for="blog" class="form-label">Blog Yazısı Giriniz</label>
+              <textarea
+                name=""
+                id="blog"
+                class="form-control"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary py-2 px-4"
+              data-bs-dismiss="modal"
+            >
+              İptal
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary py-2 px-4"
+              id="saveBlog"
+            >
+              Kaydet
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="continer-fluid text-center mt-5 footer">
+      <p class="text-white">2023 ❤ WITH LOVE FROM SAİT BEHCET YILDIRIM</p>
+    </div>
+    <a href="#" class="top"> &#8593;</a>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="request.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

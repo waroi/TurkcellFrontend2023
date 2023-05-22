@@ -82,6 +82,7 @@ class UI {
     }
   }
   static fillForm(book) {
+    debugger;
     document.querySelector("#title").value = book.title;
     document.querySelector("#author").value = book.author;
     document.querySelector("#year").value = book.date;
