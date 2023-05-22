@@ -29,16 +29,19 @@
                 <div class="collapse navbar-collapse mt-lg-3 " id="navbarNavDropdown">
                     <ul class="navbar-nav d-flex flex-row justify-content-around flex-lg-column gap-lg-4">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active text-primary" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link text-primary" href="#">Featured</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link text-primary" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" href="#">Contact</a>
                         </li>
                         <li>
-                            <a href="#" type="button" class="btn btn-outline-secondary" id="openAddModalBtn"
+                            <a href="#" type="button" class="btn btn-outline-primary" id="openAddModalBtn"
                                 data-bs-toggle="modal" data-bs-target="#addModal">
                                 Add New
                             </a>
@@ -66,28 +69,29 @@
                         <div class="input-group">
                             <span class="input-group-text w-25">Title</span>
                             <input type="text" aria-label="Title" class="form-control"
-                                placeholder="The Future of Artificial Intelligence" id="addBlogTitle">
+                                placeholder="The Future of Artificial Intelligence" id="addBlogTitle" required>
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Content</span>
                             <input type="text" aria-label="Content" class="form-control"
-                                placeholder="Artificial Intelligence (AI) is rapidly evolving..." id="addBlogContent">
+                                placeholder="Artificial Intelligence (AI) is rapidly evolving..." id="addBlogContent"
+                                required>
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Author</span>
                             <input type="text" aria-label="Author" class="form-control" placeholder="John Doe"
-                                id="addBlogAuthor">
+                                id="addBlogAuthor" required>
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Category</span>
                             <input type="text" aria-label="Category" class="form-control" placeholder="Futuristic"
-                                id="addBlogCategory">
+                                id="addBlogCategory" required>
                         </div>
                         <div class="input-group">
                             <span class="input-group-text w-25">Image Url</span>
-                            <input type="text" aria-label="image-url" class="form-control"
+                            <input type="url" aria-label="image-url" class="form-control"
                                 placeholder="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTbJ6q6nCvC-F8ctwjE8F_gh176HK1p-EcKg&usqp=CAU"
-                                id="addBlogImageUrl">
+                                id="addBlogImageUrl" required>
                         </div>
                     </div>
                     <div class="modal-footer">

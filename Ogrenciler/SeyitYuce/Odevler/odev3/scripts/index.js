@@ -17,7 +17,7 @@ class Request {
             listItem.classList = "card mb-3 blog-item position-relative";
             listItem.innerHTML = `
               <div class="row g-0">
-                <div class="col-md-4">
+                <div class="col-md-4 overflow-hidden">
                   <img id="blogImage" src="${blog.image}"
                     class="w-100 rounded-start" alt="...">
                 </div>
@@ -32,12 +32,14 @@ class Request {
                       <span class="col-3" ><i class="fa-solid fa-feather-pointed"></i> ${capitalize(truncate(blog.author, 30))}</span>
                     </div>
                     <p class="card-text">${blog.content}</p>
-                    <button type="button" class="btn btn-primary edit-blog-btn" data-bs-toggle="modal" data-bs-target="#editModal">
-                       <i class="fa-regular fa-pen-to-square"></i> Edit
-                    </button>
-                    <button type="button" class="btn btn-primary delete-blog-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <div class="d-flex justify-content-end gap-3 me-4">
+                      <button type="button" class="btn btn-primary edit-blog-btn" data-bs-toggle="modal" data-bs-target="#editModal">
+                      <i class="fa-regular fa-pen-to-square"></i> Edit
+                      </button>
+                      <button type="button" class="btn btn-danger delete-blog-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                       <i class="fa-solid fa-trash"></i> Delete 
-                    </button>
+                      </button>
+                    </div>
                   </div>
                   <div class="sticky-div">
                     <span class="sticky-span">${blog.id}</span>

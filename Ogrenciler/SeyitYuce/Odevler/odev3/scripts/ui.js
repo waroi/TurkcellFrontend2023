@@ -6,8 +6,8 @@ function displayFilteredBlogs(blogs) {
     listItem.classList = "card mb-3 blog-item";
     listItem.innerHTML = `
                   <div class="row g-0">
-                    <div class="col-md-4">
-                      <img id="blogImage" src="${blog.image}" class="w-100 rounded-start" alt="...">
+                  <div class="col-md-4 overflow-hidden">
+                  <img id="blogImage" src="${blog.image}" class="w-100 rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
@@ -20,12 +20,14 @@ function displayFilteredBlogs(blogs) {
                           <span class="col-3"><i class="fa-solid fa-feather-pointed"></i> ${capitalize(blog.author)}</span>
                         </div>
                         <p class="card-text">${blog.content}</p>
-                        <button type="button" class="btn btn-primary edit-blog-btn" data-bs-toggle="modal" data-bs-target="#editModal">
+                        <div class="d-flex justify-content-end gap-3 me-4">
+                          <button type="button" class="btn btn-primary edit-blog-btn" data-bs-toggle="modal" data-bs-target="#editModal">
                           <i class="fa-regular fa-pen-to-square"></i> Edit
-                        </button>
-                        <button type="button" class="btn btn-primary delete-blog-btn">
+                          </button>
+                          <button type="button" class="btn btn-danger delete-blog-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                           <i class="fa-solid fa-trash"></i> Delete 
-                        </button>
+                          </button>
+                        </div>
                       </div>
                       <div class="sticky-div">
                         <span class="sticky-span">${blog.id}</span>
@@ -43,19 +45,15 @@ function updateCategoryList(category) {
   const capitalizedCategory = capitalize(category);
 
   if (!existingCategory) {
+
+
     const listItem = document.createElement('li');
     listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start');
     listItem.innerHTML = `
       <div type="button" class="ms-2 me-auto blog-category" data-category="${category}">${capitalizedCategory}</div>
-      <span class="badge bg-primary rounded-pill"></span>
     `;
 
     categoryList.appendChild(listItem);
-
-    const blogs = Array.from(document.querySelectorAll('.blog-category'));
-    const categoryCount = blogs.filter(blog => blog.dataset.category === category).length;
-    const badge = listItem.querySelector('.badge');
-    badge.textContent = categoryCount;
   }
 }
 
