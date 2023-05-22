@@ -8,9 +8,15 @@
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: $--bs-body-bg;
+  padding-top: 4.5rem;
 }
 
+.modal-bg {
+  
+  background-color: $--bs-light;
+  transition: all 0.3s ease-in-out;
+}
 .card-title {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -23,4 +29,17 @@ body {
 
 i {
   pointer-events: none;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  scale: 1.05;
 }
