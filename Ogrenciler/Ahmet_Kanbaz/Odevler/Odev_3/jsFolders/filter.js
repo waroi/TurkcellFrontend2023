@@ -130,6 +130,12 @@ class Filter {
       else if (sort === "dateNew2Old")
         filteredBlogs.sort(sortBlogsWithDate).reverse();
     }
-    UI.updateDisplayForFilter(filteredBlogs);
+    if(filteredBlogs == '') {
+      blogsList.innerHTML = '';
+      UI.toastMessage('Aramış olduğunuz blog bulunamadı.\nLütfen farklı bir blog arayınız.');
+    }
+    else {
+      UI.updateDisplayForFilter(filteredBlogs);
+    }
   };
 }
