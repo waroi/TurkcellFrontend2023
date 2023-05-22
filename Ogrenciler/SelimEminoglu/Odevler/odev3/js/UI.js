@@ -1,8 +1,7 @@
 class UI {
-  static showAuthors() {
-    Request.getAuthors().then((response) => {
-      response.map((author) => {
-        authorList.innerHTML += `<div class="col-3 me-1">
+  static showAuthors(authors) {
+    authors.map((author) => {
+      authorList.innerHTML += `<div class="col-3 me-1">
         <div class="row flex-column">
           <div class="col-6 w-100 d-flex justify-content-center py-3">
             <div class="auhtor-picture" style="background-image:url("${author.url}")"></div>
@@ -12,14 +11,12 @@ class UI {
           </div>
         </div>
       </div>`;
-      });
     });
   }
 
-  static showBlogs() {
-    Request.getBlogs().then((response) => {
-      response.map((blog) => {
-        blogList.innerHTML += `<div class="col-4 blog-card">
+  static showBlogs(blogs) {
+    blogs.map((blog) => {
+      blogList.innerHTML += `<div id=${blog.id} class="col-4 blog-card">
         <div class="card">
           <div class="row h-100">
             <div
@@ -51,7 +48,6 @@ class UI {
           </div>
         </div>
       </div>`;
-      });
     });
   }
 }
