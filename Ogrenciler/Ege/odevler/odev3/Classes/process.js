@@ -4,7 +4,6 @@ import UI from "./ui.js";
 const url = "http://localhost:3000/blogs";
 
 const categorySelect = document.querySelector("#category-select");
-const searchArea = document.querySelector("#search-area");
 const submitEditBtn = document.querySelector("#edit-btn");
 const addBtn = document.querySelector("#add-btn");
 let currentBlog;
