@@ -215,10 +215,8 @@ class UI {
   sortPost(sortedPosts) {
     const postList = document.getElementById("post-list");
     postList.innerHTML = "";
-    // console.log(sortedPosts);
 
     sortedPosts.forEach(function (post) {
-      console.log(post);
       const id = post.getAttribute('id');
       const url = post.children[0].children[0].src;
       const title = post.children[0].children[1].children[0].textContent;

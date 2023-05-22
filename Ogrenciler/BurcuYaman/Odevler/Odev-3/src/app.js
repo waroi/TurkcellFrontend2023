@@ -55,7 +55,6 @@ function getAllItems() {
 }
 
 function addPost(e) {
-    console.log("addPost");
     const postAuthor = postAuthorInput.value.trim();
     const postTitle = postTitleInput.value.trim();
     const postContent = postContentInput.value.trim();
@@ -91,7 +90,6 @@ function addPost(e) {
 }
 
 function deletePost(e) {
-    console.log(e.target);
     if (e.target.id === 'deletePost') {
         const id = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
         request
@@ -122,10 +120,9 @@ function updatePost(e) {
         const updateUrl = document.querySelector("#updateUrl");
         const updateDate = document.querySelector("#updateDate");
         const updateButton = document.querySelector("#updateButton");
-        console.log(e.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id"))
         const id = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
         const card = e.target.parentElement.parentElement.parentElement.parentElement;
-        console.log(card);
+
         request
             .get()
             .then((posts) => {
@@ -174,7 +171,6 @@ function updatePost(e) {
 
 function readMorePost(e) {
     if (e.target.id === 'readMore') {
-        console.log(e.target.parentElement.parentElement.parentElement)
         ui.readMorePostFromUI(e.target.parentElement.parentElement.parentElement);
     }
     e.preventDefault();
@@ -189,7 +185,6 @@ const filteredPosts = [];
 
 function filterPost(e, filteredPosts) {
     // goHome.addEventListener('click', getAllItems);
-    console.log("dsadsa")
     this.filteredPosts = filteredPosts;
     filteredPosts = [];
     const category = e.target.id;
@@ -226,7 +221,6 @@ function sortPostZa(e) {
     postListArray.map(function (post) {
         const card = post.parentElement.parentElement.parentElement;
         if (card.style.display !== "none") {
-            console.log(card);
             sortedPosts.push(card);
         }
     });
