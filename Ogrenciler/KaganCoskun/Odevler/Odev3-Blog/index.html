@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Sayfası</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- id,userId,title,content,author,date,category,imgUrl -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">KAGANLOG</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Anasayfa</a
+              >
+            </li>
+          </ul>
+          <div class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="Başlık ve ya Yazar Ara" id="searchInput"/>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container my-3">
+      <div
+        class="row p-2 border rounded-3 justify-content-between align-items-center gap-3"
+      >
+        <div class="col-lg-2">
+          <button
+            class="btn btn-primary w-100"
+            data-bs-toggle="modal"
+            data-bs-target="#addBlog"
+          >
+            Blog Ekle
+          </button>
+        </div>
+        <div class="col-lg-2">
+          <select class="form-select" aria-label="Default select example" id="sortType">
+            <option selected>Varsayılan</option>
+            <option value="dateNew">Tarih (Önce En Yeni)</option>
+            <option value="dateOld">Tarih (Önce En Eski)</option>
+            <option value="titleAZ">Başlık (A-Z)</option>
+            <option value="titleZA">Başlık (Z-A)</option>
+            <option value="authorAZ">Yazar (A-Z)</option>
+            <option value="authorZA">Yazar (Z-A)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Listeleme -->
+    <div class="container py-2">
+      <div class="row blogPageWrap">
+        <div class="col-md-8 col-sm-12">
+          <div class="blogCardWrap"></div>
+        </div>
+
+        <div class="col-md-4 asideBard">
+          <div class="card">
+            <ul class="card-body px-4" id="popularWrap">
+              <h5 class="card-title">En Populer Yazılar</h5>
+            </ul>
+          </div>
+          <br />
+          <div class="card mb-3">
+            <div class="card-body">
+              <button class="row  border-0 bg-white justify-content-between w-100 align-items-center" data-bs-toggle="collapse" data-bs-target="#category-group" aria-expanded="false" aria-controls="category-group">
+                <h5 class="col-5">Kategoriler</h5> 
+                <i class="fa-solid fa-chevron-down col-2"></i>
+              </button>
+              <ul class="list-group collapse"  id="category-group">
+                <li class="list-group-item">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                  <label class="form-check-label" for="flexCheckDefault">Teknoloji</label>
+                </li>
+                <li class="list-group-item"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container text-center">
+        <span class="text-muted"
+          >&copy 2023 Blog Sayfası. Tüm hakları saklıdır.</span
+        >
+      </div>
+    </footer>
+
+    <div
+      class="modal fade"
+      id="addBlog"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="addBlogLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="addBlogLabel">Blog Ekle</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form id="blogForm">
+            <div class="modal-body">
+              <div class="row position-relative">
+                <div class="col-30 mb-3">
+                  <input
+                    class="form-control col-lg-15 col-sm-30"
+                    id="title"
+                    type="text"
+                    placeholder="Konu Başlığı"
+                    required
+                  />
+                </div>
+                <div class="col-lg-15 col-sm-30 mb-3">
+                  <label for="category">Category</label>
+                  <select
+                    class="form-select"
+                    id="category"
+                    aria-label="Default select example"
+                    required
+                  >
+                    <option selected>Seçiniz</option>
+                    <option value="1">Teknoloji</option>
+                    <option value="2">Seyahat</option>
+                    <option value="3">Spor</option>
+                  </select>
+                </div>
+
+                <div class="col-lg-15 col-sm-30 mb-3">
+                  <label for="content">Konu</label>
+                  <textarea
+                    class="form-control col-lg-15 col-sm-30"
+                    id="content"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <div class="col-lg-15 col-sm-30 mb-3">
+                  <label for="author">Yazar Adı</label>
+                  <input
+                    class="form-control col-lg-15 col-sm-30"
+                    id="author"
+                    type="text"
+                    required
+                  />
+                </div>
+                <div class="col-lg-15 col-sm-30 mb-3">
+                  <label for="coverUrl">Resim URL'si</label>
+                  <input
+                    class="form-control col-lg-15 col-sm-30"
+                    id="coverUrl"
+                    type="text"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="clsBtn"
+              >
+                Kapat
+              </button>
+              <button type="submit" class="btn btn-primary" id="blogFormBtn">
+                Oluştur
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--Blog Modal -->
+    <div id="blogViewer" class="blogViewer"></div>
+
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="ToastFeedback" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">KAGANLOG</strong>
+          <small>NOW</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body"></div>
+      </div>
+    </div>
+
+    <script src="./constructors/Constructor.js"></script>
+    <script src="./constructors/UserInterface.js"></script>
+    <script src="./constructors/Storage.js"></script>
+    <script src="app.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  </body>
+</html>

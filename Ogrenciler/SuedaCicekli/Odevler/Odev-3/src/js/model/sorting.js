@@ -24,7 +24,6 @@ class Sorting {
       checkbox.addEventListener('change', function () {
         if (this.checked) {
           shorthingType = this.id;
-          console.log(shorthingType);
           UI.addBlogToUI();
         }
       });

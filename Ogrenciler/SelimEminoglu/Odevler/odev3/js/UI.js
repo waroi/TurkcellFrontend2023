@@ -35,7 +35,7 @@ class UI {
 
   static showBlogs(blogs) {
     blogs.map((blog) => {
-      blogList.innerHTML += `<div id=${blog.id} class="col-4 blog-card mt-1">
+      blogList.innerHTML += `<div id=${blog.id} class="col-6 col-xl-4 blog-card mt-1">
         <div class="card">
           <div class="row h-100">
             <div

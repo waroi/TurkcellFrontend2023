@@ -17,6 +17,7 @@ const urlTwoInput = document.getElementById('urlTwoInput');
 const textInput = document.getElementById('textInput');
 const textTwoInput = document.getElementById('textTwoInput');
 const blogListArea = document.getElementById('blog-list-area');
+const closeButtons = document.querySelectorAll('.close-form');
 let avatarInput;
 
 //buttons
@@ -73,6 +74,8 @@ class UI {
       } else {
         UI.updateBlog(saveOrUpdateButton.getAttribute("blogId"));
       }
+
+
     });
 
     // Diğer checkbox'ların işaretini kaldırır ve işaretlenin chekbox'dan bir avatar pathi'i üretir.
@@ -87,6 +90,28 @@ class UI {
         avatarInput = "./src/asset/avatars/" + avatar.id + ".png";
       });
     });
+
+    closeButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        UI.clearForm();
+      });
+    });
+  }
+
+  static clearForm() {
+    titleInput.value = "";
+    categoryInput.value = "";
+    urlInput.value = "";
+    urlTwoInput.value = "";
+    textInput.value = "";
+    textTwoInput.value = "";
+    summaryInput.value = "";
+    writerNameInput.value = "";
+    writerSurnameInput.value = "";
+    avatarInput = "";
+    avatarList.forEach((input) => {
+      input.checked = false;
+    });
   }
 
 
@@ -98,7 +123,6 @@ class UI {
           button.classList.remove('active');
         });
         button.classList.add('active');
-        console.log(activeCategory);
         if (activeCategory == "All") {
           Operation.getAllBlogs();
         }
@@ -197,11 +221,9 @@ class UI {
     detailAvatar.setAttribute("src", blog.writerAvatar);
     detailAuthorName.innerHTML = blog.writerName;
     detailAuthorSurname.innerHTML = blog.writerSurname;
-    console.log(blog)
     detailDate.innerHTML = blog.date.split(" ")[0] + " | " + blog.date.split(" ")[1];
     detailCategory.innerHTML = blog.category;
     detailSummary.innerHTML = blog.summary;
-    console.log(blog.image2);
     if (blog.image2 == "") {
       detailTwoImage.setAttribute("class", "d-none")
     } else {
@@ -242,7 +264,7 @@ class UI {
     }
     let blog = new Blog(titleValue, categoryValue, imageValue,
       imageValue2, textValue, textValue2, summary, date, username, writerName, writerSurname, avatar);
-    console.log(blog);
+
 
     Operation.saveBlog(blog);
 
@@ -275,7 +297,7 @@ class UI {
 
   static formValidation() {
     if (titleInput.value == "" || categoryInput.value == "" || urlInput.value == "" || textInput.value == "" || summaryInput.value == "" || writerNameInput.value == "" || writerSurnameInput.value == "") {
-      console.log("boş alan var");
+
       alertArea.classList.remove("d-none");
       return false;
     } else {
@@ -311,7 +333,7 @@ class UI {
   static createDate() {
     // Tarih nesnesini oluştur
     const currentDate = new Date();
-    console.log(currentDate);
+
 
     // Tarih bilgisini formatla
     const day = currentDate.getDate().toString().padStart(2, '0');
@@ -329,7 +351,7 @@ class UI {
     // Tarih ve saat bilgisini birleştir
     const dateTime = `${formattedDate} ${formattedTime}`;
 
-    console.log(dateTime);
+
     return dateTime;
 
   }
