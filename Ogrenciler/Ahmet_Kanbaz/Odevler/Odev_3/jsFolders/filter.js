@@ -3,6 +3,12 @@ let selectedDropDown = [];
 let search = "";
 let sort = "";
 class Filter {
+  static orientation4ShowBlogsWithFilter() {
+    const filter = new Filter();
+    filter.getDatas().then((datas) => {
+      Filter.showBlogsWithFilter(datas);
+    });
+  }
   async getDatas() {
     const response = await fetch("http://localhost:3000/blogs");
     const data = await response.json();
@@ -20,10 +26,7 @@ class Filter {
         selectedList.splice(index, 1);
       }
     }
-    const filter = new Filter();
-    filter.getDatas().then((datas) => {
-      Filter.showBlogsWithFilter(datas);
-    });
+    Filter.orientation4ShowBlogsWithFilter();
     e.preventDefault();
   };
 
@@ -38,28 +41,19 @@ class Filter {
         selectedDropDown.splice(index, 1);
       }
     }
-    const filter = new Filter();
-    filter.getDatas().then((datas) => {
-      Filter.showBlogsWithFilter(datas);
-    });
+    Filter.orientation4ShowBlogsWithFilter();
     e.preventDefault();
   };
 
   static getSearchInput = function (e) {
     search = searchInput.value;
-    const filter = new Filter();
-    filter.getDatas().then((datas) => {
-      Filter.showBlogsWithFilter(datas);
-    });
+    Filter.orientation4ShowBlogsWithFilter();
     e.preventDefault();
   };
 
   static getSortDropDown = function (e) {
     sort = e.target.id;
-    const filter = new Filter();
-    filter.getDatas().then((datas) => {
-      Filter.showBlogsWithFilter(datas);
-    });
+    Filter.orientation4ShowBlogsWithFilter();
     e.preventDefault();
   };
 
@@ -130,11 +124,12 @@ class Filter {
       else if (sort === "dateNew2Old")
         filteredBlogs.sort(sortBlogsWithDate).reverse();
     }
-    if(filteredBlogs == '') {
-      blogsList.innerHTML = '';
-      UI.toastMessage('Aramış olduğunuz blog bulunamadı.\nLütfen farklı bir blog arayınız.');
-    }
-    else {
+    if (filteredBlogs == "") {
+      blogsList.innerHTML = "";
+      UI.toastMessage(
+        "Aramış olduğunuz blog bulunamadı.\nLütfen farklı bir blog arayınız."
+      );
+    } else {
       UI.updateDisplayForFilter(filteredBlogs);
     }
   };
