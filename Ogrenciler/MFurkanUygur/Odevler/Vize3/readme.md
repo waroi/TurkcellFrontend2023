@@ -1,4 +1,4 @@
-# BlockPick Project
+# BlockPick Blog Project
 
 ## Javascript-Html-Bootstrap-Scss
 
