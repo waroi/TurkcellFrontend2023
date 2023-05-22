@@ -32,10 +32,13 @@ class UserInterface {
     addCard = function (newBlog) {
         let card = newBlog.createCard();
         blogUI.appendChild(card);
-        let cardImage = document.querySelector(".card-image");
+        let cardImage = card.querySelector(".card-image");
 
 
-        cardImage.addEventListener("click", UI.openDisplay);
+        cardImage.addEventListener("click", function () {
+            UI.openDisplay(card);
+            window.scrollTo(0, card.offsetTop);
+        });
 
         card.querySelector(".btn-danger").addEventListener("click", function () {
             UI.findIdtoDelete(newBlog);
@@ -48,7 +51,7 @@ class UserInterface {
 
 
         card.querySelector(".btn-dark").addEventListener("click", function () {
-            UI.closeDisplay();
+            UI.closeDisplay(card);
 
         })
     }
@@ -92,24 +95,22 @@ class UserInterface {
         });
     }
 
-    openDisplay = function () {
-        let closeButton = document.querySelector(".btn-dark");
+    openDisplay = function (card) {
+        let closeButton = card.querySelector(".btn-dark");
         closeButton.classList.remove("d-none");
-        let pText = document.querySelector(".card-text");
+        let pText = card.querySelector(".card-text");
         pText.classList.replace("d-none", "d-block");
-        let boxArea = document.querySelector(".card");
-        boxArea.classList.replace("col-lg-4", "col-12");
-        boxArea.classList.remove("col-md-6");
+        card.classList.replace("col-lg-4", "col-12");
+        card.classList.remove("col-md-6");
     }
 
-    closeDisplay = function () {
-        let closeButton = document.querySelector(".btn-dark");
+    closeDisplay = function (card) {
+        let closeButton = card.querySelector(".btn-dark");
         closeButton.classList.add("d-none");
-        let pText = document.querySelector(".card-text");
+        let pText = card.querySelector(".card-text");
         pText.classList.replace("d-block", "d-none");
-        let boxArea = document.querySelector(".card");
-        boxArea.classList.replace("col-12", "col-lg-4");
-        boxArea.classList.add("col-md-6");
+        card.classList.replace("col-12", "col-lg-4");
+        card.classList.add("col-md-6");
     }
 
     loadSearchedUI = function (fullData) {
