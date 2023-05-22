@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./css/main.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/index.js" type="module" defer></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card mb-3 d-flex justify-content-between m-auto" style="max-width: 540px;">
+          <div class="row g-0 row-image">
+            <div class="col-md-12 d-flex">
+              <div class="card-body">
+                <h3 class="card-title">Welcome to <br><span class="text-warning">BL∞g</span></h3>
+                <p class="card-text">Step into a world of nature/technology/creativity where you can blog anything.<br>
+                  We are thrilled to have you join us on this journey.</p>
+                <button class="btn btn-warning w-50 position-relative align-self-center"
+                  data-bs-target="#carouselExampleCaptions" data-bs-slide="next">Create an Account</button>
+                <a id="go-site" class="btn btn-warning w-50 mt-3 position-relative align-self-center">Log In with
+                  Created Account</a>
+                <div id="loading2" class="spinner-border d-none justify-content-center m-auto mt-4" role="status"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card mb-3 d-flex justify-content-between m-auto" style="max-width: 540px;">
+          <div class="row g-0 row-image2">
+            <div class="col-md-12 d-flex">
+              <div class="card-body">
+                <h3 class="card-title">Create an Account<br><span class="text-warning">BL∞g</span></h3>
+                <form id="userForms" onkeydown="return event.key != 'Enter';">
+                  <div class="form-floating mb-3 mt-3 text-black">
+                    <input type="text" class="form-control" id="getUsername" placeholder="name@example.com">
+                    <label for="getUsername">Username</label>
+                  </div>
+                  <div class="form-floating text-black">
+                    <input type="text" class="form-control" id="getUrl" placeholder="Photo Url">
+                    <label for="getUrl">Photo Url</label>
+                    <button id="userInfo" type="submit"
+                      class="btn btn-warning w-25 position-relative align-self-center mt-3">Sign Up</button>
+                    <div id="loading" class="spinner-border d-none justify-content-center m-auto mt-4" role="status">
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
