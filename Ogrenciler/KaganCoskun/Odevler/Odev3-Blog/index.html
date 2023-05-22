@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog Sayfası</title>
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -73,22 +73,25 @@
 
     <!-- Blog Listeleme -->
     <div class="container py-2">
-      <div class="row">
-        <div class="col-md-8">
+      <div class="row blogPageWrap">
+        <div class="col-md-8 col-sm-12">
           <div class="blogCardWrap"></div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 asideBard">
           <div class="card">
             <ul class="card-body px-4" id="popularWrap">
               <h5 class="card-title">En Populer Yazılar</h5>
             </ul>
           </div>
           <br />
-          <div class="card">
+          <div class="card mb-3">
             <div class="card-body">
-              <h5 class="card-title">Kategoriler</h5>
-              <ul class="list-group" id="category-group">
+              <button class="row  border-0 bg-white justify-content-between w-100 align-items-center" data-bs-toggle="collapse" data-bs-target="#category-group" aria-expanded="false" aria-controls="category-group">
+                <h5 class="col-5">Kategoriler</h5> 
+                <i class="fa-solid fa-chevron-down col-2"></i>
+              </button>
+              <ul class="list-group collapse"  id="category-group">
                 <li class="list-group-item">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
                   <label class="form-check-label" for="flexCheckDefault">Teknoloji</label>
