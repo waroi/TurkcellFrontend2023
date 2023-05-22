@@ -1,5 +1,7 @@
 import { UI } from "./ui.js";
-import { request } from "./requests.js";
+import Request from "./requests.js";
+
+const request = new Request();
 
 class Blog {
   constructor(id, title, author, category, date, blogImgUrl, content) {
@@ -12,77 +14,59 @@ class Blog {
     this.content = content;
   }
   async addBlog() {
-    await request.post(
-        this,
-        (err, blog) => {
-            if (err) {
-                UI.showAlert(err, "danger");
-            } else {
-                UI.showAlert("Blog başarıyla eklendi", "success");
-                UI.addBlogToUI(blog);
-            }
-            }
-    );
-    UI.clearInputs();
+    request
+      .post(this)
+      .then((blog) => {
+        UI.showAlert("Blog başarıyla eklendi", "success");
+        UI.addBlogToUI(blog);
+        UI.clearInputs();
+      })
+      .catch((err) => UI.showAlert(err, "danger"));
   }
 
-  async deleteBlog() {
-      await request.delete(
-        this.id,
-        (err, message) => {
-          if (err) {
-            UI.showAlert(err, "danger");
-          } else {
-            UI.showAlert(message, "success");
-            UI.deleteBlogFromUI(e.target);
-          }
-        }
-      );
+  async deleteBlog(e) {
+    request
+      .delete(this.id)
+      .then((message) => {
+          //UI.deleteBlogFromUI(e);
+          location.reload();
+          UI.showAlert("Blog başarıyla silindi", "success");
+      })
+      .catch((err) => UI.showAlert(err, "danger"));
   }
 
-    async updateBlog() {   
-            await request.put(
-                this,
-                (err, blog) => {
-                    if (err) {
-                        UI.showAlert(err, "danger");
-                    } else {
-                        UI.showAlert("Blog başarıyla güncellendi", "success");
-                        UI.updateBlogToUI(blog);
-                    }
-                }
-            );
-        
-    }
+  async updateBlog() {
+    request
+      .put(this)
+      .then((blog) => {
+        UI.showAlert("Blog başarıyla güncellendi", "success");
+        UI.updateBlogToUI(blog);
+        UI.clearInputs();
+      })
+      .catch((err) => UI.showAlert(err, "danger"));
+  }
 
-    async getBlog(e) {  
-        if (e.target.id === "update-blog") {
-            await request.get(
-                this.id,
-                (err, blog) => {
-                    if (err) {
-                        UI.showAlert(err, "danger");
-                    } else {
-                        UI.showAlert("Blog başarıyla güncellendi", "success");
-                        UI.updateBlogToUI(blog);
-                    }
-                }
-            );
-        }
-    }
+  async getBlog() {
+    console.log(this.id);
+    request
+      .get(this.id)
+      .then((blog) => {
+        console.log(blog);
+        UI.fillInputs(blog);
+      })
+      .catch((err) => UI.showAlert(err, "danger"));
+  }
 
-    async getAllBlogs() {
-        await request.get(
-            (err, blogs) => {
-                if (err) {
-                    UI.showAlert(err, "danger");
-                } else {
-                    UI.showAlert("Bloglar başarıyla listelendi", "success");
-                    UI.loadAllBlogsToUI(blogs);
-                }
-            }
-        );
-    }
-
-
+  getAllBlogs() {
+    request
+      .getAll()
+      .then((blogs) => {
+        blogs.length === 0
+          ? UI.showAlert("Herhangi bir blog bulunamadı", "warning")
+          : UI.loadAllBlogsToUI(blogs);
+      })
+      .catch((err) => UI.showAlert(err, "danger"));
+  }
 }
+
+export { Blog };

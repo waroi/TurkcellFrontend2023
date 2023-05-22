@@ -1,5 +1,20 @@
 import { Blog } from "./blog.js";
-import { blogForm, deleteBlog, updateBlog } from "./selectors.js";
+import { blogForm, blogList,
+  blogTitle,
+  blogContent,
+  blogAuthor,
+  blogDate,
+  blogImgUrl,
+  blogCategory,
+  updateBlogForm,
+  newBlogTitle,
+  newBlogContent,
+  newBlogAuthor,
+  newBlogDate,
+  newBlogImgUrl,
+  newBlogCategory,
+  modal
+ } from "./selectors.js";
 
 const blog = new Blog();
 
@@ -8,8 +23,8 @@ document.addEventListener("DOMContentLoaded", domContentLoaded);
 
 // Event Listeners
 blogForm.addEventListener("submit", submitBlogForm);
-deleteBlog.addEventListener("click", deleteBlogEvent);
-updateBlog.addEventListener("click", updateBlogEvent);
+updateBlogForm.addEventListener("submit", submitUpdateBlogForm);
+
 
 // Functions
 function domContentLoaded() {
@@ -31,28 +46,24 @@ function submitBlogForm(e) {
   e.preventDefault();
 }
 
-function deleteBlogEvent(e) {
-  if (e.target.id === "delete-blog") {
-    const blogId = e.target.parentElement.parentElement.id;
-    const blog = new Blog(blogId);
-    blog.deleteBlog();
-    e.preventDefault();
-  }
-}
+function submitUpdateBlogForm(e) {
+  const blogId = updateBlogForm.getAttribute("data-blog-id");
+  console.log(blogId);
+  const blog = new Blog(
+    blogId,
+    newBlogTitle.value,
+    newBlogAuthor.value,
+    newBlogCategory.value,
+    newBlogDate.value,
+    newBlogImgUrl.value,
+    newBlogContent.value
+  );
 
-function updateBlogEvent(e) {
-  if (e.target.id === "update-blog") {
-    const blogId = e.target.parentElement.parentElement.id;
-    const newblog = new Blog(
-      blogId,
-      newBlogTitle.value,
-      newBlogAuthor.value,
-      newBlogCategory.value,
-      newBlogDate.value,
-      newBlogImgUrl.value,
-      newBlogContent.value
-    );
-    newblog.updateBlog();
-    e.preventDefault();
-  }
+  blog.updateBlog();
+  e.preventDefault();
+
+  // Close modal
+  const modalInstance = bootstrap.Modal.getInstance(modal);
+  modalInstance.hide();
+
 }

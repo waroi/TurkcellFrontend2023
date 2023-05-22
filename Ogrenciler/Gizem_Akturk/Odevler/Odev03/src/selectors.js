@@ -8,12 +8,32 @@ const blogCategory = document.getElementById("category");
 
 const blogForm = document.getElementById("blog-form");
 
-const deleteBlog = document.getElementById("delete-blog");
-const updateBlog = document.getElementById("update-blog");
- const newBlogTitle = document.getElementById("new-title");
-    const newBlogContent = document.getElementById("new-content");
-    const newBlogAuthor = document.getElementById("new-author");
-    const newBlogDate = document.getElementById("new-date");
-    const newBlogImgUrl = document.getElementById("new-blogImgUrl");
-    const newBlogCategory = document.getElementById("new-category");
-    
+const newBlogTitle = document.getElementById("new-title");
+const newBlogContent = document.getElementById("new-content");
+const newBlogAuthor = document.getElementById("new-author");
+const newBlogDate = document.getElementById("new-date");
+const newBlogImgUrl = document.getElementById("new-blogImgUrl");
+const newBlogCategory = document.getElementById("new-category");
+
+const updateBlogForm = document.getElementById("update-blog-form");
+const modal = document.getElementById("exampleModal");
+
+
+export {
+   blogList,
+   blogTitle,
+   blogContent,
+   blogAuthor,
+   blogDate,
+   blogImgUrl,
+   blogCategory,
+   blogForm,
+   newBlogTitle,
+   newBlogContent,
+   newBlogAuthor,
+   newBlogDate,
+   newBlogImgUrl,
+   newBlogCategory,
+   updateBlogForm,
+   modal
+};

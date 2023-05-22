@@ -1,58 +1,62 @@
 class Request {
-  constructor(url) {
-    this.xhr = new XMLHttpRequest();
-    this.url = url;
+  constructor() {
+    this.url = "https://6467ce79e99f0ba0a81867a1.mockapi.io/api/v1/blogs";
   }
 
-  get(callback) {
-    this.xhr.open("GET", url);
-    this.xhr.onload = () => {
-      if (this.xhr.status === 200) {
-        callback(null, this.xhr.responseText);
-      } else {
-        callback("Hata oluştu", null);
+  async getAll() {
+    const response = await fetch(this.url);
+    if (!response.ok) {
+      throw new Error("Hata oluştu");
+    }
+    return await response.json();
+  }
+  
+  async get(id) {
+    const response = await fetch(`${this.url}/${id}`);
+    if (!response.ok) {
+      throw new Error("Hata oluştu");
+    }
+    return await response.json();
+  }
+  
+  async post(data) {
+    const response = await fetch(this.url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json"
       }
-    };
-    this.xhr.send();
+    });
+    if (!response.ok) {
+      throw new Error("Hata oluştu");
+    }
+    return await response.json();
+  }
+  
+  async put(data) {
+    const response = await fetch(`${this.url}/${data.id}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json"
+      }
+    });
+    if (!response.ok) {
+      throw new Error("Hata oluştu");
+    }
+    return await response.json();
   }
 
-  post(data, callback) {
-    this.xhr.open("POST", url);
-    this.xhr.setRequestHeader("Content-type", "application/json");
-    this.xhr.onload = () => {
-      if (this.xhr.status === 201) {
-        callback(null, this.xhr.responseText);
-      } else {
-        callback("Hata oluştu", null);
-      }
-    };
-    this.xhr.send(JSON.stringify(data));
-  }
-
-  put(data, callback) {
-    this.xhr.open("PUT", url);
-    this.xhr.setRequestHeader("Content-type", "application/json");
-    this.xhr.onload = () => {
-      if (this.xhr.status === 200) {
-        callback(null, this.xhr.responseText);
-      } else {
-        callback("Hata oluştu", null);
-      }
-    };
-    this.xhr.send(JSON.stringify(data));
-  }
-
-  delete(callback) {
-    this.xhr.open("DELETE", url);
-    this.xhr.onload = () => {
-      if (this.xhr.status === 200) {
-        callback(null, "Veri silme işlemi başarılı");
-      } else {
-        callback("Hata oluştu", null);
-      }
-    };
-    this.xhr.send();
+  async delete(id) {
+    const response = await fetch(`${this.url}/${id}`, {
+      method: "DELETE"
+    });
+    if (!response.ok) {
+      throw new Error("Hata oluştu");
+    }
+    return await response.json();
   }
 }
 
-const request = new Request("https://6467ce79e99f0ba0a81867a1.mockapi.io/api/v1/blogs");
+
+export default Request;
