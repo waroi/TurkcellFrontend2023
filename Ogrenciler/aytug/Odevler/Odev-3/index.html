@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>BiLog</title>
+		<link rel="stylesheet" href="./css/main.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+	</head>
+	<body>
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-around sticky-top">
+			<div class="container-fluid">
+				<a class="navbar-brand m-0 d-lg-none" href="#">BiLog</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav mx-auto align-items-center justify-content-around">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house fs-5"></i></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Son Eklenenler</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Kategoriler</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Yazarlar</a>
+						</li>
+						<li class="nav-item">
+							<div class="dropdown">
+								<a class="nav-link" href="#" data-bs-toggle="dropdown">
+									<i class="bi bi-person-fill fs-5"></i>
+									<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+										New
+									</span>
+								</a>
+								<ul class="dropdown-menu">
+									<li>
+										<button
+											type="button"
+											class="btn"
+											data-bs-toggle="modal"
+											data-bs-target="#createArticleModal"
+											id="newArticle"
+										>
+											<i class="bi bi-file-earmark-plus text-success me-2 fs-5"></i>
+											Yeni Makale
+										</button>
+									</li>
+									<li>
+										<button type="button" class="btn">
+											<i class="bi bi-person-vcard me-2 fs-5"></i>
+											Hesabım
+										</button>
+									</li>
+									<li>
+										<button type="button" class="btn">
+											<i class="bi bi-box-arrow-right text-danger me-2 fs-5"></i>
+											Çıkış Yap
+										</button>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- NEWS -->
+		<section class="news mt-5">
+			<div class="container">
+				<h3 class="mb-5 fst-italic">BiLog'a Son Eklenenler...</h3>
+				<div id="carouselExampleCaptions" class="carousel slide">
+					<div class="carousel-indicators newsContainerWrapper">
+						<button
+							type="button"
+							data-bs-target="#carouselExampleCaptions"
+							data-bs-slide-to="0"
+							class="active"
+							aria-current="true"
+							aria-label="Slide 1"
+						></button>
+						<button
+							type="button"
+							data-bs-target="#carouselExampleCaptions"
+							data-bs-slide-to="1"
+							aria-label="Slide 2"
+						></button>
+						<button
+							type="button"
+							data-bs-target="#carouselExampleCaptions"
+							data-bs-slide-to="2"
+							aria-label="Slide 3"
+						></button>
+					</div>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img
+								src="https://picsum.photos/id/204/500/300"
+								class="d-block w-100 news-img"
+								alt="News Item 1"
+								id="news1Img"
+							/>
+							<div class="carousel-caption d-none d-md-block">
+								<h5 class="text-decoration-underline" id="news1Title">Example Article 3</h5>
+								<p class="w-100" id="news1Information">This is example article 3 information.</p>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<img
+								src="https://picsum.photos/id/206/500/300"
+								class="d-block w-100 news-img"
+								alt="News Item 2"
+								id="news2Img"
+							/>
+							<div class="carousel-caption d-none d-md-block">
+								<h5 class="text-decoration-underline" id="news2Title">Example Article 2</h5>
+								<p id="news2Information">This is example article 2 information.</p>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<img
+								src="https://picsum.photos/id/208/500/300"
+								class="d-block w-100 news-img"
+								alt="News Item 3"
+								id="news3Img"
+							/>
+							<div class="carousel-caption d-none d-md-block">
+								<h5 class="text-decoration-underline" id="news3Title">Example Article 1</h5>
+								<p id="news3Information">This is example article 1 information.</p>
+							</div>
+						</div>
+					</div>
+					<button
+						class="carousel-control-prev"
+						type="button"
+						data-bs-target="#carouselExampleCaptions"
+						data-bs-slide="prev"
+					>
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button
+						class="carousel-control-next"
+						type="button"
+						data-bs-target="#carouselExampleCaptions"
+						data-bs-slide="next"
+					>
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- FILTER AREA-->
+		<section class="filter-area">
+			<div class="container mt-3">
+				<div class="row">
+					<div class="col-10 col-lg-8 mx-auto my-5">
+						<input type="text" class="w-100 searchArea" id="articleSearch" placeholder="Makale veya yazar arayın" />
+					</div>
+					<div class="col-12 px-3">
+						<div class="filtersWrapper">
+							<!-- ACORDION -->
+							<div class="accordion" id="accordionPanelsStayOpenExample">
+								<div class="row">
+									<div class="accordion-item col-6 col-lg-4">
+										<h2 class="accordion-header">
+											<button
+												class="accordion-button collapsed"
+												type="button"
+												data-bs-toggle="collapse"
+												data-bs-target="#panelsStayOpen-collapseOne"
+												aria-expanded="true"
+												aria-controls="panelsStayOpen-collapseOne"
+											>
+												Kategori
+											</button>
+										</h2>
+										<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+											<div class="accordion-body">
+												<div class="col-12" id="categoryFilters"></div>
+											</div>
+										</div>
+									</div>
+									<div class="accordion-item col-6 col-lg-4">
+										<h2 class="accordion-header">
+											<button
+												class="accordion-button collapsed"
+												type="button"
+												data-bs-toggle="collapse"
+												data-bs-target="#panelsStayOpen-collapseTwo"
+												aria-expanded="false"
+												aria-controls="panelsStayOpen-collapseTwo"
+											>
+												Yazar
+											</button>
+										</h2>
+										<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+											<div class="accordion-body"><div class="col-12" id="authorFilters"></div></div>
+										</div>
+									</div>
+									<div class="accordion-item col-12 col-lg-4">
+										<h2 class="accordion-header">
+											<button
+												class="accordion-button collapsed"
+												type="button"
+												data-bs-toggle="collapse"
+												data-bs-target="#panelsStayOpen-collapseThree"
+												aria-expanded="false"
+												aria-controls="panelsStayOpen-collapseThree"
+											>
+												Sırala
+											</button>
+										</h2>
+										<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+											<div class="accordion-body">
+												<ul class="list-unstyled">
+													<li>
+														<input type="radio" name="sort" value="sortDefault" id="sortDefault" checked />
+														<label for="radio">Varsayılan</label>
+													</li>
+													<li>
+														<input type="radio" name="sort" value="sortAsc" id="sortAsc" />
+														<label for="radio">Alfabetik: A-Z</label>
+													</li>
+													<li>
+														<input type="radio" name="sort" value="sortDesc" id="sortDesc" />
+														<label for="radio">Alfabetik: Z-A</label>
+													</li>
+													<li>
+														<input type="radio" name="sort" value="sortDateAsc" id="sortDateAsc" />
+														<label for="radio">Tarihe Göre: Artan</label>
+													</li>
+													<li>
+														<input type="radio" name="sort" value="sortDateDesc" id="sortDateDesc" />
+														<label for="radio">Tarihe Göre: Azalan</label>
+													</li>
+													<li>
+														<input type="radio" name="sort" value="sortAuthorAsc" id="sortDateAsc" />
+														<label for="radio">Yazara Göre: A-Z</label>
+													</li>
+													<li>
+														<input type="radio" name="sort" value="sortAuthorDesc" id="sortDateDesc" />
+														<label for="radio">Yazara Göre: Z-A</label>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ARTICLE LIST -->
+		<section class="article-list">
+			<div class="container">
+				<div class="row mt-5">
+					<div class="col-12 col-lg-9 mb-5">
+						<div class="row g-3 mx-auto" id="articleContainerWrapper"></div>
+						<div class="mx-auto text-center fw-bold d-none" id="noArticleFound">
+							<h3 class="text-danger mt-3">Aramanıza uygun sonuç bulunamadı.</h3>
+						</div>
+					</div>
+					<div class="col-12 col-lg-3">
+						<h4 class="fst-italic mb-3">Kendimi şanslı hissediyorum</h4>
+						<div class="row" id="randomArticleContainer"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- FOOTER -->
+		<footer class="bg-black text-white mt-5">
+			<div class="container py-5 px-3">
+				<div class="row">
+					<div class="col-6 col-lg-4 text-center">
+						<ul class="list-unstyled">
+							<p class="fw-bold">BiLog</p>
+							<li><a href="#">Hakkımızda</a></li>
+							<li><a href="#">İletişim</a></li>
+							<li><a href="#">Destek alın</a></li>
+							<li><a href="#">Yasal Bilgiler</a></li>
+						</ul>
+					</div>
+					<div class="col-6 col-lg-4 text-center">
+						<ul class="list-unstyled">
+							<p class="fw-bold">Faydalı Linkler</p>
+							<li><a href="#">Tüm Yazılar</a></li>
+							<li><a href="#">Kategoriler</a></li>
+							<li><a href="#">Yazarlar</a></li>
+							<li><a href="#">S.S.S.</a></li>
+						</ul>
+					</div>
+					<div class="col-12 col-lg-4 mt-4 mt-lg-0">
+						<div class="row">
+							<div class="col-12 text-center">
+								<p class="fw-bold">Bizi takip edin</p>
+								<ul class="list-group list-group-horizontal gap-3 justify-content-center list-unstyled">
+									<li>
+										<a href="https://github.com/aytugyesilyurt" target="_blank"><i class="bi bi-github"></i></a>
+									</li>
+									<li>
+										<a href="https://www.linkedin.com/in/aytugyesilyurt/" target="_blank">
+											<i class="bi bi-linkedin"></i>
+										</a>
+									</li>
+									<li>
+										<a href="https://www.instagram.com/agyesilyurt/" target="_blank"><i class="bi bi-instagram"></i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 text-center mt-5">
+						<p>
+							Bu sayfa ödev için oluşturulmuştur. Kullanılan örneklerin gerçek kişi, kurum, kuruluş, şirket veya ürünle
+							ilgisi yoktur. Tamamen hayal ürünüdür.
+						</p>
+						<p>Aytuğ YEŞİLYURT</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- MODALS -->
+		<!-- ARTICLE PREVIEW MODAL -->
+		<div class="modal fade" id="articleModal" tabindex="-1" aria-labelledby="articleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="articleModalLabel">Article Title</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="card mb-3 preview-card">
+							<img
+								src="https://picsum.photos/500/300"
+								class="card-img-top rounded"
+								alt="article.title"
+								id="articleModalImage"
+							/>
+							<div class="card-body">
+								<h5 class="card-title" id="articleModalTitle">Article.title</h5>
+								<div class="d-flex gap-3">
+									<p class="card-text" id="articleModalAuthor">Yazar : Article.author</p>
+									<p class="card-text" id="articleModalCategory">Kategori : Article.category</p>
+								</div>
+								<p class="card-text" id="articleModalBody">
+									This is a wider card with supporting text below as a natural lead-in to additional content. This
+									content is a little bit longer.
+								</p>
+
+								<p class="card-text" id="articleModalDate">
+									<small class="text-body-secondary">Oluşturulma Tarihi : Article.date</small>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer justify-content-around">
+						<button class="btn" id="editArticle" data-bs-target="#createArticleModal" data-bs-toggle="modal">
+							<i class="bi bi-pencil-fill text-warning fs-3"></i>
+						</button>
+						<button type="button" class="btn" data-bs-dismiss="modal" id="deleteArticle">
+							<i class="bi bi-trash3-fill text-danger fs-3"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- CREATE - EDIT MODAL -->
+		<div
+			class="modal fade"
+			id="createArticleModal"
+			tabindex="-1"
+			aria-labelledby="createArticleModalLabel"
+			aria-hidden="true"
+			data-bs-backdrop="static"
+			data-bs-keyboard="false"
+		>
+			<div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Yeni Makale Oluştur</h1>
+						<button type="button" class="btn-close cancelBtn" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<form id="articleForm" aria-required="true">
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-12 mb-3">
+									<label for="title" class="form-label">Başlık</label>
+									<input
+										type="text"
+										class="form-control"
+										id="title"
+										aria-describedby="emailHelp"
+										name="title"
+										required
+									/>
+								</div>
+								<div class="col-12 mb-3">
+									<label for="author" class="form-label">Yazar</label>
+									<input
+										type="text"
+										class="form-control"
+										id="author"
+										aria-describedby="emailHelp"
+										name="author"
+										required
+									/>
+								</div>
+								<div class="col-12 mb-3">
+									<label for="category" class="form-label">Kategori</label>
+									<input
+										type="text"
+										class="form-control"
+										id="category"
+										aria-describedby="emailHelp"
+										name="category"
+										required
+									/>
+								</div>
+								<div class="col-12 mb-3">
+									<label for="date" class="form-label">Tarih</label>
+									<input type="text" class="form-control" id="date" aria-describedby="emailHelp" name="date" disabled />
+								</div>
+								<div class="col-12 mb-3">
+									<label for="cover" class="form-label">Kapak Resmi</label>
+									<input
+										type="text"
+										class="form-control"
+										id="cover"
+										aria-describedby="emailHelp"
+										name="cover"
+										value="https://picsum.photos/200/300"
+										required
+									/>
+								</div>
+								<div class="col-12 mb-3">
+									<label for="information" class="form-label">İçerik yazısı</label>
+									<textarea
+										type="text"
+										class="form-control"
+										id="information"
+										aria-describedby="emailHelp"
+										name="information"
+										rows="8"
+										required
+									></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer justify-content-around">
+							<button type="submit" class="btn" name="submitBtn" id="submitBtn">
+								<i class="bi bi-check-circle-fill text-success fs-3"></i>
+							</button>
+							<button type="reset" class="btn btn-danger cancelBtn" data-bs-dismiss="modal">
+								<i class="bi bi-x-lg"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="./scripts/article.js"></script>
+		<script src="./scripts/dbService.js"></script>
+		<script src="./scripts/render.js"></script>
+		<script src="./scripts/request.js"></script>
+		<script src="./scripts/util.js"></script>
+		<script src="./scripts/app.js"></script>
+	</body>
+</html>

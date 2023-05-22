@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/main.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/app.js" type="module"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/5e36563075.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+
+<body id="main-body">
+  <header>
+    <nav class="navbar bg-body-tertiary">
+      <div id="nav-container" class="container bg-transparent mt-3 p-2">
+        <a class="navbar-brand text-white" href="#">BL∞g</a>
+        <!-- Button trigger modal -->
+        <div id="user-ui-area" class="user-area row d-flex">
+          <span id="user-text"></span>
+          <img id="user-image">
+        </div>
+    </nav>
+  </header>
+  <section id="welcome-section">
+    <div class="container text-white bg-transparent p-5">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2>Welcome to Our <span class="text-warning">BL∞g</span> Site!</h2>
+          <p class="mt-5">Discover a world of interesting articles and insights.</p>
+          <p>Stay up-to-date with the latest news and trends in various topics.</p>
+          <p>Create new blogs and update them as you wish.</p>
+        </div>
+      </div>
+  </section>
+  <section id="add-post-section" class="mt-5
+  ">
+    <div class="container">
+      <div class="row">
+        <button data-bs-toggle="modal" data-bs-target="#addPost" id="modal-post-button"
+          class="btn btn-warning w-25 d-flex justify-content-center m-auto">Add Post</button>
+      </div>
+    </div>
+    <div class="modal fade" id="addPost" tabindex="-1" aria-labelledby="addPostLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="addPostLabel">Add Post</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="card-x mb-3">
+              <div class="card-body">
+                <form class="row g-3 needs-validation" novalidate>
+                  <div class="col-12">
+                    <label for="postTitleInput" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="post-title" required>
+                    <label for="postAuthorInput" class="form-label mt-2">Author</label>
+                    <input type="text" class="form-control" id="post-author" required>
+                    <label for="postWrittenDateInput" class="form-label mt-2">Written Date</label>
+                    <div class="input-group has-validation">
+                      <input type="date" class="form-control" id="post-written-date"
+                        aria-describedby="inputGroupPrepend" required>
+                    </div>
+                    <label for="postCategoryInput" class="form-label mt-2">Category</label>
+                    <input type="text" class="form-control" id="post-category" required>
+                    <label for="postCoverUrlInput" class="form-label mt-2">Post Cover URL</label>
+                    <input type="text" class="form-control" id="post-cover-url" required>
+                    <label for="postContent" class="form-label mt-2">Text Area</label>
+                    <textarea id="post-content" class="form-control"></textarea>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-12 d-flex">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button id="clear-button" type="button" class="btn btn-warning">Clear</button>
+                <button id="edit-button" type="button" class="btn btn-info d-none">Save Changes</button>
+                <button id="add-post-button" class="btn btn-primary" href="#">Add</button>
+                <div id="loading" class="spinner-border d-none text-success" role="status"></div>
+              </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="filter-section" class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <i class="fa-solid fa-filter d-flex m-auto justify-content-center text-white" type="button"
+                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne"></i>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <input placeholder="Search for Title and Author" class="w-50" id="search-input" type="text">
+                <select id="category-select" class="form-select w-50" aria-label="Default select example">
+                  <option value="">All Categories</option>
+                </select>
+                <select class="w-50 form-select" id="filter-select">
+                  <option selected>Arange by selection</option>
+                  <option value="1">A-Z</option>
+                  <option value="2">Z-A</option>
+                  <option value="3">Written Date (Old to new)</option>
+                  <option value="4">Written Date (New to old)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <section id="post-section">
+    <div class="container">
+      <div class="row justify-content-center" id="post-card-list">
+
+      </div>
+    </div>
+  </section>
+  <footer>
+    <section class="footer-top border-top border-secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h5>Follow BL∞g
+              <span class="m-1"><i class="fa-brands fa-square-facebook"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-instagram"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-twitter"></i></span>
+            </h5>
+            <span class="fw-bold">Created By </span><a target="_blank" href="https://github.com/mchtkuk"
+              class="text-warning text-decoration-none fw-bold">Mücahit Kuk</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footer-bottom mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-sm">
+            <div class="title">
+              <h6>Browse</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">Store</a>
+              </li>
+              <li>
+                <a href="#">Promoted Books</a>
+              </li>
+              <li>
+                <a href="#">Plans</a>
+              </li>
+              <li>
+                <a href="#">Merch</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>Resources</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">News</a>
+              </li>
+              <li>
+                <a href="#">Support
+                </a>
+              </li>
+              <li>
+                <a href="#">Feedback</a>
+              </li>
+              <li>
+                <a href="#">Community Standards</a>
+              </li>
+            </ul>
+          </div>
+          <div class="row mt-5">
+            <div class="col">
+              <i class="fa-solid fa-earth-americas"></i>
+              <span>English ( United States )</span>
+              <p class="mt-2">© 2023 BL∞g USA, All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+    </section>
+  </footer>
+</body>
+
+</html>

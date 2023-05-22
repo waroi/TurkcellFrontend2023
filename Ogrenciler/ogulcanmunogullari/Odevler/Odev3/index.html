@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZwiZZer Cubun</title>
+  <link rel="stylesheet" href="./Styles/css/main.css" />
+  <script src="./Controllers/welcome.js" type="module" defer></script>
+ </head>
+ <body class="bg-light">
+  <div
+   class="container vh-100 d-flex align-items-center justify-content-center">
+   <div class="col-10 col-md-6 mx-auto d-flex flex-column gap-3">
+    <h3 class="text-center">ZwiZZer Cubuna Hoşgeldin</h3>
+
+    <div class="d-flex gap-2">
+     <div class="form-floating mb-3 flex-fill">
+      <input
+       type="text"
+       class="form-control"
+       id="username"
+       placeholder="Kullanıcı Adı" />
+      <label for="username">Kullanıcı Adı</label>
+     </div>
+     <div class="form-floating flex-fill">
+      <input
+       type="password"
+       class="form-control"
+       id="password"
+       placeholder="Şifre" />
+      <label for="password">Şifre</label>
+     </div>
+    </div>
+    <div id="welcomeAlert" class="d-none"></div>
+    <div class="d-flex justify-content-center gap-2">
+     <button class="btn btn-success flex-fill" type="button" id="login">
+      Giriş
+     </button>
+     <button class="btn btn-warning flex-fill" type="button" id="signup">
+      Kayıt
+     </button>
+    </div>
+   </div>
+  </div>
+  <script src="./Utilities/alert.js" type="module"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ </body>
+</html>
