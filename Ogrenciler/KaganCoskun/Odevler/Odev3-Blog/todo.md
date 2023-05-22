@@ -1,0 +1,19 @@
+Blogları get ile json-server'dan alıp listeleyecek (başlık, yazı, yazarın adı, tarih ve saat, kategori, görsel)
+herhangi bir yazıya tıklandığında o yazı modal olarak açılacak
+kategoriye göre filtreleme yapılabilecek
+sıralama yapabilecek (tarih, başlık, yazar)
+arama (başlık ve yazara göre) inputu olacak, listede filtreleme yapacak
+Yeni blog yazısı oluşturabilecek
+var olan bir yazıyı güncelleyebilecek
+seçtiği yazıyı silebilecek
+
+
+blog ekleme +
+blog güncelleme +
+blog silme +
+blog detay gösterme +
+filterleme +
+kategorileri dinamik bir şekilde ekrana yazdırma +
+blog eklendiğinde modalı kapat +
+tosty bildirim ekle +
+
