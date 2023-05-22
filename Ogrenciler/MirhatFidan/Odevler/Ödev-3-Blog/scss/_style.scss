@@ -1,0 +1,102 @@
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #0B2840,
+    #132F70,
+    #296090,
+    #B3D8E0,
+    #B1D8B7
+  );
+}
+
+label {
+  color: $warning;
+  font-size: 1.25rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+#hero {
+  background-image: url(https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 75vh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  .hero-text {
+    position: absolute;
+    z-index: 2;
+    h1,
+    h2 {
+      text-shadow: #474747 3px 5px 2px;
+    }
+    
+  }
+}
+
+.card {
+  backdrop-filter: blur(10px);
+  transition: 0.3s all;
+  .card-title {
+    color: $warning;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  .card-subtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 400;
+    font-style: italic;
+    text-transform: capitalize;
+  }
+
+  .card-text {
+    color: white;
+  }
+
+  i {
+    pointer-events: none;
+  }
+
+  &:hover {
+    box-shadow: 15px 15px 15px -2px rgba(202, 206, 209, 0.553);
+    transform: translateY(-10px);
+  }
+}
+
+.modal-content {
+  backdrop-filter: blur(5px);
+
+  .modal-header {
+    background-color: #0b2840c5;
+    background-size: cover;
+    background-position: center;
+    .modal-title {
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .modal-body {
+    font-size: 1.25rem;
+    text-indent: 1rem;
+  }
+}
+
+.form-control,
+.form-select {
+  border: $danger 2px solid;
+}
+
+#utilities {
+  position: sticky;
+  top: 2rem;
+  height: 100%;
+}
+
