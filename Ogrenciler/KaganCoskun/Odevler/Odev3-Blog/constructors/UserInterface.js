@@ -52,6 +52,7 @@ class UserInterface{
         data.createBlogDetail();
         const modal = bootstrap.Modal.getInstance(document.getElementById("addBlog"));
         modal?.hide();
+        ui.toasty("success","Blog başarıyla güncellendi");
     }
 
     
@@ -59,6 +60,7 @@ class UserInterface{
     async deleteBlog(id){
        await storage.deleteBlog(id).then(()=> ui.filter());
         blogDetailModal.style.display = "none";
+        ui.toasty("danger","Blog başarıyla silindi");
         
     }
 
