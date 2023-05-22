@@ -19,6 +19,8 @@
 - [Hazır iconlar](https://fontawesome.com/icons)
 - [Css-Tricks Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [Grid Generator](https://cssgrid-generator.netlify.app/)
+- [Json Placeholder](https://jsonplaceholder.typicode.com/)
+- [Json Server](https://github.com/typicode/json-server)
 
 ## Extra Kaynaklar
 

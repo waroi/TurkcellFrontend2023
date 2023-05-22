@@ -1,12 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LibraryProject- Prototypes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-    
+
+    <header class="bg-dark d-none d-lg-block">
+        <nav class="navbar navbar-expand-lg container">
+
+            <div class="collapse navbar-collapse mx-auto " id="navbar-content">
+                <div class="logo col-1 mx-auto text-white">
+                    <!-- <img class="img-fluid w-50" src="./assets/movieLogo.png" alt="MUPMovie"> -->
+                    <h4>Library</h4>
+                </div>
+
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section>
+        <div class="banner ">
+            <img src="../img/banner.png" alt="Library image" class="img-fluid">
+            <div class="banner-text text-center ">
+                <h1 class="font-weight-bold text-dark">Welcome to Gizem's Library</h1>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <!-- Add New Book -->
+            <!-- Toggle Form -->
+            <div class="col-12">
+                <div class="my-2  text-center">
+                    <button class="btn btn-primary w-100 text-white" id="toggle-form">Add New Book</button>
+                </div>
+
+                <div class="bg-form rounded p-3" id="book-form">
+                    <div class="mb-5">
+                        <form>
+                            <div class="my-2">
+                                <label for="bookCoverPageUrl" class="form-label text-white">Book's Cover Page
+                                    Image</label>
+                                <input required type="url" class="form-control" id="bookCoverPageUrl"
+                                    placeholder="https://...">
+                            </div>
+                            <div class="my-2">
+                                <label for="bookName" class="form-label text-white">Book's Name</label>
+                                <input required type="text" class="form-control" id="bookName">
+                            </div>
+                            <div class="my-2">
+                                <label for="bookAuthor" class="form-label text-white">Book's Author</label>
+                                <input required type="text" class="form-control" id="bookAuthor">
+                            </div>
+                            <div class="my-2">
+
+                                <label for="bookCategory" class="form-label text-white">Book's Category</label>
+                                <select class="form-select" id="bookCategory">
+                                    <option value="all">All</option>
+                                    <option value="adventure">Adventure</option>
+                                    <option value="drama">Drama</option>
+                                    <option value="fantasy">Fantasy</option>
+                                    <option value="horror">Horror</option>
+                                    <option value="mystery">Mystery</option>
+                                    <option value="romance">Romance</option>
+                                    <option value="thriller">Thriller</option>
+                                </select>
+                            </div>
+                            <div class="my-2">
+                                <label for="bookDate" class="form-label text-white">Book's Date</label>
+                                <input required type="date" class="form-control" id="bookDate">
+                            </div>
+
+                            <!-- Add Button -->
+
+                            <div class="my-2 mt-5 d-flex justify-content-end">
+                                <button type="submit" class="btn text-white btn-success" id="add-book">Add Book</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Book</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="bg-form rounded p-3" id="modal-book-form">
+                        <div class="mb-5">
+                            <form id="modal-form">
+                                <div class="my-2">
+                                    <label for="modal-bookCoverPageUrl" class="form-label text-white">Book's Cover Page
+                                        Image</label>
+                                    <input required type="url" class="form-control" id="modal-bookCoverPageUrl"
+                                        placeholder="https://...">
+                                </div>
+                                <div class="my-2">
+                                    <label for="modal-bookName" class="form-label text-white">Book's Name</label>
+                                    <input required type="text" class="form-control" id="modal-bookName">
+                                </div>
+                                <div class="my-2">
+                                    <label for="modal-bookAuthor" class="form-label text-white">Book's Author</label>
+                                    <input required type="text" class="form-control" id="modal-bookAuthor">
+                                </div>
+                                <div class="my-2">
+
+                                    <label for="modal-bookCategory" class="form-label text-white">Book's
+                                        Category</label>
+                                    <select class="form-select" id="modal-bookCategory">
+                                        <option value="all">All</option>
+                                        <option value="adventure">Adventure</option>
+                                        <option value="drama">Drama</option>
+                                        <option value="fantasy">Fantasy</option>
+                                        <option value="horror">Horror</option>
+                                        <option value="mystery">Mystery</option>
+                                        <option value="romance">Romance</option>
+                                        <option value="thriller">Thriller</option>
+                                    </select>
+                                </div>
+                                <div class="my-2">
+                                    <label for="modal-bookDate" class="form-label text-white">Book's Date</label>
+                                    <input required type="date" class="form-control" id="modal-bookDate">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="modal-form" class="btn btn-success" id="modal-edit-book">Save
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="my-2">
+                    <label for="filter" class="form-label">Search</label>
+                    <input type="text" class="form-control" id="filter" placeholder="Search...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter by Category -->
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="my-2">
+                    <label for="filter-category" class="form-label">Filter by Category</label>
+                    <select class="form-select" id="filter-category">
+                        <option value="all">All</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="drama">Drama</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="horror">Horror</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="romance">Romance</option>
+                        <option value="thriller">Thriller</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="my-2">
+                    <label for="filter-author" class="form-label">Filter by Author</label>
+                    <select class="form-select" id="filter-author">
+                        <option value="all">All</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section of books -->
+    <div class="container mb-5">
+        <div class="row">
+            <!-- Table of the books -->
+            <div id="books-table">
+                <table class="table table-striped table-hover ">
+                    <thead class="rounded">
+                        <tr>
+                            <th scope="col">Cover Page</th>
+                            <th id="column-id" scope="col">ID</th>
+                            <th id="column-name" scope="col">Name</th>
+                            <th id="column-author" scope="col">Author</th>
+                            <th id="column-category" scope="col">Category</th>
+                            <th id="column-date" scope="col">Date</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="books">
+                        <!-- <tr>
+                            <td><img src="./assets/book1.jpg" alt="Book Cover Page" class="img-fluid"></td>
+                            <td>Harry Potter and the Philosopher's Stone</td>
+                            <td>J.K. Rowling</td>
+                            <td>Fantasy</td>
+                            <td>1997</td>
+                            <td>
+                                <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="delete-all-books" >
+                <button class="btn btn-danger" id="delete-all-books">Delete All</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer -->
+
+    <footer class="bg-dark text-white text-center p-3">
+        <p>© 2021 Gizem's Library</p>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/localStorage.js"></script>
+    <script src="./js/book.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/app.js"></script>
 </body>
+
 </html>

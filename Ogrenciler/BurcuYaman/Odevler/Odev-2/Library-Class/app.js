@@ -17,9 +17,9 @@ const warningModal = document.querySelector('#warningmodal');
 eventListeners();
 
 function eventListeners() {
-    modalEl.addEventListener('shown.bs.modal', function () {
-        addLibraryButton.addEventListener('click', addNewBook); // Modal butonuna event listener ekleme
-    });
+
+    addLibraryButton.addEventListener('click', addNewBook); // Modal butonuna event listener ekleme
+
     modalFilter.addEventListener('shown.bs.modal', function () {
         filterbooksbutton.addEventListener('click', filterBooks);
     });
@@ -69,8 +69,8 @@ function starterCond() {
         showBooks();
     }
 
-    const checkboxes = document.querySelectorAll(' input[type=checkbox');
-    checkboxes.forEach(function (checkbox) {
+    const checkboxes = document.querySelectorAll(' input[type=checkbox]');
+    checkboxes.map(function (checkbox) {
         checkbox.checked = false;
     }
     );
@@ -79,7 +79,7 @@ function starterCond() {
 
 function showBooks() {
     let books = LStorage.getBooksFromStorage();
-    books.forEach(function (book) {
+    books.map(function (book) {
         UI.addBookToUI(book);
     });
 }
@@ -114,12 +114,14 @@ function deleteBook(e) {
         LStorage.deleteBookFromStorage(e.target.parentElement.parentElement.children[0].textContent);
         UI.showAlert('Book successfully deleted!', 'secondary');
     }
+    e.preventDefault();
 }
 
 function updateBook(e) {
     if (e.target.id === 'editButton') {
         UI.updateBookFromUI(e);
     }
+    e.preventDefault();
 
 }
 
@@ -138,7 +140,7 @@ function sortBookAz(e) {
 
     bookNames.sort();
     UI.sortBookAz(bookNames);
-
+    e.preventDefault();
 }
 
 function sortBookZa(e) {
@@ -150,7 +152,7 @@ function sortBookZa(e) {
 
     bookNames.sort().reverse();
     UI.sortBookAz(bookNames);
-
+    e.preventDefault();
 }
 
 function sortBookLatest(e) {
@@ -162,7 +164,7 @@ function sortBookLatest(e) {
 
     bookDates.sort().reverse();
     UI.sortBookDates(bookDates);
-
+    e.preventDefault();
 }
 
 function sortBookOldest(e) {
@@ -174,7 +176,7 @@ function sortBookOldest(e) {
     console.log(bookDates);
     bookDates.sort();
     UI.sortBookDates(bookDates);
-
+    e.preventDefault();
 }
 
 function filterBooks() {
@@ -235,5 +237,5 @@ function filterBooks() {
     UI.filterBooks(filteredbooks);
     let modalFilter = bootstrap.Modal.getInstance(document.getElementById('filterModal'));
     modalFilter.hide();
-
+    e.preventDefault();
 }

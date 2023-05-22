@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <title>BloggY</title>
+  </head>
+  <body>
+    <div id="alert"></div>
+    <header>
+      <div class="container">
+        <div class="row topnav">
+          <div
+            class="col-md-2 topnav-item d-flex justify-content-start gap-3 my-auto"
+          >
+            <a
+              class="fs-5 pointer"
+              id="writePost"
+              data-bs-toggle="modal"
+              data-bs-target="#addNewPostModal"
+              >Write</a
+            >
+
+            <a class="fs-5 pointer" id="signIn">Sign In</a>
+          </div>
+          <div
+            class="col-md-8 logo d-flex justify-content-center align-item-center"
+          >
+            <img src="./assets/logo.png" alt="logo" class="mt-2" />
+          </div>
+          <div
+            class="col-md-2 socialicons d-flex justify-content-end gap-3 my-auto"
+          >
+            <i class="fa-brands fa-youtube fs-5 pointer"></i>
+            <i class="fa-brands fa-square-instagram fs-5 pointer"></i>
+            <i class="fa-brands fa-twitter fs-5 pointer"></i>
+            <i class="fa-brands fa-facebook fs-5 pointer"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-lg- m-auto gap-3">
+            <li
+              class="nav-item d-flex justify-content-center d-none mobileWrite text-center"
+            >
+              <a
+                class="fs-5 pointer fw-medium px-3 py-2 rounded-3 bg-primary text-light"
+                id="writePost"
+                data-bs-toggle="modal"
+                data-bs-target="#addNewPostModal"
+                >Write</a
+              >
+            </li>
+            <li
+              class="nav-item d-flex justify-content-center d-none mobileSign text-center"
+            >
+              <a
+                class="fs-5 pointer fw-medium px-3 py-2 mt-2 rounded-3 bg-primary text-light"
+                aria-current="page"
+                href="#"
+                >Sign In</a
+              >
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+              <a class="nav-link active fw-bold" aria-current="page" href="#"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+              <a class="nav-link fw-medium" href="#">Pages</a>
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+              <a class="nav-link fw-medium" href="#">Blog</a>
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+              <a class="nav-link fw-medium" href="#">Shop</a>
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+              <a class="nav-link fw-medium" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Add new post modal -->
+    <div
+      class="modal fade"
+      id="addNewPostModal"
+      tabindex="-1"
+      aria-labelledby="addNewPostModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-light">
+            <h1 class="modal-title fs-5" id="addNewPostModalLabel">
+              Write a New Post
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="d-flex w-100 gap-2">
+                <div class="mb-3 w-50">
+                  <label for="postAuthorInput" class="form-label"
+                    >Your Name:
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="postAuthorInput"
+                  />
+                </div>
+                <div class="mb-3 w-50">
+                  <label for="postTitleInput" class="form-label">Title: </label>
+                  <input type="text" class="form-control" id="postTitleInput" />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="postCategoryInput" class="form-label"
+                  >In which category will you write?
+                </label>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  id="postCategoryInput"
+                >
+                  <option value="Culture" selected>Culture</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Science">Science</option>
+                  <option value="Music">Music</option>
+                  <option value="Sport">Sport</option>
+                </select>
+
+                <!-- <input
+                  type="text"
+                  class="form-control"
+                  id="postCategoryInput"
+                  placeholder="e.g. Technology, Science, Culture, Music, Sport etc."
+                /> -->
+              </div>
+              <div class="mb-3">
+                <label for="postContentInput" class="form-label"
+                  >You can write here:</label
+                >
+                <textarea
+                  class="form-control"
+                  id="postContentInput"
+                  rows="5"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="datePublicationInput" class="form-label"
+                  >Date of Publication:
+                </label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="datePublicationInput"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="urlInput" class="form-label"
+                  >Url of the Post Cover:
+                </label>
+                <input type="text" class="form-control" id="urlInput" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success" id="addListButton">
+              Share
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mb-5">
+      <div class="row banner mt-5">
+        <div class="banner-content m-auto w-50 text-center text-light">
+          <h1>WELCOME TO BLOGGY!</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+            deleniti, ducimus saepe distinctio id delectus? Perferendis
+            temporibus dolorum voluptas nesciunt velit rem iusto, omnis, cumque
+            qui porro consequatur esse reprehenderit.
+          </p>
+        </div>
+      </div>
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-3 pointer" id="breadcrumb"></ol>
+      </nav>
+
+      <div class="row sortBy justify-content-end gap-3 mt-4 me-1">
+        <div class="w-25 d-flex justify-content-start mobileFilter d-none">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Filter
+            </button>
+            <ul class="dropdown-menu mobileCategories">
+              <li>
+                <a class="dropdown-item categorie" href="#" id="culture"
+                  >Culture</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item categorie" href="#" id="technology"
+                  >Technology</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item categorie" href="#" id="science"
+                  >Science</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item categorie" href="#" id="music">Music</a>
+              </li>
+              <li>
+                <a class="dropdown-item categorie" href="#" id="sport">Sport</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="w-25 d-flex justify-content-end sorting">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Sort By
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" id="sortAz">A-Z</a></li>
+              <li><a class="dropdown-item" href="#" id="sortZa">Z-A</a></li>
+              <li><a class="dropdown-item" href="#" id="latest">Latest</a></li>
+              <li><a class="dropdown-item" href="#" id="oldest">Oldest</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row content mt-1">
+        <div class="col-md-3 asidemenu mt-4">
+          <aside>
+            <div class="row search">
+              <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                <div class="input-group">
+                  <input
+                    type="search"
+                    placeholder="Search by Title or Author"
+                    class="form-control border-0 bg-light"
+                    aria-label="Search"
+                    aria-describedby="searchButton"
+                    id="searchInput"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      id="button-addon1"
+                      type="submit"
+                      class="btn btn-link text-primary"
+                    >
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row categories mt-3">
+              <h4>Categories</h4>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-light pointer"
+                id="culture"
+              >
+                Culture
+              </div>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-light pointer"
+                id="technology"
+              >
+                Technology
+              </div>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-light pointer"
+                id="science"
+              >
+                Science
+              </div>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-light pointer"
+                id="music"
+              >
+                Music
+              </div>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-light pointer"
+                id="sport"
+              >
+                Sport
+              </div>
+            </div>
+            <div class="row top-posts mt-2 bg-secondary pt-3">
+              <h4>Top Posts</h4>
+              <div class="row toppost my-2">
+                <div class="col-md-2 text-center fw-bold fs-2 ps-4">1</div>
+                <div class="col-md-10 ps-4">
+                  <div class="row fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </div>
+                  <div class="row text-info">TECHNOLOGY - 01.02.2023</div>
+                </div>
+              </div>
+              <div class="row toppost my-2">
+                <div class="col-md-2 text-center fw-bold fs-2 ps-4">2</div>
+                <div class="col-md-10 ps-4">
+                  <div class="row fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </div>
+                  <div class="row text-info">CULTURE - 12.02.2023</div>
+                </div>
+              </div>
+              <div class="row toppost my-2">
+                <div class="col-md-2 text-center fw-bold fs-2 ps-4">3</div>
+                <div class="col-md-10 ps-4">
+                  <div class="row fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </div>
+                  <div class="row text-info">MUSIC - 25.03.2023</div>
+                </div>
+              </div>
+              <div class="row toppost my-2">
+                <div class="col-md-2 text-center fw-bold fs-2 ps-4">4</div>
+                <div class="col-md-10 ps-4">
+                  <div class="row fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </div>
+                  <div class="row text-info">SPORT - 26.04.2023</div>
+                </div>
+              </div>
+              <div class="row toppost my-2">
+                <div class="col-md-2 text-center fw-bold fs-2 ps-4">5</div>
+                <div class="col-md-10 ps-4">
+                  <div class="row fw-bold">
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                  </div>
+                  <div class="row text-info">SCIENCE - 09.05.2023</div>
+                </div>
+              </div>
+            </div>
+            <div class="row instagram d-flex gap-1 flex-wrap my-3">
+              <h4>Instagram</h4>
+              <div
+                class="insta-img d-flex justify-content-around flex-wrap p-0"
+              >
+                <img src="./assets/instagram/inst-1.png" alt="" class="mb-1" />
+
+                <img src="./assets/instagram/inst-2.png" alt="" class="mb-1" />
+
+                <img src="./assets/instagram/inst-3.png" alt="" class="mb-1" />
+
+                <img src="./assets/instagram/inst-4.png" alt="" class="mb-1" />
+
+                <img src="./assets/instagram/inst-5.png" alt="" class="mb-1" />
+
+                <img src="./assets/instagram/inst-6.png" alt="" class="mb-1" />
+              </div>
+            </div>
+            <div class="row slider">
+              <div
+                id="carouselPost"
+                class="carousel slide p-0"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-indicators">
+                  <button
+                    type="button"
+                    data-bs-target="#carouselPost"
+                    data-bs-slide-to="0"
+                    class="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#carouselPost"
+                    data-bs-slide-to="1"
+                    aria-label="Slide 2"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#carouselPost"
+                    data-bs-slide-to="2"
+                    aria-label="Slide 3"
+                  ></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="https://images.unsplash.com/photo-1495175448924-1d9a30c90a42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                    <div class="carousel-caption">
+                      <h5>The Power of Music to Reduce Stress</h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="https://images.unsplash.com/photo-1612892483236-52d32a0e0ac1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                    <div class="carousel-caption">
+                      <h5>Mars: Everything you need to know about the Red</h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="https://images.unsplash.com/photo-1530143584546-02191bc84eb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                    <div class="carousel-caption">
+                      <h5>Cycling - Health Benefits</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="col-md-9 p-0">
+          <section class="d-flex flex-wrap" id="post-list"></section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Update  post modal -->
+    <div
+      class="modal fade"
+      id="updateModal"
+      tabindex="-1"
+      aria-labelledby="updateModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-light">
+            <h1 class="modal-title fs-5" id="updateModalLabel">
+              Edit Your Post
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="d-flex w-100 gap-2">
+                <div class="mb-3 w-50">
+                  <label for="updateAuthor" class="form-label"
+                    >Your Name:
+                  </label>
+                  <input type="text" class="form-control" id="updateAuthor" />
+                </div>
+                <div class="mb-3 w-50">
+                  <label for="updateTitle" class="form-label">Title: </label>
+                  <input type="text" class="form-control" id="updateTitle" />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="updateCategory" class="form-label"
+                  >In which category will you write?
+                </label>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  id="updateCategory"
+                >
+                  <option value="Culture" selected>Culture</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Science">Science</option>
+                  <option value="Music">Music</option>
+                  <option value="Sport">Sport</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="updateContent" class="form-label"
+                  >You can write here:</label
+                >
+                <textarea
+                  class="form-control"
+                  id="updateContent"
+                  rows="5"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="updateDate" class="form-label"
+                  >Date of Publication:
+                </label>
+                <input type="date" class="form-control" id="updateDate" />
+              </div>
+              <div class="mb-3">
+                <label for="updateUrl" class="form-label"
+                  >Url of the Post Cover:
+                </label>
+                <input type="text" class="form-control" id="updateUrl" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success" id="updateButton">
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Read More modal -->
+    <div
+      class="modal fade"
+      id="readMoreModal"
+      tabindex="-1"
+      aria-labelledby="readMoreModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modal-content"></div>
+      </div>
+    </div>
+
+    <footer class="text-center text-white mt-5 bg-body-tertiary">
+      <div class="container pt-4">
+        <section class="mb-4">
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-twitter"></i
+          ></a>
+
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-google"></i
+          ></a>
+
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-instagram"></i
+          ></a>
+
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+
+          <a
+            class="btn btn-link btn-floating btn-lg text-primary m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+      </div>
+
+      <div class="text-center text-dark p-3 bg-secondary">
+        © 2020 Copyright:
+        <a class="text-dark" href="#">BloggY.com</a>
+      </div>
+    </footer>
+
+    <script src="./src/request.js"></script>
+    <script src="./src/ui.js"></script>
+    <script src="./src/app.js"></script>
+  </body>
+</html>

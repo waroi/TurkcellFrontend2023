@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="hero">
+      <div class="hero-text text-center">
+        <h1 class="display-1 fw-bolder text-white">MiroSpace</h1>
+        <h2 class="display-2 text-white">Just Write</h2>
+      </div>
+    </section>
+
+    <section class="title text-center"></section>
+    <section id="preview-blog" class="my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9" id="blogs">
+            <div class="row" id="blog-row"></div>
+          </div>
+          <div class="col-lg-3" id="utilities">
+            <label for="category-select">Kategori filtresi</label>
+            <select class="form-select bg-dark text-white" id="category-select">
+              <option selected>Tümü</option>
+            </select>
+            <label for="search-area">Yazar yada başlık ara</label>
+            <input
+              type="text"
+              name="search-area"
+              id="search-area"
+              class="form-control bg-dark text-white"
+            />
+            <label for="sort-select">Kafana göre sırala</label>
+            <select class="form-select bg-dark text-white" id="sort-select">
+              <option value="">-</option>
+              <option value="new-old">Tarih(Yeni-Eski)</option>
+              <option value="old-new">Tarih(Eski-Yeni)</option>
+              <option value="title-a-z">A-Z(Başlık)</option>
+              <option value="title-z-a">Z-A(Başlık)</option>
+              <option value="author-a-z">A-Z(Yazar)</option>
+              <option value="author-z-a">Z-A(Yazar)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="add-edit" class="my-5">
+      <div class="container">
+        <form id="blog-form">
+          <div class="mb-3">
+            <label for="blog-author" class="form-label">Yazar Bilgisi</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white"
+              id="blog-author"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blog-title" class="form-label">Başlık Oluştur</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white"
+              id="blog-title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blog-text" class="form-label">Derdini Anlat</label>
+            <textarea
+              class="form-control bg-dark text-white"
+              id="blog-text"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="blog-image" class="form-label">Görsel Ekle</label>
+            <input
+              type="url"
+              class="form-control bg-dark text-white"
+              id="blog-image"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blog-category" class="form-label">Hangi Kategori</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white"
+              id="blog-category"
+            />
+          </div>
+          <button class="btn btn-success fs-5" id="add-btn">GÖNDER</button>
+          <button class="btn btn-warning d-none fs-5" id="edit-btn">
+            Edit
+          </button>
+        </form>
+      </div>
+    </section>
+    <div
+      class="modal fade"
+      id="blog-modal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="blog-heading"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title text-white" id="blog-heading">
+              Modal title
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="blog-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              class="btn btn-primary"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

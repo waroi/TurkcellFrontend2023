@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <title>Blogs</title>
+  </head>
+  <body>
+    <nav class="mb-5">
+      <div class="d-flex justify-content-center align-items-center gap-3">
+        <h1 class="fs-1 text-center mt-5">Görelim Gezelim</h1>
+        <img
+          class="earth me-2 mt-5"
+          src="https://cdn.pixabay.com/photo/2016/04/24/04/53/globe-1348777_1280.png"
+          width="70px"
+          height="70px"
+          alt=""
+        />
+      </div>
+    </nav>
+    <div class="container d-flex flex-wrap gap-3 mt-5 pt-5 w-100">
+      <button
+        type="button"
+        class="btn"
+        id="newBlogModalTrigger"
+        data-bs-toggle="modal"
+        data-bs-target="#newBlogModal"
+      >
+        <i class="fa-solid fa-plus" style="color: #3e3b38"></i>
+      </button>
+      <div>
+        <select id="categorySelect" class="form-control rounded">
+          <option value="">Tümü</option>
+        </select>
+      </div>
+
+      <div class="search-bar">
+        <div class="rounded d-flex order-xs-last">
+          <input
+            type="search"
+            class="form-control rounde search-input"
+            id="searchInput"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="search-addon"
+            oninput="searchBlogs()"
+          />
+          
+        </div>
+      </div>
+
+      <div>
+        <select id="sortingSelect" class="form-control rounde">
+          <option value="">Sıralama seçin</option>
+          <option value="A-Z">A-Z</option>
+          <option value="Z-A">Z-A</option>
+          <option value="tarih">Tarih</option>
+        </select>
+      </div>
+      <div class="text d-flex justify-content-end mt-5">
+        <p class="fs-5 paragraf">Önce görelim sonra gezelim..</p>
+      </div>
+    </div>
+
+    <!-- Modal Form -->
+    <div
+      class="modal fade"
+      id="newBlogModal"
+      tabindex="-1"
+      aria-labelledby="newBlogModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newBlogModalLabel">Yeni Blog Ekle</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Kapat"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="blogForm">
+              <div class="mb-3">
+                <label for="titleInput" class="form-label">Başlık</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titleInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="contentInput" class="form-label">İçerik</label>
+                <textarea
+                  class="form-control"
+                  id="contentInput"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="authorInput" class="form-label">Yazar</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="authorInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="countryInput" class="form-label">Ülke</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="countryInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="cityInput" class="form-label">Şehir</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cityInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="dateInput" class="form-label">Tarih</label>
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  id="dateInput"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="photoInput" class="form-label">Fotoğraf</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="photoInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="videoInput" class="form-label">Video</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="videoInput"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary btn-2">
+                Blog Ekle
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Detail -->
+    <div class="modal" id="myDetail">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="detailTitle"></h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body detailBody" id="detailBody"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Edit Modal -->
+    <div
+      class="modal fade"
+      id="editModal"
+      tabindex="-1"
+      aria-labelledby="editModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Blogu Düzenle</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="editForm">
+              <div class="mb-3">
+                <label for="titleInput" class="form-label">Başlık</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titleInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="contentInput" class="form-label">İçerik</label>
+                <textarea
+                  class="form-control"
+                  id="contentInput"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="authorInput" class="form-label">Yazar</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="authorInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="categoryInput" class="form-label">Ülke</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="categoryInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="cityInput" class="form-label">Şehir</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cityInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="dateInput" class="form-label">Tarih</label>
+                <input
+                type="datetime-local"
+                  class="form-control"
+                  id="dateInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="photoInput" class="form-label">Fotoğraf URL</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="photoInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="videoInput" class="form-label">Video URL</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="videoInput"
+                  required
+                />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Kapat
+                </button>
+                <button type="submit" id="updateButton" class="btn btn-primary btn-2">Kaydet</button>
+
+
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
