@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary rounded" aria-label="Eleventh navbar example">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="./assests/logo.png" height="50px" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09"
+          aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample09">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">New Blog</a>
+            </li>
+
+          </ul>
+          <form role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search-filter">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Add New Blog</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-bg">
+          <div class="bg-form rounded p-3" id="blog-form">
+            <div class="">
+              <form>
+                <div class="form-group mb-2">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" id="title" placeholder="Enter title">
+                </div>
+                <div class="form-group mb-2">
+                  <label for="author">Author</label>
+                  <input type="text" class="form-control" id="author" placeholder="Enter author">
+                </div>
+                <div class="form-group mb-2">
+                  <label for="category">Category</label>
+                  <input type="text" class="form-control" id="category" placeholder="Enter category">
+                </div>
+                <div class="form-group mb-2">
+                  <label for="date">Date</label>
+                  <input type="date" class="form-control" id="date">
+                </div>
+                <div class="form-group mb-2">
+                  <label for="blogImgUrl">Blog Image URL</label>
+                  <input type="text" class="form-control" id="blogImgUrl" placeholder="Enter blog image URL">
+                </div>
+                <div class="form-group mb-2">
+                  <label for="content">Content</label>
+                  <textarea class="form-control" id="content" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm w-100 mt-3">Submit</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Blog</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body modal-bg" id="update-blog-form">
+          <form>
+            <div class="form-group mb-2">
+              <label for="new-title">Title</label>
+              <input type="text" class="form-control" id="new-title" placeholder="Enter title">
+            </div>
+            <div class="form-group mb-2">
+              <label for="new-author">Author</label>
+              <input type="text" class="form-control" id="new-author" placeholder="Enter author">
+            </div>
+            <div class="form-group mb-2">
+              <label for="new-category">Category</label>
+              <input type="text" class="form-control" id="new-category" placeholder="Enter category">
+            </div>
+            <div class="form-group mb-2">
+              <label for="new-date">Date</label>
+              <input type="date" class="form-control" id="new-date">
+            </div>
+            <div class="form-group mb-2">
+              <label for="new-blogImgUrl">Blog Image URL</label>
+              <input type="text" class="form-control" id="new-blogImgUrl" placeholder="Enter blog image URL">
+            </div>
+            <div class="form-group mb-2">
+              <label for="new-content">Content</label>
+              <textarea class="form-control" id="new-content" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm w-100 mt-3">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="contentModal" tabindex="-1" aria-labelledby="contentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contentModalLabel">Blog</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body modal-bg" id="content-blog-modal">
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mb-5">
+    <div class="row m-3">
+      <div class="col-12">
+        <h3 class="fw-bold " style="color: blueviolet">Gizem's Blogs</h3>
+      </div>
+    </div>
+    <div class="row ms-3">
+      <div class="col-8" id="welcome-blog">
+        <!-- Blog Card -->
+
+      </div>
+      <div class="col-4">
+        <div class="row">
+
+          <h4 class="ms-4 mb-4"><i class="fa-solid fa-heart" style="color:blueviolet"></i> Top Rated</h4>
+        </div>
+        <ul id="top-rated-blogs">
+          <!-- Top Rated Blogs -->
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <!-- Filter by Category and Author -->
+    <div class="row ms-3 mb-3">
+
+      <div class="col-4">
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text" id="basic-addon1">Category</span>
+          <select class="form-select" id="category-filter">
+            <option value="all">All</option>
+            <option value="writing">Writing</option>
+            <option value="programming">Programming</option>
+            <option value="cooking">Cooking</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text" id="basic-addon1">Author</span>
+          <select class="form-select" id="author-filter">
+            <option value="all">All</option>
+            <option value="sagar">Sagar</option>
+            <option value="sagar">Sagar</option>
+            <option value="sagar">Sagar</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-2">
+        <button class="btn w-100 btn-outline-primary btn-sm" id="reset-btn">Reset</button>
+      </div>
+      <div class="col-2">
+        <!-- Sort options -->
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text" id="basic-addon1">Sort</span>
+          <select class="form-select" id="sort">
+            <option value="-">-</option>
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="a-z">A-Z</option>
+            <option value="z-a">Z-A</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <ul class="row" id="blogs">
+
+    </ul>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="module" src="./scripts/requests.js"></script>
+  <script type="module" src="./scripts/selectors.js"></script>
+  <script type="module" src="./scripts/ui.js"></script>
+  <script type="module" src="./scripts/blog.js"></script>
+  <script type="module" src="./scripts/app.js"></script>
+</body>
+
+</html>
