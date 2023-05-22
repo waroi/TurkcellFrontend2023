@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EUROPA UNIVERSALIS IV</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div
+      class="modal fade"
+      id="create-modal"
+      tabindex="-1"
+      aria-labelledby="create-modal-title"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="alert-container"></div>
+          <div class="modal-header">
+            <h5 class="modal-title" id="create-modal-title">
+              Create New Blog Post
+            </h5>
+            <button
+              type="button"
+              class="btn close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="modal-form">
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  placeholder="Enter the blog title"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea
+                  class="form-control"
+                  id="content"
+                  placeholder="Enter the blog content"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="author" class="form-label">Author</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="author"
+                  placeholder="Enter the author's name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="category"
+                  placeholder="Enter the blog category"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="image" class="form-label">Image URL</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="image"
+                  placeholder="Enter the URL of the blog image"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn"
+              data-bs-dismiss="modal"
+              id="cancelBtn"
+            >
+              Cancel
+            </button>
+            <button type="button" id="createBtn" class="btn">Create</button>
+            <button type="button" id="updateBtn" class="btn d-none">
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="detail-modal"
+      tabindex="-1"
+      aria-labelledby="detail-modal-title"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-0">
+          <div id="detail-modal-body" class="modal-body py-0">
+            <div class="d-block main-content">
+              <img src="" alt="Post Image" id="detail-image" />
+              <div class="content-text p-4">
+                <h3 id="detail-title" class="mb-4"></h3>
+                <h6 id="detail-content" class="mb-4"></h6>
+                <p id="detail-author" class="mb-0"></p>
+                <span id="detail-date" class="me-3"></span>
+                <span
+                  id="detail-category"
+                  class="text-truncate"
+                  data-bs-toggle="tooltip"
+                ></span>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn"
+                  data-bs-dismiss="modal"
+                  id="delete-post"
+                >
+                  Delete
+                </button>
+                <button
+                  type="button"
+                  id="edit-post"
+                  class="btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#create-modal"
+                >
+                  Edit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a href="/" class="navbar-brand">
+            <img src="assets/EUIVlogo3.png" alt="logo" class="img-fluid" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="d-flex w-100">
+              <div class="flex-grow-1">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="search-input"
+                    placeholder="Search post by title or author"
+                  />
+                </div>
+              </div>
+              <div>
+                <button
+                  class="addBtn btn mx-4 d-none d-lg-block"
+                  data-bs-target="#create-modal"
+                  data-bs-toggle="modal"
+                >
+                  <i class="fas fa-plus"></i>
+                  Create New Post
+                </button>
+                <button
+                  class="addBtn btn d-lg-none ms-2"
+                  data-bs-target="#create-modal"
+                  data-bs-toggle="modal"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="py-5">
+      <div class="container">
+        <div class="row text-center mb-5">
+          <div class="col">
+            <h1 class="fs-1 fw-bold">
+              Explore all blog posts for Europa Universalis IV
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-5">
+            <div class="mb-5">
+              <h4>Categories</h4>
+              <ul class="list-group" id="category-list"></ul>
+            </div>
+            <div class="mb-5 mb-lg-0">
+              <h4>Sort By</h4>
+              <select class="form-select" id="sort-select">
+                <option value="default">Default</option>
+                <option value="titleAZ">Title (A-Z)</option>
+                <option value="titleZA">Title (Z-A)</option>
+                <option value="authorAZ">Author (A-Z)</option>
+                <option value="authorZA">Author (Z-A)</option>
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-7">
+            <div class="row">
+              <div class="col">
+                <div class="row" id="blog-list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center pt-3 my-4 border-top"
+      >
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="/" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
+            <img src="./assets/Europa_Universalis_Logo.png" alt="EU4LOGO" />
+          </a>
+        </div>
+        <span class="mb-3 mb-md-0">© 2023 EU4 BLOG, Inc</span>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="text-muted" href="#"><i class="fab fa-facebook-f"></i></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-muted" href="#"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-muted" href="#"><i class="fab fa-instagram"></i></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./javascripts/request.js"></script>
+    <script src="./javascripts/ui.js"></script>
+    <script src="./javascripts/posts.js"></script>
+    <script src="./javascripts/app.js"></script>
+  </body>
+</html>
