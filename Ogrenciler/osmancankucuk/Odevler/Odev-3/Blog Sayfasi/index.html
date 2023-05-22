@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <div class="row w-100 text-center">
+          <div class="col-12 col-md-6 col-lg-6">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Sort Menu
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <div>
+                      <form id="sortForm">
+                        <label for="sortShape">Select Sort Shape</label>
+                        <select
+                          class="form-control my-2"
+                          id="sortShape"
+                          name="sortShape"
+                        >
+                          <option value="A-Z">Start To End</option>
+                          <option value="Z-A">End To Start</option>
+                        </select>
+                        <label for="sortCategory">Select Sort Category</label>
+                        <select
+                          class="form-control my-2"
+                          id="sortCategory"
+                          name="sortCategory"
+                        >
+                          <option value="title">Sort With Title</option>
+                          <option value="date">Sort With Release Date</option>
+                          <option value="author">Sort With Author</option>
+                        </select>
+                        <button
+                          class="w-100 btn btn-secondary my-4"
+                          type="submit"
+                        >
+                          Sort
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    Filter Menu
+                  </button>
+                </h2>
+                <div
+                  id="collapseTwo"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <div>
+                      <form action="" id="filterForm">
+                        <label for="filterCategory">Choose Category</label>
+                        <select
+                          placeholder="asd"
+                          class="form-control my-2"
+                          id="filterCategory"
+                          name="filterCategory"
+                        >
+                          <option value=""></option>
+                          <option value="Adventure">Adventure</option>
+                          <option value="Culturel">Culturel</option>
+                          <option value="Science">Science</option>
+                          <option value="Funny">Funny</option>
+                          <option value="Hobby">Hobby</option>
+                          <option value="Sports">Sports</option>
+                        </select>
+
+                        <button
+                          class="btn btn-secondary w-100 my-4"
+                          type="click"
+                          id="filterButton"
+                        >
+                          Filter
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mt-3">
+              <form id="searchForm" class="d-flex align-items-center w-100">
+                <input
+                  class="form-control w-100"
+                  type="text"
+                  id="searchInput"
+                  placeholder="Enter information about the author or title."
+                />
+
+                <button class="btn btn-secondary ms-2" type="click">
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+          <div
+            class="col-12 col-md-6 col-lg-6 d-flex justify-content-between align-items-center"
+          >
+            <button
+              type="button"
+              class="btn btn-primary my-5 h-50"
+              data-bs-toggle="modal"
+              data-bs-target="#inputModal"
+              id="addPostButton"
+            >
+              Add Post +
+            </button>
+            <h1 style="font-size: 60px" class="w-75 fw-bold">Blogify</h1>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="modal fade"
+      id="inputModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="row g-3 needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="postTitle" class="form-label">Post Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="postTitle"
+                  placeholder="Title"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please choose a username.</div>
+              </div>
+              <div class="mb-3">
+                <label for="postContent" class="form-label">Post Content</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="postContent"
+                  placeholder="Content"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please choose a username.</div>
+              </div>
+              <div class="mb-3">
+                <label for="postAuthor" class="form-label">Author</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="postAuthor"
+                  placeholder="Author Name"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="postCategory">Select Category</label>
+                <select class="form-control" id="postCategory">
+                  <option value="Adventure">Adventure</option>
+                  <option value="Culturel">Culturel</option>
+                  <option value="Science">Science</option>
+                  <option value="Funny">Funny</option>
+                  <option value="Hobby">Hobby</option>
+                  <option value="Sports">Sports</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="postUrl" class="form-label">Post Url</label>
+                <input type="url" class="form-control" id="postUrl" />
+              </div>
+
+              <button type="click" class="btn btn-primary" id="add-book">
+                Submit
+              </button>
+
+              <button
+                type="click"
+                class="btn btn-primary"
+                id="edit-book"
+                style="display: none"
+              >
+                Edit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="postsTitle row mt-3">
+        <h1 class="fw-bold col-lg-6 d-flex flex-column justify-content-center">
+          POSTS
+        </h1>
+
+        <div class="col-lg-6 d-flex justify-content-end py-2">
+          <button class="converter btn btn-secondary d-flex d-none d-lg-block">
+            <i class="fa-solid fa-grip-vertical fa-2x"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="row postCollection my-4 py-5"></div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="detailModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1
+              class="modal-title detailTitle w-100 text-center"
+              id="staticBackdropLabel"
+            >
+              Modal title
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body detailBody">
+            <div class="row">
+              <div class="col-lg-6">
+                <img class="img-fluid detailImage rounded-3" src="" alt="" />
+                <div class="bg-white rounded-1 my-4 py-4 px-2">
+                  <h3 class="detailAuthor text-center"></h3>
+                  <h5 class="detailDate text-center"></h5>
+                  <h5 class="detailCategory text-center"></h5>
+                  <div class="d-flex justify-content-center">
+                    <img
+                      width="150px"
+                      class="img-fluid"
+                      src="./img/dolcepng.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="max-height: 770px; overflow: scroll"
+                class="col-lg-6 bg-white rounded-1 pt-3"
+              >
+                <i
+                  style="font-size: large"
+                  class="detailContent ps-2 fw-bold"
+                ></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center w-100 bg-black py-4">
+      <div class="container bg-light rounded-5 py-4">
+        <div>
+          <h3 class="fw-bold">Developed by</h3>
+          <img
+            class="img-fluid logoImg"
+            width="100px"
+            src="./img/dolcepng.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </footer>
+
+    <script src="ui.js"></script>
+    <script src="data.js"></script>
+    <script src="book.js"></script>
+    <script src="app.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
