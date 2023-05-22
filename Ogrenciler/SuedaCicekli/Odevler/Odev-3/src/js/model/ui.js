@@ -17,6 +17,7 @@ const urlTwoInput = document.getElementById('urlTwoInput');
 const textInput = document.getElementById('textInput');
 const textTwoInput = document.getElementById('textTwoInput');
 const blogListArea = document.getElementById('blog-list-area');
+const closeButtons = document.querySelectorAll('.close-form');
 let avatarInput;
 
 //buttons
@@ -73,6 +74,8 @@ class UI {
       } else {
         UI.updateBlog(saveOrUpdateButton.getAttribute("blogId"));
       }
+
+
     });
 
     // Diğer checkbox'ların işaretini kaldırır ve işaretlenin chekbox'dan bir avatar pathi'i üretir.
@@ -86,6 +89,28 @@ class UI {
         });
         avatarInput = "./src/asset/avatars/" + avatar.id + ".png";
       });
+    });
+
+    closeButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        UI.clearForm();
+      });
+    });
+  }
+
+  static clearForm() {
+    titleInput.value = "";
+    categoryInput.value = "";
+    urlInput.value = "";
+    urlTwoInput.value = "";
+    textInput.value = "";
+    textTwoInput.value = "";
+    summaryInput.value = "";
+    writerNameInput.value = "";
+    writerSurnameInput.value = "";
+    avatarInput = "";
+    avatarList.forEach((input) => {
+      input.checked = false;
     });
   }
 
