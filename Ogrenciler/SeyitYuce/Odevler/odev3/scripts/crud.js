@@ -59,7 +59,6 @@ confirmDeleteBtn.addEventListener("click", () => {
 confirmEditBtn.addEventListener("click", () => {
     const blogId = confirmEditBtn.dataset.blogId;
 
-    // Check if the blogId is defined
     if (blogId) {
         const updatedBlog = {
             title: document.getElementById("editBlogTitle").value,
