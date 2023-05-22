@@ -6,6 +6,7 @@
 
 a {
   text-decoration: none;
+  transition: all .3s ease-in-out;
 }
 
 .nav-link::after {
@@ -23,10 +24,21 @@ a {
   transition: width 0.3s;
 }
 
-.topSection {
-  background-color: #F7F7F7;
+.topSection,
+footer {
+  background-color: #dcdcdc;
 }
 
+footer a {
+  color: #000000;
+}
+
+footer a:hover {
+  color: #838383;
+}
+
+header,
+nav,
 .cardsBlogsSection {
   background-color: #F2F2F2;
 }
@@ -118,4 +130,14 @@ input[type='text']::placeholder {
 
 .toastZIndex {
   z-index: 11;
+}
+
+.socials a {
+  width: 35px;
+  height: 35px;
+  background-color: #969696;
+}
+
+.socials a:hover {
+  background-color: #838383;
 }
