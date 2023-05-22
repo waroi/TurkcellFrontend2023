@@ -142,6 +142,8 @@ class UI {
 
   static clearAllFilters = function() {
     searchInput.value = '';
+    selectedList.splice(0, selectedList.length);
+    selectedDropDown.splice(0, selectedDropDown.length);
     const checkedInputs = document.querySelectorAll('input[type="checkbox"]');
     checkedInputs.forEach((checkBox) => checkBox.checked ? checkBox.checked = false : null);
   }
