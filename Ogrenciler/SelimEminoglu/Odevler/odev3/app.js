@@ -38,6 +38,98 @@ const writerFilter = document.getElementById("writer");
 addButton.addEventListener("click", addBlog);
 updateButton.addEventListener("click", updateBlog);
 
+function createFilter() {
+  let writerList = [];
+  let categoryList = [];
+
+  Request.getBlogs().then((response) => {
+    response.map((item) => {
+      categoryList.push(item.category);
+    });
+
+    response.map((item) => {
+      writerList.push(item.author);
+    });
+
+    let setCategory = new Set(categoryList);
+    let setWriter = new Set(writerList);
+
+    setCategory.forEach((item) => {
+      let option = document.createElement("option");
+      option.text = item;
+      option.value = item;
+      categoryFilter.add(option);
+    });
+
+    setWriter.forEach((item) => {
+      let option = document.createElement("option");
+      option.text = item;
+      option.value = item;
+      writerFilter.add(option);
+    });
+  });
+}
+
+createFilter();
+
+categoryFilter.addEventListener("change", () => {
+  if (categoryFilter.value == "Belirtilmemiş") {
+    blogList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        console.log(child);
+        child.classList.remove("d-none");
+      }
+    });
+  } else {
+    blogList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        child.classList.add("d-none");
+      }
+    });
+
+    blogList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        if (
+          child.childNodes[1].childNodes[1].childNodes[3].childNodes[5].innerHTML
+            .toLowerCase()
+            .indexOf(categoryFilter.value.toLowerCase()) > -1
+        ) {
+          child.classList.remove("d-none");
+        }
+      }
+    });
+  }
+});
+
+writerFilter.addEventListener("change", () => {
+  if (writerFilter.value == "Belirtilmemiş") {
+    blogList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        console.log(child);
+        child.classList.remove("d-none");
+      }
+    });
+  } else {
+    blogList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        child.classList.add("d-none");
+      }
+    });
+
+    blogList.childNodes.forEach((child) => {
+      if (child.hasChildNodes()) {
+        if (
+          child.childNodes[1].childNodes[1].childNodes[3].childNodes[3].innerHTML
+            .toLowerCase()
+            .indexOf(writerFilter.value.toLowerCase()) > -1
+        ) {
+          child.classList.remove("d-none");
+        }
+      }
+    });
+  }
+});
+
 orderList.addEventListener("change", () => {
   switch (orderList.value) {
     case "AtoZ":
@@ -209,7 +301,6 @@ function updateBlog() {
 }
 
 hiddenBtn[0].addEventListener("click", () => {
-  console.log(search[0]);
   if (search[0].className == "col-2 search-div") {
     search[0].classList.add("active");
   } else {
