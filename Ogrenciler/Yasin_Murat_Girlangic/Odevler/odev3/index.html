@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title>Çok Okuyan Çok Gezen - Yasin</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <!-- Navbar baslangıc -->
+  <nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand col-3 ms-4" href="#">Çok Okuyan Çok Gezen | Yasin</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Navbar" aria-controls="Navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="Navbar">
+        <ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0 fs-5">
+          <li class="nav-item me-2">
+            <a class="nav-link active" aria-current="page" href="#">Ana Sayfa</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">Akdeniz</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">Ege</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">Karadeniz</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">Anadolu</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">Amerika ( Yakında )</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">Afrika ( Yakında )</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">Avrupa ( Yakında )</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">Asya ( Yakında )</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <!-- Navbar bitis -->
+
+      <!-- carousel baslangıc -->
+      <div id="sliderim" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#sliderim" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#sliderim" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#sliderim" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://cdn.sahindogan.com/genel/valizde-olmasi-gerekenler/sirt-cantasinda-olmasi-gerekenler-1640x1093.jpg" class="d-block w-100 resimSliderBoyut" alt="...">
+
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.duzeyturizm.com/wp-content/uploads/2019/07/duzey-turizm-dunyayi-gezmek-artik-cok-kolay.jpg" class="d-block w-100 resimSliderBoyut" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://cdn2.enuygun.com/media/lib/1290x430/uploads/image/kapadokya-balon-turu-3551.webp" class="d-block w-100 resimSliderBoyut" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#sliderim" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#sliderim" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- carousel bitis -->
+
+   <!-- Contaniner baslangıc -->
+   <div class="container-fluid bg-secondary ">
+        <div class="container pt-3">
+            <div class="card-body pt-3">
+                <form id="geziForm" class="mb-5" name="form">
+                  <div class="form-row d-flex justify-content-center fs-5 flex-wrap">
+                      <div class="mb-3 col-md-6">
+                        <div class="d-flex flex-wrap">
+                          <label for="geziName " class="col-sm-4 col-12 col-form-label text-center">Gezi Adı:</label>
+                          <div class="col-sm-8 col-12">
+                            <input type="text" id="geziName" class="form-control ">
+                          </div>
+                          <label for="geziContent" class="col-sm-4 col-12 col-form-label text-center">Gezi Bilgileri:</label>
+                          <div class="col-sm-8 col-12">
+                          <textarea id="geziContent" class="form-control" style="height: 100px"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <div class="d-flex flex-wrap">
+                          <label for="yazar" class="col-sm-4 col-12  col-form-label text-center">Yazarı:</label>
+                          <div class="col-sm-8 col-12">
+                            <input type="text" id="yazar" class="form-control">
+                          </div>
+
+                          <label for="category" class="col-sm-4 col-12 col-form-label text-center">Bölgesi:</label>
+                          <div class="col-sm-8 col-12">
+                            <select id="category" class="form-select">
+                                <option selected>Akdeniz</option>
+                                <option value="Ege">Ege</option>
+                                <option value="Karadeniz">Karadeniz</option>
+                                <option value="Anadolu">Anadolu</option>
+                              </select>
+                          </div>
+              
+                        <label for="geziİmage" class="col-sm-4 col-12 col-form-label text-center">Gezi Tanıtım Resmi:</label>
+                        <div class="col-sm-8 col-12">
+                          <input type="text" id="geziImage" class="form-control" >
+                        </div>
+                      </div>
+                      </div>
+                  </div>
+                  <button id="addGezi" type="submit" class="btn btn-primary mt-5  button border border-dark">Gezi Ekle</button>
+                  <a id="changedGezi" class="btn btn-primary mt-5  button border border-dark" href="#">Gezi Güncelle</a>
+                </form>
+              </div>
+        </div>
+        <hr>
+        <div class="d-flex flex-wrap ms-2">
+            <div class="col-md-4 col-12 me-5">
+              <h5 class="card-title pb-3" id="tasks-title">Gezi Kategorileriyle arama yapabilirsiniz...</h5>
+                <select id="filterCategory" class="form-select mb-2">
+                  <option value="Seciniz" selected>Bütün Geziler</option> 
+                  <option value="Akdeniz">Akdeniz</option>
+                  <option value="Ege">Ege</option>
+                  <option value="Karadeniz">Karadeniz</option>
+                  <option value="Anadolu">Anadolu</option>
+                </select> 
+            </div>
+            <form class=" col-md-5 col-12" role="search">
+              <h5 class="card-title pb-3" id="tasks-title">Gezi adıyla arama yapabilirsiniz...</h5>
+              <input class="form-control w-100 pb-2" name="filterGezi" id="filterGezi" type="search" placeholder="Sayfa içinde Gezi Ara ..." aria-label="Search">
+            </form>
+        </div>
+        <hr>
+          <div class="denModal"></div>
+        <div class="container-xxl geziCard d-flex  flex-wrap">
+        </div>
+   </div>
+   <!-- Contaniner bitis -->
+
+    <!-- Popup baslangic-->
+   <div id="popup1" class="overlay">
+    <div class="popup">
+      <a class="close" href="#">&times;</a>
+      </div>
+   </div>
+    <!-- Popup bitis-->
+
+    <!-- Footer baslangic -->
+    <section class="p-5 text-center bg-primary">
+        <div class="container">
+          <footer class="py-5">
+            <div class="d-flex justify-content-between py-4 my-4 border-top">
+              <span>Tüm hakları saklıdır &copy; | 2023 </span>
+              <span>designed by <a href="https://instagram.com/yasingrlangc?igshid=YmMyMTA2M2Y=" class="text-decoration-none text-dark fw-bold">Yasin Murat GIRLANIÇ</a></span>
+              <ul class="list-unstyled d-flex">
+                <li class="ms-3 sosyalmedyaicon">
+                  <a class="link-dark" href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="ms-3 sosyalmedyaicon">
+                  <a class="link-dark" href="#"><i class="fa fa-instagram"></i></a>
+                </li>
+                <li class="ms-3 sosyalmedyaicon">
+                  <a class="link-dark" href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+              </ul>
+            </div>
+          </footer>
+        </div>
+        </section>
+    <!-- Footer bitis -->
+
+  <script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+</body>
+</html>

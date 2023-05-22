@@ -1,0 +1,109 @@
+
+#changedGezi{
+    display:none;
+}
+#geziForm{
+    position: relative;
+    #addGezi,#changedGezi{
+        position: absolute;
+        bottom: -30px;
+        right: 10px;
+    }  
+}
+
+.col-sm-3{
+    width: 23.4% !important; 
+} 
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    &:target {
+        visibility: visible;
+        opacity: 1;
+      }
+  }
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 70%;
+    position: relative;
+    transition: all 2s ease-in-out;
+    h2 {
+        margin-top: 0;
+        color: #333;
+        font-family: Tahoma, Arial, sans-serif;
+      }
+.close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+        &:hover {
+            color: red;
+          }
+    }
+.content {
+    max-height: 30%;
+    overflow: auto;
+      }
+}
+ 
+footer  {
+    li{  
+    list-style-type: none;
+    margin-right: 1rem;
+    display: inline;
+   }
+    a {
+    color: $dark;
+    text-decoration: none;
+    font-size: 0.9rem;
+     &:hover{
+        color: $dark;
+     }
+   }
+}   
+.fa-pencil{
+    font-size: 30px;
+    padding-right: 20px;
+}
+.fa-trash{
+    font-size: 30px;
+}
+.sosyalmedyaicon{
+    &:hover{
+        transform: scale(2.2);
+        transition: 0.5s;
+    }
+}
+.resimSliderBoyut{
+    height: 900px;
+}
+.card:hover{
+    transform: scale(1.05);
+    transition: 0.5s;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .col-sm-3{
+        width: 100% !important; 
+    } 
+    h5{font-size: 16px;}
+    .resimSliderBoyut{
+        height: 300px;
+    }
+}     
