@@ -4,10 +4,10 @@ import Deneme from './deneme';
 function App() {
   return (
     <div className="App">
-        <Deneme/>
+      <Deneme />
       <header className="App-header">
         <h1>merhaba</h1>
-        <Deneme/>
+        <Deneme />
       </header>
     </div>
   );
