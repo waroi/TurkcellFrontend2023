@@ -15,17 +15,24 @@ const AdayCard = ({name,img}) => {
     vote && localStorage.setItem(name,vote)
 
 
+    function removeVote(){
+        let sure = window.confirm('Emin misiniz?')
+        if(sure===true){
+            setVote(vote-1)
+        }
+    }
+
     
   return (
-   <div className='cardWrap col-6'>
+   <div className='  cardWrap col-6'>
         <div className="card">
     <h2 className='text-center'>{name}: {vote}</h2>
-        <img  src={img} className="card-img-top" alt="..." style={{height:"300px",objectFit:"contain"}}/>
+        <img  src={img} className="card-img-top" alt="cb aday" style={{height:"300px",objectFit:"contain"}}/>
         <div className="card-body">
             <h5 className="card-title text-center">{name}</h5>
             <div className='text-center'>
                 <button  className="btn btn-primary w-100 my-5" onClick={()=>{setVote(vote+1)}}>Oy Ekle</button>
-                <button  className="btn btn-danger opacity-75 w-25" onClick={()=>{setVote(vote-1)}}>Oy Düşür</button>
+                <button  className="btn btn-danger opacity-75 " onClick={removeVote}>Oy Düşür</button>
             </div>
         </div>
         </div>
