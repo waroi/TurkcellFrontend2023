@@ -40,6 +40,16 @@ class Process {
       }
     });
   }
+
+  static deleteProduct(id) {
+    Request.delete(productsUrl, id)
+      .then((response) => {
+        console.log("Response:", response);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
 }
 
 export default Process;

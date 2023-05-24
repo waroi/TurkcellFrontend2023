@@ -7,6 +7,7 @@ const productDescInp = document.getElementById("product-desc");
 const productCatInp = document.getElementById("product-category");
 const productCountInp = document.getElementById("product-count");
 const productImgInp = document.getElementById("product-img");
+const productRow = document.getElementById("product-row");
 const form = document.querySelector("form");
 const addBtn = document.getElementById("add-submit");
 
@@ -24,4 +25,17 @@ addBtn.addEventListener("click", () => {
   Process.addProduct(postData, form);
   UI.updateDisplay();
   console.log("addBtn");
+});
+
+productRow.addEventListener("click", (e) => {
+  if (e.target.classList.contains("add-cart")) {
+    console.log("Clicked on add cart");
+  } else if (e.target.classList.contains("edit-product")) {
+    console.log("Clicked on edit product");
+  } else if (e.target.classList.contains("delete-product")) {
+    const productCard = e.target.closest(".col-lg-4");
+    console.log("Clicked on delete product");
+    Process.deleteProduct(productCard.id);
+    UI.updateDisplay();
+  }
 });

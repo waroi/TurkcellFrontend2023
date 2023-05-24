@@ -1,7 +1,6 @@
 function productCard(product) {
   return `
   <div class="col-lg-4" id="${product.id}">
-  
   <div class="card">
     <img src="${
       product.image
@@ -14,9 +13,9 @@ function productCard(product) {
       <p class="card-text product-desc">${product.desc}</p>
       <button class="btn btn-success add-cart">Add to cart</button>
       <button class="btn btn-warning edit-product">Edit product</button>
-      <button class="btn btn-danger remove-product">Delete product</button>
+      <button class="btn btn-danger delete-product">Delete product</button>
     </div>
-  </div>
+    </div>
   </div>`;
 }
 
