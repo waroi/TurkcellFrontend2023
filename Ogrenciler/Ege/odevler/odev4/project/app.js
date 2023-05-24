@@ -32,6 +32,17 @@ productRow.addEventListener("click", (e) => {
     console.log("Clicked on add cart");
   } else if (e.target.classList.contains("edit-product")) {
     console.log("Clicked on edit product");
+    const productCard = e.target.closest(".col-lg-4");
+    Process.editProduct(
+      productCard.id,
+      productNameInp,
+      productImgInp,
+      productDescInp,
+      productPriceInp,
+      productCatInp,
+      productCountInp,
+      form
+    );
   } else if (e.target.classList.contains("delete-product")) {
     const productCard = e.target.closest(".col-lg-4");
     console.log("Clicked on delete product");

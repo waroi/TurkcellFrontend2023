@@ -12,7 +12,8 @@ function productCard(product) {
       <p class="card-text product-stock text-danger">${product.stock} left</p>
       <p class="card-text product-desc">${product.desc}</p>
       <button class="btn btn-success add-cart">Add to cart</button>
-      <button class="btn btn-warning edit-product">Edit product</button>
+      <button data-bs-toggle="modal"
+      data-bs-target="#addModal" class="btn btn-warning edit-product">Edit product</button>
       <button class="btn btn-danger delete-product">Delete product</button>
     </div>
     </div>
