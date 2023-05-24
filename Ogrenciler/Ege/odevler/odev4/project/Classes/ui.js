@@ -2,6 +2,12 @@ import Request from "./request.js";
 import productCard from "../Components/productCard.js";
 
 const productRow = document.getElementById("product-row");
+const productNameInp = document.getElementById("product-name");
+const productPriceInp = document.getElementById("product-price");
+const productDescInp = document.getElementById("product-desc");
+const productCatInp = document.getElementById("product-category");
+const productCountInp = document.getElementById("product-count");
+const productImgInp = document.getElementById("product-img");
 
 const productsUrl = "http://localhost:3000/products";
 

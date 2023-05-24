@@ -8,6 +8,9 @@ function productCard(product) {
     }" class="card-img-top" alt="${product.name.toLowerCase()}">
     <div class="card-body">
       <h5 class="card-title product-name">${product.name}</h5>
+      <p class="card-text product-price">$${product.price}</p>
+      <p class="card-text product-category">${product.category}</p>
+      <p class="card-text product-stock text-danger">${product.stock} left</p>
       <p class="card-text product-desc">${product.desc}</p>
       <button class="btn btn-success add-cart">Add to cart</button>
       <button class="btn btn-warning edit-product">Edit product</button>

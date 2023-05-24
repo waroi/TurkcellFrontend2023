@@ -1,5 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+i {
+  pointer-events: none;
+}
+
+input {
+  width: 100%;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  .navbar {
+    .navbar-brand {
+      color: $secondary;
+    }
+    .nav-link {
+      color: $secondary;
+      &:hover {
+        color: $info;
+      }
+
+      &.active {
+        color: $info;
+      }
+    }
+  }
+}
+
 footer {
   color: $secondary;
   ul {
