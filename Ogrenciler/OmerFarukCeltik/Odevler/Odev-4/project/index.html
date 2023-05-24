@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="./css/main.css">
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -118,120 +118,373 @@
     </div>
   </section>
 
-  <section class="marketplace">
-    <div class="container px-3">
-      <div class="row py-100 justify-content-center">
-        <div class="col-12 col-md-6 text-uppercase text-center ">
-          <h2 class="display-4 my-2">
-            <span class="header-hover-animation fw-semibold text-light"> Our Products</span>
-          </h2>
-          <p class="text-light fs-5 opacity-50 py-10px">We are the best at building racing, street and dirt bikes. If
-            you
-            are interested in motorcycles, you can take a look at the our builded motorcycles <strong>on
-              marketplace</strong> or <strong>check sections for modify.</strong>
-            your bike. </p>
+  <section class="section bg-black">
+    <div class="container py-120">
+      <div class="row flex-column bg-primary flex-lg-row align-items-lg-center border border-1 border-secondary px-4 py-3 rounded-pill">
+        <div
+          class="col-12 col-lg-8 d-flex align-items-center justify-content-between flex-column flex-sm-row my-3 my-lg-0">
+          <div>
+            <div id="addNewContentButton" class="btn btn-secondary px-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#addContentModal">
+              <i class="fa-solid fa-plus fa-beat "></i> Add new Content
+            </div>
+          </div>
+          <div class="dropdown">
+            <select id="sort-area" class="btn btn-primary">
+              <option class="" value="" href="#">Sort By:</option>
+              <option class="" value="a/z" href="#">A-Z</option>
+              <option class="" value="z/a" href="#">Z-A</option>
+              <option class="" value="date" href="#">Date</option>
+            </select>
+          </div>
+        </div>
+        <div class="d-flex mb-0 px-3 py-4 py-md-2 col-12 col-lg-4" role="search">
+          <input id="search-input" class="form-control me-2 w-100" type="search" placeholder="Search by Content Header,Author or Category..."
+            aria-label="Search">
+          <button class="btn btn-warning" id="search-button" type="submit">Search</button>
         </div>
       </div>
-      <hr class="text-light">
-      <div class="row py-100 justify-content-center">
-        <div class="col-12 py-5 col-md-6 text-uppercase text-center">
-          <h2 class="display-6 fw-semibold "><a href="./marketplace.html"
-              class="text-light header-hover-animation text-decoration-none">
-              Marketplace</a></h2>
-          <p class="text-light fs-5 opacity-50 py-10px">This is our best seller products. We update this area every
-            month.
+    </div>
+  </section>
+
+
+ <!-- add modal start -->
+ <div class="modal modal-lg fade" id="addContentModal" tabindex="-1" aria-labelledby="addContentModalLabel"
+ aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered">
+   <form class="modal-content" novalidate>
+     <div class="modal-header border-5">
+       <h2 class="modal-title fs-3" id="addContentModalLabel">Motorcycle Info's</h2>
+       <button type="button" class="btn text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
+     </div>
+     <div id="modal-form" class="modal-body">
+       <div class="mb-3">
+         <label for="brandInput" class="form-label fs-5">Brand</label>
+         <input type="text" class="form-control" id="brandInput" placeholder="please enter brand..." required>
+       </div>
+       <div class="mb-3">
+         <label for="modelInput" class="form-label fs-5">Model Serial:</label>
+         <input type="text" class="form-control" id="modelInput" placeholder="please enter model..." required>
+       </div>
+       <div class="mb-3">
+         <label for="typeInput" class="form-label fs-5">Type:</label>
+         <input type="text" class="form-control" id="typeInput" placeholder="please enter type..." required>
+       </div>
+       <div class="mb-3">
+         <label for="motorCCInput" class="form-label fs-5">Motor CC:</label>
+         <input type="date" class="form-control" id="motorCCInput" placeholder="please enter CC..." required>
+       </div>
+       <div class="mb-3">
+         <label for="urlInput" class="form-label fs-5">Motor Image URL:</label>
+         <input type="url" class="form-control" id="urlInput" placeholder="please enter image url..." required>
+       </div>
+       <div class="mb-3">
+         <label for="scoreInput" class="form-label fs-5">Status</label>
+         <input type="number" min="0" max="10" class="form-control" id="scoreInput" placeholder="please enter score 0 to 10..." required>
+       </div>
+       <div class="mb-3">
+         <label for="scoreInput" class="form-label fs-5">Gas Type</label>
+         <input type="number" min="0" max="10" class="form-control" id="scoreInput" placeholder="please enter score 0 to 10..." required>
+       </div>
+
+     </div>
+     <div class="modal-footer">
+       <button type="button" id="close-button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+       <button type="submit" id="save-book" data-bs-dismiss="modal" class="btn btn-success">Save changes</button>
+       <button type="button" id="edit-book" data-bs-dismiss="modal" class="btn btn-warning">Edit changes</button>
+     </div>
+   </form>
+ </div>
+</div>
+<!-- add modal end -->
+
+  <section class="cards pb-120 bg-black">
+    <div class="container">
+      <div class="row">
+        <div class="d-none d-lg-block px-5 col-lg-4">
+          <div class=" bg-transparent p-3 text-light moto-card">
+            <h5 class="card-title mt-3 fs-1"><span class="border-secondary border-1 border-bottom">Filters</span></h5>
+            <div class="used p-4">
+              <h5 class="card-title mt-5 fs-2"><span class="border-secondary border-1 border-bottom">Status</span></h5>
+              <div class="form-check mt-4 fs-5">
+                <input class="form-check-input" type="radio" name="usedRadio" id="usedRadio1">
+                <label class="form-check-label" for="usedRadio1">
+                  First Hand
+                </label>
+                <br>
+                <input class="form-check-input" type="radio" name="usedRadio" id="usedRadio2">
+                <label class="form-check-label" for="usedRadio2">
+                  Second Hand
+                </label>
+              </div>
+            </div>
+            <div class="engine p-4">
+              <h5 class="card-title mt-3 fs-2"><span class="border-secondary border-1 border-bottom">Engine</span></h5>
+              <div class="form-check mt-4 fs-5">
+                <input class="form-check-input" type="checkbox" id="engineRadio1">
+                <label class="form-check-label" for="engineRadio1">
+                  0 - 125cc
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="engineRadio2">
+                <label class="form-check-label" for="engineRadio2">
+                  125cc - 250cc
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="engineRadio3">
+                <label class="form-check-label" for="engineRadio3">
+                  250cc - 500cc
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="engineRadio4">
+                <label class="form-check-label" for="engineRadio4">
+                  500cc - 1200cc
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="engineRadio5">
+                <label class="form-check-label" for="engineRadio5">
+                  1200cc ++
+                </label>
+              </div>
+            </div>
+            <div class="type p-4">
+              <h5 class="card-title mt-3 fs-2"><span class="border-secondary border-1 border-bottom">Type</span></h5>
+              <div class="form-check mt-4 fs-5">
+                <input class="form-check-input" type="checkbox" id="typeRadio1">
+                <label class="form-check-label" for="typeRadio1">
+                  Sport
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="typeRadio2">
+                <label class="form-check-label" for="typeRadio2">
+                  Super Sport
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="typeRadio3">
+                <label class="form-check-label" for="typeRadio3">
+                  Naked
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="typeRadio4">
+                <label class="form-check-label" for="typeRadio4">
+                  Enduro
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="typeRadio5">
+                <label class="form-check-label" for="typeRadio5">
+                  Chopper
+                </label>
+              </div>
+            </div>
+            <div class="fuel p-4">
+              <h5 class="card-title mt-3 fs-2"><span class="border-secondary border-1 border-bottom">Gas Type</span>
+              </h5>
+              <div class="form-check mt-4 fs-5">
+                <input class="form-check-input" type="checkbox" id="fuelRadio1">
+                <label class="form-check-label" for="fuelRadio1">
+                  Fuel
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="fuelRadio2">
+                <label class="form-check-label" for="fuelRadio2">
+                  Diesel
+                </label>
+              </div>
+            </div>
+            <div class="power p-4">
+              <h5 class="card-title mt-3 fs-2"><span class="border-secondary border-1 border-bottom">HorsePower</span>
+              </h5>
+              <div class="form-check mt-4 fs-5">
+                <input class="form-check-input" type="checkbox" id="powerRadio1">
+                <label class="form-check-label" for="powerRadio1">
+                  0 - 100bg
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="powerRadio2">
+                <label class="form-check-label" for="powerRadio2">
+                  100bg - 150bg
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="powerRadio2">
+                <label class="form-check-label" for="powerRadio2">
+                  150bg - 200bg
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" id="powerRadio2">
+                <label class="form-check-label" for="powerRadio2">
+                  200bg ++
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="row row-cols-1 row-cols-lg-4 g-4">
-          <div class="col">
-            <a href="./product-1.html">
-              <div class="card moto-card bg-transparent text-light h-100">
-                <img src="../img/product4.png" class="card-img-top border-secondary border-1 border-bottom p-4"
-                  alt="...">
+        <div class="col-12 col-md-6 col-lg-4">
+        
+         
+          <div class="card mb-3 moto-card bg-transparent text-light">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-4 justify-content-center">
+                <img src="../img/product5.png" class="img-fluid  rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title my-3 fs-4"><span class="border-secondary border-1 border-bottom">Kawasaki
+                      Ninja</span></h5>
+                  <div class="text-muted fs-6 my-4">
+                    Sport Bike <strong class="mx-1">•</strong> 1252cc
+                    <span class="m-2">•</span> Top Speed: 107 m/h <span class="m-2">•</span> Transmission: 6-speed
+                    <div class="text-light mt-4 text-end d-flex align-items-center justify-content-end">
+                      <h4 class="h4 me-3">15.000$</h4>
+                      <h4 class="h4 btn btn-dark"><i class="fa-solid fa-plus"></i></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 moto-card bg-transparent text-light">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-5">
+                <img src="../img/product6.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h5 class="card-title my-3 fs-4"><span class="border-secondary border-1 border-bottom">Yamaha
+                      MT-07</span></h5>
+                  <div class="text-muted fs-6 my-4">
+                    Boxer Bike <strong class="mx-1">•</strong> 1170 cc
+                    <span class="m-2">•</span> Top Speed: 200 km/h <span class="m-2">•</span> Transmission: 6-speed
+                    <div class="text-light mt-4 text-end d-flex align-items-center justify-content-end">
+                      <h4 class="h4 me-3">11.000$</h4>
+                      <h4 class="h4 btn btn-dark"><i class="fa-solid fa-plus"></i></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-3 moto-card bg-transparent text-light">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-5">
+                <img src="../img/product6.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h5 class="card-title my-3 fs-4"><span class="border-secondary border-1 border-bottom">Yamaha
+                      MT-07</span></h5>
+                  <div class="text-muted fs-6 my-4">
+                    Boxer Bike <strong class="mx-1">•</strong> 1170 cc
+                    <span class="m-2">•</span> Top Speed: 200 km/h <span class="m-2">•</span> Transmission: 6-speed
+                    <div class="text-light mt-4 text-end d-flex align-items-center justify-content-end">
+                      <h4 class="h4 me-3">11.000$</h4>
+                      <h4 class="h4 btn btn-dark"><i class="fa-solid fa-plus"></i></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 moto-card bg-transparent text-light">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-5">
+                <img src="../img/product4.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-7">
                 <div class="card-body">
                   <h5 class="card-title my-3 fs-4"><span class="border-secondary border-1 border-bottom">BMW R
                       NINE-T</span></h5>
                   <div class="text-muted fs-6 my-4">
                     Boxer Bike <strong class="mx-1">•</strong> 1170 cc
                     <span class="m-2">•</span> Top Speed: 200 km/h <span class="m-2">•</span> Transmission: 6-speed
-                    <span class="m-2">•</span> Weight: 221kg Fuel capacity 18.0 L <span class="m-2">•</span> Torque:
-                    116 N⋅m
+                    <div class="text-light mt-4 text-end d-flex align-items-center justify-content-end">
+                      <h4 class="h4 me-3">14.000$</h4>
+                      <h4 class="h4 btn btn-dark"><i class="fa-solid fa-plus"></i></h4>
+                    </div>
                   </div>
-                  <p class="card-text my-3">The BMW R nineT is a standard motorcycle made by BMW Motorrad since 2014. It
-                    is a retro styled roadster marketed by BMW to custom builders and enthusiasts as a "blank canvas for
-                    customizing".</p>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
-          <div class="col">
-            <a href="./product-2.html">
-              <div class="card moto-card bg-transparent text-light h-100">
-                <img src="../img/product3.png" class="card-img-top border-secondary border-1 border-bottom p-4"
-                  alt="...">
+          <div class="card mb-3 moto-card bg-transparent text-light">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-5">
+                <img src="../img/product5.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h5 class="card-title my-3 fs-4"><span class="border-secondary border-1 border-bottom">Yamaha YZF
+                      R-1</span></h5>
+                  <div class="text-muted fs-6 my-4">
+                    Boxer Bike <strong class="mx-1">•</strong> 1170 cc
+                    <span class="m-2">•</span> Top Speed: 200 km/h <span class="m-2">•</span> Transmission: 6-speed
+                    <div class="text-light mt-4 text-end d-flex align-items-center justify-content-end">
+                      <h4 class="h4 me-3">13.500$</h4>
+                      <h4 class="h4 btn btn-dark"><i class="fa-solid fa-plus"></i></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 moto-card bg-transparent text-light">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-5">
+                <img src="../img/product22.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-7">
                 <div class="card-body">
                   <h5 class="card-title my-3 fs-4"><span class="border-secondary border-1 border-bottom">Harley-Davidson
-                      Nigtster</span></h5>
+                      Bobber</span></h5>
                   <div class="text-muted fs-6 my-4">
-                    Sport Bike <strong class="mx-1">•</strong> 1252cc
-                    <span class="m-2">•</span> Top Speed: 107 m/h <span class="m-2">•</span> Transmission: 6-speed
-                    <span class="m-2">•</span> Weight: 462 lb <span class="m-2">•</span> Fuel capacity: 3.1 gal <span
-                      class="m-2">•</span> Torque:
-                    70 ft-lb
+                    Boxer Bike <strong class="mx-1">•</strong> 1170 cc
+                    <span class="m-2">•</span> Top Speed: 200 km/h <span class="m-2">•</span> Transmission: 6-speed
+                    <div class="text-light mt-4 text-end d-flex align-items-center justify-content-end">
+                      <h4 class="h4 me-3">12.000$</h4>
+                      <h4 class="h4 btn btn-dark"><i class="fa-solid fa-plus"></i></h4>
+                    </div>
                   </div>
-                  <p class="card-text my-3">Introduced in 2007, the XL1200N Nightster included (then) unique elements
-                    such as a bobbed rear fender, front fork gaiters, and a side mount license plate.</p>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
-          <div class="col">
-            <a href="./product-3.html">
-              <div class="card moto-card bg-transparent text-light h-100">
-                <img src="../img/product22.png" class="card-img-top border-secondary border-1 border-bottom p-4"
-                  alt="...">
+          <div class="card mb-3 moto-card bg-transparent text-light">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-5">
+                <img src="../img/product3.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-7">
                 <div class="card-body">
                   <h5 class="card-title my-3 fs-4"><span class="border-secondary border-1 border-bottom">Ducati Diavel
                       Carbon</span></h5>
                   <div class="text-muted fs-6 my-4">
                     Standart Bike <strong class="mx-1">•</strong> 1,198.4 cc
                     <span class="m-2">•</span> Top Speed: 272 km/h <span class="m-2">•</span> Transmission: 6-speed
-                    <span class="m-2">•</span> Weight: 234 kg Fuel capacity 17.0 L <span class="m-2">•</span> Torque:
-                    130.5 N⋅m
+                    <div class="text-light mt-4 text-end d-flex align-items-center justify-content-end">
+                      <h4 class="h4 me-3">13.000$</h4>
+                      <h4 class="h4 btn btn-dark"><i class="fa-solid fa-plus"></i></h4>
+                    </div>
                   </div>
-                  <p class="card-text my-3">The Ducati Diavel is the second cruiser motorcycle from Ducati after the
-                    Indiana of 1986–1990. The 2011 model year Diavel debuted in November 2010 at the EICMA motorcycle
-                    show in Milan.</p>
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="./">
-              <div class="card moto-card bg-transparent text-light h-100">
-                <img src="../img/product1.png" class="card-img-top border-secondary border-1 border-bottom p-4"
-                  alt="...">
-                <div class="card-body">
-                  <h5 class="card-title my-3 fs-4"><span class="border-secondary border-1 border-bottom">Yamaha Yzf
-                      R-3</span></h5>
-                  <div class="text-muted fs-6 my-4">
-                    Sport Bike <strong class="mx-1">•</strong> 320.3cc
-                    <span class="m-2">•</span> Top Speed: 181 km/h <span class="m-2">•</span> Transmission: 6-speed
-                    <span class="m-2">•</span> Weight: 181kg Fuel capacity 14.0 L <span class="m-2">•</span> Torque:
-                    29.6 N⋅m
-                  </div>
-                  <p class="card-text my-3">The Yamaha YZF-R3, commonly R3, is a 321 cc (19.6 cu in) inline-twin sport
-                    bike
-                    made by Yamaha since 2015.</p>
-                </div>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
-        <div class="row py-4 justify-content-center">
-          <div class="col-10 pt-100 col-lg-5">
-            <a href="./marketplace.html" class="btn moto-card fs-3 text-light w-100 p-4 rounded-pill">Explore Our
-              Marketplace...</a>
-          </div>
+        <div>
+          <ul class="pagination mt-5 justify-content-center border-0">
+            <li class="page-item">
+              <a class="page-link bg-primary border-1 border-secondary text-light">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link border-1 border-secondary bg-primary text-light" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link border-1 border-secondary bg-primary text-light" href="#">2</a>
+            </li>
+            <li class="page-item"><a class="page-link border-1 border-secondary bg-primary text-light" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link bg-primary border-1 border-secondary text-light" href="#">Next</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -621,8 +874,16 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+
+
+
+  <script src="./js/app.js" type="module"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+    integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+    integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
     crossorigin="anonymous"></script>
 </body>
 
