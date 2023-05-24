@@ -5,9 +5,9 @@ const AdayCard = ({name,img}) => {
 
 
     useEffect(() => {
-        const vote = localStorage.getItem(name)
-        setVote(Number(vote))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        const localVote = localStorage.getItem(name)
+        setVote(Number(localVote))
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
     }, [])
 
 
