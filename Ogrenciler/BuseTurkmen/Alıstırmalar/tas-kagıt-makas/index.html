@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Taş Kağıt Makas Oyunu</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div id="welcome-screen">
+      <h1>Taş Kağıt Makas Oyunu</h1>
+      <div id="scores">
+        <span id="computer-score">Computer: 0</span>
+        <span id="player-score">Player: 0</span>
+      </div>
+      <button id="play-button">Let's Play</button>
+    </div>
+    <div id="game-screen">
+      <h2>Oyun Sayfası</h2>
+      <div id="hands">
+        <img id="computer-hand" src="" alt="Computer Hand">
+        <img id="player-hand" src="" alt="Player Hand">
+      </div>
+      <div id="buttons">
+        <button class="hand-button" data-choice="rock"><img src="rock.png" alt="Rock"></button>
+        <button class="hand-button" data-choice="paper"><img src="paper.png" alt="Paper"></button>
+        <button class="hand-button" data-choice="scissors"><img src="scissors.png" alt="Scissors"></button>
+      </div>
+      <div id="result"></div>
+      <button id="exit-button">Çıkış</button>
+    </div>
+    <div id="result-modal" class="modal">
+      <div class="modal-content">
+        <h3 id="modal-message"></h3>
+        <button id="play-again-button">Tekrar Oyna</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
