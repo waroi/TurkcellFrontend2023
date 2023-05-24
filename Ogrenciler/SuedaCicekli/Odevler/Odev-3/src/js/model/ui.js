@@ -112,6 +112,7 @@ class UI {
     avatarList.forEach((input) => {
       input.checked = false;
     });
+
   }
 
 
@@ -319,7 +320,7 @@ class UI {
     let writerName = writerNameInput.value
     let writerSurname = writerSurnameInput.value;
     let username = writerSurname.replace(" ", "").toLowerCase() + "_" + writerName.replace(" ", "").toLowerCase()
-    let avatar = typeof avatarInput !== 'undefined' ? avatarInput : "./src/asset/avatars/avatar1.png"; //TODO default resim
+    let avatar = typeof avatarInput !== 'undefined' ? avatarInput : "./src/asset/avatars/avatarDefault.png"; //TODO default resim
     if (UI.formValidation() == false) {
       return;
     }

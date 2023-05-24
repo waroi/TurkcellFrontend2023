@@ -53,6 +53,14 @@ a {
       width: 100%;
     }
   }
+  .socialicons {
+    i {
+      transition: 0.3s;
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
 }
 
 .container {
@@ -93,6 +101,7 @@ a {
 
   #post-list {
     .card {
+      transition: 0.3s;
       #post-title {
         height: 50px;
       }
@@ -105,6 +114,10 @@ a {
           height: 300px;
           object-fit: cover;
         }
+      }
+      &:hover {
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
       }
     }
   }

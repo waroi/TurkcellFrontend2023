@@ -1,0 +1,84 @@
+a {
+  text-decoration: none;
+}
+li::before {
+  visibility: hidden;
+}
+.mainCon {
+  width: 100%;
+}
+.sign {
+  display: none;
+}
+#blogList {
+  min-height: 100vh;
+}
+.blog-item {
+  /* box-shadow: 0px 0px 107px 1px rgba(112,112,112,1); */
+}
+.card-body h2 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#blogImage {
+  height: 20rem;
+  width: fit-content;
+  transform: scale(1);
+  transition: 0.3s ease-in-out;
+}
+#blogImage:hover {
+  transform: scale(1.2);
+}
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sticky-div {
+  position: absolute;
+  top: 0%;
+  left: 92%;
+  height: 100%;
+  width: fit-content;
+  margin: 0;
+}
+.sticky-span {
+  position: sticky;
+  font-size: 24px;
+  top: 0%;
+  left: 97%;
+  color: #fd6767;
+  padding: 10px;
+}
+#contentModal,
+#addModal,
+#editModal,
+#staticBackdrop {
+  backdrop-filter: blur(4.4px);
+}
+.card-text-modal {
+  height: fit-content;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+@media screen and (min-width: 992px) {
+  body {
+    overflow-x: hidden;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .sign {
+    display: block;
+    margin-top: auto;
+  }
+  .navCon,
+  .filter-container {
+    position: fixed;
+  }
+}

@@ -19,12 +19,14 @@ let editContentButton = document.querySelector("#edit-book");
 let globalCardArea = document.querySelector("#globalCardArea");
 let searchButton = document.querySelector("#search-button");
 let addNewContentButton = document.querySelector("#addNewContentButton");
+let closeButton = document.querySelector("#close-button");
 // area
 let viewModalContent = document.querySelector("#view-modal-content");
 let latestContentArea = document.querySelector("#latest-content-area");
 let sortOptionArea = document.querySelector("#sort-area");
 let categoryFilterArea = document.querySelector("#category-filter-area");
 let form = document.querySelector("form");
+let modalForm = document.querySelector("#modal-form");
 
 // let categoryFilterParent = document.querySelector("#categoryFilterParent")
 
@@ -43,7 +45,9 @@ function eventListeners() {
     window.location.href = "#footercon";
   }});
   categoryFilterArea.addEventListener("click", (e) => categoryFilterStatus(e));
-  addNewContentButton.addEventListener("click", (e) => toggleButtons(e))
+  addNewContentButton.addEventListener("click", (e) => toggleButtons(e));
+  modalForm.addEventListener("keyup", (e)=> validationFunction(e));
+  closeButton.addEventListener("click", () => form.reset());
 }
 function toggleButtons(e) { 
   form.reset();
@@ -59,6 +63,17 @@ function toggleButtons(e) {
     editContentButton.classList.add("d-block");
   }
 }
+function validationFunction(e){
+  if(e.target.value.length < 5){
+    e.target.classList.add("is-invalid");
+    e.target.classList.remove("is-valid");
+  }else if(e.target.value.length >= 5) {
+    e.target.classList.add("is-valid");
+    e.target.classList.remove("is-invalid");
+  }
+}
+
+
 let ui = new UI();
 ui.refreshAndAddContentToUI();
 let contentCurrentId;
@@ -151,7 +166,6 @@ export function categoryFilterStatus(e) {
     ui.refreshAndAddContentToUI(null, null, null, null ,true);
   }
 }
-
 
 function addBook(e) {
   e.preventDefault();
