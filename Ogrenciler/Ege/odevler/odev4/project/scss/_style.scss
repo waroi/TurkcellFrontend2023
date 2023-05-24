@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+footer {
+  color: $secondary;
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  .btn {
+    color: $info;
+    :hover {
+      color: $primary;
+    }
+  }
+
+  .footer-content {
+    a {
+      color: $secondary;
+      transition: 0.3s all;
+      &:hover {
+        color: $info;
+      }
+    }
+
+    button {
+      transition: 0.3s all;
+    }
+  }
+
+  .input-wrap {
+    position: relative;
+    border-bottom: 2px solid $secondary;
+    input {
+      color: $secondary;
+      border: none;
+      outline: none;
+      border-radius: 1rem;
+      transition: 0.3s all;
+
+      &:focus + .focus-input1 {
+        width: 100%;
+      }
+      &::placeholder {
+        color: rgba(255, 255, 240, 0.623);
+      }
+    }
+    .focus-input1 {
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: $info;
+      left: 0;
+      bottom: -2px;
+      transition: 0.3s all;
+    }
+  }
+
+  .col-lg-4 {
+    border-left: 1px solid #777;
+    padding: 1rem 5rem;
+    &:first-child {
+      border-left: none;
+    }
+  }
+}
