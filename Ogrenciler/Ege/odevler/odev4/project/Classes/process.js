@@ -31,12 +31,15 @@ class Process {
           category: product.category,
           stock: Number(product.stock) + Number(postData.stock),
         };
-        Request.put(productsUrl, updatedData, product.id);
+        Request.put(productsUrl, updatedData, product.id).then((response) =>
+          UI.updateDisplay()
+        );
       } else {
         Request.post(productsUrl, postData)
           .then((response) => {
             console.log(response);
             form.reset();
+            UI.updateDisplay();
           })
           .catch((error) => {
             console.error(error);
@@ -49,6 +52,7 @@ class Process {
     Request.delete(productsUrl, id)
       .then((response) => {
         console.log("Response:", response);
+        UI.updateDisplay();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -119,6 +123,7 @@ class Process {
       .then((response) => {
         console.log(response);
         form.reset();
+        UI.updateDisplay();
       })
       .catch((err) => console.log(err));
   }
@@ -142,9 +147,9 @@ class Process {
                   price: inCart.price,
                   count: inCart.count + 1,
                 };
-                Request.put(cartUrl, cartData, id);
-                // const updatedData = { ...product, stock: product.stock - 1 };ö
-                // Request.put(productsUrl, updatedData, id);
+                Request.put(cartUrl, cartData, id).then((response) =>
+                  UI.updateDisplay()
+                );
               } else {
                 console.log("You have hit the stock limit");
               }
@@ -157,7 +162,7 @@ class Process {
                 count: 1,
               };
               Request.post(cartUrl, cartData)
-                .then((response) => console.log(response))
+                .then((response) => UI.updateDisplay())
                 .catch((err) => console.log(err));
             }
           });
@@ -172,6 +177,7 @@ class Process {
     Request.delete(cartUrl, id)
       .then((response) => {
         console.log("Response:", response);
+        UI.updateDisplay();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -182,19 +188,31 @@ class Process {
     Request.get(cartUrl).then((cartProducts) => {
       const cartItem = cartProducts.find((cartProduct) => cartProduct.id == id);
       if (cartItem.count > 1) {
-        Request.put(cartUrl, { ...cartItem, count: cartItem.count - 1 }, id);
+        Request.put(
+          cartUrl,
+          { ...cartItem, count: cartItem.count - 1 },
+          id
+        ).then((response) => UI.updateDisplay());
       } else {
         this.deleteFromCart(id);
       }
+    });
+  }
 
-      //  JSON-Server yenilenmesi durursa aşağıdakini dene
-      // Request.put(cartUrl, { ...cartItem, count: cartItem.count - 1 }, id).then(
-      //   (response) => {
-      //     if (cartItem.count <= 0) {
-      //       this.deleteFromCart(id);
-      //     }
-      //   }
-      // );
+  static purchase() {
+    Request.get(cartUrl).then((cartProducts) => {
+      cartProducts.map((cartProduct) => {
+        Request.get(`${productsUrl}/${cartProduct.id}`).then((product) => {
+          Request.put(
+            productsUrl,
+            { ...product, stock: product.stock - cartProduct.count },
+            cartProduct.id
+          ).then((response) => {
+            UI.updateDisplay();
+            this.deleteFromCart(cartProduct.id);
+          });
+        });
+      });
     });
   }
 }
