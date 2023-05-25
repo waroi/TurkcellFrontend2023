@@ -1,0 +1,114 @@
+a {
+    text-decoration: none;
+  }
+  
+  @mixin card-hover {
+    color: $danger;
+  }
+  @mixin bg-pr {
+    background-color: $primary;
+    a {
+      color: $warning;
+    }
+  }
+  nav {
+    z-index: 4;
+  }
+  x .product-carousel {
+    img {
+      width: 300px;
+    }
+  }
+  #carouselCaptions {
+    height: 300px;
+    img {
+      height: 300px;
+    }
+  }
+  .card {
+    @include bg-pr;
+  }
+  .solar-system {
+    li {
+      img {
+        height: 150px;
+        width: 100px;
+        align-items: center;
+      }
+      :hover {
+        @include card-hover;
+      }
+    }
+  }
+  .bundle {
+    img {
+      height: 50px;
+    }
+  
+    a {
+      color: $warning;
+      :hover {
+        @include card-hover;
+      }
+    }
+    span {
+      font-weight: bolder;
+      font-size: 36px;
+    }
+  }
+  .popular-planets {
+    h2 {
+      margin-bottom: 20px;
+      text-transform: capitalize;
+      text-align: center;
+    }
+    img {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      height: 100px;
+    }
+    a {
+      background-color: $primary;
+      color: $warning;
+      :hover {
+        color: $danger;
+      }
+    }
+  }
+  .msps {
+    @extend .popular-planets;
+    h2 {
+      color: $warning;
+    }
+  }
+  footer {
+    background: url("https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80 center");
+    background-repeat: no-repeat;
+    background-size: cover;
+    ul {
+      li {
+        :hover {
+          color: $danger !important;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .product-carousel {
+      height: 400px;
+      .product-info {
+        height: 300px;
+        overflow-y: scroll;
+      }
+    }
+    .solar-system {
+      li {
+        img {
+          width: 100%;
+          height: 100px;
+        }
+      }
+    }
+  }
+  
