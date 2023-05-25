@@ -30,7 +30,9 @@ class UI {
 
   static updateDisplay() {
     Request.get(productsUrl)
-      .then((data) => this.addProductsToUI(data))
+      .then((data) => {
+        this.addProductsToUI(data);
+      })
       .catch((err) => console.log(err));
     Request.get(cartUrl)
       .then((data) => {
@@ -42,3 +44,11 @@ class UI {
 }
 
 export default UI;
+
+// const stockText = productCard.querySelector(".product-stock").textContent;
+//       const cardBtn = productCard.querySelector(".add-cart");
+//       if (stockText == "0 left") {
+//         if (!cardBtn.classList.contains("disabled")) {
+//           cardBtn.classList.add("disabled");
+//         }
+//       }
