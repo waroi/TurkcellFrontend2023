@@ -1,0 +1,25 @@
+const elements = {
+  entityList: document.getElementById("entities"),
+  entityName: document.getElementById("name"),
+  entityContent: document.getElementById("content"),
+  entityPrice: document.getElementById("price"),
+  entityImgUrl: document.getElementById("imgUrl"),
+  entityCategory: document.getElementById("category"),
+  entityForm: document.getElementById("entity-form"),
+  entityStock: document.getElementById("stock"),
+  newEntityName: document.getElementById("new-name"),
+  newEntityContent: document.getElementById("new-content"),
+  newEntityPrice: document.getElementById("new-price"),
+  newEntityImgUrl: document.getElementById("new-imgUrl"),
+  newEntityCategory: document.getElementById("new-category"),
+  newEntityStock: document.getElementById("new-stock"),
+  updateEntityForm: document.getElementById("update-entity-form"),
+  editModal: document.getElementById("exampleModal"),
+  newModal: document.getElementById("staticBackdrop"),
+  categoryFilter: document.getElementById("category-filter"),
+  searchFilter: document.getElementById("search-filter"),
+  sort: document.getElementById("sort"),
+  detailModal: document.getElementById("detail-modal"),
+};
+
+export { elements };
