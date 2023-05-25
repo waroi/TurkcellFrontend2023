@@ -8,7 +8,7 @@ function createCard(content) {
       </div>
       <div class="mt-2">
         <div class="card-body">
-          <h5 class="card-title my-3 fs-4"><span class="border-secondary border-1 border-bottom">${content.brand}
+          <h5 class="card-title my-3 fs-4"><span class="border-secondary text-capitalize border-1 border-bottom">${content.brand}
           ${content.model}</span></h5>
           <div class="text-muted fs-6 my-4">
             Sport Bike <strong class="mx-1">•</strong> ${content.motorcc}

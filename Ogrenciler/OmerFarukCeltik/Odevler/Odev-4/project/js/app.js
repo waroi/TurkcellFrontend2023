@@ -1,5 +1,6 @@
 import Request from "./requestClass.js";
 import createCard from "./components/cardComponent.js";
+import sortCardsDateAndAlphabetic from "./sortCardsFunction.js";
 // area
 
 let marketPlaceArea = document.querySelector("#marketPlaceArea");
@@ -36,51 +37,67 @@ function eventListeners(){
   marketPlaceArea.addEventListener("click", (e) => globalCardAreaClickFunctions(e));
   saveCardButton.addEventListener("click", (e) => addNewCard(e));
   editCardButton.addEventListener("click", (e) => completeEditContent(contentCurrentId, e));
-  engineCheck.addEventListener("click", (e) => allFilterContent(e))
+  engineCheck.addEventListener("click", (e) => allFilterEvents(e));
+  searchFilterInput.addEventListener("keyup", (e) => e.target.value.length >= 3 ? ui.refreshAndAddCardsToUI(null,e.target.value): ui.refreshAndAddCardsToUI(null,null));
+  sortArea.addEventListener("change", (e) => sortEvents(e))
 }
 
 class UI {
   static inputValidate() {
     return (
-      brandInput.value.typeOf != String || brandInput.value.length < 3 || modelInput.value.typeOf != String || modelInput.value.length < 3 || priceInput.value.typeOf != Number || modelInput.value == "" || urlInput.value.typeOf != URL || modelInput.value.length < 3  
+       brandInput.value.length < 3 || modelInput.value.length < 3
     )
   }
-  async refreshAndAddCardsToUI(findedItems) {
+  async refreshAndAddCardsToUI(findedItems,searchInputvalue) {
     marketPlaceArea.innerHTML = "";
     if(findedItems){
       findedItems.forEach((item) => marketPlaceArea.innerHTML += createCard(item));
-    }else if(findedItems.size == 0){
+    }
+    else if(searchInputvalue){
+      console.log(searchInputvalue);
+      request.get().then((arr) => arr.map((item) => {
+        if(item.type.includes(searchInputvalue.toLowerCase()) || item.status.includes(searchInputvalue)|| item.brand.includes(searchInputvalue)|| item.model.includes(searchInputvalue)){
+          marketPlaceArea.innerHTML +=  createCard(item);
+        }
+      }))
+    }
+    else{
       request.get().then((res) => res.map((item) => marketPlaceArea.innerHTML +=  createCard(item)));
     }
     
   }
 }
 
-
+console.log(brandInput.value);
 let ui = new UI();
 ui.refreshAndAddCardsToUI();
 
 async function addNewCard(e){
   form.reset();
   e.preventDefault();
-  console.log(gasSelect.value);
   // if (UI.inputValidate()) {
+  //   console.log(UI.inputValidate());
   //   alert("please complete all inputs correctly.")
   //   } else {
-      let newContent = new Request(
-        brandInput.value,
-        modelInput.value,
-        typeSelect.value.toLowerCase(),
-        motorCCInput.value,
-        urlInput.value,
-        gasSelect.value,
-        statusSelect.value,
-        Number(priceInput.value),
-        Number(stockInput.value),
-      );
-// }
-newContent.post().catch((err) => console.log(err));
+   request.get().then((arr) => arr.map((item) => {
+    console.log(item.model.toLowerCase());
+    console.log(brandInput.value);
+   }))
 }
+
+// let newContent = new Request(
+//   brandInput.value.toLowerCase(),
+//   modelInput.value.toLowerCase(),
+//   typeSelect.value.toLowerCase(),
+//   motorCCInput.value,
+//   urlInput.value,
+//   gasSelect.value,
+//   statusSelect.value,
+//   Number(priceInput.value),
+//   Number(stockInput.value),
+// );
+// newContent.post().catch((err) => console.log(err));
+// }
 
 let contentCurrentId;
 
@@ -140,8 +157,8 @@ export async function completeEditContent(contentCurrentId, e) {
   })
   await ui.refreshAndAddCardsToUI();
 }
-async function allFilterContent(e){
-  
+let count = 0;
+async function allFilterEvents(e){
   if(e.target.checked){
     request.get().then((arr) => {
       console.log(arr);
@@ -149,13 +166,10 @@ async function allFilterContent(e){
       if (item.type.includes(e.target.value) || item.status.includes(e.target.value) || item.motorcc.includes(e.target.value) ||  item.gas.includes(e.target.value)) {
         findedItems.add(item);
       }
-      // console.log(item.gas);
-      // console.log(e.target.value);
     })
    ui.refreshAndAddCardsToUI(findedItems);
   })
   }else{
-    console.log(e.target.value);
     findedItems.forEach((item) => {
       if(item.type.includes(e.target.value) || item.status.includes(e.target.value) || item.motorcc.includes(e.target.value) ||  item.gas.includes(e.target.value)){
         findedItems.delete(item);
@@ -163,4 +177,31 @@ async function allFilterContent(e){
       }
     })
   }
+    let checkedBoxes = engineCheck.querySelectorAll("input");
+   for (let i = 0; i < checkedBoxes.length; i++) {
+    checkedBoxes[i].checked == false ? count += 1 : count += 0 
+  }
+  if(count == 12 && findedItems.size == 0){
+    ui.refreshAndAddCardsToUI();
+  }
+  count = 0;
 }
+async function sortEvents(e){
+  if(findedItems.size != 0){
+    let copyArr = Array.from(findedItems);
+    let sortedArr = sortCardsDateAndAlphabetic(e.target.value,copyArr);
+    ui.refreshAndAddCardsToUI(sortedArr);
+  }
+  else if(findedItems.size == 0){
+    request.get().then((arr) => {
+      if(e.target.value == "")
+      {
+        ui.refreshAndAddCardsToUI();
+      }else{
+        let sortedArr = sortCardsDateAndAlphabetic(e.target.value,arr);
+        ui.refreshAndAddCardsToUI(sortedArr);
+      }
+    })
+  }
+}
+
