@@ -20,6 +20,9 @@ class UI {
                 <div class="row gap-1 justify-content-around">
                     <button class="card-button bg-primary p-2" data-bs-toggle="modal"
                     data-bs-target="#showİnfoModal">Detay Göster</button>
+                    <button class="card-button bg-success p-2">
+                    Ürünü Güncelle
+                  </button>
                     <button class="card-button bg-danger p-2">
                     Ürünü Kaldır
                   </button>
