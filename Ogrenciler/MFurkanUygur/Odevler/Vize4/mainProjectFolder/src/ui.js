@@ -1,6 +1,17 @@
 let spesificSearchDatas = [];
 let globalDatas = [];
+let checkBasketItems = [];
 class UI {
+    basketMain() {
+        http
+            .get('http://localhost:3000/basket')
+            .then((data) => {
+                data.map(x => checkBasketItems.push(x))
+                ui.displayBasketItems(data)
+                console.log(checkBasketItems)
+            })
+            .catch((err) => console.log(err));
+    }
     displayBasketItems(basketItem) {
         basketItem.forEach(b => {
             ourBasketItems.innerHTML += `
@@ -9,7 +20,7 @@ class UI {
                     <h5 class="card-title text-start">${b.tourName}</h5>
                     <div class="d-flex text-start>
                         <label for="numberOfPerson">Kişi sayısı: </label>
-                        <input type="number" min="0" max="${b.tourStock}" value="${b.personCount}">
+                        <input id="basketkisiSayisi" type="number" min="0" max="${b.tourStock}" value="${b.personCount}">
                     </div>
                     <p class="card-text text-start">Fiyat:${b.tourPrice}</p>
                     <button class="btn btn-danger text-white delete-basket-item">Sepetten Sil</button>
@@ -17,8 +28,58 @@ class UI {
             </div>
             `
         })
+        const deleteBasketItemBtns = document.querySelectorAll(".delete-basket-item")
+        this.deleteBasketItem(deleteBasketItemBtns)
+    }
+    buyItemsAndClear() {
+        checkBasketItems.map(e => {
+            http
+                .put(`http://localhost:3000/tours/${e.id}`, {
+                    tourName: e.tourName,
+                    tourDay: e.tourDay,
+                    tourFood: e.tourFood,
+                    tourTransport: e.tourTransport,
+                    tourPicture1: e.tourPicture1,
+                    tourPicture2: e.tourPicture2,
+                    tourPicture3: e.tourPicture3,
+                    tourCategory: e.tourCategory,
+                    tourPrice: e.tourPrice,
+                    tourStock: e.tourStock - basketkisiSayisi.value,
+                    tourDescription: e.tourDescription,
+                })
+                .then((data) => {
+                    data
+                })
+                .catch((err) => console.log(err));
+        })
 
     }
+    emptyBasket() {
+
+        checkBasketItems.map(e => {
+            http
+                .delete(`http://localhost:3000/basket/${e.id}`)
+                .then((data) => {
+                    data
+                })
+                .catch((err) => console.log(err));
+        })
+    }
+    deleteBasketItem(deleteBasketItemBtns) {
+        deleteBasketItemBtns.forEach(e => {
+            e.addEventListener("click", () => {
+                const tempDeleteBaskteItem = e.parentElement.parentElement.id;
+                http
+                    .delete(`http://localhost:3000/basket/${tempDeleteBaskteItem}`)
+                    .then((data) => {
+                        ui.basketMain(data);
+                    })
+                    .catch((err) => console.log(err));
+            })
+        })
+    }
+
+
     displayOnePost(oneData) {
         //Aramanın özel bir categoride çalışması için dizi oluşturduk verileri attık
         spesificSearchDatas.push(oneData);
@@ -112,12 +173,14 @@ class UI {
         shoppingBtns.forEach(s => {
             s.addEventListener("click", () => {
                 kisiSayisi.value = 0
+                kontenjan.value = ""
                 const tempShoppingCardID = s.parentElement.parentElement.parentElement.parentElement.id;
                 console.log(tempShoppingCardID)
                 http
                     .get(`http://localhost:3000/tours/${tempShoppingCardID}`)
                     .then((data) => {
                         kisiSayisi.max = data.tourStock;
+                        kontenjan.innerHTML += data.tourStock
                         this.addBasket(data)
                     })
                     .catch((err) => console.log(err));
@@ -125,6 +188,7 @@ class UI {
         })
     }
     addBasket(dataforBasket) {
+
         const addBasketBtns = document.querySelectorAll(".add-basket");
         addBasketBtns.forEach(x => {
             x.addEventListener("click", () => {
@@ -132,10 +196,25 @@ class UI {
                 http
                     .post('http://localhost:3000/basket', dataforBasket)
                     .then(data => {
-                        console.log(data)
+                        data
                     })
-                    .catch((err) => console.log(err));
-                console.log(dataforBasket)
+                    .catch((err) => alert("sepetinizde zaten var lütfen ya onu güncelle ya silip yeniden ekle"));
+                // checkBasketItems.map(e => {
+                //     if (e == dataforBasket) {
+                //         alert("zaten var")
+                //     }
+                //     else {
+                //         dataforBasket.personCount = kisiSayisi.value
+                //         http
+                //             .post('http://localhost:3000/basket', dataforBasket)
+                //             .then(data => {
+                //                 data
+                //             })
+                //             .catch((err) => console.log(err));
+                //     }
+                // })
+
+                // console.log(dataforBasket)
             })
         })
 
@@ -555,7 +634,8 @@ class UI {
                                            <div class="d-flex align-item-center">
                                                 <label for="kisiSayisi">Kişi Sayısı</label>
                                                 <input type="number" id="kisiSayisi" min="0" max="">
-                                           </div>
+                                                <p id="kontenjan">Toplam kontanjan: </p>
+                                                </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger close-shopping"

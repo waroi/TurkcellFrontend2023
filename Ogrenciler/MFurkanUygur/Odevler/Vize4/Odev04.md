@@ -22,6 +22,9 @@
 - 
 - ürün ekleme formunda validasyonlar olacak.
 
-- sağ üstte sepet bölümü olacak, sepete eklenen ürünler listelenecek, ürün adedi arttırılıp azaltılacak(personCOunt güncelleme), ürün silinecek.
+- sağ üstte sepet bölümü olacak, sepete eklenen ürünler listelenecek(TAMAM),
+- ürün silinecek(TAMAM).
+
+- ürün adedi arttırılıp azaltılacak(personCOunt güncelleme),
 - sepetteki ürün adedi ürün çeşiti kadar olacak. (ürün çeşidi 3 ise sepetteki ürün adedi 3 olacak) (3 elma, 2 armut, 1 portakal)
 - sepette ürün adedi artmalı azalmalı.

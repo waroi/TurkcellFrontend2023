@@ -109,17 +109,15 @@ sortTitles.addEventListener("change", (e) => {
 //     console.log(tempSortTypeID)
 // }
 
+
 const uniqueBasket = document.getElementById("uniqueBasket");
 uniqueBasket.addEventListener("click", () => {
     ourBasketItems.innerHTML = ""
-        
-    http
-        .get('http://localhost:3000/basket')
-        .then((data) => {
-            ui.displayBasketItems(data)
-
-        })
-        .catch((err) => console.log(err));
+    ui.basketMain()
 })
 
-{/*  */}
+const buyAllItems = document.querySelector(".buy-all-items")
+buyAllItems.addEventListener("click", () => {
+    ui.buyItemsAndClear()
+    ui.emptyBasket()
+})
