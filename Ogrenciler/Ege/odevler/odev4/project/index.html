@@ -35,43 +35,84 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >Home</a
-                  >
+                <li class="nav-item mx-2">
+                  <div class="dropdown sort-area">
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fa-solid fa-sort"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item text-center">
+                        <label for="sort-product">Sort</label> <br />
+                        <select
+                          name="sort-product"
+                          id="sort-product"
+                          class="form-select"
+                        >
+                          <option value="">Default</option>
+                          <option value="a-z">A-Z</option>
+                          <option value="z-a">Z-A</option>
+                          <option value="descend">Price(descending)</option>
+                          <option value="ascend">Price(ascending)</option>
+                        </select>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="faq.html">F.A.Q</a>
+                <li class="nav-item mx-2">
+                  <div class="dropdown filter-area nav-item">
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fa-solid fa-filter"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item text-center">
+                        <label for="categories">Filter by category</label>
+                        <br />
+                        <select
+                          name="categories"
+                          id="categories"
+                          class="form-select"
+                        >
+                          <option value="">All</option>
+                        </select>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html">About Us</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <span
-                    class="nav-link"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Products
-                  </span>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="frostmourne.html"
-                        >Frostmourne</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="daedric.html"
-                        >Daedric Sword</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="mastersword.html"
-                        >Master Sword</a
-                      >
-                    </li>
-                  </ul>
+                <li class="nav-item mx-2">
+                  <div class="dropdown search-area">
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fa-solid fa-search"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item text-center">
+                        <label for="search-product"
+                          >Search by product name</label
+                        >
+                        <br />
+                        <input
+                          type="text"
+                          name="search-product"
+                          id="search-product"
+                          class="form-control"
+                        />
+                      </li>
+                    </ul>
+                  </div>
                 </li>
               </ul>
               <div class="navbar-nav mb-2 mb-lg-0 d-flex flex-row gap-2">

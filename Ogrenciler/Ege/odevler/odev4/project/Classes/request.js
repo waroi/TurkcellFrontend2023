@@ -53,6 +53,23 @@ class Request {
     const result = await response.json();
     return result;
   }
+
+  static async patch(url, data) {
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Request failed");
+    }
+
+    const result = await response.json();
+    return result;
+  }
 }
 
 export default Request;

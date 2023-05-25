@@ -12,9 +12,12 @@ const form = document.querySelector("form");
 const addBtn = document.getElementById("add-submit");
 const cartBody = document.getElementById("cart-body");
 const purchaseBtn = document.getElementById("purchase-btn");
+const categorySelect = document.getElementById("categories");
+const sortSelect = document.getElementById("sort-product");
+const searchArea = document.getElementById("search-product");
 
 UI.updateDisplay();
-
+UI.makeUniques();
 addBtn.addEventListener("click", () => {
   const postData = new Product(
     productNameInp.value,
@@ -72,4 +75,29 @@ cartBody.addEventListener("click", (e) => {
 
 purchaseBtn.addEventListener("click", (e) => {
   Process.purchase();
+  setTimeout(() => {
+    Process.removeAllFromCart();
+  }, 2500);
+  setTimeout(() => {
+    location.reload();
+  }, 3000);
+});
+
+categorySelect.addEventListener("change", (e) => {
+  if (e.target.value == "") {
+    Process.search(searchArea.value);
+  } else Process.filterByCategory(e.target.value);
+  if (sortSelect.value != "") {
+    Process.sort(sortSelect.value);
+  }
+});
+
+searchArea.addEventListener("keyup", (e) => {
+  Process.search(e.target.value);
+  sortSelect.value = "";
+});
+
+sortSelect.addEventListener("change", (e) => {
+  Process.sort(e.target.value);
+  searchArea.value = "";
 });

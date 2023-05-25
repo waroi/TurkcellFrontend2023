@@ -1,6 +1,7 @@
 import Request from "./request.js";
 import productCard from "../Components/productCard.js";
 import cartItem from "../Components/cartItem.js";
+import createOption from "../Components/option.js";
 
 const productRow = document.getElementById("product-row");
 const productNameInp = document.getElementById("product-name");
@@ -11,6 +12,7 @@ const productCountInp = document.getElementById("product-count");
 const productImgInp = document.getElementById("product-img");
 const cartBody = document.getElementById("cart-body");
 const cartCount = document.getElementById("cart-count");
+const categorySelect = document.getElementById("categories");
 
 const productsUrl = "http://localhost:3000/products";
 const cartUrl = "http://localhost:3000/cart";
@@ -41,14 +43,36 @@ class UI {
       })
       .catch((err) => console.log(err));
   }
+
+  static uniqueCategories(products) {
+    const categoriesSet = new Set(
+      products.map((product) => product.category.toUpperCase())
+    );
+    categorySelect.innerHTML = "";
+    categorySelect.innerHTML += `<option value="">All</option>`;
+    categorySelect.innerHTML += Array.from(categoriesSet)
+      .map((category) => {
+        return createOption(category);
+      })
+      .join("");
+  }
+
+  static makeUniques() {
+    Request.get(productsUrl)
+      .then((data) => this.uniqueCategories(data))
+      .catch((err) => console.log(err));
+  }
+
+  static isEmpty() {
+    return (
+      productNameInp.value == "" ||
+      productPriceInp.value == "" ||
+      productDescInp.value == "" ||
+      productCatInp.value == "" ||
+      productCountInp.value == "" ||
+      productImgInp.value == ""
+    );
+  }
 }
 
 export default UI;
-
-// const stockText = productCard.querySelector(".product-stock").textContent;
-//       const cardBtn = productCard.querySelector(".add-cart");
-//       if (stockText == "0 left") {
-//         if (!cardBtn.classList.contains("disabled")) {
-//           cardBtn.classList.add("disabled");
-//         }
-//       }
