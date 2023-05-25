@@ -85,7 +85,8 @@
                   href="#offcanvasCart"
                   role="button"
                   aria-controls="offcanvasCart"
-                  ><i class="fa-solid fa-cart-shopping fa-xl"></i
+                  ><i class="fa-solid fa-cart-shopping fa-xl" id="cart-area">
+                    <span id="cart-count"></span> </i
                 ></a>
                 <a
                   class="nav-link"
@@ -100,11 +101,14 @@
         </nav>
       </div>
     </header>
+
+    <!-- Products -->
     <section class="products py-5" id="products">
       <div class="container">
         <div class="row" id="product-row"></div>
       </div>
     </section>
+
     <!-- Footer -->
     <footer class="bg-primary py-5 mt-5">
       <div class="container">
@@ -254,7 +258,7 @@
       aria-labelledby="offcanvasCartLabel"
     >
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasCartLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="offcanvasCartLabel">Cart</h5>
         <button
           type="button"
           class="btn-close"
@@ -264,6 +268,7 @@
       </div>
       <div class="offcanvas-body" id="cart-body"></div>
     </div>
+
     <!-- Bootstrap Script -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

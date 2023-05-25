@@ -1,6 +1,6 @@
 function cartItem(product) {
   return `
-  <div class="cart-item d-flex align-items-center" data-identifier="${
+  <div class="cart-item d-flex align-items-center mb-5" data-identifier="${
     product.id
   }">
           <div class="cart-item-img">

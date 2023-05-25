@@ -10,6 +10,7 @@ const productCatInp = document.getElementById("product-category");
 const productCountInp = document.getElementById("product-count");
 const productImgInp = document.getElementById("product-img");
 const cartBody = document.getElementById("cart-body");
+const cartCount = document.getElementById("cart-count");
 
 const productsUrl = "http://localhost:3000/products";
 const cartUrl = "http://localhost:3000/cart";
@@ -32,7 +33,10 @@ class UI {
       .then((data) => this.addProductsToUI(data))
       .catch((err) => console.log(err));
     Request.get(cartUrl)
-      .then((data) => this.addProductsToCartUI(data))
+      .then((data) => {
+        this.addProductsToCartUI(data);
+        cartCount.textContent = data.length;
+      })
       .catch((err) => console.log(err));
   }
 }
