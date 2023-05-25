@@ -95,7 +95,11 @@
         <h2 class="text-white d-inline-block sect-headline">Ürünler</h2>
         <div class="row justify-content-around">
           <div class="col-2">
-            <button class="bg-primary text-white add-button">
+            <button
+              class="bg-primary text-white add-button"
+              data-bs-toggle="modal"
+              data-bs-target="#addProductModal"
+            >
               Yeni Ürün Ekle<i class="fa-solid fa-plus"></i>
             </button>
           </div>
@@ -112,6 +116,81 @@
             <select name="product-filter" id="filter">
               <option selected>Belirtilmemiş</option>
             </select>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="addProductModal"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+          >
+            <div class="modal-content modal-shape">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                  Ürün Ekle
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <h2>Ürün Özellikleri</h2>
+                <form class="blog-form mt-3" id="form">
+                  <label for="blogName" class="w-100 fs-5 my-1"
+                    >Ürün Adı:</label
+                  >
+                  <input type="text" id="blogName" required class="w-100" />
+                  <label for="blogAuthorPicture" class="w-100 fs-5 my-1"
+                    >Ürün Resmi:</label
+                  >
+                  <input type="text" id="blogAuthorPicture" class="w-100" />
+
+                  <label for="blogAuthorPicture" class="w-100 fs-5 my-1"
+                    >Ürün Adedi:</label
+                  >
+                  <input type="text" id="blogAuthorPicture" class="w-100" />
+
+                  <label for="blogCategory" class="w-100 fs-5 my-1"
+                    >Kategorisi:</label
+                  >
+                  <input type="text" id="blogCategory" required class="w-100" />
+                  <label for="blogType" class="w-100 fs-5 my-1"
+                    >Ürün Detayı:</label
+                  >
+                  <textarea
+                    rows="5"
+                    cols="60"
+                    id="blogType"
+                    name="bookUrl"
+                    required
+                    maxlength="3500"
+                  >
+                  </textarea>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Kapat
+                </button>
+                <button type="button" class="btn btn-primary" id="addProduct">
+                  Ürün Ekle
+                </button>
+              </div>
+            </div>
           </div>
         </div>
         <!-- Modal -->
