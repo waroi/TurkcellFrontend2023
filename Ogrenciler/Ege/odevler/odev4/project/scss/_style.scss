@@ -92,3 +92,53 @@ footer {
     }
   }
 }
+
+.amount-controls {
+  div {
+    width: 45px;
+    height: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    &:nth-child(2) {
+      border: 2px solid $primary;
+
+      background: $secondary;
+      margin: 0 -2px;
+      color: black;
+    }
+    &:nth-child(1) {
+      border: 2px solid $primary;
+
+      background: $primary;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      color: white;
+
+      &:hover {
+        background: rgba(36, 33, 36, 0.5);
+      }
+    }
+    &:nth-child(3) {
+      border: 2px solid $primary;
+
+      background: $primary;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      color: white;
+
+      &:hover {
+        background: rgba(36, 33, 36, 0.5);
+      }
+    }
+  }
+}
+
+.cart-item-img {
+  max-width: 150px;
+  img {
+    width: 100%;
+  }
+}

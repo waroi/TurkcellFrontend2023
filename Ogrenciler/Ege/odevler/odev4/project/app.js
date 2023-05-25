@@ -10,6 +10,7 @@ const productImgInp = document.getElementById("product-img");
 const productRow = document.getElementById("product-row");
 const form = document.querySelector("form");
 const addBtn = document.getElementById("add-submit");
+const cartBody = document.getElementById("cartBody");
 
 UI.updateDisplay();
 

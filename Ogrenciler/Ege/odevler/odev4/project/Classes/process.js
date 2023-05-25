@@ -138,6 +138,7 @@ class Process {
                 const cartData = {
                   id: inCart.id,
                   name: inCart.name,
+                  image: inCart.image,
                   price: inCart.price,
                   count: inCart.count + 1,
                 };
@@ -151,6 +152,7 @@ class Process {
               const cartData = {
                 id: product.id,
                 name: product.name,
+                image: product.image,
                 price: product.price,
                 count: 1,
               };
