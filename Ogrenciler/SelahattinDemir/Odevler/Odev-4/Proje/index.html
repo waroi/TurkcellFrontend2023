@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- bootstrap-icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
+    <title>Audio</title>
+  </head>
+  <body class="main-page">
+    <header class="mb-5 pt-3 header-bg position-relative">
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top py-3">
+        <div class="container">
+          <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-earbuds fs-3 text-light"></i>
+            <span class="fs-3 text-light">Audio</span>
+          </div>
+          <button
+            class="navbar-toggler bg-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 float-end mb-lg-0">
+              <li class="nav-item">
+                <a
+                  aria-current="page"
+                  class="nav-link ms-3 fw-bold text-light"
+                  href="about.html"
+                  >Hakkımızda</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ms-3 fw-bold text-light" href="faq.html"
+                  >Sıkça Sorulan Sorular</a
+                >
+              </li>
+              <li class="nav-item ms-3 d-flex mt-3 mt-md-0">
+                <img
+                  alt="profil"
+                  class="img-fluid rounded-circle"
+                  src="https://lh3.googleusercontent.com/a-/AOh14Gir42XJEEekD0LpqxV2t8FHAq5r6SV-WkimCkeM%3Ds96-c"
+                />
+                <div class="dropdown mt-2 ms-2">
+                  <i
+                    class="bi bi-chevron-down fs-5 text-light"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  ></i>
+                  <ul class="dropdown-menu bg-dark position-absolute">
+                    <li>
+                      <a class="dropdown-item text-light" href="#"
+                        >Siparişlerim</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-light" href="#">Adresim</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-light" href="#">Cüzdanım</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-light" href="#"
+                        >Aboneliklerim</a
+                      >
+                    </li>
+                    <hr class="text-light" />
+                    <li>
+                      <a class="dropdown-item text-light" href="#">Çıkış Yap</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item ms-3 mt-3 mt-lg-1">
+                <i class="bi bi-cart-check text-light fs-3"></i>
+                <span class="badge bg-success fs-6"> 0 </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="position-absolute">
+        <span class="fs-4 opacity-75 text-light">Soundbeam ERD - 3083</span>
+        <h1 class="text-light mt-3 mb-4 fs-1 w-75">
+          Ses Deneyimini Yeniden Keşfet
+        </h1>
+        <a
+          href="#main"
+          class="btn btn-outline-light fs-5 opacity-75 py-2 px-4 text-light"
+        >
+          Şimdi Al
+        </a>
+      </div>
+    </header>
+    <!-- Ürün eklemek veya düzenlemek için modal oluşturuldu. -->
+    <div
+      class="modal fade"
+      id="productModal"
+      tabindex="-1"
+      aria-labelledby="productModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="productModalLabel">Ürün Ekle</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form class="modal-body" id="product-form">
+            <div class="my-2">
+              <label for="imgUrl" class="form-label">Ürün Görsel Url'i</label>
+              <input
+                type="text"
+                class="form-control"
+                id="imgUrl"
+                placeholder="https://..."
+              />
+            </div>
+            <div class="mb-2">
+              <label for="productName" class="form-label">Ürünün Adı</label>
+              <input type="text" class="form-control" id="productName" />
+            </div>
+            <div class="mb-2">
+              <label for="productCategory" class="form-label"
+                >Ürünün Türü</label
+              >
+              <input type="text" class="form-control" id="productCategory" />
+            </div>
+            <div class="mb-2">
+              <label for="productBrand" class="form-label"
+                >Ürünün Markası</label
+              >
+              <input type="text" class="form-control" id="productBrand" />
+            </div>
+            <div class="mb-2">
+              <label for="productPrice" class="form-label"
+                >Ürünün İndirimli Fiyatı</label
+              >
+              <input type="number" class="form-control" id="productPrice" />
+            </div>
+            <div class="mb-2">
+              <label for="productOldPrice" class="form-label"
+                >Ürünün Eski Fiyatı</label
+              >
+              <input type="number" class="form-control" id="productOldPrice" />
+            </div>
+            <div class="mb-2">
+              <label for="productStock" class="form-label">Ürünün Adedi</label>
+              <input type="number" class="form-control" id="productStock" />
+            </div>
+          </form>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary py-2 px-4"
+              data-bs-dismiss="modal"
+            >
+              Kapat
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary py-2 px-4"
+              id="addOrEditButton"
+              data-bs-dismiss="modal"
+            >
+              Ekle
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="mt-5 p-5" id="main">
+      <div class="container">
+        <div class="row">
+          <aside class="col-lg-3 fiter-bar">
+            <h3>Filtrele</h3>
+            <button
+              class="btn btn-success my-3 w-100 d-lg-none"
+              data-bs-toggle="collapse"
+              data-bs-target="#aside_filter"
+            >
+              Filtreyi göster
+            </button>
+            <div id="aside_filter" class="collapse card d-lg-block my-md-4">
+              <!-- ===== Category filter ===== -->
+              <details open class="border-bottom-1 border-success">
+                <summary class="card-header category">Kategoriler</summary>
+                <form class="collapse show" id="collapse_aside1">
+                  <div class="card-body">
+                    <ul class="list-menu list-unstyled m-0">
+                      <li>
+                        <label class="form-check category mb-2">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="kulaküstü"
+                            name="categoriesandbrands"
+                          />
+                          <span class="form-check-label"> Kulak Üstü</span>
+                        </label>
+                      </li>
+                      <label class="form-check category mb-2">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value="Kulak İçi"
+                          name="categoriesandbrands"
+                        />
+                        <span class="form-check-label"> Kulak İçi </span>
+                      </label>
+                    </ul>
+                  </div>
+                  <!-- card-body.// -->
+                </form>
+                <!-- collapse.// -->
+              </details>
+              <!-- Brand Filter // -->
+              <details open class="border-bottom-1 border-success">
+                <summary class="card-header category">Markalar</summary>
+                <form class="collapse show" id="collapse_aside_brands">
+                  <div class="card-body" id="brandList">
+                    <!-- form-check end.// -->
+                  </div>
+                  <!-- card-body .// -->
+                </form>
+                <!-- collapse.// -->
+              </details>
+              <!-- Sort Filter-->
+              <details open class="border-bottom-1 border-success">
+                <summary class="card-header category">Sırala</summary>
+                <form class="d-flex" role="search">
+                  <select class="form-control" id="sort">
+                    <option value="Sırala">Sırala</option>
+                    <option value="alphabetical-asc">A'dan Z'ye</option>
+                    <option value="alphabetical-desc">Z'den A'ya</option>
+                    <option value="price-asc">
+                      Fiyata Göre (En Ucuz - En Pahalı)
+                    </option>
+                    <option value="price-desc">
+                      Fiyata Göre (En Pahalı - En Ucuz)
+                    </option>
+                  </select>
+                </form>
+                <!-- collapse.// -->
+              </details>
+              <!-- Ratings Filter-->
+              <details open class="border-bottom-1 border-success">
+                <summary class="card-header category">
+                  Derecelendirmeler
+                </summary>
+                <div class="collapse show" id="collapse_aside4">
+                  <form class="card-body">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault1"
+                        value="4"
+                      />
+                      <span>
+                        <ul class="list-unstyled">
+                          <li>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <strong class="category"> & Yukarı</strong>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault1"
+                        value="3"
+                      />
+                      <span>
+                        <ul class="list-unstyled">
+                          <li>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <strong class="category"> & Yukarı</strong>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault2"
+                        value="2"
+                      />
+                      <span>
+                        <ul class="list-unstyled">
+                          <li>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <strong class="category">& Yukarı</strong>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault2"
+                        value="1"
+                      />
+                      <span>
+                        <ul class="list-unstyled">
+                          <li>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <strong class="category">& Yukarı</strong>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                    <!-- form-check end.// -->
+                  </form>
+                  <!-- card-body.// -->
+                </div>
+                <!-- collapse.// -->
+              </details>
+              <!-- filter-group // -->
+            </div>
+            <!-- card.// -->
+            <!-- ===== Card for sidebar filter .// ===== -->
+            <!-- Filter Section Ends -->
+          </aside>
+          <article class="col-lg-9 products">
+            <header class="mb-2">
+              <div class="d-flex justify-content-md-between px-5 flex-wrap">
+                <h5 class="fw-bold mt-2">Sonuç: 6 Ürün Bulundu</h5>
+                <!-- search bar -->
+                <form class="form-inline" role="search">
+                  <input
+                    id="search-input"
+                    class="form-control mr-sm-2 py-2"
+                    type="search"
+                    placeholder="Ürün Ara"
+                    aria-label="Search"
+                    name="search"
+                  />
+                </form>
+                <div>
+                  <a
+                    href="#"
+                    class="fs-5 fw-bold btn btn-success px-0 px-lg-4"
+                    data-bs-toggle="modal"
+                    data-bs-target="#productModal"
+                    >Ürün Ekle</a
+                  >
+                </div>
+                <div class="btn-group btn-group-toggle mb-2 d-none d-md-block">
+                  <label class="btn btn-success" for="option1">
+                    <i class="bi bi-justify fs-4"></i>
+                  </label>
+                  <label class="btn btn-success" for="option2">
+                    <i class="bi bi-grid-3x3-gap-fill fs-4"></i>
+                  </label>
+                </div>
+              </div>
+            </header>
+            <!-- Header Section End -->
+            <section>
+              <!-- All Product Start  -->
+              <input
+                type="radio"
+                class="btn-check2 d-none"
+                name="options"
+                id="option2"
+                autocomplete="off"
+              />
+              <input
+                type="radio"
+                class="btn-check d-none"
+                name="options"
+                id="option1"
+                autocomplete="off"
+              />
+              <div class="row viewGrid" id="viewGrid">
+                <!-- products -->
+              </div>
+              <div class="row viewList d-none" id="viewList">
+                <!-- products -->
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
+    </main>
+    <footer class="py-5 mt-4 bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 my-auto pb-4">
+            <i class="bi bi-earbuds fs-3 text-light me-2"></i>
+            <span class="fs-3 text-light">Audio</span>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h4 class="footer-title text-light mb-3">Kullanıcı Bilgileri</h4>
+            <ul class="list p-0 list-unstyled">
+              <li class="mb-3">
+                <a class="text-light" href="#">Üyelik Sözleşmesi</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#"
+                  >İptal ve İade Koşulları Politikası</a
+                >
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#"
+                  >Garanti ve Teknik Servis Süreçleri</a
+                >
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#"
+                  >Gizlilik Sözleşmesi ve Çerez Politikası</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h4 class="footer-title text-light mb-3">Hakkımızda</h4>
+            <ul class="list p-0 list-unstyled">
+              <li class="mb-3">
+                <a class="text-light" href="faq.html">Sıkça Sorulan Sorular</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#">Sipariş Takip</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#">Mesafeli Satış Sözleşmesi</a>
+              </li>
+              <li>
+                <p class="text-light">Teslimat Koşulları</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h4 class="footer-title text-light mb-3">İletişim</h4>
+            <ul class="list p-0 list-unstyled">
+              <li class="mb-2">
+                <a class="text-light" href="#"
+                  >500 Terry Francine Street San Francisco, CA 94158</a
+                >
+              </li>
+              <li class="mb-2">
+                <a class="text-light" href="mailto:info@mysite.com"
+                  >info@mysite.com</a
+                >
+              </li>
+              <li class="mb-2">
+                <a class="text-light" href="#">123-456-7890</a>
+              </li>
+              <li>
+                <p class="text-light">Mon - Fri: 9am - 9pm</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col-md-9">
+            <h5 class="text-light">Ödeme Yöntemleri</h5>
+            <div class="d-flex gap-3 my-3 align-items-center flex-wrap">
+              <img
+                src="https://static.wixstatic.com/media/c837a6_e0547a35fd3b42eb8fc45f9f73b77246~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Visa.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_ad29ff701fee45629d63f3e4f3f2894b~mv2.png/v1/fill/w_63,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Master%20Card.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_f73858b81fdb40388c28ec8a78c7d69f~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/American%20Express.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_1947c7dbf840480ea8638b9b0c29c030~mv2.png/v1/fill/w_46,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/JCB.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_0164b1a8ce80423890095a8b3d8a62eb~mv2.png/v1/crop/x_0,y_0,w_176,h_109/fill/w_57,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Discover.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_e0d5f0c365864fda9b7d65df15eecaf5~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/PayPal.png"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5 class="text-light mb-4">Bizi Takipte Kalın</h5>
+            <a href="#" class="text-light me-4"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a href="#" class="text-light me-4"
+              ><i class="bi bi-twitter"></i
+            ></a>
+            <a href="#" class="text-light me-4"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a href="#" class="text-light"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="scripts/app.js" type="module"></script>
+  </body>
+</html>
