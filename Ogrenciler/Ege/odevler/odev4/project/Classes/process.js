@@ -2,6 +2,7 @@ import Product from "./product.js";
 import Request from "./request.js";
 import UI from "./ui.js";
 const productsUrl = "http://localhost:3000/products";
+const cartUrl = "http://localhost:3000/cart";
 
 const addBtn = document.getElementById("add-submit");
 const submitEditBtn = document.getElementById("edit-submit");
@@ -118,6 +119,47 @@ class Process {
       .then((response) => {
         console.log(response);
         form.reset();
+      })
+      .catch((err) => console.log(err));
+  }
+
+  static addToCart(id) {
+    Request.get(`${productsUrl}/${id}`)
+      .then((product) => {
+        if (product.stock > 0) {
+          console.log("Added to cart");
+          Request.get(cartUrl).then((cartProducts) => {
+            const inCart = cartProducts.find(
+              (cartProduct) => cartProduct.id == id
+            );
+            if (inCart) {
+              console.log("There is an item with the same id in the cart");
+              const cartData = {
+                id: inCart.id,
+                name: inCart.name,
+                price: inCart.price,
+                count: inCart.count + 1,
+              };
+              Request.put(cartUrl, cartData, id);
+              const updatedData = { ...product, stock: product.stock - 1 };
+              Request.put(productsUrl, updatedData, id).then((response) =>
+                console.log(product.stock)
+              );
+            } else {
+              const cartData = {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                count: 1,
+              };
+              Request.post(cartUrl, cartData)
+                .then((response) => console.log(response))
+                .catch((err) => console.log(err));
+            }
+          });
+        } else {
+          console.log("There is no item in the stock");
+        }
       })
       .catch((err) => console.log(err));
   }

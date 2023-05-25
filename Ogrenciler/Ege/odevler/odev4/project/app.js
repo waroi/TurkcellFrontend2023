@@ -29,7 +29,9 @@ addBtn.addEventListener("click", () => {
 
 productRow.addEventListener("click", (e) => {
   if (e.target.classList.contains("add-cart")) {
+    const productCard = e.target.closest(".col-lg-4");
     console.log("Clicked on add cart");
+    Process.addToCart(productCard.id);
   } else if (e.target.classList.contains("edit-product")) {
     console.log("Clicked on edit product");
     const productCard = e.target.closest(".col-lg-4");
