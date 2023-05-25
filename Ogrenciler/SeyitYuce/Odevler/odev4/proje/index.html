@@ -41,7 +41,7 @@
                         </button>
                     </li>
                     <li class="nav-item text-danger">
-                        <button class="btn text-danger" type="button" data-bs-toggle="offcanvas"
+                        <button class="btn text-danger" id="basketBtn" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                             <i class="fa-solid fa-basket-shopping"></i>
                         </button>
@@ -51,13 +51,41 @@
         </div>
     </nav>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">My Basket</h5>
+    <!-- offcanvas -->
+    <div class="offcanvas offcanvas-end bg-primary" tabindex="-1" id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header border-bottom border-danger">
+            <h5 class="offcanvas-title text-danger" id="offcanvasRightLabel">My Basket</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            ...
+            <ul id="basketItemsList">
+                <li class="card border-danger mb-3">
+                    <a>
+                        <img src="https://images.pexels.com/photos/12498795/pexels-photo-12498795.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                            class="card-img-top mx-md-auto ms-1 rounded-5 my-auto w-25" alt="..." id="productImage" />
+                        <div class="card-body">
+                            <h2 class="card-title text-md-center text-white" id="productNameInBasket">Mercury</h2>
+                            <div class="d-flex flex-column">
+                                <span>Quantity: <a class="card-text pb-3 me-4" id="productQuantityInBasket">1</a></span>
+                                <span>Price: STC<a class="card-text pb-3 me-4" data-toggle="tooltip"
+                                        data-placement="top" title="STELLARCOIN"
+                                        id="productPriceInBasket">100</a></span>
+                                <span></span>Category: <a class="card-text pb-3 me-4" id="productCategoryInBasket">Solar
+                                    System</a></span>
+                                <a class="card-text pb-3 me-4 d-none" id="productIdInBasket">${product.id}</a>
+                            </div>
+                            <div class="d-flex mt-3 gap-1 gap-lg-4">
+                                <button class="btn btn-info text-danger">Remove</button>
+                                <button class="btn btn-danger text-primary">Add More</button>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="w-100">
+                <button class="btn btn-danger mx-auto">Buy All</button>
+            </div>
         </div>
     </div>
 
@@ -77,7 +105,7 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-text w-25">Price</span>
-                        <input type="text" aria-label="Content" class="form-control" placeholder="STC100"
+                        <input type="number" aria-label="Content" class="form-control" placeholder="STC100"
                             id="addProductPrice" required>
                     </div>
                     <div class="input-group">
@@ -100,6 +128,49 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary " id="addItemBtn">Add New Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- editModal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalLabel">Add New Blog</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex flex-column gap-2">
+                    <div class="input-group">
+                        <span class="input-group-text w-25">Name</span>
+                        <input type="text" aria-label="Title" class="form-control"
+                            placeholder="The Future of Artificial Intelligence" id="editProductName">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text w-25">Price</span>
+                        <input type="number" aria-label="Content" class="form-control"
+                            placeholder="Artificial Intelligence (AI) is rapidly evolving..." id="editProductPrice">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text w-25">Stock</span>
+                        <input type="number" aria-label="Author" class="form-control" placeholder="John Doe"
+                            id="editProductStock">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text w-25">Category</span>
+                        <input type="text" aria-label="Category" class="form-control" placeholder="Futuristic"
+                            id="editProductCategory">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text w-25">Image Url</span>
+                        <input type="text" aria-label="image-url" class="form-control"
+                            placeholder="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTbJ6q6nCvC-F8ctwjE8F_gh176HK1p-EcKg&usqp=CAU"
+                            id="editProductImage">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary confirmEditBtn">Save changes</button>
                 </div>
             </div>
         </div>
@@ -139,127 +210,34 @@
             </button>
         </div>
     </header>
+
+    <!-- Filters -->
+    <div class="d-flex justify-content-around container">
+        <div>
+            <label for="search" class="form-label">Search</label>
+            <input type="text" class="form-control" id="search">
+        </div>
+
+        <div>
+            <label for="filter" class="form-label">Filter</label>
+            <select id="categorySelect" class="form-select" aria-label="Select Category">
+                <option value="all">All</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="sort" class="form-label">Sort</label>
+            <select class="form-select" id="sort">
+                <option value="az">A-Z</option>
+                <option value="za">Z-A</option>
+                <option value="asc">Price(asc)</option>
+                <option value="desc">Price(desc)</option>
+            </select>
+        </div>
+    </div>
+
     <section class="bg-secondary solar-system" id="products">
-        <ul class="row gap-2 gap-lg-4 justify-content-center gx-0 py-5 ps-0 mb-0" id="product-list">
-            <!-- <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3 bg-secondary">
-                <a href="" class="">
-                    <img src="https://images.pexels.com/photos/12498795/pexels-photo-12498795.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container" alt="..." />
-                    <div class="card-body">
-                        <h2 class="card-title text-md-center">Mercury</h2>
-                        <p href="#" class="" data-toggle="tooltip" data-placement="top" title="STELLARCOIN">STC 10</p>
-                        <p href="#" class="" data-toggle="tooltip" data-placement="top" title="Stock">Stock:10
-                            </ğ>
-                            <span></span>
-                        <div class="d-flex justify-content-center gap-4">
-                            <button class="btn btn-danger text-primary">Add to Basket</button>
-                            <button class="btn btn-danger text-primary">Delete</button>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
-                <a href="./product2.html">
-                    <img src="https://images.pexels.com/photos/5476413/pexels-photo-5476413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container" alt="..." />
-                    <div class="card-body">
-                        <h2 class="card-title text-md-center">Venus</h2>
-                        <div class="d-flex flex-md-column">
-                            <a class=" card-text pb-3 me-4"> Stock:10 </a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="STELLARCOIN">STC 25</a>
-                        </div>
-                        <div class="d-flex mt-3 gap-4">
-                            <button class="btn btn-danger text-primary">Add to Basket</button>
-                            <button class="btn btn-danger text-primary">Delete</button>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
-                <a href="./product3.html">
-                    <img src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title text-md-center">Earth</h5>
-                        <p class="card-text pb-3">
-                            Home sweet home - Explore the wonders of Earth, the blue jewel
-                            of the solar system!
-                        </p>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="STELLARCOIN">STC 500</a>
-                    </div>
-                </a>
-            </li>
-            <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1630694093867-4b947d812bf0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1315&q=80"
-                        class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title text-md-center">Mars</h5>
-                        <p class="card-text pb-3">
-                            Embark on an epic journey to the Red Planet - Mars, where
-                            ancient secrets await!
-                        </p>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="STELLARCOIN">STC 50</a>
-                    </div>
-                </a>
-            </li>
-            <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1637984135921-301a7d39e3b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1315&q=80"
-                        class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title text-md-center">Jupiter</h5>
-                        <p class="card-text pb-3">
-                            Get lost in the awe-inspiring grandeur of Jupiter - The mighty
-                            king of gas giants, with moons aplenty!
-                        </p>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="STELLARCOIN">STC 500</a>
-                    </div>
-                </a>
-            </li>
-            <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1614732414444-096e5f1122d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                        class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title text-md-center">Saturn</h5>
-                        <p class="card-text pb-3">
-                            Unleash your imagination with Saturn - The ringed wonder, a
-                            celestial masterpiece!
-                        </p>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="STELLARCOIN">STC 1000</a>
-                    </div>
-                </a>
-            </li>
-            <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1614732484003-ef9881555dc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                        class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title text-md-center">Uranus</h5>
-                        <p class="card-text pb-3">
-                            Discover the enigma of Uranus - The ice giant with a twist, a
-                            world of surprises!
-                        </p>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="STELLARCOIN">STC 250</a>
-                    </div>
-                </a>
-            </li>
-            <li class="card flex-row flex-md-column col-11 col-md-5 col-lg-3 py-3">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                        class="card-img-top mx-md-auto ms-1 rounded-5 my-auto container" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title text-md-center">Neptune</h5>
-                        <p class="card-text pb-3">
-                            Dive into the mysteries of Neptune - The blue jewel of the outer
-                            realms, where secrets abound!
-                        </p>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="STELLARCOIN">STC 300</a>
-                    </div>
-                </a>
-            </li> -->
-        </ul>
+        <ul class="row gap-2 gap-lg-4 justify-content-center gx-0 py-5 ps-0 mb-0" id="product-list"></ul>
     </section>
     <section class="cta bg-danger text-primary py-5 text-center" id="popular">
         <div class="col-8 mx-auto">
@@ -489,7 +467,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+    <!-- <script src="./scripts/productList.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/request.js"></script> -->
+    <script src="./scripts/script.js"></script>
     <script src="./helpers.js"></script>
 </body>
 
