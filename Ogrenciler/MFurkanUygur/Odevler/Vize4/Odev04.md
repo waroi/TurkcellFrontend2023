@@ -15,16 +15,22 @@
 - sepete ekle butonu olacak, sepete eklenecek (json-server'daki).
 - ürünü sepete eklerken bir kontrol olacak stoktan fazla eklenemez.
 
-
-- satın al dendiği zaman sepet boşaltılacak. (json-server'daki), satın alınan ürünlerin adetleri stoktan düşülecek stokta kalmadıysa sepete ekle butonu ürünlerde disable olacak. (stok yok)
-- ürün eklerken aynı isimde ürün ise yeni eklemeyecek stok countu artacak.
-
-- 
-- ürün ekleme formunda validasyonlar olacak.
+- sepette ürün adedi artmalı azalmalı.
 
 - sağ üstte sepet bölümü olacak, sepete eklenen ürünler listelenecek(TAMAM),
 - ürün silinecek(TAMAM).
 
+- satın al dendiği zaman sepet boşaltılacak. (json-server'daki),
+- satın alınan ürünlerin adetleri stoktan düşülecek 
 - ürün adedi arttırılıp azaltılacak(personCOunt güncelleme),
+
+
+- stokta kalmadıysa sepete ekle butonu ürünlerde disable olacak. (stok yok)
+- ürün eklerken aynı isimde ürün ise yeni eklemeyecek stok countu artacak.
+
+- ürün ekleme formunda validasyonlar olacak.(ui clearForm fonksiyon dene )
+
+
+
 - sepetteki ürün adedi ürün çeşiti kadar olacak. (ürün çeşidi 3 ise sepetteki ürün adedi 3 olacak) (3 elma, 2 armut, 1 portakal)
-- sepette ürün adedi artmalı azalmalı.
+

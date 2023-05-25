@@ -3,6 +3,7 @@ let globalDatas = [];
 let checkBasketItems = [];
 class UI {
     basketMain() {
+        checkBasketItems = [];
         http
             .get('http://localhost:3000/basket')
             .then((data) => {
@@ -28,8 +29,8 @@ class UI {
             </div>
             `
         })
-        const deleteBasketItemBtns = document.querySelectorAll(".delete-basket-item")
-        this.deleteBasketItem(deleteBasketItemBtns)
+        const deleteBasketItemBtns = document.querySelectorAll(".delete-basket-item");
+        this.deleteBasketItem(deleteBasketItemBtns);
     }
     buyItemsAndClear() {
         checkBasketItems.map(e => {
@@ -52,10 +53,8 @@ class UI {
                 })
                 .catch((err) => console.log(err));
         })
-
     }
     emptyBasket() {
-
         checkBasketItems.map(e => {
             http
                 .delete(`http://localhost:3000/basket/${e.id}`)
@@ -65,6 +64,7 @@ class UI {
                 .catch((err) => console.log(err));
         })
     }
+
     deleteBasketItem(deleteBasketItemBtns) {
         deleteBasketItemBtns.forEach(e => {
             e.addEventListener("click", () => {
@@ -164,9 +164,15 @@ class UI {
         const inspectBtns = document.querySelectorAll(".inspect-btn");
         this.inspectBtn(inspectBtns);
 
+
+        // if (e.tourStock == 0) {
+        //     alert("stok yok")
+        // }
+        // else {
+
+        // }
         const shoppingBtns = document.querySelectorAll(".shopping-btn")
         this.shoppingBtn(shoppingBtns)
-
     }
     //Card'da yer alan sepet ikonuna ait fonksiyon
     shoppingBtn(shoppingBtns) {
@@ -188,6 +194,7 @@ class UI {
         })
     }
     addBasket(dataforBasket) {
+        console.log(dataforBasket.tourStock)
 
         const addBasketBtns = document.querySelectorAll(".add-basket");
         addBasketBtns.forEach(x => {
@@ -199,24 +206,10 @@ class UI {
                         data
                     })
                     .catch((err) => alert("sepetinizde zaten var lütfen ya onu güncelle ya silip yeniden ekle"));
-                // checkBasketItems.map(e => {
-                //     if (e == dataforBasket) {
-                //         alert("zaten var")
-                //     }
-                //     else {
-                //         dataforBasket.personCount = kisiSayisi.value
-                //         http
-                //             .post('http://localhost:3000/basket', dataforBasket)
-                //             .then(data => {
-                //                 data
-                //             })
-                //             .catch((err) => console.log(err));
-                //     }
-                // })
-
-                // console.log(dataforBasket)
             })
         })
+
+
 
     }
 
