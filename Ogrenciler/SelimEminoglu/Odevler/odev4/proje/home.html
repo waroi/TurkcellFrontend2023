@@ -93,13 +93,29 @@
     <section class="pt-7 pb-6" id="products">
       <div class="container">
         <h2 class="text-white d-inline-block sect-headline">Ürünler</h2>
-        <div class="row">
-          <button class="bg-primary text-white add-button">
-            Yeni Ürün Ekle<i class="fa-solid fa-plus"></i>
-          </button>
+        <div class="row justify-content-around">
+          <div class="col-2">
+            <button class="bg-primary text-white add-button">
+              Yeni Ürün Ekle<i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+          <div class="col-4 product-item d-flex flex-wrap align-content-center">
+            <label for="sorter">Sıralama:</label>
+
+            <select name="product-sorter" id="sorter">
+              <option selected>Belirtilmemiş</option>
+            </select>
+          </div>
+          <div class="col-4 product-item d-flex flex-wrap align-content-center">
+            <label for="filter">Filtreleme:</label>
+
+            <select name="product-filter" id="filter">
+              <option selected>Belirtilmemiş</option>
+            </select>
+          </div>
         </div>
         <div class="row mt-3" id="productList">
-          <div class="col-5 border">
+          <div class="col-5 product-card border">
             <h3>deneme</h3>
           </div>
         </div>
@@ -723,12 +739,8 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="./app.js"></script>
     <script>
-      const dropdownElementList = document.querySelectorAll(".dropdown-toggle");
-      const dropdownList = [...dropdownElementList].map(
-        (dropdownToggleEl) => new bootstrap.Dropdown(dropdownToggleEl)
-      );
-
       const collapseElementList = document.querySelectorAll(".collapse");
       const collapseList = [...collapseElementList].map(
         (collapseEl) => new bootstrap.Collapse(collapseEl)
