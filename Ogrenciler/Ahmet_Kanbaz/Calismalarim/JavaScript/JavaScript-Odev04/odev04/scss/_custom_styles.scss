@@ -1,0 +1,84 @@
+$socialsBg: #1e2235;
+@mixin colorandHover ($color) {
+  color: $color;
+  &:hover {
+    color: $primary;
+  }
+}
+@mixin background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 400px;
+}
+a {
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+}
+.btn {
+  transition: all .3s ease-in-out;
+  border-radius: 20px;
+  padding: .5rem 1.5rem;
+  &:hover {
+    color: #FFFFFF;
+    background-color: #cd781c;
+  }
+}
+input[type='text']::placeholder {
+  font-size: .9rem;
+  font-style: italic;
+}
+ul {
+  list-style-type: none;
+}
+textarea {
+  resize: none;
+}
+.iconDiv {
+  width: 75px;
+  height: 60px;
+}
+.topSection {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.8)
+  ), url("../src/assets/images/background/bgSection.jpg");
+  background-attachment: fixed;
+  @include background;
+  height: 600px;
+}
+
+.cardOtherBrands {
+  img {
+    height: 350px;
+    object-fit: cover;
+  }
+}
+
+.cardFirsat {
+  box-shadow: 0 .5rem 1rem rgba(#000000, .15);
+  transition: all .3s ease-in-out;
+  &:hover {
+    box-shadow: none;
+    transform: scale(1.05);
+  }
+}
+
+footer {
+  ul {
+    a {
+      @include colorandHover(#FFFFFF);
+    }
+  }
+  .socials {
+    a {
+      width: 33px;
+      height: 33px;
+      background-color: $socialsBg;
+      display: inline-block;
+      &:hover {
+        background-color: $primary;
+      }
+    }
+  }
+}
