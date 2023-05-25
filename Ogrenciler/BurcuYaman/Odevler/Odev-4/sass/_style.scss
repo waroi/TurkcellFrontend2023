@@ -1,0 +1,41 @@
+@mixin bg-img() {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  #slider {
+    .carousel-item {
+      img {
+        height: 500px;
+      }
+    }
+  }
+  .categories {
+    .category {
+      width: 200px;
+      height: 200px;
+    }
+    #kapsul {
+      background-image: url("../assets/cat1.png");
+      @include bg-img();
+    }
+    #espresso {
+      background-image: url("../assets/cat2.png");
+      @include bg-img();
+    }
+    #filtre {
+      background-image: url("../assets/cat3.png");
+      @include bg-img();
+    }
+    #granul {
+      background-image: url("../assets/cat4.png");
+      @include bg-img();
+    }
+    #turk {
+      background-image: url("../assets/cat5.png");
+      @include bg-img();
+    }
+  }
+}
