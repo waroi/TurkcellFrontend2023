@@ -134,17 +134,19 @@ class Process {
             );
             if (inCart) {
               console.log("There is an item with the same id in the cart");
-              const cartData = {
-                id: inCart.id,
-                name: inCart.name,
-                price: inCart.price,
-                count: inCart.count + 1,
-              };
-              Request.put(cartUrl, cartData, id);
-              const updatedData = { ...product, stock: product.stock - 1 };
-              Request.put(productsUrl, updatedData, id).then((response) =>
-                console.log(product.stock)
-              );
+              if (inCart.count < product.stock) {
+                const cartData = {
+                  id: inCart.id,
+                  name: inCart.name,
+                  price: inCart.price,
+                  count: inCart.count + 1,
+                };
+                Request.put(cartUrl, cartData, id);
+                // const updatedData = { ...product, stock: product.stock - 1 };ö
+                // Request.put(productsUrl, updatedData, id);
+              } else {
+                console.log("You have hit the stock limit");
+              }
             } else {
               const cartData = {
                 id: product.id,
