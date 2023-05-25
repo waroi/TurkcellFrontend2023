@@ -51,6 +51,17 @@ class UI {
             });
           }
         );
+
+        console.log(
+          child.childNodes[1].childNodes[3].childNodes[11].childNodes[5]
+        );
+
+        child.childNodes[1].childNodes[3].childNodes[11].childNodes[5].addEventListener(
+          "click",
+          () => {
+            Json.deleteProducts("http://localhost:3000/products/" + child.id);
+          }
+        );
       }
     });
   }

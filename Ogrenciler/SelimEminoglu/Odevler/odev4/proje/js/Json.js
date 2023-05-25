@@ -13,4 +13,12 @@ class Json {
         .catch((err) => reject(err));
     });
   }
+
+  static deleteProducts(urlİd) {
+    return new Promise((resolve, reject) => {
+      fetch(urlİd, { method: "DELETE" })
+        .then((response) => resolve("Blog Silindi"))
+        .catch((err) => reject(err));
+    });
+  }
 }
