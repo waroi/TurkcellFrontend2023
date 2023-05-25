@@ -1,31 +1,24 @@
 let spesificSearchDatas = [];
 let globalDatas = [];
 class UI {
-    test(){
-        const decBtn = document.querySelectorAll(".dec-btn");
-        const incBtn = document.querySelectorAll(".inc-btn");
-        const counterPersonValue = document.getElementById("counter").innerHTML;
-        console.log(decBtn)
-        console.log(incBtn)
-        console.log(counterPersonValue)
-        // decBtn.forEach(d => {
-        //     d.addEventListener("click", decBtnValue(counterPersonValue))
-        // })
-        // incBtn.forEach(i => {
-        //     i.addEventListener("click", incBtnValue(counterPersonValue))
-        // })
-        // function decBtnValue(counterPersonValue) {
-        //     counterPersonValue-=1
-        //     console.log(counterPersonValue)
-        
-        // }
-        // function incBtnValue(counterPersonValue) {
-        //     counterPersonValue+=1
-        //     console.log(counterPersonValue)
-        // }
+    displayBasketItems(basketItem) {
+        basketItem.forEach(b => {
+            ourBasketItems.innerHTML += `
+            <div class="card" id="${b.id}">
+                <div class="card-body">
+                    <h5 class="card-title text-start">${b.tourName}</h5>
+                    <div class="d-flex text-start>
+                        <label for="numberOfPerson">Kişi sayısı: </label>
+                        <input type="number" min="0" max="${b.tourStock}" value="${b.personCount}">
+                    </div>
+                    <p class="card-text text-start">Fiyat:${b.tourPrice}</p>
+                    <button class="btn btn-danger text-white delete-basket-item">Sepetten Sil</button>
+                </div>
+            </div>
+            `
+        })
+
     }
-
-
     displayOnePost(oneData) {
         //Aramanın özel bir categoride çalışması için dizi oluşturduk verileri attık
         spesificSearchDatas.push(oneData);
@@ -45,6 +38,9 @@ class UI {
         //Her card'ta bulunan inspect butonuyla açılan modal
         const inspectBtns = document.querySelectorAll(".inspect-btn");
         this.inspectBtn(inspectBtns);
+
+
+
     }
 
     //Category'e bağlı arama fonksiyonu
@@ -106,7 +102,45 @@ class UI {
 
         const inspectBtns = document.querySelectorAll(".inspect-btn");
         this.inspectBtn(inspectBtns);
+
+        const shoppingBtns = document.querySelectorAll(".shopping-btn")
+        this.shoppingBtn(shoppingBtns)
+
     }
+    //Card'da yer alan sepet ikonuna ait fonksiyon
+    shoppingBtn(shoppingBtns) {
+        shoppingBtns.forEach(s => {
+            s.addEventListener("click", () => {
+                kisiSayisi.value = 0
+                const tempShoppingCardID = s.parentElement.parentElement.parentElement.parentElement.id;
+                console.log(tempShoppingCardID)
+                http
+                    .get(`http://localhost:3000/tours/${tempShoppingCardID}`)
+                    .then((data) => {
+                        kisiSayisi.max = data.tourStock;
+                        this.addBasket(data)
+                    })
+                    .catch((err) => console.log(err));
+            })
+        })
+    }
+    addBasket(dataforBasket) {
+        const addBasketBtns = document.querySelectorAll(".add-basket");
+        addBasketBtns.forEach(x => {
+            x.addEventListener("click", () => {
+                dataforBasket.personCount = kisiSayisi.value
+                http
+                    .post('http://localhost:3000/basket', dataforBasket)
+                    .then(data => {
+                        console.log(data)
+                    })
+                    .catch((err) => console.log(err));
+                console.log(dataforBasket)
+            })
+        })
+
+    }
+
 
     globalSearch(globalDatas) {
         spesificSearchDatas = [];
@@ -518,20 +552,15 @@ class UI {
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        
                                            <div class="d-flex align-item-center">
-                                                <p>Yetişkin Kişi Sayısı:</p>
-                                                <button class="btn btn-danger rounded-circle text-white fw-bold dec-btn " >-</button>
-                                                <h4 id="counter">0</h4>
-                                                <button class="btn btn-danger rounded-circle text-white fw-bold inc-btn">+</button>
-
+                                                <label for="kisiSayisi">Kişi Sayısı</label>
+                                                <input type="number" id="kisiSayisi" min="0" max="">
                                            </div>
-
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
+                                        <button type="button" class="btn btn-danger close-shopping"
                                             data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Understood</button>
+                                        <button type="button" class="btn btn-success add-basket">Sepete Ekle</button>
                                     </div>
                                 </div>
                             </div>
