@@ -167,6 +167,36 @@ class Process {
       })
       .catch((err) => console.log(err));
   }
+
+  static deleteFromCart(id) {
+    Request.delete(cartUrl, id)
+      .then((response) => {
+        console.log("Response:", response);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+
+  static subtractFromCart(id) {
+    Request.get(cartUrl).then((cartProducts) => {
+      const cartItem = cartProducts.find((cartProduct) => cartProduct.id == id);
+      if (cartItem.count > 1) {
+        Request.put(cartUrl, { ...cartItem, count: cartItem.count - 1 }, id);
+      } else {
+        this.deleteFromCart(id);
+      }
+
+      //  JSON-Server yenilenmesi durursa aşağıdakini dene
+      // Request.put(cartUrl, { ...cartItem, count: cartItem.count - 1 }, id).then(
+      //   (response) => {
+      //     if (cartItem.count <= 0) {
+      //       this.deleteFromCart(id);
+      //     }
+      //   }
+      // );
+    });
+  }
 }
 
 export default Process;

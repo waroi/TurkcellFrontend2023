@@ -10,7 +10,7 @@ const productImgInp = document.getElementById("product-img");
 const productRow = document.getElementById("product-row");
 const form = document.querySelector("form");
 const addBtn = document.getElementById("add-submit");
-const cartBody = document.getElementById("cartBody");
+const cartBody = document.getElementById("cart-body");
 
 UI.updateDisplay();
 
@@ -50,6 +50,25 @@ productRow.addEventListener("click", (e) => {
     const productCard = e.target.closest(".col-lg-4");
     console.log("Clicked on delete product");
     Process.deleteProduct(productCard.id);
+    UI.updateDisplay();
+  }
+});
+
+cartBody.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-plus")) {
+    console.log("Cart product more");
+    const cartProduct = e.target.closest(".cart-item");
+    Process.addToCart(cartProduct.dataset.identifier);
+    UI.updateDisplay();
+  } else if (e.target.classList.contains("btn-minus")) {
+    console.log("Cart product less");
+    const cartProduct = e.target.closest(".cart-item");
+    Process.subtractFromCart(cartProduct.dataset.identifier);
+    UI.updateDisplay();
+  } else if (e.target.classList.contains("remove-all-cart")) {
+    console.log("Remove all");
+    const cartProduct = e.target.closest(".cart-item");
+    Process.deleteFromCart(cartProduct.dataset.identifier);
     UI.updateDisplay();
   }
 });
