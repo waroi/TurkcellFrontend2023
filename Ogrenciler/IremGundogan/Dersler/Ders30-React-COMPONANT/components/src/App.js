@@ -1,12 +1,13 @@
+import "./App.css";
+import Deneme from "./Components/Deneme";
 
-import './App.css';
-import Deneme from './deneme';
 function App() {
+  let name = "Irem";
+  let surname = "Gundogan";
+  let age = "22";
   return (
     <div className="App">
-      <Deneme />
       <header className="App-header">
-        <h1>merhaba</h1>
         <Deneme />
       </header>
     </div>

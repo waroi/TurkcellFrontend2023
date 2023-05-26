@@ -1,13 +1,17 @@
-
 import './App.css';
-import Deneme from './deneme';
+import Deneme from './Deneme';
+
 function App() {
+  let name = 'Ahmet';
   return (
     <div className="App">
       <Deneme />
       <header className="App-header">
-        <h1>merhaba</h1>
-        <Deneme />
+        <div>
+          React Giriş
+          <Deneme />
+          <span> {name}</span>
+        </div>
       </header>
     </div>
   );

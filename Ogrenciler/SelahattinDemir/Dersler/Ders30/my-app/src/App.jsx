@@ -1,13 +1,12 @@
-
 import './App.css';
-import Deneme from './deneme';
+import Deneme from './Deneme';
+
 function App() {
   return (
     <div className="App">
-      <Deneme />
       <header className="App-header">
-        <h1>merhaba</h1>
-        <Deneme />
+       Merhaba
+       <Deneme />
       </header>
     </div>
   );
