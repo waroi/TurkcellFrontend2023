@@ -39,7 +39,7 @@ class Render {
 			chckBox.setAttribute("type", "checkbox");
 			if (alreadySelectedCategories.includes(category)) chckBox.checked = true;
 			const spanEl = document.createElement("span");
-			spanEl.innerText = category;
+			spanEl.innerText = category.toUpperCase();
 			chckBox.onchange = () => {
 				this.filterProducts();
 			};
