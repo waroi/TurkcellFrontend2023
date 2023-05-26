@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Profile Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href=".\style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="profile-header text-center">
+        <img
+          src="https://i.pinimg.com/564x/8b/29/e8/8b29e81ff855957a597ff626f0bbd172.jpg"
+          class="profile-img img-fluid rotate"
+        />
+        <h2 class="profile-name mt-3">Wanderlust</h2>
+        <p class="profile-bio">
+          A Strong Desire or Urge to Wander or Travel and Explore the World.
+        </p>
+      </div>
+      <div class="search-write mt-3 mb-3">
+        <form class="form-inline">
+          <div class="input-group">
+            <input
+              class="form-control border-0"
+              type="search"
+              placeholder="Search Lists"
+              aria-label="Search"
+              style="box-shadow: none"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary border-0" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="filter">
+        <div class="col-md-3">
+          <div class="form-group">
+            <select class="form-control" id="sort" aria-placeholder="Sort By">
+              <option value="date">Date</option>
+              <option value="title">Title</option>
+              <option value="author">Author</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <select
+              class="form-control"
+              id="filter"
+              aria-placeholder="Filter By Category"
+            >
+              <option value="category1">Category 1</option>
+              <option value="category2">Category 2</option>
+              <option value="category3">Category 3</option>
+            </select>
+          </div>
+        </div>
+    </div>
+        <a
+          href="#"
+          class="btn btn-outline-secondary btn-sm border-0 text-secondary no-focus-outline"
+        >
+          <i class="fas fa-pen"></i> Write
+        </a>
+      </div>
+
+      <div class="container">
+        <div class="row mt-3"></div>
+      </div>
+
+      <div class="row mt-5" id="articlesContainer">
+        
+      </div>
+      
+      
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com"></script>
+  </body>
+</html>
