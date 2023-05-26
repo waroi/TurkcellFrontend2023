@@ -1,10 +1,19 @@
 import Product from "./Components/product.js";
 import Fetch from "./fetch.js";
 import Filter from "./filter.js";
-import BasketOffCanvas from "./Components/basketOffcanvas.js";
+import { showProducts, showProductstoBasket, showBrands } from "./app.js";
+
+const viewGridList = document.getElementById("viewGrid");
+const viewList = document.getElementById("viewList");
+const brandsList = document.getElementById("brandList");
+const basketList = document.getElementById("basketList");
 
 class UI {
-
+  static isValidUrl(url) {
+    const urlPattern =
+      /^https?:\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+    return urlPattern.test(url);
+  }
   static async formListenSubmitFromUI(e) {
     e.preventDefault();
     const id = Date.now();
@@ -19,20 +28,21 @@ class UI {
       .value.trim();
     const productStock = document.getElementById("productStock").value.trim();
     const ImageUrl = document.getElementById("imgUrl").value.trim();
+    const ImageUrlFeedback = document.getElementById("imageUrlFeedback");
     const button = document.getElementById("addOrEditButton");
     const title = document.getElementById("productModalLabel");
     const sort = document.getElementById("sort");
+    const form = document.getElementById("product-form");
     const request = new Fetch("http://localhost:3000/posts");
 
-    if (
-      productName === "" ||
-      productCategory === "" ||
-      productBrand === "" ||
-      productPrice === "" ||
-      productOldPrice === "" ||
-      productStock === ""
-    ) {
-      alert("Lütfen tüm alanları doldurunuz.");
+    if (!form.checkValidity()) {
+      form.classList.add("was-validated");
+      return;
+    }
+
+    if (!this.isValidUrl(ImageUrl)) {
+      ImageUrl.classList.add("is-invalid");
+      ImageUrlFeedback.classList.add("d-block");
       return;
     }
 
@@ -49,8 +59,12 @@ class UI {
         productStock
       );
       await request.put(productEditId, product);
-      Filter.sortProductsFromFilter(sort.value);
+      viewGridList.innerHTML = "";
+      viewList.innerHTML = "";
       showProducts();
+      brandsList.innerHTML = "";
+      showBrands();
+      Filter.sortProductsFromFilter(sort.value);
 
       // Butonu düzenle
       button.innerHTML = "Ekle";
@@ -63,7 +77,6 @@ class UI {
       const existingProduct = await request.get().then((data) => {
         return data.find((product) => product.name === productName);
       });
-      console.log(existingProduct);
       if (existingProduct) {
         // Aynı isimde ürün bulundu, stok adetini artır
         const newStock =
@@ -79,6 +92,9 @@ class UI {
           newStock.toString()
         );
         await request.put(existingProduct.id, updatedProduct);
+        viewGridList.innerHTML = "";
+        viewList.innerHTML = "";
+        showProducts();
       } else {
         const product = new Product(
           id,
@@ -91,9 +107,13 @@ class UI {
           productStock
         );
         await request.post(product);
+        viewGridList.innerHTML = "";
+        viewList.innerHTML = "";
+        showProducts();
+        brandsList.innerHTML = "";
+        showBrands();
+        Filter.sortProductsFromFilter(sort.value);
       }
-      Filter.sortProductsFromFilter(sort.value);
-      showProducts();
     }
   }
 
@@ -135,7 +155,6 @@ class UI {
           title.innerHTML = "Ürün Düzenle";
         }
       });
-      showProducts();
     }
   }
 
@@ -154,6 +173,12 @@ class UI {
         .catch((error) => {
           console.log(error);
         });
+
+      viewGridList.innerHTML = "";
+      viewList.innerHTML = "";
+      showProducts();
+      brandsList.innerHTML = "";
+      showBrands();
     }
     e.preventDefault();
   }
@@ -218,6 +243,8 @@ class UI {
             };
             await basketRequest.put(existingItem.id, updatedProduct);
             console.log("Ürün sepete eklendi.");
+            basketList.innerHTML = "";
+            showProductstoBasket();
           } else {
             alert("Ürün stok adedinden fazla eklenemez.");
           }
@@ -225,11 +252,12 @@ class UI {
           // Eğer ürün daha önce sepete eklenmemişse, direkt olarak eklenir
           await basketRequest.post(selectedProduct);
           console.log("Ürün sepete eklendi.");
+          basketList.innerHTML = "";
+          showProductstoBasket();
         }
       } catch (error) {
         console.log("Sepete ekleme işlemi başarısız oldu.", error);
       }
-      showProductstoBasket();
     }
   }
 }

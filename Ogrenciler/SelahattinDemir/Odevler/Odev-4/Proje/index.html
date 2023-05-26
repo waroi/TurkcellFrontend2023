@@ -91,7 +91,9 @@
                   aria-controls="offcanvasTop"
                 >
                   <i class="bi bi-cart-check text-light fs-3"></i>
-                  <span class="badge bg-success fs-6" id="basket-total"> 0 </span>
+                  <span class="badge bg-success fs-6" id="basket-total">
+                    0
+                  </span>
                 </a>
               </li>
             </ul>
@@ -130,7 +132,7 @@
               aria-label="Close"
             ></button>
           </div>
-          <form class="modal-body" id="product-form">
+          <form class="modal-body" id="product-form" novalidate>
             <div class="my-2">
               <label for="imgUrl" class="form-label">Ürün Görsel Url'i</label>
               <input
@@ -138,39 +140,95 @@
                 class="form-control"
                 id="imgUrl"
                 placeholder="https://..."
+                required
               />
+              <div id="imageUrlFeedback" class="invalid-feedback">
+                Geçerli bir URL girin.
+              </div>
             </div>
             <div class="mb-2">
               <label for="productName" class="form-label">Ürünün Adı</label>
-              <input type="text" class="form-control" id="productName" />
+              <input
+                type="text"
+                class="form-control"
+                id="productName"
+                required
+              />
+              <div class="invalid-feedback">Lütfen ürün adını girin.</div>
             </div>
             <div class="mb-2">
               <label for="productCategory" class="form-label"
                 >Ürünün Türü</label
               >
-              <input type="text" class="form-control" id="productCategory" />
+              <input
+                type="text"
+                class="form-control"
+                id="productCategory"
+                placeholder="Kulak üstü veya Kulak içi"
+                required
+              />
+              <div class="invalid-feedback">Lütfen ürünün türünü girin.</div>
             </div>
             <div class="mb-2">
               <label for="productBrand" class="form-label"
                 >Ürünün Markası</label
               >
-              <input type="text" class="form-control" id="productBrand" />
+              <input
+                type="text"
+                class="form-control"
+                id="productBrand"
+                required
+              />
+              <div class="invalid-feedback">Lütfen ürünün markasını girin.</div>
             </div>
             <div class="mb-2">
               <label for="productPrice" class="form-label"
                 >Ürünün İndirimli Fiyatı</label
               >
-              <input type="number" class="form-control" id="productPrice" />
+              <input
+                type="number"
+                class="form-control"
+                id="productPrice"
+                required
+                required
+                pattern="[0-9]+(\.[0-9]+)?"
+                min="0"
+              />
+              <div class="invalid-feedback">
+                Lütfen geçerli bir fiyat giriniz.
+              </div>
             </div>
             <div class="mb-2">
               <label for="productOldPrice" class="form-label"
                 >Ürünün Eski Fiyatı</label
               >
-              <input type="number" class="form-control" id="productOldPrice" />
+              <input
+                type="number"
+                class="form-control"
+                id="productOldPrice"
+                required
+                required
+                pattern="[0-9]+(\.[0-9]+)?"
+                min="0"
+              />
+              <div class="invalid-feedback">
+                Lütfen geçerli bir fiyat giriniz.
+              </div>
             </div>
             <div class="mb-2">
               <label for="productStock" class="form-label">Ürünün Adedi</label>
-              <input type="number" class="form-control" id="productStock" />
+              <input
+                type="number"
+                class="form-control"
+                id="productStock"
+                required
+                required
+                pattern="[0-9]+(\.[0-9]+)?"
+                min="0"
+              />
+              <div class="invalid-feedback">
+                Lütfen geçerli bir adet giriniz.
+              </div>
             </div>
           </form>
           <div class="modal-footer">
@@ -182,10 +240,9 @@
               Kapat
             </button>
             <button
-              type="button"
+              type="submit"
               class="btn btn-primary py-2 px-4"
               id="addOrEditButton"
-              data-bs-dismiss="modal"
             >
               Ekle
             </button>
@@ -211,9 +268,7 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="offcanvas-body row" id="basketList">
-
-      </div>
+      <div class="offcanvas-body row" id="basketList"></div>
       <div class="offcanvas-footer">
         <button
           type="button"
@@ -403,7 +458,7 @@
           <article class="col-lg-9 products">
             <header class="mb-2">
               <div class="d-flex justify-content-md-between px-5 flex-wrap">
-                <h5 class="fw-bold mt-2" id="product-title" >Sonuç: </h5>
+                <h5 class="fw-bold mt-2" id="product-title">Sonuç:</h5>
                 <!-- search bar -->
                 <form class="form-inline" role="search">
                   <input
