@@ -55,7 +55,7 @@ function eventListeners() {
 class UI {
   static inputValidate() {
     return (
-      brandInput.value.length < 3 || modelInput.value.length < 3
+      brandInput.value.length < 3 || modelInput.value.length < 3 || urlInput.value.length < 3 
     )
   }
   async refreshAndAddCardsToUI(findedItems, searchInputvalue) {
@@ -88,12 +88,10 @@ ui.refreshAndAddCardsToUI();
 
 async function addNewCard(e) {
   e.preventDefault();
-  // if (UI.inputValidate()) {
-  //   console.log(UI.inputValidate());
-  //   alert("please complete all inputs correctly.")
-  //   } else {
- 
-  await request.get().then((arr) => {
+  if (UI.inputValidate()) {
+    alert("please complete all inputs correctly.")
+  } else {
+    await request.get().then((arr) => {
     let copyArr = Array.from(arr);
     let currentObj = copyArr.find((item) => item.brand.toLowerCase() == brandInput.value.toLowerCase() && item.model.toLowerCase() == modelInput.value.toLowerCase());
     if (currentObj) {
@@ -128,6 +126,8 @@ async function addNewCard(e) {
     }
   })
   await form.reset();
+  await ui.refreshAndAddCardsToUI();
+}
 }
 
 let contentCurrentId;

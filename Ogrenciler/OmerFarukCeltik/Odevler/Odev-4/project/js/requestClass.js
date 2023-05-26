@@ -1,7 +1,7 @@
 class Request {
   constructor(brand, model, type, motorcc, banner, gas, status, price,stock) {
-    this.url = "http://localhost:3001/contents";
-    this.basketUrl = "http://localhost:3001/basket";
+    this.url = "http://localhost:3005/contents";
+    this.basketUrl = "http://localhost:3005/basket";
     this.id = Date.now();
     this.brand = brand;
     this.model = model;
@@ -13,6 +13,14 @@ class Request {
     this.price = price,
     this.stock = stock,
     this.basket = 1
+  }
+  async get(id) {
+    return new Promise((resolve, reject) => {
+      fetch(id ? `${this.url}/${id}` : this.url)
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        .catch((err) => reject(err, "Veri alınamadı."));
+    });
   }
   async get(id) {
     return new Promise((resolve, reject) => {
