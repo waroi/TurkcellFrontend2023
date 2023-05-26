@@ -304,9 +304,12 @@ function sortProducts(e) {
   e.preventDefault();
 }
 function getBaskets() {
+  let total = 0;
   dataProduct.getBaskets().then((data) => {
     basketDropdown.textContent += data.length;
     data.map((product) => {
+      total += product.total;
+
       console.log(product.id);
       basketMenu.innerHTML += `
         <li  class="list-style-none p-2 w-100 basketItem" id="${product.id}">
@@ -338,7 +341,7 @@ function getBaskets() {
     });
     basketMenu.innerHTML += `
     <div class="row  d-flex justify-content-center mt-3">
-    <button class="btn btn-success col-lg-4 buyItem"> Buy </button>
+    <button class="btn btn-success col-lg-4 buyItem"> Buy (${total}$) </button>
     
      </div>
     
