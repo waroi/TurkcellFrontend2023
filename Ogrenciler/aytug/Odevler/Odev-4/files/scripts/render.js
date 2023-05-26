@@ -173,7 +173,6 @@ class Render {
 					<h5 class="card-title text-center my-3">${product.name}</h5>
 					<p class="card-text">${product.description}
 					</p>
-					<a href="./views/${product.name.toLowerCase()}.html" class="btn btn-close-white-50 mt-3 border border-2 text-bg-dark"> Daha fazlası... </a>
 				</div>
 			</div>`;
 
