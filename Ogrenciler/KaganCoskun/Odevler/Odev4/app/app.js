@@ -58,5 +58,7 @@ categoryList.addEventListener('change',ui.loadUi);
 sortProducts.addEventListener('change',ui.loadUi);
 basketOrder.addEventListener('click',ui.orderProduct);
 
+// KC
+
 
 
