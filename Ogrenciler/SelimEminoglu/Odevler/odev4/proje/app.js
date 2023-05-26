@@ -32,6 +32,8 @@ const updateModal = document.getElementById("updateProductModal");
 const orderList = document.getElementById("sorter");
 const categoryFilter = document.getElementById("filter");
 
+const basketList = document.getElementById("basketList");
+
 addProductButton.addEventListener("click", addProduct);
 updateProductButton.addEventListener("click", updateProduct);
 
