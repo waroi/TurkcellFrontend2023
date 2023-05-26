@@ -9,77 +9,6 @@ const productTitle = document.getElementById("product-title");
 let filteredArrayProducts = [];
 
 class Filter {
-  // static async filterProductsFromFilter() {
-  //   const productCategory = document.getElementById("productCategory").value;
-  //   const productBrand = document.getElementById("productBrand").value;
-
-  //   const request = new Fetch("http://localhost:3000/posts");
-  //   const sort = document.getElementById("sort");
-
-  //   const categoriesAndBrands = document.querySelectorAll(
-  //     'input[name="categoriesandbrands"]:checked'
-  //   );
-  //   const selectedCategoriesAndBrands = Array.from(categoriesAndBrands).map(
-  //     (input) => input.value
-  //   );
-
-  //   const products = await request.get();
-  //   let filteredProducts = products;
-
-  //   if (
-  //     productCategory ||
-  //     productBrand ||
-  //     selectedCategoriesAndBrands.length > 0
-  //   ) {
-  //     filteredProducts = products.filter((product) => {
-  //       const categoryMatch =
-  //         !productCategory ||
-  //         product.category === productCategory;
-  //       const brandMatch =
-  //         !productBrand ||
-  //         product.brand.toLowerCase() === productBrand.toLowerCase();
-  //       const categoriesAndBrandsMatch =
-  //         selectedCategoriesAndBrands.length === 0 ||
-  //         selectedCategoriesAndBrands.some((selected) =>
-  //           [product.category, product.brand]
-  //             .map((item) => item.replace(/ /g, "").toLowerCase())
-  //             .includes(selected)
-  //         );
-  //       console.log(selectedCategoriesAndBrands);
-  //       console.log(productCategory);
-  //       console.log(product.category);
-
-  //       return categoryMatch && brandMatch && categoriesAndBrandsMatch;
-  //     });
-  //   }
-
-  //   viewGridList.innerHTML = "";
-  //   viewList.innerHTML = "";
-  //   filteredProducts.forEach((product) => {
-  //     ViewGridCard.addProductFromViewGridCard(product);
-  //     ViewListCard.addProductFromViewListCard(product);
-  //   });
-
-  //   filteredArrayProducts = filteredProducts;
-
-  //   // let selectedSortOption;
-  //   // for (const option of sortOptions) {
-  //   //   if (option.checked) {
-  //   //     selectedSortOption = option.value;
-  //   //     break;
-  //   //   }
-  //   // }
-
-  //   // if (!selectedSortOption) {
-  //   //   console.error("Sort seçeneği belirtilmedi.");
-  //   //   return;
-  //   // }
-
-  //   this.sortProductsFromFilter(sort.value);
-
-  //   return filteredArrayProducts;
-  // }
-
   static async filterProductsFromFilter() {
     const productCategory = document
       .getElementById("productCategory")
@@ -88,12 +17,15 @@ class Filter {
       .getElementById("productBrand")
       .value.toLowerCase();
 
+      console.log(productCategory);
+      console.log(productBrand);
     const request = new Fetch("http://localhost:3000/posts");
     const sort = document.getElementById("sort");
 
     const categoriesAndBrands = document.querySelectorAll(
       'input[name="categoriesandbrands"]:checked'
     );
+
     const selectedCategoriesAndBrands = Array.from(categoriesAndBrands).map(
       (input) => input.value.toLowerCase().replace(/ /g, "")
     );
@@ -125,6 +57,8 @@ class Filter {
       });
     }
 
+    console.log(filteredProducts);
+
     viewGridList.innerHTML = "";
     viewList.innerHTML = "";
     filteredProducts.forEach((product) => {
@@ -142,58 +76,6 @@ class Filter {
 
     return filteredArrayProducts;
   }
-
-  // static async searchProductsFromFilter(query) {
-  //   const request = new Fetch("http://localhost:3000/posts");
-  //   const sort = document.getElementById("sort");
-
-  //   const products = await request.get();
-  //   const filteredProducts = products.filter((product) =>
-  //     product.name.toLowerCase().includes(query.toLowerCase())
-  //   );
-
-  //   const categoriesAndBrands = document.querySelectorAll(
-  //     'input[name="categoriesandbrands"]:checked'
-  //   );
-  //   const selectedCategoriesAndBrands = Array.from(categoriesAndBrands).map(
-  //     (input) => input.value
-  //   );
-
-  //   let filteredProductsWithCategoriesAndBrands = [];
-
-  //   if (selectedCategoriesAndBrands.length > 0) {
-  //     filteredProductsWithCategoriesAndBrands = filteredProducts.filter(
-  //       (product) => {
-  //         const productCategoriesAndBrands = [
-  //           product.category.replace(/ /g, "").toLowerCase(),
-  //           product.brand.replace(/ /g, "").toLowerCase(),
-  //         ];
-  //         const matchingCategoriesAndBrands =
-  //           selectedCategoriesAndBrands.filter((selectedCategoryAndBrand) =>
-  //             productCategoriesAndBrands.includes(selectedCategoryAndBrand)
-  //           );
-  //         return matchingCategoriesAndBrands.length > 0;
-  //       }
-  //     );
-  //   } else {
-  //     filteredProductsWithCategoriesAndBrands = [...filteredProducts];
-  //   }
-
-  //   viewGridList.innerHTML = "";
-  //   viewList.innerHTML = "";
-  //   filteredProductsWithCategoriesAndBrands.forEach((product) => {
-  //     ViewGridCard.addProductFromViewGridCard(product);
-  //     ViewListCard.addProductFromViewListCard(product);
-  //   });
-
-  //   let productCount = filteredProductsWithCategoriesAndBrands.length;
-  //   productTitle.innerHTML = "";
-  //   productTitle.innerHTML += `Sonuç: ${productCount} Ürün Bulundu`;
-
-  //   filteredArrayProducts = filteredProductsWithCategoriesAndBrands;
-
-  //   this.sortProductsFromFilter(sort.value);
-  // }
 
   static async searchProductsFromFilter(query) {
     try {
@@ -284,8 +166,6 @@ class Filter {
       ViewGridCard.addProductFromViewGridCard(product);
       ViewListCard.addProductFromViewListCard(product);
     });
-
-    filteredArrayProducts = sortedProducts;
   }
 }
 
