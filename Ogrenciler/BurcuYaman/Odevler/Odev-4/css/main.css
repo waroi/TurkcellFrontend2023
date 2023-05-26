@@ -10719,6 +10719,26 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.btn {
+  transition: 0.5s;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.nav-item::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 4px;
+  background: #6b2f1c;
+  transition: width 0.3s;
+}
+.nav-item:hover::after {
+  width: 100%;
+}
+
 .container #slider .carousel-item img {
   height: 500px;
 }
@@ -10755,6 +10775,55 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+.container .product .card {
+  transition: 0.2s;
+  transition: 1s;
+}
+.container .product .card .card-title {
+  height: 100px;
+}
+.container .product .card .product-category,
+.container .product .card .stars,
+.container .product .card .product-price {
+  height: 30px;
+}
+.container .product .card .productButtons {
+  height: 40px;
+}
+.container .product .card:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
+}
+
+@media screen and (max-width: 720px) {
+  .nav-item,
+  .dropdown-item {
+    text-align: center;
+  }
+  .nav-buttons {
+    justify-content: center;
+  }
+  #slider {
+    margin-bottom: 0 !important;
+  }
+  #slider .carousel-item img {
+    height: 300px !important;
+  }
+  .category {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .category h5, .category .h5 {
+    font-size: 0.8rem !important;
+    text-align: center;
+  }
+  #search {
+    width: 75% !important;
+  }
+  #sortBy {
+    margin-top: 5px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

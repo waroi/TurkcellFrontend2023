@@ -17,8 +17,6 @@ const detailModal = document.querySelector("#detailModal");
 const cartButton = document.querySelector("#cart");
 
 
-
-
 const productRequest = new ProductRequest("http://localhost:3000/products");
 const cartRequest = new ProductRequest("http://localhost:3000/carts");
 const ui = new UI();
@@ -27,12 +25,8 @@ const productsInCart = [];
 console.log(allProducts);
 console.log(productsInCart);
 
-
 getAllItems();
 eventListeners();
-
-
-
 
 function eventListeners() {
     addProductButton.addEventListener('click', addProduct);
@@ -64,7 +58,6 @@ function getAllItems() {
     productRequest
         .get()
         .then((products) => {
-
             ui.loadAllProductsToUI(products, productsInCart);
             products.map((product) => {
                 allProducts.push(product);
@@ -74,8 +67,6 @@ function getAllItems() {
             console.log(err);
         });
 
-    // let productAmountInCart = document.getElementById('productAmountInCart');
-    // productAmountInCart.innerHTML = productsInCart.length;
 }
 
 function addProduct(e) {
@@ -86,11 +77,19 @@ function addProduct(e) {
     const productPrice = productPriceInput.value.trim();
     const productUrl = productUrlInput.value.trim();
 
+    const productNames = allProducts.map((product) => {
+        return product.name;
+    })
+
     if (productName === "" || productCategory === "" || productDescription === "" || productAmount === "" || productPrice === "" || productUrl === "") {
         alert("Lütfen tüm alanları doldurunuz.");
+    } else if (productNames.includes(productName)) {
+        alert("Bu ürün zaten var. Ürünü Güncellemek için lütfen güncelleme butonuna tıklayınız.");
+    } else if (productAmountInput <= 0) {
+        alert("Lütfen geçerli bir ürün adedi giriniz.");
+    } else if (productPriceInput <= 0) {
+        alert("Lütfen geçerli bir ürün fiyatı giriniz.");
     }
-
-
     else {
         productRequest
             .post({ name: productName, category: productCategory, description: productDescription, amount: productAmount, price: productPrice, url: productUrl })
@@ -126,10 +125,8 @@ function deleteProduct(e) {
             .catch((err) => {
                 console.log(err);
             });
-
     }
     e.preventDefault();
-
 }
 
 function updateProduct(e) {
@@ -252,10 +249,8 @@ function searchProduct(e) {
     ui.searchProductInUI(searchValue);
 }
 
-// const filteredProducts = [];
 function filterProduct(e) {
-
-    filteredProducts = [];
+    let filteredProducts = [];
     const category = e.target.id;
     ui.filterProductsInUI(category, filteredProducts);
 }
@@ -339,6 +334,130 @@ function detailProduct(e) {
         let amount;
         let category;
         const product = e.target.parentElement.parentElement.parentElement.parentElement;
+        const id = product.getAttribute("id");
+        const addToCartButton = document.querySelector("#addToCartButton");
+
+        productRequest
+            .get()
+            .then((products) => {
+                products.map(product => {
+                    if (product.id == id) {
+                        url = product.url;
+                        name = product.name;
+                        price = product.price;
+                        description = product.description;
+                        amount = product.amount;
+                        category = product.category;
+                        ui.detailProductInUI(url, name, price, description, amount);
+                        if (amount == 0) {
+                            addToCartButton.disabled = true;
+                        } else {
+                            addToCartButton.disabled = false;
+                        }
+
+                    }
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        addToCartButton.addEventListener('click', function () {
+
+            let quantity = document.querySelector("#quantityInput").value.trim();
+            console.log(quantity);
+            allProducts.map(product => {
+                if (product.id == id) {
+                    if (product.amount >= quantity) {
+                        const cartProduct = {
+                            id: id,
+                            category: category,
+                            url: url,
+                            name: name,
+                            price: price,
+                            description: description,
+                            amount: amount,
+                            quantity: quantity,
+                        };
+
+                        cartRequest
+                            .get()
+                            .then((cartProducts) => {
+                                let flag = false;
+                                cartProducts.map(cartProduct => {
+                                    if (cartProduct.name == name) {
+                                        flag = true;
+                                    }
+                                });
+                                if (flag == false) {
+                                    cartRequest
+                                        .post(cartProduct)
+                                        .then((cartProduct) => {
+                                            console.log(cartProduct);
+                                        }
+                                        )
+                                        .catch((err) => {
+                                            console.log(err);
+                                        }
+                                        );
+
+                                }
+                                else if (flag == true) {
+                                    cartRequest
+                                        .put(id, {
+                                            // quantitiy: quantitiy + productQuantitiy,
+                                        })
+                                        .then((cartProduct) => {
+                                            console.log(cartProduct);
+                                        }
+                                        )
+                                        .catch((err) => {
+                                            console.log(err);
+                                        }
+                                        );
+                                }
+                            })
+
+                        productRequest
+                            .getById(id)
+                            .then((product) => {
+                                const updatedProduct = {
+                                    ...product,
+                                    amount: product.amount - quantity,
+
+                                };
+                                productRequest
+                                    .put(id, updatedProduct)
+                                    .then((product) => {
+                                        console.log(product);
+                                    }
+                                    )
+                                    .catch((err) => {
+                                        console.log(err);
+                                    }
+                                    );
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            }
+                            );
+                    }
+                    else if (parseInt(product.amount) < parseInt(quantity)) {
+                        alert("Stokta yeterli ürün yok");
+                    }
+                }
+            });
+        }
+        );
+    }
+    if (e.target.id === 'detailIcon') {
+        let url;
+        let name;
+        let price;
+        let description;
+        let amount;
+        let category;
+        const product = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
         const id = product.getAttribute("id");
         const addToCartButton = document.querySelector("#addToCartButton");
 
@@ -459,7 +578,6 @@ function detailProduct(e) {
         }
         );
     }
-
 }
 
 function goToCart(e) {
@@ -469,7 +587,7 @@ function goToCart(e) {
         .then((cartProducts) => {
             ui.goToCartInUI(cartProducts);
             const deleteButtonInCarts = document.querySelectorAll("#deleteButtonInCart");
-            deleteButtonInCart = Array.from(deleteButtonInCarts)
+            let deleteButtonInCart = Array.from(deleteButtonInCarts)
             deleteButtonInCart.map((button) => {
                 console.log(button);
                 button.addEventListener('click', deleteProductInCart);
@@ -480,13 +598,11 @@ function goToCart(e) {
             console.log(err);
         }
         );
-
-
-
 }
 
 function deleteProductInCart(e) {
     const product = e.target.parentElement.parentElement;
+    console.log(product);
     const productName = product.querySelector("#productNameInCart").textContent;
     console.log(productName);
     allProducts.map(product => {

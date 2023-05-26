@@ -21,7 +21,7 @@ class UI {
             <h5 class="card-title text-center">
             ${product.name}
             </h5>
-            <p class="border border-primary w-50 rounded-3 m-auto text-center">${product.category}</p>
+            <p class="product-category border border-primary w-75 rounded-3 m-auto text-center">${product.category}</p>
             <div class="stars d-flex justify-content-center mt-4 text-info">
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
@@ -29,7 +29,7 @@ class UI {
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
             </div>
-            <p class="card-text text-center fs-5 my-4 product-price">${product.price}</p>
+            <p class="card-text text-center fs-5 my-4 product-price">${product.price} </p>
             <div class="productButtons d-flex justify-content-around">
               
             <button
@@ -50,7 +50,7 @@ class UI {
                 class="btn btn-dark text-light rounded-circle"
                 id="detailButton"
               >
-                <i class="fa-solid fa-cart-plus id=detailIcon"></i
+                <i class="fa-solid fa-cart-plus" id="detailIcon"></i
               ></button>
             </div>
           </div>
@@ -66,9 +66,6 @@ class UI {
     element5.value = "";
     element6.value = "";
   }
-  // deleteProductFromUI(product) {
-  //   product.remove();
-  // }
   updateProductFromUI(product, card) {
     card.innerHTML += ` <div class="col-md-2 product" id="${product.id}">
     <div class="card my-3">
@@ -89,7 +86,7 @@ class UI {
           <i class="fa-solid fa-star"></i>
           <i class="fa-solid fa-star"></i>
         </div>
-        <p class="card-text text-center fs-5 my-4 product-price">${product.price} TL</p>
+        <p class="card-text text-center fs-5 my-4 product-price">${product.price} ₺</p>
         <div class="productButtons d-flex justify-content-around">
           <button
             href="#"
@@ -131,18 +128,8 @@ class UI {
 
   }
   filterProductsInUI(categoryName, filteredProducts) {
-    console.log(categoryName);
     const productList = document.getElementById("productList");
     const productListItems = productList.querySelectorAll('.card-body');
-    productListItems.forEach(function (productListItem) {
-      // if (productListItem.parentElement.parentElement.style.display === 'none') {
-      //   productListItem.parentElement.parentElement.setAttribute('style', 'display : block !important');
-      //   console.log(productListItem.parentElement.parentElement)
-      // }
-    })
-
-
-
 
     const breadcrumb = document.getElementById('breadcrumb');
     breadcrumb.innerHTML = `
@@ -155,7 +142,6 @@ class UI {
     productListItems.forEach(function (productListItem) {
 
       const category = productListItem.children[1].textContent.toLowerCase();
-      // console.log(category);
       if (category.indexOf(categoryName) !== -1) {
         productListItem.parentElement.parentElement.setAttribute('style', 'display : block');
         filteredProducts.push(productListItem.parentElement.parentElement);
@@ -247,13 +233,19 @@ class UI {
     </div>
     <div class="col-md-8">
       <h5>${name}</h5>
-      <p>yıldızlar</p>
+      <div class="stars d-flex justify-content-start mt-4 text-info">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
       <p>${amount}</p>
       <p>
        ${description}
       </p>
 
-      <h5 class="w-50">${price}</h5>
+      <h5 class="w-50">${price} ₺</h5>
       <select
         class="form-select w-25 mt-4"
         aria-label="Default select example"
@@ -270,13 +262,11 @@ class UI {
 
   }
   goToCartInUI(cartProducts) {
-    console.log(cartProducts)
 
     let cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
     cartModal.show();
     const cartModalBody = document.getElementById('cartModalBody');
     cartModalBody.innerHTML = '';
-    // cartModalBody.innerHTML = '';
     cartProducts.map(function (cartProduct) {
       cartModalBody.innerHTML += `
       <div class="row" id=${cartProduct.id}>
@@ -288,20 +278,27 @@ class UI {
           class="w-100"
         />
       </div>
-      <div class="col-md-7">
+      <div class="col-md-6">
         <h5 id="productNameInCart">${cartProduct.name}</h5>
-        <p id="productCategoryInCart">${cartProduct.category}</p>
-  
-        <h5 class="w-50" id="productPriceInCart">${cartProduct.price}</h5>
-     <p id="productQuantityInCart"> ${cartProduct.quantity}</p>
+        <p id="productCategoryInCart" class=" border border-primary w-50 ms-0 mb-4 rounded-3 m-auto text-center">${cartProduct.category}</p>
+
+        <h5 class="w-50" id="productPriceInCart">${cartProduct.price} </h5>
+       
+     <p id="productQuantityInCart">${cartProduct.quantity}</p>
        
       </div>
-      <div class="col-md-1">
+      <div class="col-md-2">
       <button
       href="#"
-      class="btn btn-danger text-light rounded-circle"
+      class="btn btn-danger text-light rounded-2 w-100"
       id="deleteButtonInCart"
-      ><i class="fa-solid fa-trash" id="deleteIconInCart"></i
+      >Ürün Sil</i
+    ></button>
+    <button
+      href="#"
+      class="btn btn-secondary text-light rounded-2 mt-2 w-100"
+      id="addButtonInCart"
+      >Ürün Ekle</i
     ></button>
     </div>
 
