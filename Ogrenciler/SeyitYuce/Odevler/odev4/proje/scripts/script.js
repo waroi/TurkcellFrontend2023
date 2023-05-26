@@ -1,8 +1,9 @@
 const productList = document.getElementById('product-list');
 const addToBasketBtn = document.getElementById('addItemBtn');
 const confirmEditBtn = document.querySelector(".confirmEditBtn");
-const basketBtn = document.querySelector("#basketBtn");
+const basketBtn = document.getElementById("basketBtn");
 const basketItemsList = document.getElementById('basketItemsList');
+// const addItemToBasketBtn = document.querySelectorAll('.addItemToBasketBtn');
 
 
 addToBasketBtn.addEventListener('click', (e) => {
@@ -61,25 +62,20 @@ class Request {
                         <a class="card-text pb-3 me-4 d-none" id="productId">${product.id}</a>
                         </div>
                         <div class="d-flex flex-column mt-3 gap-1 gap-lg-4">
-                        <button class="btn btn-danger text-primary container-fluid addItemToBasketBtn">Add to Basket</button>
+                        <button class="btn btn-danger text-primary addItemToBasketBtn">Add to Basket</button>
                         <button class="btn btn-danger text-primary editProductBtn" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                         <button class="btn btn-danger text-primary deleteProductBtn">Delete</button>
                         </div>
                         </div>
                         </a>`;
 
-                        const addToBasketButton = listItem.querySelector('.addItemToBasketBtn');
-                        // console.log(addToBasketBtn)
-                        addToBasketButton.addEventListener('click', () => {
-                            addToBasket(product.id);
-                        });
                         productList.appendChild(listItem);
                         updateCategoryList(product.category);
-                        displayFilteredProducts(products)
                     });
+                    displayFilteredProducts(products)
+                    sortProducts()
                     resolve(products)
                     filterProducts()
-                    sortProducts()
                 })
                 .catch((err) => reject(new Error("Satılacak Ürün Bulunamadı.")));
 
@@ -139,7 +135,6 @@ class Request {
                 .catch((err) => reject(err));
         });
     }
-
 }
 
 const request = new Request("http://localhost:3000/products");
@@ -264,7 +259,7 @@ function displayFilteredProducts(products, filter) {
                 <a class="card-text pb-3 me-4 d-none" id="productId">${product.id}</a>
               </div>
               <div class="d-flex flex-column mt-3 gap-1 gap-lg-4">
-                <button class="btn btn-danger text-primary container-fluid">Add to Basket</button>
+                <button class="btn btn-danger text-primary container-fluid addItemToBasketBtn">Add to Basket</button>
                 <button class="btn btn-danger text-primary editProductBtn" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                 <button class="btn btn-danger text-primary deleteProductBtn">Delete</button>
               </div>
@@ -281,7 +276,6 @@ async function sortProducts() {
     sortProducts.forEach((sort) => {
         sort.addEventListener('change', async (e) => {
             const sortValue = e.target.value;
-            console.log(sortValue)
             const response = await fetch('http://localhost:3000/products');
             const data = await response.json();
             switch (sortValue) {
@@ -289,13 +283,11 @@ async function sortProducts() {
                     data.sort((a, b) => {
                         return a.name.localeCompare(b.name);
                     })
-                    console.log(data)
                     break;
                 case "za":
                     data.sort((a, b) => {
                         return b.name.localeCompare(a.name);
                     })
-                    console.log(data)
                     break;
                 case "asc":
                     data.sort((a, b) => {
@@ -313,10 +305,15 @@ async function sortProducts() {
         });
     });
 }
-console.log(basketBtn)
+
+const offcanvas = document.getElementById("offcanvasRight");
+let isBasketOpen = false;
 basketBtn.addEventListener("click", () => {
     const request = new Request("http://localhost:3000/atBasket");
     request.get().then((data) => {
+        if (isBasketOpen) {
+            basketItemsList.innerHTML = "";
+        }
         data.forEach((product) => {
             const basketItem = document.createElement('li');
             basketItem.classList = "card border-danger mb-3";
@@ -335,39 +332,155 @@ basketBtn.addEventListener("click", () => {
                     <a class="card-text pb-3 me-4 d-none" id="productIdInBasket">${product.id}</a>
                 </div>
                 <div class="d-flex mt-3 gap-1 gap-lg-4">
-                    <button class="btn btn-info text-danger">Remove</button>
-                    <button class="btn btn-danger text-primary">Add More</button>
+                    <button class="btn btn-info text-danger removeFromBasket">Remove</button>
+                    <button class="btn btn-danger text-primary subtract"><i class="fa-solid fa-minus"></i></button>
+                    <button class="btn btn-danger text-primary add-more"><i class="fa-solid fa-plus"></i></button>
                 </div>
             </div>
         </a>`;
             basketItemsList.appendChild(basketItem);
         })
-
+        isBasketOpen = true
     })
 })
 
+document.addEventListener("click", (event) => {
+    if (!offcanvas.contains(event.target) && !basketBtn.contains(event.target)) {
+        offcanvas.classList.remove("show");
+        const request = new Request("http://localhost:3000/products");
+        request.get()
+    }
+});
+
+basketItemsList.addEventListener('click', event => {
+    event.preventDefault();
+    const subtractButton = event.target.closest('.subtract');
+    const addButton = event.target.closest('.add-more');
+    const removeButton = event.target.closest('.removeFromBasket');
+
+    if (subtractButton) {
+        const basketItem = subtractButton.closest('.card');
+        const productId = basketItem.querySelector('#productIdInBasket').textContent;
+        updateQuantityInBasket(productId, -1);
+    }
+
+    if (addButton) {
+        const basketItem = addButton.closest('.card');
+        const productId = basketItem.querySelector('#productIdInBasket').textContent;
+        updateQuantityInBasket(productId, 1);
+    }
+    if (removeButton) {
+        const basketItem = removeButton.closest('.card');
+        const productId = basketItem.querySelector('#productIdInBasket').textContent;
+        removeFromBasket(productId);
+        basketItem.remove(); // Remove the item from the DOM
+    }
+});
+function removeFromBasket(productId) {
+    fetch(`http://localhost:3000/atBasket/${productId}`, {
+        method: 'DELETE',
+    })
+        .then(response => {
+            if (response.ok) {
+                console.log('Item successfully removed from the basket.');
+            } else {
+                throw new Error('Failed to remove item from the basket.');
+            }
+        })
+        .catch(error => console.error(error));
+}
+
+function updateQuantityInBasket(productId, quantityChange) {
+    fetch(`http://localhost:3000/atBasket/${productId}`)
+        .then(response => response.json())
+        .then(item => {
+            const newQuantity = item.quantity + quantityChange;
+            if (newQuantity >= 0 && newQuantity <= item.stock) {
+                item.quantity = newQuantity;
+                updateBasketItem(item);
+            } else {
+                console.log('Invalid quantity change. Stock limit reached.');
+            }
+        })
+        .catch(error => console.error('Failed to fetch item from the basket:', error));
+}
+
 function addToBasket(productId) {
+    fetch(`http://localhost:3000/products/${productId}`)
+        .then(response => response.json())
+        .then(data => {
+            const { id, name, price, category, image, stock } = data;
+            const basketItem = {
+                name,
+                price,
+                category,
+                image,
+                quantity: 1,
+                id,
+                stock,
+            };
+            console.log('Item added to basket:', basketItem);
+            postItemToBasket(basketItem);
+        })
+        .catch(error => console.error('Failed to fetch item details:', error));
+}
+
+function postItemToBasket(item) {
+    fetch('http://localhost:3000/atBasket')
+        .then(response => response.json())
+        .then(data => {
+            const existingItem = data.find(i => i.id === item.id);
+            if (existingItem) {
+                const totalQuantity = existingItem.quantity + 1;
+                if (totalQuantity <= item.stock) {
+                    existingItem.quantity = totalQuantity;
+                    updateBasketItem(existingItem);
+                } else {
+                    alert('Cannot add more items. Stock limit reached.');
+                }
+            } else {
+                createBasketItem(item);
+            }
+        })
+        .catch(error => console.error('Failed to fetch basket:', error));
+}
+
+function updateBasketItem(item) {
+    fetch(`http://localhost:3000/atBasket/${item.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(item),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Item quantity updated in the basket:', data);
+        })
+        .catch(error => console.error('Failed to update item quantity in the basket:', error));
+}
+
+function createBasketItem(item) {
     fetch('http://localhost:3000/atBasket', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ productId }),
+        body: JSON.stringify(item),
     })
         .then(response => response.json())
         .then(data => {
-            console.log('Item added to basket:', data);
-            // Perform any additional actions or updates you need
+            console.log('Item successfully added to basket:', data);
         })
         .catch(error => console.error('Failed to add item to basket:', error));
 }
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     request
         .get()
         .then((data) => {
-            // console.log(data);
-
             const deleteButtons = document.querySelectorAll(".deleteProductBtn");
             deleteButtons.forEach((deleteButton) => {
                 deleteButton.addEventListener("click", (e) => {
@@ -379,7 +492,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             const editButtons = document.querySelectorAll(".editProductBtn");
-            // console.log(editButtons);
             editButtons.forEach((editButton) => {
                 editButton.addEventListener("click", (e) => {
                     e.preventDefault();
@@ -387,8 +499,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     editProduct(listItem);
                 });
             });
+
+            const addItemToBasketBtns = document.querySelectorAll(".addItemToBasketBtn");
+            addItemToBasketBtns.forEach((addItemToBasketBtn) => {
+                addItemToBasketBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const listItem = e.target.closest(".card");
+                    const productId = listItem.querySelector(".card-text.d-none").textContent;
+                    addToBasket(productId);
+                });
+            });
+
         })
         .catch((err) => {
             console.log(err);
         });
 });
+
+
