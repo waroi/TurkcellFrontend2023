@@ -152,8 +152,6 @@ class ProductDetail{
     }
 
     editProduct(){
-        console.log(this.data)
-        console.log(document.querySelector("#img1"))
         document.querySelector("#productName").value=this.name;
         document.querySelector("#price").value=this.price;
         document.querySelector("#category").value=this.category;

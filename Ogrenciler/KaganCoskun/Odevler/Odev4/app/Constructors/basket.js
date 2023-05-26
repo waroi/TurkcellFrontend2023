@@ -35,7 +35,6 @@ class Basket{
     }
 
     async deleteFromBasket(id){
-        console.log(id)
         await basketRequest.delete(id);
         basketUi.loadBasketToUi();
         basketUi.basketCount();
@@ -73,7 +72,6 @@ class BasketUi{
     }
 
     async order(){
-        console.log("geldi")
         let basketDatas =await basketRequest.getAll() 
         let result= basketDatas.map(data=>basketUi.downStock(data.id,data.quantity))
         return result;

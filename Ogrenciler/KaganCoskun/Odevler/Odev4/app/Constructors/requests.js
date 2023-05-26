@@ -18,7 +18,6 @@ class Request{
         return data;
     }
     async post(data){
-        console.log(data)
         const response = await fetch(this.url,{
             method:'POST',
             headers:{

@@ -44,7 +44,6 @@ removeLeadZero(number){
 }
 
   async editProduct(id, data) {
-    console.log(data);
     let productData = await productRequest.put(id, data);
     return productData;
   }
