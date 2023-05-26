@@ -8,6 +8,12 @@ class ProductRequest {
 
         return data;
     }
+    async getById(id) {
+        const response = await fetch(this.url + "/" + id);
+        const data = await response.json();
+        return data;
+    }
+
     async post(data) {
         const response = await fetch(this.url, {
             method: "POST",

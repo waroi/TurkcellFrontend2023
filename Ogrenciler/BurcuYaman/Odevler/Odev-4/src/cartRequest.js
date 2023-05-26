@@ -1,4 +1,4 @@
-class cartRequest {
+class CartRequest {
     constructor(url) {
         this.url = url;
     }

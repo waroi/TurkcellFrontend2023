@@ -74,6 +74,7 @@
               data-bs-target="#addProductModal"
               ><i class="fa-solid fa-plus"></i
             ></a>
+
             <!-- Add ProductModal -->
             <div
               class="modal fade"
@@ -165,10 +166,14 @@
                       </div>
 
                       <div class="mb-3">
-                        <label for="urlInput" class="form-label"
+                        <label for="productUrl" class="form-label"
                           >Ürün Resmi URL :
                         </label>
-                        <input type="text" class="form-control" id="urlInput" />
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="productUrlInput"
+                        />
                       </div>
                     </form>
                   </div>
@@ -180,7 +185,11 @@
                     >
                       Kapat
                     </button>
-                    <button type="button" class="btn btn-secondary">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      id="addProductButton"
+                    >
                       Ekle
                     </button>
                   </div>
@@ -190,9 +199,18 @@
             <a href="#" class="btn btn-dark me-2 rounded-circle fs-5" id="login"
               ><i class="fa-solid fa-user"></i
             ></a>
-            <a href="#" class="btn btn-dark rounded-circle fs-5" id="cart">
+            <button
+              href="#"
+              class="btn btn-dark rounded-circle fs-5 position-relative"
+              id="cart"
+            >
               <i class="fa-solid fa-cart-shopping"></i>
-            </a>
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                id="productAmountInCart"
+              >
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -230,13 +248,15 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-
-      <div class="categories mb-5">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-3 pointer" id="breadcrumb"></ol>
+      </nav>
+      <div class="mb-5">
         <h3 class="text-center my-5">Kategoriler</h3>
-        <div class="row justify-content-around">
+        <div class="row justify-content-around categories">
           <div
             class="category d-flex justify-content-center rounded-circle"
-            id="kapsul"
+            id="kapsül"
           >
             <h5 class="m-auto fs-3 text-light">Kapsül</h5>
           </div>
@@ -254,13 +274,13 @@
           </div>
           <div
             class="category d-flex justify-content-center rounded-circle"
-            id="granul"
+            id="granül"
           >
             <h5 class="m-auto fs-3 text-light">Granül</h5>
           </div>
           <div
             class="category d-flex justify-content-center rounded-circle"
-            id="turk"
+            id="türk-kahvesi"
           >
             <h5 class="m-auto fs-3 text-light">Türk Kahvesi</h5>
           </div>
@@ -483,6 +503,202 @@
       </div>
       <!-- Copyright -->
     </footer>
+
+    <!-- update modal -->
+    <div
+      class="modal fade"
+      id="updateModal"
+      tabindex="-1"
+      aria-labelledby="updateModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="updateModalLabel">
+              Ürün Güncelle
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="d-flex w-100 gap-2">
+                <div class="mb-3 w-50">
+                  <label for="updateProductName" class="form-label"
+                    >Ürün Adı:
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="updateProductNameInput"
+                  />
+                </div>
+                <div class="mb-3 w-50">
+                  <label for="updateProductCategory" class="form-label"
+                    >Kategori:
+                  </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    id="updateProductCategoryInput"
+                  >
+                    <option value="kapsul" id="kapsul">Kapsül</option>
+                    <option value="espresso" id="espresso">Espresso</option>
+                    <option value="filtre" id="filtre">Filtre</option>
+                    <option value="granul" id="granul">Granül</option>
+                    <option value="turk" id="turk">Türk Kahvesi</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="updateProductDescription" class="form-label"
+                  >Ürün Açıklaması:
+                </label>
+                <textarea
+                  class="form-control"
+                  id="updateProductDescriptionInput"
+                  rows="5"
+                ></textarea>
+              </div>
+              <div class="d-flex w-100 gap-2">
+                <div class="mb-3 w-50">
+                  <label for="updateProductAmount" class="form-label"
+                    >Ürün Adedi:
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="updateProductAmountInput"
+                  />
+                </div>
+                <div class="mb-3 w-50">
+                  <label for="updateProductPrice" class="form-label"
+                    >Ürün Fiyatı:</label
+                  >
+                  <div class="input-group">
+                    <span class="input-group-text">₺</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Amount (to the nearest dollar)"
+                      id="updateProductPriceInput"
+                    />
+                    <span class="input-group-text">.00</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="updateProductUrl" class="form-label"
+                  >Ürün Resmi URL :
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="updateProductUrlInput"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Kapat
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="updateButtonModal"
+            >
+              Güncelle
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- detail modal -->
+    <div
+      class="modal fade"
+      id="detailModal"
+      tabindex="-1"
+      aria-labelledby="detailModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="detailModalLabel">Ürün Detay</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="detailModalBody"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Kapat
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="addToCartButton"
+            >
+              Sepete Ekle
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- cart modal -->
+    <div
+      class="modal fade"
+      id="cartModal"
+      tabindex="-1"
+      aria-labelledby="cartModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="cartModalLabel">Sepet</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="cartModalBody"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Kapat
+            </button>
+            <button type="button" class="btn btn-secondary" id="buyButton">
+              Satın Al
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="./src/productRequest.js"></script>
     <script src="./src/cartRequest.js"></script>
