@@ -22,28 +22,28 @@ class Filter{
     }
 
     static sort(data,sortType){
-
-        if(sortType === "nameAZ"){
-            data = data.sort((a,b) => {
-                return a.name.localeCompare(b.name);
-            });
+        let SortedDAta = [];
+       if(sortType === "nameAZ"){
+        SortedDAta = [...data].sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+            
         }
         else if(sortType === "nameZA"){
-            data = data.sort((a,b) => {
-                return b.name.localeCompare(a.name);
-            });
+            SortedDAta = [...data].sort((a,b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase()))
+            
         }
         else if(sortType === "expensive"){
-            data = data.sort((a,b) => {
+            SortedDAta = data.sort((a,b) => {
                 return b.totalPrice-a.totalPrice;  
             });
+            
         }
         else if(sortType === "cheap"){
-            data = data.sort((a,b) => {
+            SortedDAta = data.sort((a,b) => {
                 return a.totalPrice-b.totalPrice;
             });
+            
         }
-        return data;
+        return SortedDAta;
 
     }
 }

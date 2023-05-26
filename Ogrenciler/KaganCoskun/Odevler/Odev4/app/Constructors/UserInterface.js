@@ -37,20 +37,24 @@ class UserInterface{
     async addNewProduct(newProduct){
         let haveData =await ui.checkData(newProduct);
         if(haveData?.length>0){
-            productRequest.patch(haveData[0].id,{stock:haveData[0].stock+newProduct.stock})
+            productRequest.patch(haveData[0].id,{stock:haveData[0].stock+newProduct.stock}).then(()=>{ui.loadUi();})
+            .catch(err=>console.log(err));
+    toasty("warning","Bu ürün zaten olduğu için stokları arttırıldı");
+
             //Bu ürün zaten olduğu için stokları arttırıldı tostyfy ile bildir
         }
         else{
         productRequest.post(newProduct)
         .then(()=>{ui.loadUi();})
         .catch(err=>console.log(err));
-
-    ui.resetFormDatas();
     toasty("success","Ürün Başarıyla Eklendi");
+
+    }
+    ui.resetFormDatas();
 
     const modal = bootstrap.Modal.getInstance(document.getElementById("productModal"));
     modal?.hide();
-    }
+    
     }
     
     resetFormDatas(){
@@ -108,7 +112,6 @@ class UserInterface{
     let filterData = await ui.filterData();
         productsWrap.innerHTML='';
 
-        console.log(filterData)
          if(filterData?.length > 0){
             filterData.map(data => ui.addProductToUI(data));
         }
