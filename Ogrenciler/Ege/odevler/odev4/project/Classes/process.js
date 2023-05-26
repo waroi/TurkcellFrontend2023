@@ -84,16 +84,26 @@ class Process {
       currentProduct = product;
       submitEditBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        this.submitEdit(
-          currentProduct,
-          nameInp,
-          imgInp,
-          descInp,
-          priceInp,
-          categoryInp,
-          stockInp,
-          form
-        );
+        if (UI.isEmpty()) {
+          alert("Please fill the entire form.");
+        } else {
+          if (!isNaN(priceInp.value) && !isNaN(stockInp.value)) {
+            if (UI.isUrl()) {
+              this.submitEdit(
+                currentProduct,
+                nameInp,
+                imgInp,
+                descInp,
+                priceInp,
+                categoryInp,
+                stockInp,
+                form
+              );
+            } else
+              alert("Please enter a valid URL in image URL section in form.");
+          } else
+            alert("Please enter valid numbers in price and/or count sections.");
+        }
       });
     });
   }

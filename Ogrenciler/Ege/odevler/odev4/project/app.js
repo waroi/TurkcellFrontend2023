@@ -19,26 +19,31 @@ const searchArea = document.getElementById("search-product");
 UI.updateDisplay();
 UI.makeUniques();
 addBtn.addEventListener("click", () => {
-  const postData = new Product(
-    productNameInp.value,
-    productImgInp.value,
-    productDescInp.value,
-    productPriceInp.value,
-    productCatInp.value,
-    productCountInp.value
-  );
-  Process.addProduct(postData, form);
-  UI.updateDisplay();
-  console.log("addBtn");
+  if (UI.isEmpty()) {
+    alert("Please fill the entire form.");
+  } else {
+    if (!isNaN(productPriceInp.value) && !isNaN(productCountInp.value)) {
+      if (UI.isUrl()) {
+        const postData = new Product(
+          productNameInp.value,
+          productImgInp.value,
+          productDescInp.value,
+          productPriceInp.value,
+          productCatInp.value,
+          productCountInp.value
+        );
+        Process.addProduct(postData, form);
+        UI.updateDisplay();
+      } else alert("Please enter a valid URL in image URL section in form.");
+    } else alert("Please enter valid numbers in price and/or count sections.");
+  }
 });
 
 productRow.addEventListener("click", (e) => {
   if (e.target.classList.contains("add-cart")) {
     const productCard = e.target.closest(".col-lg-4");
-    console.log("Clicked on add cart");
     Process.addToCart(productCard.id);
   } else if (e.target.classList.contains("edit-product")) {
-    console.log("Clicked on edit product");
     const productCard = e.target.closest(".col-lg-4");
     Process.editProduct(
       productCard.id,
@@ -52,22 +57,18 @@ productRow.addEventListener("click", (e) => {
     );
   } else if (e.target.classList.contains("delete-product")) {
     const productCard = e.target.closest(".col-lg-4");
-    console.log("Clicked on delete product");
     Process.deleteProduct(productCard.id);
   }
 });
 
 cartBody.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-plus")) {
-    console.log("Cart product more");
     const cartProduct = e.target.closest(".cart-item");
     Process.addToCart(cartProduct.dataset.identifier);
   } else if (e.target.classList.contains("btn-minus")) {
-    console.log("Cart product less");
     const cartProduct = e.target.closest(".cart-item");
     Process.subtractFromCart(cartProduct.dataset.identifier);
   } else if (e.target.classList.contains("remove-all-cart")) {
-    console.log("Remove all");
     const cartProduct = e.target.closest(".cart-item");
     Process.deleteFromCart(cartProduct.dataset.identifier);
   }

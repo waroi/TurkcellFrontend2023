@@ -73,6 +73,13 @@ class UI {
       productImgInp.value == ""
     );
   }
+
+  static isUrl() {
+    return (
+      productImgInp.value.slice(0, 7) == "http://" ||
+      productImgInp.value.slice(0, 8) == "https://"
+    );
+  }
 }
 
 export default UI;
