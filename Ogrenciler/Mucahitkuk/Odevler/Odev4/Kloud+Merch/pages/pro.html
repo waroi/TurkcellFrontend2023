@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/5e36563075.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/favicon-32x32.png">
+  <title>Kloud+ Pro</title>
+</head>
+
+<body>
+  <header>
+    <div class="main-menu relative fixed-top bg-white w-100">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+        <div class="container">
+          <img class="logo" src="../assets/brandlogo.png" />
+          <button  type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <img class="logo" src="../assets/brandlogo.png" />
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./faq.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./ourteam.html">Team</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./store.html">Store</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Plans
+                  </a>
+                  <ul class="dropdown-menu mb-3">
+                    <li><a class="dropdown-item" href="./beginner.html">Beginner</a></li>
+                    <li><a class="dropdown-item" href="./variety.html">Variety</a></li>
+                    <li><a class="dropdown-item active" href="./pro.html">Pro</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <a>Sign Up to KLOUD<span>+</span></a>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <img class="logo" src="../assets/brandlogo.png" />
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="row g-3">
+                    <div class="col-md-6">
+                      <label for="inputEmail4" class="form-label">Email</label>
+                      <input required type="email" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputPassword4" class="form-label">Password</label>
+                      <input required type="password" class="form-control" id="inputPassword4">
+                    </div>
+                    <div class="col-12">
+                      <label for="inputAddress" class="form-label">Address</label>
+                      <input required type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    <div class="col-12">
+                      <label for="inputAddress2" class="form-label">Address 2</label>
+                      <input required type="text" class="form-control" id="inputAddress2"
+                        placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputCity" class="form-label">City</label>
+                      <input required type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="inputState" class="form-label">Plans</label>
+                      <select id="inputState" class="form-select">
+                        <option selected>Beginner</option>
+                        <option>Variety</option>
+                        <option>Pro</option>
+                      </select>
+                    </div>
+                    <div class="col-md-2">
+                      <label for="inputZip" class="form-label">Zip</label>
+                      <input type="text" class="form-control" id="inputZip">
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input required class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          I accept and agree to the Terms of Use
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <section class="pro-section1">
+    <div class="video-background">
+      <iframe
+        src="https://www.youtube.com/embed/r72GP1PIZa0?start=22&end=84&controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=r72GP1PIZa0"
+        frameborder="0" allowfullscreen></iframe>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>Absolute Gaming With <span>Pro+</span></h2>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <a>Go Pro<span>+</span></a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pro-section2">
+    <div class="title">
+      <h2 class="text-center mb-5">Pro Details</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 image-col">
+          <img
+            src="https://assetsio.reedpopcdn.com/valorant-jett-and-phoenix-wallpaper-b.jpg?width=1920&height=1920&fit=bounds&quality=80&format=jpg&auto=webp"
+            class="rounded img-fluid">
+        </div>
+        <div class="col-lg-6 details">
+          <div class="card">
+            <div class="card-content">
+              <h3>Pro+</h3>
+              <h1>Immersive Resolution <br>Top Notch Fps</h1>
+              <p>Experience the ultimate in visual clarity and smoothness with our service's high resolution and
+                top-notch FPS, bringing your favorite games and movies to life like never before. Upgrade your viewing
+                experience today.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex flex-row-reverse">
+        <div class="col-lg-6 image-col">
+          <img
+            src="https://www.webtekno.com/images/editor/default/0003/94/dd5d09a738e32da72709208a9cc04fd0526c9736.jpeg"
+            class="rounded img-fluid">
+        </div>
+        <div class="col-lg-6 details">
+          <div class="card">
+            <div class="card-content">
+              <h3>Pro+</h3>
+              <h1>Input LagNone Technology Is Arrived</h1>
+              <p>Eliminate the frustration of delayed responses with our input lag-none technology, ensuring
+                lightning-fast reactions and an incredibly responsive gaming experience that will keep you on the edge
+                of your seat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 image-col">
+          <img
+            src="https://investingnews.com/media-library/image-of-hand-holding-an-ai-face-looking-at-the-words-chatgpt-openai.jpg?id=32871272&width=1200&height=800&quality=85&coordinates=0%2C0%2C0%2C0"
+            class="rounded img-fluid">
+        </div>
+        <div class="col-lg-6 details">
+          <div class="card">
+            <div class="card-content">
+              <h3>Pro+</h3>
+              <h1>AI Thought Tech Provided by OpenAI</h1>
+              <p>Take your gaming to the next level with our AI thought technology, providing you with real-time
+                improved tactics and strategic insights that will help you outmaneuver your opponents and achieve
+                victory like never before. Harness the power of AI and unleash your full potential on the battlefield.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex flex-row-reverse">
+        <div class="col-lg-6 image-col">
+          <img src="https://i02.appmifile.com/images/2019/10/14/bdec929a-9ef4-4b5d-b8c6-0f946aeaf20c.jpg"
+            class="rounded img-fluid">
+        </div>
+        <div class="col-lg-6 details">
+          <div class="card">
+            <div class="card-content">
+              <h3>Pro+</h3>
+              <h1>Go Beyond RayTracing with PathTracing</h1>
+              <p>Experience gaming graphics like never before with our cutting-edge RayTracing technology combined with
+                the realism of PathTracing, bringing lifelike lighting and shadows to your favorite games in stunning
+                detail and unparalleled realism.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 image-col">
+          <img
+            src="https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7"
+            class="rounded img-fluid">
+        </div>
+        <div class="col-lg-6 details">
+          <div class="card">
+            <div class="card-content">
+              <h3>Pro+</h3>
+              <h1>Ultimate Game Library with Early Access</h1>
+              <p>With a constantly growing selection of games, you'll never run out of options to satisfy your gaming
+                cravings. Join our early access program today and be the first to experience the future of gaming.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex flex-row-reverse">
+        <div class="col-lg-6 image-col">
+          <img src="https://bnetcmsus-a.akamaihd.net/cms/blog_header/ci/CIGT53U8ZP6M1509744317189.jpg"
+            class="rounded img-fluid">
+        </div>
+        <div class="col-lg-6 details">
+          <div class="card">
+            <div class="card-content">
+              <h3>Pro+</h3>
+              <h1>Realtime Pro Player Support and Learning</h1>
+              <p>Our pro players will guide you through strategies and techniques to help you improve your skills and
+                dominate the competition. Take your game to the next level with our real-time pro player support and
+                learning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pro-section3">
+    <div class="title">
+      <h2 class="text-center">Reveal The <span>Pro</span> Plays</h2>
+    </div>
+    <div class="container mt-5">
+      <div class="col-lg-12">
+        <img class="rounded img-fluid" src="https://fanspace.gg/wp-content/uploads/2022/12/Shroud-lead-1024x576.jpg">
+        <h4 class="mt-4 mb-4">Shroud</h4>
+        <div class="video-container">
+          <div class="video-background rounded">
+            <iframe
+              src="https://www.youtube.com/embed/a4KlZyLh_9k?start=10&controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=a4KlZyLh_9k"
+              frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div class="col-lg-12">
+        <img class="rounded img-fluid"
+          src="https://cdn.oneesports.gg/cdn-data/2022/05/Valorant_TenZ_Champions_2021_V2-1024x576.webp">
+        <h4 class="mt-4 mb-4">Tenz</h4>
+        <div class="video-container">
+          <div class="video-background rounded">
+            <iframe
+              src="https://www.youtube.com/embed/wVxbQ0OeCi4?start=5&controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=wVxbQ0OeCi4"
+              frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div class="col-lg-12">
+        <img class="rounded img-fluid"
+          src="https://www.esporgazetesi.com/wp-content/uploads/2021/11/T1-CEOsu-Faker-Hayranlarindan-Gelen-Tehditlere-Yanit-Verdi.jpg">
+        <h4 class="mt-4 mb-4">Faker</h4>
+        <div class="video-container">
+          <div class="video-background rounded">
+            <iframe
+              src="https://www.youtube.com/embed/cSpLzG0pvk4?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=cSpLzG0pvk4"
+              frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary mt-5 w-25" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <a>Go Pro<span>+</span></a>
+        </button>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <section class="footer-top border-top border-secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h5>Follow Kloud+
+              <span class="m-1"><i class="fa-brands fa-square-facebook"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-instagram"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-twitter"></i></span>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footer-bottom mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-sm">
+            <div class="title">
+              <h6>Browse</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">Store</a>
+              </li>
+              <li>
+                <a href="#">Games</a>
+              </li>
+              <li>
+                <a href="#">Plans</a>
+              </li>
+              <li>
+                <a href="#">Merch</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>Resources</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">News</a>
+              </li>
+              <li>
+                <a href="#">Support
+                </a>
+              </li>
+              <li>
+                <a href="#">Feedback</a>
+              </li>
+              <li>
+                <a href="#">Community Standards</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>Kloud+ Store</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">Kloud+ account</a>
+              </li>
+              <li>
+                <a href="#">Kloud+ Store Support</a>
+              </li>
+              <li>
+                <a href="#">Returns</a>
+              </li>
+              <li>
+                <a href="#">Orders tracking</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>For Developers</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">OpenAI</a>
+              </li>
+              <li>
+                <a href="#">Windows</a>
+              </li>
+              <li>
+                <a href="#">API</a>
+              </li>
+              <li>
+                <a href="#">Designed for Kloud+</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>English ( United States )</span>
+            <p class="mt-2">© 2023 Kloud+ USA, All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script>
+    const dropdownElementList = document.querySelectorAll(".dropdown-toggle");
+    const dropdownList = [...dropdownElementList].map(
+      (dropdownToggleEl) => new bootstrap.Dropdown(dropdownToggleEl)
+    );
+  </script>
+</body>
+
+</html>
