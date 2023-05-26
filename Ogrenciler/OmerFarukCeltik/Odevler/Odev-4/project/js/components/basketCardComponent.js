@@ -9,6 +9,7 @@ function basketCardComponent(content) {
     <div class="card-body">
     <h5 class="card-title fs-3">${content.brand} ${content.model}</h5>
     <p class="card-text fs-5">${content.status}, ${content.gas},  ${content.price}.</p>
+    <p class="card-text fs-4 my-2">Stock:${content.stock}</p>
     </div>
     </div>
     <div class="col-md-2">
@@ -19,7 +20,10 @@ function basketCardComponent(content) {
           <p class="mx-3">Count: ${content.basket}</p>
           <div class="btn btn-info">+</div>
         </div>
-        <p class="mt-3">Total Price: ${content.basket * content.price}</p>
+        <p class="mt-3">Total Price: ${content.basket * content.price} $</p>
+        <div class="d-flex align-items-center justify-content-center text-center">
+        <div class="btn btn-danger delete-basket-content">Delete</div>
+      </div>
       </div>
     </div>
   </div>

@@ -11,7 +11,8 @@ class Request {
     this.gas = gas,
     this.status = status,
     this.price = price,
-    this.stock = stock
+    this.stock = stock,
+    this.basket = 1
   }
   async get(id) {
     return new Promise((resolve, reject) => {
@@ -119,6 +120,16 @@ class Request {
       })
         .then((response) => response.json())
         .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+  }
+  async deleteBasket(id) {
+    return new Promise((resolve, reject) => {
+      fetch(`${this.basketUrl}/${id}`, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then(() => resolve("Veri silindi."))
         .catch((err) => reject(err));
     });
   }

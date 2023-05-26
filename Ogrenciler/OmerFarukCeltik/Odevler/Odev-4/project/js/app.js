@@ -35,7 +35,13 @@ let findedItems = new Set();
 
 eventListeners();
 let basketArray = [];
-
+request.getBasket().then(((arr) => {
+  if (arr.length == 0) {
+    basketArray = [];
+  } else if (arr.length > 0) {
+    arr.map((item) => basketArray.push(item))
+  }
+}))
 function eventListeners() {
   marketPlaceArea.addEventListener("click", (e) => globalCardAreaClickFunctions(e));
   saveCardButton.addEventListener("click", (e) => addNewCard(e));
@@ -70,8 +76,8 @@ class UI {
     }
 
   }
-  async basketCardsToUI(){
-    basketModalBodyArea.innerHTML= "";
+  async basketCardsToUI() {
+    basketModalBodyArea.innerHTML = "";
     basketArray.map((item) => basketModalBodyArea.innerHTML += basketCardComponent(item));
   }
 }
@@ -81,17 +87,51 @@ let ui = new UI();
 ui.refreshAndAddCardsToUI();
 
 async function addNewCard(e) {
-  form.reset();
   e.preventDefault();
   // if (UI.inputValidate()) {
   //   console.log(UI.inputValidate());
   //   alert("please complete all inputs correctly.")
   //   } else {
-  request.get().then((arr) => arr.map((item) => {
-    console.log(item.model.toLowerCase());
+  console.log(brandInput.value);
+  await request.get().then((arr) => {
+    let copyArr = Array.from(arr);
+    console.log(copyArr);
     console.log(brandInput.value);
-  }))
+    let currentObj = copyArr.find((item) => item.brand.toLowerCase() == brandInput.value.toLowerCase() && item.model.toLowerCase() == modelInput.value.toLowerCase());
+    if (currentObj) {
+      request.put(currentObj.id, {
+        "id": currentObj.id,
+        "brand": currentObj.brand,
+        "model": currentObj.model,
+        "type": currentObj.type,
+        "motorcc": currentObj.motorcc,
+        "banner": currentObj.banner,
+        "gas": currentObj.gas,
+        "status": currentObj.status,
+        "price": currentObj.price,
+        "stock": Number(currentObj.stock) + Number(stockInput.value),
+        "basket": 1
+      })
+      console.log("success");
+    } else {
+      let newContent = new Request(
+        brandInput.value.toLowerCase(),
+        modelInput.value.toLowerCase(),
+        typeSelect.value.toLowerCase(),
+        motorCCInput.value,
+        urlInput.value,
+        gasSelect.value,
+        statusSelect.value,
+        Number(priceInput.value),
+        Number(stockInput.value)
+        );
+        newContent.post().catch((err) => console.log(err));
+        console.log("success");
+    }
+  })
+  await form.reset();
 }
+
 // let newContent = new Request(
 //   brandInput.value.toLowerCase(),
 //   modelInput.value.toLowerCase(),
@@ -137,7 +177,7 @@ async function globalCardAreaClickFunctions(e) {
   else if (e.target.classList.contains("basket-button")) {
     let targetId = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.id;
     addBasketFunction(targetId);
-// !!!!!!!
+    // !!!!!!!
     // await request.get(targetId)
     //   .then((data) => {
     //     if(request.getBasket(targetId)){
@@ -161,22 +201,63 @@ async function globalCardAreaClickFunctions(e) {
     //     } else {
     //       request.postBasket(data);
     //     }
-       
+
     //   });
-    
+
   }
 }
-async function addBasketFunction(targetId){
+
+
+async function addBasketFunction(targetId) {
   await request.get(targetId).then((item) => {
     let basketObj = basketArray.find((e) => e.id == targetId);
-    console.log(basketObj);
-    console.log(basketArray);
-    if(basketArray.length == 0){
+    if (basketArray.length == 0) {
+      request.postBasket({
+        "id": targetId,
+        "brand": item.brand,
+        "model": item.model,
+        "type": item.type,
+        "motorcc": item.motorcc,
+        "banner": item.banner,
+        "gas": item.gas,
+        "status": item.status,
+        "price": item.price,
+        "stock": item.stock,
+        "basket": 1
+      })
       basketArray.push(item);
-    }else if(basketObj){
+    } else if (basketObj && basketObj.basket <= basketObj.stock) {
       basketObj.basket += 1;
-    }else{
+      basketObj.stock -= 1;
+      request.put(targetId, {
+        "id": targetId,
+        "brand": basketObj.brand,
+        "model": basketObj.model,
+        "type": basketObj.type,
+        "motorcc": basketObj.motorcc,
+        "banner": basketObj.banner,
+        "gas": basketObj.gas,
+        "status": basketObj.status,
+        "price": basketObj.price,
+        "stock": item.stock - 1,
+        "basket": item.basket + 1
+      })
+
+    } else {
       basketArray.push(item);
+      request.postBasket({
+        "id": targetId,
+        "brand": item.brand,
+        "model": item.model,
+        "type": item.type,
+        "motorcc": item.motorcc,
+        "banner": item.banner,
+        "gas": item.gas,
+        "status": item.status,
+        "price": item.price,
+        "stock": item.stock,
+        "basket": 1
+      })
     }
   })
   ui.basketCardsToUI();
@@ -267,22 +348,60 @@ async function sortEvents(e) {
   }
 }
 
-async function basketModalAreaAllEvents(e){
-  if(e.target.innerHTML == "-"){
-    let basketCurrentId = e.target.parentElement.parentElement.children[0].innerText;
-    let basketObj = basketArray.find((e,index) => {
-      e.id == basketCurrentId;
-    });
-    basketObj.basket -= 1;
-    console.log(basketObj);
-    if(basketObj.basket <= 0){
-      basketObj.splice(basketObj,1)
-    }
-  }
-  else if(e.target.innerHTML == "+"){
+async function basketModalAreaAllEvents(e) {
+  e.preventDefault();
+  if (e.target.innerHTML == "-") {
     let basketCurrentId = e.target.parentElement.parentElement.children[0].innerText;
     let basketObj = basketArray.find((e) => e.id == basketCurrentId);
-    basketObj.basket += 1;
+    if (basketObj.basket > 0 && basketObj.basket <= basketObj.stock) {
+      e.target.classList.remove("disabled");
+      basketObj.basket -= 1;
+      basketObj.stock += 1;
+    } else {
+      e.target.classList.add("disabled");
+    }
+    console.log(basketObj);
+    // if(basketObj.basket <= 1){
+    //   basketObj.splice(basketObj,1)
+    // }
+  }
+  else if (e.target.innerHTML == "+") {
+    let basketCurrentId = e.target.parentElement.parentElement.children[0].innerText;
+    let basketObj = basketArray.find((e) => e.id == basketCurrentId);
+    if (basketObj.basket > 0 && basketObj.basket <= basketObj.stock) {
+      e.target.classList.remove("disabled");
+      basketObj.basket += 1;
+      basketObj.stock -= 1;
+    } else {
+      e.target.classList.add("disabled");
+    }
+  }
+  else if (e.target.id == "discard-basket") {
+    basketArray.splice(0, basketArray.length);
+    request.getBasket().then((arr) => arr.map((item) => request.deleteBasket(item.id)));
+  }
+  else if (e.target.id == "buy-basket") {
+    basketArray.map((item) => request.put(item.id, {
+      "id": item.id,
+      "brand": item.brand,
+      "model": item.model,
+      "type": item.type,
+      "motorcc": item.motorcc,
+      "banner": item.banner,
+      "gas": item.gas,
+      "status": item.status,
+      "price": item.price,
+      "stock": item.stock,
+      "basket": 1
+    }))
+    request.getBasket().then((arr) => arr.map((item) => request.deleteBasket(item.id)));
+  }
+  else if (e.target.classList.contains("delete-basket-content")) {
+    let basketCurrentId = e.target.parentElement.parentElement.children[0].innerText;
+    let basketObj = basketArray.findIndex((e) => e.id == basketCurrentId);
+    basketArray.splice(basketObj, 1);
+    console.log(basketCurrentId);
+    request.deleteBasket(basketCurrentId);
   }
   ui.basketCardsToUI();
 }
