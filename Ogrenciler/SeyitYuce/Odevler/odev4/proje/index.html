@@ -17,7 +17,7 @@
 <body>
     <nav class="navbar navbar-expand-lg  position-sticky top-0 bg-primary ">
         <div class="container col-10">
-            <a class="navbar-brand text-danger" href="./index.html">Celestial Estate</a>
+            <a class="navbar-brand text-danger" href="./index.html">Celestial Estateish</a>
             <button class="navbar-toggler bg-danger" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -43,7 +43,9 @@
                     <li class="nav-item text-danger">
                         <button class="btn text-danger" id="basketBtn" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                            <i class="fa-solid fa-basket-shopping"></i>
+                            <i class="fa-solid fa-basket-shopping position-relative"></i>
+                            <span
+                                class="basket-count border bg-danger text-primary border-danger rounded-circle fs-6 ">0</span>
                         </button>
                     </li>
                 </ul>
@@ -53,16 +55,17 @@
 
     <!-- offcanvas -->
     <div class="offcanvas offcanvas-end bg-primary" tabindex="-1" id="offcanvasRight"
-        aria-labelledby="offcanvasRightLabel">
+        aria-labelledby="staticBackdropLabel" data-bs-backdrop="static">
         <div class="offcanvas-header border-bottom border-danger">
-            <h5 class="offcanvas-title text-danger" id="offcanvasRightLabel">My Basket</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title text-danger" id="staticBackdropLabel">My Basket</h5>
+            <button type="button" class="btn-close bg-danger closeOffcanvas" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <ul id="basketItemsList">
             </ul>
             <div class="w-100">
-                <button class="btn btn-danger mx-auto">Buy All</button>
+                <button class="btn btn-danger mx-auto" id="buyAll">Buy All</button>
             </div>
         </div>
     </div>
@@ -192,12 +195,12 @@
     <!-- Filters -->
     <div class="d-flex justify-content-around container">
         <div>
-            <label for="search" class="form-label">Search</label>
-            <input type="text" class="form-control" id="search">
+            <label for="searchInput" class="form-label">Search</label>
+            <input type="text" class="form-control" id="searchInput">
         </div>
 
         <div>
-            <label for="filter" class="form-label">Filter</label>
+            <label for="categorySelect" class="form-label">Filter</label>
             <select id="categorySelect" class="form-select" aria-label="Select Category">
                 <option value="all">All</option>
             </select>

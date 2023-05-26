@@ -1,19 +1,23 @@
 const productList = document.getElementById('product-list');
-const addToBasketBtn = document.getElementById('addItemBtn');
+const addItemBtn = document.getElementById('addItemBtn');
 const confirmEditBtn = document.querySelector(".confirmEditBtn");
 const basketBtn = document.getElementById("basketBtn");
 const basketItemsList = document.getElementById('basketItemsList');
-// const addItemToBasketBtn = document.querySelectorAll('.addItemToBasketBtn');
+const buyAll = document.getElementById('buyAll');
 
-
-addToBasketBtn.addEventListener('click', (e) => {
-    e.preventDefault()
+addItemBtn.addEventListener('click', (e) => {
+    e.preventDefault();
 
     const nameValue = document.getElementById('addProductName').value.trim();
     const priceValue = document.getElementById('addProductPrice').value.trim();
     const stockValue = document.getElementById('addProductStock').value.trim();
     const categoryValue = document.getElementById('addProductCategory').value;
     const imageValue = document.getElementById('addProductImage').value;
+
+    if (!nameValue || !priceValue || !stockValue || !categoryValue || !imageValue) {
+        alert('Please fill in all the fields.');
+        return;
+    }
 
     const productData = {
         image: imageValue,
@@ -22,15 +26,59 @@ addToBasketBtn.addEventListener('click', (e) => {
         stock: stockValue,
         category: categoryValue
     };
-    request
-        .post(productData)
-        .then((response) => {
-            console.log('Product added:', response);
+
+    // Check if a similar item already exists
+    fetch('http://localhost:3000/products')
+        .then(response => response.json())
+        .then(data => {
+            const existingItem = data.find(item =>
+                item.name === productData.name &&
+                item.category === productData.category &&
+                item.price === productData.price &&
+                item.image === productData.image
+            );
+
+            if (existingItem) {
+                // Increment the stock of the existing item
+                existingItem.stock = Number(existingItem.stock) + Number(productData.stock);
+                updateExistingItem(existingItem);
+            } else {
+                // Create a new item
+                createNewItem(productData);
+            }
         })
-        .catch((error) => {
-            console.error('Error adding product:', error);
-        });
-})
+        .catch(error => console.error('Failed to check existing items:', error));
+});
+
+function updateExistingItem(item) {
+    fetch(`http://localhost:3000/products/${item.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(item),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Item stock updated:', data);
+        })
+        .catch(error => console.error('Failed to update item stock:', error));
+}
+
+// function createNewItem(item) {
+//     fetch('http://localhost:3000/products', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(item),
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log('New item added:', data);
+//         })
+//         .catch(error => console.error('Failed to add new item:', error));
+// }
 
 class Request {
     constructor(url, name, price, image, category, stock, id) {
@@ -72,10 +120,22 @@ class Request {
                         productList.appendChild(listItem);
                         updateCategoryList(product.category);
                     });
+
+                    const searchInput = document.getElementById('searchInput');
+                    searchInput.addEventListener('keyup', () => {
+                        const searchTerm = searchInput.value.trim();
+
+                        const filteredProducts = products.filter(blog => {
+                            const name = blog.name.toLowerCase();
+                            return name.includes(searchTerm);
+                        });
+                        displayFilteredProducts(filteredProducts)
+                    });
                     displayFilteredProducts(products)
                     sortProducts()
                     resolve(products)
                     filterProducts()
+                    cartLength()
                 })
                 .catch((err) => reject(new Error("Satılacak Ürün Bulunamadı.")));
 
@@ -209,7 +269,6 @@ function updateCategoryList(category) {
         listItem.innerHTML = capitalizedCategory;
 
         categoryList.appendChild(listItem);
-        // console.log(categoryList)
     }
 }
 
@@ -223,10 +282,8 @@ function filterProducts() {
             let response;
             if (selectedCategory == "all") {
                 response = await fetch(`http://localhost:3000/products`);
-                console.log("all1")
             } else {
                 response = await fetch(`http://localhost:3000/products?category=${selectedCategory}`);
-                console.log("1")
             }
             if (!response.ok) {
                 throw new Error('Failed to fetch products');
@@ -344,12 +401,22 @@ basketBtn.addEventListener("click", () => {
     })
 })
 
-document.addEventListener("click", (event) => {
-    if (!offcanvas.contains(event.target) && !basketBtn.contains(event.target)) {
-        offcanvas.classList.remove("show");
-        const request = new Request("http://localhost:3000/products");
-        request.get()
-    }
+function cartLength() {
+    const basketCount = document.querySelector('.basket-count');
+
+    fetch('http://localhost:3000/atBasket')
+        .then(response => response.json())
+        .then(data => {
+            basketCount.textContent = data.length;
+        })
+        .catch(error => console.error('Failed to fetch basket:', error));
+}
+
+const closeOffcanvas = document.querySelector('.closeOffcanvas');
+closeOffcanvas.addEventListener("click", (e) => {
+    e.preventDefault()
+    const request = new Request("http://localhost:3000/products");
+    request.get()
 });
 
 basketItemsList.addEventListener('click', event => {
@@ -475,7 +542,33 @@ function createBasketItem(item) {
         .catch(error => console.error('Failed to add item to basket:', error));
 }
 
+buyAll.addEventListener('click', () => {
+    // basketItemsList.innerHTML = "";
 
+    const request = new Request("http://localhost:3000/atBasket");
+    request.get().then((data) => {
+        data.forEach((product) => {
+            const updatedStock = product.stock - product.quantity;
+            const updatedProduct = { ...product, stock: updatedStock };
+
+            fetch(`http://localhost:3000/products/${product.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedProduct),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Item stock updated:', data);
+                    basketItemsList.innerHTML = "";
+                    const cartLengthSpan = document.querySelector('.border.bg-danger.text-primary.border-danger.rounded-circle.fs-6.position-absolute.top-0.left-0');
+                    cartLengthSpan.innerText = '0';
+                })
+                .catch(error => console.error('Failed to update item stock:', error));
+        });
+    });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     request

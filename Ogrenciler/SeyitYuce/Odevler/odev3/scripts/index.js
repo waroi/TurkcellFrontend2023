@@ -54,7 +54,7 @@ class Request {
 
           const searchInput = document.getElementById('searchInput');
           searchInput.addEventListener('keyup', () => {
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const searchInput = document.getElemetnById('searchInput').value.toLowerCase();
 
             const filteredBlogs = data.filter(blog => {
               const title = blog.title.toLowerCase();
