@@ -1,7 +1,7 @@
 class Request {
   constructor(brand, model, type, motorcc, banner, gas, status, price,stock) {
-    this.url = "http://localhost:3000/contents";
-    this.basketUrl = "http://localhost:3000/basket";
+    this.url = "http://localhost:3001/contents";
+    this.basketUrl = "http://localhost:3001/basket";
     this.id = Date.now();
     this.brand = brand;
     this.model = model;

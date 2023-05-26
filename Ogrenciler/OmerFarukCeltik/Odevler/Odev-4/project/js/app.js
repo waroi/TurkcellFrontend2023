@@ -3,10 +3,10 @@ import createCard from "./components/cardComponent.js";
 import sortCardsDateAndAlphabetic from "./sortCardsFunction.js";
 import basketCardComponent from "./components/basketCardComponent.js";
 // area
-
 let marketPlaceArea = document.querySelector("#marketPlaceArea");
 let basketModalBodyArea = document.querySelector("#basket-modal-form");
 let basketModalAllArea = document.querySelector("#basket-form-modal");
+let basketCount = document.querySelector("#basketCount");
 
 // button
 let saveCardButton = document.querySelector("#save-card");
@@ -64,7 +64,6 @@ class UI {
       findedItems.forEach((item) => marketPlaceArea.innerHTML += createCard(item));
     }
     else if (searchInputvalue) {
-      console.log(searchInputvalue);
       request.get().then((arr) => arr.map((item) => {
         if (item.type.includes(searchInputvalue.toLowerCase()) || item.status.includes(searchInputvalue) || item.brand.includes(searchInputvalue) || item.model.includes(searchInputvalue)) {
           marketPlaceArea.innerHTML += createCard(item);
@@ -79,10 +78,11 @@ class UI {
   async basketCardsToUI() {
     basketModalBodyArea.innerHTML = "";
     basketArray.map((item) => basketModalBodyArea.innerHTML += basketCardComponent(item));
+    basketCount.innerHTML = basketArray.length;
   }
 }
 
-console.log(brandInput.value);
+
 let ui = new UI();
 ui.refreshAndAddCardsToUI();
 
@@ -92,11 +92,9 @@ async function addNewCard(e) {
   //   console.log(UI.inputValidate());
   //   alert("please complete all inputs correctly.")
   //   } else {
-  console.log(brandInput.value);
+ 
   await request.get().then((arr) => {
     let copyArr = Array.from(arr);
-    console.log(copyArr);
-    console.log(brandInput.value);
     let currentObj = copyArr.find((item) => item.brand.toLowerCase() == brandInput.value.toLowerCase() && item.model.toLowerCase() == modelInput.value.toLowerCase());
     if (currentObj) {
       request.put(currentObj.id, {
@@ -132,22 +130,7 @@ async function addNewCard(e) {
   await form.reset();
 }
 
-// let newContent = new Request(
-//   brandInput.value.toLowerCase(),
-//   modelInput.value.toLowerCase(),
-//   typeSelect.value.toLowerCase(),
-//   motorCCInput.value,
-//   urlInput.value,
-//   gasSelect.value,
-//   statusSelect.value,
-//   Number(priceInput.value),
-//   Number(stockInput.value),
-// );
-// newContent.post().catch((err) => console.log(err));
-// }
-
 let contentCurrentId;
-
 function toggleButtons(e) {
   if (e.target.id == "addNewContentButton") {
     saveCardButton.classList.add("d-block");
@@ -163,10 +146,8 @@ function toggleButtons(e) {
 }
 async function globalCardAreaClickFunctions(e) {
   toggleButtons(e);
-  console.log(e.target.innerText);
   if (e.target.innerText == "Edit") {
     let targetId = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.id;
-    console.log(targetId);
     contentCurrentId = targetId;
     editContent(targetId);
   }
@@ -206,7 +187,6 @@ async function globalCardAreaClickFunctions(e) {
 
   }
 }
-
 
 async function addBasketFunction(targetId) {
   await request.get(targetId).then((item) => {
@@ -271,7 +251,6 @@ async function deleteContent(targetId, e) {
 }
 async function editContent(targetId, e) {
   await request.get(targetId).then((content) => {
-    console.log(content);
     brandInput.value = content.brand;
     modelInput.value = content.model;
     typeSelect.value = content.type;
@@ -305,7 +284,6 @@ let count = 0;
 async function allFilterEvents(e) {
   if (e.target.checked) {
     request.get().then((arr) => {
-      console.log(arr);
       arr.map((item) => {
         if (item.type.includes(e.target.value) || item.status.includes(e.target.value) || item.motorcc.includes(e.target.value) || item.gas.includes(e.target.value)) {
           findedItems.add(item);
@@ -347,7 +325,6 @@ async function sortEvents(e) {
     })
   }
 }
-
 async function basketModalAreaAllEvents(e) {
   e.preventDefault();
   if (e.target.innerHTML == "-") {
@@ -360,10 +337,6 @@ async function basketModalAreaAllEvents(e) {
     } else {
       e.target.classList.add("disabled");
     }
-    console.log(basketObj);
-    // if(basketObj.basket <= 1){
-    //   basketObj.splice(basketObj,1)
-    // }
   }
   else if (e.target.innerHTML == "+") {
     let basketCurrentId = e.target.parentElement.parentElement.children[0].innerText;
@@ -381,7 +354,10 @@ async function basketModalAreaAllEvents(e) {
     request.getBasket().then((arr) => arr.map((item) => request.deleteBasket(item.id)));
   }
   else if (e.target.id == "buy-basket") {
-    basketArray.map((item) => request.put(item.id, {
+    console.log(basketArray);
+   await basketArray.map((item) => {
+    request.deleteBasket(item.id)
+    request.put(item.id,{
       "id": item.id,
       "brand": item.brand,
       "model": item.model,
@@ -393,14 +369,16 @@ async function basketModalAreaAllEvents(e) {
       "price": item.price,
       "stock": item.stock,
       "basket": 1
-    }))
-    request.getBasket().then((arr) => arr.map((item) => request.deleteBasket(item.id)));
+    })
+  })
+  await basketArray.splice(0,basketArray.length);
+  await ui.basketCardsToUI();
+  await ui.refreshAndAddCardsToUI();
   }
   else if (e.target.classList.contains("delete-basket-content")) {
     let basketCurrentId = e.target.parentElement.parentElement.children[0].innerText;
     let basketObj = basketArray.findIndex((e) => e.id == basketCurrentId);
     basketArray.splice(basketObj, 1);
-    console.log(basketCurrentId);
     request.deleteBasket(basketCurrentId);
   }
   ui.basketCardsToUI();
