@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary ">
         <div class="container-fluid ">
             <a class="navbar-brand" href="index.html"><img class="img-fluid" src="images/sweetdreams.png" alt=""
                     width="200"></a>
@@ -32,6 +32,10 @@
                 <ul class="navbar-nav mb-2 mb-lg-0 ">
                     <li class="nav-item">
                         <a class="nav-link text-primary" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">New
+                            Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -56,7 +60,9 @@
                         <a class="nav-link " href="#">Login | Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#"><i class="fa fa-shopping-cart"></i></a>
+                        <a id="cart-button" class="nav-link " href="#" data-bs-toggle="modal"
+                            data-bs-target="#cartModal"><i class="fa fa-shopping-cart"></i><span id="cart-quantity"
+                                class='badge badge-danger text-dark'></span></a>
                     </li>
 
                 </ul>
@@ -64,6 +70,97 @@
         </div>
     </nav>
 
+    <!--Modal-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-bg">
+                    <div class="bg-form rounded p-3" id="product-form">
+                        <div class="">
+                            <form>
+                                <div class="form-group mb-2">
+                                    <label for="name">Name</label>
+                                    <input required type="text" class="form-control" id="name" placeholder="Enter name">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="content">Content</label>
+                                    <input required type="text" class="form-control" id="content"
+                                        placeholder="Enter content">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="category">Category</label>
+                                    <select class="form-select" id="category">
+                                        <option value="Cup Cake">Cup Cake</option>
+                                        <option value="Cake">Cake</option>
+                                        <option value="Cookie">Cookie</option>
+                                    </select>
+
+
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="price">Price</label>
+                                    <input required type="number" class="form-control" id="price">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="ImgUrl">Image URL</label>
+                                    <input required type="url" class="form-control" id="imgUrl"
+                                        placeholder="Enter  image URL">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="stock">Stock</label>
+                                    <input required type="number" class="form-control" id="stock">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm w-100 mt-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="cartModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="cart-list">
+
+                </div>
+                <div class="modal-footer">
+                    <button id="order" type="button" class="btn btn-primary">Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="product-detail">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="save-edited-product" class="btn btn-primary" data-bs-dismiss="modal">Save
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <div id="carouselExampleCaptions" class="carousel slide">
@@ -115,30 +212,32 @@
         <div class="row">
             <ul class="col-10 categories">
                 <li class="category">
-                    <a href="" class="btn btn-primary rounded-4">All</a>
+                    <a href="" id="category-all" class="btn btn-primary rounded-4">All</a>
                 </li>
                 <li class="category">
-                    <a href="" class="btn btn-primary rounded-4">Cup Cake</a>
+                    <a href="" id="category-cupcake" class="btn btn-primary rounded-4">Cup Cake</a>
                 </li>
                 <li class="category">
-                    <a href="" class="btn btn-primary rounded-4">Cake</a>
+                    <a href="" id="category-cake" class="btn btn-primary rounded-4">Cake</a>
                 </li>
                 <li class="category">
-                    <a href="" class="btn btn-primary rounded-4">Cookies</a>
+                    <a href="" id="category-cookie" class="btn btn-primary rounded-4">Cookie</a>
                 </li>
             </ul>
             <div class="col-2">
                 <!-- Sort -->
 
-                <div class="dropdown">
+                <div id="sort" class="dropdown">
+                    <!-- price asc,desc and name asc,desc -->
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Sort
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Price</a></li>
-                        <li><a class="dropdown-item" href="#">Name</a></li>
-                        <li><a class="dropdown-item" href="#">Date</a></li>
+                        <li><a class="dropdown-item btn" id="sort-price-asc">Price Ascending</a></li>
+                        <li><a class="dropdown-item btn" id="sort-price-desc">Price Descending</a></li>
+                        <li><a class="dropdown-item btn" id="sort-name-asc">Name Ascending</a></li>
+                        <li><a class="dropdown-item btn" id="sort-name-desc">Name Descending</a></li>
                     </ul>
                 </div>
             </div>
@@ -153,9 +252,9 @@
             </div>
         </div>
         <!-- Products -->
-        <div id="entities" class="row">
+        <div class="row ">
             <!-- Card -->
-            
+            <ul id="products" class="products"></ul>
         </div>
     </div>
 
@@ -167,7 +266,7 @@
     <script type="module" src="./scripts/requests.js"></script>
     <script type="module" src="./scripts/selectors.js"></script>
     <script type="module" src="./scripts/ui.js"></script>
-    <script type="module" src="./scripts/entity.js"></script>
+    <script type="module" src="./scripts/product.js"></script>
     <script type="module" src="./scripts/app.js"></script>
 </body>
 

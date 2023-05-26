@@ -1,8 +1,8 @@
-const BASE_URL = "http://localhost:3000/entities";
+const BASE_URL = "http://localhost:3000/products";
 
 class Request {
-  constructor() {
-    this.url = BASE_URL;
+  constructor(url = BASE_URL) {
+    this.url = url;
   }
 
   async fetchAndHandleResponse(url, options) {
