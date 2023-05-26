@@ -4,6 +4,7 @@ import ViewListCard from "./Components/viewListCard.js";
 
 const viewGridList = document.getElementById("viewGrid");
 const viewList = document.getElementById("viewList");
+const productTitle = document.getElementById("product-title");
 
 let filteredArrayProducts = [];
 
@@ -131,6 +132,10 @@ class Filter {
       ViewListCard.addProductFromViewListCard(product);
     });
 
+    let productCount = filteredProducts.length;
+    productTitle.innerHTML = "";
+    productTitle.innerHTML += `Sonuç: ${productCount} Ürün Bulundu`;
+
     filteredArrayProducts = filteredProducts;
 
     this.sortProductsFromFilter(sort.value);
@@ -138,52 +143,107 @@ class Filter {
     return filteredArrayProducts;
   }
 
+  // static async searchProductsFromFilter(query) {
+  //   const request = new Fetch("http://localhost:3000/posts");
+  //   const sort = document.getElementById("sort");
+
+  //   const products = await request.get();
+  //   const filteredProducts = products.filter((product) =>
+  //     product.name.toLowerCase().includes(query.toLowerCase())
+  //   );
+
+  //   const categoriesAndBrands = document.querySelectorAll(
+  //     'input[name="categoriesandbrands"]:checked'
+  //   );
+  //   const selectedCategoriesAndBrands = Array.from(categoriesAndBrands).map(
+  //     (input) => input.value
+  //   );
+
+  //   let filteredProductsWithCategoriesAndBrands = [];
+
+  //   if (selectedCategoriesAndBrands.length > 0) {
+  //     filteredProductsWithCategoriesAndBrands = filteredProducts.filter(
+  //       (product) => {
+  //         const productCategoriesAndBrands = [
+  //           product.category.replace(/ /g, "").toLowerCase(),
+  //           product.brand.replace(/ /g, "").toLowerCase(),
+  //         ];
+  //         const matchingCategoriesAndBrands =
+  //           selectedCategoriesAndBrands.filter((selectedCategoryAndBrand) =>
+  //             productCategoriesAndBrands.includes(selectedCategoryAndBrand)
+  //           );
+  //         return matchingCategoriesAndBrands.length > 0;
+  //       }
+  //     );
+  //   } else {
+  //     filteredProductsWithCategoriesAndBrands = [...filteredProducts];
+  //   }
+
+  //   viewGridList.innerHTML = "";
+  //   viewList.innerHTML = "";
+  //   filteredProductsWithCategoriesAndBrands.forEach((product) => {
+  //     ViewGridCard.addProductFromViewGridCard(product);
+  //     ViewListCard.addProductFromViewListCard(product);
+  //   });
+
+  //   let productCount = filteredProductsWithCategoriesAndBrands.length;
+  //   productTitle.innerHTML = "";
+  //   productTitle.innerHTML += `Sonuç: ${productCount} Ürün Bulundu`;
+
+  //   filteredArrayProducts = filteredProductsWithCategoriesAndBrands;
+
+  //   this.sortProductsFromFilter(sort.value);
+  // }
+
   static async searchProductsFromFilter(query) {
-    const request = new Fetch("http://localhost:3000/posts");
-    const sort = document.getElementById("sort");
+    try {
+      const request = new Fetch("http://localhost:3000/posts");
+      const sort = document.getElementById("sort");
 
-    const products = await request.get();
-    const filteredProducts = products.filter((product) =>
-      product.name.toLowerCase().includes(query.toLowerCase())
-    );
+      const products = await request.get();
+      const filteredProducts = products.filter((product) =>
+        product.name.toLowerCase().includes(query.toLowerCase())
+      );
 
-    const categoriesAndBrands = document.querySelectorAll(
-      'input[name="categoriesandbrands"]:checked'
-    );
-    const selectedCategoriesAndBrands = Array.from(categoriesAndBrands).map(
-      (input) => input.value
-    );
+      const categoriesAndBrands = Array.from(
+        document.querySelectorAll('input[name="categoriesandbrands"]:checked')
+      ).map((input) => input.value.toLowerCase().replace(/ /g, ""));
 
-    let filteredProductsWithCategoriesAndBrands = [];
+      let filteredProductsWithCategoriesAndBrands;
 
-    if (selectedCategoriesAndBrands.length > 0) {
-      filteredProductsWithCategoriesAndBrands = filteredProducts.filter(
-        (product) => {
-          const productCategoriesAndBrands = [
-            product.category.replace(/ /g, "").toLowerCase(),
-            product.brand.replace(/ /g, "").toLowerCase(),
-          ];
-          const matchingCategoriesAndBrands =
-            selectedCategoriesAndBrands.filter((selectedCategoryAndBrand) =>
+      if (categoriesAndBrands.length > 0) {
+        filteredProductsWithCategoriesAndBrands = filteredProducts.filter(
+          (product) => {
+            const productCategoriesAndBrands = [
+              product.category.replace(/ /g, "").toLowerCase(),
+              product.brand.replace(/ /g, "").toLowerCase(),
+            ];
+
+            return categoriesAndBrands.some((selectedCategoryAndBrand) =>
               productCategoriesAndBrands.includes(selectedCategoryAndBrand)
             );
-          return matchingCategoriesAndBrands.length > 0;
-        }
-      );
-    } else {
-      filteredProductsWithCategoriesAndBrands = [...filteredProducts];
+          }
+        );
+      } else {
+        filteredProductsWithCategoriesAndBrands = [...filteredProducts];
+      }
+
+      viewGridList.innerHTML = "";
+      viewList.innerHTML = "";
+      filteredProductsWithCategoriesAndBrands.forEach((product) => {
+        ViewGridCard.addProductFromViewGridCard(product);
+        ViewListCard.addProductFromViewListCard(product);
+      });
+
+      const productCount = filteredProductsWithCategoriesAndBrands.length;
+      productTitle.innerHTML = `Sonuç: ${productCount} Ürün Bulundu`;
+
+      filteredArrayProducts = filteredProductsWithCategoriesAndBrands;
+
+      this.sortProductsFromFilter(sort.value);
+    } catch (error) {
+      console.log(error);
     }
-
-    viewGridList.innerHTML = "";
-    viewList.innerHTML = "";
-    filteredProductsWithCategoriesAndBrands.forEach((product) => {
-      ViewGridCard.addProductFromViewGridCard(product);
-      ViewListCard.addProductFromViewListCard(product);
-    });
-
-    filteredArrayProducts = filteredProductsWithCategoriesAndBrands;
-
-    this.sortProductsFromFilter(sort.value);
   }
 
   static async sortProductsFromFilter(sortType) {
@@ -224,6 +284,8 @@ class Filter {
       ViewGridCard.addProductFromViewGridCard(product);
       ViewListCard.addProductFromViewListCard(product);
     });
+
+    filteredArrayProducts = sortedProducts;
   }
 }
 
