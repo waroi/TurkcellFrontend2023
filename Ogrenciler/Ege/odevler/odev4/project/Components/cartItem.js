@@ -8,7 +8,9 @@ function cartItem(product) {
           </div>
           <div class="cart-item-info">
             <h5 class="cart-item-name">${product.name}</h5>
-            <div id="item-total-price">$${product.count * product.price}</div>
+            <div id="item-total-price">$${Number.parseFloat(
+              product.count * product.price
+            ).toFixed(2)}</div>
             <span class="amount-controls d-flex align-items-center">
             <div class="btn-plus" id="btn-plus">+</div>
             <div class="order-count">${product.count}</div>
