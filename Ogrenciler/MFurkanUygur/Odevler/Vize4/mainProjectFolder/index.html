@@ -61,7 +61,7 @@
                     <button type="button" class="btn btn-primary position-relative" id="uniqueBasket"
                         data-bs-toggle="modal" data-bs-target="#shoppingCartModal">
                         <i class="fa-solid fa-basket-shopping position-relative "></i>
-                        <div id="basketLength" class="position-absolute top-0 ms-3 text-danger"></div>
+                        <div id="basketLength" class="position-absolute top-0 ms-3 text-danger fw-semibold"></div>
                     </button>
                     <!-- Modal -->
                     <div class="modal fade " id="shoppingCartModal" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -262,99 +262,128 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <!-- <form> -->
-                                    <label for="tourName">Tur İsmi </label>
-                                    <input class="form-control fs-1 mb-2 mt-1" placeholder="Turun adını giriniz..."
-                                        type="text" id="tourName">
+                                    <form class="was-validated">
+                                        <label for="tourName">Tur İsmi </label>
+                                        <input class="form-control fs-1 mb-2 mt-1" placeholder="Turun adını giriniz..."
+                                            type="text" id="tourName" required>
+                                        <div class="valid-feedback">Ok.</div>
+                                        <div class="invalid-feedback">Turunuza ait bir isim giriniz.</div>
 
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <label for="tourDay">Gün sayısı: </label>
-                                            <select name="tourDays" id="tourDay"
-                                                class="form-select py-1 fs-1 mb-2 mt-1">
-                                                <option value="1" id="1">1</option>
-                                                <option value="2" id="2">2</option>
-                                                <option value="3" id="3">3</option>
-                                                <option value="4" id="4">4</option>
-                                                <option value="5" id="5">5</option>
-                                                <option value="6" id="6">6</option>
-                                                <option value="7" id="7">7</option>
-                                            </select>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <label for="tourDay">Gün sayısı: </label>
+                                                <select name="tourDays" id="tourDay"
+                                                    class="form-select py-1 fs-1 mb-2 mt-1" required>
+                                                    <option selected="selected" disabled>Seçiniz</option>
+                                                    <option value="1" id="1">1</option>
+                                                    <option value="2" id="2">2</option>
+                                                    <option value="3" id="3">3</option>
+                                                    <option value="4" id="4">4</option>
+                                                    <option value="5" id="5">5</option>
+                                                    <option value="6" id="6">6</option>
+                                                    <option value="7" id="7">7</option>
+                                                </select>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Gün sayısını giriniz.</div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="tourFood">Yemek tipi:</label>
+                                                <select name="tourFoods" id="tourFood"
+                                                    class="form-select py-1 fs-1 mb-2 mt-1" required>
+                                                    <option selected="selected" disabled>Seçiniz</option>
+                                                    <option value="Kahvaltı" id="Kahvaltı">Kahvaltı</option>
+                                                    <option value="Akşam Yemeği" id="Akşam Yemeği">Akşam Yemeği</option>
+                                                    <option value="Kahvaltı/Akşam Yemeği"
+                                                        id="Kahvaltı ve Akşam Yemeği">
+                                                        Kahvaltı
+                                                        ve Akşam Yemeği</option>
+                                                </select>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Yemek tipini seçiniz.</div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="tourTransport">Ulaşım Türü</label>
+                                                <select name="tourTransports" id="tourTransport"
+                                                    class="form-select py-1 fs-1 mb-2 mt-1" required>
+                                                    <option selected="selected" disabled>Seçiniz</option>
+                                                    <option value="Özel Araç" id="Özel Araç">Özel Araç</option>
+                                                    <option value="Toplu Ulaşım" id="Toplu Ulaşım">Toplu Ulaşım</option>
+                                                    <option value="VIP Servis" id="VIP Servis">VIP Servis</option>
+                                                </select>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Ulaşım şeklini seçiniz.</div>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-4">
-                                            <label for="tourFood">Yemek tipi:</label>
-                                            <select name="tourFoods" id="tourFood"
-                                                class="form-select py-1 fs-1 mb-2 mt-1">
-                                                <option value="Kahvaltı" id="Kahvaltı">Kahvaltı</option>
-                                                <option value="Akşam Yemeği" id="Akşam Yemeği">Akşam Yemeği</option>
-                                                <option value="Kahvaltı ve Akşam Yemeği" id="Kahvaltı ve Akşam Yemeği">
-                                                    Kahvaltı
-                                                    ve Akşam Yemeği</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <label for="tourTransport">Ulaşım Türü</label>
-                                            <select name="tourTransports" id="tourTransport"
-                                                class="form-select py-1 fs-1 mb-2 mt-1">
-                                                <option value="Özel Araç" id="Özel Araç">Özel Araç</option>
-                                                <option value="Toplu Ulaşım" id="Toplu Ulaşım">Toplu Ulaşım</option>
-                                                <option value="VIP Servis" id="VIP Servis">VIP Servis</option>
-                                            </select>
-                                        </div>
-                                    </div>
 
-                                    <label for="tourPicture1">Görsel 1: </label>
-                                    <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
-                                        placeholder="tour görselini giriniz..." id="tourPicture1">
-
-                                    <label for="tourPicture2">Görsel 2: </label>
-                                    <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
-                                        placeholder="tour görselini giriniz..." id="tourPicture2">
-
-                                    <label for="tourPicture3">Görsel 3: </label>
-                                    <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
-                                        placeholder="tour görselini giriniz..." id="tourPicture3">
-
-
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <label for="tourCategory">Kategori: </label>
-                                            <select name="tourCategories" id="tourCategory"
-                                                class="form-select py-1 fs-1 mb-2 mt-1">
-                                                <option value="Anadolu" id="Anadolu">Anadolu</option>
-                                                <option value="Karadeniz " id="Karadeniz">Karadeniz</option>
-                                                <option value="Akdeniz" id="Akdeniz">Akdeniz</option>
-                                                <option value="Doğu" id="Doğu">Doğu Anadolu</option>
-                                                <option value="Güneydoğu " id="Güneydoğu">Güneydoğu</option>
-                                                <option value="Ege" id="Ege">Ege</option>
-                                                <option value="Marmara" id="Marmara">Marmara</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <label for="tourPrice">Fiyat: </label>
+                                        <div>
+                                            <label for="tourPicture1">Görsel 1: </label>
                                             <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
-                                                placeholder="fiyat giriniz..." id="tourPrice">
+                                                placeholder="tour görselini giriniz..." id="tourPicture1" required>
+                                            <div class="valid-feedback">Ok.</div>
+                                            <div class="invalid-feedback">Resim giriniz.</div>
                                         </div>
-                                        <div class="col-lg-4">
-                                            <label for="tourStock">Stok: </label>
+
+                                        <div>
+                                            <label for="tourPicture2">Görsel 2: </label>
                                             <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
-                                                placeholder="stok giriniz..." id="tourStock">
+                                                placeholder="tour görselini giriniz..." id="tourPicture2" required>
+                                            <div class="valid-feedback">Ok.</div>
+                                            <div class="invalid-feedback">Resim giriniz.</div>
                                         </div>
-                                    </div>
 
 
+                                        <div>
+                                            <label for="tourPicture3">Görsel 3: </label>
+                                            <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                                placeholder="tour görselini giriniz..." id="tourPicture3" required>
+                                            <div class="valid-feedback">Ok.</div>
+                                            <div class="invalid-feedback">Resim giriniz.</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <label for="tourCategory">Kategori: </label>
+                                                <select name="tourCategories" id="tourCategory"
+                                                    class="form-select form-check py-1 fs-1 mb-2 mt-1" required>
+                                                    <option selected="selected" disabled > Seçiniz</option>
+                                                    <option value="Anadolu" id="Anadolu">Anadolu</option>
+                                                    <option value="Karadeniz " id="Karadeniz">Karadeniz</option>
+                                                    <option value="Akdeniz" id="Akdeniz">Akdeniz</option>
+                                                    <option value="Doğu" id="Doğu">Doğu Anadolu</option>
+                                                    <option value="Güneydoğu " id="Güneydoğu">Güneydoğu</option>
+                                                    <option value="Ege" id="Ege">Ege</option>
+                                                    <option value="Marmara" id="Marmara">Marmara</option>
+                                                </select>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Kategori seçiniz.</div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="tourPrice">Fiyat: </label>
+                                                <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                                    placeholder="fiyat giriniz..." id="tourPrice" required>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Fiyat bilgisi giriniz.</div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="tourStock">Stok: </label>
+                                                <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                                    placeholder="stok giriniz..." id="tourStock" required>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Stok bilgisi giriniz.</div>
+                                            </div>
+                                        </div>
+                                        <label for="tourDescription">Açıklama: </label>
+                                        <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                            placeholder="tour açıklmaa giriniz..." id="tourDescription" required>
+                                        <div class="valid-feedback">Ok.</div>
+                                        <div class="invalid-feedback">Tur hakkında bilgi giriniz.</div>
 
+                                        <button type="submit"
+                                            class="btn btn-success fs-1 text-white fw-bold w-100 my-3 " id="addButton"
+                                            data-bs-dismiss="modal">Ekle</button>
 
-                                    <label for="tourDescription">Açıklama: </label>
-                                    <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
-                                        placeholder="tour açıklmaa giriniz..." id="tourDescription">
-
-                                    <button type="submit" class="btn btn-success fs-1 text-white fw-bold w-100 my-3 "
-                                        id="addButton" data-bs-dismiss="modal">Ekle</button>
-
-                                    <button type="button" class="btn btn-danger fs-1 text-white fw-bold w-100"
-                                        data-bs-dismiss="modal">İptal</button>
-                                    <!-- </form> -->
+                                        <button type="button" class="btn btn-danger fs-1 text-white fw-bold w-100"
+                                            data-bs-dismiss="modal">İptal</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -365,7 +394,7 @@
                     <select id="tourCategories" class=" form-select py-1 fs-1">
                     </select>
                 </div>
-                <div class="col-lg-3 d-flex align-items-center mb-3">
+                <div class=" col-lg-3 d-flex align-items-center mb-3">
                     <h6 class="mb-0 fw-bold fs-2  me-1" id="sortCategories">Sıralama:</h6>
                     <select class="form-select py-1 fs-1 " id="sortOptions" aria-label="Sort blogs">
                         <option selected value="Varsayılan" id="Varsayılan">Varsayılan</option>

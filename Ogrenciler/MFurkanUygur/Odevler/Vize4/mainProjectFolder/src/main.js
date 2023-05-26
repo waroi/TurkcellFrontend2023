@@ -49,9 +49,9 @@ function addTour() {
         tourCategory == "" ||
         tourPrice == "" ||
         tourStock == "" ||
-        tourDescription == "" 
+        tourDescription == ""
     ) {
-        alert("doldur")
+        console.log("tüm alanları doldurunuz")
         // toastTrigger.addEventListener('click', () => {
         //     toastBootstrap.show()
         // })
@@ -81,22 +81,18 @@ sortTitles.addEventListener("change", (e) => {
     ui.globalSortBlogs(e.target.value)
 })
 
-
-// function sortType(sortType) {
-//     let tempSortTypeID = sortType.explicitOriginalTarget.id;
-//     // ui.globalSortBlogs(tempSortTypeID)
-//     console.log(tempSortTypeID)
-// }
-
-
 const uniqueBasket = document.getElementById("uniqueBasket");
 uniqueBasket.addEventListener("click", () => {
     ourBasketItems.innerHTML = ""
     ui.basketMain()
+    ui.getPost()
 })
 
 const buyAllItems = document.querySelector(".buy-all-items")
 buyAllItems.addEventListener("click", () => {
+    basketLength.value = ""
     ui.buyItemsAndClear()
     ui.emptyBasket()
+    ui.getPost()
+
 })

@@ -1,15 +1,18 @@
 let spesificSearchDatas = [];
 let globalDatas = [];
 let checkBasketItems = [];
-let basketLengthValue = basketLength.innerHTML;
+// let basketLengthValue = basketLength.innerHTML;
 class UI {
     getPost() {
+
         allTours.innerHTML = ""
         http
             .get('http://localhost:3000/tours')
             .then((data) => {
                 ui.displayAllPosts(data);
                 ui.checkInformationAllPage()
+                basketLength.innerHTML = checkBasketItems.length;
+                // console.log(basketLengthValue)
             })
             .catch((err) => console.log(err));
     }
@@ -24,78 +27,11 @@ class UI {
         tourPicture3.value = ""
         tourCategory.value = ""
         tourPrice.value = ""
+        tourStock.value = ""
         tourDescription.value = ""
-    }
-    //sepet ikonuna tıklandığında ürünleri çekme
-    basketMain() {
-        // checkBasketItems = [];
-        http
-            .get('http://localhost:3000/basket')
-            .then((data) => {
-                data.map(x => checkBasketItems.push(x))
-                ui.displayBasketItems(data)
-                console.log(checkBasketItems)
-            })
-            .catch((err) => console.log(err));
-    }
-    //sepet ekranına ürün bastırma
-    displayBasketItems(basketItem) {
-        basketItem.forEach(b => {
-            ourBasketItems.innerHTML += `
-            <div class="card" id="${b.id}">
-                <div class="card-body">
-                    <h5 class="card-title text-start">${b.tourName}</h5>
-                    <div class="d-flex text-start>
-                        <label for="numberOfPerson">Kişi sayısı: </label>
-                        <input id="basketkisiSayisi" type="number" min="0" max="${b.tourStock}" value="${b.personCount}">
-                    </div>
-                    <p class="card-text text-start">Fiyat:${b.tourPrice}</p>
-                    <button class="btn btn-danger text-white delete-basket-item">Sepetten Sil</button>
-                </div>
-            </div>
-            `
-        })
-        const deleteBasketItemBtns = document.querySelectorAll(".delete-basket-item");
-        this.deleteBasketItem(deleteBasketItemBtns);
-    }
-    buyItemsAndClear() {
-        checkBasketItems.map(e => {
-            setTimeout(() => {
-                http
-                    .put(`http://localhost:3000/tours/${e.id}`, {
-                        tourName: e.tourName,
-                        tourDay: e.tourDay,
-                        tourFood: e.tourFood,
-                        tourTransport: e.tourTransport,
-                        tourPicture1: e.tourPicture1,
-                        tourPicture2: e.tourPicture2,
-                        tourPicture3: e.tourPicture3,
-                        tourCategory: e.tourCategory,
-                        tourPrice: e.tourPrice,
-                        tourStock: e.tourStock - basketkisiSayisi.value,
-                        tourDescription: e.tourDescription,
-                    })
-                    .then((data) => {
-                        ui.getPost()
-                        ourBasketItems.innerHTML = "";
-                        data
-                    })
-                    .catch((err) => console.log(err));
-            }, 300)
-        })
-    }
-    emptyBasket() {
-        checkBasketItems.map(e => {
-            http
-                .delete(`http://localhost:3000/basket/${e.id}`)
-                .then((data) => { data; basketLength.innerHTML = 0 })
-                .catch((err) => console.log(err));
-        })
-    }
 
+    }
     displayAllPosts(data) {
-        // console.log(data)
-
         data.forEach((data) => {
             allTours.innerHTML += this.createTag(data);
             globalDatas.push(data);
@@ -147,47 +83,118 @@ class UI {
         const shoppingBtns = document.querySelectorAll(".shopping-btn")
         this.shoppingBtn(shoppingBtns)
     }
+    //sepet ikonuna tıklandığında ürünleri çekme
+    basketMain() {
+        // checkBasketItems = [];
+        http
+            .get('http://localhost:3000/basket')
+            .then((data) => {
+                data.map(x => checkBasketItems.push(x))
+                ui.displayBasketItems(data)
+                basketLength.innerHTML = checkBasketItems.length;
+            })
+            .catch((err) => console.log(err));
+    }
+    //sepet ekranına ürün bastırma
+    displayBasketItems(basketItem) {
+        basketLength.innerHTML = checkBasketItems.length;
+        basketItem.forEach(b => {
+            ourBasketItems.innerHTML += `
+            <div class="card" id="${b.id}">
+                <div class="card-body">
+                    <h5 class="card-title text-start">${b.tourName}</h5>
+                    <div class="d-flex text-start>
+                        <label for="numberOfPerson">Kişi sayısı: </label>
+                        <input id="basketkisiSayisi" type="number" min="0" max="${b.tourStock}" value="${b.personCount}">
+                    </div>
+                    <p class="card-text text-start">Fiyat:${b.tourPrice}</p>
+                    <button class="btn btn-danger text-white delete-basket-item">Sepetten Sil</button>
+                </div>
+            </div>
+            `
+        })
+        const deleteBasketItemBtns = document.querySelectorAll(".delete-basket-item");
+        this.deleteBasketItem(deleteBasketItemBtns);
+    }
+    buyItemsAndClear() {
+        checkBasketItems.map(e => {
+            setTimeout(() => {
+                http
+                    .put(`http://localhost:3000/tours/${e.id}`, {
+                        tourName: e.tourName,
+                        tourDay: e.tourDay,
+                        tourFood: e.tourFood,
+                        tourTransport: e.tourTransport,
+                        tourPicture1: e.tourPicture1,
+                        tourPicture2: e.tourPicture2,
+                        tourPicture3: e.tourPicture3,
+                        tourCategory: e.tourCategory,
+                        tourPrice: e.tourPrice,
+                        tourStock: e.tourStock - basketkisiSayisi.value,
+                        tourDescription: e.tourDescription,
+                    })
+                    .then((data) => {
+                        ui.getPost()
+                        basketLength.innerHTML = checkBasketItems.length;
+                        ourBasketItems.innerHTML = ""
+                        data
+                    })
+                    .catch((err) => console.log(err));
+            }, 300)
+        })
+    }
+    emptyBasket() {
+        checkBasketItems.map(e => {
+            http
+                .delete(`http://localhost:3000/basket/${e.id}`)
+                .then((data) => {
+                    data; basketLength.innerHTML = checkBasketItems.length;
+                    
+                })
+                .catch((err) => console.log(err));
+        })
+    }
+
+
 
     //Listelenen cardlarda yer alan sepet ikonuna ait fonksiyon
     shoppingBtn(shoppingBtns) {
         shoppingBtns.forEach(s => {
             s.addEventListener("click", () => {
-
                 kisiSayisi.value = 0
-                kontenjan.value = ""
                 const tempShoppingCardID = s.parentElement.parentElement.parentElement.parentElement.id;
-                console.log(tempShoppingCardID)
                 http
                     .get(`http://localhost:3000/tours/${tempShoppingCardID}`)
                     .then((data) => {
                         kisiSayisi.max = data.tourStock;
-                        kontenjan.innerHTML += data.tourStock
+                        kontenjan.innerHTML = "Toplam Kontenjan:" + data.tourStock
                         this.addBasket(data)
                     })
                     .catch((err) => console.log(err));
             })
+
         })
     }
     addBasket(dataforBasket) {
-        checkBasketItems = []
-        console.log(dataforBasket.tourStock)
+        // checkBasketItems = []
         const addBasketBtns = document.querySelectorAll(".add-basket");
         addBasketBtns.forEach(x => {
             x.addEventListener("click", () => {
-
                 dataforBasket.personCount = kisiSayisi.value
-                console.log(x)
                 http
                     .post('http://localhost:3000/basket', dataforBasket)
                     .then(data => {
-                        basketLength.innerHTML = Number(basketLength.innerHTML) + 1
+                        // checkBasketItems=[]
 
                         data
                     })
                     .catch((err) => alert("sepetinizde zaten var lütfen ya onu güncelle ya silip yeniden ekle"));
+
             })
 
-        })
+        },
+            basketLength.innerHTML = checkBasketItems.length)
+        // basketLength.innerHTML = checkBasketItems.length;
     }
     deleteBasketItem(deleteBasketItemBtns) {
         deleteBasketItemBtns.forEach(e => {
@@ -197,14 +204,17 @@ class UI {
                 http
                     .delete(`http://localhost:3000/basket/${tempDeleteBaskteItem}`)
                     .then((data) => {
-                        basketLength.innerHTML = Number(basketLength.innerHTML) - 1
+
                         ui.getPost()
                         ui.basketMain(data);
+                        checkBasketItems = []
+                        basketLength.innerHTML = checkBasketItems.length;
 
                     })
                     .catch((err) => console.log(err));
             })
         })
+
     }
 
 
@@ -261,7 +271,6 @@ class UI {
     }
 
     globalCompare(globalDatas, inputValue) {
-        console.log(globalDatas)
         allTours.innerHTML = "";
         globalDatas.forEach((x) => {
             if (inputValue != null) {
@@ -294,13 +303,15 @@ class UI {
                 //tour category bilgileri
                 const tourCategorySelect = document.getElementById("editTourCategory");
                 const tourCategory = tourCategorySelect.options[tourCategorySelect.selectedIndex].value;
+
+                const tourStock = document.getElementById("editTourStock").value
                 //tour price bilgileri
                 const tourPrice = document.getElementById("editTourPrice").value;
                 //tour description bilgileri
                 const tourDescription = document.getElementById("editTourDescription").value;
 
                 const updateData = {
-                    tourName, tourDay, tourFood, tourTransport, tourPicture1, tourPicture2, tourPicture3, tourCategory, tourPrice, tourDescription
+                    tourName, tourDay, tourFood, tourTransport, tourPicture1, tourPicture2, tourPicture3, tourCategory, tourStock, tourPrice, tourDescription
                 }
                 // const toastTrigger = document.getElementById("saveChange");
                 // const toastLiveExample = document.getElementById(
@@ -346,10 +357,8 @@ class UI {
     deleteBtn(deleteTourBtns) {
         deleteTourBtns.forEach((e) => {
             e.addEventListener("click", (e) => {
-                console.log("silmeye tıkladın");
                 let selectedPostTempID =
                     e.target.parentElement.parentElement.parentElement.parentElement.id;
-                console.log(selectedPostTempID);
                 http
                     .delete(`http://localhost:3000/tours/${selectedPostTempID}`)
                     .then((data) => {
@@ -366,7 +375,6 @@ class UI {
             e.addEventListener("click", (e) => {
                 let editedPostTempID =
                     e.target.parentElement.parentElement.parentElement.parentElement.id;
-                console.log(editedPostTempID);
                 http
                     .get(`http://localhost:3000/tours/${editedPostTempID}`)
                     .then((data) => {
@@ -388,6 +396,7 @@ class UI {
         document.getElementById("defaultTourPicture2").value = data.tourPicture2;
         document.getElementById("defaultTourPicture3").value = data.tourPicture3;
         document.getElementById("defaultTourCategory").value = data.tourCategory;
+        document.getElementById("defaultTourStock").value = data.tourStock;
         document.getElementById("defaultTourPrice").value = data.tourPrice;
         document.getElementById("defaultTourDescription").value = data.tourDescription;
 
@@ -400,7 +409,6 @@ class UI {
             e.addEventListener("click", (e) => {
                 let editedPostTempID =
                     e.target.parentElement.parentElement.parentElement.parentElement.id;
-                console.log(editedPostTempID);
                 http
                     .get(`http://localhost:3000/tours/${editedPostTempID}`)
                     .then((data) => {
@@ -439,7 +447,6 @@ class UI {
             .catch((err) => console.log(err));
     };
     displayBlogFromCategory(filterWord) {
-        console.log(filterWord);
         allTours.innerHTML = "";
         http
             .get("http://localhost:3000/tours")
@@ -464,7 +471,6 @@ class UI {
         });
     }
     compareFilteredItemsForSort(arr, filterName) {
-        // console.log(arr)
         allTours.innerHTML = "";
         if (filterName == "azSort") {
             allTours.innerHTML = "";
@@ -514,8 +520,6 @@ class UI {
     }
 
     globalSortBlogs(sortTypeID) {
-        console.log(sortTypeID);
-        console.log(globalDatas)
         if (sortTypeID == "azSort") {
             allTours.innerHTML = "";
             let azSortDatas = globalDatas
@@ -585,7 +589,7 @@ class UI {
 
     createTag(t) {
         return `
-        <div class="col-lg-3 ">
+        <div class="col-12 col-sm-6 col-lg-3 ">
         <div class="card  my-2 rounded-4" id="${t.id}">
             <div class="card-image-top">
                 <div id="miniTourCardImageSlider" class="carousel slide" data-bs-ride="carousel">
@@ -607,7 +611,7 @@ class UI {
                 <ul class="list p-0 mt-2">
                     <li class="list-group-item"><i class="fa-solid fa-clock me-2"></i> ${t.tourDay} Günlük Tur
                     </li>
-                    <li class="list-group-item"><i class="fa-solid fa-spoon me-2"></i> ${t.tourFood} dahil
+                    <li class="list-group-item"><i class="fa-solid fa-spoon me-2"></i> ${t.tourFood}
                     </li>
                     <li class="list-group-item"><i class="fa-solid fa-bus me-1"></i>${t.tourTransport}</li>
                     <li class="list-group-item mt-3">
@@ -649,7 +653,7 @@ class UI {
                                            <div class="d-flex flex-column align-item-center">
                                                 <label for="kisiSayisi">Kişi Sayısı</label>
                                                 <input class="form-control" type="number" id="kisiSayisi" min="0" max="">
-                                                <p id="kontenjan">Toplam kontanjan: </p>
+                                                <p id="kontenjan">Toplam kontenjan: </p>
                                                 </div>
                                     </div>
                                     <div class="modal-footer">
@@ -766,8 +770,16 @@ class UI {
                                                     </div>
                                                 </div>
                                             
-                                                <label for="defaultTourCategory">tourCategory</label>
-                                                <input class="form-control mb-2 fs-2" type="text" id="defaultTourCategory" disabled>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <label for="defaultTourCategory">tourCategory</label>
+                                                        <input class="form-control mb-2 fs-2" type="text" id="defaultTourCategory" disabled>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <label for="defaultTourStock">tourStock</label>
+                                                        <input class="form-control mb-2 fs-2" type="text" id="defaultTourStock" disabled>
+                                                    </div>
+                                                </div>
                                             
                                                 <label for="defaultTourPrice">tourPrice</label>
                                                 <input class="form-control mb-2 fs-2" type="text" id="defaultTourPrice" disabled>
@@ -796,7 +808,7 @@ class UI {
                                                             <option value="1" id="1">1</option>
                                                             <option value="2" id="2">2</option>
                                                             <option value="3" id="3">3</option>
-                                                            <option value="4" id="4">3</option>
+                                                            <option value="4" id="4">4</option>
                                                             <option value="5" id="5">5</option>
                                                             <option value="6" id="6">6</option>
                                                             <option value="7" id="7">7</option>
@@ -847,17 +859,26 @@ class UI {
                                                     </div>
                                                 </div>
                                             
-                                                <label for="editTourCategory">tourCategory</label>
-                                                <select name="editTourCategories" id="editTourCategory"
-                                                    class="form-select py-1 fs-1 mb-2 mt-1">
-                                                    <option value="Anadolu" id="Anadolu">Anadolu</option>
-                                                    <option value="Karadeniz " id="Karadeniz">Karadeniz</option>
-                                                    <option value="Akdeniz" id="Akdeniz">Akdeniz</option>
-                                                    <option value="Doğu" id="Doğu">Doğu Anadolu</option>
-                                                    <option value="Güneydoğu " id="Güneydoğu">Güneydoğu</option>
-                                                    <option value="Ege" id="Ege">Ege</option>
-                                                    <option value="Marmara" id="Marmara">Marmara</option>
-                                                </select>
+                                                <div class="row d-flex">
+                                                    <div class="col-lg-6">
+                                                        <label for="editTourCategory">tourCategory</label>
+                                                        <select name="editTourCategories" id="editTourCategory"
+                                                            class="form-select py-2 fs-1 mb-2 mt-1">
+                                                            <option value="Anadolu" id="Anadolu">Anadolu</option>
+                                                            <option value="Karadeniz " id="Karadeniz">Karadeniz</option>
+                                                            <option value="Akdeniz" id="Akdeniz">Akdeniz</option>
+                                                            <option value="Doğu" id="Doğu">Doğu Anadolu</option>
+                                                            <option value="Güneydoğu " id="Güneydoğu">Güneydoğu</option>
+                                                            <option value="Ege" id="Ege">Ege</option>
+                                                            <option value="Marmara" id="Marmara">Marmara</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <label for="editTourStock" class="mb-1">tourStock</label>
+                                                        <input class="form-control py-2 fs-1" type="text" id="editTourStock">
+                                                    </div>
+                                                </div>
+                                               
                                             
                                                 <label for="editTourPrice">tourPrice</label>
                                                 <input class="form-control mb-2 fs-2" type="text" id="editTourPrice">
