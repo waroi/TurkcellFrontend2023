@@ -63,8 +63,8 @@ class BasketOffCanvas {
               </button>
             </div>
           </div>
-          <div class="col-lg-2">
-            <button class="btn btn-outline-danger px-lg-5 ms-lg-3 remove-from-basket">Sil</button>
+          <div class="col-lg-2 mt-2 mt-lg-0">
+            <button class="btn btn-outline-danger px-5 ms-lg-3 remove-from-basket">Sil</button>
           </div>
           <div class="col-lg-1">
             <div class="d-flex flex-column align-items-center">
