@@ -99,15 +99,15 @@ class UI {
 
       <div class="d-flex justify-content-between">
       <div class="d-flex justify-content-start gap-1">
-      <a href="#" class="btn btn-danger rounded-circle d-flex justify-content-center align-items-center" id="deletePost"
-          ><i class="fa-solid fa-trash-can"></i></a
+      <a href="#" class="btn btn-sm btn-danger  d-flex justify-content-center align-items-center" id="deletePost"
+          >Delete</a
         >
-        <a href="#" class="btn btn-success rounded-circle d-flex justify-content-center align-items-center" id="updatePost"
-        ><i class="fa-solid fa-square-pen"></i></a
+        <a href="#" class="btn btn-sm  btn-success  d-flex justify-content-center align-items-center" id="updatePost"
+        >Update</a
       >
       </div>
       <div class="d-flex justify-content-end">
-        <a href="#" class="btn btn-outline-primary" id="readMore"
+        <a href="#" class="btn btn-sm btn-outline-primary" id="readMore"
           >Read More</a
         >
         </div>
@@ -212,6 +212,7 @@ class UI {
     })
 
   };
+
   sortPost(sortedPosts) {
     const postList = document.getElementById("post-list");
     postList.innerHTML = "";
@@ -251,15 +252,15 @@ class UI {
 
         <div class="d-flex justify-content-between">
         <div class="d-flex justify-content-start gap-1">
-        <a href="#" class="btn btn-danger rounded-circle d-flex justify-content-center align-items-center" id="deletePost"
-            ><i class="fa-solid fa-trash-can"></i></a
+        <a href="#" class="btn btn-sm btn-danger  d-flex justify-content-center align-items-center" id="deletePost"
+            >Delete</a
           >
-          <a href="#" class="btn btn-success rounded-circle d-flex justify-content-center align-items-center" id="updatePost"
-          ><i class="fa-solid fa-square-pen"></i></a
+          <a href="#" class="btn btn-sm  btn-success  d-flex justify-content-center align-items-center" id="updatePost"
+          >Update</a
         >
         </div>
         <div class="d-flex justify-content-end">
-          <a href="#" class="btn btn-outline-primary" id="readMore"
+          <a href="#" class="btn btn-sm btn-outline-primary" id="readMore"
             >Read More</a
           >
           </div>

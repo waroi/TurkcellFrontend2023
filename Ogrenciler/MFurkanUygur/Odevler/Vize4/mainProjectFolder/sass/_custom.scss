@@ -1,0 +1,166 @@
+@mixin bridge-bg($contenting) {
+  background-image: url($contenting);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+i {
+  pointer-events: none;
+}
+.glass-effect {
+  background: rgba(0, 0, 0, 0.279);
+  backdrop-filter: blur(3px);
+}
+.text-justify {
+  text-align: justify;
+}
+.inspect {
+  color: white;
+  &:hover {
+    color: $dark;
+    background-color: $primary;
+  }
+}
+/*********HOMEPAGE*********/
+//Main Slider Section
+.homepage-slider {
+  @include bridge-bg("../images/sliderbgwp.webp");
+  //media ile bu yükseklik ayarlanabilir
+  height: auto;
+  background-position: bottom;
+  .carousel {
+    background: rgba(0, 0, 0, 0.279);
+    backdrop-filter: blur(5px);
+  }
+}
+//Offer Card
+.offer-card {
+  a {
+    h6,
+    i {
+      transition: 0.3s ease-in-out;
+    }
+    &:hover {
+      h6 {
+        color: $dark;
+      }
+      i {
+        color: $danger;
+      }
+    }
+  }
+}
+// Product Card
+.product-card {
+  .card {
+    img,
+    a,
+    .fa-heart,
+    span {
+      transition: 0.4s ease-in-out;
+    }
+    span {
+      color: white;
+    }
+    &:hover {
+      .fa-heart {
+        color: $danger;
+      }
+      img {
+        transform: scale(1.05);
+      }
+      a {
+        background-color: $primary;
+        color: black;
+        span {
+          color: red;
+        }
+      }
+    }
+  }
+}
+.fa-star {
+  color: rgb(255, 174, 0);
+}
+//Bridge section
+.bridge {
+  @include bridge-bg("../images/bridgebgwp.webp");
+  background-attachment: fixed;
+  .row {
+    @extend .glass-effect;
+  }
+}
+//Bank logos section
+.bank-scale {
+  text-align: center;
+  img {
+    transition: 0.3s ease-in-out;
+  }
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+}
+/*********PRODUCT SPECS PAGE*********/
+.tour-specs {
+  p {
+    @extend .text-justify;
+  }
+}
+.last-trip {
+  @extend .product-card;
+}
+/*********ABOUT PAGE*********/
+.about-bg {
+  @include bridge-bg("../pages/images/aboutbg.webp");
+  height: auto;
+  //mobil için media query eklendi
+}
+.about-content-p,
+.tab-pane {
+  @extend .text-justify;
+}
+//Footer section
+footer {
+  li {
+    i {
+      transition: 0.3s ease-in-out;
+    }
+    &:hover {
+      a {
+        color: white;
+      }
+      i {
+        color: $danger;
+      }
+    }
+  }
+}
+/*********FAQ PAGE*********/
+header {
+  h3 {
+    @extend .glass-effect;
+    background: rgba(204, 204, 204, 0.279);
+  }
+}
+.döner {
+  animation-name: world;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes world {
+  from {
+    transform: rotate(0deg) translateX(0px);
+  }
+  to {
+    transform: rotate(360deg) translateX(0px);
+  }
+}
+@media screen and (max-width: 992px) {
+  .about-bg {
+    height: 50vh;
+  }
+}

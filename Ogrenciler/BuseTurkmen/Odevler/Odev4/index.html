@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet" >
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>BookShop</title>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary justify-content-center">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">BookShop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Anasayfa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Kurumsal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-right-to-bracket"></i> Üye Ol</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><i class="fa-solid fa-user"></i> Giriş Yap</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#cartModal">
+              <i class="fas fa-shopping-cart"></i> Sepet
+              <span class="badge badge-pill badge-primary" id="cartItemCount">0</span>
+            </a>
+          </li>
+          <div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
+              <i class="fas fa-plus"></i>Ürün Ekle
+            </button> 
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./hakkımızda.html">Hakımızda</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Kategoriler
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Çocuk Kitapları</a></li>
+              <li><a class="dropdown-item" href="#">Ders Kitapları</a></li>
+              <li><a class="dropdown-item" href="#">Edebiyat Kiatapları</a></li>
+              <li><a class="dropdown-item" href="#">Hobi Ürünleri</a></li>
+              <li><a class="dropdown-item" href="#">Kişisel Gelişim Kitapları</a></li>
+              <li><a class="dropdown-item" href="#">Macera Kitapları</a></li>
+              <li><a class="dropdown-item" href="#">Sanat Kitapları</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Kampanyalar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./sss.html">SSS</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Listelerim
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Favorilerim</a></li>
+              <li><a class="dropdown-item" href="#">Sepetim</a></li>
+              <li><a class="dropdown-item" href="../Odev2/index.html">Okuma Listem</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="searchInput" placeholder="Kitap adı veya yazar adı ile ara">
+      </div>
+      <div class="col-md-6">
+        <select class="form-control" id="categoryFilter">
+          <option value="">Tüm Kategoriler</option>
+          <option value="Roman">Roman</option>
+          <option value="Tarih">Tarih</option>
+          <option value="Bilim Kurgu">Bilim Kurgu</option>
+          <option value="Çocuk Kitabı">Çocuk Kitabı</option>
+          <option value="Kişisel Gelişim">Kişisel Gelişim</option>
+          <option value="Dünya Romanı">Dünya Romanı</option>
+          <option value="Felsefe Bilimi">Felsefe Bilimi</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mb-3 d-flex">
+      <div class="col-md-6 d-flex justify-content-center">
+        <button type="button" class="btn btn-primary sortAZ" data-sortby="title" data-sortdir="asc">
+          Kitap Adı A-Z
+        </button>
+        <button type="button" class="btn btn-primary sortAZ" data-sortby="author" data-sortdir="asc">
+          Yazar Adı A-Z
+        </button>
+      </div>
+      <div class="col-md-6 d-flex justify-content-center">
+        <button type="button" class="btn btn-primary sortPrice" data-sortdir="asc">
+          Fiyat Düşükten Yükseğe
+        </button>
+        <button type="button" class="btn btn-primary sortPrice" data-sortdir="desc">
+          Fiyat Yüksekten Düşüğe
+        </button>
+      </div>
+    </div>
+</div>
+
+  <div id="carouselDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="./resimler/carusel/1.1.jpg" class="d-block w-100 " alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>ALIŞVERİŞE BAŞLA</h2>
+          <button type="button" class="btn btn-secondary">Başla</button>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="./resimler/carusel/c2.webp" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>SEÇİLİ YAYINEVLERİNDE %15 İNDİRİM!</h5>
+          <button type="button" class="btn btn-secondary">İncele</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="./resimler/carusel/c3.png" class="d-block w-100 h-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>EN ÇOK SATANLAR</h5>
+          <button type="button" class="btn btn-secondary">İncele</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="./resimler/carusel/c4.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>EN YENİ ÇOCUK KİTAPLARI</h5>
+          <button type="button" class="btn btn-secondary">İncele</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row" id="bookContainer"></div>
+  </div>
+
+  <!-- Ürün Ekleme Modalı -->
+  <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addProductModalLabel">Ürün Ekle</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Kapat">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="addProductForm">
+            <div class="form-group">
+              <label for="title"><i class="fa-solid fa-book" style="color: #ce36e2;"></i> Başlık</label>
+              <input type="text" class="form-control" id="title" required>
+            </div>
+            <div class="form-group">
+              <label for="author"><i class="fa-solid fa-user" style="color: #ce36e2;"></i> Yazar</label>
+              <input type="text" class="form-control" id="author" required>
+            </div>
+            <div class="form-group">
+              <label for="category"><i class="fa-solid fa-eye" style="color: #ce36e2;"></i> Kategori</label>
+              <input type="text" class="form-control" id="category" required>
+            </div>
+            <div class="form-group">
+              <label for="price"><i class="fa-solid fa-tags" style="color: #ce36e2;"></i> Fiyat</label>
+              <input type="number" class="form-control" id="price" required>
+            </div>
+            <div class="form-group">
+              <label for="image"><i class="fa-solid fa-photo-film" style="color: #ce36e2;"></i> Resim URL</label>
+              <input type="text" class="form-control" id="image" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+          <button type="button" class="btn btn-primary" id="addProductBtn">Ekle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+        <div class="row" id="bookContainer"></div>
+  </div>
+
+  <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="cartModalLabel">Sepet</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Kitap</th>
+                    <th scope="col">Adet</th>
+                    <th scope="col">Fiyat</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody id="cartItems"></tbody>
+              </table>
+              <p class="text-right">Toplam Fiyat: <span id="totalPrice">0</span> TL</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+              <button type="button" class="btn btn-primary">Devam Et</button>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <footer class="text-center text-lg-start text-muted">
+        <section class=" container d-flex justify-content-center justify-content-lg-between p-4 border-bottom"style="background-color: #e7def9;">
+          <div class="me-5 d-none d-lg-block">
+            <span>Sodyal Medya Hesaplarımızdan Bizi Takip Edebilirsiniz:</span>
+          </div>
+          <div>
+            <a href="" class="me-4 link-secondary">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="" class="me-4 link-secondary">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="me-4 link-secondary">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="" class="me-4 link-secondary">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </section>
+  </footer>
+      
+  <section class="footer-2" style="background-color: #e7def9;">
+        <div class="container text-center text-md-start">
+          <div class="row mt-0">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">
+                </i>Mobil Uygulamalarımız
+              </h6>
+              <p>
+                <i class="fa-brands fa-google-play fa-lg"></i> Google Play
+              </p>
+              <p>
+                <i class="fa-brands fa-apple fa-2xl"></i> App Store
+              </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">
+                Yardım
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Siparişler</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Teslimat ve Kargo</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Kargo Takip</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">İade İşlemleri</a>
+              </p>
+            </div>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">
+                Kurumsal
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Mağazalarımız</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Aydınlatma Metni</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Üyelik</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Kariyer</a>
+              </p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">İletişim</h6>
+              <p><i class="fas fa-home me-3 text-secondary"></i>İstanbul</p>
+              <p>
+                <i class="fas fa-envelope me-3 text-secondary"></i>
+                info@example.com
+              </p>
+              <p><i class="fas fa-phone me-3 text-secondary"></i>0500 000 00 00</p>
+              <p><i class="fas fa-print me-3 text-secondary"></i> 0216 000 00 00</p>
+            </div>
+          </div>
+        </div>
+  </section>
+
+  <div class="text-center p-4" style="background-color: #ccc2e0;">
+        © 2023 Copyright by BT
+  </div>
+        
+    
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+
+  </body>
+</html>

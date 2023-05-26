@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+
+    <!-- navbar baslangıç -->
+        <nav class="navbar">
+            <h2 class="title">YMG | KİTAB EVİ</h2>
+            <ul class="menu">
+                <li class="active">Anasayfa</li>
+                <li>Hakkımızda</li>
+                <li>İletişim</li>
+                <li>SSS</li>
+            </ul>
+            <ul class="menu_icons">
+                <li><i class="bi bi-person"></i></li>
+                <li><i class="bi bi-search"></i></li>
+                <li class="sepet_icon" onclick="toggleModal()">
+                    <i class="bi bi-bag"></i>
+                    <span class="sepet_count">5</span>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">YMG | KİTAP EVİ</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ustnavbar" aria-controls="ustnavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="ustnavbar">
+                <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 gap-4">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Anasayfa</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Hakkımızda</a>
+                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">İletişim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SSS</a>
+                    </li>
+                </ul>
+                <ul class="menu_icons">
+                    <li><i class="bi bi-person"></i></li>
+                    <li><i class="bi bi-search"></i></li>
+                    <li class="sepet_icon">
+                        <i class="bi bi-bag"></i>
+                        <span class="sepet_count">5</span>
+                    </li>
+                </ul>
+              </div>
+            </div>
+        </nav> -->
+
+    <!-- navbar bitis -->
+
+        <!-- carousel baslangıc -->
+        <section class="slider">
+            <div id="sliderim" class="carousel slide">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#sliderim" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#sliderim" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#sliderim" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="assets/images/s1.jpg" class="d-block w-100 resimSliderBoyut" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/images/s2.jpg" class="d-block w-100 resimSliderBoyut" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/images/s3.png" class="d-block w-100 resimSliderBoyut" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#sliderim" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#sliderim" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <!-- carousel bitis -->
+
+        <!-- ürünler baslangic -->
+        <section class="store my-5 ">
+
+            <div class="filter_background"></div>
+                <ul class="filter">
+                    <li class="active">Tümü</li>
+                    <li>Roman</li>
+                    <li>Çocuk</li>
+                    <li>Tarih</li>
+                    <li>Finans</li>
+                </ul>
+            <div class="row book_list">
+                <div class="col-5 offset-2 my-5">
+                    <div class="row book_card">
+                        <div class="col-6">
+                            <img src="assets/images/books/kumarbaz.jpg" alt="" class="img-fluid shadow">
+                        </div>
+                        <div class="col-6 d-flex flex-column justify-content-between">
+                            <div class="book_detail">
+                                <span class="font_opensans gray fs-5">Fyodor Dostoyevski</span><br>
+                                <span class="fs-4 fw-bold">Kumarbaz</span><br>
+                                <span class="book_star_rate">
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span class="gray">140 Olumlu Yorum</span>
+                                </span>
+                            </div>
+                            <p class="book_description font_opensans gray">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Laudantium ad iure tenetur atque voluptates harum numquam? 
+                                Deserunt quia enim nemo veniam ullam hic! Labore fuga cupiditate ab
+                                ipsam natus sapiente.
+                            </p>
+                            <div>
+                                <span class="black fw-bold fs-4 me-2">₺ 20,00</span>
+                                <span class="fw-bold fs-4 old_price">₺ 40,00</span>
+                            </div>
+                            <button class="btn_purple">Sepete Ekle</button>
+                            <!-- <div>
+                                <button class="btn btn-outline-dark">Sepete Ekle</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 my-5">
+                    <div class="row book_card">
+                        <div class="col-6">
+                            <img src="assets/images/books/kumarbaz.jpg" alt="" class="img-fluid shadow">
+                        </div>
+                        <div class="col-6 d-flex flex-column justify-content-between">
+                            <div class="book_detail">
+                                <span class="font_opensans gray fs-5">Fyodor Dostoyevski</span><br>
+                                <span class="fs-4 fw-bold">Kumarbaz</span><br>
+                                <span class="book_star_rate">
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span class="gray">140 Olumlu Yorum</span>
+                                </span>
+                            </div>
+                            <p class="book_description font_opensans gray">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Laudantium ad iure tenetur atque voluptates harum numquam? 
+                                Deserunt quia enim nemo veniam ullam hic! Labore fuga cupiditate ab
+                                ipsam natus sapiente.
+                            </p>
+                            <div>
+                                <span class="black fw-bold fs-4 me-2">₺ 20,00</span>
+                                <span class="fw-bold fs-4 old_price">₺ 40,00</span>
+                            </div>
+                            <button class="btn_purple">Sepete Ekle</button>
+                            <!-- <div>
+                                <button class="btn btn-outline-dark">Sepete Ekle</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 offset-2 my-5">
+                    <div class="row book_card">
+                        <div class="col-6">
+                            <img src="assets/images/books/kumarbaz.jpg" alt="" class="img-fluid shadow">
+                        </div>
+                        <div class="col-6 d-flex flex-column justify-content-between">
+                            <div class="book_detail">
+                                <span class="font_opensans gray fs-5">Fyodor Dostoyevski</span><br>
+                                <span class="fs-4 fw-bold">Kumarbaz</span><br>
+                                <span class="book_star_rate">
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span class="gray">140 Olumlu Yorum</span>
+                                </span>
+                            </div>
+                            <p class="book_description font_opensans gray">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Laudantium ad iure tenetur atque voluptates harum numquam? 
+                                Deserunt quia enim nemo veniam ullam hic! Labore fuga cupiditate ab
+                                ipsam natus sapiente.
+                            </p>
+                            <div>
+                                <span class="black fw-bold fs-4 me-2">₺ 20,00</span>
+                                <span class="fw-bold fs-4 old_price">₺ 40,00</span>
+                            </div>
+                            <button class="btn_purple">Sepete Ekle</button>
+                            <!-- <div>
+                                <button class="btn btn-outline-dark">Sepete Ekle</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 my-5">
+                    <div class="row book_card">
+                        <div class="col-6">
+                            <img src="assets/images/books/kumarbaz.jpg" alt="" class="img-fluid shadow">
+                        </div>
+                        <div class="col-6 d-flex flex-column justify-content-between">
+                            <div class="book_detail">
+                                <span class="font_opensans gray fs-5">Fyodor Dostoyevski</span><br>
+                                <span class="fs-4 fw-bold">Kumarbaz</span><br>
+                                <span class="book_star_rate">
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span class="gray">140 Olumlu Yorum</span>
+                                </span>
+                            </div>
+                            <p class="book_description font_opensans gray">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Laudantium ad iure tenetur atque voluptates harum numquam? 
+                                Deserunt quia enim nemo veniam ullam hic! Labore fuga cupiditate ab
+                                ipsam natus sapiente.
+                            </p>
+                            <div>
+                                <span class="black fw-bold fs-4 me-2">₺ 20,00</span>
+                                <span class="fw-bold fs-4 old_price">₺ 40,00</span>
+                            </div>
+                            <button class="btn_purple">Sepete Ekle</button>
+                            <!-- <div>
+                                <button class="btn btn-outline-dark">Sepete Ekle</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ürünler bitis -->
+        
+        <!-- modal başlangıç -->
+        <div class="sepet_modal">
+            <div class="sepet_items">
+                <i class="bi bi-x" onclick="toggleModal()"></i>
+                <h2 class="sepet_title">Sepetim</h2>
+                <ul class="sepet_list">
+                    <li class="sepet_item">
+                        <img src="assets/images/books/kumarbaz.jpg" width="100" height="100" alt="">
+                        <div class="sepet_item_info">
+                            <h3 class="book_name">Kumarbaz</h3>
+                            <span class="book_price">₺ 20,00</span><br>
+                            <span class="book_remove">Ürünü Sil</span>
+                        </div>
+                        <div class="book_count">
+                            <span class="decrease">-</span>
+                            <span>5</span>
+                            <span class="increase">+</span>
+                        </div>
+                    </li>
+                    <li class="sepet_item">
+                        <img src="assets/images/books/kumarbaz.jpg" width="100" height="100" alt="">
+                        <div class="sepet_item_info">
+                            <h3 class="book_name">Kumarbaz</h3>
+                            <span class="book_price">₺ 20,00</span><br>
+                            <span class="book_remove">Ürünü Sil</span>
+                        </div>
+                        <div class="book_count">
+                            <span class="decrease">-</span>
+                            <span>5</span>
+                            <span class="increase">+</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="sepet_total">
+                    <span class="fw-bold mb-3 fs-4">Toplam Tutar : ₺ 40,00</span>
+                    <button class="btn_purple">Ödeme Yap</button>
+                </div>
+            </div>
+        </div>
+        <!-- modal bitis -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
