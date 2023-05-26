@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./src/assets/favicon.jpg" />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./src/css/media.css" />
+    <link rel="stylesheet" href="./src/api/db.json" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Sofia+Sans+Condensed:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Ollivanders</title>
+  </head>
+  <body>
+    <header class="position-relative">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <div class="">
+            <a href="#">
+              <img
+                src="./src/assets/ollivanders-logo.png"
+                alt=""
+                class="logo p-1 align-items-center img-fluid"
+              />
+            </a>
+          </div>
+          <button
+            type="button"
+            class="navbar-toggler bg-primary border-0"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav-list"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="nav-list">
+            <ul class="navbar-nav mx-auto text-center">
+              <li class="nav-item p-2">
+                <a href="#header" class="nav-link text-uppercase text-light"
+                  >Homepage</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a href="#wand-shop" class="nav-link text-uppercase text-light"
+                  >magical wands</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a
+                  href="products.html"
+                  class="nav-link text-uppercase text-light"
+                  >Products</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a href="#about-wand" class="nav-link text-uppercase text-light"
+                  >about wands</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a href="./faq.html" class="nav-link text-uppercase text-light"
+                  >FAQ</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a href="#contact-us" class="nav-link text-uppercase text-light"
+                  >contact us</a
+                >
+              </li>
+            </ul>
+            <div class="px-5 text-center">
+              <button type="button" class="btn">
+                <i class="fa-brands fa-searchengin text-light fs-3"></i>
+              </button>
+              <button type="button" class="btn position-relative">
+                <i class="fa-regular fa-heart text-light fs-3"></i>
+                <span
+                  class="position-absolute top-1 start-100 translate-middle badge rounded-2 bg-danger"
+                  >5</span
+                >
+              </button>
+              <button type="button" class="btn position-relative">
+                <a href="basket.html"
+                  ><i class="fa-solid fa-cart-shopping text-light fs-3"></i
+                ></a>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-2 bg-danger cart-value"
+                  >2</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="transition position-absolute w-100 h-50 bottom-0"></div>
+    </header>
+    <div class="background-img position-absolute w-100">
+      <section class="product-slider mt-7">
+        <div class="container">
+          <div>
+            <h1 class="text-white text-center text-uppercase fw-bold">
+              The wand chooses the wizard...
+            </h1>
+          </div>
+          <div class="products mt-6">
+            <div id="carouselExampleCaptions" class="carousel slide">
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="./src/assets/wand1.png"
+                    class="d-block w-75 m-auto"
+                    alt="..."
+                  />
+                  <div
+                    class="carousel-caption d-none d-md-block position-relative start-0 end-0"
+                  >
+                    <h5 class="pt-4 fw-bold">HONOURABLE</h5>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <img
+                    src="./src/assets/wand2.png"
+                    class="d-block w-75 m-auto"
+                    alt="..."
+                  />
+                  <div
+                    class="carousel-caption d-none d-md-block position-relative start-0 end-0"
+                  >
+                    <h5 class="fw-bold">LOYAL</h5>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="./src/assets/wand3.png"
+                    class="d-block w-75 m-auto"
+                    alt="..."
+                  />
+                  <div
+                    class="carousel-caption d-none d-md-block position-relative star-0 end-0"
+                  >
+                    <h5 class="fw-bold">DEFİANT</h5>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev slider-btn"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next slider-btn"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="ollivanders text-center text-white mt-7">
+        <div class="d-flex justify-content-center">
+          <div class="col-lg-2 col-sm-6">
+            <img
+              class="w-75"
+              src="./src/assets/garrick-ollivanders.png"
+              alt=""
+            />
+          </div>
+          <div class="blockquotes col-lg-6 col-sm-6">
+            <h1>" The wand chooses the wizard, remember "</h1>
+
+            <p class="fs-4">Mr. Ollivander</p>
+            <p>Harry Potter and the Philosopher's Stone</p>
+          </div>
+        </div>
+      </section>
+      <section class="products py-7" id="wand-shop">
+        <div class="container">
+          <h2 class="text-center text-white pb-5 fs-1">Wand Shop</h2>
+          <div class="products-card justify-content-center gap-4 row">
+            <div class="card col-md-3 col-11 p-0">
+              <a href="./product-1.html" class="text-decoration-none">
+                <div>
+                  <div>
+                    <div class="card-border"></div>
+                    <div>
+                      <a href="product-1.html">
+                        <img
+                          class="w-100"
+                          src="./src/assets/honourable.jpg"
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card col-md-3 col-11 p-0">
+              <a href="product-2.html" class="text-decoration-none">
+                <div>
+                  <div>
+                    <div class="card-border"></div>
+                    <div>
+                      <a href="./product-2.html">
+                        <img class="w-100" src="./src/assets/loyal.jpg" alt=""
+                      /></a>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card col-md-3 col-11 p-0">
+              <a href="product-3.html" class="text-decoration-none">
+                <div>
+                  <div>
+                    <div class="card-border"></div>
+                    <div>
+                      <a href="./product-3.html">
+                        <img
+                          class="w-100"
+                          src="./src/assets/defiant.jpg"
+                          alt=""
+                      /></a>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="my-3 row">
+              <button class="btn btn-warning col-md-3 ms-auto">
+                <a href="products.html" class="text-white text-decoration-none"
+                  >See More Wands</a
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="about-wand" id="about-wand">
+        <div class="container position-relative">
+          <div
+            class="stick position-absolute rounded-5 bg-warning h-100 start-50"
+          ></div>
+
+          <div class="row mt-6 mb-5 align-items-center">
+            <div
+              class="center about-text text-white col-lg-4 col-sm-6 text-end"
+            >
+              <h2 class="fs-1 pb-4 text-primary">
+                Learn more about wand woods
+              </h2>
+              <p class="text-info">
+                Discover what your wand wood means with this <br />
+                guide by J.K. Rowling.
+              </p>
+            </div>
+            <div
+              class="center about-img col-lg-8 col-sm-6 d-flex justify-content-end"
+            >
+              <img
+                src="./src/assets/about-img1.jpg"
+                alt=""
+                class="w-75 rounded-start rounded-3"
+              />
+            </div>
+          </div>
+          <div class="row flex-row-reverse mt-6 mb-5 align-items-center">
+            <div class="center about-text text-white col-lg-4 col-sm-6">
+              <h2 class="fs-1 pb-4 text-primary">
+                Learn more about wand cores
+              </h2>
+              <p class="text-info">
+                Discover what your wand wood means with this <br />
+                guide by J.K. Rowling.
+              </p>
+            </div>
+            <div class="center about-img col-lg-8 col-sm-6 d-flex">
+              <img
+                src="./src/assets/about-img2.jpg"
+                alt=""
+                class="w-75 rounded-end rounded-3"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="user-review">
+        <div class="parallax-section">
+          <div class="review-slider">
+            <div class="review">
+              <h2>Witch Reviews</h2>
+              <p>
+                "This wand is great, I just bought it, it's really original at
+                first glance. I like it very much, if you are a harry potter
+                fan, I recommend you to buy it. ✨"
+              </p>
+              <p class="author">- Hermione Granger</p>
+            </div>
+            <div class="review">
+              <h2>Witch Reviews</h2>
+              <p>
+                "I bought it as a gift for my friend, she loved it. It was very
+                carefully prepared, I loved it. I'll get one for myself too. No
+                need to even think about the quality it's great! Shipping was
+                also very fast… 👍 "
+              </p>
+              <p class="author">- Harry Potter</p>
+            </div>
+            <div class="review">
+              <h2>Witch Reviews</h2>
+              <p>
+                "I bought it early in the morning yesterday, it just arrived,
+                believe me, its great quality and originality can never be
+                questioned... My brother is very, very happy thanks to you. ❤️"
+              </p>
+              <p class="author">- Ron Weasley</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact-us mt-lg-7 mb-3" id="contact-us">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+              <h2 class="my-4 text-center text-white">Contact Us</h2>
+              <form class="custom-form faq-bg h-auto rounded-2 p-4 w-100">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="first-name" class="text-white fw-bold"
+                        >Name</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control rounded-1"
+                        id="first-name"
+                        placeholder="Enter your name"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="last-name" class="fw-bold text-white"
+                        >Surname</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="last-name"
+                        placeholder="Enter your surname"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="fw-bold text-white">E-Mail </label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter your E-Mail"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="fw-bold text-white"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phone"
+                    placeholder="Enter your Phone Number"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="subject" class="fw-bold text-white"
+                    >Subject</label
+                  >
+                  <select class="form-select" id="subject">
+                    <option selected>Choose...</option>
+                    <option value="general">General</option>
+                    <option value="support">Support</option>
+                    <option value="sales">Sales</option>
+                    <option value="wands">Wands</option>
+                    <option value="feedback">Feedback</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="text-white fw-bold"
+                    >Your Message</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    rows="6"
+                    placeholder="Enter your message"
+                    required
+                  ></textarea>
+                </div>
+                <div class="mb-3 form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="newsletter"
+                  />
+                  <label class="form-check-label text-white" for="newsletter"
+                    >Subscribe to our newsletter</label
+                  >
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-submit bg-warning text-white rounded-2"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer
+        class="page-footer font-small bg-dark text-light pt-4 w-100 h-100"
+      >
+        <div class="container text-center text-md-left">
+          <img src="./src/assets/footer-logo.png" alt="Logo" height="100" />
+
+          <div class="row mt-5 position-relative">
+            <div class="col-md-4">
+              <h5 class="fs-4">About Us</h5>
+              <ul class="list-unstyled">
+                <li><a href="#">Our Mission</a></li>
+                <li><a href="#">Our Vision</a></li>
+                <li><a href="#">History</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5 class="fs-4">Contact Us</h5>
+              <ul class="list-unstyled">
+                <li><a href="#">Address</a></li>
+              </ul>
+
+              <h5 class="fs-4">Follow Us</h5>
+              <ul class="list-inline d-flex gap-3 justify-content-center">
+                <li class="">
+                  <a href="#"
+                    ><i
+                      class="fa-brands fa-instagram"
+                      style="color: #aa8855"
+                    ></i
+                  ></a>
+                </li>
+                <li class="">
+                  <a href="#"
+                    ><i class="fa-brands fa-facebook" style="color: #aa8855"></i
+                  ></a>
+                </li>
+                <li class="">
+                  <a href="#"
+                    ><i class="fa-brands fa-twitter" style="color: #aa8855"></i
+                  ></a>
+                </li>
+                <li class="">
+                  <a href="#"
+                    ><i class="fa-brands fa-youtube" style="color: #aa8855"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5 class="fs-4">Legal</h5>
+              <ul class="list-unstyled">
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="#">Our Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <hr />
+          <p class="text-center fs-5 mb-0">
+            İrem Gündoğan © Turkcell Geleceğe Yazanlar 2023
+          </p>
+        </div>
+      </footer>
+      <a href="#" class="scroll-to-top text-white">
+        <img src="./src/assets/scrollup.png" alt="" class="w-100" />
+      </a>
+    </div>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+* {
+  font-family: "Crimson Text", serif;
+  box-sizing: border-box;
+}
+ul a {
+  text-decoration: none;
+  color: rgb(219, 217, 217);
+  &:hover {
+    color: rgb(219, 217, 217);
+    text-decoration-line: underline;
+  }
+}
+@mixin background-settings($bg-repeat, $bg-size, $bg-pos) {
+  background-repeat: $bg-repeat;
+  background-size: $bg-size;
+  background-position: $bg-pos;
+}
+header {
+  @include background-settings(no-repeat, cover, 50% 65%);
+  background-image: url(../assets/wandshop.jpg);
+  width: 100%;
+  height: 600px;
+
+  .transition {
+    background: linear-gradient(#ffffff00, #040a18);
+  }
+}
+.hero-img {
+  border: 5px solid #c0b8e5;
+}
+.background-img {
+  background-image: url(../assets/bg-page.jpg);
+}
+.logo {
+  width: 100%;
+  height: 80px;
+}
+.slider-btn {
+  top: 25px;
+  align-items: unset;
+}
+.product-slider {
+  .carousel-item {
+    height: 180px;
+  }
+}
+.blockquotes {
+  margin: auto 0;
+}
+.stick {
+  width: 6px;
+}
+footer {
+  @include background-settings(no-repeat, cover, 50% 65%);
+  background-image: url(../assets/footer.jpg);
+  .footer-logo {
+    img {
+      width: 60%;
+    }
+  }
+}
+.faq-bg {
+  background-image: url(../assets/faq-bg.jpg);
+  height: 100vh;
+  min-height: 547px;
+  @include background-settings(no-repeat, cover, 50% 65%);
+}
+.parallax-section {
+  background: url("../assets/usercomments.jpg");
+  min-height: 400px;
+  background-attachment: fixed;
+  @include background-settings(no-repeat, cover, 0 0);
+}
+.review-slider {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+.review {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  padding: 1rem;
+  opacity: 0;
+  animation: reviewSlider 12s linear infinite;
+}
+
+.review p {
+  font-size: 1.5rem;
+}
+
+.review .author {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.review:nth-child(1) {
+  animation-delay: -4s;
+}
+
+.review:nth-child(2) {
+  animation-delay: 0s;
+}
+
+.review:nth-child(3) {
+  animation-delay: 4s;
+}
+
+@keyframes reviewSlider {
+  0%,
+  33.33% {
+    opacity: 0;
+    transform: translate(-50%, 50%);
+  }
+  34%,
+  66% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  67%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -150%);
+  }
+}
+
+.scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  width: 150px;
+  height: 150px;
+  img {
+    transform: rotate(90deg);
+  }
+}
+
+
+@media (min-width: 992px) {
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .scroll-to-top {
+    display: block;
+    animation: fadeIn 1s;
+  }
+}
