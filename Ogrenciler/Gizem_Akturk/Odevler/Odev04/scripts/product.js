@@ -102,28 +102,25 @@ class Product {
   }
 
   async sort(sortType) {
-    request
-      .getAll()
-      .then((products) => {
-        const sortedProducts = products.sort((a, b) => {
-          // sortType = price asc, desc, name asc, desc
-          if (sortType === "price asc") {
-            return a.price - b.price;
-          }
-          if (sortType === "price desc") {
-            return b.price - a.price;
-          }
-          if (sortType === "name asc") {
-            return a.name.localeCompare(b.name);
-          }
-          if (sortType === "name desc") {
-            return b.name.localeCompare(a.name);
-          }
-        });
-        console.log(sortedProducts);
-        UI.loadAllProductsToUI(sortedProducts);
-      })
-      .catch((err) => UI.showAlert(err, "danger"));
+    const products = await request.getAll();
+
+    const sortedProducts = products.sort((a, b) => {
+      // sortType = price asc, desc, name asc, desc
+      if (sortType === "price asc") {
+        return a.price - b.price;
+      }
+      if (sortType === "price desc") {
+        return b.price - a.price;
+      }
+      if (sortType === "name asc") {
+        return a.name.localeCompare(b.name);
+      }
+      if (sortType === "name desc") {
+        return b.name.localeCompare(a.name);
+      }
+    });
+    console.log(sortedProducts);
+    UI.loadAllProductsToUI(sortedProducts);
   }
 
   async search(searchText) {

@@ -246,7 +246,7 @@ class UI {
                     class="fa fa-trash"></i></a>
 
         </div>
-        <img src="./images/banner-1.jpg" class="img-fluid rounded" style="max-height:153px !important"
+        <img src="${product.imgUrl}" class="img-fluid rounded product-img" 
             alt="...">
         <div class="card-body">
 
@@ -291,7 +291,7 @@ class UI {
                       // `
                       `<button id="add-to-cart" data-product-id="${
                         product.id
-                      }" class="btn btn-primary btn-sm">Add to cart</button>
+                      }" class="btn btn-primary btn-sm  text-white">Add to cart</button>
                         ${
                           isExists
                             ? `<span class="badge bg-primary rounded-pill">In cart</span>`
