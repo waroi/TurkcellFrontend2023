@@ -137,6 +137,7 @@ class UI {
                         ui.getPost()
                         basketLength.innerHTML = checkBasketItems.length;
                         ourBasketItems.innerHTML = ""
+                        checkBasketItems = []
                         data
                     })
                     .catch((err) => console.log(err));
@@ -149,7 +150,7 @@ class UI {
                 .delete(`http://localhost:3000/basket/${e.id}`)
                 .then((data) => {
                     data; basketLength.innerHTML = checkBasketItems.length;
-                    
+
                 })
                 .catch((err) => console.log(err));
         })
