@@ -10,6 +10,7 @@
   --black: #1c2a39;
   --gray: #5c6a79;
   --purple: #4c3db2;
+  --transition: all 0.3s ease-in-out;
 }
 .navbar {
   height: 120px;
@@ -81,6 +82,9 @@
   height: 400px;
 
 }
+.book_card img{
+  height: 400px;
+}
 
 /* book kart özellikleri */
 .gray{
@@ -121,7 +125,8 @@
   font-size: 1rem;
   font-weight: bold;
   background-color: transparent;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
+  padding: 5px 0;
 }
 .btn_purple:hover{
   background-color: var(--purple);
@@ -173,21 +178,32 @@
 
 /* modal kısmı için  */
 .sepet_modal{
+  opacity: 0;
   position: fixed;
   left: 0;
   top: 0;
   background-color: #5c6a7950;
   width: 100%;
   height: 100%;
+  z-index: -1;
+  transition: var(--transition);
+}
+.sepet_modal.active{
+  opacity: 1;
   z-index: 999;
 }
 .sepet_items{
-  width: 450px;
+  width: 0;
   background-color: white;
   height: 100%;
   float: right;
   position: relative;
+  transition: var(--transition);
 }
+.sepet_modal.active .sepet_items{
+  width: 450px;
+}
+
 .sepet_items .bi-x{
   position: absolute;
   left: 0;

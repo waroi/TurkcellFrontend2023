@@ -21,7 +21,7 @@
             <ul class="menu_icons">
                 <li><i class="bi bi-person"></i></li>
                 <li><i class="bi bi-search"></i></li>
-                <li class="sepet_icon">
+                <li class="sepet_icon" onclick="toggleModal()">
                     <i class="bi bi-bag"></i>
                     <span class="sepet_count">5</span>
                 </li>
@@ -101,11 +101,11 @@
                 <ul class="filter">
                     <li class="active">Tümü</li>
                     <li>Roman</li>
-                    <li>Hikaye</li>
-                    <li>Şiir</li>
                     <li>Çocuk</li>
+                    <li>Tarih</li>
+                    <li>Finans</li>
                 </ul>
-            <div class="row">
+            <div class="row book_list">
                 <div class="col-5 offset-2 my-5">
                     <div class="row book_card">
                         <div class="col-6">
@@ -253,7 +253,7 @@
         <!-- modal başlangıç -->
         <div class="sepet_modal">
             <div class="sepet_items">
-                <i class="bi bi-x"></i>
+                <i class="bi bi-x" onclick="toggleModal()"></i>
                 <h2 class="sepet_title">Sepetim</h2>
                 <ul class="sepet_list">
                     <li class="sepet_item">
