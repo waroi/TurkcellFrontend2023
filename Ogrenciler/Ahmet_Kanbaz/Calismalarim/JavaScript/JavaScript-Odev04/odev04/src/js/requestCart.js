@@ -5,10 +5,6 @@ class RequestCart {
       .then((item) => {
         UICart.updateDisplayForCart(item);
         cartItemCount.innerHTML = item.length;
-        const totalPriceSum = item.reduce((acc, item) => {
-          return acc + item.price * item.quantity;
-        }, 0);
-        totalPrice.innerHTML = totalPriceSum;
       })
       .catch((error) => UI.alertMessage(error));
   };
@@ -64,7 +60,7 @@ class RequestCart {
       .catch((error) => UI.alertMessage(error));
   };
 
-  static deleteProductFromRequest = function (deleteProductId) {
+  static deleteProductFromRequestCart = function (deleteProductId) {
     const deleteProduct = crudCart.delete(deleteProductId);
     deleteProduct
       .then((response) => {

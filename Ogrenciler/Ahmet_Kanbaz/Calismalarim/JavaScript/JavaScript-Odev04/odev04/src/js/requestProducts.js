@@ -26,6 +26,7 @@ class RequestProducts {
         products.then((response) => UI.createNewProductFromUI(response))
         .catch((error) => UI.alertMessage(error));
         UI.showFilterCategories();
+        location.reload();
       }
     })
   }

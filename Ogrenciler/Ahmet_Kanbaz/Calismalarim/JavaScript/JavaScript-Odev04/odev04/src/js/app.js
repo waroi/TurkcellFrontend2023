@@ -46,8 +46,6 @@ const cartItemCount = document.querySelector('.cartItemCount');
 const buyAllCart = document.getElementById('buyAllCart');
 const deleteAllCart = document.getElementById('deleteAllCart');
 
-const totalPrice = document.querySelector('.totalPrice');
-
 
 addEventListeners();
 
