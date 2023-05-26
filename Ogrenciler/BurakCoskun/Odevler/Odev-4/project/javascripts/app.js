@@ -17,8 +17,8 @@ const buyBtn = document.querySelector(".buyBtn");
 const inputs = document.querySelectorAll(".form-control");
 
 const ui = new UI();
-const request = new Request("http://localhost:4000/products");
-const cartRequest = new Request("http://localhost:4000/cart");
+const request = new Request("http://localhost:3000/products");
+const cartRequest = new Request("http://localhost:3000/cart");
 const cart = new Cart();
 const product = new Product();
 
