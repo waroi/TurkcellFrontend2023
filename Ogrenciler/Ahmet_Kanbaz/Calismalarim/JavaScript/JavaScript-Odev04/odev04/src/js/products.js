@@ -10,23 +10,56 @@ class Products {
   }
 
   static addProduct = function(e) {
-    console.log('Naberrr')
     const id = Date.now();
     const name = modalProductName.value;
     const category = modalProductCategory.value;
     const imageUrl = modalProductImageUrl.value;
-    const price = modalProductPrice.value;
-    const stok = modalProductStok.value;
+    const price = Number(modalProductPrice.value);
+    const stok = Number(modalProductStok.value);
     const productDetail = modalProductDetail.value;
     if (modalProductForm.checkValidity() === false) {
-      console.log('Hello')
       e.preventDefault();
       e.stopPropagation();
     }
-      console.log('Naber')
-      // const product = new Products(id, name, category, imageUrl, price, stok, productDetail);
-      // console.log(product);
-    // modalProductForm.classList.add("was-validated");
+    else {
+      const product = new Products(id, name, category, imageUrl, price, stok, productDetail);
+      RequestProducts.addNewProductToRequest(product);
+    }
+    modalProductForm.classList.add("was-validated");
+    e.preventDefault();
+  }
+
+  static detailProduct = function(e) {
+    if(e.target.classList.contains('fa-eye')) {
+      const detailProductId = e.target.parentElement.parentElement.parentElement.id;
+      RequestProducts.getProductDetailFromRequest(detailProductId);
+    }
+    e.preventDefault();
+  }
+
+  static updateProduct = function(e) {
+    if(e.target.classList.contains('fa-edit')) {
+      const updateProductId = e.target.parentElement.parentElement.parentElement.id;
+      RequestProducts.getUpdateProductDetailFromRequest(updateProductId);
+    }
+    e.preventDefault();
+  }
+
+  static deleteProduct = function(e) {
+    if(e.target.classList.contains('fa-trash')) {
+      const deleteProduct = e.target.parentElement.parentElement.parentElement;
+      if(confirm('Blogu silmek istediğinize emin misiniz?')) {
+        UI.deleteProductFromUI(deleteProduct);
+        RequestProducts.deleteProductFromRequest(deleteProduct.id);
+        UI.toastMessage('Blog Başarılı Bir Şekilde Silindi.');
+      }
+    }
+    e.preventDefault();
+  }
+
+  static showAllProducts4Button = function(e) {
+    UI.clearAllFilters();
+    UI.showAllProductsFromUI();
     e.preventDefault();
   }
 }
