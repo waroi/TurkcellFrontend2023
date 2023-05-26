@@ -3,7 +3,7 @@ const viewList = document.getElementById("viewList");
 class ViewListCard {
   static addProductFromViewListCard(product) {
     viewList.innerHTML += `
-    <div class="card card-product-list mt-3" id="${product.id}">
+    <div class="card card-product-list mt-3 productList-card" id="${product.id}">
                   <div class="row">
                     <div class="col-xl-4 col-md-4">
                       <a
@@ -69,20 +69,20 @@ class ViewListCard {
                           <span class="badge bg-success fs-5">Stok: ${product.stock}</span>
                         </div>
                         <div class="mb-3">
-                          <a type="button" class="btn btn-outline-dark">
+                          <a type="button" class="btn btn-outline-dark basketBtn" id="viewList-basket-button-${product.id}">
                             Sepete Ekle
                           </a>
                           <a
                             href="detail.html"
                             type="button"
-                            class="btn btn-outline-dark mt-3"
+                            class="btn btn-outline-dark mt-3 product-delete-button"
                           >
                             Ürünü Sil
                           </a>
                           <a
                             href="detail1.html"
                             type="button"
-                            class="btn btn-outline-dark mt-3"
+                            class="btn btn-outline-dark mt-3 product-edit-button"
                             data-bs-toggle="modal"
                             data-bs-target="#productModal"
                           >

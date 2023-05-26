@@ -83,8 +83,16 @@
                 </div>
               </li>
               <li class="nav-item ms-3 mt-3 mt-lg-1">
-                <i class="bi bi-cart-check text-light fs-3"></i>
-                <span class="badge bg-success fs-6"> 0 </span>
+                <a
+                  href=""
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasTop"
+                  aria-controls="offcanvasTop"
+                >
+                  <i class="bi bi-cart-check text-light fs-3"></i>
+                  <span class="badge bg-success fs-6" id="basket-total"> 0 </span>
+                </a>
               </li>
             </ul>
           </div>
@@ -186,6 +194,45 @@
       </div>
     </div>
 
+    <!-- Ürünü sepete eklemek için Offcanvas oluşturuldu. -->
+
+    <div
+      class="offcanvas offcanvas-top"
+      tabindex="-1"
+      id="offcanvasTop"
+      aria-labelledby="offcanvasTopLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasTopLabel">Sepetim</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body row" id="basketList">
+
+      </div>
+      <div class="offcanvas-footer">
+        <button
+          type="button"
+          class="btn btn-secondary py-2 px-4"
+          data-bs-dismiss="offcanvas"
+        >
+          Kapat
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary py-2 px-4"
+          id="buyButton"
+          data-bs-dismiss="offcanvas"
+        >
+          Satın Al
+        </button>
+      </div>
+    </div>
+
     <main class="mt-5 p-5" id="main">
       <div class="container">
         <div class="row">
@@ -247,7 +294,7 @@
                 <summary class="card-header category">Sırala</summary>
                 <form class="d-flex" role="search">
                   <select class="form-control" id="sort">
-                    <option value="Sırala">Sırala</option>
+                    <option value="Sırala">Seçiniz</option>
                     <option value="alphabetical-asc">A'dan Z'ye</option>
                     <option value="alphabetical-desc">Z'den A'ya</option>
                     <option value="price-asc">
@@ -356,7 +403,7 @@
           <article class="col-lg-9 products">
             <header class="mb-2">
               <div class="d-flex justify-content-md-between px-5 flex-wrap">
-                <h5 class="fw-bold mt-2">Sonuç: 6 Ürün Bulundu</h5>
+                <h5 class="fw-bold mt-2" id="product-title" >Sonuç: </h5>
                 <!-- search bar -->
                 <form class="form-inline" role="search">
                   <input

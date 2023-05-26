@@ -3,7 +3,7 @@ const viewGridList = document.getElementById("viewGrid");
 class ViewGridCard {
   static addProductFromViewGridCard(product) {
     viewGridList.innerHTML += `
-    <div class="col-lg-4 col-md-6" id="${product.id}">
+    <div class="col-lg-4 col-md-6 productList-card" id="${product.id}">
       <figure class="card card-product-grid">
         <div
           class="position-relative overflow-hidden d-block pt-2 text-center img-wrap"
@@ -54,7 +54,7 @@ class ViewGridCard {
                 elit. Repudiandae, sequi.
               </p>
               <div class="text-center">
-                <a type="button" class="btn btn-outline-dark">
+                <a type="button" class="btn btn-outline-dark basketBtn" id="viewGrid-basket-button-${product.id}">
                   Sepete Ekle
                 </a>
                 <a
