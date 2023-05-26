@@ -1,9 +1,34 @@
 let spesificSearchDatas = [];
 let globalDatas = [];
 let checkBasketItems = [];
+let basketLengthValue = basketLength.innerHTML;
 class UI {
+    getPost() {
+        allTours.innerHTML = ""
+        http
+            .get('http://localhost:3000/tours')
+            .then((data) => {
+                ui.displayAllPosts(data);
+                ui.checkInformationAllPage()
+            })
+            .catch((err) => console.log(err));
+    }
+
+    clearForm() {
+        tourName.value = ""
+        tourDay.value = ""
+        tourFood.value = ""
+        tourTransport.value = ""
+        tourPicture1.value = ""
+        tourPicture2.value = ""
+        tourPicture3.value = ""
+        tourCategory.value = ""
+        tourPrice.value = ""
+        tourDescription.value = ""
+    }
+    //sepet ikonuna tıklandığında ürünleri çekme
     basketMain() {
-        checkBasketItems = [];
+        // checkBasketItems = [];
         http
             .get('http://localhost:3000/basket')
             .then((data) => {
@@ -13,6 +38,7 @@ class UI {
             })
             .catch((err) => console.log(err));
     }
+    //sepet ekranına ürün bastırma
     displayBasketItems(basketItem) {
         basketItem.forEach(b => {
             ourBasketItems.innerHTML += `
@@ -34,52 +60,70 @@ class UI {
     }
     buyItemsAndClear() {
         checkBasketItems.map(e => {
-            http
-                .put(`http://localhost:3000/tours/${e.id}`, {
-                    tourName: e.tourName,
-                    tourDay: e.tourDay,
-                    tourFood: e.tourFood,
-                    tourTransport: e.tourTransport,
-                    tourPicture1: e.tourPicture1,
-                    tourPicture2: e.tourPicture2,
-                    tourPicture3: e.tourPicture3,
-                    tourCategory: e.tourCategory,
-                    tourPrice: e.tourPrice,
-                    tourStock: e.tourStock - basketkisiSayisi.value,
-                    tourDescription: e.tourDescription,
-                })
-                .then((data) => {
-                    data
-                })
-                .catch((err) => console.log(err));
+            setTimeout(() => {
+                http
+                    .put(`http://localhost:3000/tours/${e.id}`, {
+                        tourName: e.tourName,
+                        tourDay: e.tourDay,
+                        tourFood: e.tourFood,
+                        tourTransport: e.tourTransport,
+                        tourPicture1: e.tourPicture1,
+                        tourPicture2: e.tourPicture2,
+                        tourPicture3: e.tourPicture3,
+                        tourCategory: e.tourCategory,
+                        tourPrice: e.tourPrice,
+                        tourStock: e.tourStock - basketkisiSayisi.value,
+                        tourDescription: e.tourDescription,
+                    })
+                    .then((data) => {
+                        ui.getPost()
+                        ourBasketItems.innerHTML = "";
+                        data
+                    })
+                    .catch((err) => console.log(err));
+            }, 300)
         })
     }
     emptyBasket() {
         checkBasketItems.map(e => {
             http
                 .delete(`http://localhost:3000/basket/${e.id}`)
-                .then((data) => {
-                    data
-                })
+                .then((data) => { data; basketLength.innerHTML = 0 })
                 .catch((err) => console.log(err));
         })
     }
 
-    deleteBasketItem(deleteBasketItemBtns) {
-        deleteBasketItemBtns.forEach(e => {
-            e.addEventListener("click", () => {
-                const tempDeleteBaskteItem = e.parentElement.parentElement.id;
-                http
-                    .delete(`http://localhost:3000/basket/${tempDeleteBaskteItem}`)
-                    .then((data) => {
-                        ui.basketMain(data);
-                    })
-                    .catch((err) => console.log(err));
-            })
-        })
+    displayAllPosts(data) {
+        // console.log(data)
+
+        data.forEach((data) => {
+            allTours.innerHTML += this.createTag(data);
+            globalDatas.push(data);
+            // if (data.tourStock == 0) {
+            //     console.log("yok")
+            // } else {
+            //     const shoppingBtns = document.querySelectorAll(".shopping-btn")
+            //     this.shoppingBtn(shoppingBtns)
+            // }
+        });
+
+        this.globalSearch(globalDatas);
+
+        const deleteTourBtns = document.querySelectorAll(".delete-btn");
+        this.deleteBtn(deleteTourBtns);
+        // Her card yapısına edit butonu ekledik
+        const editPostBtns = document.querySelectorAll(".edit-btn");
+        this.editBtn(editPostBtns);
+
+        //Her card'ta bulunan edit butonuyla açılan modalda yer alan save changes butonu
+        const saveChangesBtns = document.querySelectorAll(".saveChanges");
+        this.saveBtn(saveChangesBtns);
+
+        const inspectBtns = document.querySelectorAll(".inspect-btn");
+        this.inspectBtn(inspectBtns);
+        const shoppingBtns = document.querySelectorAll(".shopping-btn")
+        this.shoppingBtn(shoppingBtns)
     }
-
-
     displayOnePost(oneData) {
         //Aramanın özel bir categoride çalışması için dizi oluşturduk verileri attık
         spesificSearchDatas.push(oneData);
@@ -100,9 +144,69 @@ class UI {
         const inspectBtns = document.querySelectorAll(".inspect-btn");
         this.inspectBtn(inspectBtns);
 
-
-
+        const shoppingBtns = document.querySelectorAll(".shopping-btn")
+        this.shoppingBtn(shoppingBtns)
     }
+
+    //Listelenen cardlarda yer alan sepet ikonuna ait fonksiyon
+    shoppingBtn(shoppingBtns) {
+        shoppingBtns.forEach(s => {
+            s.addEventListener("click", () => {
+
+                kisiSayisi.value = 0
+                kontenjan.value = ""
+                const tempShoppingCardID = s.parentElement.parentElement.parentElement.parentElement.id;
+                console.log(tempShoppingCardID)
+                http
+                    .get(`http://localhost:3000/tours/${tempShoppingCardID}`)
+                    .then((data) => {
+                        kisiSayisi.max = data.tourStock;
+                        kontenjan.innerHTML += data.tourStock
+                        this.addBasket(data)
+                    })
+                    .catch((err) => console.log(err));
+            })
+        })
+    }
+    addBasket(dataforBasket) {
+        checkBasketItems = []
+        console.log(dataforBasket.tourStock)
+        const addBasketBtns = document.querySelectorAll(".add-basket");
+        addBasketBtns.forEach(x => {
+            x.addEventListener("click", () => {
+
+                dataforBasket.personCount = kisiSayisi.value
+                console.log(x)
+                http
+                    .post('http://localhost:3000/basket', dataforBasket)
+                    .then(data => {
+                        basketLength.innerHTML = Number(basketLength.innerHTML) + 1
+
+                        data
+                    })
+                    .catch((err) => alert("sepetinizde zaten var lütfen ya onu güncelle ya silip yeniden ekle"));
+            })
+
+        })
+    }
+    deleteBasketItem(deleteBasketItemBtns) {
+        deleteBasketItemBtns.forEach(e => {
+            e.addEventListener("click", () => {
+                ourBasketItems.innerHTML = ""
+                const tempDeleteBaskteItem = e.parentElement.parentElement.id;
+                http
+                    .delete(`http://localhost:3000/basket/${tempDeleteBaskteItem}`)
+                    .then((data) => {
+                        basketLength.innerHTML = Number(basketLength.innerHTML) - 1
+                        ui.getPost()
+                        ui.basketMain(data);
+
+                    })
+                    .catch((err) => console.log(err));
+            })
+        })
+    }
+
 
     //Category'e bağlı arama fonksiyonu
     searchBlog(uniqueBlogs) {
@@ -140,79 +244,10 @@ class UI {
         this.saveBtn(saveChangesBtns);
         const inspectBtns = document.querySelectorAll(".inspect-btn");
         this.inspectBtn(inspectBtns);
-    }
-
-    displayAllPosts(data) {
-        // console.log(data)
-        data.forEach((data) => {
-            allTours.innerHTML += this.createTag(data);
-            globalDatas.push(data);
-        });
-
-        this.globalSearch(globalDatas);
-
-        const deleteTourBtns = document.querySelectorAll(".delete-btn");
-        this.deleteBtn(deleteTourBtns);
-        // Her card yapısına edit butonu ekledik
-        const editPostBtns = document.querySelectorAll(".edit-btn");
-        this.editBtn(editPostBtns);
-
-        //Her card'ta bulunan edit butonuyla açılan modalda yer alan save changes butonu
-        const saveChangesBtns = document.querySelectorAll(".saveChanges");
-        this.saveBtn(saveChangesBtns);
-
-        const inspectBtns = document.querySelectorAll(".inspect-btn");
-        this.inspectBtn(inspectBtns);
-
-
-        // if (e.tourStock == 0) {
-        //     alert("stok yok")
-        // }
-        // else {
-
-        // }
         const shoppingBtns = document.querySelectorAll(".shopping-btn")
         this.shoppingBtn(shoppingBtns)
-    }
-    //Card'da yer alan sepet ikonuna ait fonksiyon
-    shoppingBtn(shoppingBtns) {
-        shoppingBtns.forEach(s => {
-            s.addEventListener("click", () => {
-                kisiSayisi.value = 0
-                kontenjan.value = ""
-                const tempShoppingCardID = s.parentElement.parentElement.parentElement.parentElement.id;
-                console.log(tempShoppingCardID)
-                http
-                    .get(`http://localhost:3000/tours/${tempShoppingCardID}`)
-                    .then((data) => {
-                        kisiSayisi.max = data.tourStock;
-                        kontenjan.innerHTML += data.tourStock
-                        this.addBasket(data)
-                    })
-                    .catch((err) => console.log(err));
-            })
-        })
-    }
-    addBasket(dataforBasket) {
-        console.log(dataforBasket.tourStock)
-
-        const addBasketBtns = document.querySelectorAll(".add-basket");
-        addBasketBtns.forEach(x => {
-            x.addEventListener("click", () => {
-                dataforBasket.personCount = kisiSayisi.value
-                http
-                    .post('http://localhost:3000/basket', dataforBasket)
-                    .then(data => {
-                        data
-                    })
-                    .catch((err) => alert("sepetinizde zaten var lütfen ya onu güncelle ya silip yeniden ekle"));
-            })
-        })
-
-
 
     }
-
 
     globalSearch(globalDatas) {
         spesificSearchDatas = [];
@@ -297,9 +332,11 @@ class UI {
                             updateData
                         )
                         .then((data) => {
+                            ui.getPost()
                             data;
                         })
                         .catch((err) => console.log(err));
+
                 }
             });
         });
@@ -316,6 +353,7 @@ class UI {
                 http
                     .delete(`http://localhost:3000/tours/${selectedPostTempID}`)
                     .then((data) => {
+                        ui.getPost()
                         ui.displayAllPosts(data);
                     })
                     .catch((err) => console.log(err));
@@ -474,25 +512,6 @@ class UI {
             this.displayAllPosts(arr);
         }
     }
-    // displayFilteredAndSortedResult(oneData) {
-    //     console.log("en son combination", oneData);
-    //     allTours.innerHTML = "";
-    //     oneData.forEach((x) => {
-    //         allTours.innerHTML += this.createTag(x);
-    //     });
-    //     spesificSearchDatas = [];
-    //     const deleteTourBtns = document.querySelectorAll(".delete-btn");
-    //     this.deleteBtn(deleteTourBtns);
-    //     //Her card yapısına edit butonu ekledik
-    //     const editPostBtns = document.querySelectorAll(".edit-btn");
-    //     this.editBtn(editPostBtns);
-    //     //Her card'ta bulunan edit butonuyla açılan modalda yer alan save changes butonu
-    //     const saveChangesBtns = document.querySelectorAll(".saveChanges");
-    //     this.saveBtn(saveChangesBtns);
-    //     //Her card'ta bulunan inspect butonuyla açılan modal
-    //     const inspectBtns = document.querySelectorAll(".inspect-btn");
-    //     this.inspectBtn(inspectBtns);
-    // }
 
     globalSortBlogs(sortTypeID) {
         console.log(sortTypeID);
@@ -559,6 +578,9 @@ class UI {
         //Her card'ta bulunan inspect butonuyla açılan modal
         const inspectBtns = document.querySelectorAll(".inspect-btn");
         this.inspectBtn(inspectBtns);
+
+        const shoppingBtns = document.querySelectorAll(".shopping-btn")
+        this.shoppingBtn(shoppingBtns)
     }
 
     createTag(t) {
@@ -581,7 +603,7 @@ class UI {
                 </div>
             </div>
             <div class="card-body  text-start">
-                <h4 class="card-title">${t.tourStock}//${t.tourName}</h4>
+                <h4 class="card-title">${t.tourName} <span class="fs-2">// Son ${t.tourStock} Kişi</span></h4>
                 <ul class="list p-0 mt-2">
                     <li class="list-group-item"><i class="fa-solid fa-clock me-2"></i> ${t.tourDay} Günlük Tur
                     </li>
@@ -624,9 +646,9 @@ class UI {
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                           <div class="d-flex align-item-center">
+                                           <div class="d-flex flex-column align-item-center">
                                                 <label for="kisiSayisi">Kişi Sayısı</label>
-                                                <input type="number" id="kisiSayisi" min="0" max="">
+                                                <input class="form-control" type="number" id="kisiSayisi" min="0" max="">
                                                 <p id="kontenjan">Toplam kontanjan: </p>
                                                 </div>
                                     </div>
@@ -722,21 +744,21 @@ class UI {
                                             
                                                 <div class="row">
                                                     <div class="col-lg-4 text-center">
-                                                        <img src="${t.tourPicture1}" alt="">
+                                                        
                                                         <div>
                                                             <label for="defaultTourPicture1">Img 1 </label>
                                                             <input class="form-control mb-2 fs-2" type="text" id="defaultTourPicture1" disabled>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 text-center">
-                                                        <img src="${t.tourPicture2}" alt="">
+                                                        
                                                         <div>
                                                             <label for="defaultTourPicture2">Img 2 </label>
                                                             <input class="form-control mb-2 fs-2" type="text" id="defaultTourPicture2" disabled>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 text-center">
-                                                        <img src="${t.tourPicture3}" alt="">
+                                                      
                                                         <div>
                                                             <label for="defaultTourPicture3">Img 3</label>
                                                             <input class="form-control mb-2 fs-2" type="text" id="defaultTourPicture3" disabled>
@@ -803,21 +825,21 @@ class UI {
                                             
                                                 <div class="row">
                                                     <div class="col-lg-4 text-center">
-                                                        <img src="${t.tourPicture1}" alt="">
+                                                        
                                                         <div>
                                                             <label for="editTourPicture1">Img 1 </label>
                                                             <input class="form-control mb-2 fs-2" type="text" id="editTourPicture1">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 text-center">
-                                                        <img src="${t.tourPicture2}" alt="">
+                                                     
                                                         <div>
                                                             <label for="editTourPicture2">Img 2 </label>
                                                             <input class="form-control mb-2 fs-2" type="text" id="editTourPicture2">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 text-center">
-                                                        <img src="${t.tourPicture3}" alt="">
+                                                       
                                                         <div>
                                                             <label for="editTourPicture3">Img 3</label>
                                                             <input class="form-control mb-2 fs-2" type="text" id="editTourPicture3">

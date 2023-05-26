@@ -6,29 +6,8 @@ const ui = new UI()
 
 document.addEventListener("DOMContentLoaded", getPosts)
 function getPosts() {
-    http
-        .get('http://localhost:3000/tours')
-        .then((data) => {
-            ui.displayAllPosts(data);
-            ui.checkInformationAllPage()
-
-        })
-        .catch((err) => console.log(err));
-
-    // tourName = ""
-    // tourDay = ""
-    // tourFood = ""
-    // tourTransport = ""
-    // tourPicture1 = ""
-    // tourPicture2 = ""
-    // tourPicture3 = ""
-    // tourCategory = ""
-    // tourPrice = ""
-    // tourDescription = ""
-
+    ui.getPost()
 }
-
-
 
 document.getElementById("addButton").addEventListener("click", addTour)
 function addTour() {
@@ -70,7 +49,7 @@ function addTour() {
         tourCategory == "" ||
         tourPrice == "" ||
         tourStock == "" ||
-        tourDescription == ""
+        tourDescription == "" 
     ) {
         alert("doldur")
         // toastTrigger.addEventListener('click', () => {
@@ -78,16 +57,16 @@ function addTour() {
         // })
     }
     else {
-
+        // allTours.innerHTML = ""
         console.log("başarılı")
         http
             .post('http://localhost:3000/tours', data)
             .then(data => {
-                ui.displayAllPosts(data)
                 getPosts()
-
+                ui.displayAllPosts(data)
             })
             .catch((err) => console.log(err));
+        ui.clearForm()
     }
 }
 

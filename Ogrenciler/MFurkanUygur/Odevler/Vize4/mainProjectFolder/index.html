@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -57,9 +58,10 @@
 
                     </li>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary " id="uniqueBasket" data-bs-toggle="modal"
-                        data-bs-target="#shoppingCartModal">
-                        <i class="fa-solid fa-basket-shopping"></i>
+                    <button type="button" class="btn btn-primary position-relative" id="uniqueBasket"
+                        data-bs-toggle="modal" data-bs-target="#shoppingCartModal">
+                        <i class="fa-solid fa-basket-shopping position-relative "></i>
+                        <div id="basketLength" class="position-absolute top-0 ms-3 text-danger"></div>
                     </button>
                     <!-- Modal -->
                     <div class="modal fade " id="shoppingCartModal" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -72,12 +74,12 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body" id="ourBasketItems">
-                                   
-                                    
+
+
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-warning "
-                                        data-bs-dismiss="modal">İptal</button>
+                                    <button type="button" class="btn btn-warning " data-bs-dismiss="modal">Sepeti
+                                        Kapat</button>
                                     <button type="button" class="btn btn-success buy-all-items">Satın Al</button>
                                 </div>
                             </div>
@@ -358,13 +360,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <h6 class="mb-0 fw-bold fs-2 ">Kategoriler:</h6>
-                    <select id="tourCategories" class="mb-3 form-select py-1 fs-1">
+                <div class="col-lg-3 d-flex align-items-center mb-3">
+                    <h6 class="mb-0 fw-bold fs-2 me-1">Kategoriler:</h6>
+                    <select id="tourCategories" class=" form-select py-1 fs-1">
                     </select>
                 </div>
-                <div class="col-lg-3">
-                    <h6 class="mb-0 fw-bold fs-2 " id="sortCategories">Sıralama:</h6>
+                <div class="col-lg-3 d-flex align-items-center mb-3">
+                    <h6 class="mb-0 fw-bold fs-2  me-1" id="sortCategories">Sıralama:</h6>
                     <select class="form-select py-1 fs-1 " id="sortOptions" aria-label="Sort blogs">
                         <option selected value="Varsayılan" id="Varsayılan">Varsayılan</option>
                         <option value="azSort" id="azSort">A-z (Ad)</option>
@@ -390,7 +392,7 @@
 
 
     <!-- bridge -->
-    <!-- <section class="bridge py-50">
+    <section class="bridge py-50">
         <div class="container py-5 ">
             <div class="row my-auto mx-2 rounded-4">
                 <div class="col-lg-7">
@@ -411,9 +413,9 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!-- product card -->
-    <!-- <section class="product-card py-50">
+    <section class="product-card py-50">
         <div class="container">
             <h2 class=""> En Çok Tercih Edilen <span class="text-danger">fu</span>Turlar</h2>
             <div class="row">
@@ -569,9 +571,9 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!-- Bank Logo -->
-    <!-- <section class="payMoney py-4 pb-50">
+    <section class="payMoney py-4 pb-50">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -610,7 +612,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!-- Footer -->
     <footer class="footer bg-dark pt-50">
         <div class="container">
