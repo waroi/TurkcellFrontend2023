@@ -85,4 +85,20 @@ class Crud {
     const responseData = await response.json();
     return responseData;
   }
+
+  //json serverdaki cart verisinde bulunan quantity güncelleme
+  async patchQuantity(id, newQuantity) {
+    const response = await fetch(`${this.url}/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({quantity: newQuantity}),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    });
+    if(!response.ok) {
+      throw new Error('Bir hatayla karşılaşıldı.');
+    }
+    const responseData = await response.json();
+    return responseData;
+  }
 }

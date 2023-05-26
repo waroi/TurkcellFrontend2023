@@ -41,7 +41,9 @@ const allProductsButton = document.getElementById('allProductsButton');
 
 const cartButton = document.querySelector('.cartButton');
 const cartBody = document.querySelector('.cartBody');
-const cartItemCount = document.getElementById('cartItemCount');
+const cartItemCount = document.querySelector('.cartItemCount');
+
+const buyAllCart = document.getElementById('buyAllCart');
 
 
 addEventListeners();
@@ -62,5 +64,7 @@ function addEventListeners() {
   cartButton.addEventListener('click', RequestCart.showAllCartFromRequest);
   cartBody.addEventListener('click', UICart.increaseStok4Cart);
   cartBody.addEventListener('click', UICart.decreaseStok4Cart);
-  productList.addEventListener('click', Carts.addNewProduct4Cart)
+  productList.addEventListener('click', Carts.addNewProduct4Cart);
+  cartBody.addEventListener('click', Carts.deleteProduct4Cart);
+  buyAllCart.addEventListener('click', Carts.buyAllProductsInCart);
 }

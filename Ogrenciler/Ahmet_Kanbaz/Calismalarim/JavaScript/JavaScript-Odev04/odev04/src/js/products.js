@@ -48,10 +48,10 @@ class Products {
   static deleteProduct = function(e) {
     if(e.target.classList.contains('fa-trash')) {
       const deleteProduct = e.target.parentElement.parentElement.parentElement;
-      if(confirm('Blogu silmek istediğinize emin misiniz?')) {
+      if(confirm('Ürünü silmek istediğinize emin misiniz?')) {
         UI.deleteProductFromUI(deleteProduct);
         RequestProducts.deleteProductFromRequest(deleteProduct.id);
-        UI.toastMessage('Blog Başarılı Bir Şekilde Silindi.');
+        UI.toastMessage('Ürün Başarılı Bir Şekilde Silindi.');
       }
     }
     e.preventDefault();
