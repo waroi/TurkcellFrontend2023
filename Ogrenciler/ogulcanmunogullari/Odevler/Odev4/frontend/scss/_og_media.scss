@@ -1,0 +1,56 @@
+@media screen and (min-width: 992px) {
+ nav,
+ footer {
+  .container {
+   padding: 0 0 !important;
+  }
+ }
+ nav {
+  #navbarMobile {
+   display: none !important;
+  }
+  .navbar-toggler {
+   display: none !important;
+  }
+  #navbarPc {
+   display: flex !important;
+  }
+  .pc-link {
+   border: 1px solid $primary;
+   padding: 8px 16px;
+   min-width: 150px;
+   transition: all 0.3s ease;
+  }
+  .pc-link:hover {
+   @include border-bgcolor(1px, $dark, #fff);
+  }
+ }
+ #side-a {
+  max-height: 391px !important;
+  position: relative;
+  overflow: hidden;
+ }
+ #helper {
+  right: 20px;
+  bottom: 20px;
+ }
+ .card {
+  cursor: pointer;
+  &:hover {
+   box-shadow: 0 0 10px 0 #3c486b50;
+  }
+ }
+}
+@media screen and (min-width: 1200px) {
+ #side-a {
+  max-height: 464px !important;
+ }
+ .card {
+  h5 {
+   @include line-clamp(3);
+  }
+ }
+ .hakkimizda-parag {
+  font-size: 18px !important;
+ }
+}

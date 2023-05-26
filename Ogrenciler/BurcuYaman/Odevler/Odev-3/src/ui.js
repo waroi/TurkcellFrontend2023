@@ -212,6 +212,7 @@ class UI {
     })
 
   };
+
   sortPost(sortedPosts) {
     const postList = document.getElementById("post-list");
     postList.innerHTML = "";

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="tr">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OG - HP Victus 16</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link
+   rel="icon"
+   type="image/x-icon"
+   href="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2f/OG_Logo.png/260px-OG_Logo.png" />
+  <link
+   rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+  <script src="../controller/productPage.js" type="module" defer></script>
+ </head>
+ <body id="anchor-top">
+  <nav class="navbar navbar-expand-lg bg-light py-16 sticky-top">
+   <div class="container">
+    <a class="navbar-brand d-lg-none" href="../index.html">
+     <img
+      src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2f/OG_Logo.png/260px-OG_Logo.png"
+      alt="logo" />
+    </a>
+    <button
+     class="navbar-toggler"
+     type="button"
+     data-bs-toggle="collapse"
+     data-bs-target="#navbarMobile"
+     aria-controls="navbarMobile"
+     aria-expanded="false"
+     aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse py-16" id="navbarMobile">
+     <ul class="navbar-nav ms-auto gap-16">
+      <li class="nav-item">
+       <a class="nav-link fs-3" href="./admin.html">Admin Panel</a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link fs-3" href="./cart.html"
+        ><i class="bi bi-cart"></i> Sepet
+        <span class="badge bg-secondary"></span
+       ></a>
+      </li>
+
+      <li class="nav-item">
+       <a class="nav-link fs-3" href="./404.html">Bilgisayar Parçaları</a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link fs-3" href="./404.html">Hazır Kasalar</a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link fs-3" href="./category.html">Laptop #</a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link fs-3" href="./404.html">Oyunculara Özel</a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link fs-3" href="./404.html">Kampanyalar</a>
+      </li>
+     </ul>
+    </div>
+    <div class="row flex-column flex-fill fs-2" id="navbarPc">
+     <div class="d-flex justify-content-between">
+      <a class="navbar-brand" href="../index.html">
+       <img
+        src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2f/OG_Logo.png/260px-OG_Logo.png"
+        alt="logo" />
+      </a>
+
+      <ul class="d-flex justify-content-between align-items-center gap-32">
+       <li class="nav-item">
+        <a class="nav-link" href="./admin.html">Admin Panel</a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="./cart.html"
+         ><i class="bi bi-cart"></i> Sepet
+         <span class="badge bg-secondary"></span
+        ></a>
+       </li>
+      </ul>
+     </div>
+     <ul class="navbar-nav justify-content-between mt-16">
+      <li class="nav-item">
+       <a class="nav-link pc-link rounded-3 text-center" href="./404.html"
+        >Bilgisayar Parçaları</a
+       >
+      </li>
+      <li class="nav-item">
+       <a class="nav-link pc-link rounded-3 text-center" href="./404.html"
+        >Hazır Kasalar</a
+       >
+      </li>
+      <li class="nav-item">
+       <a class="nav-link pc-link rounded-3 text-center" href="./category.html"
+        >Laptop #</a
+       >
+      </li>
+      <li class="nav-item">
+       <a class="nav-link pc-link rounded-3 text-center" href="./404.html"
+        >Oyunculara Özel</a
+       >
+      </li>
+      <li class="nav-item">
+       <a class="nav-link pc-link rounded-3 text-center" href="./404.html"
+        >Kampanyalar</a
+       >
+      </li>
+     </ul>
+    </div>
+   </div>
+  </nav>
+  <main class="">
+   <div class="container">
+    <section aria-label="breadcrumb" class="col-6 col-lg-10 gx-16">
+     <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="./category.html">Kategoriler</a></li>
+      <li class="breadcrumb-item" aria-current="page">Laptop</li>
+      <li class="breadcrumb-item" aria-current="page" id="breadCrumbBrand"></li>
+      <li
+       class="breadcrumb-item active"
+       aria-current="page"
+       id="breadCrumbSubTitle"></li>
+     </ol>
+    </section>
+    <div class="row px-lg-0 px-16 py-64" id="productDIV"></div>
+   </div>
+  </main>
+  <div
+   id="helper"
+   class="position-fixed d-flex align-items-center justify-content-center rounded-circle bg-warning">
+   <a href="./contact.html"><i class="bi bi-info-circle-fill"></i></a>
+  </div>
+  <footer class="bg-light py-64">
+   <div class="container">
+    <div class="row">
+     <div class="col-12 col-lg-4 border-start border-primary ps-32">
+      <h4 class="fs-4 mt-16">Bizden Bilgiler</h4>
+      <ul class="fs-3 mt-16 d-flex flex-column gap-16">
+       <li><a href="./404.html">Kariyer</a></li>
+       <li><a href="./404.html">Blog</a></li>
+       <li><a href="./about.html">Hakkımızda #</a></li>
+      </ul>
+     </div>
+     <div class="col-12 col-lg-4 border-start border-primary ps-32">
+      <h4 class="fs-4 mt-16">Ödeme Sistemleri</h4>
+      <ul class="fs-3 mt-16 d-flex flex-column gap-16">
+       <li><a href="./faq.html">S.S.S #</a></li>
+       <li><a href="./404.html">O.G. Kart Edinin</a></li>
+       <li><a href="./404.html">Dolar Kuru Hesaplama</a></li>
+      </ul>
+     </div>
+     <div class="col-12 col-lg-4 border-start border-primary ps-32">
+      <h4 class="fs-4 mt-16">Sana Yardım Edelim</h4>
+      <ul class="fs-3 mt-16 d-flex flex-column gap-16">
+       <li><a href="./404.html">Covid 19</a></li>
+       <li><a href="./contact.html">İletişim #</a></li>
+       <li><a href="./404.html">Hesabım</a></li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ </body>
+</html>

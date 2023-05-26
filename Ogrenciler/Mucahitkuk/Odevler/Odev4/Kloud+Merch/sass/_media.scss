@@ -1,0 +1,156 @@
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+  #category-list {
+    padding: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+  #category-list {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+
+@media (min-width: 1620px) {
+  .top-menu .container {
+    max-width: 1620px;
+  }
+  .main-menu .container {
+    max-width: 1620px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-menu {
+    display: none;
+  }
+  .beginner-section1 .container {
+    top: 15em;
+  }
+  .beginner-section1 .container p {
+    display: none;
+  }
+  .pro-section2 .card-content {
+    padding: 0;
+  }
+  .store-section2 {
+    .card {
+      width: 100% !important;
+      height: 100% !important;
+      position: relative;
+      margin: 0 !important;
+      margin-top: 15px !important;
+    }
+    .pb-3 {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+      .d-inline {
+        margin-top: 1rem;
+        input {
+          width: 100% !important;
+        }
+        i {
+          top: 5px;
+        }
+      }
+      #sort-select {
+        width: 100% !important;
+        margin-top: 1rem;
+      }
+      #add-button {
+        margin-top: 1rem;
+        width: 100%;
+      }
+    }
+  }
+}
+@media (max-width: 992px) {
+  .home-section1 .container video {
+    top: 80px;
+  }
+  .beginner-section4 .text-wrapper {
+    margin-bottom: 2rem;
+  }
+  .variety-section1 .container {
+    top: 15em;
+  }
+  .pro-section2 .details {
+    margin-top: 2rem;
+  }
+  .ourteam-section4 {
+    h3 {
+      margin-top: 2rem;
+    }
+    button {
+      width: 240px !important;
+    }
+  }
+  .store-section2 {
+    .card {
+      width: 100% !important;
+      height: 100% !important;
+      position: relative;
+      margin: 0 !important;
+      margin-top: 15px !important;
+    }
+    #add-button {
+      width: 23.3%;
+    }
+  }
+}
+@media (max-width: 568px) {
+}
+@media (max-width: 1200px) {
+  .beginner-section4 .text-wrapper {
+    padding: 1rem;
+  }
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.video-background {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+
+  iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+
+    @media (min-aspect-ratio: 16/9) {
+      height: 56.25vw;
+    }
+
+    @media (max-aspect-ratio: 16/9) {
+      width: 177.78vh;
+    }
+  }
+}
