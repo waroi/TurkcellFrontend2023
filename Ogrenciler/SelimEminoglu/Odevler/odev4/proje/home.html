@@ -136,58 +136,70 @@
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">
                   Ürün Ekle
                 </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
               </div>
               <div class="modal-body">
-                <h2>Ürün Özellikleri</h2>
-                <form class="blog-form mt-3" id="form">
-                  <label for="blogName" class="w-100 fs-5 my-1"
+                <h4 class="fs-5">Ürün Özellikleri</h4>
+                <form class="product-form mt-3" id="form">
+                  <label for="productName" class="w-100 fs-5 my-1"
                     >Ürün Adı:</label
                   >
-                  <input type="text" id="blogName" required class="w-100" />
-                  <label for="blogAuthorPicture" class="w-100 fs-5 my-1"
+                  <input type="text" id="productName" required class="w-100" />
+                  <label for="productPrice" class="w-100 fs-5 my-1"
+                    >Ürün Fiyatı:</label
+                  >
+                  <input
+                    type="number"
+                    id="productPrice"
+                    required
+                    class="w-100"
+                  />
+                  <label for="productİmage" class="w-100 fs-5 my-1"
                     >Ürün Resmi:</label
                   >
-                  <input type="text" id="blogAuthorPicture" class="w-100" />
+                  <input type="text" id="productİmage" class="w-100" />
 
-                  <label for="blogAuthorPicture" class="w-100 fs-5 my-1"
+                  <label for="productCount" class="w-100 fs-5 my-1"
                     >Ürün Adedi:</label
                   >
-                  <input type="text" id="blogAuthorPicture" class="w-100" />
+                  <input type="number" id="productCount" class="w-100" />
 
-                  <label for="blogCategory" class="w-100 fs-5 my-1"
+                  <label for="productCategory" class="w-100 fs-5 my-1"
                     >Kategorisi:</label
                   >
-                  <input type="text" id="blogCategory" required class="w-100" />
-                  <label for="blogType" class="w-100 fs-5 my-1"
+                  <input
+                    type="text"
+                    id="productCategory"
+                    required
+                    class="w-100"
+                  />
+                  <label for="productType" class="w-100 fs-5 my-1"
                     >Ürün Detayı:</label
                   >
                   <textarea
                     rows="5"
                     cols="60"
-                    id="blogType"
-                    name="bookUrl"
+                    id="productType"
+                    name="product-type"
                     required
                     maxlength="3500"
                   >
                   </textarea>
+                  <button
+                    type="submit"
+                    class="modal-button bg-primary text-white"
+                    id="addProduct"
+                  >
+                    Ürün Ekle
+                  </button>
                 </form>
               </div>
               <div class="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  class="modal-button bg-primary text-white"
                   data-bs-dismiss="modal"
                 >
                   Kapat
-                </button>
-                <button type="button" class="btn btn-primary" id="addProduct">
-                  Ürün Ekle
                 </button>
               </div>
             </div>
