@@ -79,7 +79,7 @@
                 </button>
               </form>
               <div class="basket-div ms-3">
-                <button id="basketBtn" class="basket-button bg-transparent">
+                <button id="basketBtn" class="basket-button bg-transparent" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBasket" aria-controls="offcanvasBasket">
                   <div class="basket-count">0</div>
                   <i class="fa-solid fa-basket-shopping"></i>
                 </button>
@@ -108,6 +108,9 @@
 
             <select name="product-sorter" id="sorter">
               <option selected>Belirtilmemiş</option>
+              <option value="AtoZ">A'dan Z'ye</option>
+              <option value="ZtoA">Z'den A'ya</option>
+              <option value="price">Fiyata Göre(Artan)</option>
             </select>
           </div>
           <div class="col-4 product-item d-flex flex-wrap align-content-center">
@@ -208,6 +211,93 @@
         <!-- Modal -->
         <div
           class="modal fade"
+          id="updateProductModal"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+          >
+            <div class="modal-content modal-shape">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                  Ürün Güncelle
+                </h1>
+              </div>
+              <div class="modal-body">
+                <h4 class="fs-5">Ürün Özellikleri</h4>
+                <form class="product-form-update mt-3" id="form">
+                  <label for="productNameUpdate" class="w-100 fs-5 my-1"
+                    >Ürün Adı:</label
+                  >
+                  <input type="text" id="productNameUpdate" required class="w-100" />
+                  <label for="productPriceUpdate" class="w-100 fs-5 my-1"
+                    >Ürün Fiyatı:</label
+                  >
+                  <input
+                    type="number"
+                    id="productPriceUpdate"
+                    required
+                    class="w-100"
+                  />
+                  <label for="productİmageUpdate" class="w-100 fs-5 my-1"
+                    >Ürün Resmi:</label
+                  >
+                  <input type="text" id="productİmageUpdate" class="w-100" />
+
+                  <label for="productCountUpdate" class="w-100 fs-5 my-1"
+                    >Ürün Adedi:</label
+                  >
+                  <input type="number" id="productCountUpdate" class="w-100" />
+
+                  <label for="productCategoryUpdate" class="w-100 fs-5 my-1"
+                    >Kategorisi:</label
+                  >
+                  <input
+                    type="text"
+                    id="productCategoryUpdate"
+                    required
+                    class="w-100"
+                  />
+                  <label for="productTypeUpdate" class="w-100 fs-5 my-1"
+                    >Ürün Detayı:</label
+                  >
+                  <textarea
+                    rows="5"
+                    cols="60"
+                    id="productTypeUpdate"
+                    name="product-type-update"
+                    required
+                    maxlength="3500"
+                  >
+                  </textarea>
+                  <button
+                    type="button"
+                    class="modal-button bg-secondary text-white"
+                    id="updateProduct"
+                  >
+                    Ürün Güncelle
+                  </button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="modal-button bg-secondary text-white"
+                  data-bs-dismiss="modal"
+                >
+                  Kapat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
           id="showİnfoModal"
           tabindex="-1"
           aria-labelledby="showİnfoModalLabel"
@@ -235,6 +325,18 @@
                   Kapat
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+        <!-- offcanvas -->
+        <div class="offcanvas offcanvas-start bg-black text-white" tabindex="-1" id="offcanvasBasket" aria-labelledby="offcanvasBasketLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasBasketLabel">Sepetim</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <div>
+              Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
             </div>
           </div>
         </div>

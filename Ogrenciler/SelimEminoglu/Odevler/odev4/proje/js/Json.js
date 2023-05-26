@@ -38,4 +38,17 @@ class Json {
         .catch((err) => reject(err));
     });
   }
+
+  static putProducts(url, data) {
+    return new Promise((resolve, reject) => {
+      fetch(url, {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: { "content-type": "application/json; charset=UTF-8" },
+      })
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+  }
 }

@@ -1,3 +1,6 @@
+const updateModal = document.getElementById("updateProductModal");
+const productDescriptionUpdate = document.getElementById("productTypeUpdate");
+
 class UI {
   static showProducts(products) {
     products.map((product) => {
@@ -20,7 +23,8 @@ class UI {
                 <div class="row gap-1 justify-content-around">
                     <button class="card-button bg-primary p-2" data-bs-toggle="modal"
                     data-bs-target="#showİnfoModal">Detay Göster</button>
-                    <button class="card-button bg-success p-2">
+                    <button class="card-button bg-success p-2" data-bs-toggle="modal"
+                    data-bs-target="#updateProductModal">
                     Ürünü Güncelle
                   </button>
                     <button class="card-button bg-danger p-2">
@@ -52,14 +56,39 @@ class UI {
           }
         );
 
-        console.log(
-          child.childNodes[1].childNodes[3].childNodes[11].childNodes[5]
+        child.childNodes[1].childNodes[3].childNodes[11].childNodes[3].addEventListener(
+          "click",
+          () => {
+            Json.getProducts().then((response) => {
+              response.map((item) => {
+                if (item.id == child.id) {
+                  updateModal.children[0].id = child.id;
+                  productCategoryUpdate.value = item.category;
+                  productCountUpdate.value = item.count;
+                  productNameUpdate.value = item.name;
+                  productPriceUpdate.value = item.price;
+                  productİmageUpdate.value = item.image;
+                  productDescriptionUpdate.value = item.description;
+                }
+              });
+            });
+          }
         );
 
         child.childNodes[1].childNodes[3].childNodes[11].childNodes[5].addEventListener(
           "click",
           () => {
-            Json.deleteProducts("http://localhost:3000/products/" + child.id);
+            Json.deleteProducts(
+              "http://localhost:3000/products/" + child.id
+            ).then(() => {
+              while (productList.firstChild) {
+                productList.removeChild(productList.lastChild);
+              }
+              console.log("silindi");
+              Json.getProducts().then((products) => {
+                this.showProducts(products);
+              });
+            });
           }
         );
       }
