@@ -36,8 +36,8 @@ class UI {
           <span class="card-text fst-italic opacity-75">${product.category}</span>
           <p class="card-text text-truncate my-1">${product.productDetail}</p>
           <div class="d-flex justify-content-around">
-            <span class="fs-5">${product.stok} adet</span>
-            <span class="fs-4">${product.price} ₺</span></div>
+            <span class="fs-6">${product.stok} adet</span>
+            <span class="fs-6">${product.price} ₺</span></div>
         </div>
         <div class = "d-flex justify-content-evenly align-items-center icons">
           <span class="px-3 pb-2 rounded fa-solid fa-edit" data-bs-toggle="modal" data-bs-target="#addAndUpdateProductModal"></span>

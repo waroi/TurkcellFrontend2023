@@ -34,7 +34,7 @@ class RequestCart {
             })
             .catch((error) => {
               UI.toastMessage(
-                "Ürün sepetinizde zaten var. Ürün adedi sayısı arttırıldı."
+                "Ürün sepetinizde zaten var. Ürünün adet sayısı arttırıldı."
               );
               const cartItems = crudCart.get();
               cartItems.then((item) => {

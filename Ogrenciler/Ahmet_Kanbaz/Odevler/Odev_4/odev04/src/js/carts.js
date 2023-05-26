@@ -32,9 +32,7 @@ class Carts {
         );
         if (confirmation) {
           items.forEach((item) => {
-            const cartDeleteProduct = document.getElementById(item.id);
-            UICart.deleteProductFromUI(cartDeleteProduct);
-            RequestCart.deleteProductFromRequestCart(item.id);
+            Carts.deleteProductsinCart(item);
 
             const product = crudProducts.getSingleProduct(item.id);
             product.then((response) => {
@@ -66,9 +64,7 @@ class Carts {
         );
         if (confirmation) {
           items.forEach((item) => {
-            const cartDeleteProduct = document.getElementById(item.id);
-            UICart.deleteProductFromUI(cartDeleteProduct);
-            RequestCart.deleteProductFromRequestCart(item.id);
+            Carts.deleteProductsinCart(item);
           });
         }
       }
@@ -80,4 +76,10 @@ class Carts {
     });
     e.preventDefault();
   };
+
+  static deleteProductsinCart = function(item) {
+    const cartDeleteProduct = document.getElementById(item.id);
+    UICart.deleteProductFromUI(cartDeleteProduct);
+    RequestCart.deleteProductFromRequestCart(item.id);
+  }
 }
