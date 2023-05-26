@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pear</title>
+		<link rel="icon" type="image/x-icon" href="./assets/img/pear-logo.png" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+		<link rel="stylesheet" href="./css/main.css" />
+	</head>
+	<body>
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-around sticky-top">
+			<div class="container-fluid">
+				<a class="navbar-brand m-0 d-lg-none" href="#">
+					<img class="w-100" src="./assets/img/pear-logo.png" alt="" />
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-around nav-list" id="navbarNav">
+					<ul class="navbar-nav mx-auto align-content-center d-flex">
+						<li class="nav-item d-none d-lg-block">
+							<a class="nav-link" aria-current="page" href="#">
+								<img src="./assets/img/pear-logo.png" alt="" />
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="./index.html">Mağaza</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./views/phone.html">üPhone</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./views/phone-ult.html">üPhone Pro</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./views/band.html">Band</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./views/404.html">Mek</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./views/404.html">üPad</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./views/404.html">PearPods</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./views/404.html">Aksesuarlar</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./views/about-us.html">Hakkımızda</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./views/faq.html">S.S.S.</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./views/sitemap.xml">Site Haritası</a>
+						</li>
+						<li class="nav-item">
+							<div class="dropdown">
+								<a class="nav-link" href="#" data-bs-toggle="dropdown">
+									<i class="bi bi-person-fill fs-5"></i>
+								</a>
+								<ul class="dropdown-menu">
+									<li>
+										<button
+											type="button"
+											class="btn"
+											data-bs-toggle="modal"
+											data-bs-target="#createProductModal"
+											id="newProduct"
+										>
+											<i class="bi bi-file-earmark-plus text-success me-2 fs-5"></i>
+											Yeni Ürün
+										</button>
+									</li>
+									<li>
+										<button type="button" class="btn">
+											<i class="bi bi-person-vcard me-2 fs-5"></i>
+											Hesabım
+										</button>
+									</li>
+									<li>
+										<button type="button" class="btn">
+											<i class="bi bi-box-arrow-right text-danger me-2 fs-5"></i>
+											Çıkış Yap
+										</button>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="modal" data-bs-target="#basketModal" id="basketBtn">
+								<i class="bi bi-bag text-white"></i>
+								<span class="position-absolute translate-middle badge rounded-pill bg-danger" id="basketCounter"></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- üPhone14 -->
+		<a class="text-decoration-none text-dark" href="./views/phone.html">
+			<section class="phone py-5" id="phones">
+				<div class="container">
+					<div class="row text-center">
+						<div class="col-12"><h1>üPhone 14</h1></div>
+						<div class="col-12">
+							<p class="fs-4">
+								Pil ömrü her zamanki gibi, iki yılda bir bitiyor. Ayrıca bu sene harika bir yeni rengimiz var
+								<br />
+								<strong class="text-warning">Saman Sarısı</strong>
+							</p>
+							<span class="text-center">
+								<a href="./views/phone.html" class="mx-3 text-black">
+									Daha fazla bilgi
+									<i class="bi bi-chevron-right"></i>
+								</a>
+								<a href="" class="mx-3 text-black" data-bs-toggle="modal" data-bs-target="#exampleModal">
+									Satın alın
+									<i class="bi bi-chevron-right"></i>
+								</a>
+								<div
+									class="modal fade"
+									id="exampleModal"
+									tabindex="-1"
+									aria-labelledby="exampleModalLabel"
+									aria-hidden="true"
+								>
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h1 class="modal-title fs-5" id="exampleModalLabel">Satın alma gerçekleştirilemiyor...</h1>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body text-start">
+												Üzgünüz. Satın alma işlemi bulunduğunuz bölgede şu an gerçekleştirilememektedir.
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</span>
+						</div>
+					</div>
+				</div>
+			</section>
+		</a>
+
+		<!-- üPhone14 ultimate -->
+		<section class="phones-ult py-5 bg-black text-white" id="phones">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-12"><h1>üPhone 14 Ultimate</h1></div>
+					<div class="col-12">
+						<p class="fs-4">Statik kıta, paslanmaz sınıfı cerrahi çelik</p>
+						<span class="text-center">
+							<a href="./views/phone-ult.html" class="mx-3 text-white-50">
+								Daha fazla bilgi
+								<i class="bi bi-chevron-right"></i>
+							</a>
+							<a href="" class="mx-3 text-white-50" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								Satın alın
+								<i class="bi bi-chevron-right"></i>
+							</a>
+							<div
+								class="modal fade"
+								id="exampleModal"
+								tabindex="-1"
+								aria-labelledby="exampleModalLabel"
+								aria-hidden="true"
+							>
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h1 class="modal-title fs-5" id="exampleModalLabel">Satın alma gerçekleştirilemiyor...</h1>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body text-start">
+											Üzgünüz. Satın alma işlemi bulunduğunuz bölgede şu an gerçekleştirilememektedir.
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- filter area -->
+		<section class="filter-area">
+			<div class="container mt-3">
+				<div class="row">
+					<div class="col-10 col-lg-8 mx-auto my-5">
+						<input
+							type="text"
+							class="w-100 searchArea"
+							id="searchProduct"
+							placeholder="Muhteşem Pear ürünlerimizi arayın..."
+						/>
+					</div>
+					<div class="col-12 px-3">
+						<div class="filtersWrapper">
+							<!-- ACORDION -->
+							<div class="accordion" id="accordionPanelsStayOpenExample">
+								<div class="row justify-content-center">
+									<div class="accordion-item col-6 col-lg-4">
+										<h2 class="accordion-header">
+											<button
+												class="accordion-button collapsed"
+												type="button"
+												data-bs-toggle="collapse"
+												data-bs-target="#panelsStayOpen-collapseOne"
+												aria-expanded="true"
+												aria-controls="panelsStayOpen-collapseOne"
+											>
+												Kategori
+											</button>
+										</h2>
+										<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+											<div class="accordion-body">
+												<div class="col-12" id="categoryFilters"></div>
+											</div>
+										</div>
+									</div>
+									<div class="accordion-item col-12 col-lg-4">
+										<h2 class="accordion-header">
+											<button
+												class="accordion-button collapsed"
+												type="button"
+												data-bs-toggle="collapse"
+												data-bs-target="#panelsStayOpen-collapseThree"
+												aria-expanded="false"
+												aria-controls="panelsStayOpen-collapseThree"
+											>
+												Sırala
+											</button>
+										</h2>
+										<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+											<div class="accordion-body">
+												<ul class="list-unstyled">
+													<li>
+														<input type="radio" name="sort" value="sortDefault" id="sortDefault" checked />
+														<label for="radio">Varsayılan</label>
+													</li>
+													<li>
+														<input type="radio" name="sort" value="sortAsc" id="sortAsc" />
+														<label for="radio">Alfabetik: A-Z</label>
+													</li>
+													<li>
+														<input type="radio" name="sort" value="sortDesc" id="sortDesc" />
+														<label for="radio">Alfabetik: Z-A</label>
+													</li>
+													<li>
+														<input type="radio" name="sort" value="sortPriceAsc" id="sortPriceAsc" />
+														<label for="radio">Fiyata Göre: Artan</label>
+													</li>
+													<li>
+														<input type="radio" name="sort" value="sortPriceDesc" id="sortPriceDesc" />
+														<label for="radio">Fiyata Göre: Azalan</label>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- product-list -->
+		<section class="product-list py-5">
+			<div class="container">
+				<div class="row">
+					<div class="row g-3 mx-auto" id="productContainerWrapper"></div>
+					<div class="mx-auto text-center fw-bold d-none" id="noProductFound">
+						<h3 class="text-danger mt-3">Böyle bir ürünü henüz üretmedik.</h3>
+					</div>
+				</div>
+				<!-- <div class="row justify-content-around">
+					OLD PRODUCTS
+					<div class="col-8 col-lg-4 mb-3">
+						<div class="card">
+							<img src="./assets/img/phone-14.png" class="card-img-top bg-dark" alt="..." />
+							<div class="card-body">
+								<h5 class="card-title text-center my-3">üPhone 14</h5>
+								<p class="card-text">
+									Son çıkan modelimizin alt versiyonu. Eski modele göre bazı değişiklikler olabilir.
+									<br />
+									<span class="fs-6">(Pear değişiklik yapmama hakkını saklı tutar.)</span>
+								</p>
+								<a href="./views/phone.html" class="btn btn-close-white-50 mt-3 border border-2 text-bg-dark">
+									Daha fazlası...
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-8 col-lg-4 mb-3">
+						<div class="card">
+							<img src="./assets/img/phone-14-pro.png" class="card-img-top bg-dark" alt="..." />
+							<div class="card-body">
+								<h5 class="card-title text-center my-3">üPhone 14 Ultimate</h5>
+								<p class="card-text">
+									Fazla söze gerek yok... Artık şarjınız daha çabuk bitecek, çünkü yeni geliştirdiğimiz teknoloji ile
+									ekranı kapatsanız bile kapanmayacak :)
+								</p>
+								<a href="./views/phone-ult.html" class="btn btn-close-white-50 mt-3 border border-2 text-bg-dark">
+									Daha fazlası...
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-8 col-lg-4 mb-3">
+						<div class="card">
+							<img src="./assets/img/band.png" class="card-img-top bg-dark" alt="..." />
+							<div class="card-body">
+								<h5 class="card-title text-center my-3">Band</h5>
+								<p class="card-text">
+									Evet biliyoruz köklü bir değişikliğe gidip nostalji saatleri geri getirdik. Yakında droidlerde bu
+									konseptte yeni bir ürün çıkartabilir.
+								</p>
+								<a href="./views/band.html" class="btn btn-close-white-50 mt-3 border border-2 text-bg-dark">
+									Daha fazlası...
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-8 col-lg-4 mb-3">
+						<div class="card">
+							<img src="./assets/img/pad.png" class="card-img-top bg-dark" alt="..." />
+							<div class="card-body">
+								<h5 class="card-title text-center my-3">üPad</h5>
+								<p class="card-text">
+									Geri dönüşleriniz doğrultusunda bu ürünümüzü
+									<strong>Pear Mühendisleri</strong>
+									geliştirmeye devam ediyor. Lütfen takip edin.
+								</p>
+								<a href="./views/404.html" class="btn btn-close-white-50 mt-3 border border-2 text-bg-dark disabled">
+									Geliştiriliyor...
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-8 col-lg-4 mb-3">
+						<div class="card">
+							<img src="./assets/img/pear-pods.png" class="card-img-top bg-dark" alt="..." />
+							<div class="card-body">
+								<h5 class="card-title text-center my-3">PearPods</h5>
+								<p class="card-text">
+									Geri dönüşleriniz doğrultusunda bu ürünümüzü
+									<strong>Pear Mühendisleri</strong>
+									geliştirmeye devam ediyor. Lütfen takip edin.
+								</p>
+								<a href="./views/404.html" class="btn btn-close-white-50 mt-3 border border-2 text-bg-dark disabled">
+									Geliştiriliyor...
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-8 col-lg-4 mb-3">
+						<div class="card">
+							<img src="./assets/img/pearbook.png" class="card-img-top bg-dark" alt="..." />
+							<div class="card-body">
+								<h5 class="card-title text-center my-3">Mek</h5>
+								<p class="card-text">
+									Geri dönüşleriniz doğrultusunda bu ürünümüzü
+									<strong>Pear Mühendisleri</strong>
+									geliştirmeye devam ediyor. Lütfen takip edin.
+								</p>
+								<a href="./views/404.html" class="btn btn-close-white-50 mt-3 border border-2 text-bg-dark disabled">
+									Geliştiriliyor...
+								</a>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</section>
+
+		<!-- compare -->
+		<section class="compare bg-secondary py-5">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-12"><h3 class="text-white-50">Karşılaştırmak istediğiniz ürünü seçin...</h3></div>
+					<div class="col-6 my-3">
+						<div class="dropdown">
+							<button
+								class="btn btn-white dropdown-toggle border border-2 text-white"
+								type="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Ürün Seçin
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="./views/phone.html">üPhone 14</a></li>
+								<li><a class="dropdown-item">üPhone 14 Plus</a></li>
+								<li><a class="dropdown-item">üPhone 14 Ultimate</a></li>
+								<li><a class="dropdown-item">üPhone 14 Essansials</a></li>
+								<li><a class="dropdown-item">üPhone 14 Professional</a></li>
+								<li><a class="dropdown-item">üPhone 14 Home Edition</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-6 my-3">
+						<div class="dropdown">
+							<button
+								class="btn btn-white dropdown-toggle border border-2 text-white"
+								type="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Ürün Seçin
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item">üPhone 13</a></li>
+								<li><a class="dropdown-item">üPhone 13 Mini</a></li>
+								<li><a class="dropdown-item">üPhone 13 Education</a></li>
+								<li><a class="dropdown-item">üPhone 13 Home Basic</a></li>
+								<li><a class="dropdown-item">üPhone 13 Service Pack 13</a></li>
+								<li><a class="dropdown-item">üPhone 13 Second Edition</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- stores -->
+		<section class="stores py-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 crsl">
+						<div id="carouselExampleCaptions" class="carousel slide">
+							<div class="carousel-indicators">
+								<button
+									type="button"
+									data-bs-target="#carouselExampleCaptions"
+									data-bs-slide-to="0"
+									class="active"
+									aria-current="true"
+									aria-label="Slide 1"
+								></button>
+								<button
+									type="button"
+									data-bs-target="#carouselExampleCaptions"
+									data-bs-slide-to="1"
+									aria-label="Slide 2"
+								></button>
+								<button
+									type="button"
+									data-bs-target="#carouselExampleCaptions"
+									data-bs-slide-to="2"
+									aria-label="Slide 3"
+								></button>
+							</div>
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+									<img src="./assets/img/stores/newyork.webp" class="d-block w-100" alt="..." />
+									<div class="carousel-caption d-none d-md-block text-white">
+										<h5>New York</h5>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<img src="./assets/img/stores/berlin.webp" class="d-block w-100" alt="..." />
+									<div class="carousel-caption d-none d-md-block">
+										<h5>Berlin</h5>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<img src="./assets/img/stores/paris.webp" class="d-block w-100" alt="..." />
+									<div class="carousel-caption d-none d-md-block">
+										<h5>Paris</h5>
+									</div>
+								</div>
+							</div>
+							<button
+								class="carousel-control-prev"
+								type="button"
+								data-bs-target="#carouselExampleCaptions"
+								data-bs-slide="prev"
+							>
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Previous</span>
+							</button>
+							<button
+								class="carousel-control-next"
+								type="button"
+								data-bs-target="#carouselExampleCaptions"
+								data-bs-slide="next"
+							>
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Next</span>
+							</button>
+						</div>
+					</div>
+					<div class="col-lg-6 text-center mt-5">
+						<h3>Yorumlar</h3>
+						<div class="accordion" id="accordionExample">
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button
+										class="accordion-button collapsed"
+										type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#collapseOne"
+										aria-expanded="false"
+										aria-controls="collapseOne"
+									>
+										Varol Maksutoğlu
+									</button>
+								</h2>
+								<div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										"Merhaba hocanız olarak ödevinizden memnun kaldım gayet başarılı bir site fakat geliştirilmesi
+										gerekiyor. Ödevi zamanında teslim etmişsin, tebrikler."
+									</div>
+								</div>
+							</div>
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button
+										class="accordion-button collapsed"
+										type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#collapseTwo"
+										aria-expanded="false"
+										aria-controls="collapseTwo"
+									>
+										Bruce Wayne
+									</button>
+								</h2>
+								<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										“These products are really great. It makes you feel different from other people. Thanks!”
+									</div>
+								</div>
+							</div>
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button
+										class="accordion-button collapsed"
+										type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#collapseThree"
+										aria-expanded="false"
+										aria-controls="collapseThree"
+									>
+										Alfred Borden
+									</button>
+								</h2>
+								<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										“Do not think that these products are the
+										<strong>prestige</strong>
+										part. These are just the tip of the iceberg.”
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- footer -->
+		<footer class="bg-black text-white">
+			<div class="container py-5">
+				<div class="row">
+					<div class="col-6 col-lg-4">
+						<ul>
+							<p class="fw-bold">Pear</p>
+							<li><a href="./views/about-us.html">Hakkımızda</a></li>
+							<li><a href="./views/faq.html">Sıkça Sorulan Sorular</a></li>
+							<li><a href="./views/sitemap.xml">Site Haritası</a></li>
+							<li><a href="./views/404.html">İletişim</a></li>
+							<li><a href="./views/404.html">Destek alın</a></li>
+							<li><a href="./views/404.html">Yasal Bilgiler</a></li>
+						</ul>
+					</div>
+					<div class="col-6 col-lg-4">
+						<ul>
+							<p class="fw-bold">Faydalı Linkler</p>
+							<li><a href="#">Mağaza</a></li>
+							<li><a href="./views/phone.html">üPhone 14</a></li>
+							<li><a href="./views/phone-ult.html">üPhone 14 Ultimate</a></li>
+							<li><a href="./views/band.html">Band</a></li>
+							<li><a href="./views/404.html" disabled>üPad</a></li>
+							<li><a href="./views/404.html">PearPods</a></li>
+							<li><a href="./views/404.html">Mek</a></li>
+						</ul>
+					</div>
+					<div class="col-12 col-lg-4 mt-4 mt-lg-0">
+						<div class="row">
+							<div class="col-12 text-center">
+								<p class="fw-bold">Bizi takip edin</p>
+								<ul class="list-group list-group-horizontal gap-3 justify-content-center">
+									<li>
+										<a href="https://github.com/aytugyesilyurt" target="_blank"><i class="bi bi-github"></i></a>
+									</li>
+									<li>
+										<a href="https://www.linkedin.com/in/aytugyesilyurt/" target="_blank">
+											<i class="bi bi-linkedin"></i>
+										</a>
+									</li>
+									<li>
+										<a href="https://www.instagram.com/agyesilyurt/" target="_blank"><i class="bi bi-instagram"></i></a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-9 mt-3 mx-auto">
+								<div class="input-group mt-3">
+									<input type="text" class="form-control" placeholder="Mailinizi girin" aria-label="Username" />
+									<button class="btn btn-secondary">Abone Ol</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 text-center mt-5">
+						<p>
+							Bu sayfa ödev için oluşturulmuştur. Kullanılan örneklerin gerçek kişi, kurum, kuruluş, şirket veya ürünle
+							ilgisi yoktur. Tamamen hayal ürünüdür.
+						</p>
+						<p>Aytuğ YEŞİLYURT</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- MODALS -->
+		<!-- PRODUCT PREVIEW MODAL -->
+		<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="productModalLabel">Product Name</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="card mb-3 preview-card">
+							<img
+								src="https://picsum.photos/500/300"
+								class="card-img-top rounded"
+								alt="product.name"
+								id="productModalImage"
+							/>
+							<div class="card-body">
+								<h5 class="card-title" id="productModalName">Product.name</h5>
+								<div class="d-flex gap-3">
+									<p class="card-text" id="productModalPrice">Fiyat : Product.price</p>
+									<p class="card-text" id="productModalCategory">Kategori : Product.category</p>
+								</div>
+								<p class="card-text" id="productModalBody">
+									This is a wider card with supporting text below as a natural lead-in to additional content. This
+									content is a little bit longer.
+								</p>
+								<p class="card-text" id="productModalStock">
+									<small class="text-body-secondary">Stok Adedi : Product.inStock</small>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer justify-content-around">
+						<button class="btn" id="editProduct" data-bs-target="#createProductModal" data-bs-toggle="modal">
+							<i class="bi bi-pencil-fill text-warning fs-3"></i>
+						</button>
+						<button class="btn" id="addBasket" data-bs-target="#addBasketModal" data-bs-toggle="modal">
+							<i class="bi bi-basket3-fill text-success fs-3"></i>
+						</button>
+						<button type="button" class="btn" data-bs-dismiss="modal" id="deleteProduct">
+							<i class="bi bi-trash3-fill text-danger fs-3"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ADD BASKET MODAL -->
+		<div class="modal fade" id="addBasketModal" tabindex="-1" aria-labelledby="addBasketModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="addBasketModalLabel">Sepete Ekle</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row justify-content-center">
+							<div class="col-12 text-center fs-4 my-3" id="basketModalProductName">product.name</div>
+							<div class="col-4" id="basketModalPrice">Ürün Fiyatı: product.price</div>
+							<div class="col-4" id="basketModalStockStatus">Stok Adedi: product.inStock</div>
+							<div class="col-8 my-3">
+								<label class="form-label" id="quantityInBasket">Zaten sepetinizde existing.count adet var.</label>
+								<input
+									type="number"
+									class="form-control"
+									id="quantity"
+									aria-describedby="emailHelp"
+									name="quantity"
+									placeholder="Ne kadar daha almak istersiniz?"
+									aria-describedby="validationServer03Feedback"
+									required
+								/>
+								<div id="validationServer03Feedback" class="invalid-feedback">
+									Sipariş sayısı 1 den küçük, stok adedinden fazla olamaz.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer justify-content-around">
+						<button type="button" class="btn" id="addBasketBtn">
+							<i class="bi bi-cart-plus-fill fs-3 text-success"></i>
+						</button>
+						<button type="reset" class="btn btn-danger cancelBtn" data-bs-dismiss="modal">
+							<i class="bi bi-x-lg"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- BASKET PREVIEW MODAL-->
+		<div class="modal fade" id="basketModal" tabindex="-1" aria-labelledby="basketModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="basketModalLabel">Sepet</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body row" id="basketProductContainer"></div>
+					<div class="modal-footer justify-content-around">
+						<button type="button" class="btn" id="checkoutBasket">
+							<i class="bi bi-bag-check-fill fs-3 text-success"></i>
+						</button>
+						<button type="reset" class="btn btn-danger cancelBtn" data-bs-dismiss="modal">
+							<i class="bi bi-x-lg"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- CREATE-EDIT MODAL -->
+		<div
+			class="modal fade"
+			id="createProductModal"
+			tabindex="-1"
+			aria-labelledby="createProductModalLabel"
+			aria-hidden="true"
+			data-bs-backdrop="static"
+			data-bs-keyboard="false"
+		>
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Ürün Ekle</h1>
+						<button type="button" class="btn-close cancelBtn" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<form id="productForm" aria-required="true">
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-12 mb-3">
+									<label for="name" class="form-label">Ürün Adı</label>
+									<input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name" required />
+								</div>
+								<div class="col-12 mb-3">
+									<label for="category" class="form-label">Kategori</label>
+									<input
+										type="text"
+										class="form-control"
+										id="category"
+										aria-describedby="emailHelp"
+										name="category"
+										required
+									/>
+								</div>
+								<div class="col-12 mb-3">
+									<label for="price" class="form-label">Fiyatı</label>
+									<input
+										type="number"
+										class="form-control"
+										id="price"
+										aria-describedby="emailHelp"
+										name="price"
+										required
+									/>
+								</div>
+								<div class="col-12 mb-3">
+									<label for="inStock" class="form-label">Stok Adedi</label>
+									<input
+										type="number"
+										class="form-control"
+										id="inStock"
+										aria-describedby="emailHelp"
+										name="inStock"
+										required
+									/>
+								</div>
+								<div class="col-12 mb-3">
+									<label for="image" class="form-label">Ürün Fotoğrafı</label>
+									<input
+										type="text"
+										class="form-control"
+										id="image"
+										aria-describedby="emailHelp"
+										name="image"
+										value="https://picsum.photos/200/300"
+										required
+									/>
+								</div>
+								<div class="col-12 mb-3">
+									<label for="description" class="form-label">Açıklama</label>
+									<textarea
+										type="text"
+										class="form-control"
+										id="description"
+										aria-describedby="emailHelp"
+										name="description"
+										rows="8"
+										required
+									></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer justify-content-around">
+							<button type="submit" class="btn" name="submitBtn" id="submitBtn">
+								<i class="bi bi-check-circle-fill text-success fs-3"></i>
+							</button>
+							<button type="reset" class="btn btn-danger cancelBtn" data-bs-dismiss="modal">
+								<i class="bi bi-x-lg"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="./scripts/product.js"></script>
+		<script src="./scripts/dbService.js"></script>
+		<script src="./scripts/render.js"></script>
+		<script src="./scripts/basket.js"></script>
+		<script src="./scripts/request.js"></script>
+		<script src="./scripts/app.js"></script>
+	</body>
+</html>
