@@ -91,6 +91,46 @@ class UI {
             });
           }
         );
+
+        child.childNodes[1].childNodes[3].childNodes[11].childNodes[7].addEventListener(
+          "click",
+          () => {
+            let addBasket = {};
+            Json.getProducts().then((products) => {
+              products.map((product) => {
+                if (product.id == child.id) {
+                  addBasket = {
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    category: product.category,
+                    description: product.description,
+                    image: product.image,
+                    count: 1,
+                  };
+
+                  Json.postProducts(
+                    "http://localhost:3000/basket",
+                    addBasket
+                  ).then(() => {
+                    Json.getBaskets().then((baskets) => {
+                      baskets.map((basket) => {
+                        basketList.innerHTML += `<div class="col-12">
+                        <img src=${basket.image} alt="images" class="basket-image">
+                        <p>${basket.name}</p>
+                        <p>${basket.price}</p>
+                        <input type="number" value="1">
+                        <button>Sepetten Kaldır</button>
+                      </div>
+                        `;
+                      });
+                    });
+                  });
+                }
+              });
+            });
+          }
+        );
       }
     });
   }
