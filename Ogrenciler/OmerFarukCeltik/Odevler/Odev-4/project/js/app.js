@@ -387,10 +387,10 @@ async function basketModalAreaAllEvents(e) {
 }
 
 function validationFunction(e){
-  if(e.target.value.length < 5){
+  if(e.target.type == "text" || e.target.type == "url" && e.target.value.length < 3){
     e.target.classList.add("is-invalid");
     e.target.classList.remove("is-valid");
-  }else if(e.target.value.length >= 5) {
+  }else if(e.target.type == "text" || e.target.type == "url" && e.target.value.length >= 3) {
     e.target.classList.add("is-valid");
     e.target.classList.remove("is-invalid");
   }
