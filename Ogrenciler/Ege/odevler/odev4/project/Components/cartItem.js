@@ -13,8 +13,8 @@ function cartItem(product) {
             <div class="btn-plus" id="btn-plus">+</div>
             <div class="order-count">${product.count}</div>
             <div class="btn-minus" id="btn-minus">-</div>
-              <button class="btn btn-danger remove-all-cart">Remove</button>
             </span>
+            <button class="btn btn-danger remove-all-cart w-100 mt-3">Remove</button>
           </div>
         </div>
     `;

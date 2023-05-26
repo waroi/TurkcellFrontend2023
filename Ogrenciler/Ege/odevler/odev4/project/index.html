@@ -18,7 +18,6 @@
   <body>
     <!-- Navbar Start -->
     <header class="bg-primary">
-      required
       <div class="container">
         <nav class="navbar navbar-expand-lg">
           <div class="container-fluid">
@@ -144,6 +143,89 @@
       </div>
     </header>
 
+    <!-- Campaigns Start -->
+    <section class="campaigns pb-5 overflow-hidden">
+      <div class="row">
+        <div class="col-sm-12">
+          <div
+            id="carouselCampaigns"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner shadow">
+              <div class="carousel-item active text-center">
+                <img
+                  src="./assets/arthas-frostmourne.png"
+                  class="d-block w-100 img-fluid"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Frostmourne has arrived!</h5>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Porro vel asperiores maxime.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./assets/guts-in-front-of-dragonslayer-from-berserk.jpeg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Dragonslayer coming soon...</h5>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Porro vel asperiores maxime.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./assets/the_legend_of_zelda_breath_of_the_wild_switch-21.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Master Sword design renewed!</h5>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Porro vel asperiores maxime.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselCampaigns"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselCampaigns"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Campaigns End --
+
     <!-- Products -->
     <section class="products py-5" id="products">
       <div class="container">
@@ -239,9 +321,12 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title text-white" id="staticBackdropLabel">
-              Add a book
-            </h1>
+            <h2
+              class="modal-title text-white display-4"
+              id="staticBackdropLabel"
+            >
+              Add a Product
+            </h2>
             <button
               type="button"
               class="btn-close"
@@ -335,8 +420,10 @@
         ></button>
       </div>
       <div class="offcanvas-body" id="cart-body"></div>
-      <div class="offcanvas-footer">
-        <button class="btn btn-success" id="purchase-btn">Satın Al</button>
+      <div class="offcanvas-footer d-flex justify-content-center mb-5">
+        <button class="btn btn-success px-5" id="purchase-btn">
+          <i class="fa-solid fa-money-bill"></i>
+        </button>
       </div>
     </div>
 

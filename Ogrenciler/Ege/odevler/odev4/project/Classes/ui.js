@@ -13,6 +13,8 @@ const productImgInp = document.getElementById("product-img");
 const cartBody = document.getElementById("cart-body");
 const cartCount = document.getElementById("cart-count");
 const categorySelect = document.getElementById("categories");
+const sortSelect = document.getElementById("sort-product");
+const searchArea = document.getElementById("search-product");
 
 const productsUrl = "http://localhost:3000/products";
 const cartUrl = "http://localhost:3000/cart";
@@ -42,6 +44,8 @@ class UI {
         cartCount.textContent = data.length;
       })
       .catch((err) => console.log(err));
+    this.makeUniques();
+    this.resetFilters();
   }
 
   static uniqueCategories(products) {
@@ -79,6 +83,12 @@ class UI {
       productImgInp.value.slice(0, 7) == "http://" ||
       productImgInp.value.slice(0, 8) == "https://"
     );
+  }
+
+  static resetFilters() {
+    categorySelect.value = "";
+    sortSelect.value = "";
+    searchArea.value = "";
   }
 }
 

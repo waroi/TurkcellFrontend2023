@@ -4290,8 +4290,8 @@ textarea.form-control-lg {
 }
 
 .accordion {
-  --bs-accordion-color: white;
-  --bs-accordion-bg: transparent;
+  --bs-accordion-color: #212529;
+  --bs-accordion-bg: #fff;
   --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   --bs-accordion-border-color: var(--bs-border-color);
   --bs-accordion-border-width: 1px;
@@ -4299,19 +4299,19 @@ textarea.form-control-lg {
   --bs-accordion-inner-border-radius: calc(0.375rem - 1px);
   --bs-accordion-btn-padding-x: 1.25rem;
   --bs-accordion-btn-padding-y: 1rem;
-  --bs-accordion-btn-color: white;
+  --bs-accordion-btn-color: #212529;
   --bs-accordion-btn-bg: var(--bs-accordion-bg);
-  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   --bs-accordion-btn-icon-width: 1.25rem;
   --bs-accordion-btn-icon-transform: rotate(-180deg);
   --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
-  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23201e20'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   --bs-accordion-btn-focus-border-color: #929092;
   --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(36, 33, 36, 0.25);
   --bs-accordion-body-padding-x: 1.25rem;
   --bs-accordion-body-padding-y: 1rem;
-  --bs-accordion-active-color: white;
-  --bs-accordion-active-bg: transparent;
+  --bs-accordion-active-color: #201e20;
+  --bs-accordion-active-bg: #e9e9e9;
 }
 
 .accordion-button {
@@ -5193,16 +5193,16 @@ textarea.form-control-lg {
   --bs-modal-width: 500px;
   --bs-modal-padding: 1rem;
   --bs-modal-margin: 0.5rem;
-  --bs-modal-color: rgb(36, 33, 36);
-  --bs-modal-bg: #fff;
+  --bs-modal-color: #000;
+  --bs-modal-bg: rgba(255, 255, 255, 0.6);
   --bs-modal-border-color: var(--bs-border-color-translucent);
   --bs-modal-border-width: 1px;
   --bs-modal-border-radius: 0.5rem;
   --bs-modal-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   --bs-modal-inner-border-radius: calc(0.5rem - 1px);
   --bs-modal-header-padding-x: 1rem;
-  --bs-modal-header-padding-y: 1rem;
-  --bs-modal-header-padding: 1rem 1rem;
+  --bs-modal-header-padding-y: 3rem;
+  --bs-modal-header-padding: 3rem 1rem;
   --bs-modal-header-border-color: var(--bs-border-color);
   --bs-modal-header-border-width: 1px;
   --bs-modal-title-line-height: 1.5;
@@ -6011,8 +6011,8 @@ textarea.form-control-lg {
   --bs-offcanvas-height: 30vh;
   --bs-offcanvas-padding-x: 1rem;
   --bs-offcanvas-padding-y: 1rem;
-  --bs-offcanvas-color: rgb(36, 33, 36);
-  --bs-offcanvas-bg: #fff;
+  --bs-offcanvas-color: #000;
+  --bs-offcanvas-bg: rgba(255, 255, 255, 0.6);
   --bs-offcanvas-border-width: 1px;
   --bs-offcanvas-border-color: var(--bs-border-color-translucent);
   --bs-offcanvas-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
@@ -10720,8 +10720,26 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(to left bottom, #242124, #3b3b46, #4a596a, #517b8a, #5f9ea0);
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
 i {
   pointer-events: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 input {
@@ -10846,13 +10864,6 @@ footer .col-lg-4:first-child {
   width: 100%;
 }
 
-.card-img-top {
-  height: 200px;
-}
-.card-img-top img {
-  width: 100%;
-}
-
 #cart-area {
   position: relative;
 }
@@ -10860,6 +10871,79 @@ footer .col-lg-4:first-child {
   position: absolute;
   top: -10px;
   font-size: 16px;
+}
+
+.card {
+  background: transparent;
+  overflow: hidden;
+  transition: 0.3s all;
+  border-color: rgba(95, 158, 160, 0.5);
+}
+.card .card-img-top {
+  height: 200px;
+}
+.card .card-img-top img {
+  width: 100%;
+}
+.card .card-buttons i {
+  font-size: 32px;
+}
+.card:hover {
+  border-color: rgba(95, 158, 160, 0);
+  box-shadow: 0px 0px 5px 5px rgba(95, 158, 160, 0.5);
+}
+
+.offcanvas {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+.offcanvas .offcanvas-footer i {
+  font-size: 48px;
+}
+.offcanvas .remove-all-cart {
+  border-radius: 16px;
+}
+
+.modal-content {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.modal-content .modal-header {
+  background-image: url(https://media.istockphoto.com/id/623620362/vector/waste-of-money-hand.jpg?s=612x612&w=0&k=20&c=7MNVzqFDGyWGFrgVQ9mDCU-n_O6X61q-dsy6X_lBVuM=);
+  background-size: cover;
+  background-position: center;
+}
+.modal-content .modal-body {
+  font-size: 1.25rem;
+}
+.modal-content .modal-body input {
+  outline: none;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.carousel-inner img {
+  max-width: 100%;
+  height: 90vh;
+  margin: 0 auto;
+}
+.carousel-inner .carousel-caption h5, .carousel-inner .carousel-caption .h5 {
+  font-size: 32px;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 992px) {
+  footer .col-lg-4 {
+    border: none;
+  }
+  .carousel-inner img {
+    height: 25vh;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

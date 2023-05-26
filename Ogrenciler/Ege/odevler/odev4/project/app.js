@@ -1,6 +1,7 @@
 import UI from "./Classes/ui.js";
 import Process from "./Classes/process.js";
 import Product from "./Classes/product.js";
+
 const productNameInp = document.getElementById("product-name");
 const productPriceInp = document.getElementById("product-price");
 const productDescInp = document.getElementById("product-desc");
@@ -10,14 +11,17 @@ const productImgInp = document.getElementById("product-img");
 const productRow = document.getElementById("product-row");
 const form = document.querySelector("form");
 const addBtn = document.getElementById("add-submit");
+const editBtn = document.getElementById("edit-submit");
 const cartBody = document.getElementById("cart-body");
 const purchaseBtn = document.getElementById("purchase-btn");
 const categorySelect = document.getElementById("categories");
 const sortSelect = document.getElementById("sort-product");
 const searchArea = document.getElementById("search-product");
+const plusBtn = document.getElementById("add-btn");
 
 UI.updateDisplay();
 UI.makeUniques();
+
 addBtn.addEventListener("click", () => {
   if (UI.isEmpty()) {
     alert("Please fill the entire form.");
@@ -95,4 +99,12 @@ searchArea.addEventListener("keyup", (e) => {
 sortSelect.addEventListener("change", (e) => {
   Process.sort(e.target.value);
   searchArea.value = "";
+});
+
+plusBtn.addEventListener("click", () => {
+  form.reset();
+  if (addBtn.classList.contains("d-none")) {
+    addBtn.classList.remove("d-none");
+    editBtn.classList.add("d-none");
+  }
 });

@@ -1,7 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to left bottom,
+    #242124,
+    #3b3b46,
+    #4a596a,
+    #517b8a,
+    #5f9ea0
+  );
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
 i {
   pointer-events: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 input {
@@ -143,18 +168,101 @@ footer {
   }
 }
 
-.card-img-top {
-  height: 200px;
-  img {
-    width: 100%;
-  }
-}
-
 #cart-area {
   position: relative;
   #cart-count {
     position: absolute;
     top: -10px;
     font-size: 16px;
+  }
+}
+
+.card {
+  background: transparent;
+  overflow: hidden;
+  transition: 0.3s all;
+  border-color: rgba(95, 158, 160, 0.5);
+
+  .card-img-top {
+    height: 200px;
+    img {
+      width: 100%;
+    }
+  }
+  .card-buttons {
+    i {
+      font-size: 32px;
+    }
+  }
+  &:hover {
+    border-color: rgba(95, 158, 160, 0);
+    box-shadow: 0px 0px 5px 5px rgba(95, 158, 160, 0.5);
+  }
+}
+
+.offcanvas {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  .offcanvas-footer {
+    i {
+      font-size: 48px;
+    }
+  }
+
+  .remove-all-cart {
+    border-radius: 16px;
+  }
+}
+
+.modal-content {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  .modal-header {
+    background-image: url(https://media.istockphoto.com/id/623620362/vector/waste-of-money-hand.jpg?s=612x612&w=0&k=20&c=7MNVzqFDGyWGFrgVQ9mDCU-n_O6X61q-dsy6X_lBVuM=);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .modal-body {
+    font-size: 1.25rem;
+    input {
+      outline: none;
+      border-radius: 15px;
+      padding: 5px;
+    }
+  }
+}
+.carousel-inner {
+  img {
+    max-width: 100%;
+    height: 90vh;
+    margin: 0 auto;
+  }
+
+  .carousel-caption {
+    h5 {
+      font-size: 32px;
+      text-transform: capitalize;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  footer {
+    .col-lg-4 {
+      border: none;
+    }
+  }
+
+  .carousel-inner {
+    img {
+      height: 25vh;
+    }
   }
 }
