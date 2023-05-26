@@ -7,6 +7,7 @@ const cartUrl = "http://localhost:3000/cart";
 const addBtn = document.getElementById("add-submit");
 const submitEditBtn = document.getElementById("edit-submit");
 const categorySelect = document.getElementById("categories");
+const cartBody = document.getElementById("cart-body");
 
 let currentProduct;
 
@@ -219,22 +220,23 @@ class Process {
   }
 
   static purchase() {
-    setTimeout(() => {
-      Request.get(cartUrl).then((cartProducts) => {
-        cartProducts.map((cartProduct) => {
-          Request.get(`${productsUrl}/${cartProduct.id}`).then((product) => {
+    Request.get(cartUrl).then((cartProducts) =>
+      cartProducts.map((cartProduct) => {
+        Request.get(`${productsUrl}/${cartProduct.id}`)
+          .then((product) =>
             Request.put(
               productsUrl,
               { ...product, stock: product.stock - cartProduct.count },
               cartProduct.id
-            ).then((response) => {
-              UI.updateDisplay();
-            });
-          });
-        });
-      });
-    }, 200);
-    // this.removeAllFromCart();
+            )
+          )
+          .then((data) => UI.updateDisplay());
+      })
+    );
+
+    setTimeout(() => {
+      this.removeAllFromCart();
+    }, 3000);
   }
 
   static filterByCategory(selectedCategory) {

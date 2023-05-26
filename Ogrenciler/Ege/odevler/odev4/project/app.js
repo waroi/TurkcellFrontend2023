@@ -76,12 +76,6 @@ cartBody.addEventListener("click", (e) => {
 
 purchaseBtn.addEventListener("click", (e) => {
   Process.purchase();
-  setTimeout(() => {
-    Process.removeAllFromCart();
-  }, 2500);
-  setTimeout(() => {
-    location.reload();
-  }, 3000);
 });
 
 categorySelect.addEventListener("change", (e) => {
