@@ -50,10 +50,11 @@ class Request {
         const responseData = await response.json();
         return responseData;
     }
+
 }
 
 const request = new Request("http://localhost:3000/vehicles");
-
+const basket = new Request("http://localhost:3000/basket");
 
 request.get()
     .then((data) => {

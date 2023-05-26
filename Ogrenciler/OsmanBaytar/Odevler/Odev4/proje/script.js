@@ -62,3 +62,6 @@ addVehicleArea.addEventListener("click", function () {
             console.log('POST Error:', error);
         });
 })
+
+const clearBasket = document.getElementById("clearBasket");
+clearBasket.addEventListener("click", UI.clearBasket);

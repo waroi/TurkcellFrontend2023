@@ -41,11 +41,54 @@ class UserInterface {
         vehicleUI.appendChild(card);
 
         card.querySelector(".btn-primary").addEventListener("click", function () {
-            console.log("object");
+
             let basketItem = newVehicle.createBasketItem();
-            console.log(basketItem);
             let basketMenu = document.getElementById("basketMenu");
             basketMenu.appendChild(basketItem);
+
+            let name = newVehicle.name;
+            let isAdd = true;
+            console.log(newVehicle);
+            console.log(name);
+            basket.get()
+                .then((data) => {
+                    console.log(data);
+
+                    if (data.length != 0) {
+                        data.forEach(function (item) {
+                            console.log(item);
+                            console.log(item.name);
+                            if (item.name == name) {
+                                isAdd = false;
+                                return console.log(name);
+                            }
+                        })
+                    }
+
+                    if (data.length == 0) {
+                        basket.post(newVehicle)
+                            .then((responseData) => {
+                                console.log('POST:', responseData);
+                                return responseData;
+                            })
+                            .catch((error) => {
+                                console.log('POST Error:', error);
+                            });
+                    }
+
+                    else if (data.length != 0 && isAdd) {
+                        basket.post(newVehicle)
+                            .then((responseData) => {
+                                console.log('POST:', responseData);
+                            })
+                            .catch((error) => {
+                                console.log('POST Error:', error);
+                            });
+                    }
+                })
+                .catch((err) => console.log(err));
+
+
         })
 
         card.querySelector(".btn-secondary").addEventListener("click", function () {
@@ -56,6 +99,40 @@ class UserInterface {
         card.querySelector(".btn-warning").addEventListener("click", function () {
             UI.editVehicle(newVehicle);
         })
+    }
+
+    clearBasket = function () {
+
+        let basketMenu = document.getElementById("basketMenu");
+        basketMenu.innerHTML = "";
+        basket.get()
+            .then((data) => {
+                let dataLength = data.length;
+                for (let i = 0; i < dataLength; i++) {
+                    basket.delete(data[i].id)
+                        .then((data) => {
+                            console.log(data);
+                        })
+                        .catch((err) => console.log(err));
+                }
+            })
+            .catch((err) => console.log(err));
+
+        let basketHtml = `
+        <li>
+            <div
+            class="dropdown-item"
+            style="color: rgba(168, 33, 21, 0.821)"
+            >
+            <span
+                ><button class="btn btn-secondary" id="clearBasket">
+                Clear Basket
+                </button></span
+            >
+            <span><button class="btn btn-light" id="buyBasket">Buy</button></span>
+            </div>
+        </li>`;
+        basketMenu.innerHTML = basketHtml;
     }
 
     clearValues = function () {
@@ -176,13 +253,4 @@ class UserInterface {
             filterWith.appendChild(option);
         }
     }
-
-    // whichFilter = function (data) {
-    //     if (filterBy.value == "category") {
-    //         storage.getFilteredCategoryStorage(data);
-    //     }
-    //     else {
-    //         UI.clearFilter();
-    //     }
-    // }
 }
