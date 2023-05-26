@@ -27,7 +27,6 @@ addItemBtn.addEventListener('click', (e) => {
         category: categoryValue
     };
 
-    // Check if a similar item already exists
     fetch('http://localhost:3000/products')
         .then(response => response.json())
         .then(data => {
@@ -39,11 +38,9 @@ addItemBtn.addEventListener('click', (e) => {
             );
 
             if (existingItem) {
-                // Increment the stock of the existing item
                 existingItem.stock = Number(existingItem.stock) + Number(productData.stock);
                 updateExistingItem(existingItem);
             } else {
-                // Create a new item
                 createNewItem(productData);
             }
         })
@@ -65,30 +62,9 @@ function updateExistingItem(item) {
         .catch(error => console.error('Failed to update item stock:', error));
 }
 
-// function createNewItem(item) {
-//     fetch('http://localhost:3000/products', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(item),
-//     })
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log('New item added:', data);
-//         })
-//         .catch(error => console.error('Failed to add new item:', error));
-// }
-
 class Request {
     constructor(url, name, price, image, category, stock, id) {
         this.url = url
-        // this.name = name
-        // this.price = price
-        // this.image = image
-        // this.category = category
-        // this.stock = stock
-        // this.id = id
     }
     get() {
         return new Promise((resolve, reject) => {
@@ -152,7 +128,6 @@ class Request {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    // Update the select options with the new category
                     updateCategoryList(productData.category);
                     resolve(data);
                 })
@@ -440,7 +415,7 @@ basketItemsList.addEventListener('click', event => {
         const basketItem = removeButton.closest('.card');
         const productId = basketItem.querySelector('#productIdInBasket').textContent;
         removeFromBasket(productId);
-        basketItem.remove(); // Remove the item from the DOM
+        basketItem.remove();
     }
 });
 function removeFromBasket(productId) {
@@ -543,7 +518,6 @@ function createBasketItem(item) {
 }
 
 buyAll.addEventListener('click', () => {
-    // basketItemsList.innerHTML = "";
 
     const request = new Request("http://localhost:3000/atBasket");
     request.get().then((data) => {
