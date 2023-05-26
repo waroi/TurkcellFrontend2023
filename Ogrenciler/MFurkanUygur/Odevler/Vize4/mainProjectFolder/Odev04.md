@@ -21,12 +21,13 @@
 - satın al dendiği zaman sepet boşaltılacak. (TAMAM),
 - satın alınan ürünlerin adetleri stoktan düşülecek (tek tek güzel birden fazla arada bir)
 - ürün adedi arttırılıp azaltılacak(TAMAM)
+- ürün ekleme formunda validasyonlar olacak.(ui clearForm fonksiyon dene )
 
-- sepetteki ürün adedi ürün çeşiti kadar olacak. (ürün çeşidi 3 ise sepetteki ürün adedi 3 olacak) (3 elma, 2 armut, 1 portakal)
+- sepetteki ürün adedi ürün çeşiti kadar olacak. (ürün çeşidi 3 ise sepetteki ürün adedi 3 olacak) (3 elma, 2 armut, 1 portakal) (minnak bi yer kaldı)
 
 - stokta kalmadıysa sepete ekle butonu ürünlerde disable olacak. (stok yok)
 - ürün eklerken aynı isimde ürün ise yeni eklemeyecek stok countu artacak.
 
-- ürün ekleme formunda validasyonlar olacak.(ui clearForm fonksiyon dene )
+
 
 
