@@ -45,7 +45,7 @@ class Vehicle {
   >
     <span>${this.name}</span>
     <span>
-      <input type="number" class="float-end" style="width: 80px" />
+      <input type="number" class="float-end" style="width: 80px" id="${this.name}"/>
     </span>
   </div>`;
     itemBox.innerHTML = item;

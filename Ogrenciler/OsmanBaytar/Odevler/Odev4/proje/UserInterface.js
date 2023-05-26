@@ -1,6 +1,7 @@
 let vehicleUI = document.getElementById("vehicleUI");
 let filterWith = document.getElementById("filter-with-category");
 let filterBy = document.getElementById("filter-by");
+let basketCount = document.getElementById("basketCount");
 
 class UserInterface {
 
@@ -69,6 +70,7 @@ class UserInterface {
                         basket.post(newVehicle)
                             .then((responseData) => {
                                 console.log('POST:', responseData);
+                                basketCount.innerHTML = data.length + 1;
                                 return responseData;
                             })
                             .catch((error) => {
@@ -80,6 +82,7 @@ class UserInterface {
                         basket.post(newVehicle)
                             .then((responseData) => {
                                 console.log('POST:', responseData);
+                                basketCount.innerHTML = data.length + 1;
                             })
                             .catch((error) => {
                                 console.log('POST Error:', error);
@@ -102,7 +105,7 @@ class UserInterface {
     }
 
     clearBasket = function () {
-
+        console.log("clear");
         let basketMenu = document.getElementById("basketMenu");
         basketMenu.innerHTML = "";
         basket.get()
@@ -133,7 +136,48 @@ class UserInterface {
             </div>
         </li>`;
         basketMenu.innerHTML = basketHtml;
+        basketCount.innerHTML = 0;
     }
+
+    buyBasket = function () {
+        console.log("object");
+        basket.get()
+            .then((data) => {
+                let dataLength = data.length;
+                console.log(dataLength);
+                for (let i = 0; i < dataLength; i++) {
+                    let oldName = data[i].name;
+                    console.log(oldName);
+                    let buyStock = document.getElementById(data[i].name).value;
+                    data[i].stock = data[i].stock - buyStock;
+                    console.log(data[i].stock);
+                    console.log(data);
+                    request.get()
+                        .then((data2) => {
+                            let data2Length = data2.length;
+                            for (let k = 0; k < data2Length; k++) {
+                                console.log(data[i]);
+                                if (data2[k].name == oldName) {
+                                    console.log(data[i]);
+                                    console.log(data2);
+                                    request.put(data2[k].id, data[i])
+                                        .then((data3) => {
+                                            console.log(data3);
+
+                                        })
+                                        .catch((err) => console.log(err));
+                                }
+                            }
+                            console.log(data2);
+
+                        })
+                        .catch((err) => console.log(err));
+
+                }
+
+            }).catch((err) => console.log(err));
+    }
+
 
     clearValues = function () {
         document.getElementById("addName").value = "";
