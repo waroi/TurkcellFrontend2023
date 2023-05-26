@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-light bg-body-tertiary">
+      <div class="container">
+        <div class="row w-100 align-items-center text-lg-center">
+          <div class="col-lg-4">
+            <div>
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      Sort Menu
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">
+                      <div>
+                        <form id="sortForm">
+                          <label for="sortShape">Select Sort Shape</label>
+                          <select
+                            class="form-control my-2"
+                            id="sortShape"
+                            name="sortShape"
+                          >
+                            <option value="A-Z">Start To End</option>
+                            <option value="Z-A">End To Start</option>
+                          </select>
+                          <label for="sortCategory">Select Sort Category</label>
+                          <select
+                            class="form-control my-2"
+                            id="sortCategory"
+                            name="sortCategory"
+                          >
+                            <option value="name">Sort With Name</option>
+                            <option value="price">Sort With Price</option>
+                          </select>
+                          <button
+                            class="w-100 btn btn-secondary my-4"
+                            type="submit"
+                          >
+                            Sort
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      Filter Menu
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">
+                      <div>
+                        <form action="" id="filterForm">
+                          <label for="filterCategory">Choose Category</label>
+                          <select
+                            class="form-control my-2"
+                            id="filterCategory"
+                            name="filterCategory"
+                          >
+                            <option value=""></option>
+                            <option value="skinny">Skinny</option>
+                            <option value="slim">Slim Fit</option>
+                            <option value="oversize">Oversize</option>
+                            <option value="regular">Regular Fit</option>
+                          </select>
+
+                          <button
+                            class="btn btn-secondary w-100 my-4"
+                            type="click"
+                            id="filterButton"
+                          >
+                            Filter
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center mt-3">
+                <form id="searchForm" class="d-flex align-items-center w-100">
+                  <input
+                    class="form-control w-100"
+                    type="text"
+                    id="searchInput"
+                    placeholder="Enter information about the author or title."
+                  />
+
+                  <button class="btn btn-secondary ms-2" type="click">
+                    Search
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-none d-lg-block col-lg-4 d-flex">
+            <div>
+              <img
+                class="img-fluid pt-4 d-inline-block"
+                width="100px"
+                src="./images/dolcepng.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="d-none d-lg-block col-lg-4">
+            <div class="row">
+              <div class="col-lg-12">
+                <button
+                  type="button"
+                  class="btn btn-primary mb-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#inputModal"
+                  id="addProduct"
+                >
+                  Add +
+                </button>
+                <div class="dropdown w-100">
+                  <button
+                    class="btn btn-secondary dropdown-toggle w-50"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    id="basketDropdownButton"
+                  >
+                    Cart
+                  </button>
+                  <ul
+                    style="
+                      overflow: scroll;
+                      max-width: 500px;
+                      max-height: 400px;
+                    "
+                    class="dropdown-menu basketMenu"
+                  ></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section>
+      <div class="container py-3">
+        <h2 class="pb-2">Products</h2>
+
+        <div class="row productCollection g-3"></div>
+      </div>
+    </section>
+    <div
+      class="modal fade"
+      id="inputModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body productModalBody">
+            <form class="row g-3 needs-validation" novalidate>
+              <div class="col-md-12">
+                <label for="productName" class="form-label">Product Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="productName"
+                  placeholder="Name"
+                  required
+                />
+                <!-- <div class="valid-feedback">Success</div>
+                <div class="invalid-feedback">
+                  Please provide a valid product name
+                </div> -->
+              </div>
+              <div class="col-md-12">
+                <label for="productPrice" class="form-label">Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="productPrice"
+                  placeholder="Product Price"
+                  required
+                />
+                <!-- <div class="valid-feedback">Success</div>
+                <div class="invalid-feedback">
+                  Please provide a valid price value
+                </div> -->
+              </div>
+              <div class="col-md-12">
+                <label for="productStock" class="form-label">Stock</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="productStock"
+                  placeholder="Stock Quantity"
+                  required
+                />
+                <!-- <div class="valid-feedback">Success</div>
+                <div class="invalid-feedback">
+                  Please provide a valid stock value
+                </div> -->
+              </div>
+              <div class="col-md-12">
+                <label for="productCategory">Select Category</label>
+                <select class="form-control" id="productCategory">
+                  <option value="skinny">Skinny</option>
+                  <option value="slim">Slim Fit</option>
+                  <option value="oversize">Oversize</option>
+                  <option value="regular">Regular Fit</option>
+                </select>
+                <!-- <div class="invalid-feedback">Please provide a valid city.</div> -->
+              </div>
+              <div class="col-md-12">
+                <label for="productUrl" class="form-label">Product Url</label>
+                <input type="url" class="form-control" id="productUrl" />
+              </div>
+
+              <div class="col-12 mb-2">
+                <button class="btn btn-primary add-product" type="submit">
+                  Add +
+                </button>
+              </div>
+            </form>
+            <!-- <form class="row g-3 needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="productName" class="form-label">Product Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="productName"
+                  placeholder="Name"
+                  value=""
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="productPrice" class="form-label">Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="productPrice"
+                  value="Otto"
+                  placeholder="Author Name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="productStock" class="form-label">Stock</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="productStock"
+                  placeholder="Stock Quantity"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="productCategory">Select Category</label>
+                <select class="form-control" id="productCategory">
+                  <option value="skinny">Skinny</option>
+                  <option value="slim">Slim Fit</option>
+                  <option value="oversize">Oversize</option>
+                  <option value="regular">Regular Fit</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="productUrl" class="form-label">Product Url</label>
+                <input type="url" class="form-control" id="productUrl" />
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="add-product">
+                Add +
+              </button>
+
+              <button
+                type="click"
+                class="btn btn-primary"
+                id="edit-book"
+                style="display: none"
+              >
+                Edit
+              </button>
+            </form> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="inputEditModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Edit Product
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body productModalBody">
+            <form class="row g-3 needs-validation" novalidate>
+              <div class="col-md-12">
+                <label for="editName" class="form-label">Product Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editName"
+                  placeholder="Name"
+                  required
+                />
+              </div>
+              <div class="col-md-12">
+                <label for="editPrice" class="form-label">Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="editPrice"
+                  placeholder="Product Price"
+                  required
+                />
+              </div>
+              <div class="col-md-12">
+                <label for="editStock" class="form-label">Stock</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="editStock"
+                  placeholder="Stock Quantity"
+                  required
+                />
+              </div>
+              <div class="col-md-12">
+                <label for="editCategory">Select Category</label>
+                <select class="form-control" id="editCategory">
+                  <option value="skinny">Skinny</option>
+                  <option value="slim">Slim Fit</option>
+                  <option value="oversize">Oversize</option>
+                  <option value="regular">Regular Fit</option>
+                </select>
+              </div>
+              <div class="col-md-12">
+                <label for="editUrl" class="form-label">Product Url</label>
+                <input type="url" class="form-control" id="editUrl" />
+              </div>
+
+              <div class="col-12 mb-2">
+                <button
+                  id="editProductButton"
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Edit +
+                </button>
+              </div>
+            </form>
+            <!-- <form class="row g-3 needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="productName" class="form-label">Product Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="productName"
+                  placeholder="Name"
+                  value=""
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="productPrice" class="form-label">Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="productPrice"
+                  value="Otto"
+                  placeholder="Author Name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="productStock" class="form-label">Stock</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="productStock"
+                  placeholder="Stock Quantity"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="productCategory">Select Category</label>
+                <select class="form-control" id="productCategory">
+                  <option value="skinny">Skinny</option>
+                  <option value="slim">Slim Fit</option>
+                  <option value="oversize">Oversize</option>
+                  <option value="regular">Regular Fit</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="productUrl" class="form-label">Product Url</label>
+                <input type="url" class="form-control" id="productUrl" />
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="add-product">
+                Add +
+              </button>
+
+              <button
+                type="click"
+                class="btn btn-primary"
+                id="edit-book"
+                style="display: none"
+              >
+                Edit
+              </button>
+            </form> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-dark">
+      <div class="footerTop py-4">
+        <h2 class="text-center pb-2 text-warning">You can find us at</h2>
+        <div class="text-center">
+          <a href=""
+            ><i class="fa-brands fa-square-facebook fa-2xl text-warning"></i
+          ></a>
+          <a href=""
+            ><i class="fa-brands fa-linkedin fa-2xl mx-2 text-warning"></i
+          ></a>
+          <a href=""
+            ><i class="fa-brands fa-square-twitter fa-2xl me-2 text-warning"></i
+          ></a>
+          <a href=""
+            ><i class="fa-brands fa-square-youtube fa-2xl text-warning"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <div class="d-flex flex-column gap-3">
+              <h2 class="text-light">Dolce De Qua</h2>
+              <div><a href="">Who We Are</a></div>
+              <div><a href="">Career</a></div>
+              <div><a href="">Communication</a></div>
+              <div><a href="">Sell on DolceDeQua</a></div>
+              <div><a href="">Who We Are</a></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <div class="d-flex flex-column gap-3">
+              <h2 class="text-light">Useful Links</h2>
+              <div><a href="">Your Account</a></div>
+              <div><a href="">Become an Affiliate</a></div>
+              <div><a href="">Shipping Rates</a></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <div class="d-flex flex-column gap-3">
+              <h2 class="text-light">Campaign</h2>
+              <div><a href="">Active Campaign</a></div>
+              <div><a href="">Elite membership</a></div>
+              <div><a href="">Gift Ideas</a></div>
+              <div><a href="">DolceDeQua Deals</a></div>
+              <div><a href="">Who We Are</a></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <div class="d-flex flex-column gap-3">
+              <h2 class="text-light">Help</h2>
+              <div><a href="">FAQ</a></div>
+              <div><a href="">Live Help</a></div>
+              <div><a href="">How can i return product</a></div>
+              <div><a href="">operation guide</a></div>
+              <div><a href="">Who We Are</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+    <script src="ui.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
