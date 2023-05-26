@@ -11,6 +11,4 @@ class StorageConstructor {
         });
         UI.addFilteredCategory(uniqueFilteredCategoryData);
     }
-
-
 }

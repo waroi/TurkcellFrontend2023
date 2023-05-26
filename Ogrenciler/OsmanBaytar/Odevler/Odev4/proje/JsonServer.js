@@ -61,14 +61,3 @@ request.get()
         UI.loadIntersectedUI(data);
     })
     .catch((err) => console.log(err));
-
-
-// data.forEach(function (item) {
-//     if (item.name == oldName) {
-//         request.put(item.id, data)
-//             .then((data) => {
-//                 console.log(data);
-//             })
-//             .catch((err) => console.log(err));
-//     }
-// })    

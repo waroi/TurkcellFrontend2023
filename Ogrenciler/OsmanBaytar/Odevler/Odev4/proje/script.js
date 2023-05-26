@@ -68,25 +68,3 @@ clearBasket.addEventListener("click", UI.clearBasket);
 
 const buyBasket = document.getElementById("buyBasket");
 buyBasket.addEventListener("click", UI.buyBasket);
-
-// for (let i = 0; i < dataLength; i++) {
-//     let oldName = data.name;
-//     let buyStock = document.getElementById(data[i].name).value;
-//     data[i].stock = data[i].stock - buyStock;
-//     data.forEach(function (item) {
-//         if (item.name == oldName) {
-//             basket.put(item.id, data)
-//                 .then((data) => {
-//                     console.log(data);
-//                 })
-//                 .catch((err) => console.log(err));
-// }})}
-
-// {
-//     "id": 1,
-//     "name": "CITY",
-//     "category": "Automobile",
-//     "price": 35200,
-//     "stock": 8,
-//     "url": "https://www.honda.com.tr/assets/img/city/city-banner.webp"
-//   },

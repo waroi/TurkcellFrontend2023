@@ -45,7 +45,20 @@ class UserInterface {
 
             let basketItem = newVehicle.createBasketItem();
             let basketMenu = document.getElementById("basketMenu");
-            basketMenu.appendChild(basketItem);
+            let isAddBasket = true;
+            basket.get()
+                .then((data) => {
+                    for (let i = 0; i < data.length; i++) {
+                        if (data[i].name == newVehicle.name) {
+                            isAddBasket = false;
+                        }
+                    }
+                    if (isAddBasket) {
+                        basketMenu.appendChild(basketItem);
+                    }
+                })
+                .catch((err) => console.log(err));
+
 
             let name = newVehicle.name;
             let isAdd = true;
