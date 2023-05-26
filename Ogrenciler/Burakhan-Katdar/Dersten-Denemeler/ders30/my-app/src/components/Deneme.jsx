@@ -1,11 +1,14 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import propTypes from "prop-types";
 
-function Deneme({isim, soyisim, yas}) {
+
+function Deneme({isim, soyisim, yas, kisiBilgi}) {
     return (
       <div className="Deneme">
         <h1>{isim} {soyisim}</h1>
         <h2>{yas}</h2>
+        <p className="text-danger">{kisiBilgi}</p>
       </div>
     );
     
