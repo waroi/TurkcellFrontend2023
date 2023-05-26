@@ -49,16 +49,10 @@ class UserInterface {
 
             let name = newVehicle.name;
             let isAdd = true;
-            console.log(newVehicle);
-            console.log(name);
             basket.get()
                 .then((data) => {
-                    console.log(data);
-
                     if (data.length != 0) {
                         data.forEach(function (item) {
-                            console.log(item);
-                            console.log(item.name);
                             if (item.name == name) {
                                 isAdd = false;
                                 return console.log(name);
@@ -105,7 +99,6 @@ class UserInterface {
     }
 
     clearBasket = function () {
-        console.log("clear");
         let basketMenu = document.getElementById("basketMenu");
         basketMenu.innerHTML = "";
         basket.get()
@@ -140,26 +133,23 @@ class UserInterface {
     }
 
     buyBasket = function () {
-        console.log("object");
         basket.get()
             .then((data) => {
                 let dataLength = data.length;
-                console.log(dataLength);
                 for (let i = 0; i < dataLength; i++) {
                     let oldName = data[i].name;
-                    console.log(oldName);
                     let buyStock = document.getElementById(data[i].name).value;
-                    data[i].stock = data[i].stock - buyStock;
-                    console.log(data[i].stock);
-                    console.log(data);
+                    if (data[i].stock - buyStock > -1) {
+                        data[i].stock = data[i].stock - buyStock;
+                    }
+                    else {
+                        return alert("Please give a valid number for stocks")
+                    }
                     request.get()
                         .then((data2) => {
                             let data2Length = data2.length;
                             for (let k = 0; k < data2Length; k++) {
-                                console.log(data[i]);
                                 if (data2[k].name == oldName) {
-                                    console.log(data[i]);
-                                    console.log(data2);
                                     request.put(data2[k].id, data[i])
                                         .then((data3) => {
                                             console.log(data3);
@@ -168,13 +158,9 @@ class UserInterface {
                                         .catch((err) => console.log(err));
                                 }
                             }
-                            console.log(data2);
-
                         })
                         .catch((err) => console.log(err));
-
                 }
-
             }).catch((err) => console.log(err));
     }
 
