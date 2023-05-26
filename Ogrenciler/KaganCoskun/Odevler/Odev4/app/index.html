@@ -28,17 +28,9 @@
         <a class="nav-link" href="./#products">Ürünler</a>
         <a class="nav-link" href="./pages/about.html">Hakkımızda</a>
         <a class="nav-link me-3" href="./pages/about.html#faq">S.S.S</a>
-        <div class="nav-link dropdown p-0 ">
-          <button class="btn   dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            K.C
-          </button>
-          <ul class="dropdown-menu  dropdown-menu-lg-end ">
-            <li><a class="dropdown-item position-relative" href="#">Profil<i class="fa-solid fa-user fa-lg top-50 end-0 position-absolute translate-middle"></i></a></li>
-            <li><a class="dropdown-item position-relative" href="#">
-              Sepetim<span class="position-absolute top-50 end-0 translate-middle badge rounded-pill bg-danger">3<span class="visually-hidden">unread messages</span></span></a></li>
-            <li><a class="dropdown-item position-relative" href="#">Çıkış Yap<i class="fa-solid fa-right-from-bracket fa-lg top-50 end-0 position-absolute translate-middle"></i></a></li>
-          </ul>
-        </div>
+        <button type="button" class="btn btn-primary nav-link" data-bs-toggle="offcanvas" data-bs-target="#basket" aria-controls="basket">
+          <i class="fa-solid fa-cart-shopping text-white"></i> <span class="badge text-white basketCount">4</span>
+        </button>
 
       </div>
     </div>
@@ -251,7 +243,6 @@
 
 </section>
 
-<!-- ürün adı, fiyatı, görsel, kategori ve stok adedi -->
   <!-- Modal -->
 <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-fullscreen-md-down modal-dialog-centered">
@@ -273,7 +264,6 @@
           <label for="category" class="form-label">Kategori</label>
           <select class="form-select" id="category" required>
             <option selected disabled value="">Kategori Seçiniz...</option>
-            <option value="1">Ayakkabı</option>
           </select>
           <div class="invalid-feedback">
             Lütfen Geçerli Bir Kategori Seçiniz!
@@ -327,6 +317,32 @@
     </div>
   </div>
 </div>
+
+
+<!-- offcanvas -->
+<div class="offcanvas  offcanvas-start" tabindex="-1" id="basket" aria-labelledby="basketLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="basketLabel">Sepet</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body basketWrap"></div>
+  <button class="btn btn-success rounded-0 py-2 basket-order" disabled>Satın Al</button>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="feedbackToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">KAGANLEY</strong>
+      <small>Şimdi</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body text-white">
+    </div>
+  </div>
+</div>
+
+<script src="./Constructors/toastyFeedback.js"></script>
+<script src="./Constructors/basket.js"></script>
 <script src="./Constructors/Categories.js"></script>
 <script src="./Constructors/Filters.js"></script>
 <script src="./Constructors/Product.js"></script>
@@ -334,27 +350,5 @@
 <script src="./Constructors/UserInterface.js"></script>
 <script src="./app.js"></script>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
- <script>
-  (() => {
-  'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-
-      form.classList.add('was-validated')
-    }
-    , false)
-  }
-  )
-})()
- </script>
 </body>
 </html>

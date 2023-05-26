@@ -42,18 +42,34 @@ class UserInterface{
         }
         else{
         productRequest.post(newProduct)
-        .then(()=>{forms.reset()})
+        .then(()=>{ui.loadUi();})
         .catch(err=>console.log(err));
+
+    ui.resetFormDatas();
+    toasty("success","Ürün Başarıyla Eklendi");
+
+    const modal = bootstrap.Modal.getInstance(document.getElementById("productModal"));
+    modal?.hide();
     }
-
-    ui.loadUi();
-
     }
     
+    resetFormDatas(){
+        document.querySelector('#productName').value="";
+        document.querySelector('#category').value="";
+        document.querySelector('#price').value="";
+        document.querySelector('#stockNumber').value="";
+        document.querySelector('#discount').value="";
+        document.querySelector('#img1').value="";
+        document.querySelector('#img2').value="";
+    }
+
+
     async addProductToUI(product){
         product = new Product(product.name,product.price,product.category,product.stock,product.discount,product.totalPrice,product.img1,product.img2,product.id);
         let productCard = await product.createProductCard()
-        await productsWrap.appendChild(productCard);      
+        await productsWrap.appendChild(productCard);   
+        
+        
     }
 
 
@@ -99,5 +115,10 @@ class UserInterface{
         else if(filterData !== []){
             productsWrap.innerHTML='<h4>Sonuç Bulunamadı</h4>';
         }
+    }
+
+    async orderProduct(){
+        let result = await basketUi.order();  
+        toasty("success","Siparişiniz Alındı.");      
     }
 }

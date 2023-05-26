@@ -28,90 +28,30 @@
         <a class="nav-link active" href="../#products">Ürünler</a>
         <a class="nav-link" href="./about.html">Hakkımızda</a>
         <a class="nav-link me-3" href="./about.html#faq">S.S.S</a>
-        <div class="nav-link dropdown p-0 ">
-          <button class="btn   dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            K.C
-          </button>
-          <ul class="dropdown-menu  dropdown-menu-lg-end ">
-            <li><a class="dropdown-item position-relative" href="#">Profil<i class="fa-solid fa-user fa-lg top-50 end-0 position-absolute translate-middle"></i></a></li>
-            <li><a class="dropdown-item position-relative" href="#">
-              Sepetim<span class="position-absolute top-50 end-0 translate-middle badge rounded-pill bg-danger">3<span class="visually-hidden">unread messages</span></span></a></li>
-            <li><a class="dropdown-item position-relative" href="#">Çıkış Yap<i class="fa-solid fa-right-from-bracket fa-lg top-50 end-0 position-absolute translate-middle"></i></a></li>
-          </ul>
-        </div>
-
+        <button type="button" class="btn btn-primary nav-link" data-bs-toggle="offcanvas" data-bs-target="#basket" aria-controls="basket">
+          <i class="fa-solid fa-cart-shopping text-white"></i> <span class="badge text-white basketCount">4</span>
+        </button>
+        
       </div>
     </div>
   </div>
 </nav>
 
-<section id="productDetail" class="py-section ">
-<div class="container">
-    <div class="row g-5 justify-content-center">
-        <div class="col-lg-5 col-sm-12  border-end ">
-            <div id="carouselExampleIndicators" class="carousel carousel-dark slide">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                </div>
-                <div class="carousel-inner ">
-                  <div class="carousel-item active">
-                    <img src="../Assets/products/gargoyle.webp" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../Assets/products/gargoyle2.webp" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../Assets/products/gargoyle3.webp" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../Assets/products/gargoyle4.webp" class="d-block w-100" alt="...">
-                  </div>
-                </div>
-                <button class="carousel-control-prev pe-5" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next ps-5" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-        </div>
-        <div class="col-lg-5 col-sm-12">
-            <h4 class="text-primary">Kaganley Davidson Kask </h4>
-            <span class="fs-7 text-uppercase bg-primary px-2 text-white rounded-1">Kaganley</span>
-            <h3 class="my-5">$299</h3>
-            <span>Bedenler</span>
-            <div>
-                <button class="btn btn-outline-primary  px-4">S</button>
-                <button class="btn btn-outline-primary  px-4">M</button>
-                <button class="btn btn-outline-primary  px-4">L</button>
-                <button class="btn btn-outline-primary  px-4">XL</button>
-            </div>
-            <div class="my-5">
-                <a id="liveToastBtn" href="#" class="btn btn-primary px-5">Sepete Ekle</a>
-        </div>
-    
-    </div>
-</div>
+
+<section id="productDetail" class="py-section "></section>
+
 <div class="toast-container position-fixed top-0 start-50 translate-middle-x  p-3">
-    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <strong class="me-auto">Kaganley</strong>
-        <small>Şimdi</small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body">
-        Ürün Sepete Eklendi
-      </div>
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Kaganley</strong>
+      <small>Şimdi</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Ürün Sepete Eklendi
     </div>
   </div>
 </div>
-</section>
-
 <section id="recommended" class="py-section d-none d-lg-block">
 <div class="container">
     <h3 class="text-center mb-3">Kullanıcılar Bunlarıda İnceledi</h3>
@@ -405,40 +345,114 @@
   </footer>
 </section>
 
+
+  <!-- Modal -->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-fullscreen-md-down modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="productModalLabel">KAGANLEY MOTORS</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="productForm" class="productFormModal" novalidate>
+        <div class="modal-body row g-3">
+          <div class="col-md-6">
+            <label for="productName" class="form-label">Ürün Adı</label>
+            <input type="text" class="form-control" id="productName" required>
+            <div class="invalid-feedback">
+              Lütfen Ürün Adı Giriniz!
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="category" class="form-label">Kategori</label>
+            <select class="form-select" id="category" required>
+              <option selected disabled value="">Kategori Seçiniz...</option>
+              <option value="1">Ayakkabı</option>
+            </select>
+            <div class="invalid-feedback">
+              Lütfen Geçerli Bir Kategori Seçiniz!
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="price" class="form-label">Fiyat</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text" id="inputGroupPrepend">$</span>
+              <input type="number" class="form-control" id="price" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Lütfen Geçerli Bir Fiyat Giriniz!
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="stockNumber" class="form-label">Stok Adet</label>
+            <input type="number" value=0 class="form-control" id="stockNumber" required>
+            <div class="invalid-feedback">
+              Lütfen Geçerli Bir Stok Adedi Giriniz!
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="discount" class="form-label">İndirim</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text" id="discountPrepend">%</span>
+              <input type="number" class="form-control" id="discount" aria-describedby="discountPrepend" value=0 required>
+              <div class="invalid-feedback">
+                Lütfen Geçerli Bir İndirim Oranı Giriniz!
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="img1" class="form-label">1.Resim</label>
+            <input type="text" class="form-control" id="img1" required>
+            <div class="invalid-feedback">
+              Lütfen Geçerli Bir Resim Adresi Giriniz!
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="img2" class="form-label">2.Resim (Zorunlu Değil)</label>
+            <input type="text" class="form-control" id="img2">
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+          <button type="submit" class="btn btn-primary">Düzenle</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- offcanvas -->
+<div class="offcanvas  offcanvas-start" tabindex="-1" id="basket" aria-labelledby="basketLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="basketLabel">Sepet</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body basketWrap"></div>
+  <button class="btn btn-success rounded-0 py-2 basket-order" disabled>Satın Al</button>
+
+</div>
+
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="feedbackToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">KAGANLEY</strong>
+      <small>Şimdi</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body text-white">
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-<script>
-    const toastTrigger = document.getElementById('liveToastBtn')
-    const toastLiveExample = document.getElementById('liveToast')
-    
-    if (toastTrigger) {
-      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-      toastTrigger.addEventListener('click', () => {
-        toastBootstrap.show()
-      })
-    }
-
-    
-
-
-    (() => {
-  'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
-    </script>
+ <script src="../Constructors/toastyFeedback.js"></script>
+ <script src="../Constructors/basket.js"></script>
+ <script src="../Constructors/DetailUI.js"></script>
+ <script src="../Constructors/Categories.js"></script>
+ <script src="../Constructors/requests.js"></script>
  <script src="../Constructors/ProductDetail.js"></script>
+ <script src="./detailApp.js"></script>
 </body>
 </html> 

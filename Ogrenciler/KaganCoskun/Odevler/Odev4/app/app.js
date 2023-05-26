@@ -35,11 +35,13 @@ const ui = new UserInterface();
 const productRequest = new Request('http://localhost:3004/products');
 const basketRequest = new Request('http://localhost:3004/basket');
 const categoryRequest = new Request('http://localhost:3004/categories');
+const basketUi = new BasketUi();
 
 let modalCategory = document.querySelector('#category'); 
 let categoryList = document.querySelector('.categoryList');
 let addNewProductBtn = document.querySelector('#addNewProductBtn');
 let sortProducts = document.querySelector('#sortProducts');
+let basketOrder = document.querySelector('.basket-order');
 
 
 let productsWrap = document.querySelector('.productsWrap');
@@ -47,11 +49,14 @@ let productsWrap = document.querySelector('.productsWrap');
 
 ui.loadUi();
 ui.loadCategoriesToUi();
+basketUi.basketCount();
+basketUi.loadBasketToUi();
 
 let searchInput = document.querySelector('#searchInput');
 searchInput.addEventListener('keyup',ui.loadUi);
 categoryList.addEventListener('change',ui.loadUi);
 sortProducts.addEventListener('change',ui.loadUi);
+basketOrder.addEventListener('click',ui.orderProduct);
 
 
 

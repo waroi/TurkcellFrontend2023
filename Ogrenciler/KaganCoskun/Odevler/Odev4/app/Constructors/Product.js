@@ -18,7 +18,7 @@ async createProductCard(){
     productCard.className='col-lg-3';
     productCard.innerHTML=`
       <div class="card" >
-        <div id="${this.name}${this.id}" class="carousel slide">
+        <div id="${this.name.slice(0,2)}${this.id}" class="carousel slide">
             <div class="carousel-inner position-relative">
               <div class="carousel-item active">
                 <img src="${this.img1}" class="card-img-top" alt="...">
@@ -27,11 +27,11 @@ async createProductCard(){
                 <img src="${this.img2}" class="card-img-top" alt="...">
               </div>
               <h6 class="position-absolute text-danger discount fw-bold d-none">%${this.discount} İndirimli!</h6>
-              <button class="carousel-control-prev d-none" type="button" data-bs-target="#${this.name}${this.id}" data-bs-slide="prev">
+              <button class="carousel-control-prev d-none" type="button" data-bs-target="#${this.name.slice(0,2)}${this.id}" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
               </button>
-              <button class="carousel-control-next d-none" type="button" data-bs-target="#${this.name}${this.id}" data-bs-slide="next">
+              <button class="carousel-control-next d-none" type="button" data-bs-target="#${this.name.slice(0,2)}${this.id}" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
               </button>
