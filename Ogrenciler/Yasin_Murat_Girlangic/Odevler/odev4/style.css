@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+* {
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --black: #1c2a39;
+  --gray: #5c6a79;
+  --purple: #4c3db2;
+  --transition: all 0.3s ease-in-out;
+}
+.navbar {
+  height: 120px;
+  width: 80%;
+  margin-left: 10%;
+
+}
+.title{
+  font-weight: bold;
+}
+.menu, .menu_icons{
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  color: var(--gray);
+  cursor: pointer;
+
+}
+.menu_icons li{
+  color: var(--black);
+}
+.menu .active{
+  color: var(--black);
+  font-weight: bold;
+}
+.menu li, .menu_icons li{
+  margin: 0 10px;
+}
+
+/* sepetteki ürün sayısı için */
+.sepet_icon{
+  position: relative;
+}
+.sepet_count{
+  width: 20px;
+  height: 20px;
+  background-color: var(--black);
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  right: -0.7rem;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+
+}
+.slider{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 600px;
+}
+.slider img{
+  height: 600px;
+}
+.store{
+  width: 80%;
+  margin-left: 10%;
+  /* background-color: #1c2a39; */
+  /* height: 100px; */
+
+
+}
+.book_card{
+  height: 400px;
+
+}
+.book_card img{
+  height: 400px;
+}
+
+/* book kart özellikleri */
+.gray{
+  color: var(--gray);
+}
+.black{
+  color: var(--black);
+}
+.fw-bold{
+  font-weight: bold;
+}
+.font_opensans{
+  font-family: "Open Sans", sans-serif;
+}
+.book_star_rate .bi-star, .bi-star-fill{
+  color: var(--gray);
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+.book_star_rate .bi-star-fill.active{
+  color: #f2c94c;
+}
+.book_description{
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.old_price{
+  text-decoration: line-through;
+  color: var(--gray);
+}
+.btn_purple{
+  cursor: pointer;
+  border: 2px solid var(--purple);
+  color: var(--purple);
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: transparent;
+  transition: var(--transition);
+  padding: 5px 0;
+}
+.btn_purple:hover{
+  background-color: var(--purple);
+  color: white;
+}
+
+ /* filter kısmı için */
+.filter_background{
+  background-color: #f2f2f2;
+  width: 600px;
+  height: 900px;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}
+.filter{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  min-height: 650px;
+  justify-content: center;
+  position: absolute;
+}
+.filter li{
+  color: var(--gray);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+.filter li:hover{
+  color: var(--black);
+}
+.filter li.active{
+  color: var(--black);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.filter li.active::before{
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--black);
+  display: inline-block;
+  position: absolute;
+  left: -5px;
+  margin-top: 12px;
+}
+
+/* modal kısmı için  */
+.sepet_modal{
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #5c6a7950;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: var(--transition);
+}
+.sepet_modal.active{
+  opacity: 1;
+  z-index: 999;
+}
+.sepet_items{
+  width: 0;
+  background-color: white;
+  height: 100%;
+  float: right;
+  position: relative;
+  transition: var(--transition);
+}
+.sepet_modal.active .sepet_items{
+  width: 450px;
+}
+
+.sepet_items .bi-x{
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 3rem;
+  color: var(--black);
+  cursor: pointer;
+}
+.sepet_title{
+  color: var(--black);
+  margin-top: 5rem;
+  text-align: center;
+  font-weight: bold;
+}
+.sepet_list{
+  list-style-type: none;
+  padding: 0 10px;
+  margin-top: 3rem;
+  max-height: 650px;
+  overflow-y: auto;
+}
+.sepet_item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.sepet_item_info{
+  width: 250px;
+}
+.sepet_item_info .book_name{
+  font-size: 16px;
+  font-weight: bold;
+}
+.sepet_item_info .book_price{
+  font-size: 16px;
+}
+.sepet_item_info .book_remove{
+  cursor: pointer;
+  color: var(--gray);
+}
+.sepet_item .book_count{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--black);
+}
+.book_count .decrease, .increase{
+  cursor: pointer;
+  color: var(--purple);
+}
+.book_count .increase{
+  margin-left: 5px;
+}
+.book_count .decrease{
+  margin-right: 5px;
+}
+.sepet_total{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 5%;
+  align-items: center;
+  width: inherit; 
+}
+.sepet_total button{
+  width: 250px;
+}

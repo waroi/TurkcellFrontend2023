@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./src/assets/favicon.jpg" />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./src/css/media.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Sofia+Sans+Condensed:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>Honourable</title>
+  </head>
+  <body>
+    <div class="background-img">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <div class="">
+            <a href="#">
+              <img
+                src="./src/assets/ollivanders-logo.png"
+                alt=""
+                class="logo p-1 align-items-center img-fluid"
+              />
+            </a>
+          </div>
+          <button
+            type="button"
+            class="navbar-toggler bg-primary border-0"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav-list"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="nav-list">
+            <ul class="navbar-nav mx-auto text-center">
+              <li class="nav-item p-2">
+                <a
+                  href="./index.html"
+                  class="nav-link text-uppercase text-light"
+                  >Homepage</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a
+                  href="./index.html#wand-shop"
+                  class="nav-link text-uppercase text-light"
+                  >magical wands</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a
+                  href="./index.html#about-wand"
+                  class="nav-link text-uppercase text-light"
+                  >about wands</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a href="./faq.html" class="nav-link text-uppercase text-light"
+                  >FAQ</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a
+                  href="./index.html#contact-us"
+                  class="nav-link text-uppercase text-light"
+                  >contact us</a
+                >
+              </li>
+            </ul>
+            <div class="px-5 text-center">
+              <button type="button" class="btn">
+                <i class="fa-brands fa-searchengin text-light fs-3"></i>
+              </button>
+              <button type="button" class="btn position-relative">
+                <i class="fa-regular fa-heart text-light fs-3"></i>
+                <span
+                  class="position-absolute top-1 start-100 translate-middle badge rounded-2 bg-danger"
+                  >5</span
+                >
+              </button>
+              <button type="button" class="btn position-relative">
+                <a href="basket.html"
+                  ><i class="fa-solid fa-cart-shopping text-light fs-3"></i
+                ></a>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-2 bg-danger cart-value"
+                  >2</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section>
+        <div
+          class="modal fade"
+          id="blogModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="blog-form">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" id="price" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="stock">Stock</label>
+                    <input type="number" id="stock" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="text">text</label>
+                    <input type="text" id="text" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" class="form-control">
+                      <option value="">--Choose a Category--</option>
+                      <option value="Harry Potter Character Wands">
+                        Harry Potter Character Wands
+                      </option>
+                      <option value="Fantastic Beasts Character Wands">
+                        Fantastic Beasts Character Wands
+                      </option>
+                      <option value="Celebration Wands">
+                        Celebration Wands
+                      </option>
+                      <option value="Wooden Wands">Wooden Wands</option>
+                      <option value="All">All</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="image">Image URL</label>
+                    <input type="text" id="image" class="form-control" />
+                  </div>
+                  <input type="text" hidden id="id" />
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary addSubmit"
+                  id="saveChangesButton"
+                >
+                  Save changes
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-warning addSubmit d-none"
+                  id="editButton"
+                >
+                  Edit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <form id="form" class="row align-items-end">
+          <div class="form-group col-lg-3 col-sm-4">
+            <input
+              type="text"
+              id="search"
+              class="search ms-auto"
+              placeholder="Search by wand name"
+            />
+          </div>
+          <div class="form-group col-lg-3 col-sm-4">
+            <h5>Filter by:</h5>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              id="filterCategory"
+            >
+              <option value="">--Choose a Category--</option>
+              <option value="Harry Potter Character Wands">
+                Harry Potter Character Wands
+              </option>
+              <option value="Fantastic Beasts Character Wands">
+                Fantastic Beasts Character Wands
+              </option>
+              <option value="Celebration Wands">Celebration Wands</option>
+              <option value="Wooden Wands">Wooden Wands</option>
+              <option value="All">All</option>
+            </select>
+          </div>
+          <div class="form-group col-lg-3 col-sm-4">
+            <h5 for="sort">Sort by:</h5>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              id="sort"
+            >
+              <option value="">None</option>
+              <option value="name-asc">name-asc</option>
+              <option value="name-desc">name-desc</option>
+              <option value="price-asc">Price-asc</option>
+              <option value="price-desc">Price-desc</option>
+            </select>
+          </div>
+          <div class="form-group col-lg-3 col-sm-4">
+            <button
+              type="button"
+              class="btn btn-outline-warning add-product-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#blogModal"
+            >
+              Add Product +
+            </button>
+          </div>
+        </form>
+      </div>
+      <div id="main" class="row justify-content-center m-0"></div>
+      <footer
+        class="page-footer font-small bg-dark text-light pt-4 w-100 h-100"
+      >
+        <div class="container text-center text-md-left">
+          <img src="./src/assets/footer-logo.png" alt="Logo" height="100" />
+          <div class="row mt-5 position-relative">
+            <div class="col-md-4">
+              <h5 class="fs-4">About Us</h5>
+              <ul class="list-unstyled">
+                <li><a href="#">Our Mission</a></li>
+                <li><a href="#">Our Vision</a></li>
+                <li><a href="#">History</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5 class="fs-4">Contact Us</h5>
+              <ul class="list-unstyled">
+                <li><a href="#">Address</a></li>
+              </ul>
+
+              <h5 class="fs-4">Follow Us</h5>
+              <ul class="list-inline d-flex gap-3 justify-content-center">
+                <li class="">
+                  <a href="#"
+                    ><i
+                      class="fa-brands fa-instagram"
+                      style="color: #aa8855"
+                    ></i
+                  ></a>
+                </li>
+                <li class="">
+                  <a href="#"
+                    ><i class="fa-brands fa-facebook" style="color: #aa8855"></i
+                  ></a>
+                </li>
+                <li class="">
+                  <a href="#"
+                    ><i class="fa-brands fa-twitter" style="color: #aa8855"></i
+                  ></a>
+                </li>
+                <li class="">
+                  <a href="#"
+                    ><i class="fa-brands fa-youtube" style="color: #aa8855"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5 class="fs-4">Legal</h5>
+              <ul class="list-unstyled">
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Our Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <hr />
+          <p class="text-center fs-5 mb-0">
+            İrem Gündoğan © Turkcell Geleceğe Yazanlar 2023
+          </p>
+        </div>
+      </footer>
+    </div>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="module" src="./src/js/app.js"></script>
+  </body>
+</html>

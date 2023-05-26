@@ -124,22 +124,22 @@
                 <div class="modal-body d-flex flex-column gap-2">
                     <div class="input-group">
                         <span class="input-group-text w-25">Name</span>
-                        <input type="text" aria-label="Title" class="form-control"
-                            placeholder="The Future of Artificial Intelligence" id="editProductName">
+                        <input type="text" aria-label="Title" class="form-control" placeholder="Mars"
+                            id="editProductName">
                     </div>
                     <div class="input-group">
                         <span class="input-group-text w-25">Price</span>
-                        <input type="number" aria-label="Content" class="form-control"
-                            placeholder="Artificial Intelligence (AI) is rapidly evolving..." id="editProductPrice">
+                        <input type="number" aria-label="Content" class="form-control" placeholder="100"
+                            id="editProductPrice">
                     </div>
                     <div class="input-group">
                         <span class="input-group-text w-25">Stock</span>
-                        <input type="number" aria-label="Author" class="form-control" placeholder="John Doe"
+                        <input type="number" aria-label="Author" class="form-control" placeholder="25"
                             id="editProductStock">
                     </div>
                     <div class="input-group">
                         <span class="input-group-text w-25">Category</span>
-                        <input type="text" aria-label="Category" class="form-control" placeholder="Futuristic"
+                        <input type="text" aria-label="Category" class="form-control" placeholder="Solar System"
                             id="editProductCategory">
                     </div>
                     <div class="input-group">
@@ -193,27 +193,29 @@
     </header>
 
     <!-- Filters -->
-    <div class="d-flex justify-content-around container">
-        <div>
-            <label for="searchInput" class="form-label">Search</label>
-            <input type="text" class="form-control" id="searchInput">
-        </div>
+    <div class="bg-secondary text-danger">
+        <div class="d-flex justify-content-around container">
+            <div>
+                <label for="searchInput" class="form-label">Search</label>
+                <input type="text" class="form-control bg-primary text-danger" id="searchInput" placeholder="Search"">
+            </div>
 
-        <div>
-            <label for="categorySelect" class="form-label">Filter</label>
-            <select id="categorySelect" class="form-select" aria-label="Select Category">
-                <option value="all">All</option>
-            </select>
-        </div>
+            <div>
+                <label for="categorySelect" class="form-label">Filter</label>
+                <select id="categorySelect" class="form-select bg-primary text-danger" aria-label="Select Category">
+                    <option value="all">All</option>
+                </select>
+            </div>
 
-        <div>
-            <label for="sort" class="form-label">Sort</label>
-            <select class="form-select" id="sort">
-                <option value="az">A-Z</option>
-                <option value="za">Z-A</option>
-                <option value="asc">Price(asc)</option>
-                <option value="desc">Price(desc)</option>
-            </select>
+            <div>
+                <label for="sort" class="form-label">Sort</label>
+                <select class="form-select bg-primary text-danger" id="sort">
+                    <option value="az">A-Z</option>
+                    <option value="za">Z-A</option>
+                    <option value="asc">Price(asc)</option>
+                    <option value="desc">Price(desc)</option>
+                </select>
+            </div>
         </div>
     </div>
 
