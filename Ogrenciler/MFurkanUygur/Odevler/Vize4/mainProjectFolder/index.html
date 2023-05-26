@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MFU</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/486/486903.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- google font -->
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
+        integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+        integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/5e36563075.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary shadow-sm py-0">
+        <div class="container">
+            <a href="./homepage.html" class="navbar-brand fs-5 fw-bolder  ">
+                <span class="text-danger">FU</span>tur
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav fw-semibold text-center">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link text-dark" href="./homepage.html">Anasayfa</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link text-dark" href="./about.html">Hakkımızda</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Turlar
+                        </a>
+                        <ul class="dropdown-menu text-center">
+                            <li><a class="dropdown-item" href="akdeniz.html">Akdeniz Turları</a></li>
+                            <li><a class="dropdown-item" href="anadolu.html">Anadolu Turları</a></li>
+                            <li><a class="dropdown-item" href="karadeniz.html">Karadeniz Turları</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link text-dark" href="faq.html">SSS</a>
+                    </li>
+                    <li class="nav-item mx-2">
+
+                    </li>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary position-relative" id="uniqueBasket"
+                        data-bs-toggle="modal" data-bs-target="#shoppingCartModal">
+                        <i class="fa-solid fa-basket-shopping position-relative "></i>
+                        <div id="basketLength" class="position-absolute top-0 ms-3 text-danger fw-semibold"></div>
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade " id="shoppingCartModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="shoppingCartModalLabel" aria-hidden="true">
+                        <div class="modal-dialog ">
+                            <div class="modal-content position-sticky">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-4" id="shoppingCartModalLabel">Sepetim</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" id="ourBasketItems">
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-warning " data-bs-dismiss="modal">Sepeti
+                                        Kapat</button>
+                                    <button type="button" class="btn btn-success buy-all-items">Satın Al</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Slider Main Contents -->
+    <section class="homepage-slider pb-50 pt-5 my-auto">
+        <div class="container my-5">
+            <div id="homepageSliderContent" class="carousel slide rounded-3 " data-bs-ride="carousel">
+                <div class="carousel-inner ">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <div class="row  p-5">
+                            <div class="col-lg-4 my-auto">
+                                <div class="text-start">
+                                    <h2 class="text-white">Ege & Akdeniz Turları</h2>
+                                    <ul class="list p-0">
+                                        <li class="list-group-item">
+                                            <h5 class="text-white fw-light">Maviliklerin huzurunda kaybolmaya, tarihin
+                                                derinliklerinde bir yolculuğa var mısınız?</h5>
+                                        </li>
+                                        <li class="list-group-item text-white"><i
+                                                class="fa-solid fa-bookmark me-2"></i>Unutulmaz bir deneyim</li>
+                                        <li class="list-group-item text-white"><i
+                                                class="fa-solid fa-wand-magic-sparkles me-1"></i>Büyüleyici güzellikler
+                                        </li>
+                                        <li class="list-group-item text-white"><i
+                                                class="fa-solid fa-person-running me-1"></i>Kaçırılmayacak fırsatlar
+                                        </li>
+                                        <li class="list-group-item text-white"><i class="fa-solid fa-tag me-2"></i>Uygun
+                                            fiyat</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <img src="https://www.gwturkey.com/wp-content/uploads/2022/04/globalwell-1-768x343.png"
+                                    alt="" class="img-fluid w-100">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row p-5">
+                            <div class="col-lg-4 my-auto">
+                                <div class="text-start">
+                                    <h2 class="text-white">Kapadokya Turları</h2>
+                                    <ul class="list p-0">
+                                        <li class="list-group-item">
+                                            <h5 class="text-white fw-light">Güzel Atlar Diyarı'nda kaybolmaya, tarihi
+                                                keşiflerle dolu bir yolculuğa var mısınız?</h5>
+                                        </li>
+                                        <li class="list-group-item text-white"><i
+                                                class="fa-solid fa-bookmark me-2"></i>Unutulmaz bir deneyim</li>
+                                        <li class="list-group-item text-white"><i
+                                                class="fa-solid fa-wand-magic-sparkles me-1"></i>Büyüleyici güzellikler
+                                        </li>
+                                        <li class="list-group-item text-white"><i
+                                                class="fa-solid fa-person-running me-1"></i>Kaçırılmayacak fırsatlar
+                                        </li>
+                                        <li class="list-group-item text-white"><i class="fa-solid fa-tag me-2"></i>Uygun
+                                            fiyat</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <img src="https://www.gwturkey.com/wp-content/uploads/2022/04/turkiyeturizm-1536x686.png"
+                                    alt="" class="img-fluid w-100">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item px-5 " data-bs-interval="9000">
+                        <div class="row  py-5">
+                            <div class="col-lg-6  my-auto">
+                                <div class="text-center  ">
+                                    <h2 class="text-white">Dünya Turları Çok Yakında <span
+                                            class="text-danger">fu</span>tur'da</h2>
+                                    <ul class="list p-0">
+                                        <li class="list-group-item">
+                                            <h5 class="text-white fw-light">Beklemede kalın. . . </h5>
+                                        </li>
+                                        <li class="list-group-item text-white"><i
+                                                class="fa-solid fa-bookmark me-2"></i>Unutulmaz bir deneyim</li>
+                                        <li class="list-group-item text-white mb-3 py-1"><i
+                                                class="fa-solid fa-wand-magic-sparkles me-1"></i>Büyüleyici güzellikler
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 py-1 text-center">
+                                <div class="py-1 w-75 mx-auto">
+                                    <img src="https://www.pngfind.com/pngs/b/47-478681_travel-png.png"
+                                        class=" döner img-fluid w-75" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#homepageSliderContent"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#homepageSliderContent"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Fırsat Cards -->
+    <section class="offer-card py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row d-flex justify-content-around">
+                        <div class="col-6 col-lg-3   ">
+                            <div class=" text-center mt-2 p-3 mx-2 ">
+                                <a href="" class="text-decoration-none ">
+                                    <i class="fa-solid fa-arrow-trend-down fa-2xl mb-3"></i>
+                                    <h6 class="pt-1 fw-bold">Erken Rezervasyon </h6>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="col-6 col-lg-3  ">
+                            <div class="text-center mt-2 p-3 mx-2">
+                                <a href="" class="text-decoration-none ">
+                                    <i class="fa-solid fa-hand-holding-heart fa-2xl mb-3"></i>
+                                    <h6 class="pt-1 fw-bold">Müşteri Dostu</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ">
+                    <div class="row d-flex justify-content-around">
+                        <div class="col-6 col-lg-3 ">
+                            <div class="text-center mt-2  p-3 mx-2">
+                                <a href="" class="text-decoration-none ">
+                                    <i class="fa-solid fa-wallet fa-2xl mb-3"></i>
+                                    <h6 class="pt-1 fw-bold">Uygun Fiyat</h6>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 ">
+                            <div class="text-center mt-2 p-3 mx-2">
+                                <a href="" class="text-decoration-none ">
+                                    <i class="fa-solid fa-person-walking-luggage fa-2xl mb-3"></i>
+                                    <h6 class="pt-1 fw-bold">Üye İndirimi</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- mini tur -->
+    <section class="mini-tour-card py-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-danger fs-1 text-white fw-bold w-100 mb-3"
+                        data-bs-toggle="modal" data-bs-target="#addTour">Tur Ekle
+                    </button>
+                    <div class="modal fade" id="addTour" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="addTourLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-3" id="addTourLabel">Yeni Tur Ekleyebilirsiniz!</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="was-validated">
+                                        <label for="tourName">Tur İsmi </label>
+                                        <input class="form-control fs-1 mb-2 mt-1" placeholder="Turun adını giriniz..."
+                                            type="text" id="tourName" required>
+                                        <div class="valid-feedback">Ok.</div>
+                                        <div class="invalid-feedback">Turunuza ait bir isim giriniz.</div>
+
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <label for="tourDay">Gün sayısı: </label>
+                                                <select name="tourDays" id="tourDay"
+                                                    class="form-select py-1 fs-1 mb-2 mt-1" required>
+                                                    <option selected="selected" disabled>Seçiniz</option>
+                                                    <option value="1" id="1">1</option>
+                                                    <option value="2" id="2">2</option>
+                                                    <option value="3" id="3">3</option>
+                                                    <option value="4" id="4">4</option>
+                                                    <option value="5" id="5">5</option>
+                                                    <option value="6" id="6">6</option>
+                                                    <option value="7" id="7">7</option>
+                                                </select>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Gün sayısını giriniz.</div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="tourFood">Yemek tipi:</label>
+                                                <select name="tourFoods" id="tourFood"
+                                                    class="form-select py-1 fs-1 mb-2 mt-1" required>
+                                                    <option selected="selected" disabled>Seçiniz</option>
+                                                    <option value="Kahvaltı" id="Kahvaltı">Kahvaltı</option>
+                                                    <option value="Akşam Yemeği" id="Akşam Yemeği">Akşam Yemeği</option>
+                                                    <option value="Kahvaltı/Akşam Yemeği"
+                                                        id="Kahvaltı ve Akşam Yemeği">
+                                                        Kahvaltı
+                                                        ve Akşam Yemeği</option>
+                                                </select>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Yemek tipini seçiniz.</div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="tourTransport">Ulaşım Türü</label>
+                                                <select name="tourTransports" id="tourTransport"
+                                                    class="form-select py-1 fs-1 mb-2 mt-1" required>
+                                                    <option selected="selected" disabled>Seçiniz</option>
+                                                    <option value="Özel Araç" id="Özel Araç">Özel Araç</option>
+                                                    <option value="Toplu Ulaşım" id="Toplu Ulaşım">Toplu Ulaşım</option>
+                                                    <option value="VIP Servis" id="VIP Servis">VIP Servis</option>
+                                                </select>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Ulaşım şeklini seçiniz.</div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label for="tourPicture1">Görsel 1: </label>
+                                            <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                                placeholder="tour görselini giriniz..." id="tourPicture1" required>
+                                            <div class="valid-feedback">Ok.</div>
+                                            <div class="invalid-feedback">Resim giriniz.</div>
+                                        </div>
+
+                                        <div>
+                                            <label for="tourPicture2">Görsel 2: </label>
+                                            <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                                placeholder="tour görselini giriniz..." id="tourPicture2" required>
+                                            <div class="valid-feedback">Ok.</div>
+                                            <div class="invalid-feedback">Resim giriniz.</div>
+                                        </div>
+
+
+                                        <div>
+                                            <label for="tourPicture3">Görsel 3: </label>
+                                            <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                                placeholder="tour görselini giriniz..." id="tourPicture3" required>
+                                            <div class="valid-feedback">Ok.</div>
+                                            <div class="invalid-feedback">Resim giriniz.</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <label for="tourCategory">Kategori: </label>
+                                                <select name="tourCategories" id="tourCategory"
+                                                    class="form-select form-check py-1 fs-1 mb-2 mt-1" required>
+                                                    <option selected="selected" disabled > Seçiniz</option>
+                                                    <option value="Anadolu" id="Anadolu">Anadolu</option>
+                                                    <option value="Karadeniz " id="Karadeniz">Karadeniz</option>
+                                                    <option value="Akdeniz" id="Akdeniz">Akdeniz</option>
+                                                    <option value="Doğu" id="Doğu">Doğu Anadolu</option>
+                                                    <option value="Güneydoğu " id="Güneydoğu">Güneydoğu</option>
+                                                    <option value="Ege" id="Ege">Ege</option>
+                                                    <option value="Marmara" id="Marmara">Marmara</option>
+                                                </select>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Kategori seçiniz.</div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="tourPrice">Fiyat: </label>
+                                                <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                                    placeholder="fiyat giriniz..." id="tourPrice" required>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Fiyat bilgisi giriniz.</div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label for="tourStock">Stok: </label>
+                                                <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                                    placeholder="stok giriniz..." id="tourStock" required>
+                                                <div class="valid-feedback">Ok.</div>
+                                                <div class="invalid-feedback">Stok bilgisi giriniz.</div>
+                                            </div>
+                                        </div>
+                                        <label for="tourDescription">Açıklama: </label>
+                                        <input class="form-control py-1 fs-1 mb-2 mt-1" type="text"
+                                            placeholder="tour açıklmaa giriniz..." id="tourDescription" required>
+                                        <div class="valid-feedback">Ok.</div>
+                                        <div class="invalid-feedback">Tur hakkında bilgi giriniz.</div>
+
+                                        <button type="submit"
+                                            class="btn btn-success fs-1 text-white fw-bold w-100 my-3 " id="addButton"
+                                            data-bs-dismiss="modal">Ekle</button>
+
+                                        <button type="button" class="btn btn-danger fs-1 text-white fw-bold w-100"
+                                            data-bs-dismiss="modal">İptal</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-flex align-items-center mb-3">
+                    <h6 class="mb-0 fw-bold fs-2 me-1">Kategoriler:</h6>
+                    <select id="tourCategories" class=" form-select py-1 fs-1">
+                    </select>
+                </div>
+                <div class=" col-lg-3 d-flex align-items-center mb-3">
+                    <h6 class="mb-0 fw-bold fs-2  me-1" id="sortCategories">Sıralama:</h6>
+                    <select class="form-select py-1 fs-1 " id="sortOptions" aria-label="Sort blogs">
+                        <option selected value="Varsayılan" id="Varsayılan">Varsayılan</option>
+                        <option value="azSort" id="azSort">A-z (Ad)</option>
+                        <option value="zaSort" id="zaSort">Z-a (Ad)</option>
+                        <option value="priceDecrease" id="priceDecrease">Fiyat (Azalan)</option>
+                        <option value="priceIncrease" id="priceIncrease">Fiyat (Artan)</option>
+
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    <input class="form-control border border-1 fs-1" placeholder="Aramak için yaz bekleme... "
+                        type="text" id="searchTour">
+                </div>
+            </div>
+            <div class="row " id="allTours">
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- bridge -->
+    <section class="bridge py-50">
+        <div class="container py-5 ">
+            <div class="row my-auto mx-2 rounded-4">
+                <div class="col-lg-7">
+                    <div class="my-auto">
+                        <img src="./images/bridgeCollage.webp" class="img-fluid w-100" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-5 my-auto text-center p-3">
+                    <h1 class="text-white fw-bolder text-uppercase">Yeni bir maceraya hazır mısın?</h1>
+                    <p class="text-white fs-3 mx-5">
+                        Sende <span class="text-danger fw-bold">fu</span>tur'a katıl. Avantajlı fırsatlarla
+                        benzersiz
+                        bir tatilin keyfini çıkar.
+                    </p>
+                    <div class="">
+                        <a href="" class="inspect btn btn-danger fw-bold px-4 ">Fırsatları Gör</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- product card -->
+    <section class="product-card py-50">
+        <div class="container">
+            <h2 class=""> En Çok Tercih Edilen <span class="text-danger">fu</span>Turlar</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4 rounded-4">
+                        <div class="card-image-top">
+                            <div id="productCardContentSliderOne" class="carousel slide p-3" data-bs-ride="carousel">
+                                <div class="carousel-inner ">
+                                    <div class="carousel-item active" data-bs-interval="1000">
+                                        <img src="./images/mersinwp.webp" class="d-block w-100 rounded-4 " alt="...">
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="2000">
+                                        <img src="./images/hataywp.webp" class="d-block w-100 rounded-4" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./images/adanawp.webp" class="d-block w-100 rounded-4" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#productCardContentSliderOne" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#productCardContentSliderOne" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row ">
+                                <div class="col-10">
+                                    <h3 class="card-title">Akdeniz <span class="text-danger">fu</span>Turları</h3>
+                                </div>
+                                <div class="col-2 text-end my-auto">
+                                    <i class="fa-solid fa-heart fa-xl "></i>
+                                </div>
+                            </div>
+                            <ul class="list p-0">
+                                <li class="list-group-item"><i class="fa-solid fa-check text-danger me-1"></i>
+                                    Mersin-Adana-Hatay</li>
+                                <li class="list-group-item"><i class="fa-solid fa-check text-danger me-1"></i>
+                                    Antalya-Mersin
+                                </li>
+                                <li class="list-group-item"><i class="fa-solid fa-check text-danger me-1"></i>
+                                    Antalya-Adana-Hatay</li>
+                            </ul>
+                            <a href="akdeniz.html" class="btn btn-danger fw-bold text-dark w-100 py-2"><span
+                                    class=" ">fu</span>Turu İncele</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card mb-4 rounded-4">
+                        <div class="card-image-top">
+                            <div id="productCardContentSliderTwo" class="carousel slide p-3" data-bs-ride="carousel">
+                                <div class="carousel-inner ">
+                                    <div class="carousel-item active" data-bs-interval="1000">
+                                        <img src="./images/sivaswp.webp" class="d-block w-100 rounded-4 " alt="...">
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="2000">
+                                        <img src="./images/nevsehirwp.webp" class="d-block w-100 rounded-4" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./images/eskiwp.webp" class="d-block w-100 rounded-4" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev " type="button"
+                                    data-bs-target="#productCardContentSliderTwo" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next " type="button"
+                                    data-bs-target="#productCardContentSliderTwo" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row ">
+                                <div class="col-10">
+                                    <h3 class="card-title">Anadolu <span class="text-danger">fu</span>Turları</h3>
+                                </div>
+                                <div class="col-2 text-end my-auto">
+                                    <i class="fa-solid fa-heart fa-xl "></i>
+                                </div>
+                            </div>
+                            <ul class="list p-0">
+                                <li class="list-group-item"><i class="fa-solid fa-check text-danger me-1"></i>
+                                    Eskişehir-Ankara</li>
+                                <li class="list-group-item"><i class="fa-solid fa-check text-danger me-1"></i>
+                                    Sivas-Kayseri-Nevşehir
+                                </li>
+                                <li class="list-group-item"><i class="fa-solid fa-check text-danger me-1"></i>
+                                    Konya-Aksaray-Niğde</li>
+                            </ul>
+                            <a href="anadolu.html" class="btn btn-danger fw-bold text-dark w-100 py-2"><span
+                                    class=" ">fu</span>Turu İncele</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card mb-4 rounded-4">
+                        <div class="card-image-top">
+                            <div id="productCardContentSliderThree" class="carousel slide p-3" data-bs-ride="carousel">
+                                <div class="carousel-inner ">
+                                    <div class="carousel-item active" data-bs-interval="1000">
+                                        <img src="./images/orduwp.webp" class="d-block w-100 rounded-4 " alt="...">
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="2000">
+                                        <img src="./images/amasyawp.webp" class="d-block w-100 rounded-4" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./images/trabzonwp.webp" class="d-block w-100 rounded-4" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#productCardContentSliderThree" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#productCardContentSliderThree" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row ">
+                                <div class="col-10">
+                                    <h3 class="card-title">Karadeniz <span class="text-danger">fu</span>Turları</h3>
+                                </div>
+                                <div class="col-2 text-end my-auto">
+                                    <i class="fa-solid fa-heart fa-xl "></i>
+                                </div>
+                            </div>
+                            <ul class="list p-0">
+                                <li class="list-group-item"><i class="fa-solid fa-check text-danger me-1"></i>
+                                    Ordu-Giresun</li>
+                                <li class="list-group-item"><i class="fa-solid fa-check text-danger me-1"></i>
+                                    Trabzon-Rize-Artvin
+                                </li>
+                                <li class="list-group-item"><i class="fa-solid fa-check text-danger me-1"></i>
+                                    Amasya-Tokat</li>
+                            </ul>
+                            <a href="karadeniz.html" class="btn btn-danger fw-bold text-dark w-100 py-2 "><span
+                                    class="  ">fu</span>Turu İncele</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Bank Logo -->
+    <section class="payMoney py-4 pb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row d-flex justify-content-around">
+                        <div class="col-4 col-lg-3  mt-4  ">
+                            <div class="bank-scale">
+                                <img class="img-fluid"
+                                    src="https://cdn.vatanbilgisayar.com/UPLOAD/GENERAL/taksit-footer/bankkart-logo.png"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="col-4 col-lg-3  mt-4 ">
+                            <div class="bank-scale">
+                                <img class="img-fluid" src="https://cdn.vatanbilgisayar.com/UPLOAD/BANKA/8/8.png"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ">
+                    <div class="row d-flex justify-content-around">
+                        <div class="col-4 col-lg-3  mt-4 ">
+                            <div class="bank-scale">
+                                <img class="img-fluid"
+                                    src="https://cdn.vatanbilgisayar.com/UPLOAD/GENERAL/taksit-footer/maximum-logo.png"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="col-4 col-lg-3  mt-4">
+                            <div class="bank-scale">
+                                <img class="img-fluid" src="https://cdn.vatanbilgisayar.com/UPLOAD/BANKA/4/4.png"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer bg-dark pt-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mt-4">
+                    <h5 class="text-white fw-bold">Bireysel</h5>
+                    <h6 class="text-white fst-italic fw-light">M.Furkan UYGUR</h6>
+                    <ul class="list p-0 mt-4">
+                        <li class="list-group-item text-white mt-2">
+                            <a href="https://github.com/mfurkanuygur" class="text-decoration-none"><i
+                                    class="fa-brands fa-github fa-xl me-3"></i>Github</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="https://mfurkanuygur.github.io" class="text-decoration-none"><i
+                                    class="fa-solid fa-user fa-xl me-3"></i>Hakkımda</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="https://www.instagram.com/mfrknu/" class="text-decoration-none"><i
+                                    class="fa-brands fa-instagram fa-xl me-3"></i>Instagram</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="https://www.linkedin.com/in/mfurkanuygur1" class="text-decoration-none"><i
+                                    class="fa-brands fa-linkedin fa-xl me-3"></i>Linkedin</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="mailto: u.fe.uygur@gmail.com" class="text-decoration-none"><i
+                                    class="fa-brands fa-google fa-xl me-3"></i>u.fe.uygur@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mt-4">
+                    <h5 class="text-white">Kurumsal</h5>
+                    <ul class="list p-0 mt-3">
+                        <li class="list-group-item text-white mt-2">
+                            <a href="#" class="text-decoration-none"><i
+                                    class="fa-solid fa-info-circle fa-xl me-3"></i>Biz Kimiz?</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="#" class="text-decoration-none"><i class="fa-solid fa-mug-hot fa-xl me-3"></i>Resmi
+                                Tatiller 2023</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="#" class="text-decoration-none"><i
+                                    class="fa-solid fa-shield-halved fa-xl me-3"></i>Kalite</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="#" class="text-decoration-none"><i
+                                    class="fa-solid fa-file-pen fa-xl me-3"></i>KVKK</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="#" class="text-decoration-none"><i class="fa-solid fa-book fa-xl me-3"></i>İşlem
+                                Rehberi</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mt-4">
+                    <h5 class="text-white">Diğer Hizmetlerimiz</h5>
+                    <ul class="list p-0 mt-3">
+                        <li class="list-group-item text-white mt-2">
+                            <a href="" class="text-decoration-none"><i class="fa-solid fa-ship fa-xl me-3"></i>Gemi
+                                Turları</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="" class="text-decoration-none"><i class="fa-solid fa-plane fa-xl me-3"></i>Yurtdışı
+                                Turları</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="" class="text-decoration-none"><i class="fa-solid fa-car fa-xl me-3"></i>Araç
+                                Kiralama</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="" class="text-decoration-none"><i
+                                    class="fa-solid fa-money-bill-transfer fa-xl me-2"></i>Şirketlere Özel
+                                Transfer</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="" class="text-decoration-none fw-bold"><i
+                                    class="fa-solid fa-turkish-lira fa-xl me-3 ms-2"></i><span
+                                    class="text-danger fw-bold">fu</span>para</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mt-4">
+                    <h5 class="text-white">Diğer Hizmetlerimiz</h5>
+                    <ul class="list p-0 mt-3">
+                        <li class="list-group-item text-white mt-2">
+                            <a href="" class="text-decoration-none"><i
+                                    class="fa-solid fa-phone fa-xl me-2 ms-1"></i>(123)
+                                456 78 90</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="" class="text-decoration-none"><i
+                                    class="fa-brands fa-google fa-xl me-3"></i>e-Mail</a>
+                        </li>
+                        <li class="list-group-item text-white mt-2">
+                            <a href="mailto:u.fe.uygur@gmail.com" class="text-decoration-none"><i
+                                    class="fa-solid fa-location fa-xl me-3"></i>Sivas/Biryer</a>
+                        </li>
+                        <li class="list-group-item text-white  mt-2">
+                            <a href="" class="text-decoration-none"><i
+                                    class="fa-solid fa-highlighter fa-lg me-3 "></i>Öneri Formu</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-center mt-5">
+                <p class="text-white fst-italic fs-2">Turkcell Frontend Bootcamp Vize 4 Projesidir.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+        crossorigin="anonymous"></script>
+    <script src="./src/http.js"></script>
+    <script src="./src/ui.js"></script>
+    <script src="./src/main.js"></script>
+</body>
+
+</html>
