@@ -11,6 +11,7 @@ const basketRequest = new Fetch("http://localhost:3000/basket");
 
 const viewGridList = document.getElementById("viewGrid");
 const viewList = document.getElementById("viewList");
+const basketList = document.getElementById("basketList");
 const productTitle = document.getElementById("product-title");
 const basketTotal = document.getElementById("basket-total");
 const addProductBtn = document.getElementById("addOrEditButton");
@@ -67,16 +68,16 @@ function addEventListeners() {
 
 async function formListenSubmitEvent(e) {
   e.preventDefault();
+  UI.formListenSubmitFromUI(e);
   viewGridList.innerHTML = "";
   viewList.innerHTML = "";
-  UI.formListenSubmitFromUI(e);
-  showProducts();
+  brandsList.innerHTML = "";
   form.reset();
   brandsForm.reset();
   searchInput.value = "";
 }
 
-function showProducts() {
+export function showProducts() {
   request
     .get()
     .then((data) => {
@@ -103,12 +104,13 @@ function showProducts() {
       });
 
       // Ürün sayısını sadece bir kez ekle
-      productTitle.innerHTML += `${productCount} Ürün Bulundu`;
+      productTitle.innerHTML = "";
+      productTitle.innerHTML += `Sonuç: ${productCount} Ürün Bulundu`;
     })
     .catch((err) => console.log(err));
 }
 
-async function showBrands() {
+export async function showBrands() {
   const products = await request.get();
   const brandsSet = new Set();
 
@@ -125,8 +127,8 @@ async function showBrands() {
   });
 }
 
-async function showProductstoBasket() {
-  await basketRequest
+export function showProductstoBasket() {
+  basketRequest
     .get()
     .then((data) => {
       let basketCount = data.length;
@@ -175,6 +177,9 @@ async function increaseQuantity(target) {
 
     await basketRequest.put(productId, updatedProduct);
 
+    basketList.innerHTML = "";
+    showProductstoBasket();
+
     productCard.querySelector(".quantity").value = newQuantity;
   } else {
     alert("Stokta yeterli ürün yok!");
@@ -210,19 +215,25 @@ async function decreaseQuantity(target) {
     if (newQuantity === 0) {
       await basketRequest.delete(productId);
       productCard.remove();
+      basketList.innerHTML = "";
+      showProductstoBasket();
     } else {
       await basketRequest.put(productId, updatedProduct);
       productCard.querySelector(".quantity").value = newQuantity;
+      basketList.innerHTML = "";
+      showProductstoBasket();
     }
   }
 }
 
-async function deleteProductFromBasket(target) {
+export async function deleteProductFromBasket(target) {
   const productCard = target.closest(".offcanvas-card");
   const productId = productCard.id;
 
   await basketRequest.delete(productId);
   productCard.remove();
+  basketList.innerHTML = "";
+  showProductstoBasket();
 }
 
 async function buyProducts() {
@@ -244,7 +255,12 @@ async function buyProducts() {
           ...productStock,
           stock: String(newStock),
         });
+        viewGridList.innerHTML = "";
+        viewList.innerHTML = "";
+        showProducts();
         await basketRequest.delete(productId);
+        basketList.innerHTML = "";
+        showProductstoBasket();
       }
     }
     basketContainer.innerHTML = "";
