@@ -10813,17 +10813,37 @@ textarea.form-control-lg {
 
 .offcanvas {
   height: 100vh !important;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
-.offcanvas .offcanvas-body img {
+.offcanvas .offcanvas-body .offcanvas-card {
+  background-color: white;
+  border-radius: 6px;
+  height: 300px;
+  max-width: 1300px;
+  margin-left: 80px;
+}
+.offcanvas .offcanvas-body .offcanvas-card img {
   max-width: 245px;
   max-height: 300px;
 }
-.offcanvas .offcanvas-body .offcanvas-card-img:hover img {
+.offcanvas .offcanvas-body .offcanvas-card .quantity-input .quantity {
+  text-align: center;
+  background-color: goldenrod;
+}
+.offcanvas .offcanvas-body .offcanvas-card .remove-from-basket {
+  margin-top: 10px;
+}
+.offcanvas .offcanvas-body .offcanvas-card:hover img {
   transform: scale(1.1);
 }
-.offcanvas .offcanvas-body .offcanvas-card-img:hover .list-group {
+.offcanvas .offcanvas-body .offcanvas-card:hover .list-group {
   display: flex !important;
-  left: 10px;
+  left: 5px;
   bottom: 50px;
 }
 .offcanvas .offcanvas-body .input-group {
@@ -10865,6 +10885,10 @@ textarea.form-control-lg {
 @media screen and (max-width: 768px) {
   .main-page .products .card.card-product-grid:hover .list-group {
     left: 5px;
+  }
+  .offcanvas .offcanvas-body .offcanvas-card {
+    height: 650px;
+    margin-left: 0px;
   }
 }
 

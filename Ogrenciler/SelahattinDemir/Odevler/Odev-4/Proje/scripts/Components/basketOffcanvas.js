@@ -3,8 +3,8 @@ const basketList = document.getElementById("basketList");
 class BasketOffCanvas {
   static basketProductFromBasketOffCanvas(product) {
     basketList.innerHTML += `
-    <div class="row align-items-center offcanvas-card" id="${product.id}">
-          <div class="col-lg-3 offcanvas-card-img position-relative">
+    <div class="row align-items-center offcanvas-card mt-2" id="${product.id}">
+          <div class="col-lg-3 offcanvas-card-img position-relative overflow-hidden">
             <img
               class="img-fluid"
               src=${product.imageUrl}
