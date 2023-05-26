@@ -1,12 +1,534 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Ahmet KANBAZ - Clothes Shop</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-white sticky-top">
+    <div class="container flex-nowrap">
+      <a class="navbar-brand" href="#">
+        <img src="./src/assets/images/logo.png" alt="logo" class="img-fluid" width="110px">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarHamburger"
+        aria-controls="navbarHamburger" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end bg-secondary" tabindex="-1" id="navbarHamburger">
+        <div class="offcanvas-header justify-content-end m-3">
+          <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ms-auto gap-2">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/about.html">Hakkımızda</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Kategoriler
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#shoesCategory">Ayakkabı</a></li>
+                <li><a class="dropdown-item" href="#trousersCategory">Pantolon</a></li>
+                <li><a class="dropdown-item" href="#tShirtCategory">Tişört</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/about.html#contact">İletişim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/questions.html">Sıkça Sorulan Sorular</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link cartButton" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                <span class="fa-sharp fa-solid fa-cart-plus fa-xl"></span>
+                <span class="fs-7 fst-italic text-primary cartItemCount">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
   
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Sepetim</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body cartBody">
+    </div>
+    <div class="d-flex justify-content-around p-4 border-top">
+      <button class="btn btn-primary" type="button" id="buyAllCart">Satın Al</button>
+      <button class="btn btn-danger" type="button" id="deleteAllCart">Sepeti Temizle</button>
+    </div>
+  </div>
+
+  <section class="topSection py-7 text-white d-flex align-items-center">
+    <div class="container">
+      <h2 class="fs-8 mb-4">Hayalinizdeki Kıyafeti Bizimle Satın Alın...</h2>
+      <p class="fs-9">Güvenilir ve hızlı bir şekilde alışveriş yapabilmek için doğru adrestesiniz.</p>
+    </div>
+  </section>
+
+  <section class="py-6">
+    <div class="container">
+      <div class="row gap-4 gap-lg-0">
+        <div class="col-lg-5 d-lg-flex gap-lg-3">
+          <div class="d-flex justify-content-center">
+            <button class="btn btn-info" id="allProductsButton">Tüm Bloglar</button>
+          </div>
+          <div class="d-flex justify-content-center mt-3 mt-lg-0">
+            <div class="dropdown ms-lg-5" id="sortProducts">
+              <button class="btn btn-secondary dropdown-toggle px-4" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Sıralama
+              </button>
+              <ul class="dropdown-menu">
+                <li class="border-bottom"><span class="dropdown-item-text">Ürün Adına Göre</span></li>
+                <li><a class="dropdown-item dropSort" href="#" id="productNameA_Z">A - Z</a></li>
+                <li><a class="dropdown-item dropSort" href="#" id="productNameZ_A">Z - A</a></li>
+                <li class="border-bottom py-1"><span class="dropdown-item-text">Fiyata Göre</span></li>
+                <li><a class="dropdown-item dropSort" href="#" id="productPriceGrow">Artan</a></li>
+                <li><a class="dropdown-item dropSort" href="#" id="productPriceDecrease">Azalan</a></li>
+              </ul>
+            </div>
+            <div class="dropdown ms-3" id="sortProducts">
+              <button class="btn btn-secondary dropdown-toggle px-4" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Kategori
+              </button>
+              <ul class="dropdown-menu categoriesFilterDropDown">
+                <li class="ps-2"><input type="checkbox" id="checkbox1" value="checkbox1"><label for=" checkbox1" class="ps-2">Ayakkabı</label></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 d-flex justify-content-center">
+          <div class="input-group">
+            <input type="text" class="form-control rounded-5" placeholder="Ürün Adını Giriniz..." id="searchInput">
+          </div>
+        </div>
+        <div class="col-lg-2 d-flex justify-content-lg-end justify-content-center">
+          <button class="btn btn-info px-4 rounded-5" id="addProductButton" data-bs-toggle="modal"
+            data-bs-target="#addAndUpdateProductModal">Ürün Ekle</button>
+        </div>
+      </div>
+
+      <div class="row pt-5" id="productList"></div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="addAndUpdateProductModal" tabindex="-1" aria-labelledby="addAndUpdateProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addAndUpdateProductModalBaslik">Yeni Ürün Ekle / Ürünü Güncelle</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3 needs-validation" novalidate id="modalProductForm">
+            <div class="col-lg-12">
+              <label for="modalProductAdi" class="form-label">Ürün Adı</label>
+              <input type="text" class="form-control" id="modalProductAdi" required>
+              <div class="invalid-feedback">
+                Lütfen Ürün Adını Giriniz
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <label for="modalProductKategori" class="form-label">Kategori</label>
+              <input type="text" class="form-control" id="modalProductKategori" required>
+              <div class="invalid-feedback">
+                Lütfen Kategori Giriniz
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="modalProductResimUrl" class="form-label">Ürün Resim URL</label>
+              <input type="url" class="form-control" id="modalProductResimUrl" required>
+              <div class="invalid-feedback">
+                Resim URL giriniz
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <label for="modalProductFiyat" class="form-label">Fiyat</label>
+              <input class="form-control" type="number" id="modalProductFiyat" required min="0"/>
+              <div class="invalid-feedback">
+                Lütfen Fiyat Bilgisini Giriniz
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <label for="modalProductStokSayisi" class="form-label">Stok Adedi</label>
+              <input class="form-control" type="number" id="modalProductStokSayisi" required min="0"/>
+              <div class="invalid-feedback">
+                Lütfen Stok Bilgisini Giriniz
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <label for="modalProductDetay" class="form-label">Ürün Detayı</label>
+              <textarea class="form-control" id="modalProductDetay" placeholder="Mesajınızı giriniz..." rows="4" required></textarea>
+              <div class="invalid-feedback">
+                Lütfen Ürün Detayını Giriniz
+              </div>
+            </div>
+              <div class="modal-footer mt-5">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                <button type="button" class="btn btn-warning" id="createNewProductButton">Ürün Oluştur</button>
+                <button type="button" class="btn btn-primary" id="updateProductButton">Ürünü Güncelle</button>
+              </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="detailProductModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="detailModalLabel"></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center border-bottom pb-3">
+            <img src="" alt="" class="img-fluid" width="50%" id="detailModalResim">
+          </div>
+          <div class="pt-3">
+            <span class="fst-italic" id="detailModalKategoriAdi"></span>
+            <p class="py-4" id="detailModalProductDetay"></p>
+            <div class="d-flex justify-content-around">
+              <div>
+                <span>Stok Sayısı: </span>
+                <span id="detailModalStok"></span>
+              </div>
+              <div>
+                <span>Ürün Fiyatı: </span>
+                <span id="detailModalFiyat"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-fixed bottom-0 end-0 p-3 toastZIndex">
+    <div id="toastMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+    </div>
+  </div>
+
+
+  <section class="py-8 bg-secondary">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-6 mb-6">
+          <div class="cargoInfo">
+            <h3 class="fs-8 mb-4">Hızlı ve Ücretsiz Teslimat</h3>
+            <p class="opacity-50 fs-6"><i>Vermiş olduğunuz siparişleriniz hızlı bir şekilde kargolanmaktadır. En geç 3
+                iş günü içerisinde teslimat yapılmaktadır. Üstelik vermiş olduğunuz her siparişinizde kargo ücretsizdir.
+                Türkiye'nin 81 iline ulaşmaktayız. Hem online hem de kapıda ödeme olanağı sunmaktayız.</i></p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="cargoRight text-center">
+            <img src="./src/assets/images/background/bgCargoRight.jpg" alt="" class="img-fluid rounded-4" width="80%">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8">
+    <div class="container">
+      <h4 class="text-center mb-5">İlginizi Çekebilecek Farklı Markalardaki İndirimli Ürünler</h4>
+      <div class="row">
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card border-0 cardOtherBrands">
+            <div class="position-relative">
+              <img src="./src/assets/images/discount/discount1.png" class="card-img-top img-fluid" alt="AltınYıldız">
+              <div class="position-absolute text-white text-center p-1 bg-danger rounded-start bottom-1 end-0">
+                <span class="fs-7">Sepette <i><strong>%35</strong></i></span>
+                <br>
+                <span class="fa-solid fa-tag"></span>
+              </div>
+            </div>
+            <div class="card-body ps-0">
+              <h5 class="card-title">AltınYıldız</h5>
+              <p class="card-text fs-7 opacity-75">Slim Fit Polo Yaka Beyaz Tişört</p>
+              <div class="mb-2">
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-regular fa-star"></span>
+                <span class="fs-7 opacity-50 fst-italic">(47 Değerlendirme)</span>
+              </div>
+              <div class="text-end mb-3">
+                <span class="text-decoration-line-through fs-4 opacity-50">₺ 299,99</span>
+                <span class="text-danger ms-2 fs-5">₺ 194,99</span>
+              </div>
+              <a href="https://www.altinyildizclassics.com/erkek-slim-fit-dar-kesim-kivrilmaz-polo-yaka-kisa-kollu-beyaz-tisort-p"
+                target="_blank" class="btn btn-primary stretched-link">Ürüne Git</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card border-0 cardOtherBrands">
+            <div class="position-relative">
+              <img src="./src/assets/images/discount/discount2.png" class="card-img-top img-fluid" alt="AltınYıldız">
+              <div class="position-absolute text-white text-center p-1 bg-danger rounded-start bottom-1 end-0">
+                <span class="fs-7">Sepette <i><strong>%19</strong></i></span>
+                <br>
+                <span class="fa-solid fa-tag"></span>
+              </div>
+            </div>
+            <div class="card-body ps-0">
+              <h5 class="card-title">Jack & Jones</h5>
+              <p class="card-text fs-7 opacity-75">Glenn Blair 275 Slim Fit Jean</p>
+              <div class="mb-2">
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-regular fa-star"></span>
+                <span class="fa-regular fa-star"></span>
+                <span class="fs-7 opacity-50 fst-italic">(32 Değerlendirme)</span>
+              </div>
+              <div class="text-end mb-3">
+                <span class="text-decoration-line-through fs-4 opacity-50">₺ 1.299,98</span>
+                <span class="text-danger ms-2 fs-5">₺ 1.039,99</span>
+              </div>
+              <a href="https://jackjones.com.tr/glenn-blair-275-slim-fit-jean-mavi-blue-denim-12229234" target="_blank"
+                class="btn btn-primary stretched-link">Ürüne Git</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card border-0 cardOtherBrands">
+            <div class="position-relative">
+              <img src="./src/assets/images/discount/discount3.png" class="card-img-top img-fluid" alt="AltınYıldız">
+              <div class="position-absolute text-white text-center p-1 bg-danger rounded-start bottom-1 end-0">
+                <span class="fs-7">Sepette <i><strong>%30</strong></i></span>
+                <br>
+                <span class="fa-solid fa-tag"></span>
+              </div>
+            </div>
+            <div class="card-body px-3">
+              <h5 class="card-title">Pierre Cardin</h5>
+              <p class="card-text fs-7 opacity-75">Bej Ayakkabı</p>
+              <div class="mb-2">
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fs-7 opacity-50 fst-italic">(104 Değerlendirme)</span>
+              </div>
+              <div class="text-end mb-3">
+                <span class="text-decoration-line-through fs-4 opacity-50">₺ 2.999,95</span>
+                <span class="text-danger ms-2 fs-5">₺ 2.099,97</span>
+              </div>
+              <a href="https://www.hepsiburada.com/bartrobel-kadin-erkek-spor-ayakkabi-beyaz-p-HBCV00003Y98YR?magaza=ayakkab%C4%B1hobim"
+                target="_blank" class="btn btn-primary stretched-link">Ürüne Git</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card border-0 cardOtherBrands">
+            <div class="position-relative">
+              <img src="./src/assets/images/discount/discount4.png" class="card-img-top img-fluid" alt="AltınYıldız">
+              <div class="position-absolute text-white text-center p-1 bg-danger rounded-start bottom-1 end-0">
+                <span class="fs-7">Sepette <i><strong>%10</strong></i></span>
+                <br>
+                <span class="fa-solid fa-tag"></span>
+              </div>
+            </div>
+            <div class="card-body ps-0">
+              <h5 class="card-title">LCWAIKIKI</h5>
+              <p class="card-text fs-7 opacity-75">Basic Beli Lastikli Rahat Kalıp Kadın Pantolon</p>
+              <div class="mb-2">
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-solid fa-star text-success"></span>
+                <span class="fa-regular fa-star"></span>
+                <span class="fs-7 opacity-50 fst-italic">(132 Değerlendirme)</span>
+              </div>
+              <div class="text-end mb-3">
+                <span class="text-decoration-line-through fs-4 opacity-50">₺ 249,99</span>
+                <span class="text-danger ms-2 fs-5">₺ 224,99</span>
+              </div>
+              <a href="https://www.lcwaikiki.com/tr-TR/TR/urun/LC-WAIKIKI/kadin/Pantolon/5613796/2304119"
+                target="_blank" class="btn btn-primary stretched-link">Ürüne Git</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+          <div class="bg-secondary px-3 py-5 rounded-3 position-relative mb-5 border-0 cardFirsat">
+            <div
+              class="bg-white rounded-circle iconDiv position-absolute top-0 start-50 translate-middle d-flex align-items-center justify-content-center">
+              <span class="fa-sharp fa-solid fa-box-open fa-2xl"></span>
+            </div>
+            <div class="text-center">
+              <h6 class="mt-4 card-title">Ürünlerimizi 90 Gün İçerisinde Ücretsiz Şekilde İade İmkanı</h6>
+              <hr class="border border-1 opacity-25 border-warning my-3" />
+              <p class="fs-7 opacity-50">Ürünlerimizi Koşulsuz Şekilde Anında
+                İade ve Değişim İmkanı</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="bg-secondary px-3 py-5 rounded-3 position-relative mb-5 border-0 cardFirsat">
+            <div
+              class="bg-white rounded-circle iconDiv position-absolute top-0 start-50 translate-middle d-flex align-items-center justify-content-center">
+              <span class="fa-solid fa-shipping-fast fa-2xl"></span>
+            </div>
+            <div class="text-center">
+              <h6 class="mt-4 card-title">Tüm Siparişlerinizde Kargo Bedava Fırsatı</h6>
+              <hr class="border border-1 opacity-25 border-warning my-3" />
+              <p class="fs-7 opacity-50">Vermiş Olduğunuz Tüm Siparişlerde Kargo Ücretsiz</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="bg-secondary px-3 py-5 rounded-3 position-relative mb-5 border-0 cardFirsat">
+            <div
+              class="bg-white rounded-circle iconDiv position-absolute top-0 start-50 translate-middle d-flex align-items-center justify-content-center">
+              <span class="fa-solid fa-credit-card fa-2xl"></span>
+            </div>
+            <div class="text-center">
+              <h6 class="mt-4 card-title">Kredi Kartı ile ve Kapıda Ödeme İmkanı</h6>
+              <hr class="border border-1 opacity-25 border-warning my-3" />
+              <p class="fs-7 opacity-50">Farklı Ödeme Seçenekleri ile Dilediğiniz Şekilde Ödeme Kolaylığı</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="bg-secondary px-3 py-5 rounded-3 position-relative mb-5 border-0 cardFirsat">
+            <div
+              class="bg-white rounded-circle iconDiv position-absolute top-0 start-50 translate-middle d-flex align-items-center justify-content-center">
+              <span class="fa-solid fa-lock fa-2xl"></span>
+            </div>
+            <div class="text-center">
+              <h6 class="mt-4 card-title">Güvenli Alışveriş Yapabilmek İçin Doğru Adres</h6>
+              <hr class="border border-1 opacity-25 border-warning my-3" />
+              <p class="fs-7 opacity-50">Bilgileriniz Sadece Satın Alma Aşamasında Kullanılmaktadır</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-dark">
+    <div class="container text-white">
+      <div class="row py-5 justify-content-around">
+        <div class="col-lg-3 col-sm-6 ps-4">
+          <div>
+            <img src="./src/assets/images/footerLogo.png" alt="footerLogo" class="w-50 mb-4">
+            <ul class="p-0">
+              <li class="mb-2"><a href="./pages/about.html">Hakkımızda</a></li>
+              <li class="mb-2"><a href="#">Kariyer</a></li>
+              <li class="mb-2"><a href="#">Başarılar</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mt-4 ps-4">
+          <div>
+            <h4 class="mb-3 mb-lg-5">İletişim Bilgileri</h4>
+            <ul class="p-0">
+              <li>
+                <p><span class="fa-sharp fa-solid fa-location-dot me-3 text-primary"></span>Merkez / MERSİN</p>
+              </li>
+              <li>
+                <p><span class="fa-sharp fa-solid fa-phone me-3 text-primary"></span>0538 ... .. ..</p>
+              </li>
+              <li><a href="mailto:ahmetkanbaz@gmail.com"><span
+                    class="fa-solid fa-envelope me-3 text-primary"></span>ahmetkanbaz@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mt-4 ps-4">
+          <div>
+            <h4 class="mb-3 mb-lg-5">Yardım</h4>
+            <ul class="d-flex flex-column gap-3 p-0">
+              <li><a href="./pages/questions.html">Sıkça Sorulan Sorular</a></li>
+              <li><a href="#" class="btn border-0 px-0 disabled">Canlı Yardım<span class="ms-1 opacity-50 fs-7">(Yakında
+                    Hizmetinizde...)</span></a></li>
+              <li><a href="#">Hediye Fikirleri</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mt-4 ps-4">
+          <h5 class="mb-3 text-center">Mobil Uygulamamız</h5>
+          <div>
+            <div class="row">
+              <div class="col-lg-6 text-center text-lg-end d-flex flex-column justify-content-center gap-1">
+                <a href="https://www.apple.com/tr/app-store" target="_blank"><img src="./src/assets/images/mobilApp/appStore.png"
+                    alt="" class="img-fluid w-75"></a>
+                <a href="https://play.google.com/store/games" target="_blank"><img
+                    src="./src/assets/images/mobilApp/googlePlay.png" alt="" class="img-fluid w-75"></a>
+                <a href="https://appgallery.huawei.com" target="_blank"><img src="./src/assets/images/mobilApp/appGallery.png"
+                    alt="" class="img-fluid w-75"></a>
+              </div>
+              <div class="col-lg-6 text-center text-lg-start">
+                <img src="./src/assets/images/mobilApp/qrCode.png" alt="" class="img-fluid w-75">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="border border-white">
+    <div class="container">
+      <div class="d-flex justify-content-lg-between justify-content-center align-items-center flex-wrap py-4">
+        <div class="text-white fs-7">
+          <p class="text-center">Copyright © 2023 All rights reserved | This template is made
+            with by <a href="https://github.com/ahmetkanbaz" target="_blank" class="text-primary fst-italic fs-6">Ahmet
+              KANBAZ</a>
+          </p>
+        </div>
+        <div class="socials">
+          <a href="https://github.com/ahmetkanbaz" target="_blank"
+            class="m-1 text-white text-center lh-lg rounded-1"><span class="fa-brands fa-github"></span></a>
+          <a href="#" class="m-1 text-white text-center lh-lg rounded-1"><span class="fa-brands fa-twitter"></span></a>
+          <a href="#" class="m-1 text-white text-center lh-lg rounded-1"><span class="fa-brands fa-linkedin"></span></a>
+          <a href="#" class="m-1 text-white text-center lh-lg rounded-1"><span
+              class="fa-brands fa-instagram"></span></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="./src/js/crud.js"></script>
+  <script src="./src/js/filter.js"></script>
+  <script src="./src/js/requestProducts.js"></script>
+  <script src="./src/js/requestCart.js"></script>
+  <script src="./src/js/uiCart.js"></script>
+  <script src="./src/js/ui.js"></script>
+  <script src="./src/js/products.js"></script>
+  <script src="./src/js/carts.js"></script>
+  <script src="./src/js/app.js"></script>
 </body>
+
 </html>

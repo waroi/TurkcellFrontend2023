@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Ticaret</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <form id="product-form" class="mb-5">
+            <div class="form-group">
+                <label for="productName">Ürün Adı</label>
+                <input type="text" id="productName" class="form-control" placeholder="Ürün Adı" />
+            </div>
+            <div class="form-group">
+                <label for="productDescription">Ürün Açıklaması</label>
+                <input type="text" id="productDescription" class="form-control" placeholder="Ürün Açıklaması" />
+            </div>
+            <div class="form-group">
+                <label for="price">Fiyat</label>
+                <input type="number" id="price" class="form-control" placeholder="Fiyat" />
+            </div>
+            <div class="form-group">
+                <label for="stockQuantity">Stok Miktarı</label>
+                <input type="number" id="stockQuantity" class="form-control" placeholder="Stok Miktarı" />
+            </div>
+            <button type="submit" class="btn btn-primary">Ürün Ekle</button>
+        </form>
+        <div class="sort-buttons mb-3">
+          <button id="sortByName" class="btn btn-info">Ürüne Göre Sırala</button>
+          <button id="sortByPrice" class="btn btn-info">Fiyata Göre Sırala</button>
+      </div>
+        <div class="form-group">
+            <label for="filter">Ürünleri Filtrele</label>
+            <input type="text" id="filter" class="form-control" placeholder="Ürün Adına Göre Filtrele" />
+        </div>
+        <div id="products" class="row"></div>
+    </div>
+
+    <div class="modal" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModalLabel">Edit Product</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="editProductName" class="form-label">Product Name</label>
+                  <input type="text" class="form-control" id="editProductName">
+                </div>
+                <div class="mb-3">
+                  <label for="editProductDescription" class="form-label">Product Description</label>
+                  <input type="text" class="form-control" id="editProductDescription">
+                </div>
+                <div class="mb-3">
+                  <label for="editPrice" class="form-label">Price</label>
+                  <input type="text" class="form-control" id="editPrice">
+                </div>
+                <div class="mb-3">
+                  <label for="editStockQuantity" class="form-label">Stock Quantity</label>
+                  <input type="text" class="form-control" id="editStockQuantity">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" id="saveChanges" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+      
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./src/request.js"></script>
+    <script type="text/javascript" src="./src/ui.js"></script>
+    <script type="text/javascript" src="./src/crud.js"></script>
+</body>
+
+</html>
