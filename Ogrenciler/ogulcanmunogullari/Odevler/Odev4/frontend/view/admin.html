@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tr">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OG - Laptoplar</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link
+   rel="icon"
+   type="image/x-icon"
+   href="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2f/OG_Logo.png/260px-OG_Logo.png" />
+  <link
+   rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+  <script src="../controller/adminPage.js" defer type="module"></script>
+  <script src="../utils/checkForm.js" defer type="module"></script>
+ </head>
+ <body id="anchor-top">
+  <nav class="navbar navbar-expand-lg bg-light py-16 sticky-top">
+   <div class="container">
+    <a class="navbar-brand d-lg-none" href="../index.html">
+     <img
+      src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2f/OG_Logo.png/260px-OG_Logo.png"
+      alt="logo" />
+    </a>
+    <button
+     class="navbar-toggler"
+     type="button"
+     data-bs-toggle="collapse"
+     data-bs-target="#navbarMobile"
+     aria-controls="navbarMobile"
+     aria-expanded="false"
+     aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse py-16" id="navbarMobile"></div>
+    <div class="row flex-column flex-fill fs-2" id="navbarPc">
+     <div class="d-flex justify-content-between">
+      <a class="navbar-brand" href="../index.html">
+       <img
+        src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2f/OG_Logo.png/260px-OG_Logo.png"
+        alt="logo" />
+      </a>
+     </div>
+    </div>
+   </div>
+  </nav>
+  <main>
+   <div class="container">
+    <div class="row mt-16">
+     <form class="col-2 gx-16 d-none d-lg-block">
+      <div class="mt-16">
+       <h3>Ara</h3>
+       <input
+        class="form-control mt-16"
+        type="search"
+        id="SearchInput"
+        placeholder="Ara"
+        aria-label="Search" />
+      </div>
+      <div class="mt-16">
+       <button
+        id="addNewProduct"
+        type="button"
+        class="btn btn-success"
+        data-bs-toggle="modal"
+        data-bs-target="#cardModal">
+        Yeni Ekle
+       </button>
+      </div>
+     </form>
+
+     <button
+      class="btn btn-primary fs-2 d-lg-none"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#filter-canvas"
+      aria-controls="filter-canvas"
+      id="filter-button">
+      Filter
+     </button>
+     <div
+      class="offcanvas offcanvas-start top-10 d-lg-none"
+      data-bs-backdrop="static"
+      tabindex="-1"
+      id="filter-canvas"
+      aria-labelledby="filter-canvasLabel">
+      <div class="offcanvas-header">
+       <h5 class="offcanvas-title fs-4" id="filter-canvasLabel">Filter</h5>
+       <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-sm-none">
+       <form id="filter">
+        <div class="mt-16">
+         <h3>Ara</h3>
+         <input
+          class="form-control mt-16"
+          type="search"
+          id="SearchInput"
+          placeholder="Ara"
+          aria-label="Search" />
+        </div>
+        <div class="mt-16">
+         <button
+          id="addNewProduct"
+          type="button"
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#cardModal">
+          Yeni Ekle
+         </button>
+        </div>
+       </form>
+      </div>
+     </div>
+     <div class="col-12 col-lg-10 gx-16" id="category-results">
+      <div id="alertDIV"></div>
+      <div class="row" id="categoryLaptopsDIV"></div>
+      <!-- MODAL -->
+      <button
+       type="button"
+       id="openModalButton"
+       class="btn btn-primary d-none"
+       data-bs-toggle="modal"
+       data-bs-target="#cardModal">
+       xD
+      </button>
+     </div>
+     <!-- Modal -->
+     <div
+      class="modal fade"
+      id="cardModal"
+      tabindex="-1"
+      aria-labelledby="cardModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+       <div class="modal-content">
+        <div class="modal-body d-flex flex-column gap-16">
+         <h3 id="idInput"></h3>
+         <form id="modalForm" class="d-flex flex-column gap-16">
+          <div class="input-group mb-3">
+           <span class="input-group-text" id="addon1">Brand</span>
+           <input
+            type="text"
+            id="brandInput"
+            class="form-control border"
+            aria-describedby="addon1" />
+          </div>
+          <div class="input-group mb-3">
+           <span class="input-group-text" id="addon2">Logo</span>
+           <input
+            type="text"
+            id="logoInput"
+            class="form-control border"
+            aria-describedby="addon2" />
+          </div>
+          <div class="input-group mb-3">
+           <span class="input-group-text" id="addon3">Image1</span>
+           <input
+            type="text"
+            id="image1Input"
+            class="form-control border"
+            aria-describedby="addon3" />
+          </div>
+          <div class="input-group mb-3">
+           <span class="input-group-text" id="addon4">Image2</span>
+           <input
+            type="text"
+            id="image2Input"
+            class="form-control border"
+            aria-describedby="addon4" />
+          </div>
+          <div class="input-group mb-3">
+           <span class="input-group-text" id="addon5">Image3</span>
+           <input
+            type="text"
+            id="image3Input"
+            class="form-control border"
+            aria-describedby="addon5" />
+          </div>
+          <div class="input-group mb-3">
+           <span class="input-group-text" id="addon6">Title</span>
+           <input
+            type="text"
+            id="titleInput"
+            class="form-control border"
+            aria-describedby="addon6" />
+          </div>
+          <div class="input-group mb-3">
+           <span class="input-group-text" id="addon7">Sub Title</span>
+           <input
+            type="text"
+            id="subTitleInput"
+            class="form-control border"
+            aria-describedby="addon7" />
+          </div>
+          <div class="input-group mb-3">
+           <span class="input-group-text" id="addon8">Price</span>
+           <input
+            type="number"
+            id="priceInput"
+            class="form-control border"
+            aria-describedby="addon8" />
+          </div>
+          <div class="input-group mb-3">
+           <span class="input-group-text" id="addon9">Stock</span>
+           <input
+            type="number"
+            id="stockInput"
+            class="form-control border"
+            aria-describedby="addon9" />
+          </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+         <button
+          type="button"
+          disabled
+          class="btn btn-success"
+          id="addProduct"
+          data-bs-dismiss="modal">
+          Ekle
+         </button>
+         <button
+          type="button"
+          class="btn btn-warning"
+          id="changeProduct"
+          data-bs-dismiss="modal">
+          Değiştir
+         </button>
+         <button
+          type="button"
+          class="btn btn-danger"
+          id="deleteProduct"
+          data-bs-dismiss="modal">
+          Sil
+         </button>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- MODAL -->
+    </div>
+   </div>
+  </main>
+
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ </body>
+</html>

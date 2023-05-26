@@ -1,0 +1,19 @@
+@mixin line-clamp($line) {
+ display: -webkit-box;
+ -webkit-line-clamp: $line;
+ -webkit-box-orient: vertical;
+ overflow: hidden;
+}
+
+@mixin border-tcolor($px, $bcolor, $tcolor) {
+ border: $px solid $bcolor !important;
+ color: $tcolor !important;
+}
+@mixin border-bgcolor($px, $bcolor, $bgcolor) {
+ border: $px solid $bcolor !important;
+ background-color: $bgcolor !important;
+}
+@mixin square($size) {
+ width: $size;
+ height: $size;
+}
