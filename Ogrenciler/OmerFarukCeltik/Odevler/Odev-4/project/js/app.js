@@ -51,6 +51,8 @@ function eventListeners() {
   sortArea.addEventListener("change", (e) => sortEvents(e));
   addNewContentButton.addEventListener("click", (e) => toggleButtons(e));
   basketModalAllArea.addEventListener("click", (e) => basketModalAreaAllEvents(e));
+  form.addEventListener("keyup", (e) => validationFunction(e));
+
 }
 class UI {
   static inputValidate() {
@@ -382,4 +384,14 @@ async function basketModalAreaAllEvents(e) {
     request.deleteBasket(basketCurrentId);
   }
   ui.basketCardsToUI();
+}
+
+function validationFunction(e){
+  if(e.target.value.length < 5){
+    e.target.classList.add("is-invalid");
+    e.target.classList.remove("is-valid");
+  }else if(e.target.value.length >= 5) {
+    e.target.classList.add("is-valid");
+    e.target.classList.remove("is-invalid");
+  }
 }
