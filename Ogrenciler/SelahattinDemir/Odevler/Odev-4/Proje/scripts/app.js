@@ -133,7 +133,7 @@ export function showProductstoBasket() {
     .then((data) => {
       let basketCount = data.length;
       if (data.length === 0) {
-        basketContainer.innerHTML = `<h1 class="text-center">Sepetinizde ürün bulunmamaktadır.</h1>`;
+        basketContainer.innerHTML = `<h1 class="text-center text-light">Sepetinizde ürün bulunmamaktadır.</h1>`;
       } else {
         data.forEach((product) => {
           BasketOffCanvas.basketProductFromBasketOffCanvas(product);
