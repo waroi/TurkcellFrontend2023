@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/5e36563075.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/favicon-32x32.png">
+  <title>Kloud+ Beginner</title>
+</head>
+
+<body>
+  <header>
+    <div class="main-menu relative fixed-top bg-white w-100">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+        <div class="container">
+          <img class="logo" src="../assets/brandlogo.png" />
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <img class="logo" src="../assets/brandlogo.png" />
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./faq.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./ourteam.html">Team</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./store.html">Store</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Plans
+                  </a>
+                  <ul class="dropdown-menu mb-3">
+                    <li><a class="dropdown-item active" href="./beginner.html">Beginner</a></li>
+                    <li><a class="dropdown-item" href="./variety.html">Variety</a></li>
+                    <li><a class="dropdown-item" href="./pro.html">Pro</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <a>Sign Up to KLOUD<span>+</span></a>
+                  </button>
+
+                  <!-- Modal -->
+
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <img class="logo" src="../assets/brandlogo.png" />
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="row g-3">
+                    <div class="col-md-6">
+                      <label for="inputEmail4" class="form-label">Email</label>
+                      <input required type="email" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputPassword4" class="form-label">Password</label>
+                      <input required type="password" class="form-control" id="inputPassword4">
+                    </div>
+                    <div class="col-12">
+                      <label for="inputAddress" class="form-label">Address</label>
+                      <input required type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    <div class="col-12">
+                      <label for="inputAddress2" class="form-label">Address 2</label>
+                      <input required type="text" class="form-control" id="inputAddress2"
+                        placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputCity" class="form-label">City</label>
+                      <input required type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="inputState" class="form-label">Plans</label>
+                      <select id="inputState" class="form-select">
+                        <option selected>Beginner</option>
+                        <option>Variety</option>
+                        <option>Pro</option>
+                      </select>
+                    </div>
+                    <div class="col-md-2">
+                      <label for="inputZip" class="form-label">Zip</label>
+                      <input type="text" class="form-control" id="inputZip">
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input required class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          I accept and agree to the Terms of Use
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <section class="beginner-section1">
+    <div class="video-background">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/X-HL-r5TOiU?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=X-HL-r5TOiU"
+        frameborder="0" allowfullscreen></iframe>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>Start Your Beginner Plan</h2>
+            <p class="mt-4">Your journey begins now! Our beginner subscription plan is perfect for those new to cloud
+              gaming. With our beginner plan, you'll have access to a wide variety of popular games, all of which can be
+              streamed instantly to your device. No need to worry about downloading or installing games, simply log in
+              and start playing. Beginner plan is designed to provide a seamless gaming experience, with high-quality
+              graphics and smooth gameplay. Join our community of gamers today and start enjoying the benefits of cloud
+              gaming!"</p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <a>Go Beginner<span>+</span></a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="beginner-section2">
+    <div class="container">
+      <div class="row">
+        <div class="title">
+          <h2>"You can touch grass and play games at the same time, this is game changing."<br> - CEO
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="beginner-section3">
+    <div class="container">
+      <div class="row">
+        <div class="title">
+          <h3 class="mb-5 text-center">Beginner Plan Details</h3>
+        </div>
+        <div class="card">
+          <img
+            src="https://img.freepik.com/free-vector/space-game-background-neon-night-alien-landscape_107791-1624.jpg?w=2000"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center ">Bandwith Size</h5>
+            <p class="text-center mt-3">Up to 5mpbs bandwith size, allows you to play video games without lag.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://i.pinimg.com/originals/ec/49/9b/ec499b4ec7b75982d27855018587e2df.jpg" class="card-img-top"
+            alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center ">Resolution</h5>
+            <p class="text-center mt-3">Up to upscale 1080p 30fps and 720p 60fps feature.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://i.pinimg.com/736x/ad/d8/8a/add88aef7b7b88698f1324e3c8daf54e.jpg" class="card-img-top"
+            alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center ">Graphics</h5>
+            <p class="text-center mt-3">Be able to play modern games with medium settings and without lag.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="https://img.redbull.com/images/c_crop,w_1920,h_960,x_0,y_0,f_auto,q_auto/c_scale,w_1200/redbullcom/2020/4/15/dhqcups39sqtnnjz68gs/valorant"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center ">Input Delay</h5>
+            <p class="text-center mt-3">Play your favorite competitive fps games with 5ms input lag.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="https://media.istockphoto.com/id/1220952718/photo/family-playing-video-games-at-home-during-coronavirus-quarantine.jpg?s=612x612&w=0&k=20&c=wlGepRIw0xfGYDAkZ7LT9_HlgIknJj_GMLS_7Vvv4gI="
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center ">Family Support</h5>
+            <p class="text-center mt-3">Enjoy video games with your family members (2 people only).</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://www.ionos.com/digitalguide/fileadmin/_processed_/7/c/csm_screenreader-t_18af09ffad.jpg"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center ">Platform</h5>
+            <p class="text-center mt-3">Enjoy the gaming experience with any devices.</p>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary just-cont-center align-item-center" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">
+        <a>Start Free Trial<span>+</span></a>
+      </button>
+    </div>
+  </section>
+  <section class="beginner-section4">
+    <div class="container">
+      <div class="title">
+        <h3 class="text-center">Our Clients Experience</h3>
+        <p class="text-center">The experience that matter the most.</p>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-6">
+          <div class="text-wrapper text-center">
+            <h4>PewDiePie</h4>
+            <p>"I recently tried out the Kloud+ beginner plan in Japan and I have to say, I was blown away by the
+              experience. As someone who travels frequently, I'm always on the lookout for a reliable and convenient way
+              to play my favorite games, and this service exceeded my expectations."</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="img-wrapper">
+            <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/103AB/production/_110157466_gettyimages-495015904.jpg"
+              class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 d-flex flex-row-reverse pd-5em">
+        <div class="col-lg-6">
+          <div class="text-wrapper text-center">
+            <h4>Valkyrae</h4>
+            <p>"As a content creator who spends a lot of time playing games, I'm always looking for ways to improve my
+              gaming experience. That's why I tried out Kloud+ beginner plan, and I have to say, I was thoroughly
+              impressed."</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="img-wrapper">
+            <img src="https://image-cdn.essentiallysports.com/wp-content/uploads/valkyrae-alone-1000x600-1.jpg"
+              class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+  </section>
+  <section class="beginner-section5 mt-5">
+    <div class="container">
+      <div class="title mb-5">
+        <h2 class="text-center pt-4">Recommended Games For Beginner Plan</h2>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-lg-2 col-sm-2 col">
+          <img class="img-fluid"
+            src="https://www.freepnglogos.com/uploads/lol-logo-png/league-of-legends-riot-games-logo-5.PNG">
+        </div>
+        <div class="col-lg-2 col-sm-2 col">
+          <img class="img-fluid"
+            src="https://www.freepnglogos.com/uploads/deviantart-png-logo/minecraft-logo-png-pictures-25.png">
+        </div>
+        <div class="col-lg-2 col-sm-2 col">
+          <img class="img-fluid"
+            src="https://upload.wikimedia.org/wikipedia/tr/archive/f/fd/20221120114722%21Logo_of_Stardew_Valley.png">
+        </div>
+        <div class="col-lg-2 col-sm-2 col">
+          <img class="img-fluid"
+            src="https://files.cults3d.com/uploaders/20577378/illustration-file/6f2745db-e1ad-457a-b6e5-cc8f8ead50fd/Grand-Theft-Auto-V-GTA-5-Logo.png">
+        </div>
+        <div class="col-lg-2 col-sm-2 col">
+          <img class="img-fluid" src="https://www.freepnglogos.com/uploads/pubg-png/home-pubg-skins-21.png">
+        </div>
+        <div class="col-lg-2 col-sm-2 col">
+          <img class="img-fluid"
+            src="https://cdna.artstation.com/p/assets/images/images/035/786/380/large/rami-m-valheim-logo.jpg?1615901755">
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <section class="footer-top border-top border-secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h5>Follow Kloud+
+              <span class="m-1"><i class="fa-brands fa-square-facebook"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-instagram"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-twitter"></i></span>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footer-bottom mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-sm">
+            <div class="title">
+              <h6>Browse</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">Store</a>
+              </li>
+              <li>
+                <a href="#">Games</a>
+              </li>
+              <li>
+                <a href="#">Plans</a>
+              </li>
+              <li>
+                <a href="#">Merch</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>Resources</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">News</a>
+              </li>
+              <li>
+                <a href="#">Support
+                </a>
+              </li>
+              <li>
+                <a href="#">Feedback</a>
+              </li>
+              <li>
+                <a href="#">Community Standards</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>Kloud+ Store</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">Kloud+ account</a>
+              </li>
+              <li>
+                <a href="#">Kloud+ Store Support</a>
+              </li>
+              <li>
+                <a href="#">Returns</a>
+              </li>
+              <li>
+                <a href="#">Orders tracking</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>For Developers</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">OpenAI</a>
+              </li>
+              <li>
+                <a href="#">Windows</a>
+              </li>
+              <li>
+                <a href="#">API</a>
+              </li>
+              <li>
+                <a href="#">Designed for Kloud+</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>English ( United States )</span>
+            <p class="mt-2">© 2023 Kloud+ USA, All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script>
+    const dropdownElementList = document.querySelectorAll(".dropdown-toggle");
+    const dropdownList = [...dropdownElementList].map(
+      (dropdownToggleEl) => new bootstrap.Dropdown(dropdownToggleEl)
+    );
+  </script>
+</body>
+
+</html>
