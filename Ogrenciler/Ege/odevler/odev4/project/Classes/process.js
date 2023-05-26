@@ -1,4 +1,3 @@
-import Product from "./product.js";
 import Request from "./request.js";
 import UI from "./ui.js";
 const productsUrl = "http://localhost:3000/products";
@@ -219,26 +218,6 @@ class Process {
     });
   }
 
-  static purchase() {
-    Request.get(cartUrl).then((cartProducts) =>
-      cartProducts.map((cartProduct) => {
-        Request.get(`${productsUrl}/${cartProduct.id}`)
-          .then((product) =>
-            Request.put(
-              productsUrl,
-              { ...product, stock: product.stock - cartProduct.count },
-              cartProduct.id
-            )
-          )
-          .then((data) => UI.updateDisplay());
-      })
-    );
-
-    setTimeout(() => {
-      this.removeAllFromCart();
-    }, 3000);
-  }
-
   static filterByCategory(selectedCategory) {
     Request.get(productsUrl).then((products) => {
       products.map((product) => {
@@ -283,6 +262,29 @@ class Process {
     });
 
     if (categorySelect.value != "") this.filterByCategory(categorySelect.value);
+  }
+
+  static async purchase() {
+    const cartProducts = await Request.get(cartUrl);
+
+    if (cartProducts.length > 0) {
+      for (const cartProduct of cartProducts) {
+        const currProduct = await Request.get(
+          `${productsUrl}/${cartProduct.id}`
+        );
+
+        await Request.put(
+          productsUrl,
+          { ...currProduct, stock: currProduct.stock - cartProduct.count },
+          cartProduct.id
+        );
+
+        await Request.delete(cartUrl, cartProduct.id).then((response) =>
+          UI.updateDisplay()
+        );
+        cartBody.innerHTML = "";
+      }
+    }
   }
 }
 
