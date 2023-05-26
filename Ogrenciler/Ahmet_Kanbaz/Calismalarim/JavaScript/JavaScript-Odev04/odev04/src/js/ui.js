@@ -30,7 +30,7 @@ class UI {
     newProductCol.className = "col-lg-3 col-md-6 mb-4";
     newProductCol.innerHTML = `
       <div class="card shadow-lg rounded-3 productCard">
-        <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
+        <img src="${product.imageUrl}" class="card-img-top object-fit-cover img-fluid" alt="${product.name}">
         <div class="card-body">
           <h5 class="card-title text-center">${product.name}</h5>
           <span class="card-text fst-italic opacity-75">${product.category}</span>

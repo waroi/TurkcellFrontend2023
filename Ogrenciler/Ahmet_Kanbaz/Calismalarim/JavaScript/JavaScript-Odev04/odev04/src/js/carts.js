@@ -38,7 +38,6 @@ class Carts {
               const cartDeleteProduct = document.getElementById(deleteItem.id);
               UICart.deleteProductFromUI(cartDeleteProduct);
               RequestCart.deleteProductFromRequest(cartDeleteProduct.id);
-              //stoktan ürün sayısı düşülecek
               const product = crudProducts.getSingleProduct(deleteItem.id);
               product.then((response) => {
                 const newStok = response.stok - deleteItem.quantity;
@@ -49,7 +48,6 @@ class Carts {
                 patchStok4Products.then((response) => {
                   UI.toastMessage("Tüm Ürünler Başarılı Bir Şekilde Satın Alındı. Stoklar Güncellendi.");
                 });
-                UI.showAllProductsFromUI();
               }
               );
             });

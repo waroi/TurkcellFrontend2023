@@ -17,6 +17,7 @@ class RequestProducts {
         const updateProduct = crudProducts.patch(response[0].id, newStok);
         updateProduct.then((response) => {
           UI.toastMessage('Bu başlıkta bir ürün zaten mevcut. Stok Sayısı Güncellendi.');
+          location.reload();
         }
         ).catch((error) => UI.alertMessage(error));
 

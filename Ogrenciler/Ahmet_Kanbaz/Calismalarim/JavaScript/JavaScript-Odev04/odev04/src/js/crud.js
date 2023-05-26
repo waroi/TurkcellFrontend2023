@@ -86,7 +86,6 @@ class Crud {
     return responseData;
   }
 
-  //json serverdaki cart verisinde bulunan quantity güncelleme
   async patchQuantity(id, newQuantity) {
     const response = await fetch(`${this.url}/${id}`, {
       method: 'PATCH',
@@ -101,4 +100,5 @@ class Crud {
     const responseData = await response.json();
     return responseData;
   }
+  
 }

@@ -44,6 +44,9 @@ const cartBody = document.querySelector('.cartBody');
 const cartItemCount = document.querySelector('.cartItemCount');
 
 const buyAllCart = document.getElementById('buyAllCart');
+const deleteAllCart = document.getElementById('deleteAllCart');
+
+const totalPrice = document.querySelector('.totalPrice');
 
 
 addEventListeners();
@@ -67,4 +70,5 @@ function addEventListeners() {
   productList.addEventListener('click', Carts.addNewProduct4Cart);
   cartBody.addEventListener('click', Carts.deleteProduct4Cart);
   buyAllCart.addEventListener('click', Carts.buyAllProductsInCart);
+  deleteAllCart.addEventListener('click', Carts.deleteAllProductsInCart);
 }
