@@ -17,8 +17,6 @@ class Filter {
       .getElementById("productBrand")
       .value.toLowerCase();
 
-      console.log(productCategory);
-      console.log(productBrand);
     const request = new Fetch("http://localhost:3000/posts");
     const sort = document.getElementById("sort");
 
@@ -56,8 +54,6 @@ class Filter {
         return categoryMatch && brandMatch && categoriesAndBrandsMatch;
       });
     }
-
-    console.log(filteredProducts);
 
     viewGridList.innerHTML = "";
     viewList.innerHTML = "";

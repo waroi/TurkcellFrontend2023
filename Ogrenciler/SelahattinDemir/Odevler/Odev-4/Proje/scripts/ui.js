@@ -203,8 +203,6 @@ class UI {
             console.log(error);
           });
 
-        console.log("Ürün alındı.", addProduct);
-
         // Yalnızca seçilen ürünü sepete eklemek için yeni bir ürün nesnesi oluştur
         const selectedProduct = {
           id: addProduct.id,
@@ -217,15 +215,11 @@ class UI {
           stock: "1",
         };
 
-        console.log("Sepete eklenecek ürün: ", selectedProduct);
-
         // Sepete ekle
         const basketItems = await basketRequest.get();
         const existingItem = basketItems.find(
           (item) => item.id === selectedProduct.id
         );
-
-        console.log("Sepetteki ürün: ", existingItem ? existingItem.stock : 0);
 
         if (existingItem) {
           // Eğer ürün zaten sepete eklenmişse, stok adedini kontrol et
@@ -242,7 +236,6 @@ class UI {
               price: String(totalPrice),
             };
             await basketRequest.put(existingItem.id, updatedProduct);
-            console.log("Ürün sepete eklendi.");
             basketList.innerHTML = "";
             showProductstoBasket();
           } else {
@@ -251,7 +244,7 @@ class UI {
         } else {
           // Eğer ürün daha önce sepete eklenmemişse, direkt olarak eklenir
           await basketRequest.post(selectedProduct);
-          console.log("Ürün sepete eklendi.");
+          alert("Ürün sepete eklendi.");
           basketList.innerHTML = "";
           showProductstoBasket();
         }

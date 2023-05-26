@@ -153,17 +153,12 @@ async function increaseQuantity(target) {
     .then((data) => data.find((product) => product.id == productId))
     .catch((err) => console.log(err));
 
-  console.log(productsBasket);
-
   const newQuantity = Number(productsBasket.stock) + 1;
-  console.log(newQuantity);
 
   const productStock = await request
     .get()
     .then((data) => data.find((product) => product.id == productId))
     .catch((err) => console.log(err));
-
-  console.log(productStock);
 
   if (newQuantity <= Number(productStock.stock)) {
     // Fiyatı güncelle
@@ -238,6 +233,7 @@ export async function deleteProductFromBasket(target) {
 
 async function buyProducts() {
   const basketItems = await basketRequest.get();
+  // const sort = document.getElementById("sort");
 
   if (basketItems.length > 0) {
     for (const product of basketItems) {
@@ -258,9 +254,12 @@ async function buyProducts() {
         viewGridList.innerHTML = "";
         viewList.innerHTML = "";
         showProducts();
+        brandsList.innerHTML = "";
         await basketRequest.delete(productId);
         basketList.innerHTML = "";
+        showBrands();
         showProductstoBasket();
+        Filter.sortProductsFromFilter(sort.value);
       }
     }
     basketContainer.innerHTML = "";
