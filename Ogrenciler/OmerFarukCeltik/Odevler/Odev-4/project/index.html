@@ -25,8 +25,7 @@
             <span class="navbar-toggler-icon "></span>
           </button>
           <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
-            <ul
-              class="navbar-nav mt-4 mt-lg-0 p-5 py-lg-2 rounded-pill gap-5 align-items-center  middle-navbar">
+            <ul class="navbar-nav mt-4 mt-lg-0 p-5 py-lg-2 rounded-pill gap-5 align-items-center  middle-navbar">
               <li class="nav-item header-hover-animation">
                 <a class="nav-link active lh-sm text-light" aria-current="page" href="./index.html">Home</a>
               </li>
@@ -46,9 +45,10 @@
               </li>
             </ul>
           </div>
-          <div class="navbar-brand text-light d-flex align-items-center" id="basketContent">
+          <div data-bs-toggle="modal" data-bs-target="#basketModal"
+            class="navbar-brand btn text-light d-flex align-items-center" id="basketContent">
             <i class="fa-solid pulse-animation fa-cart-shopping fa-xl"></i>
-          <p class="ms-1 bg-secondary px-2 rounded-circle">3</p>
+            <p class="ms-1 bg-secondary px-2 rounded-circle">3</p>
           </div>
         </div>
       </nav>
@@ -122,11 +122,13 @@
 
   <section class="section bg-black">
     <div class="container py-120">
-      <div class="row flex-column bg-primary flex-lg-row align-items-lg-center border border-1 border-secondary px-4 py-3 rounded-pill">
+      <div
+        class="row flex-column bg-primary flex-lg-row align-items-lg-center border border-1 border-secondary px-4 py-3 rounded-pill">
         <div
           class="col-12 col-lg-8 d-flex align-items-center justify-content-between flex-column flex-sm-row my-3 my-lg-0">
           <div>
-            <div id="addNewContentButton" class="btn btn-secondary px-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#addContentModal">
+            <div id="addNewContentButton" class="btn btn-secondary px-4 rounded-pill" data-bs-toggle="modal"
+              data-bs-target="#addContentModal">
               <i class="fa-solid fa-plus fa-beat "></i> Add new Content
             </div>
           </div>
@@ -141,8 +143,8 @@
           </div>
         </div>
         <div class="d-flex mb-0 px-3 py-4 py-md-2 col-12 col-lg-4" role="search">
-          <input id="search-input" class="form-control me-2 w-100" type="search" placeholder="Search by Content Header,Author or Category..."
-            aria-label="Search">
+          <input id="search-input" class="form-control me-2 w-100" type="search"
+            placeholder="Search by Content Header,Author or Category..." aria-label="Search">
           <button class="btn btn-warning" id="search-button" type="submit">Search</button>
         </div>
       </div>
@@ -150,87 +152,110 @@
   </section>
 
 
- <!-- add modal start -->
- <div class="modal modal-lg fade" id="addContentModal" tabindex="-1" aria-labelledby="addContentModalLabel"
- aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered">
-   <form class="modal-content"  id="form-modal" novalidate>
-     <div class="modal-header border-5">
-       <h2 class="modal-title fs-3" id="addContentModalLabel">Motorcycle Info's</h2>
-       <button type="button" class="btn text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
-     </div>
-     <div id="modal-form" class="modal-body">
-       <div class="mb-3">
-         <label for="brandInput" class="form-label fs-5">Brand:</label>
-         <input type="text" class="form-control" id="brandInput" placeholder="please enter brand..." required>
-       </div>
-       <div class="mb-3">
-         <label for="modelInput" class="form-label fs-5">Model Serial:</label>
-         <input type="text" class="form-control" id="modelInput" placeholder="please enter model..." required>
-       </div>
-       <div class="mb-3">
-         <label for="type-area" class="form-label fs-5">Type:</label>
-         <div class="dropdown">
-          <select id="type-area" class="btn btn-primary">
-            <option class="" value="sport" href="#">Sport</option>
-            <option class="" value="super sport" href="#">Super Sport</option>
-            <option class="" value="chopper" href="#">Chopper</option>
-            <option class="" value="naked" href="#">Naked</option>
-          </select>
+  <!-- add modal start -->
+  <div class="modal modal-lg fade" id="addContentModal" tabindex="-1" aria-labelledby="addContentModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <form class="modal-content" id="form-modal" novalidate>
+        <div class="modal-header border-5">
+          <h2 class="modal-title fs-3" id="addContentModalLabel">Motorcycle Info's</h2>
+          <button type="button" class="btn text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
         </div>
-       </div>
-       <div class="mb-3">
-         <label for="motorCCInput" class="form-label fs-5">Motor CC:</label>
-         <div class="dropdown">
-          <select id="motorCCInput" class="btn btn-primary">
-            <option class="" value="0-125cc" href="#">0-125cc</option>
-            <option class="" value="125cc-250cc" href="#">125cc-250cc</option>
-            <option class="" value="250cc-500cc" href="#">250cc-500cc</option>
-            <option class="" value="500cc-1200cc" href="#">500cc-1200cc</option>
-          </select>
+        <div id="modal-form" class="modal-body">
+          <div class="mb-3">
+            <label for="brandInput" class="form-label fs-5">Brand:</label>
+            <input type="text" class="form-control" id="brandInput" placeholder="please enter brand..." required>
+          </div>
+          <div class="mb-3">
+            <label for="modelInput" class="form-label fs-5">Model Serial:</label>
+            <input type="text" class="form-control" id="modelInput" placeholder="please enter model..." required>
+          </div>
+          <div class="mb-3">
+            <label for="type-area" class="form-label fs-5">Type:</label>
+            <div class="dropdown">
+              <select id="type-area" class="btn btn-primary">
+                <option class="" value="sport" href="#">Sport</option>
+                <option class="" value="super sport" href="#">Super Sport</option>
+                <option class="" value="chopper" href="#">Chopper</option>
+                <option class="" value="naked" href="#">Naked</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="motorCCInput" class="form-label fs-5">Motor CC:</label>
+            <div class="dropdown">
+              <select id="motorCCInput" class="btn btn-primary">
+                <option class="" value="0-125cc" href="#">0-125cc</option>
+                <option class="" value="125cc-250cc" href="#">125cc-250cc</option>
+                <option class="" value="250cc-500cc" href="#">250cc-500cc</option>
+                <option class="" value="500cc-1200cc" href="#">500cc-1200cc</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="gas-area" class="form-label fs-5">Gas Type:</label>
+            <div class="dropdown">
+              <select id="gas-area" class="btn btn-primary">
+                <option class="" value="fuel" href="#">Fuel</option>
+                <option class="" value="diesel" href="#">Diesel</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="status-area" class="form-label fs-5">Status:</label>
+            <div class="dropdown">
+              <select id="status-area" class="btn btn-primary">
+                <option class="" value="First-Hand" href="#">First Hand</option>
+                <option class="" value="Second-Hand" href="#">Second Hand</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="urlInput" class="form-label fs-5">Motor Image URL:</label>
+            <input type="url" class="form-control" id="urlInput" placeholder="please enter image url..." required>
+          </div>
+          <div class="mb-3">
+            <label for="priceInput" class="form-label fs-5">Price:</label>
+            <input type="number" class="form-control" id="priceInput" placeholder="please enter price..." required>
+          </div>
+          <div class="mb-3">
+            <label for="stockInput" class="form-label fs-5">Stock:</label>
+            <input type="number" class="form-control" id="stockInput" placeholder="please enter stock..." required>
+          </div>
         </div>
-       </div>
-       
-       <div class="mb-3">
-         <label for="gas-area" class="form-label fs-5">Gas Type:</label>
-         <div class="dropdown">
-          <select id="gas-area" class="btn btn-primary">
-            <option class="" value="fuel" href="#">Fuel</option>
-            <option class="" value="diesel" href="#">Diesel</option>
-          </select>
+        <div class="modal-footer">
+          <button type="button" id="close-button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" id="save-card" data-bs-dismiss="modal" class="btn btn-success">Save changes</button>
+          <button type="submit" id="edit-card" data-bs-dismiss="modal" class="btn btn-warning">Edit changes</button>
         </div>
-       </div>
-       <div class="mb-3">
-         <label for="status-area" class="form-label fs-5">Status:</label>
-         <div class="dropdown">
-          <select id="status-area" class="btn btn-primary">
-            <option class="" value="First-Hand" href="#">First Hand</option>
-            <option class="" value="Second-Hand" href="#">Second Hand</option>
-          </select>
+      </form>
+    </div>
+  </div>
+  <!-- add modal end -->
+
+  <!-- basket modal start -->
+  <div class="modal modal-lg fade" id="basketModal" tabindex="-1" aria-labelledby="basketModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <form class="modal-content" id="basket-form-modal" novalidate>
+        <div class="modal-header border-5">
+          <h2 class="modal-title fs-3" id="basketModalLabel"><i
+              class="fa-solid pulse-animation fa-cart-shopping me-2 fa-sm"></i>Basket </h2>
+          <button type="button" class="btn text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
         </div>
-       </div>
-       <div class="mb-3">
-        <label for="urlInput" class="form-label fs-5">Motor Image URL:</label>
-        <input type="url" class="form-control" id="urlInput" placeholder="please enter image url..." required>
-      </div>
-       <div class="mb-3">
-        <label for="priceInput" class="form-label fs-5">Price:</label>
-        <input type="number" class="form-control" id="priceInput" placeholder="please enter price..." required>
-      </div>
-       <div class="mb-3">
-        <label for="stockInput" class="form-label fs-5">Stock:</label>
-        <input type="number" class="form-control" id="stockInput" placeholder="please enter stock..." required>
-      </div>
-     </div>
-     <div class="modal-footer">
-       <button type="button" id="close-button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-       <button type="submit" id="save-card" data-bs-dismiss="modal" class="btn btn-success">Save changes</button>
-       <button type="submit" id="edit-card" data-bs-dismiss="modal" class="btn btn-warning">Edit changes</button>
-     </div>
-   </form>
- </div>
-</div>
-<!-- add modal end -->
+        <div id="basket-modal-form" class="modal-body p-5">
+
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="close-button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" id="buy-basket" data-bs-dismiss="modal" class="btn btn-success">Buy</button>
+          <button type="submit" id="discard-basket" data-bs-dismiss="modal" class="btn btn-warning">Discard</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- add modal end -->
 
   <section class="cards pb-120 bg-black">
     <div class="container">
@@ -320,11 +345,11 @@
           </div>
         </div>
         <div class="col-12 col-lg-8">
-        <div id="marketPlaceArea" class="row row-cols-1 row-cols-lg-2 g-4">
-         
+          <div id="marketPlaceArea" class="row row-cols-1 row-cols-lg-2 g-4">
+
+          </div>
         </div>
-        </div>
-        
+
 
 
         <div>
@@ -732,7 +757,7 @@
   </footer>
 
 
-  
+
 
 
 

@@ -72,6 +72,56 @@ class Request {
         .catch((err) => reject(err));
     });
   }
+  async postBasket(data) {
+    return new Promise((resolve, reject) => {
+      fetch(this.basketUrl, {
+        method: "POST",
+        body: JSON.stringify({
+          "id": data.id,
+          "brand": data.brand,
+          "model": data.model,
+          "type": data.type,
+          "motorcc": data.motorcc,
+          "banner": data.banner,
+          "gas":data.gas,
+          "status":data.status,
+          "price":data.price,
+          "stock":data.stock,
+          "basket": 1
+        }),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+  }
+  async getBasket(id) {
+    return new Promise((resolve, reject) => {
+      fetch(id ? `${this.basketUrl}/${id}` : this.basketUrl)
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        .catch((err) => reject(err, "Veri alınamadı."));
+    });
+  }
+  async putBasket(id, data) {
+    return new Promise((resolve, reject) => {
+      fetch(`${this.basketUrl}/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+  }
 }
 
 export default Request;
