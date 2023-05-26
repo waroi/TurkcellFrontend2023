@@ -17,7 +17,24 @@ class Json {
   static deleteProducts(urlİd) {
     return new Promise((resolve, reject) => {
       fetch(urlİd, { method: "DELETE" })
-        .then((response) => resolve("Blog Silindi"))
+        .then(() => resolve("Blog Silindi"))
+        .catch((err) => reject(err));
+    });
+  }
+
+  static postProducts(url, data) {
+    let postObje = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "content-type": "application/json; charset=utf-8",
+      },
+    };
+
+    return new Promise((resolve, reject) => {
+      fetch(url, postObje)
+        .then((response) => response.json())
+        .then((data) => resolve(data))
         .catch((err) => reject(err));
     });
   }

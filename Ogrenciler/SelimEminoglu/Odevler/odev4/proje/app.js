@@ -10,7 +10,7 @@ const productİmage = document.getElementById("productİmage");
 
 const addProductButton = document.getElementById("addProduct");
 
-addProductButton.addEventListener("click", addProduct());
+addProductButton.addEventListener("click", addProduct);
 
 function addProduct() {
   let id = Date.now();
@@ -27,8 +27,8 @@ function addProduct() {
 
   for (let key in newProduct) {
     if (newProduct.hasOwnProperty(key)) {
-      if (key == "price" || key == "count") {
-        if (key < 0) {
+      if (key === "price" || key === "count") {
+        if (newProduct[key] < 0) {
           alert("Lütfen Pozitif Sayı Giriniz");
           return;
         }
@@ -39,14 +39,16 @@ function addProduct() {
       }
     }
   }
+
+  Json.postProducts("http://localhost:3000/products", newProduct).then(
+    (response) => {}
+  );
 }
 
 function showList() {
-  Json.getProducts()
-    .then((data) => {
-      UI.showProducts(data);
-    })
-    .catch((err) => console.log(err));
+  Json.getProducts().then((data) => {
+    UI.showProducts(data);
+  });
 }
 
 showList();
