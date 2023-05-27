@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Profile Page</title>
+    <title>Wanderlust</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -12,8 +12,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-icons@1.7.0/font/bootstrap-icons.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    
     <link rel="stylesheet" href=".\style.css" />
   </head>
+
   <body>
     <div class="container">
       <div class="profile-header text-center">
@@ -32,62 +40,47 @@
             <input
               class="form-control border-0"
               type="search"
-              placeholder="Search Lists"
+              placeholder="Search Travels"
               aria-label="Search"
               style="box-shadow: none"
+              id="searchInput"
             />
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary border-0" type="submit">
-                <i class="fa fa-search"></i>
-              </button>
-            </div>
           </div>
         </form>
-        <div class="filter">
-        <div class="col-md-3">
-          <div class="form-group">
-            <select class="form-control" id="sort" aria-placeholder="Sort By">
-              <option value="date">Date</option>
-              <option value="title">Title</option>
-              <option value="author">Author</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group">
-            <select
-              class="form-control"
-              id="filter"
-              aria-placeholder="Filter By Category"
-            >
-              <option value="category1">Category 1</option>
-              <option value="category2">Category 2</option>
-              <option value="category3">Category 3</option>
-            </select>
-          </div>
-        </div>
-    </div>
         <a
           href="#"
           class="btn btn-outline-secondary btn-sm border-0 text-secondary no-focus-outline"
-        >
-          <i class="fas fa-pen"></i> Write
+          ><i class="fas fa-pen"></i> Write
         </a>
       </div>
-
-      <div class="container">
-        <div class="row mt-3"></div>
-      </div>
-
-      <div class="row mt-5" id="articlesContainer">
-        
-      </div>
-      
-      
+      <div class="row mt-5" id="travel-list"></div>
     </div>
 
+    <!-- Read More modal -->
+    <div
+      class="modal fade"
+      id="readMoreModal"
+      tabindex="-1"
+      aria-labelledby="readMoreModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modal-content"></div>
+      </div>
+    </div>
+    <!-- edit modal -->
+    <div class="modal" id="editModal">
+      <div class="modal-dialog">
+        <div class="modal-content" id="edit-modal-content">
+        
+        </div>
+      </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com"></script>
+
+    <script type="text/javascript" src="./src/request.js"></script>
+    <script type="text/javascript" src="./src/ui.js"></script>
+    <script type="text/javascript" src="./src/app.js"></script>
   </body>
 </html>
