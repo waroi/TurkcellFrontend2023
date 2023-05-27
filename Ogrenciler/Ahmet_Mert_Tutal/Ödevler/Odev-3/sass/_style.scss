@@ -1,0 +1,220 @@
+@mixin sliders{
+  background-size: cover;
+  background-position: center center;
+  min-height: 400px;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+.hidden {
+  display: none;
+}
+
+.container {
+
+  #post-list {
+    .card {
+      background: rgba( 176, 176, 176, 0.25 );
+      box-shadow: 0 8px 32px 0 rgba(160, 6, 42, 0.231);
+      backdrop-filter: blur( 2.5px );
+      -webkit-backdrop-filter: blur( 2.5px );
+      border-radius: 10px;
+      border: 1px solid rgba( 255, 255, 255, 0.18 );
+      #post-title {
+        height: 50px;
+      }
+      #post-content {
+        height: 100px;
+      }
+      #post-img {
+        height: 300px;
+        img {
+          height: 300px;
+          object-fit: cover;
+          overflow: hidden !important;
+        }
+      }
+      &:hover {
+        transition: 1s;
+        transform: translateY(-10px);
+      }
+    }
+  }
+}
+
+
+.modal-content{
+  background: #08a8ff27;
+  box-shadow: 0 8px 32px 0 rgba(194, 195, 209, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.sample-slider {
+  width: 100%;
+  height: auto;
+  img {
+    width: 100%;
+  }
+}
+
+.bestblogSwiper {
+  width: 70%;
+  img {
+    width: 100%;
+  }
+}
+
+.slide1 {
+  background-image: url(https://wallpaperaccess.com/full/815652.jpg);
+  @include sliders;
+}
+.slide2 {
+  background-image: url(https://wallpaperaccess.com/full/815652.jpg);
+  @include sliders;
+}
+.slide3 {
+  background-image: url(https://wallpaperaccess.com/full/815652.jpg);
+  @include sliders;
+}
+.slide4 {
+  background-image: url(https://wallpaperaccess.com/full/815652.jpg);
+  @include sliders;
+}
+
+header{
+  .header-inner {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: $navbar-bg;
+    .header-container{
+      nav{
+        .navbar-collapse{
+          .navbar-nav{
+            .nav-item{
+              .nav-link{
+                line-height: 36px;
+                font-size: 16px;
+                font-weight: 500;
+                transition: 0.15s;
+                &:hover{
+                  color: #fe4066 !important;
+                }
+              }
+          }
+        }
+        .form-inline{
+          .header-btn{
+            border-radius: 30px;
+            transition: 0.5s;
+            &:hover {
+              background: #fe4066 !important;
+              color: #fff !important;
+              cursor: pointer;
+            }
+          }
+        }
+        
+      }
+    }
+  }
+
+}
+}
+.addBlog{
+  cursor: pointer;
+}
+footer {
+  background-image: url(https://wallpaperaccess.com/full/908364.jpg);
+  min-height: 400px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  filter: brightness(0.8);
+  background-size: cover;
+   h3{
+    font-size: 24px;
+  letter-spacing: 1px;
+   }
+   h4{
+    font-size: 20px;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 2px;
+   }
+   a{
+    color: white;
+    &:hover{
+      color: #ef133f !important;
+    }
+   }
+}
+
+.footer-title {
+  border-bottom: 2px solid #fe4066;
+  padding-bottom: 25px;
+  margin-bottom: 35px;
+  color: white !important;
+ 
+}
+.footer-social{
+  i{
+    background-color: #ef133f !important;
+    color: #000 !important;
+    width: 30px;
+height: 30px;
+line-height: 30px;
+border-radius: 30px;
+font-size: 16px;
+transition: all 0.5s;
+font-weight: 800;
+&:hover{
+background: #1b1b1b !important;
+color: #ef133f !important;
+
+  }
+}
+}
+.open-hours{
+  .open-hour {
+    padding-bottom: 20px !important;
+  }
+  .table-item {
+    color: white !important;
+  }
+
+}
+
+.join-btn{
+  background: #fe4066;
+  color: white;
+  border-radius: 30px;
+  padding: 10px 30px;
+  transition: 0.5s;
+  &:hover{
+    background: #ef133f !important;
+    color: white !important;
+  }
+}
+.about-footer {
+  color: white !important;
+}
+.text-hover::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #ef133f;
+  transition: width 0.3s;
+}
+.text-hover:hover::after {
+  width: 25%;
+}
+
