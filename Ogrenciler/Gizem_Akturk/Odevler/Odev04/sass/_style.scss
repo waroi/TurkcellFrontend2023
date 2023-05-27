@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+@mixin fonts-maker($size, $line-height, $weight) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}
+
+.categories {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #ebebeb;
+}
+
+#sort {
+  padding: 20px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+i {
+  pointer-events: none;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.category a {
+  background: linear-gradient(
+    90deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+
+  &:hover {
+    box-shadow: 0px 10px 30px 0px rgba(98, 71, 234, 0.1);
+    border-color: #fff;
+
+    h4 {
+      color: white;
+    }
+  }
+}
+
+#sort a:hover {
+  background: $primary;
+  color: white;
+}
+
+footer ul .nav-item:hover a {
+  color: $primary !important;
+}
+.bestseller-cards {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.card_area {
+  background: linear-gradient(
+    90deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  .main-title {
+    p {
+      color: #fff;
+      opacity: 0.6;
+      @include fonts-maker(14px, 24px, 300);
+    }
+  }
+
+  .card_item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 40px;
+    border: 1px solid white;
+    margin-bottom: 30px;
+    transition: all 300ms linear 0s;
+    h4 {
+      color: white;
+    }
+    p {
+      color: #fff;
+    }
+    &:hover {
+      background: #fff;
+      color: #fff;
+      h4 {
+        color: black;
+      }
+      p {
+        color: #777777;
+        opacity: 1;
+      }
+    }
+  }
+}
+#bestseller {
+  text-align: center;
+  img {
+    width: 334px;
+    height: 334px;
+  }
+}
+.product-img {
+  text-align: center;
+
+  height: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  .products {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
