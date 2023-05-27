@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- bootstrap-icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
+    <!-- aos kütüphanesi -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <title>Hakkımızda</title>
+  </head>
+  <body class="about bg-dark">
+    <header class="pt-3 header-bg">
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top py-3">
+        <div class="container">
+          <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-earbuds fs-3 text-light"></i>
+            <span class="fs-3 text-light">Audio</span>
+          </div>
+          <button
+            class="navbar-toggler bg-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 float-end mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link fw-bold text-light ms-3"
+                  aria-current="page"
+                  href="index.html"
+                  >Ana Sayfa</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ms-3 fw-bold text-light" href="faq.html"
+                  >Sıkça Sorulan Sorular</a
+                >
+              </li>
+              <li class="nav-item ms-3 d-flex mt-3 mt-md-0">
+                <img
+                  alt="profil"
+                  class="img-fluid rounded-circle"
+                  src="https://lh3.googleusercontent.com/a-/AOh14Gir42XJEEekD0LpqxV2t8FHAq5r6SV-WkimCkeM%3Ds96-c"
+                />
+                <div class="dropdown mt-2 ms-2">
+                  <i
+                    class="bi bi-chevron-down fs-5 text-light"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  ></i>
+                  <ul class="dropdown-menu bg-dark position-absolute">
+                    <li>
+                      <a class="dropdown-item text-light" href="#"
+                        >Siparişlerim</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-light" href="#">Adresim</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-light" href="#">Cüzdanım</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-light" href="#"
+                        >Aboneliklerim</a
+                      >
+                    </li>
+                    <hr class="text-light" />
+                    <li>
+                      <a class="dropdown-item text-light" href="#">Çıkış Yap</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item ms-3 mt-3 mt-lg-1">
+                <i class="bi bi-cart-check text-light fs-3"></i>
+                <span class="badge bg-success fs-6"> 0 </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="carouselIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0322/8962/0101/files/x1_desktop_shop-faqs_1_2000x.png?v=1613788718"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0322/8962/0101/files/x1_desktop_sennheiser-company-header-fixed-03_2000x.png?v=1613788583"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0322/8962/0101/files/x1_desktop_SENN_PROKOMM_HD4_Profil_F39__1_1400x.png?v=1613785234"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </header>
+    <section class="about">
+      <div class="container">
+        <div
+          class="row overflow-hidden justify-content-center align-items-center py-5"
+        >
+          <div class="col-md-6" data-aos="fade-left">
+            <img
+              class="img-fluid w-100 rounded-5"
+              src="https://static.wixstatic.com/media/c837a6_c72ff914003b481ea856501f453e2bb3~mv2.jpg/v1/fill/w_428,h_428,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_c72ff914003b481ea856501f453e2bb3~mv2.jpg"
+            />
+          </div>
+          <div
+            class="col-md-5 p-5 mt-5 d-flex justify-content-center flex-column rounded-5 about-content"
+          >
+            <div class="text-light pb-md-5" data-aos="fade-up">
+              <h2 class="mb-4">Vizyonumuz</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem neque nisi architecto autem molestias corrupti
+                officia veniam.
+              </p>
+            </div>
+            <div>
+              <div class="card mb-3" data-aos="fade-left">
+                <div class="row border-start border-info border-5">
+                  <div class="d-flex align-items-center">
+                    <div class="col-4">
+                      <img
+                        src="https://lh3.googleusercontent.com/a-/AOh14Gir42XJEEekD0LpqxV2t8FHAq5r6SV-WkimCkeM%3Ds96-c"
+                        class="img-fluid rounded-circle w-75 w-md-100 ms-1 mt-3 mx-auto"
+                      />
+                    </div>
+                    <div class="col-8 mt-4">
+                      <h5 class="card-title">Selahattin Demir</h5>
+                      <p>Co-Founder, Audio Inc.</p>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text fst-italic">
+                      “Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Ducimus vitae ipsa asperiores inventore aperiam iure?”
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about">
+      <div class="container">
+        <div
+          class="row overflow-hidden justify-content-center align-items-center py-5"
+        >
+          <div class="col-md-6 order-md-2 py-3" data-aos="fade-right">
+            <img
+              class="img-fluid w-100 rounded-5"
+              src="https://static.wixstatic.com/media/c837a6_9a2583f0a17e48efb075913d90da0dbf~mv2.jpg/v1/fill/w_625,h_469,al_c,q_85,usm_0.66_1.00_0.01/c837a6_9a2583f0a17e48efb075913d90da0dbf~mv2.webp"
+            />
+          </div>
+          <div
+            class="col-md-5 p-5 d-flex justify-content-center flex-column gap-5 rounded-5 about-content"
+          >
+            <div class="text-light" data-aos="fade-up">
+              <h2 class="mb-4">Detaylar & Rakamlar</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem neque nisi architecto autem molestias corrupti
+                officia veniam.
+              </p>
+            </div>
+
+            <div class="feedback-1-card">
+              <div class="card mb-3" data-aos="fade-left">
+                <div class="row g-0 border-start border-info border-5">
+                  <div class="row align-items-center">
+                    <div class="col-4">
+                      <img
+                        src="https://lh3.googleusercontent.com/a-/AOh14Gir42XJEEekD0LpqxV2t8FHAq5r6SV-WkimCkeM%3Ds96-c"
+                        class="img-fluid rounded-circle w-75 w-md-100 ms-1 mt-3 mx-auto"
+                      />
+                    </div>
+
+                    <div class="col-8 mt-4">
+                      <h5 class="card-title">Selahattin Demir</h5>
+                      <p>Grafiker, Audio Inc.</p>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text fst-italic">
+                      “Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Ducimus vitae ipsa asperiores inventore aperiam iure?”
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about">
+      <div class="container">
+        <div
+          class="row overflow-hidden justify-content-center align-items-center py-5"
+        >
+          <div class="col-md-6 py-md-4" data-aos="fade-left">
+            <img
+              class="img-fluid rounded-5 w-100"
+              src="https://cdn.shopify.com/s/files/1/0322/8962/0101/files/x1_desktop_who_we_are_our_history_sennheiser_800x.png?v=1613788584"
+            />
+          </div>
+          <div
+            class="col-md-5 p-5 d-flex justify-content-center gap-4 flex-column rounded-5 about-content"
+          >
+            <div class="text-light" data-aos="fade-up">
+              <h2 class="mb-4">Tarihimiz</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem neque nisi architecto autem molestias corrupti
+                officia veniam.
+              </p>
+            </div>
+            <div>
+              <div class="card mb-3" data-aos="fade-right">
+                <div class="row border-start border-info border-5 pb-3">
+                  <div class="d-flex align-items-center">
+                    <div class="col-4">
+                      <img
+                        src="https://lh3.googleusercontent.com/a-/AOh14Gir42XJEEekD0LpqxV2t8FHAq5r6SV-WkimCkeM%3Ds96-c"
+                        class="img-fluid rounded-circle w-75 w-md-100 ms-1 mt-3 mx-auto"
+                      />
+                    </div>
+                    <div class="col-8 mt-4">
+                      <h5 class="card-title">Selahattin Demir</h5>
+                      <p>Developer, Audio Inc.</p>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text fst-italic">
+                      “Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Ducimus vitae ipsa asperiores inventore aperiam iure?”
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about">
+      <div class="container">
+        <div
+          class="row overflow-hidden justify-content-center align-items-center py-5"
+        >
+          <div class="col-md-6 order-md-2 py-3" data-aos="fade-right">
+            <img
+              class="img-fluid rounded-5 w-100"
+              src="https://cdn.shopify.com/s/files/1/0322/8962/0101/files/x1_desktop_sennheiser-responsibilities-teaser-05_800x.png?v=1613788585"
+            />
+          </div>
+          <div
+            class="col-md-5 p-5 d-flex justify-content-center flex-column gap-5 rounded-5 about-content"
+          >
+            <div class="text-light" data-aos="fade-up">
+              <h2 class="mb-4">Kültürümüz</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem neque nisi architecto autem molestias corrupti
+                officia veniam.
+              </p>
+            </div>
+
+            <div class="feedback-1-card">
+              <div class="card mb-3" data-aos="fade-left">
+                <div class="row g-0 border-start border-info border-5">
+                  <div class="row align-items-center">
+                    <div class="col-4">
+                      <img
+                        src="https://lh3.googleusercontent.com/a-/AOh14Gir42XJEEekD0LpqxV2t8FHAq5r6SV-WkimCkeM%3Ds96-c"
+                        class="img-fluid rounded-circle w-75 w-md-100 ms-1 mt-3 mx-auto"
+                      />
+                    </div>
+
+                    <div class="col-8 mt-4">
+                      <h5 class="card-title">Selahattin Demir</h5>
+                      <p>Marketing Manager, Audio Inc.</p>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text fst-italic">
+                      “Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Ducimus vitae ipsa asperiores inventore aperiam iure?”
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 my-auto pb-4">
+            <i class="bi bi-earbuds fs-3 text-light me-2"></i>
+            <span class="fs-3 text-light">Audio</span>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h4 class="footer-title text-light mb-3">Kullanıcı Bilgileri</h4>
+            <ul class="list p-0 list-unstyled">
+              <li class="mb-3">
+                <a class="text-light" href="#">Üyelik Sözleşmesi</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#"
+                  >İptal ve İade Koşulları Politikası</a
+                >
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#"
+                  >Garanti ve Teknik Servis Süreçleri</a
+                >
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#"
+                  >Gizlilik Sözleşmesi ve Çerez Politikası</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4">
+            <h4 class="footer-title text-light mb-3">Hakkımızda</h4>
+            <ul class="list p-0 list-unstyled">
+              <li class="mb-3">
+                <a class="text-light" href="faq.html">Sıkça Sorulan Sorular</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#">Sipariş Takip</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-light" href="#">Mesafeli Satış Sözleşmesi</a>
+              </li>
+              <li>
+                <p class="text-light">Teslimat Koşulları</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h4 class="footer-title text-light mb-3">İletişim</h4>
+            <ul class="list p-0 list-unstyled">
+              <li class="mb-2">
+                <a class="text-light" href="#"
+                  >500 Terry Francine Street San Francisco, CA 94158</a
+                >
+              </li>
+              <li class="mb-2">
+                <a class="text-light" href="mailto:info@mysite.com"
+                  >info@mysite.com</a
+                >
+              </li>
+              <li class="mb-2">
+                <a class="text-light" href="#">123-456-7890</a>
+              </li>
+              <li>
+                <p class="text-light">Mon - Fri: 9am - 9pm</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col-md-9">
+            <h5 class="text-light">Ödeme Yöntemleri</h5>
+            <div class="d-flex gap-3 my-3 align-items-center flex-wrap">
+              <img
+                src="https://static.wixstatic.com/media/c837a6_e0547a35fd3b42eb8fc45f9f73b77246~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Visa.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_ad29ff701fee45629d63f3e4f3f2894b~mv2.png/v1/fill/w_63,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Master%20Card.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_f73858b81fdb40388c28ec8a78c7d69f~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/American%20Express.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_1947c7dbf840480ea8638b9b0c29c030~mv2.png/v1/fill/w_46,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/JCB.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_0164b1a8ce80423890095a8b3d8a62eb~mv2.png/v1/crop/x_0,y_0,w_176,h_109/fill/w_57,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Discover.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://static.wixstatic.com/media/c837a6_e0d5f0c365864fda9b7d65df15eecaf5~mv2.png/v1/fill/w_55,h_35,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/PayPal.png"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5 class="text-light mb-4">Bizi Takipte Kalın</h5>
+            <a href="#" class="text-light me-4"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a href="#" class="text-light me-4"
+              ><i class="bi bi-twitter"></i
+            ></a>
+            <a href="#" class="text-light me-4"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a href="#" class="text-light"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

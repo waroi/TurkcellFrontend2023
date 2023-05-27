@@ -1,0 +1,140 @@
+body {
+  background-color: #F6F1F1;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #19A7CE;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+nav .col-6 {
+  margin: auto;
+  height: 80px;
+  display: grid;
+  align-items: center;
+}
+nav .col-6 img {
+  width: 12rem;
+  margin: auto;
+}
+
+.main {
+  padding: 30px 0;
+}
+.main .main-sort {
+  max-height: 250px;
+  position: sticky;
+  top: 100px;
+  z-index: 3;
+  background-color: white;
+  border: 1px solid #F6F1F1;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.main .main-sort button {
+  background-color: #19A7CE;
+  border: none;
+}
+.main .main-right {
+  display: flex;
+  flex-direction: row;
+}
+.main .main-right .main-blog {
+  padding: 20px;
+}
+.main .main-right .main-blog .share #productForm {
+  display: grid;
+  gap: 5px;
+}
+.main .main-right .main-blog .share #productForm input {
+  width: 100%;
+  border: 1px solid #c4c1c1;
+  border-radius: 10px;
+  padding: 10px;
+}
+.main .main-right .main-blog .share #productForm #blogText {
+  height: 200px;
+}
+.main .main-right .main-blog .shared {
+  margin-top: 20px;
+  display: grid;
+  gap: 20px;
+}
+.main .main-right .main-blog .shared .card img {
+  max-height: 400px;
+  object-fit: cover;
+}
+.main .main-right .main-blog .shared .card .card-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.main .main-right .main-blog .shared .card .card-top button {
+  border: none;
+}
+.main .main-right .main-blog .shared .card .card-top .ct-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.main .main-right .main-blog .shared .card .card-top .ct-left #profilePhoto {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+.main .main-right .main-blog .shared .card .card-top .ct-left .card-title {
+  color: #146C94;
+}
+.main .main-right .main-filter-search {
+  position: sticky;
+  top: 100px;
+  z-index: 2;
+  max-height: 450px;
+  background-color: #19A7CE;
+  border: 1px solid #F6F1F1;
+  border-radius: 10px;
+  padding: 15px 15px;
+}
+.main .main-right .main-filter-search .mf-search input {
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+.main .main-right .main-filter-search .mfFilter {
+  margin-top: 20px;
+  list-style-type: none;
+}
+.main .main-right .main-filter-search .mfFilter a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 992px) {
+  .main-sort {
+    flex-direction: row !important;
+    top: 80px !important;
+  }
+  .main-filter-search {
+    position: sticky;
+    top: 180px !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .main-right {
+    flex-direction: column-reverse !important;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

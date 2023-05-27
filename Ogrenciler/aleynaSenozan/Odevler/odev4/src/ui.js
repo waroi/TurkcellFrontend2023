@@ -1,5 +1,7 @@
 class UI {
     addAllProductsToUI(products) {
+        const productList = document.getElementById("products");
+        productList.innerHTML = ""; // clear the existing list
         products.forEach(function (product) {
             ui.addProductToUI(product);
         });
@@ -65,6 +67,20 @@ class UI {
         productCard.querySelector('.product-description').textContent = updatedProduct.productDescription;
         productCard.querySelector('.product-price').textContent = updatedProduct.price;
         productCard.querySelector('.product-stock').textContent = updatedProduct.stockQuantity;
+    }
+
+    sortProductsByName(products) {
+        products.sort((a, b) => {
+            if(a.productName < b.productName) { return -1; }
+            if(a.productName > b.productName) { return 1; }
+            return 0;
+        });
+        this.addAllProductsToUI(products);
+    }
+
+    sortProductsByPrice(products) {
+        products.sort((a, b) => a.price - b.price);
+        this.addAllProductsToUI(products);
     }
     
     

@@ -25,19 +25,27 @@ function eventListeners() {
       updateProduct(id);
       e.preventDefault();
     });
+  document.getElementById("sortByName").addEventListener("click", sortProductsByName);
+  document.getElementById("sortByPrice").addEventListener("click", sortProductsByPrice);
   
 }
 
-function getAllProducts() {
+function getAllProducts(sortType) {
   request
     .get()
     .then((products) => {
+      if (sortType === "name") {
+        products.sort((a, b) => a.productName.localeCompare(b.productName));
+      } else if (sortType === "price") {
+        products.sort((a, b) => a.price - b.price);
+      }
       ui.addAllProductsToUI(products);
     })
     .catch((err) => {
       console.log(err);
     });
 }
+
 
 function addProduct(e) {
   const productName = productNameInput.value.trim();
@@ -164,6 +172,28 @@ function updateProduct(id) {
         console.log(err);
       });
   }
+}
+
+function sortProductsByName() {
+    request
+        .get()
+        .then((products) => {
+            ui.sortProductsByName(products);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+}
+
+function sortProductsByPrice() {
+    request
+        .get()
+        .then((products) => {
+            ui.sortProductsByPrice(products);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 }
 
 

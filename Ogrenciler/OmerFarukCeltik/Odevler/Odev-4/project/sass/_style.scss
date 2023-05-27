@@ -1,0 +1,172 @@
+//general
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  list-style-type: none;
+}
+@mixin gradient-mixin($bg,$pos,$w,$h,$cont) {
+  background: $bg;
+  position: $pos;
+  width: $w;
+  height: $h;
+  content: $cont;
+  overflow: hidden;
+}
+@mixin transition-mixin($tr,$b,$b-shw){
+  transition:$tr;
+  border:$b;
+  box-shadow: $b-shw;
+}
+h1 {
+  z-index: 101;
+  --x-offset: -0.0625em;
+  --y-offset: 0.0625em;
+  --stroke: 0.025em;
+  --background-color: #1d152d;
+  --stroke-color: #605B6C;
+  text-shadow: 
+    var(--x-offset)
+    var(--y-offset)
+    0px
+    var(--background-color), 
+    calc( var(--x-offset) - var(--stroke) )
+    calc( var(--y-offset) + var(--stroke) )
+    0px
+    var(--stroke-color);
+    &.styled-heading{
+      font-family: 'Alkatra', cursive;
+     }
+}
+.disabled{
+  filter: grayscale(50%);
+}
+
+.header-hover-animation{
+position: relative;
+&::after{
+  @include gradient-mixin($danger,absolute ,100% ,3px ,"" );
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-out;  
+}
+&:hover::after{
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  background-color: $secondary;
+}
+}
+.header-content{
+  @include gradient-mixin(url(../img/AnyFaithfulHylaeosaurus-size_restricted.gif),relative ,inherit ,inherit,inherit);
+  &::before{
+    @include gradient-mixin(linear-gradient(180deg, rgba(38, 25, 64, 0.5), rgba(0, 0, 0, 0)),absolute ,100% ,100%,"");
+  }
+}
+.middle-navbar{
+  @include transition-mixin(all 0.7s ease-in,1px solid var(--secondary-bg-color),0px 2px 12px 0px rgba(54, 54, 54, 0.75));
+  &:hover{
+    background: $primary !important;
+  }
+}
+.pulse-animation{
+  &:hover{
+    animation: pulse-animation 2s infinite;
+  }
+}
+.moto-card{
+  @extend .middle-navbar;
+}
+//general end
+//homepage
+.gallery{
+  @include gradient-mixin(linear-gradient(180deg, var(--black), rgb(14, 14, 14)),inherit ,100% ,100%,inherit);
+  img:hover{
+    @include transition-mixin(all 0.5s ease-in,inherit, 0px 2px 12px 0px rgba(54, 54, 54, 0.75));
+    scale: 1.02;
+    border-radius: 30px;
+  }
+} 
+.marketplace{
+  @include gradient-mixin(linear-gradient(180deg, rgb(14, 14, 14), rgb(22, 22, 22)),inherit ,100% ,100%,inherit);
+}
+.jobs{
+  @include gradient-mixin(linear-gradient(180deg, rgb(34, 34, 34), rgb(78, 78, 78)),inherit ,100% ,100%,inherit);
+}
+.gradient-bg-sec{
+  @include gradient-mixin(linear-gradient(180deg, rgb(78, 78, 78), var(--black)),inherit ,100% ,100%,inherit);
+}
+.moto-carousel{
+  &::before{
+    @include gradient-mixin(linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),absolute ,100% ,100%,"");
+  }
+}
+.form{
+  @include gradient-mixin(url(../img/AnyFaithfulHylaeosaurus-size_restricted.gif),relative ,inherit ,inherit,inherit);
+  & .form-area{
+    @extend .middle-navbar;
+  }
+}
+//homepage end
+//cafe racers page
+.caferacers-header-content{
+  @include gradient-mixin(url(https://images.pexels.com/photos/872732/pexels-photo-872732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1),relative ,inherit ,inherit,inherit);
+  background-position: center;
+  background-size: cover;
+  h2,h1{
+    z-index: 10;
+  }
+  &::before{
+    z-index: 1;
+    @include gradient-mixin(linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),absolute ,100% ,100%,"");
+  }
+}
+.caferacer-card{
+  @extend .moto-card;
+  border-radius: 0px;
+  &:hover{
+    background: var(--cafe-racer-card-bg) !important;
+  }
+  img{
+    overflow: hidden;
+  }
+}
+//cafe racers page end
+
+//aboutus start
+.logo-area{
+  img{
+    transition: all 0.7s ease-in;
+    filter: grayscale(0.8);
+    &:hover{
+      filter: grayscale(0);
+    }
+  }
+}
+//about us end
+@media screen and (max-width:992px) {
+  .middle-navbar{
+    background: var(--bs-background-color);
+    border-radius: 20px !important;
+    li{
+      a{
+        color: $primary ;
+      }
+    }
+  }
+}
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px $secondary;
+  }
+  50%{
+    transform: rotate(180deg);
+    box-shadow: 0px 0px 31px 15px $secondary;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 0 0 0 0px $secondary;
+  }
+}

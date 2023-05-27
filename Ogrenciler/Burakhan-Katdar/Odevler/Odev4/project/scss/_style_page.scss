@@ -1,0 +1,174 @@
+body {
+    background-color: $light;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin sectionPadding {
+    padding: 30px 0;
+}
+
+nav {
+    background-color: $primary;
+    position: sticky;
+    top: 0;
+    z-index: 4;
+
+    .col-6 {
+        margin: auto;
+        height: 80px;
+        display: grid;
+        align-items: center;
+
+        img {
+            width: 12rem;
+            margin: auto;
+        }
+    }
+}
+
+.main {
+    @include sectionPadding();
+
+    .main-sort {
+        max-height: 250px;
+
+        position: sticky;
+        top: 100px;
+        z-index: 3;
+
+        background-color: white;
+        border: 1px solid $light;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            background-color: $primary;
+            border: none;
+        }
+    }
+
+    .main-right {
+        display: flex;
+        flex-direction: row;
+
+        .main-blog {
+            padding: 20px;
+
+            .share {
+                #productForm {
+                    display: grid;
+                    gap: 5px;
+
+                    input {
+                        width: 100%;
+                        border: 1px solid #c4c1c1;
+                        border-radius: 10px;
+                        padding: 10px;
+                    }
+
+                   
+
+                    #blogText {
+                        height: 200px;
+                    }
+                }
+            }
+
+            .shared {
+                margin-top: 20px;
+                display: grid;
+                gap: 20px;
+                .card {
+                    img {
+                        max-height: 400px;
+                        object-fit: cover;
+                    }
+
+                    .card-top {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+
+                        button {
+                            border: none;
+                        }
+
+                        .ct-left {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 10px;
+                            margin-bottom: 20px;
+
+                            #profilePhoto {
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 100%;
+
+                            }
+                            .card-title{
+                                color: $secondary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-filter-search {
+            position: sticky;
+            top: 100px;
+            z-index: 2;
+
+            max-height: 450px;
+            background-color: $primary;
+            border: 1px solid $light;
+            border-radius: 10px;
+            padding: 15px 15px;
+
+            .mf-search {
+                input {
+                    height: 35px;
+                    border: none;
+                    border-radius: 10px;
+                    padding: 10px;
+                }
+            }
+
+            .mfFilter {
+                margin-top: 20px;
+                list-style-type: none;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .main-sort {
+        flex-direction: row !important;
+        top: 80px !important;
+    }
+
+    .main-filter-search {
+        position: sticky;
+        top: 180px !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .main-right {
+        flex-direction: column-reverse !important;
+    }
+}

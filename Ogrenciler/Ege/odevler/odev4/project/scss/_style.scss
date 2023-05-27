@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to left bottom,
+    #242124,
+    #3b3b46,
+    #4a596a,
+    #517b8a,
+    #5f9ea0
+  );
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+i {
+  pointer-events: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  width: 100%;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  .navbar {
+    .navbar-brand {
+      color: $secondary;
+    }
+    .nav-link {
+      color: $secondary;
+      &:hover {
+        color: $info;
+      }
+
+      &.active {
+        color: $info;
+      }
+    }
+  }
+}
+
+footer {
+  color: $secondary;
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  .btn {
+    color: $info;
+    :hover {
+      color: $primary;
+    }
+  }
+
+  .footer-content {
+    a {
+      color: $secondary;
+      transition: 0.3s all;
+      &:hover {
+        color: $info;
+      }
+    }
+
+    button {
+      transition: 0.3s all;
+    }
+  }
+
+  .input-wrap {
+    position: relative;
+    border-bottom: 2px solid $secondary;
+    input {
+      color: $secondary;
+      border: none;
+      outline: none;
+      border-radius: 1rem;
+      transition: 0.3s all;
+
+      &:focus + .focus-input1 {
+        width: 100%;
+      }
+      &::placeholder {
+        color: rgba(255, 255, 240, 0.623);
+      }
+    }
+    .focus-input1 {
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: $info;
+      left: 0;
+      bottom: -2px;
+      transition: 0.3s all;
+    }
+  }
+
+  .col-lg-4 {
+    border-left: 1px solid #777;
+    padding: 1rem 5rem;
+    &:first-child {
+      border-left: none;
+    }
+  }
+}
+
+.amount-controls {
+  div {
+    width: 45px;
+    height: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    &:nth-child(2) {
+      border: 2px solid $primary;
+
+      background: $secondary;
+      margin: 0 -2px;
+      color: black;
+    }
+    &:nth-child(1) {
+      border: 2px solid $primary;
+
+      background: $primary;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      color: white;
+
+      &:hover {
+        background: rgba(36, 33, 36, 0.5);
+      }
+    }
+    &:nth-child(3) {
+      border: 2px solid $primary;
+
+      background: $primary;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      color: white;
+
+      &:hover {
+        background: rgba(36, 33, 36, 0.5);
+      }
+    }
+  }
+}
+
+.cart-item-img {
+  max-width: 150px;
+  img {
+    width: 100%;
+  }
+}
+
+#cart-area {
+  position: relative;
+  #cart-count {
+    position: absolute;
+    top: -10px;
+    font-size: 16px;
+  }
+}
+
+.card {
+  background: transparent;
+  overflow: hidden;
+  transition: 0.3s all;
+  border-color: rgba(95, 158, 160, 0.5);
+
+  .card-img-top {
+    height: 200px;
+    img {
+      width: 100%;
+    }
+  }
+  .card-buttons {
+    i {
+      font-size: 32px;
+    }
+  }
+  &:hover {
+    border-color: rgba(95, 158, 160, 0);
+    box-shadow: 0px 0px 5px 5px rgba(95, 158, 160, 0.5);
+  }
+}
+
+.offcanvas {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  .offcanvas-footer {
+    i {
+      font-size: 48px;
+    }
+  }
+
+  .remove-all-cart {
+    border-radius: 16px;
+  }
+}
+
+.modal-content {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  .modal-header {
+    background-image: url(https://media.istockphoto.com/id/623620362/vector/waste-of-money-hand.jpg?s=612x612&w=0&k=20&c=7MNVzqFDGyWGFrgVQ9mDCU-n_O6X61q-dsy6X_lBVuM=);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .modal-body {
+    font-size: 1.25rem;
+    input {
+      outline: none;
+      border-radius: 15px;
+      padding: 5px;
+    }
+  }
+}
+.carousel-inner {
+  img {
+    max-width: 100%;
+    height: 90vh;
+    margin: 0 auto;
+  }
+
+  .carousel-caption {
+    h5 {
+      font-size: 32px;
+      text-transform: capitalize;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  footer {
+    .col-lg-4 {
+      border: none;
+    }
+  }
+
+  .carousel-inner {
+    img {
+      height: 25vh;
+    }
+  }
+}

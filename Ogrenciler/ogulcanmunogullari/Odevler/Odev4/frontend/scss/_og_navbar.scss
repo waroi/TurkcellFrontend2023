@@ -1,0 +1,41 @@
+nav,
+footer {
+ .container {
+  padding: 0 1em !important;
+ }
+}
+input[type='search'] {
+ @include border-tcolor(1px, $primary, $primary);
+ font-size: 16px;
+}
+input[type='search']:focus {
+ @include border-tcolor(1px, $dark, $dark);
+}
+input[type='search']::placeholder {
+ color: $primary !important;
+}
+nav {
+ z-index: 9999 !important;
+ .navbar-toggler {
+  @include border-bgcolor(1px, $primary, #fff);
+ }
+ .navbar-brand {
+  width: 30px;
+  img {
+   width: 100%;
+   height: auto;
+   object-fit: contain;
+   object-position: center;
+   margin: 0 auto;
+  }
+ }
+ .nav-link {
+  color: $primary;
+ }
+ .nav-link:hover {
+  color: $dark;
+ }
+ #navbarPc {
+  display: none !important;
+ }
+}
