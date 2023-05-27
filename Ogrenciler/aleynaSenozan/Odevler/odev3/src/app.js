@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function eventListeners() {
   searchInput.addEventListener('keyup', searchPost);
   travelList.addEventListener("click", readMorePost);
-  travelList.addEventListener("click", editItem);
+  travelList.addEventListener("click", updatePost);
 }
 
 function getAllItems() {
@@ -38,23 +38,31 @@ function readMorePost(e) {
   e.preventDefault();
 }
 
-function editItem(e) {
-  if (e.target.id === 'updatePost') {
-    const imgUrl = card.querySelector('img')?.getAttribute('src');
-    const postTitle = card.querySelector('.card-title')?.textContent;
-    const postAuthor = card.querySelector('.author-s')?.querySelector('small')?.textContent.replace('Author: ', '');
-    const postDate = card.querySelector('.card-text:nth-child(3)')?.textContent;
-    const postCategory = card.querySelector('.card-text:last-child')?.textContent.replace('Category: ', '');
-    const postContent = card.dataset.fullText;
-    
+travelList.addEventListener("click", updatePost);
+document.querySelector("#saveChanges").addEventListener("click", saveChanges);
 
-    ui.editItemOnUI({
-      imgUrl,
-      postTitle,
-      postAuthor,
-      postDate,
-      postCategory,
-      postContent
-    });
+function updatePost(e) {
+  if (e.target.id === 'updatePost' || e.target.parentElement.id === 'updatePost') {
+    ui.updatePostFromUI(e.target.closest('.travelCard'));
   }
+  e.preventDefault();
 }
+
+function saveChanges() {
+  const id = document.getElementById('update-id').value;
+  const title = document.getElementById('update-title').value;
+  const text = document.getElementById('update-text').value;
+  const author = document.getElementById('update-author').value;
+  const category = document.getElementById('update-category').value;
+  const url = document.getElementById('update-url').value;
+  
+  request
+    .put(id, {title, text, author, date: new Date().toISOString(), category, url})
+    .then(response => {
+      location.reload(); // Sayfayı yenileyerek değişiklikleri görünür yaparız.
+    })
+    .catch(err => console.log(err));
+}
+
+
+

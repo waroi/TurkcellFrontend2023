@@ -68,14 +68,50 @@
         <div class="modal-content" id="modal-content"></div>
       </div>
     </div>
-    <!-- edit modal -->
-    <div class="modal" id="editModal">
-      <div class="modal-dialog">
-        <div class="modal-content" id="edit-modal-content">
-        
-        </div>
+
+    
+<!-- Update modal -->
+<div class="modal" id="updateModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateModalLabel">Update Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="updateForm">
+          <input type="hidden" id="update-id"/>
+          <div class="form-group">
+            <label for="update-title">Title</label>
+            <input type="text" class="form-control" id="update-title">
+          </div>
+          <div class="form-group">
+            <label for="update-text">Text</label>
+            <textarea class="form-control" id="update-text" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="update-author">Author</label>
+            <input type="text" class="form-control" id="update-author">
+          </div>
+          <div class="form-group">
+            <label for="update-category">Category</label>
+            <input type="text" class="form-control" id="update-category">
+          </div>
+          <div class="form-group">
+            <label for="update-url">Image URL</label>
+            <input type="text" class="form-control" id="update-url">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
       </div>
     </div>
+  </div>
+</div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 

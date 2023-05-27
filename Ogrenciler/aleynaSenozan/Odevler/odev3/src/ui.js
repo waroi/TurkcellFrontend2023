@@ -39,7 +39,7 @@ class UI {
           <div class="d-flex justify-content-between">
             <div>
               <a href="#" class="btn btn-sm btn-link p-0 mr-2" id="deletePost"><i class="bi bi-trash text-dark" style="font-size: 1.3rem;"></i></a>
-              <a href="#" class="btn btn-sm btn-link p-0 mr-2" id="updatePost"><i class="bi bi-pencil text-dark" style="font-size: 1.3rem;"></i></a>
+              <a href="#" class="btn btn-sm btn-link p-0 mr-2" id="updatePost"><i class="bi bi-pencil text-dark guncelle" style="font-size: 1.3rem;"></i></a>
             </div>
             <div class="seeMore">
               <a href="#" class="btn btn-sm btn-link text-decoration-none readMoreBtn" id="readMore" style="display: flex; align-items: center;">
@@ -107,46 +107,17 @@ readMorePostFromUI(card) {
     </div>`;
 }
 
-editItemOnUI(data) {
-  const modalContent = document.getElementById('edit-modal-content');
-  modalContent.innerHTML = `
-    <div class="modal-header bg-secondary text-light">
-      <h1 class="modal-title fs-5" id="editModalLabel">Edit Post</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body p-5">
-      <form id="edit-form">
-        <div class="mb-3">
-          <label for="editImgUrl" class="form-label">Image URL</label>
-          <input type="text" class="form-control" id="editImgUrl" value="${data.imgUrl}">
-        </div>
-        <div class="mb-3">
-          <label for="editPostTitle" class="form-label">Title</label>
-          <input type="text" class="form-control" id="editPostTitle" value="${data.postTitle}">
-        </div>
-        <div class="mb-3">
-          <label for="editPostAuthor" class="form-label">Author</label>
-          <input type="text" class="form-control" id="editPostAuthor" value="${data.postAuthor}">
-        </div>
-        <div class="mb-3">
-          <label for="editPostDate" class="form-label">Date</label>
-          <input type="text" class="form-control" id="editPostDate" value="${data.postDate}">
-        </div>
-        <div class="mb-3">
-          <label for="editPostCategory" class="form-label">Category</label>
-          <input type="text" class="form-control" id="editPostCategory" value="${data.postCategory}">
-        </div>
-        <div class="mb-3">
-          <label for="editPostContent" class="form-label">Content</label>
-          <textarea class="form-control" id="editPostContent">${data.postContent}</textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-      </form>
-    </div>
-  `;
+updatePostFromUI(card) {
+  const updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
+  updateModal.show();
 
-  const editModal = new bootstrap.Modal(document.getElementById('editModal'));
-  editModal.show();
+  document.getElementById('update-id').value = card.id;
+  document.getElementById('update-title').value = card.querySelector('.card-title').textContent;
+  document.getElementById('update-text').value = card.dataset.fullText;
+  document.getElementById('update-author').value = card.querySelector('.author-s > small').textContent.replace('Author: ', '');
+  document.getElementById('update-category').value = card.querySelector('.text-muted:last-child').textContent.replace('Category: ', '');
+  document.getElementById('update-url').value = card.querySelector('img').getAttribute('src');
 }
+
 
 }
