@@ -13,6 +13,9 @@ function eventListeners() {
   searchInput.addEventListener('keyup', searchPost);
   travelList.addEventListener("click", readMorePost);
   travelList.addEventListener("click", updatePost);
+  sort.addEventListener("change", function () {
+    ui.sortTravelsFromUI(this.value);
+  });
 }
 
 function getAllItems() {

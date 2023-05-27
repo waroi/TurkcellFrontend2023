@@ -66,9 +66,9 @@ class UI {
       const title = postListItem.children[0].textContent.toLowerCase();
       const author = postListItem.children[2].textContent.toLowerCase();
       if (title.indexOf(searchValue) === -1 && author.indexOf(searchValue) === -1) {
-        postListItem.parentElement.parentElement.setAttribute('style', 'display : none !important');
+        postListItem.parentElement.parentElement.parentElement.parentElement.setAttribute('style', 'display : none !important');
       } else {
-        postListItem.parentElement.parentElement.setAttribute('style', 'display : block');
+        postListItem.parentElement.parentElement.parentElement.parentElement.setAttribute('style', 'display : block');
       }
     })
   }
@@ -117,6 +117,50 @@ updatePostFromUI(card) {
   document.getElementById('update-author').value = card.querySelector('.author-s > small').textContent.replace('Author: ', '');
   document.getElementById('update-category').value = card.querySelector('.text-muted:last-child').textContent.replace('Category: ', '');
   document.getElementById('update-url').value = card.querySelector('img').getAttribute('src');
+}
+
+async sortTravelsFromUI(sortType) {
+  const request = new Request("http://localhost:3000/travels");
+
+  let musics;
+  console.log(musics);
+  musics =await request.get();
+  let sortedMusics = [];
+
+  switch (sortType) {
+    case "alphabetical-asc-title":
+      sortedMusics = musics.sort((a, b) => a.title.localeCompare(b.title));
+      break;
+    case "alphabetical-desc-title":
+      sortedMusics = musics.sort((a, b) => b.title.localeCompare(a.title));
+      break;
+    case "alphabetical-asc-writer":
+      sortedMusics = musics.sort((a, b) => a.author.localeCompare(b.author));
+      break;
+    case "alphabetical-desc-writer":
+      sortedMusics = musics.sort((a, b) => b.author.localeCompare(a.author));
+      break;
+    case "date-asc":
+      sortedMusics = musics.sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
+      );
+      break;
+    case "date-desc":
+      sortedMusics = musics.sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+      );
+      break;
+    default:
+      sortedMusics = musics;
+      break;
+  }
+
+  travelList.innerHTML = "";
+  console.log(sortedMusics);
+  // Sıralanan müzikleri müzik listesine ekleyin
+  sortedMusics.forEach((music) => {
+    this.addTravelToUI(music);
+  });
 }
 
 
