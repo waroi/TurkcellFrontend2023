@@ -11,11 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function eventListeners() {
   searchInput.addEventListener('keyup', searchPost);
-  travelList.addEventListener('click', function (e) {
-    if (e.target.id === 'readMore') {
-      ui.readMorePostFromUI(e.target.closest('.travelCard'));
-    }
-  });
+  travelList.addEventListener("click", readMorePost);
   travelList.addEventListener("click", editItem);
 }
 
