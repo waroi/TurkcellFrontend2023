@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TodoForm from "./todoForm";
+import TodoForm from "./TodoForm";
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
@@ -11,7 +11,6 @@ function TodoList() {
     const newTodos = [todo, ...todos];
 
     setTodos(newTodos);
-    console.log(...todos);
   };
   return (
     <div>

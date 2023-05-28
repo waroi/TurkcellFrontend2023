@@ -11,10 +11,10 @@ function TodoForm(props) {
     e.preventDefault();
 
     props.onSubmit({
-      id: Math.floor(Math.random * 1000),
+      id: Math.floor(Math.random() * 10000),
       text: input,
     });
-    console.log("deneme");
+
     setInput("");
   };
   return (
@@ -25,7 +25,7 @@ function TodoForm(props) {
         onChange={handleValue}
         value={input}
       />
-      <button className="add-button" type="button">
+      <button className="add-button" type="submit">
         To Do Ekle
       </button>
     </form>
