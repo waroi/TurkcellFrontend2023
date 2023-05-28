@@ -47,6 +47,20 @@
             />
           </div>
         </form>
+        <button
+              class="btn btn-light dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Kategoriler
+            </button>
+            <form
+              class="custom-select-options dropdown-menu"
+              id="category-form"
+            >
+              <div id="category-list"></div>
+            </form>
         <form class="d-flex ms-lg-5 mt-3 mt-lg-0" role="search">
           <select class="form-control" id="sort">
             <option value="Sırala">Sırala</option>
@@ -71,10 +85,12 @@
           </select>
         </form>
         <a
-          href="#"
-          class="btn btn-outline-secondary btn-sm border-0 text-secondary no-focus-outline"
-          ><i class="fas fa-pen"></i> Write
-        </a>
+        href="#"
+        id="writeButton"
+        class="btn btn-outline-secondary btn-sm border-0 text-secondary no-focus-outline"
+        ><i class="fas fa-pen"></i> Write
+      </a>
+      
       </div>
       <div class="row mt-5" id="travel-list"></div>
     </div>
@@ -91,7 +107,6 @@
         <div class="modal-content" id="modal-content"></div>
       </div>
     </div>
-
 
 <!-- Update modal -->
 <div class="modal" id="updateModal">
@@ -129,6 +144,46 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Record Modal -->
+<div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addRecordModalLabel">Add New Travel</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="addRecordForm">
+          <div class="mb-3">
+            <label for="add-title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="add-title">
+          </div>
+          <div class="mb-3">
+            <label for="add-text" class="form-label">Text</label>
+            <input type="text" class="form-control" id="add-text">
+          </div>
+          <div class="mb-3">
+            <label for="add-author" class="form-label">Author</label>
+            <input type="text" class="form-control" id="add-author">
+          </div>
+          <div class="mb-3">
+            <label for="add-category" class="form-label">Category</label>
+            <input type="text" class="form-control" id="add-category">
+          </div>
+          <div class="mb-3">
+            <label for="add-url" class="form-label">Image URL</label>
+            <input type="text" class="form-control" id="add-url">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="addButton">Add</button>
       </div>
     </div>
   </div>

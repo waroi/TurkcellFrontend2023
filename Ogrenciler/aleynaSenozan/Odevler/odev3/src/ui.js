@@ -1,10 +1,10 @@
 class UI {
-  loadAllTravelsToUI(travels) {
+loadAllTravelsToUI(travels) {
     travels.forEach(function (travel) {
       ui.addTravelToUI(travel);
     });
-  }
-  addTravelToUI(travel) {
+}
+addTravelToUI(travel) {
     const travelList = document.getElementById("travel-list");
     const card = document.createElement("div");
     
@@ -18,7 +18,7 @@ class UI {
     card.id = travel.id;
     card.dataset.fullText = travel.text;
     const cardHTML = `
-      <div class="card mx-3 w-100">
+      <div class="card mx-3 w-100" data-id="${travel.id}">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="${travel.url}" class="card-img-top img-fluid" alt="Post Image">
@@ -30,7 +30,7 @@ class UI {
               <div class="author-date">
                 <p class="card-text author-s"><small class="text-muted">Author: ${travel.author}</small></p>
                 <p class="card-text"><small class="text-muted">${travel.date}</small></p>
-                <p class="card-text"><small class="text-muted">Category: ${travel.category}</small></p>
+                <p class="card-text "><small class="text-muted">Category: ${travel.category}</small></p>
               </div>
             </div>
           </div>
@@ -38,7 +38,8 @@ class UI {
         <div class="card-footer">
           <div class="d-flex justify-content-between">
             <div>
-              <a href="#" class="btn btn-sm btn-link p-0 mr-2" id="deletePost"><i class="bi bi-trash text-dark" style="font-size: 1.3rem;"></i></a>
+            <a href="#" class="btn btn-sm btn-link p-0 mr-2 delete-article" id="delete-article"><i class="bi bi-trash text-dark" style="font-size: 1.3rem;"></i></a>
+
               <a href="#" class="btn btn-sm btn-link p-0 mr-2" id="updatePost"><i class="bi bi-pencil text-dark guncelle" style="font-size: 1.3rem;"></i></a>
             </div>
             <div class="seeMore">
@@ -56,9 +57,8 @@ class UI {
     readMoreBtn.addEventListener("click", () => this.readMorePostFromUI(card));
     const img = card.querySelector(".card-img-top");
     img.style.maxHeight = "200px";
-  }
-  
-  searchPostInUI(searchValue) {
+}
+searchPostInUI(searchValue) {
     const postList = document.getElementById('travel-list');
     const postListItems = postList.querySelectorAll('.card-body');
 
@@ -71,7 +71,7 @@ class UI {
         postListItem.parentElement.parentElement.parentElement.parentElement.setAttribute('style', 'display : block');
       }
     })
-  }
+}
 readMorePostFromUI(card) {
   const readMoreModal = new bootstrap.Modal(document.getElementById('readMoreModal'));
   readMoreModal.show();
@@ -106,7 +106,6 @@ readMorePostFromUI(card) {
       </div>
     </div>`;
 }
-
 updatePostFromUI(card) {
   const updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
   updateModal.show();
@@ -115,53 +114,98 @@ updatePostFromUI(card) {
   document.getElementById('update-title').value = card.querySelector('.card-title').textContent;
   document.getElementById('update-text').value = card.dataset.fullText;
   document.getElementById('update-author').value = card.querySelector('.author-s > small').textContent.replace('Author: ', '');
-  document.getElementById('update-category').value = card.querySelector('.text-muted:last-child').textContent.replace('Category: ', '');
+  document.getElementById('update-category').value = card.querySelector('.text-muted:last-child').textContent
   document.getElementById('update-url').value = card.querySelector('img').getAttribute('src');
 }
 
 async sortTravelsFromUI(sortType) {
   const request = new Request("http://localhost:3000/travels");
 
-  let musics;
-  console.log(musics);
-  musics =await request.get();
-  let sortedMusics = [];
+  let travels;
+  console.log(travels);
+  travels =await request.get();
+  let sortedtravels = [];
 
   switch (sortType) {
     case "alphabetical-asc-title":
-      sortedMusics = musics.sort((a, b) => a.title.localeCompare(b.title));
+      sortedtravels = travels.sort((a, b) => a.title.localeCompare(b.title));
       break;
     case "alphabetical-desc-title":
-      sortedMusics = musics.sort((a, b) => b.title.localeCompare(a.title));
+      sortedtravels = travels.sort((a, b) => b.title.localeCompare(a.title));
       break;
     case "alphabetical-asc-writer":
-      sortedMusics = musics.sort((a, b) => a.author.localeCompare(b.author));
+      sortedtravels = travels.sort((a, b) => a.author.localeCompare(b.author));
       break;
     case "alphabetical-desc-writer":
-      sortedMusics = musics.sort((a, b) => b.author.localeCompare(a.author));
+      sortedtravels = travels.sort((a, b) => b.author.localeCompare(a.author));
       break;
     case "date-asc":
-      sortedMusics = musics.sort(
+      sortedtravels = travels.sort(
         (a, b) => new Date(a.date) - new Date(b.date)
       );
       break;
     case "date-desc":
-      sortedMusics = musics.sort(
+      sortedtravels = travels.sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
       break;
     default:
-      sortedMusics = musics;
+      sortedtravels = travels;
       break;
   }
 
   travelList.innerHTML = "";
-  console.log(sortedMusics);
-  // Sıralanan müzikleri müzik listesine ekleyin
-  sortedMusics.forEach((music) => {
-    this.addTravelToUI(music);
+  console.log(sortedtravels);
+  sortedtravels.forEach((travel) => {
+    this.addTravelToUI(travel);
   });
 }
+async filterTravelsFromFilter() {
+  const travelCategory = document.getElementById("musicCategory").value;
+  const request = new Fetch("http://localhost:3000/travels");
 
+  const categories = document.querySelectorAll(
+    'input[name="categories"]:checked'
+  );
+  const selectedCategories = Array.from(categories).map(
+    (input) => input.value
+  );
 
+  const travels = await request.get();
+  let filteredTravels = travels;
+
+  if (
+    travelCategory ||
+    selectedCategories.length > 0
+  ) {
+    filteredTravels = travels.filter((travel) => {
+      const categoryMatch =
+        !travelCategory || travel.category === travelCategory;
+      const categoriesMatch =
+        selectedCategories.length === 0 ||
+        selectedCategories.some((selected) =>
+          [travel.category]
+            .map((item) => item.replace(/ /g, "").toLowerCase())
+            .includes(selected)
+        );
+
+      return categoryMatch && categoriesMatch;
+    });
+  }
+
+  travelList.innerHTML = "";
+  filteredTravels.forEach((travel) => {
+    this.addTravelToUI(travel);
+  });
+}
+addCheckboxFromCheckbox(checkbox) {
+  return `
+<label class="ms-2 fs-6 checkbox">
+  <input type="checkbox" name="categories" value=${checkbox.replace(
+    / /g,
+    ""
+  )} /> 
+  ${checkbox}
+</label>`;
+}
 }
