@@ -85,26 +85,27 @@ readMorePostFromUI(card) {
 
   const modalContent = document.getElementById('modal-content');
   modalContent.innerHTML = `
-    <div class="modal-header bg-secondary text-light">
-      <h1 class="modal-title fs-5" id="readMoreModalLabel">${postTitle}</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal-header bg-secondary text-light">
+  <h1 class="modal-title fs-5" id="readMoreModalLabel">${postTitle}</h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background: none; border: none;">
+  <span aria-hidden="true" style="background-color: transparent; position: relative; display: flex; align-items: center; justify-content: center; width: 16px; height: 16px;">
+    <i class="fas fa-times"></i>
+  </span>
+</button>
+
+</div>
+<div class="modal-body p-5">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      ${imgUrl ? `<img src="${imgUrl}" class="w-75 rounded" alt="" />` : ''}
     </div>
-    <div class="modal-body p-5">
-      <div class="row">
-        <div class="col-md-6">
-          ${imgUrl ? `<img src="${imgUrl}" class="w-100 rounded" alt="" />` : ''}
-        </div>
-        <div class="col-md-6">
-          <h2 class="fw-bold mt-4">${postTitle}</h2>
-          <div class="d-flex gap-4 text-info">
-            <p class="author-s">${postAuthor}</p>
-            <p>${postDate}</p>
-          </div>
-          <p class="border border-primary mt-3 px-3 py-1 rounded-end-4 w-50 bg-secondary">${postCategory}</p>
-          <div class="mt-4">${postContent}</div>
-        </div>
-      </div>
-    </div>`;
+
+    <div class="col-md-12 mt-4">
+      <p class="text-center">${postContent}</p>
+    </div>
+  </div>
+</div>
+`;
 }
 updatePostFromUI(card) {
   const updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
@@ -114,10 +115,9 @@ updatePostFromUI(card) {
   document.getElementById('update-title').value = card.querySelector('.card-title').textContent;
   document.getElementById('update-text').value = card.dataset.fullText;
   document.getElementById('update-author').value = card.querySelector('.author-s > small').textContent.replace('Author: ', '');
-  document.getElementById('update-category').value = card.querySelector('.text-muted:last-child').textContent
+  document.getElementById('update-category').value = card.querySelector('.card-text:last-child').textContent.replace('Category: ', '');
   document.getElementById('update-url').value = card.querySelector('img').getAttribute('src');
 }
-
 async sortTravelsFromUI(sortType) {
   const request = new Request("http://localhost:3000/travels");
 
@@ -161,41 +161,18 @@ async sortTravelsFromUI(sortType) {
   });
 }
 async filterTravelsFromFilter() {
-  const travelCategory = document.getElementById("musicCategory").value;
-  const request = new Fetch("http://localhost:3000/travels");
-
-  const categories = document.querySelectorAll(
-    'input[name="categories"]:checked'
-  );
-  const selectedCategories = Array.from(categories).map(
-    (input) => input.value
-  );
-
-  const travels = await request.get();
-  let filteredTravels = travels;
-
-  if (
-    travelCategory ||
-    selectedCategories.length > 0
-  ) {
-    filteredTravels = travels.filter((travel) => {
-      const categoryMatch =
-        !travelCategory || travel.category === travelCategory;
-      const categoriesMatch =
-        selectedCategories.length === 0 ||
-        selectedCategories.some((selected) =>
-          [travel.category]
-            .map((item) => item.replace(/ /g, "").toLowerCase())
-            .includes(selected)
-        );
-
-      return categoryMatch && categoriesMatch;
-    });
+  const checkboxes = document.querySelectorAll('input[name="categories"]:checked');
+  const selectedCategories = Array.from(checkboxes).map(checkbox => checkbox.value.toLowerCase());
+  const request = new Request("http://localhost:3000/travels");
+  let travels = await request.get();
+  let filteredTravels = travels.filter(travel => selectedCategories.includes(travel.category.toLowerCase()));
+  if (selectedCategories.length === 0) {
+      filteredTravels = travels;
   }
-
+  const travelList = document.getElementById("travel-list");
   travelList.innerHTML = "";
-  filteredTravels.forEach((travel) => {
-    this.addTravelToUI(travel);
+  filteredTravels.forEach(travel => {
+      this.addTravelToUI(travel);
   });
 }
 addCheckboxFromCheckbox(checkbox) {

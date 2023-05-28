@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   eventListeners();
   showCategory();
 });
-
 function eventListeners() {
   searchInput.addEventListener('keyup', searchPost);
   travelList.addEventListener("click", readMorePost);
@@ -66,7 +65,7 @@ function saveChanges() {
   const url = document.getElementById('update-url').value;
   
   request
-    .put(id, {title, text, author, date: new Date().toISOString(), category, url})
+    .put(id, {title, text, author, date: new Date().toLocaleString(), category, url})
     .then(response => {
       location.reload(); 
     })
@@ -95,7 +94,7 @@ function addItem(e) {
       articleImg === "" ||
       articleBody === ""
   ) {
-      alert("Lütfen Tüm Alanları Doldurun");
+      alert("Please Fill All Fields");
   } else {
       request
           .post({
@@ -136,7 +135,6 @@ function deleteItem(e) {
   }
   e.preventDefault();
 }
-
 async function showCategory() {
   const travels = await request.get();
   travels.forEach((travel) => {
@@ -150,6 +148,9 @@ async function showCategory() {
     ui.addCheckboxFromCheckbox(category)
   );
 }
-
-
+window.addEventListener('scroll', function() {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const airplaneImg = document.querySelector('.airplane-image');
+  airplaneImg.style.transform = `translateY(${scrollTop}px)`;
+});
 

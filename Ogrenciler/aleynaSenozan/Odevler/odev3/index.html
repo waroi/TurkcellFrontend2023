@@ -1,200 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Wanderlust</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/bootstrap-icons@1.7.0/font/bootstrap-icons.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
-    
-    <link rel="stylesheet" href=".\style.css" />
-  </head>
+<head>
+  <title>Wanderlust</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1.7.0/font/bootstrap-icons.css" />
 
-  <body>
-    <div class="container">
-      <div class="profile-header text-center">
-        <img
-          src="https://i.pinimg.com/564x/8b/29/e8/8b29e81ff855957a597ff626f0bbd172.jpg"
-          class="profile-img img-fluid rotate"
-        />
-        <h2 class="profile-name mt-3">Wanderlust</h2>
-        <p class="profile-bio">
-          A Strong Desire or Urge to Wander or Travel and Explore the World.
-        </p>
-      </div>
-      <div class="search-write mt-3 mb-3">
-        <form class="form-inline">
-          <div class="input-group">
-            <input
-              class="form-control border-0"
-              type="search"
-              placeholder="Search Travels"
-              aria-label="Search"
-              style="box-shadow: none"
-              id="searchInput"
-            />
-          </div>
-        </form>
-        <button
-              class="btn btn-light dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Kategoriler
-            </button>
-            <form
-              class="custom-select-options dropdown-menu"
-              id="category-form"
-            >
-              <div id="category-list"></div>
-            </form>
-        <form class="d-flex ms-lg-5 mt-3 mt-lg-0" role="search">
-          <select class="form-control" id="sort">
-            <option value="Sırala">Sırala</option>
-            <option value="alphabetical-asc-title">
-              A'dan Z'ye başlık
-            </option>
-            <option value="alphabetical-desc-title">
-              Z'den A'ya başlık
-            </option>
-            <option value="alphabetical-asc-writer">
-              A'dan Z'ye yazar
-            </option>
-            <option value="alphabetical-desc-writer">
-              Z'den A'ya yazar
-            </option>
-            <option value="date-asc">
-              Tarihe Göre (En Eski - En Yeni)
-            </option>
-            <option value="date-desc">
-              Tarihe Göre (En Yeni - En Eski)
-            </option>
-          </select>
-        </form>
-        <a
-        href="#"
-        id="writeButton"
-        class="btn btn-outline-secondary btn-sm border-0 text-secondary no-focus-outline"
-        ><i class="fas fa-pen"></i> Write
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href=".\style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="profile-header text-center">
+      <img src="https://i.pinimg.com/564x/8b/29/e8/8b29e81ff855957a597ff626f0bbd172.jpg"
+        class="profile-img img-fluid rotate" />
+      <h2 class="profile-name mt-3">Wanderlust</h2>
+      <p class="profile-bio">
+        A Strong Desire or Urge to Wander or Travel and Explore the World.
+      </p>
+    </div>
+    <div class="search-write mt-3 mb-3">
+      <form class="form-inline">
+        <div class="input-group">
+          <input class="form-control border-0" type="search" placeholder="Search Travels" aria-label="Search"
+            style="box-shadow: none" id="searchInput" />
+        </div>
+      </form>
+      <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Kategoriler
+      </button>
+      <form class="custom-select-options dropdown-menu" id="category-form">
+        <div id="category-list"></div>
+      </form>
+      <form class="d-flex ms-lg-5 mt-3 mt-lg-0" role="search">
+        <select class="form-control" id="sort">
+          <option value="Sırala">Sırala</option>
+          <option value="alphabetical-asc-title">A'dan Z'ye başlık</option>
+          <option value="alphabetical-desc-title">Z'den A'ya başlık</option>
+          <option value="alphabetical-asc-writer">A'dan Z'ye yazar</option>
+          <option value="alphabetical-desc-writer">Z'den A'ya yazar</option>
+          <option value="date-asc">Tarihe Göre (En Eski - En Yeni)</option>
+          <option value="date-desc">Tarihe Göre (En Yeni - En Eski)</option>
+        </select>
+      </form>
+      <a href="#" id="writeButton" class="btn btn-outline-secondary btn-sm border-0 text-secondary no-focus-outline"><i
+          class="fas fa-pen"></i> Write
       </a>
-      
-      </div>
-      <div class="row mt-5" id="travel-list"></div>
     </div>
+    <div class="row mt-5" id="travel-list"></div>
+  </div>
 
-    <!-- Read More modal -->
-    <div
-      class="modal fade"
-      id="readMoreModal"
-      tabindex="-1"
-      aria-labelledby="readMoreModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content" id="modal-content"></div>
-      </div>
+  <!-- Read More modal -->
+  <div class="modal fade" id="readMoreModal" tabindex="-1" aria-labelledby="readMoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" id="modal-content"></div>
     </div>
+  </div>
 
-<!-- Update modal -->
-<div class="modal" id="updateModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="updateModalLabel">Update Post</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="updateForm">
-          <input type="hidden" id="update-id"/>
-          <div class="form-group">
-            <label for="update-title">Title</label>
-            <input type="text" class="form-control" id="update-title">
-          </div>
-          <div class="form-group">
-            <label for="update-text">Text</label>
-            <textarea class="form-control" id="update-text" rows="3"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="update-author">Author</label>
-            <input type="text" class="form-control" id="update-author">
-          </div>
-          <div class="form-group">
-            <label for="update-category">Category</label>
-            <input type="text" class="form-control" id="update-category">
-          </div>
-          <div class="form-group">
-            <label for="update-url">Image URL</label>
-            <input type="text" class="form-control" id="update-url">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
+  <!-- Update modal -->
+  <div class="modal" id="updateModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateModalLabel">Update Post</h5>
+        </div>
+        <div class="modal-body">
+          <form id="updateForm">
+            <input type="hidden" id="update-id" />
+            <div class="form-group">
+              <label for="update-title">Title</label>
+              <input type="text" class="form-control" id="update-title" />
+            </div>
+            <div class="form-group">
+              <label for="update-text">Text</label>
+              <textarea class="form-control" id="update-text" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="update-author">Author</label>
+              <input type="text" class="form-control" id="update-author" />
+            </div>
+            <div class="form-group">
+              <label for="update-category">Category</label>
+              <input type="text" class="form-control" id="update-category" />
+            </div>
+            <div class="form-group">
+              <label for="update-url">Image URL</label>
+              <input type="text" class="form-control" id="update-url" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary" id="saveChanges">
+            Save changes
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Add Record Modal -->
-<div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addRecordModalLabel">Add New Travel</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="addRecordForm">
-          <div class="mb-3">
-            <label for="add-title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="add-title">
-          </div>
-          <div class="mb-3">
-            <label for="add-text" class="form-label">Text</label>
-            <input type="text" class="form-control" id="add-text">
-          </div>
-          <div class="mb-3">
-            <label for="add-author" class="form-label">Author</label>
-            <input type="text" class="form-control" id="add-author">
-          </div>
-          <div class="mb-3">
-            <label for="add-category" class="form-label">Category</label>
-            <input type="text" class="form-control" id="add-category">
-          </div>
-          <div class="mb-3">
-            <label for="add-url" class="form-label">Image URL</label>
-            <input type="text" class="form-control" id="add-url">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="addButton">Add</button>
+  <!-- Add Record Modal -->
+  <div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addRecordModalLabel">Add New Travel</h5>
+        </div>
+        <div class="modal-body">
+          <form id="addRecordForm">
+            <div class="mb-3">
+              <label for="add-title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="add-title" />
+            </div>
+            <div class="mb-3">
+              <label for="add-text" class="form-label">Text</label>
+              <input type="text" class="form-control" id="add-text" />
+            </div>
+            <div class="mb-3">
+              <label for="add-author" class="form-label">Author</label>
+              <input type="text" class="form-control" id="add-author" />
+            </div>
+            <div class="mb-3">
+              <label for="add-category" class="form-label">Category</label>
+              <input type="text" class="form-control" id="add-category" />
+            </div>
+            <div class="mb-3">
+              <label for="add-url" class="form-label">Image URL</label>
+              <input type="text" class="form-control" id="add-url" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary" id="addButton">
+            Add
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script type="text/javascript" src="./src/request.js"></script>
+  <script type="text/javascript" src="./src/ui.js"></script>
+  <script type="text/javascript" src="./src/app.js"></script>
+</body>
 
-    <script type="text/javascript" src="./src/request.js"></script>
-    <script type="text/javascript" src="./src/ui.js"></script>
-    <script type="text/javascript" src="./src/app.js"></script>
-  </body>
 </html>
