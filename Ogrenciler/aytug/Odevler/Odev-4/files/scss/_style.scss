@@ -1,0 +1,86 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none !important;
+	color: white;
+}
+
+ul {
+	list-style: none;
+}
+
+.card {
+	transition: all 0.3s ease;
+}
+
+.disabled {
+	cursor: default;
+}
+
+// faq
+.form {
+	background-image: linear-gradient(to right, rgba(152, 178, 221, 0.52), rgba(51, 65, 66, 0.73)),
+		url("../assets/img/faq/faq-banner.jpeg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	button {
+		max-width: 200px;
+	}
+}
+
+//filter-area
+.filter-area {
+	.searchArea {
+		padding: 0.5em 1em;
+		border-radius: 25px;
+		border: 1px solid black;
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+//product-list
+.product-list {
+	.product {
+		cursor: pointer;
+		.card-img {
+			height: 12em !important;
+		}
+		&:hover {
+			background: #dcdada;
+			transition: 0.3s ease-in-out;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 50px;
+		}
+	}
+}
+
+//phone
+.buy {
+	.list-group-item {
+		cursor: pointer;
+		label {
+			cursor: pointer;
+		}
+		input {
+			display: none;
+		}
+		input:checked + label {
+			background-color: $secondary;
+		}
+	}
+}
+
+#productModalImage {
+	max-height: 300px;
+}
+
+.preview-card {
+	border: none;
+}

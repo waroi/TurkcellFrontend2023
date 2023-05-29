@@ -1,0 +1,34 @@
+// Daha karışık ancak mapleri ezebilmek için kurulan yapı
+
+// Öncelikle Bootstrap 'in fonksiyonlar için özel oluşturduğu dosyayı import ediyoruz
+@import "../node_modules/bootstrap/scss/functions";
+
+// Değişkenleri ezmek için oluşturduğumuz dosyayı burada import ediyoruz
+@import "bt_override";
+
+// Bootstrap'in değişkenler için oluşturduğu dosyaları import ediyoruz
+@import "../node_modules/bootstrap/scss/variables";
+
+// Ezmek istediğimiz mapler için oluşturduğumuz dosyayı da burada import edebiliriz
+@import "map";
+
+// Sonrasında yine değişkenlerde olduğu gibi map ve mixin dosyalarını import ediyoruz
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+// İhtiyacımıza göre geri kalan bootstrap özellikleri için importlar yapıyoruz
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/helpers";
+
+// Son olarak Api özellikleri için utilities dosyasını import edebiliriz
+@import "../node_modules/bootstrap/scss/utilities/api";
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+// Özel scss dosyamızı ekleyerek yapıyı tamamlayabiliriz
+@import "custom";

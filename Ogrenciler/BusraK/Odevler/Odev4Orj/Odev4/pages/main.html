@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GENOMI</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <!--navbar start-->
+    <nav class="navbar navbar-expand-lg bg-primary sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../assets/mainPage/logo.png"
+            alt="Bootstrap"
+            width="90px"
+            height="90px"
+            href="../pages/main.html"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse bg-primary"
+          id="navbarSupportedContent"
+        >
+          <ul
+            class="navbar-nav bg-primary me-auto mb-2 mb-lg-0 justify-content-md-center gap-5"
+          >
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/main.html">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../pages/products/product1.html"
+                    >Zoro!</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../pages/products/product2.html"
+                    >Younai!</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../pages/products/product3.html"
+                    >Kotobukiya!</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/faq.html">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/aboutUs.html">About Us</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              class="bi bi-search-heart"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              <i class="bi bi-search-heart"></i>
+            </button>
+          </form>
+          <div class="mt-3">
+            <i class="bi bi-person-fill p-4 fs-2"></i>
+            <button
+              class="btn btn-warning"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#staticBackdrop"
+            >
+              <i class="bi bi-basket2-fill py-5 fs-2" id="basketCart">
+                <span
+                  id="badgeCart"
+                  class="position-relative top-30 right-60 translate-middle badge rounded-pill bg-danger"
+                >
+                </span>
+              </i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--navbar finish-->
+
+    <!-- Example Code -->
+
+    <div
+      class="offcanvas offcanvas-start w-100"
+      data-bs-scroll="true"
+      data-bs-backdrop="static"
+      tabindex="-1"
+      id="staticBackdrop"
+      aria-labelledby="offcanvasWithBothOptionsLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"></h5>
+        <button
+          type="button"
+          id="closeBasketBtn"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <!--basket cart-->
+        <section class="h-100 gradient-custom">
+          <div class="container py-5">
+            <div class="row d-flex justify-content-center my-4">
+              <div class="col-md-8">
+                <div class="card mb-4">
+                  <div class="card-header py-3">
+                    <h5 class="mb-0">Here is your basket</h5>
+                  </div>
+                  <div class="card-body" id="basketCartsList">
+                    <hr class="my-4" />
+                  </div>
+                </div>
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <p><strong>Expected shipping delivery</strong></p>
+                    <p class="mb-0">12.10.2023 - 14.10.2024</p>
+                  </div>
+                </div>
+                <div class="card mb-4 mb-lg-0">
+                  <div class="card-body">
+                    <p><strong>We accept</strong></p>
+                    <img
+                      class="me-2"
+                      width="45px"
+                      src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                      alt="Visa"
+                    />
+                    <img
+                      class="me-2"
+                      width="45px"
+                      src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                      alt="American Express"
+                    />
+                    <img
+                      class="me-2"
+                      width="45px"
+                      src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                      alt="Mastercard"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4">
+                  <div class="card-header py-3">
+                    <h5 class="mb-0">Summary</h5>
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-group list-group-flush" id="listGroup">
+                      <li
+                        class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3"
+                      ></li>
+                    </ul>
+                    <div>
+                      <strong>Total amount</strong>
+                      <span><strong id="totalAmount"></strong></span>
+                    </div>
+
+                    <button
+                      id="paymentButton"
+                      type="button"
+                      class="paymentButton btn btn-primary btn-lg btn-block"
+                    >
+                      Complete purchase
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- End Example Code -->
+
+    <!--header-->
+    <div class="header">
+      <div class="container">
+        <div class="header-main">
+          <img
+            class="position-absolute bottom-10 end-10 img-fluid chainsaw"
+            src="../assets/mainPage/header-chainsaw-man.png"
+          />
+          <img
+            class="position-absolute bottom-10 end-10 img-fluid hinata"
+            src="../assets/mainPage/hinata-header.png"
+          />
+          <img
+            class="position-absolute bottom-10 end-30 img-fluid ball"
+            src="../assets/mainPage/ball.png"
+          />
+          <div class="h3 position-absolute top-30 start-20">
+            The Best Figures is here!
+          </div>
+          <h4 class="position-absolute top-40 start-20">
+            The products you are looking for are here <br />
+            now with 10% discount
+          </h4>
+        </div>
+      </div>
+    </div>
+    <!--header finish-->
+
+    <!--brands-->
+    <div class="brands">
+      <div class="container">
+        <div class="brands-main row">
+          <div class="row row-cols-1 row-cols-md-3 g-4 brands-main-card">
+            <div class="col-md-2 brands-card-one">
+              <div class="brand-card border-4 border border-danger">
+                <img
+                  src="../assets/mainPage/brand-1.png"
+                  class="card-img"
+                  alt="..."
+                />
+              </div>
+            </div>
+
+            <div class="col-md-2 brands-card-two">
+              <div class="brand-card bg-black">
+                <img
+                  src="../assets/mainPage/brand-2.png"
+                  class="card-img-two"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <div class="col-md-2 brands-card-three">
+              <div class="brand-card bg-success">
+                <img
+                  src="../assets/mainPage/brand-3.png"
+                  class="card-img-three"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <div class="col-md-2 brands-card-four">
+              <div class="brand-card bg-info">
+                <img
+                  src="../assets/mainPage/brand-4.png"
+                  class="card-img-four"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <div class="col-md-2 brands-card-five">
+              <div class="brand-card bg-danger position-relative z-2">
+                <img
+                  src="../assets/mainPage/brand-5.png"
+                  class="card-img-five"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <div class="col-md-2 brands-card-six">
+              <div class="brand-card">
+                <img
+                  src="../assets/mainPage/brand-6.png"
+                  class="card-img-six"
+                  alt="..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--brands finish-->
+
+    <!--discover more-->
+    <div class="discover">
+      <div class="container">
+        <div class="discover-main mt-5">
+          <div class="h5 box">
+            Discover more. Good things are waiting for you!
+          </div>
+
+          <div
+            class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-5 discover-card-main"
+          >
+            <div class="col">
+              <div class="card card-1">
+                <div class="row g-0 discover-card-bottom">
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Ajin</h5>
+                      <p class="card-text fw-bold">20% Sale!</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <img
+                      src="../assets/mainPage/ajin-manga_thumbnail.png"
+                      class="img-fluid rounded-start"
+                      alt="..."
+                    />
+                  </div>
+
+                  <a
+                    class="p-2 w-50 bg-info text-light rounded-4 mb-3 ms-3 text-center discover-button"
+                    >SHOP NOW</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card card-2">
+                <div class="row g-0">
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Banana Fish</h5>
+                      <p class="card-text fw-bold">New Manga Added!</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <img
+                      src="../assets/mainPage/banana-fish-manga_thumbnail.png"
+                      class="img-fluid rounded-start"
+                      alt="..."
+                    />
+                  </div>
+
+                  <a
+                    class="p-2 w-50 bg-warning text-light rounded-4 mb-3 ms-3 text-center discover-button"
+                    >SHOP NOW</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card card-3">
+                <div class="row g-0">
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">My Hero Acedemia</h5>
+                      <p class="card-text fw-bold text-primary">10% Sale!</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <img
+                      src="../assets/mainPage/my-hero-ace-manga_thumbnail.png"
+                      class="img-fluid rounded-start"
+                      alt="..."
+                    />
+                  </div>
+
+                  <a
+                    class="p-2 w-50 bg-danger text-light rounded-4 mb-3 ms-3 text-center discover-button"
+                    >SHOP NOW</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--discover more finish-->
+
+    <!--top seller-->
+    <div class="top-seller py-2 pb-5">
+      <div class="container">
+        <div class="top-seller-main mt-5">
+          <div class="h3">Top Seller</div>
+          <div class="cards gap-5 justify-content-center mt-4 d-flex row">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+              <div class="col-md-4">
+                <div class="card">
+                  <i class="bi bi-balloon-heart-fill"></i>
+
+                  <img
+                    src="../assets/mainPage/dark-lord.png"
+                    class="card-img-top w-50"
+                    alt="..."
+                  />
+                  <div
+                    class="card-body d-flex flex-column justify-content-center"
+                  >
+                    <h5 class="card-title">My Dark Lord!</h5>
+                    <a
+                      class="card-text text-center p-2 px-3 bg-primary text-secondary"
+                    >
+                      Look at this!
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <i class="bi bi-balloon-heart-fill y"></i>
+
+                  <img
+                    src="../assets/mainPage/baby-yoda.png"
+                    class="card-img-top w-75"
+                    alt="..."
+                  />
+                  <div
+                    class="card-body d-flex flex-column justify-content-center"
+                  >
+                    <h5 class="card-title">My Dark Lord!</h5>
+                    <a
+                      class="card-text text-center p-2 px-3 bg-primary text-secondary"
+                    >
+                      Look at this!
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <i class="bi bi-balloon-heart-fill"></i>
+
+                  <img
+                    src="../assets/mainPage/bkack-panther.png"
+                    class="card-img-top w-50"
+                    alt="..."
+                  />
+                  <div
+                    class="card-body d-flex flex-column justify-content-center"
+                  >
+                    <h5 class="card-title">My Dark Lord!</h5>
+                    <a
+                      class="card-text text-center p-2 px-3 bg-primary text-secondary"
+                    >
+                      Look at this!
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--top seller finish-->
+    <!--special products-->
+    <div class="special mt-5">
+      <div class="container">
+        <div class="special-main row p-2">
+          <div class="special-text col-6 text-center m-md-0 m-5">
+            <div class="h3 animation" id="slide-in">
+              Special figures you are looking for
+            </div>
+            <p class="text-center animation" id="slide-in">
+              Do you want to explore different style geek toys? Waiting for you!
+            </p>
+            <a class="w-50 py-2 text-center mb-5 rounded-pill">Explore</a>
+          </div>
+          <div class="special-img col-6">
+            <img src="../assets/mainPage/one-piece.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--special products finish-->
+
+    <!--category filter / arrangement-->
+
+    <div class="main-section">
+      <!--product list-->
+      <div class="product mt-5">
+        <div class="container">
+          <div class="product-main row">
+            <div class="h3">Discover the products in Genomi.</div>
+            <!--add button-->
+            <div
+              class="col-md-5 mx-auto px-2 mt-5 d-flex justify-content-center align-items-center gap-5"
+            >
+              <input
+                type="text"
+                id="productSearch"
+                placeholder="search blog product"
+                class="form-control"
+              />
+              <button
+                type="button"
+                class="btn btn-warning rounded rounded-circle"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+              >
+                +
+              </button>
+            </div>
+            <!--add button finish-->
+
+            <div class="d-flex row">
+              <div class="row d-flex mx-auto">
+                <select id="productSort" class="form-control w-25 mt-5">
+                  <option value="default">Default sorting</option>
+                  <option value="asc-title">A-Z title</option>
+                  <option value="desc-title">Z-A title</option>
+                  <option value="exp-cheap">exp-cheap</option>
+                  <option value="cheap-exp">cheap-exp</option>
+                </select>
+
+                <div
+                  id="categoryFilter"
+                  class="categoryFilter form-group d-flex flex-row flex-wrap pt-3 w-75 gap-2"
+                  onclick="filterAndSortProducts(event)"
+                >
+                  <button
+                    id="all"
+                    type="button"
+                    class="actived btn col-2 col-5 text-center text-white border-0 rounded-5 mt-2 me-2 p-1 bg-black"
+                  >
+                    All
+                  </button>
+                  <button
+                    id="category1"
+                    type="button"
+                    class="actived btn col-2 col-5 text-center text-white border-0 rounded-5 mt-2 me-2 p-1 bg-black"
+                  >
+                    category1
+                  </button>
+                </div>
+              </div>
+              <div class="cards row gap-5 mt-5 d-flex" id="productList">
+                <!--cards-->
+              </div>
+            </div>
+            <div class="d-flex justify-content-center mt-5 show-button">
+              <a class="p-3 px-4 text-center">Show me more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--product list finish-->
+    </div>
+
+    <!--add modal-->
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      aria-labelledby="myModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="myModalLabel">Input informations</h5>
+            <button
+              type="button"
+              class="btn-close bg-warning text-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="row g-3" id="productForm">
+              <div class="col-md-12">
+                <h5>Enter product title</h5>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="productTitle"
+                  placeholder="Enter product title"
+                />
+              </div>
+              <div class="col-md-12">
+                <h5>Enter product price</h5>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="productPrice"
+                  min="0"
+                  step=".01"
+                  placeholder="Enter product price"
+                />
+              </div>
+              <div class="col-md-12 d-flex align-items-center">
+                <h5>Enter product type</h5>
+                <div class="mx-4">
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="newOptionInput"
+                    placeholder="Enter new option"
+                  />
+                </div>
+                <select class="form-select w-50" id="productType"></select>
+              </div>
+
+              <div class="col-md-12">
+                <h5>Enter product image URL</h5>
+                <input
+                  type="url"
+                  class="form-control"
+                  id="productUrl"
+                  placeholder="Enter image URL"
+                />
+              </div>
+              <div class="col-md-12">
+                <h5>Enter product stock</h5>
+                <input
+                  class="form-control"
+                  id="productStock"
+                  type="number"
+                  min="0"
+                  placeholder="Enter product stock"
+                />
+              </div>
+              <div class="text-center modal-footer">
+                <button
+                  type="button"
+                  id="addOrEditButton"
+                  class="btn btn-warning w-25"
+                >
+                  Add
+                </button>
+                <button
+                  type="submit"
+                  id="editButton"
+                  class="btn btn-primary w-25"
+                >
+                  Edit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--add modal finish-->
+
+    <!--geek news-->
+    <div class="geek-news mt-5">
+      <div class="container">
+        <div class="h3 mt-5">Geek News</div>
+        <div class="geek-news-main row mt-4">
+          <div class="geek-main-left col-md-7 mb-5">
+            <img
+              src="../assets/mainPage/dragon-ball.jpg"
+              class="img-fluid border border-success rounded-2 mt-3"
+            />
+          </div>
+          <div class="geek-left-cards col-md-5 mb-5">
+            <div
+              class="card geek-left-card border border-white border-5"
+              style="max-width: 540px"
+            >
+              <div class="row g-1 geek-card-img-main">
+                <div
+                  class="col-md-4 col-sm-7 p-2 m-auto .geek-card-img-main-two"
+                >
+                  <img
+                    src="../assets/mainPage/zelda.jpg"
+                    class="img-fluid p-2 border border-success rounded-4 geek-img-one"
+                    alt="..."
+                  />
+                </div>
+                <div class="col-md-8 py-4">
+                  <div class="card-body text-sm-center text-md-start">
+                    <h5 class="card-title">Zelda!</h5>
+                    <p class="card-text">
+                      Hey! Figure design has already begun for the upcoming
+                      episodes.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card geek-left-card border border-white border-5"
+              style="max-width: 540px"
+            >
+              <div class="row g-1">
+                <div class="col-md-4 col-sm-7 m-auto p-2">
+                  <img
+                    src="../assets/mainPage/kochuo-figure.jpg"
+                    class="img-fluid p-2 border border-success rounded-4"
+                    alt="..."
+                  />
+                </div>
+                <div class="col-md-8 py-4">
+                  <div class="card-body text-sm-center text-md-start">
+                    <h5 class="card-title">Kochuo</h5>
+                    <p class="card-text">
+                      The newest figures from the producers have begun to be
+                      added. Send us what you want added.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--geek news finish-->
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-black text-white">
+      <section class="text-white">
+        <div class="container text-center text-md-start mt-5 pt-4">
+          <div class="row mt-3">
+            <div class="logo mx-auto mb-4 position-relative">
+              <a href="../pages/main.html">
+                <img
+                  src="../assets/mainPage/logo.png"
+                  class="w-25 position-absolute end-100 bottom-25"
+                />
+              </a>
+            </div>
+
+            <div class="col-md-3 col-lg-4 col-xl-3 mb-4 align-items-center">
+              <h6 class="text-uppercase fw-bold mb-4">About Us</h6>
+              <p>
+                <a href="#!" class="text-reset">Log in</a>
+              </p>
+              <p>
+                <a href="../pages/aboutUs.html" class="text-reset">About Us</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Reviews</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Discount Scheme</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">My Account</a>
+              </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Help</h6>
+              <p>
+                <a href="../pages/faq.html" class="text-reset"
+                  >FAQS, Delivery & Returns</a
+                >
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Pre Order Updates</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Terms & Conditions</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Privacy Policy</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Cookie Policy</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Contact Us</a>
+              </p>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Follow Us</h6>
+              <p>
+                <a href="#!" class="text-reset">help@genomi.com</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">help@genomi.com</a>
+              </p>
+              <p>
+                <a href="https://github.com/busra4" class="text-reset">
+                  <i class="bi bi-github me-2"></i>Github</a
+                >
+              </p>
+              <p>
+                <a href="#!" class="text-reset"
+                  ><i class="bi bi-twitter me-2"></i>Twitter</a
+                >
+              </p>
+              <p>
+                <a href="linkedin.com/in/busrakosnak4" class="text-reset"
+                  ><i class="bi bi-linkedin me-2"></i>LinkedIn</a
+                >
+              </p>
+            </div>
+
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 class="text-uppercase fw-bold">We Accept</h6>
+              <div class="row mt-5 row-gap-5">
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+                <i class="bi bi-credit-card-2-back col-md-4"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2023 Copyright:
+        <a class="text-reset fw-bold"
+          >We made <i class="bi bi-arrow-through-heart"></i> it
+        </a>
+      </div>
+    </footer>
+    <!--footer  finish-->
+
+    <!--toast msg-->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header bg-warning">
+          <strong class="me-auto"
+            ><i class="bi bi-exclamation-circle"></i
+          ></strong>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">Hello, world! This is a toast message.</div>
+      </div>
+    </div>
+
+    <!-- show Modal -->
+    <div
+      class="modal fade"
+      id="showModal"
+      tabindex="-1"
+      aria-labelledby="showModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="showModalLabel"></h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body showedModalBody">
+            <div class="col-md-12">
+              <img
+                id="productShowUrl"
+                src=""
+                class="d-flex mx-auto img-fluid"
+                alt=""
+              />
+              <hr />
+            </div>
+            <div class="col-md-12">
+              <p id="productShowName" value=""></p>
+            </div>
+
+            <div class="col-md-12">
+              <p id="productShowType" value=""></p>
+            </div>
+
+            <div class="col-md-12">
+              <p id="productShowStock" value=""></p>
+            </div>
+            <div class="col-md-12">
+              <p id="productShowPrice" value=""></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button id="myBtn">
+      <a href="#top">
+        <img
+          href="#top"
+          src="../assets/mainPage/top-punch.png "
+          class="img-fluid"
+      /></a>
+    </button>
+
+    <script src="../js/helperScripts/ui.js"></script>
+    <script src="../js/mainScripts/crud.js"></script>
+    <script src="../js/helperScripts/elements.js"></script>
+    <script src="../js/helperScripts/eventListeners.js"></script>
+    <script src="../js/helperScripts/request.js"></script>
+    <script src="../js/scripts.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

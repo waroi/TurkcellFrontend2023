@@ -1,0 +1,83 @@
+@mixin bg-img() {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.btn {
+  transition: 0.5s;
+}
+.pointer {
+  cursor: pointer;
+}
+
+.nav-item {
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 4px;
+    background: $primary;
+    transition: width 0.3s;
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}
+.container {
+  #slider {
+    .carousel-item {
+      img {
+        height: 500px;
+      }
+    }
+  }
+  .categories {
+    .category {
+      width: 200px;
+      height: 200px;
+    }
+    #kapsül {
+      background-image: url("../assets/cat1.png");
+      @include bg-img();
+    }
+    #espresso {
+      background-image: url("../assets/cat2.png");
+      @include bg-img();
+    }
+    #filtre {
+      background-image: url("../assets/cat3.png");
+      @include bg-img();
+    }
+    #granül {
+      background-image: url("../assets/cat4.png");
+      @include bg-img();
+    }
+    #türk-kahvesi {
+      background-image: url("../assets/cat5.png");
+      @include bg-img();
+    }
+  }
+  .product {
+    .card {
+      transition: 0.2s;
+
+      transition: 1s;
+      .card-title {
+        height: 100px;
+      }
+      .product-category,
+      .stars,
+      .product-price {
+        height: 30px;
+      }
+      .productButtons {
+        height: 40px;
+      }
+      &:hover {
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+        transform: scale(1.03);
+      }
+    }
+  }
+}

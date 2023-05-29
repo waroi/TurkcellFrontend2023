@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Sssco</title>
+ <link rel="stylesheet" href="./css/main.css">
+ <link rel="icon" type="image/x-icon" href="./assets/ssslogos copy.png">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="px-0">
+ 
+
+        <div class="px-3 text-center bg-white border-bottom d-none d-lg-block">
+          <div class="container d-dlex justify-content-between ">
+            <div class="row gy-3 justify-content-between">
+              <div class="col-lg-1 col-sm-4 col-4 ms-0 px-0 text-start">
+                <a href="#"  class=" fw-bold fs-5 text-decoration-none">
+                  <img src="./assets/ssslogos copy.png" height="75" /> Sss
+                </a>
+              </div>
+            
+      
+             
+              <div class="order-lg-last col-lg-3 col-sm-8 col-8 row align-items-center px-0 ms-2" >
+                <div class="d-flex text-end justify-content-end py-2 mt-4 px-0">
+                  <a href="" class="me-1 border rounded py-2 px-1 nav-link d-flex align-items-center" > <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Sign in</p> </a>
+                  <a href="" id="writePost"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addNewPostModal" class="me-1 border rounded py-2 px-1 nav-link d-flex align-items-center" > <p class="d-none d-md-block mb-0">+Addblog</p> </a>
+                  <a href="./basket.html" class="border rounded py-2 px-1 nav-link d-flex align-items-center" > <i class="fas fa-shopping-cart m-1 me-md-2"></i><p class="d-none d-md-block mb-0">My cart</p> </a>
+                </div>
+              </div>
+          
+              <div class="col-lg-7 col-md-12 col-12 row align-items-center px-0 mt-lg-3 ">
+                <div class="input-group row justify-content-end">
+                  <div class="form-outline col-10 pe-0">
+                    <input type="search" id="form1" class="form-control" />
+                    
+                  </div>
+                  <button type="button" class="btn btn-primary col-1">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <div class="container px-2">
+            <a class="navbar-brand" href="#">Sss Co.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navunau">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navunau">
+              <ul class="navbar-nav d-flex "> <li class="nav-item dropdown has-megamenu">
+                  <a class="nav-link" href="#" data-bs-toggle="dropdown"> Shop <i class="fa-solid fa-angle-down"></i> </a>
+                  <div class="dropdown-menu megamenu w-25 ms-5 text-center" role="menu">
+                    <div class="display-flex row flex-row  list-unstyled">
+                    <div class="col-6">
+                      <ul class="list-unstyled">
+                      <h5>Shop Catalog</h5>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                    </ul>
+                    <ul class="list-unstyled">
+                      <h5>Product Type</h5>
+                      <li><a href="">Shop Items</a></li>
+                      <li><a href="">Shop Items</a></li>
+                      <li><a href="">Shop Items</a></li>
+                      <li><a href="">Shop Items</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <ul class="list-unstyled">
+                      <h5>Product Layouts</h5>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                      <li><a href="">Shop Blog</a></li>
+                    </ul>
+                    <ul class="list-unstyled">
+                      <h5>Shop Pages</h5>
+                      <li><a href="">Shop Item</a></li>
+                      <li><a href="">Shop Item</a></li>
+                      <li><a href="">Shop Item</a></li>
+                      <li><a href="">Shop Item</a></li>
+                    </ul>
+                  </div>
+                  </div>
+                  </div> 
+                </li>
+                <li class="nav-item active"> <a class="nav-link" href="./index.html">Home </a> </li>
+                <li class="nav-item"><a class="nav-link" href="./about.html"> About Us </a></li>
+                <li class="nav-item"><a class="nav-link" href="./faq.html"> FAQ </a></li>
+               
+              </ul>
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="./404.html"> Soon </a></li>
+                <li class="nav-item dropdown has-megamenu">
+                  <a class="nav-link" href="#" data-bs-toggle="dropdown"> Shop <i class="fa-solid fa-angle-down"></i> </a>
+                  <div class="dropdown-menu megamenu2 w-100 text-center" role="menu">
+                    <div class="display-flex row flex-row  list-unstyled py-5">
+                    <div class="col-12 col-lg-3 border-end">
+                      <ul class="list-unstyled mega-right">
+                      <h5>Shop Catalog</h5>
+                      <img src="./items/categories1.jpg" alt="">
+                   
+                    </ul>
+                    </div>
+                    <div class="col-12 col-lg-2 border-end">
+                    <ul class="list-unstyled mega-right">
+                      <h5>Product Type</h5>
+                      <img src="./items/categories2.jpg" alt="">
+                      
+                    </ul>
+                  </div>
+                  <div class="col-12 col-lg-2 border-end">
+                    <ul class="list-unstyled mega-right">
+                      <h5>Product Layouts</h5>
+                      <img src="./items/categories3.jpg" alt="">
+                    
+                    </ul>
+                    
+                   </div> 
+                   <div class="col-12 col-lg-2 border-end">
+                    <ul class="list-unstyled mega-right">
+                      <h5>Shop Pages</h5>
+                      <img src="./items/categories4.jpg" alt="">
+             
+                    </ul>
+                  </div>
+                    <div class="col-12 col-lg-2">
+                      <ul class="list-unstyled mega-right">
+                          <h5>Shop Pages</h5>
+                          <img src="./items/categories5.jpg" alt="">
+                 
+                        </ul>
+                    </div>
+                  
+                  </div>
+                  </div> 
+                </li>
+              </ul>
+            </div> 
+          </div> 
+          </nav>
+      
+      </header>
+<div id="hero-carousel" class="carousel slide text-dark bg-success " data-bs-ride="carousel">
+  <ol class="carousel-indicators ">
+      <li data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active bg-dark me-1"></li>
+      <li data-bs-target="#hero-carousel" data-bs-slide-to="1" class="bg-dark me-1"></li>
+      <li data-bs-target="#hero-carousel" data-bs-slide-to="2" class="bg-dark"></li>
+  </ol>
+  <div class="carousel-inner">
+      <div class="carousel-item active">
+          <div class="container">
+              <div class="row p-5">
+                  <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                      <img class="img-fluid" src="./assets/main/banner_img_01.jpg" alt="">
+                  </div>
+                  <div class="col-lg-6 mb-0 d-flex align-items-center">
+                      <div class="text-align-left align-self-center">
+                          <h1 class="h1 text-dark"><b>Sss</b> Co</h1>
+                          <h3 class="h2"></h3>
+                          <p>
+                              Sss.Co is an  
+                              Welcome to Sss Co., your one-stop shop for high-quality electronics and other manufactured items! We specialize in providing our customers with the latest and greatest in cutting-edge technology, from smartphones and laptops to smart home devices and audio equipment.,
+                              <a rel="sponsored" class="text-dark" href="" >Believe</a> and
+                              <a rel="sponsored" class="text-dark" href="" >Start Work</a>.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="container">
+              <div class="row p-5">
+                  <div class="mx-auto col-md-8 col-lg-6 order-lg-last px-0">
+                      <img class="img-fluid" src="./assets/main/banner_img_02.jpg" alt="">
+                  </div>
+                  <div class="col-lg-6 mb-0 d-flex align-items-center">
+                      <div class="text-align-left">
+                          <h1 class="h1">At Sss Co., </h1>
+                          <h3 class="h2">we believe in offering our customers the best possible shopping experience. </h3>
+                          <p>
+                            That's why we've carefully curated a selection of products from the world's leading manufacturers, ensuring that everything we sell meets our high standards of quality and reliability. Whether you're looking for the latest iPhone or a state-of-the-art gaming laptop, you'll find it here at Sss Co.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="container">
+              <div class="row p-5">
+                  <div class="mx-auto col-md-8 col-lg-6 order-lg-last px-0">
+                      <img class="img-fluid" src="./assets/main/banner_img_03.jpg" alt="">
+                  </div>
+                  <div class="col-lg-6 mb-0 d-flex align-items-center">
+                      <div class="text-align-left">
+                          <h1 class="h1">In addition to our wide selection of electronics,</h1>
+                          <h3 class="h2">we also offer a range of other manufactured items,</h3>
+                          <p>
+                           including furniture, home appliances, and personal care products. All of our products are backed by our commitment to customer satisfaction, so you can shop with confidence knowing that you're getting the very best.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#hero-carousel" role="button" data-bs-slide="prev">
+      <i class="fas fa-chevron-left"></i>
+  </a>
+  <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#hero-carousel" role="button" data-bs-slide="next">
+      <i class="fas fa-chevron-right"></i>
+  </a>
+</div>
+
+<section class="container py-5">
+  <div class="row text-center pt-3">
+      <div class="col-lg-12  m-auto">
+          <h1 class="h1">Bestselling Items of The Month</h1>
+          <p>
+            At Sss Co., we're proud to offer the very best in electronics and manufactured items, and we're confident that our best-selling items will meet your needs and exceed your expectations. Shop with us today and experience the Sss Co. difference!
+          </p>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-12 col-md-4 mt-3 justify-content-center">
+          <a href="./item1.html" class="d-flex justify-content-center">
+            <img src="./items/d-10.jpg" class=" img-fluid img-bestseller border"></a>
+          <h5 class="text-center mt-3 mb-3">Beats Headphones</h5>
+          <p class="text-center"><a class="btn btn-success"  href="./item1.html">Go Shop</a></p>
+      </div>
+      <div class="col-12 col-md-4 mt-3 justify-content-center">
+          <a href="./item2.html" class="d-flex justify-content-center">
+            <img src="./items/d-6.jpg" class="img-fluid img-bestseller border"></a>
+          <h2 class="h5 text-center mt-3 mb-3">Lighthouse Lantern</h2>
+          <p class="text-center"><a class="btn btn-success " href="./item2.html">Go Shop</a></p>
+      </div>
+      <div class="col-12 col-md-4 mt-3 justify-content-center">
+          <a href="./item3.html" class="d-flex justify-content-center">
+            <img src="./items/d-5.jpg" class="img-fluid img-bestseller border"></a>
+          <h2 class="h5 text-center mt-3 mb-3">Bags</h2>
+          <p class="text-center"><a class="btn btn-success" href="./item3.html">Go Shop</a></p>
+      </div>
+  </div>
+</section>
+    <!-- Add new post modal -->
+    <div
+      class="modal fade"
+      id="addNewPostModal"
+      tabindex="-1"
+      aria-labelledby="addNewPostModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-light">
+            <h1 class="modal-title fs-5" id="addNewPostModalLabel">
+              Write a New Post
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="d-flex w-100 gap-2">
+                <div class="mb-3 w-100">
+                  <label for="postAuthorInput" class="form-label"
+                    >Product Name:
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="postAuthorInput"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="postCategoryInput" class="form-label"
+                  >Category
+                </label>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  id="postCategoryInput"
+                >
+                  <option value="Clothes" selected>Clothes</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Houseware">Houseware </option>
+                  <option value="Cosmetic">Cosmetic Products</option>
+                 
+                </select>
+
+              </div>
+              <div class="mb-3">
+                <label for="postContentInput" class="form-label"
+                  >Product Description:</label
+                >
+                <textarea
+                  class="form-control"
+                  id="postContentInput"
+                  rows="5"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="urlInput" class="form-label"
+                  >Product Image:
+                </label>
+                <input type="text" class="form-control" id="urlInput" placeholder="https://" />
+              </div>
+              <div class="mb-3">
+                <label for="PriceInput" class="form-label"
+                  >Product Price:
+                </label>
+                <input type="text" class="form-control" id="PriceInput" placeholder="$" />
+              </div>
+              <div class="col-auto">
+                <ul class="list-inline pb-3">
+                    <li class="list-inline-item text-right">
+                        Quantity
+                        <input type="hidden" name="product-quanity" id="product-quanity" value="1">
+                    </li>
+                    <li class="list-inline-item"><span class="btn btn-primary" id="btn-minus">-</span></li>
+                    <li class="list-inline-item"><span class="badge bg-success text-dark p-2" id="var-value">1</span></li>
+                    <li class="list-inline-item"><span class="btn btn-primary" id="btn-plus">+</span></li>
+                </ul>
+            </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success" id="addListButton">
+              Add Product
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<div class="container py-5">
+  <div class="row">
+
+    
+
+      <div class="row content mt-1">
+        <div class="col-md-3 asidemenu mt-4">
+          <aside>
+            <div class="row search">
+              <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                <div class="input-group">
+                  <input
+                    type="search"
+                    placeholder="Search by Title or Author"
+                    class="form-control border-0 bg-light"
+                    aria-label="Search"
+                    aria-describedby="searchButton"
+                    id="searchInput"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      id="button-addon1"
+                      type="submit"
+                      class="btn btn-link text-primary"
+                    >
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row categories mt-3">
+              <h4>Categories</h4>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-dark pointer"
+                id="clothes"
+              >
+              Clothes
+              </div>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-dark pointer"
+                id="technology"
+              >
+                Technology
+              </div>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-dark pointer"
+                id="houseware"
+              >
+              Houseware
+              </div>
+              <div
+                class="categorie fs-5 fw-bold text-center my-3 py-3 text-dark pointer"
+                id="cosmetic"
+              >
+              Cosmetic Products
+              </div>
+            </div>
+          </aside>
+        </div>
+
+      <div class="col-lg-9">
+          <div class="row">
+              <div class="col-md-6">
+                 
+              </div>
+              <div class="row sortBy justify-content-end gap-3 mt-4 me-1">
+                <div class="w-25 d-flex justify-content-end mobileFilter d-none">
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-secondary dropdown-toggle"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Filter
+                    </button>
+                    <ul class="dropdown-menu mobileCategories">
+                      <li>
+                        <a class="dropdown-item categorie" href="#" id="Clothes"
+                          >Clothes</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item categorie" href="#" id="technology"
+                          >Technology</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item categorie" href="#" id="Houseware"
+                          >Houseware</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item categorie" href="#" id="Cosmetic">Cosmetic</a>
+                      </li>
+                    
+                    </ul>
+                  </div>
+                </div>
+                <div class="w-25 d-flex justify-content-end sorting">
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-secondary dropdown-toggle"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Sort By
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#" id="sortAz">A-Z</a></li>
+                      <li><a class="dropdown-item" href="#" id="sortZa">Z-A</a></li>
+                      <li><a class="dropdown-item" href="#" id="latest">Latest</a></li>
+                      <li><a class="dropdown-item" href="#" id="oldest">Oldest</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row g-3 cards justify-content-end">
+            <section class="row flex-wrap gx-5 px-0" id="post-list"></section>
+            <!-- update -->
+             <!-- Update  post modal -->
+    <div
+    class="modal fade"
+    id="updateModal"
+    tabindex="-1"
+    aria-labelledby="updateModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-light">
+          <h1 class="modal-title fs-5" id="updateModalLabel">
+           Buy Product
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="d-flex w-100 gap-2">
+              <div class="mb-3 w-100">
+                <label for="updateAuthor" class="form-label"
+                  >Product Name:
+                </label>
+                <input type="text" class="form-control" id="updateAuthor" />
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="updateCategory" class="form-label"
+                >Category
+              </label>
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                id="updateCategory"
+              >
+              <option value="Clothes" selected>Clothes</option>
+              <option value="Technology">Technology</option>
+              <option value="Houseware">Houseware </option>
+              <option value="Cosmetic">Cosmetic Products</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="Content" class="form-label"
+                >Product Description:</label
+              >
+              <textarea
+                class="form-control"
+                id="updateContent"
+                rows="5"
+              ></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="PriceInput" class="form-label"
+                  >Product Price:
+                </label>
+                <input type="text" class="form-control" id="UpdateInput" placeholder="$" />
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+            <div class="col-12 d-flex g-3">
+                <div class="close col-6 text-end me-3"> <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button></div> 
+                  <button type="button" class="btn btn-success" id="updateButton">
+                    Update
+                  </button>
+    </div>
+            
+         
+        
+         
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+            <!-- update -->
+              <!-- <div class="col-md-4 ">
+                  <div class="card card-main mb-4 product-wap rounded-0">
+                      <div class="card rounded-0 position-relative overflow-hidden">
+                          <img class="card-img rounded-0 img-fluid" src="./items/d-10.jpg">
+                          <img class="card-img2 rounded-0 img-fluid d-none" src="./items/d-10.1.jpg">
+                          <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                              <ul class="list-unstyled card-items">
+                                  <li><a class="btn btn-primary text-white mt-2" href=""><i class="far fa-heart"></i></a></li>
+                                  <li><a class="btn btn-primary text-white mt-2" href=""><i class="far fa-eye"></i></a></li>
+                                  <li><a class="btn btn-primary text-white mt-2" href=""><i class="fas fa-cart-plus"></i></a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="card-body text-center">
+                          <a href="" class="h3 text-decoration-none">Beats Solo+</a>
+                          <ul class="w-100 list-unstyled d-flex justify-content-center mb-0">
+                              <li>Black/White/Military Green</li>
+                              
+                          </ul>
+                          <ul class="list-unstyled d-flex justify-content-center mb-1">
+                              <li>
+                                  <i class="text-warning fa fa-star"></i>
+                                  <i class="text-warning fa fa-star"></i>
+                                  <i class="text-warning fa fa-star"></i>
+                                  <i class="text-warning fa fa-star"></i>
+                                  <i class="text-warning fa fa-star"></i>
+                              </li>
+                          </ul>
+                          <p class="text-center mb-0">$90.00</p>
+                      </div>
+                  </div>
+              </div> -->
+          </div>
+          <div div="row">
+              <ul class="pagination pagination-lg justify-content-end">
+                  <li class="page-item disabled">
+                      <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+  </div>
+</div>
+<section class="bg-light py-5">
+  <div class="container my-4">
+      <div class="row text-center py-3">
+          <div class="col-lg-6 m-auto">
+              <h1 class="h1">Our Brands</h1>
+              <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  Lorem ipsum dolor sit amet.
+              </p>
+          </div>
+          <div class="col-lg-12 m-auto tempaltemo-carousel">
+              <div class="row d-flex flex-row">
+                  <div class="col-1 align-self-center">
+                      <a class="h1" href="#slide-brand" role="button" data-bs-slide="prev">
+                          <i class="text-light fas fa-chevron-left"></i>
+                      </a>
+                  </div>
+                  <div class="col">
+                      <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="slide-brand" data-bs-ride="carousel">
+                          <div class="carousel-inner product-links-wap" role="listbox">
+                              <div class="carousel-item active">
+                                  <div class="row">
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_01.png" alt="Brand Logo"></a>
+                                      </div>
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_02.png" alt="Brand Logo"></a>
+                                      </div>
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_03.png" alt="Brand Logo"></a>
+                                      </div>
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_04.png" alt="Brand Logo"></a>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="carousel-item">
+                                  <div class="row">
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_01.png" alt="Brand Logo"></a>
+                                      </div>
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_02.png" alt="Brand Logo"></a>
+                                      </div>
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_03.png" alt="Brand Logo"></a>
+                                      </div>
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_04.png" alt="Brand Logo"></a>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="carousel-item">
+                                  <div class="row">
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_01.png" alt="Brand Logo"></a>
+                                      </div>
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_02.png" alt="Brand Logo"></a>
+                                      </div>
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_03.png" alt="Brand Logo"></a>
+                                      </div>
+                                      <div class="col-3 p-md-5">
+                                          <a href="#"><img class="img-fluid brand-img" src="./assets/main/brand_04.png" alt="Brand Logo"></a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-1 align-self-center">
+                      <a class="h1" href="#slide-brand" role="button" data-bs-slide="next">
+                          <i class="text-light fas fa-chevron-right"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+<footer class="bg-dark" id="tempaltemo_footer">
+    <div class="container">
+        <div class="row">
+  
+            <div class="col-md-4 pt-5">
+                <h2 class="h2 text-success border-bottom pb-3 border-light logo">Sss Co. Store</h2>
+                <ul class="list-unstyled text-light footer-link-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt fa-fw"></i>
+                        Samsun/Omü Teknopark
+                    </li>
+                    <li>
+                        <i class="fa fa-phone fa-fw"></i>
+                        <a class="text-decoration-none" href="tel:010-020-0340">+905075055555</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-envelope fa-fw"></i>
+                        <a class="text-decoration-none" href="mailto:info@company.com">a.tutal1997@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+  
+            <div class="col-md-4 pt-5">
+                <h2 class="h2 text-light border-bottom pb-3 border-light">Categories</h2>
+                <ul class="list-unstyled text-light footer-link-list">
+                    <li><a class="text-decoration-none text-reset" href="#">Luxury</a></li>
+                    <li><a class="text-decoration-none text-reset" href="#">Sport Wear</a></li>
+                    <li><a class="text-decoration-none text-reset" href="#">Men's Shoes</a></li>
+                    <li><a class="text-decoration-none text-reset" href="#">Women's Shoes</a></li>
+                    <li><a class="text-decoration-none text-reset" href="#">Popular Dress</a></li>
+                    <li><a class="text-decoration-none text-reset" href="#">Gym Accessories</a></li>
+                    <li><a class="text-decoration-none text-reset" href="#">Sport Shoes</a></li>
+                </ul>
+            </div>
+  
+            <div class="col-md-4 pt-5">
+                <h2 class="h2 text-light border-bottom pb-3 border-light">Pages</h2>
+                <ul class="list-unstyled text-light footer-link-list">
+                    <li><a class="text-decoration-none text-reset" href="#">Home</a></li>
+                    <li><a class="text-decoration-none text-reset" href="#">About Us</a></li>
+                    <li><a class="text-decoration-none text-reset" href="#">Shop Locations</a></li>
+                    <li><a class="text-decoration-none text-reset" href="#">FAQs</a></li>
+                    <li><a class="text-decoration-none text-reset" href="#">Contact</a></li>
+                </ul>
+            </div>
+  
+        </div>
+  
+        <div class="row text-light mb-4">
+            <div class="col-12 mb-3">
+                <div class="w-100 my-3 border-top border-light"></div>
+            </div>
+            <div class="col-auto me-auto">
+                <ul class="list-inline text-left footer-icons">
+                    <li class="list-inline-item border border-light rounded-circle text-center">
+                        <a class="text-light text-decoration-none"  href=""><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                    </li>
+                    <li class="list-inline-item border border-light rounded-circle text-center">
+                        <a class="text-light text-decoration-none"  href=""><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                    </li>
+                    <li class="list-inline-item border border-light rounded-circle text-center">
+                        <a class="text-light text-decoration-none"  href=""><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                    </li>
+                    <li class="list-inline-item border border-light rounded-circle text-center">
+                        <a class="text-light text-decoration-none"  href=""><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-auto">
+                <label class="sr-only" for="subscribeEmail">Email address</label>
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                    <div class="input-group-text btn btn-primary text-dark">Subscribe</div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="w-100 bg-black py-3">
+        <div class="container">
+            <div class="row pt-2">
+                <div class="col-12">
+                    <p class="text-left text-light">
+                        Copyright 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  </footer>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> 
+  <script src="./src/request.js"></script>
+    <script src="./src/ui.js"></script>
+    <script src="./src/app.js"></script>
+
+</body></html>

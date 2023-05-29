@@ -1,0 +1,95 @@
+//Colors
+$primary: #3c486b;
+$warning: #f9d949;
+$danger: #f45050;
+$light: #f0f0f0;
+//Breakpoints
+$grid-breakpoints: (
+ xs: 0,
+ sm: 576px,
+ md: 768px,
+ lg: 992px,
+ xl: 1200px,
+);
+$container-max-widths: (
+ sm: 540px,
+ md: 720px,
+ lg: 960px,
+ xl: 1140px,
+);
+// Grid columns
+$grid-gutter-width: 0;
+//Spacer Values
+$spacer: 16px;
+$spacers: (
+ 16: $spacer,
+ 32: $spacer * 2,
+ 48: $spacer * 3,
+ 64: $spacer * 4,
+ 80: $spacer * 5,
+ 96: $spacer * 6,
+ 112: $spacer * 7,
+ 128: $spacer * 8,
+ 144: $spacer * 9,
+ 160: $spacer * 10,
+);
+//Position Values
+$position-values: (
+ 0: 0,
+ 10: 10%,
+ 25: 25%,
+ 50: 50%,
+ 75: 75%,
+ 100: 100%,
+);
+//Font Sizes
+$font-size-base: 12px;
+$font-sizes: (
+ 1: $font-size-base,
+ 2: $font-size-base * 1.25,
+ 3: $font-size-base * 1.5,
+ 4: $font-size-base * 1.75,
+ 5: $font-size-base * 2,
+ 6: $font-size-base * 2.25,
+ 7: $font-size-base * 2.5,
+ 8: $font-size-base * 2.75,
+ 9: $font-size-base * 3,
+ 10: $font-size-base * 3.25,
+);
+//Nav Links
+$nav-link-padding-y: 0;
+$nav-link-padding-x: 0;
+$link-hover-color: $danger;
+//Navbar
+$navbar-padding-y: 0;
+//Form Control
+.form-control {
+ border: unset !important;
+ outline: unset !important;
+ outline-offset: unset !important;
+ box-shadow: unset !important;
+}
+.form-select {
+ color: $primary !important;
+}
+label {
+ color: $primary !important;
+}
+//Carousel
+.carousel-control-prev,
+.carousel-control-next {
+ color: $light;
+ opacity: 0.5;
+ // Hover/focus state
+ &:hover,
+ &:focus {
+  opacity: 1;
+ }
+}
+//Accordion
+$accordion-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' height='48' viewBox='0 96 960 960' width='48'><path d='M120 936V636h60v198l558-558H540v-60h300v300h-60V318L222 876h198v60H120Z'/></svg>");
+$accordion-button-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' height='48' viewBox='0 96 960 960' width='48'><path d='m122 976-42-42 298-298H180v-60h300v300h-60V678L122 976Zm358-400V276h60v198l298-298 42 42-298 298h198v60H480Z'/></svg>");
+//Breadcrumb
+.breadcrumb {
+ padding: 8px 0 !important;
+}
