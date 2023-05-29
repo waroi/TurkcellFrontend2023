@@ -2,10 +2,10 @@ import './tasks.css'
 // eslint-disable-next-line react/prop-types
 function Tasks({task}) {
 
-  const deleteTask = () => {
-    const itemTask = document.getElementsByClassName('list-group-item');
-    console.log(itemTask)
+  const deleteTask = (e) => {
+    e.target.parentNode.remove();
   }
+  
 
   return (
     <li className="list-group-item">
