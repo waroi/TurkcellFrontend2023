@@ -36,6 +36,7 @@ function setEvents() {
   const saveBtn = document.getElementById("saveChangesButton");
   const editSaveBtn = document.getElementById("editButton");
   const addToCartBtn = document.querySelectorAll(".add-to-cart");
+  const addProductBtn = document.querySelector(".add-product-btn");
   const filterCategory = document.getElementById("filterCategory");
   const sort = document.getElementById("sort");
   const blogElements = document.querySelectorAll(".blog");
@@ -302,5 +303,9 @@ function setEvents() {
         $(`#exampleModal${id}`).modal("hide");
       }
     });
+  });
+
+  addProductBtn.addEventListener("click", () => {
+    ui.clearFields();
   });
 }
