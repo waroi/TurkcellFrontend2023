@@ -331,11 +331,14 @@ class Ui {
     const category = card.querySelector("#category-text").textContent;
     const stock = card.querySelector("#stock-text").textContent;
     const cost = card.querySelector("#cost-text").textContent;
+    const url = card.querySelector("#product-image").getAttribute("src");
+
+    productUrl.value = url;
 
     addProductLabel.textContent = "Edit Product";
 
     currentId = id;
-
+    productUrl.value = url;
     productTitle.value = title;
     productCategory.value = category;
     productPrice.value = cost;

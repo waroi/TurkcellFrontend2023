@@ -4,10 +4,16 @@
 
 <p align="center"><img src="https://avatars.githubusercontent.com/u/87477482?v=4" alt="Selahattin Demir" width="200px"></p>
 
-## Hi everybody, I'm Selahattin Demir
+## Herkese Merhaba, Ben Selahattin Demir
 
-This file has been created for you to navigate through my folders more easily.
+Bu Readme dosyasını, klasörlerim arasında kolayca gezinmeniz için oluşturdum. 
+### Dersler
 
+Her ders için bir klasör oluşturdum ve o gün işlenen konuyu detaylı bir şekilde anlatan ``README.md`` dosyalarını içine ekledim. Aşağıda, her dersin ``README.md`` dosyasına ve diğer dosyalara kolayca erişebileceğiniz bir tablo bulunmaktadır. 
+
+### Ders Sonu Ödevleri
+
+Her dersin sonunda verilen ödevleri, ``Ders_Sonu_Odevleri`` klasörü içinde bulabilirsiniz. Ödevlerin konularına göre alt klasörler oluşturdum. Örneğin, HTML dersine ait ödevleri ``html`` klasörü içinde bulabilirsiniz. Aşağıda, bu klasörlere ve ödevlere kolayca erişebileceğiniz bir tablo yer almaktadır.
 
 <table align="center">
 <tr>
@@ -54,8 +60,35 @@ This file has been created for you to navigate through my folders more easily.
 | [Ders25](./Dersler/Ders25) | [Sinema Koleksiyon 2](./Ders_Sonu_Odevleri/js/teamworkmoviecoleksion) |
 | [Ders26](./Dersler/Ders26) | [XOX](./Ders_Sonu_Odevleri/js/teamworkXOX) |
 | [Ders27](./Dersler/Ders27) | [Sinema Koleksiyon Prototype](./Ders_Sonu_Odevleri/js/teamworkConstructor) |
-| [Ders28](./Dersler/Ders28) | [Sinema Koleksiyon Class](./Ders_Sonu_Odevleri/js/teamworkClass) |
+| [Ders28](./Dersler/Ders28) | [Sinema Koleksiyon Prototype](./Ders_Sonu_Odevleri/js/teamworkConstructor) |
+| [Ders29](./Dersler/Ders29) | [Sinema Koleksiyon Class](./Ders_Sonu_Odevleri/js/teamworkClass) |
+| [Ders30](./Dersler/Ders30) | [Sinema Koleksiyon Class](./Ders_Sonu_Odevleri/js/teamworkClass) |
 
 </td>
 </tr>
 </table>
+
+### Ödevler
+
+Ödevlerimi, `Odevler` klasörü içinde bulabilirsiniz. Her ödevin veriliş sırasına göre klasörler oluşturdum. Örneğin, birinci ödevi `Odev1` klasörü içinde bulabilirsiniz. Aşağıda, bu klasörlere ve ödevlere kolayca erişebileceğiniz bir tablo yer almaktadır.
+
+| Odevler |
+|---------|
+| [Odev1](./Odevler/Odev-1) |
+| [Odev2](./Odevler/Odev-2) |
+| [Odev3](./Odevler/Odev-3) |
+| [Odev4](./Odevler/Odev-4/) |
+
+### Bireysel Çalışmalarım
+
+Bireysel çalışmalarımı, `Bireysel_Calisma` klasörü içinde bulabilirsiniz. Her çalışmanın konusuna göre klasörler oluşturdum. Yine aynı şekilde bu klasörlere de altta hazırladığım tablodan kolayca ulaşabilirsiniz.
+
+| Bireysel Çalışmalar |
+|---------------------|
+| [Calculator](./Bireysel_Calismalar/JS/Calculator) |
+| [Cursor Animation](./Bireysel_Calismalar/JS/Cursor-Animation) |
+| [Filter Bar](./Bireysel_Calismalar/JS/Filter-Bar) |
+| [Search Bar](./Bireysel_Calismalar/JS/Search-Bar) |
+
+
+Umarım bu bilgiler işinize yarar! Başka bir sorunuz varsa sormaktan çekinmeyin :) 
