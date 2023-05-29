@@ -5,38 +5,54 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App {
+  text-align: center;
+  width: 500px;
+  height: 500px;
+  background-color: #FFD56B;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #333;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+input{
+  height: 20px;
+  padding: 5px 20px;
 }
-
-.card {
-  padding: 2em;
+button{
+  margin: 10px 0;
 }
-
-.read-the-docs {
-  color: #888;
+ul{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+li{
+  padding: 5px 20px;
+  width: 350px;
+  background-color: #939B62;
+  list-style-type: none;
+  text-align: start;
+  border-bottom: 2px solid #FF7B54;
+  margin-top: 10px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: .7px;
+}
+button{
+  border: none;
+  letter-spacing: 2px;
+  padding: 3px 18px;
+  color: #333;
+  font-size: 16px;
+  background-color: #FFB26B;
+  transition: .3s;
+}
+button:hover{
+  color: #FF7B54;
+  background-color: #333;
 }

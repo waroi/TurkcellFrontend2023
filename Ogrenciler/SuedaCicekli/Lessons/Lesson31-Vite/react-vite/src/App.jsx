@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // State tanımlamaları
+  const [newItem, setNewItem] = useState('');
+  const [items, setItems] = useState([]);
+
+  // Yeni öğe ekleme fonksiyonu
+  function addItem() {
+    if (!newItem) {
+      alert('Please enter a value');
+      return;
+    }
+
+    // Yeni öğe nesnesini oluşturma
+    const item = {
+      id: Math.floor(Math.random() * 1000),
+      value: newItem
+    };
+
+    // Eski öğelerin üzerine yeni öğeyi ekleyerek state'i güncelleme
+    setItems(oldItems => [...oldItems, item]);
+    setNewItem('');
+  }
+
+  // Öğe silme fonksiyonu
+  function deleteItem(id) {
+    // Filteleme yaparak silinecek öğeyi çıkarma
+    const newArray = items.filter(item => item.id !== id);
+    setItems(newArray);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <h1>ToDo List</h1>
+
+      {/* Input alanı */}
+      <input
+        type="text"
+        placeholder='Add an item..'
+        value={newItem}
+        onChange={(e) => setNewItem(e.target.value)}
+      />
+
+      {/* Ekleme butonu */}
+      <button onClick={() => addItem()}>Add Todo</button>
+
+      {/* Öğelerin listesi */}
+      <ul>
+        {items.map(item => {
+          return (
+            <li key={item.id}>
+              {item.value}
+              <button onClick={() => deleteItem(item.id)}>X</button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
 
-export default App
+export default App;
