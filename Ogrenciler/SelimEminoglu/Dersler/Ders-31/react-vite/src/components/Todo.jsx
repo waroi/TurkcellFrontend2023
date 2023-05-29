@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-function todo() {
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+function Todo({ todos, completeTodo }) {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
@@ -10,8 +10,16 @@ function todo() {
     <div
       className={todo.isComplete ? "todo-row complete" : "todo-row"}
       key={index}
-    ></div>;
+    >
+      <div key={todo.id} onClick={completeTodo(todo.id)}>
+        {todo.text}
+        <div className="icons">
+          <AiFillDelete />
+          <AiFillEdit />
+        </div>
+      </div>
+    </div>;
   });
 }
 
-export default todo;
+export default Todo;
