@@ -7,29 +7,29 @@ function App() {
 	// const [count, setCount] = useState(0);
 	const [name, setName] = useState("Varol");
 	const students = ["Ali", "Veli", "Ahmet"];
-	const takımlar = [
-		{
-			id: 1,
-			name: "Beşiktaş",
-			color1: "black",
-			color2: "white",
-			w: "300px",
-		},
-		{
-			id: 2,
-			name: "Galatasaray",
-			color1: "red",
-			color2: "yellow",
-			w: "250px",
-		},
-		{
-			id: 3,
-			name: "Feberbahçe",
-			color1: "blue",
-			color2: "yellow",
-			w: "200px",
-		},
-	];
+	// const takımlar = [
+	// 	{
+	// 		id: 1,
+	// 		name: "Beşiktaş",
+	// 		color1: "black",
+	// 		color2: "white",
+	// 		w: "300px",
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		name: "Galatasaray",
+	// 		color1: "red",
+	// 		color2: "yellow",
+	// 		w: "250px",
+	// 	},
+	// 	{
+	// 		id: 3,
+	// 		name: "Feberbahçe",
+	// 		color1: "blue",
+	// 		color2: "yellow",
+	// 		w: "200px",
+	// 	},
+	// ];
 
 	return (
 		<>
