@@ -13,7 +13,7 @@ const sortForm = document.getElementById("sortForm");
 
 let basketMenu = document.querySelector(".basketMenu");
 
-const dataProduct = new Data("http://localhost:3000/product");
+const dataProduct = new Data("http://localhost:4000/product");
 
 let count = 0;
 
@@ -53,7 +53,7 @@ function eventListener() {
               Number(e.target.parentElement.parentElement.parentElement.id)
           );
           dataProduct.deleteFromBasket(
-            `http://localhost:3000/basket/${e.target.parentElement.parentElement.parentElement.id}`
+            `http://localhost:4000/basket/${e.target.parentElement.parentElement.parentElement.id}`
           );
 
           let products = dataProduct
@@ -80,7 +80,7 @@ function eventListener() {
         .then((basket) => {
           basket.forEach((product) => {
             dataProduct.deleteFromBasket(
-              `http://localhost:3000/basket/${product.id}`
+              `http://localhost:4000/basket/${product.id}`
             );
           });
         })
@@ -190,6 +190,7 @@ function addToBasket(e) {
           item.id ===
           Number(e.target.parentElement.parentElement.parentElement.id)
       );
+      console.log("dfmsfpdosdfp", curData);
       dataProduct.getBaskets().then((data) => {
         var valueExists = data.some(function (obj) {
           console.log(obj.name);
@@ -241,7 +242,7 @@ function addToBasket(e) {
               );
 
               dataProduct.editBasketData(
-                `http://localhost:3000/basket/${editBasketData.id}`,
+                `http://localhost:4000/basket/${editBasketData.id}`,
                 {
                   name: editBasketData.name,
                   price: editBasketData.price,
