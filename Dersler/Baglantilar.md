@@ -35,3 +35,4 @@
 
 - [execution context/ek kaynak](https://serbestemre.medium.com/execution-stack-ve-execution-context-nedir-ee99dd9ed925)
 - [Variable ve Lexical Environment Nedir? Scope Chain Bu İşin Neresinde?](https://serbestemre.medium.com/variable-ve-lexical-environment-nedir-scope-chain-bu-i̇şin-neresinde-f85cccc343af)
+- [React Bileşenlerinin Re-render’ı üzerine Analizler](https://medium.com/frontend-development-with-js/react-bile%C5%9Fen-re-render-%C3%BCzerine-analizler-1-76e2495fdc3b)

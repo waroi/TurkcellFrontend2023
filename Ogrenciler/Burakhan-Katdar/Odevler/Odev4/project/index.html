@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <img src="image/bigk.png" alt="logo" />
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="main">
+      <div class="container">
+        <div class="row">
+          <div class="main-sort col-12 col-lg-2">
+            <div class="ms-section row input-group">
+              <div class="dropdown">
+                <button
+                  class="btn btn-secondary dropdown-toggle col-12"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Ürün Adı
+                </button>
+                <ul id="msName" class="dropdown-menu">
+                  <li>
+                    <a id="msNameAsc" class="dropdown-item" href=""
+                      >A'dan Z'ye</a
+                    >
+                  </li>
+                  <li>
+                    <a id="msNameDesc" class="dropdown-item" href=""
+                      >Z'den A'ya</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="ms-section row input-group">
+              <div class="dropdown">
+                <button
+                  class="btn btn-secondary dropdown-toggle col-12"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Fiyat
+                </button>
+                <ul id="msPrice" class="dropdown-menu">
+                  <li>
+                    <a id="msPriceAsc" class="dropdown-item" href="#"
+                      >Ucuzdan Pahalıya</a
+                    >
+                  </li>
+                  <li>
+                    <a id="msPriceDesc" class="dropdown-item" href="#"
+                      >Pahalıdan Ucuza</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="main-right col-12 col-lg-10">
+            <div class="main-blog col-12 col-md-8 col-lg-9">
+              <div class="share col-12">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                      >
+                        Yeni Ürün Ekle
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseOne"
+                      class="accordion-collapse collapse show"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body">
+                        <form id="productForm">
+                          <input
+                            placeholder="Ürün Adı"
+                            type="text"
+                            id="productName"
+                            name="productName"
+                            required
+                          /><br />
+
+                          <!-- <input
+                                  placeholder="Bir şeyler yaz.."
+                                  type="text"
+                                  id="blogText"
+                                  name="text"
+                                  required
+                                /><br /> -->
+                          <input
+                            placeholder="Fiyat"
+                            type="number"
+                            id="productPrice"
+                            name="productPrice"
+                            required
+                          /><br />
+
+                          <input
+                            placeholder="Kategori"
+                            type="text"
+                            id="productCategory"
+                            name="productCategory"
+                            required
+                          /><br />
+
+                          <input
+                            placeholder="Resim Dosyası"
+                            type="text"
+                            id="productImage"
+                            name="productImage"
+                            accept="image/*"
+                            required
+                          /><br />
+                          <input
+                          placeholder="Stok Adedi"
+                          type="number"
+                          id="productStock"
+                          name="productStock"
+                          accept="image/*"
+                          required
+                        /><br />
+                          <input
+                            id="productSubmit"
+                            class="bg-dark text-white"
+                            type="submit"
+                            value="Gönder"
+                          />
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <ul
+                id="shared"
+                class="shared list-unstyled d-flex flex-row flex-wrap"
+              ></ul>
+            </div>
+
+            <div class="main-filter-search col-12 col-md-4 col-lg-3">
+              <div class="mf-search col-12">
+                <input
+                  id="search"
+                  type="text"
+                  class="w-100"
+                  placeholder="Ara.."
+                />
+              </div>
+              <ul id="mfFilter" class="mfFilter col-12"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="class/appClass.js" type="module"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

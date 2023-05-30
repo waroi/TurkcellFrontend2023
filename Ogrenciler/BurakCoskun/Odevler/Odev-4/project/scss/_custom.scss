@@ -1,0 +1,294 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+.navbar {
+  .navbar-brand {
+    max-width: 150px;
+  }
+  .count {
+    font-size: 11px;
+    @include size(16px, 16px);
+    top: -5px;
+    right: -5px;
+  }
+
+  .addBtn {
+    border-radius: 50%;
+    color: $primary;
+    &:hover {
+      background-color: $primary !important;
+      color: white !important;
+    }
+  }
+}
+
+.site-search {
+  input {
+    border-width: 3px;
+    @include size(400px, 50px);
+    border-radius: 35px;
+  }
+}
+
+#create-modal {
+  .modal-dialog {
+    .modal-content {
+      .modal-header {
+        background-color: $primary;
+        color: white;
+        .modal-title {
+          font-size: 30px;
+        }
+      }
+      .modal-footer {
+        .btn {
+          background-color: $primary;
+          color: white;
+          &:hover {
+            background-color: $secondary;
+          }
+        }
+      }
+      .close {
+        color: #fff;
+        opacity: 0.3;
+        transition: opacity 0.3s ease-in-out;
+        cursor: pointer;
+      }
+
+      .close span {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .close:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.offcanvas-body {
+  .navbar-brand {
+    max-width: 300px;
+  }
+}
+
+.offcanvas-body ul li a:hover {
+  background-color: $secondary !important;
+  color: #fff !important;
+}
+
+.carousel-item {
+  img {
+    max-height: 800px;
+  }
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23A9232E' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  @include size(25px, 40px);
+}
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23A9232E' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+  @include size(25px, 40px);
+}
+
+.trends {
+  .product-card {
+    box-shadow: 0 2px 7px #dfdfdf;
+    margin: 50px auto;
+  }
+
+  .product-tumb {
+    padding: 10px;
+    background: #f0f0f0;
+    img {
+      transition: 0.3s;
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .product-catagory {
+    font-size: 12px;
+    color: #ccc;
+  }
+
+  .product-stock {
+    font-size: 12px;
+  }
+
+  .product-details h4 a {
+    margin-bottom: 18px;
+    transition: 0.3s;
+  }
+
+  .product-details h4 a:hover {
+    color: $secondary !important;
+  }
+
+  .product-bottom-details {
+    border-top: 1px solid #eee;
+  }
+  .product-price span {
+    margin-right: 5px;
+  }
+  .product-links a {
+    margin-left: 5px;
+    color: #e1e1e1;
+    transition: 0.3s;
+  }
+
+  .product-links a:hover {
+    color: $primary;
+  }
+}
+
+.series-carousel {
+  img {
+    max-width: 300px;
+  }
+}
+
+.footer {
+  background-color: #1e1a15;
+
+  .footer-list {
+    li {
+      a:hover {
+        color: $secondary !important;
+      }
+    }
+  }
+  .footer-logo {
+    padding-bottom: 50%;
+
+    .hover-image {
+      transition: all 1s;
+    }
+    &:hover {
+      .hover-image {
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      .normal-image {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .footer-card {
+    border-top: 1px solid #fff;
+  }
+}
+
+//Product Page
+
+.product-carousel-container {
+  .carousel-controller {
+    img {
+      max-width: 75px;
+      max-height: 75px;
+    }
+  }
+}
+
+.product-attributes {
+  select {
+    @include size(56px, 56px);
+    border: 1px solid #707070;
+    padding: 8px 25px 8px 10px !important;
+    color: #23252b;
+    background: url(https://store.crunchyroll.com/on/demandware.static/Sites-CrunchyrollUS-Site/-/en_US/v1681531287587/images/drop-down-arrow.svg)
+      no-repeat;
+    background-position: center right 15px;
+    background-size: 8px;
+    appearance: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+}
+
+.product-addtocart {
+  .btn {
+    padding: 10px 50px;
+  }
+  .fa-heart:hover {
+    color: red !important;
+  }
+}
+
+.accordion-header {
+  border-bottom: 1px solid #bbb;
+  border-top: 1px solid #bbb;
+  &:first-child {
+    border-bottom: none;
+  }
+}
+
+.review-details {
+  .review-btn {
+    padding: 10px 30px;
+  }
+}
+
+.progress-custom .progress-value {
+  width: 10%;
+}
+
+.about-us,
+.faq {
+  background: url(/assets/about-us-img.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.faq {
+  .accordion-button {
+    background-color: #fff;
+    color: #212529;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #dee2e6;
+    &:hover {
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+    &.collapsed {
+      border-color: #dee2e6;
+    }
+  }
+  .accordion-header {
+    margin-bottom: 0;
+  }
+  .accordion-body {
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem;
+  }
+}

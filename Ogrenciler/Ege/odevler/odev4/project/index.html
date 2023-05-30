@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Eges & Dragons</title>
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <header class="bg-primary">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Ege's & Dragons</a>
+            <button
+              class="navbar-toggler bg-secondary"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item mx-2">
+                  <div class="dropdown sort-area">
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fa-solid fa-sort"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item text-center">
+                        <label for="sort-product">Sort</label> <br />
+                        <select
+                          name="sort-product"
+                          id="sort-product"
+                          class="form-select"
+                        >
+                          <option value="">Default</option>
+                          <option value="a-z">A-Z</option>
+                          <option value="z-a">Z-A</option>
+                          <option value="descend">Price(descending)</option>
+                          <option value="ascend">Price(ascending)</option>
+                        </select>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item mx-2">
+                  <div class="dropdown filter-area nav-item">
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fa-solid fa-filter"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item text-center">
+                        <label for="categories">Filter by category</label>
+                        <br />
+                        <select
+                          name="categories"
+                          id="categories"
+                          class="form-select"
+                        >
+                          <option value="">All</option>
+                        </select>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item mx-2">
+                  <div class="dropdown search-area">
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fa-solid fa-search"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item text-center">
+                        <label for="search-product"
+                          >Search by product name</label
+                        >
+                        <br />
+                        <input
+                          type="text"
+                          name="search-product"
+                          id="search-product"
+                          class="form-control"
+                        />
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+              <div class="navbar-nav mb-2 mb-lg-0 d-flex flex-row gap-2">
+                <a class="nav-link"
+                  ><i class="fa-regular fa-circle-user fa-xl"></i
+                ></a>
+                <a
+                  class="nav-link"
+                  id="cart-btn"
+                  data-bs-toggle="offcanvas"
+                  href="#offcanvasCart"
+                  role="button"
+                  aria-controls="offcanvasCart"
+                  ><i class="fa-solid fa-cart-shopping fa-xl" id="cart-area">
+                    <span id="cart-count"></span> </i
+                ></a>
+                <a
+                  class="nav-link"
+                  id="add-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addModal"
+                  ><i class="fa-solid fa-plus fa-xl"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Campaigns Start -->
+    <section class="campaigns pb-5 overflow-hidden">
+      <div class="row">
+        <div class="col-sm-12">
+          <div
+            id="carouselCampaigns"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner shadow">
+              <div class="carousel-item active text-center">
+                <img
+                  src="./assets/arthas-frostmourne.png"
+                  class="d-block w-100 img-fluid"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Frostmourne has arrived!</h5>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Porro vel asperiores maxime.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./assets/guts-in-front-of-dragonslayer-from-berserk.jpeg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Dragonslayer coming soon...</h5>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Porro vel asperiores maxime.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./assets/the_legend_of_zelda_breath_of_the_wild_switch-21.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Master Sword design renewed!</h5>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Porro vel asperiores maxime.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselCampaigns"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselCampaigns"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Campaigns End --
+
+    <!-- Products -->
+    <section class="products py-5" id="products">
+      <div class="container">
+        <div class="row" id="product-row"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-5 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="footer-title">
+              <h3>For You By Us</h3>
+            </div>
+            <div class="footer-content py-5">
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="">F.A.Q</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="footer-title">
+              <h3>Get In Touch</h3>
+            </div>
+            <div class="footer-content py-5">
+              Any questions? Let us know in store at <br />
+              <br />
+              <i class="fa-regular fa-compass fa-xl text-info"></i> 8th floor,
+              Doomed Crossroads, Egeland, Forgotten Realms <br />
+              <br />
+              or call us on <br />
+              <br />
+              <i class="fa-solid fa-phone fa-xl text-info"></i> (+1) 96 716 6879
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="footer-title">
+              <h3>Hear From Us</h3>
+            </div>
+            <div class="footer-content py-5">
+              <div class="input-wrap">
+                <input
+                  class="bg-transparent"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="email@example.com"
+                />
+                <div class="focus-input1"></div>
+              </div>
+              <button class="btn btn-outline-secondary mt-3 px-5 rounded-pill">
+                SUBSCRIBE
+              </button>
+            </div>
+            <div class="footer-content py-5 d-flex justify-content-between">
+              <a target="_blank" href="https://github.com/Egebyte"
+                ><i class="fa-brands fa-github fa-xl"></i
+              ></a>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/ege-kara-0a003b183/"
+                ><i class="fa-brands fa-linkedin-in fa-xl"></i
+              ></a>
+              <a target="_blank" href="https://www.facebook.com"
+                ><i class="fa-brands fa-facebook-f fa-xl"></i
+              ></a>
+              <a target="_blank" href="https://www.instagram.com"
+                ><i class="fa-brands fa-instagram fa-xl"></i
+              ></a>
+              <a target="_blank" href="https://twitter.com"
+                ><i class="fa-brands fa-twitter fa-xl"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- modal -->
+    <div
+      class="modal fade"
+      id="addModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2
+              class="modal-title text-white display-4"
+              id="staticBackdropLabel"
+            >
+              Add a Product
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              id="modal-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <label for="product-name">Product Name</label>
+              <input
+                type="text"
+                name="product-name"
+                id="product-name"
+                placeholder="Cool sword"
+              />
+              <label for="product-price">Product Price</label>
+              <input
+                type="text"
+                name="product-price"
+                id="product-price"
+                placeholder="100"
+              />
+              <label for="product-desc">Product Description</label>
+              <input
+                type="text"
+                name="product-desc"
+                id="product-desc"
+                placeholder="It's sharp"
+              />
+              <label for="product-category">Product Category</label>
+              <input
+                type="text"
+                name="product-category"
+                id="product-category"
+                placeholder="Eges & Dragons"
+              />
+              <label for="product-count">Product Count</label>
+              <input
+                type="text"
+                name="product-count"
+                id="product-count"
+                placeholder="10"
+              />
+              <label for="product-img">Product Image URL</label>
+              <input
+                type="url"
+                name="product-img"
+                id="product-img"
+                placeholder="http://... or https://..."
+              />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              class="btn btn-primary"
+              id="add-submit"
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              class="btn btn-warning d-none"
+              id="edit-submit"
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- offcanvas -->
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasCart"
+      aria-labelledby="offcanvasCartLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasCartLabel">Cart</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body" id="cart-body"></div>
+      <div class="offcanvas-footer d-flex justify-content-center mb-5">
+        <button class="btn btn-success px-5" id="purchase-btn">
+          <i class="fa-solid fa-money-bill"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bootstrap Script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alarm Uygulaması</title>
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id="clock"></div>
+
+  <div class="alarmekle">
+    <input type="number" id="hourInput" min="0" max="23" placeholder="St">:
+    <input type="number" id="minuteInput" min="0" max="59" placeholder="Dk">
+    <button onclick="addAlarm()">Alarm Ekle</button>
+  </div>
+
+  <h2>Alarmlarım</h2>
+  <ul id="alarmList"></ul>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h3>Alarm Çalıyor!</h3>
+      <button id="closeButton">Kapat</button>
+      <button id="snoozeButton">Ertele</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

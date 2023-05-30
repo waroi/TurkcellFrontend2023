@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="../js/app/app.js" type="module"></script>
+  <script src="https://kit.fontawesome.com/5e36563075.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/favicon-32x32.png">
+  <title>Kloud+ Store</title>
+</head>
+
+<body>
+  <header>
+    <div class="main-menu relative fixed-top bg-white w-100">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+        <div class="container">
+          <img class="logo" src="../assets/brandlogo.png" />
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <img class="logo" src="../assets/brandlogo.png" />
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./faq.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./ourteam.html">Team</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Plans
+                  </a>
+                  <ul class="dropdown-menu mb-3">
+                    <li><a class="dropdown-item" href="./beginner.html">Beginner</a></li>
+                    <li><a class="dropdown-item" href="./variety.html">Variety</a></li>
+                    <li><a class="dropdown-item" href="./pro.html">Pro</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="./store.html">Store</a>
+                </li>
+                <li class="nav-item" style="display: flex;">
+                  <!-- Button trigger modal -->
+                  <i type="button" data-bs-toggle="offcanvas" data-bs-target="#itemBasketOffcanvas"
+                    class="fa-solid fa-basket-shopping align-self-center fs-4" style="color: #000000;"></i>
+                    <span id="item-count-navbar"></span>
+                  <!-- Modal -->
+
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <section class="store-section1">
+    <div class="video-background">
+      <iframe
+        src="https://www.youtube.com/embed/eT7vKW7LLIs?start=5&end=70&controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=eT7vKW7LLIs"
+        frameborder="0" allowfullscreen></iframe>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>Kloud+ Merch Is Now Available To Everyone</h1>
+            <a type="button" class="btn btn-primary" href="#merchArea">Go To Merch Area<span>+</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="store-section2" id="merchArea">
+    <div class="title">
+      <h2 class="text-center">Merch Store</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="btn w-100"  data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne">Shop by Category</button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                <div class="accordion-body" id="category-list">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10 border-black">
+          <div class="pb-3">
+            <div class="d-inline position-relative">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search for products" id="search-input" class="w-50 form-input">
+          </div>
+            <select class="w-25 btn bg-transparent border-dark" id="sort-select">
+              <option selected>Sort By</option>
+              <option value="1">A-Z</option>
+              <option value="2">Z-A</option>
+              <option value="3">Price: High To Low</option>
+              <option value="4">Price: Low To High</option>
+            </select>
+            <button data-bs-toggle="modal" data-bs-target="#addProduct" id="add-button"
+              class="btn btn-primary">Add Products</button>
+            <div class="row" id="product-list">
+              <div class="card" style="width: 18rem;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="addProduct" tabindex="-1" aria-labelledby="addProductLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="addProductLabel">Add Product</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form class="form" id="product-form">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Product Title</span>
+              <input type="text" class="form-control" id="product-title-input"  aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" id="product-category-input" class="form-control" aria-describedby="basic-addon2">
+              <span class="input-group-text" id="basic-addon2">Category</span>
+            </div>
+            <div class="mb-3">
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon3">Product Cover URL</span>
+                <input type="text" class="form-control" id="product-url-input" aria-describedby="basic-addon3 basic-addon4">
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">$</span>
+              <input placeholder="Product Price" id="product-price-input" oninput="this.value = 
+              !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+              <span class="input-group-text">.00</span>
+            </div>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon3">Stock Amount</span>
+              <input type="number" class="form-control" id="product-stock-input" min="1" oninput="this.value = 
+              !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : null" aria-describedby="basic-addon3 basic-addon4">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-12 d-flex">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button id="clear-product-button" type="button" class="btn btn-warning">Clear</button>
+                <button id="modal-edit-button" type="button" class="btn btn-info d-none">Save Changes</button>
+                <button id="add-product-button" class="btn btn-primary">Add</button>
+                <div id="loading" class="spinner-border d-none text-success" style="align-self: center;" role="status"></div>
+              </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <section class="footer-top border-top border-secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h5>Follow Kloud+
+              <span class="m-1"><i class="fa-brands fa-square-facebook"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-instagram"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-twitter"></i></span>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footer-bottom mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-sm">
+            <div class="title">
+              <h6>Browse</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">Store</a>
+              </li>
+              <li>
+                <a href="#">Games</a>
+              </li>
+              <li>
+                <a href="#">Plans</a>
+              </li>
+              <li>
+                <a href="#">Merch</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>Resources</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">News</a>
+              </li>
+              <li>
+                <a href="#">Support
+                </a>
+              </li>
+              <li>
+                <a href="#">Feedback</a>
+              </li>
+              <li>
+                <a href="#">Community Standards</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>Kloud+ Store</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">Kloud+ account</a>
+              </li>
+              <li>
+                <a href="#">Kloud+ Store Support</a>
+              </li>
+              <li>
+                <a href="#">Returns</a>
+              </li>
+              <li>
+                <a href="#">Orders tracking</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>For Developers</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">OpenAI</a>
+              </li>
+              <li>
+                <a href="#">Windows</a>
+              </li>
+              <li>
+                <a href="#">API</a>
+              </li>
+              <li>
+                <a href="#">Designed for Kloud+</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>English ( United States )</span>
+            <p class="mt-2">© 2023 Kloud+ USA, All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+      id="itemBasketOffcanvas">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Item Count: <span id="item-count"></span></h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" id="cart-list">
+      </div>
+      <div class="offcanvas-footer">
+        <button id="purchase-btn"
+          class="btn btn-warning d-flex m-auto w-75 justify-content-center mb-4">Purchase</button>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary d-none" id="liveToastBtn">Show live toast</button>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Warning</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body text-primary">
+      The Item is already in your basket.
+    </div>
+  </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
+    <script>
+      const dropdownElementList = document.querySelectorAll(".dropdown-toggle");
+      const dropdownList = [...dropdownElementList].map(
+        (dropdownToggleEl) => new bootstrap.Dropdown(dropdownToggleEl)
+      );
+    </script>
+</body>
+</html>

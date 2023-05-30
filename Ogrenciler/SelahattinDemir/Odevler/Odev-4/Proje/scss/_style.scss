@@ -1,0 +1,210 @@
+* {
+  box-sizing: border-box;
+  font-family: "roboto", sans-serif;
+  line-height: 24px;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin header() {
+  background: none;
+  height: auto;
+}
+.bg-img {
+  background: linear-gradient(rgba(0, 0, 0, 0.268), rgba(0, 0, 0, 0.2)),
+    url("https://static.wixstatic.com/media/82fcd3_1e4cb7a7053948998237a43286bee5bf~mv2_d_3840_1470_s_2.jpg/v1/fill/w_1225,h_940,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/82fcd3_1e4cb7a7053948998237a43286bee5bf~mv2_d_3840_1470_s_2.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+.header-bg {
+  @extend .bg-img;
+  .nav-item img {
+    width: 40px !important;
+  }
+  .navbar-nav .dropdown-menu {
+    left: -60px;
+  }
+  .position-absolute {
+    top: 40%;
+    left: 20%;
+    a:hover {
+      color: #554739 !important;
+    }
+  }
+}
+.main-page {
+  background: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+  background-attachment: fixed;
+  .filter-group {
+    .category {
+      &:hover {
+        color: #554739;
+      }
+      &:focus {
+        color: #554739;
+        font-weight: bold;
+      }
+    }
+  }
+  .products {
+    form input {
+      box-shadow: 0 0px 10px rgba(51, 51, 51, 0.9);
+    }
+    .card {
+      img {
+        max-width: 245px;
+        max-height: 300px;
+        &:hover {
+          transform: scale(1.12);
+        }
+      }
+      .grid-title {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 100ch;
+      }
+    }
+    .card.card-product-grid,
+    .card.card-product-list {
+      box-shadow: 0 0px 20px rgba(51, 51, 51, 1);
+      &:hover {
+        .list-group {
+          display: flex !important;
+          left: 30px;
+          bottom: 10px;
+        }
+        .stock {
+          display: block !important;
+          left: 10px;
+          top: 10px;
+        }
+      }
+      .img-wrap {
+        border-radius: 0.25rem 0.25rem 0 0;
+      }
+      .info-aside {
+        border-left: 1px solid #dee2e6;
+      }
+    }
+    .btn-check:checked ~ .viewGrid,
+    .btn-check2:checked ~ .viewList {
+      display: none !important;
+    }
+    .btn-check:checked ~ .viewList {
+      display: block !important;
+    }
+    .btn-check2:checked ~ .viewGrid {
+      display: flex !important;
+    }
+  }
+}
+
+.offcanvas {
+  height: 100vh !important;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  .offcanvas-body {
+    .offcanvas-card {
+      background-color: white;
+      border-radius: 6px;
+      height: 300px;
+      max-width: 1300px;
+      margin-left: 80px;
+      img {
+        max-width: 245px;
+        max-height: 300px;
+      }
+      .quantity-input {
+        .quantity {
+          text-align: center;
+          background-color: goldenrod;
+        }
+      }
+      .remove-from-basket {
+        margin-top: 10px;
+      }
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+        .list-group {
+          display: flex !important;
+          left: 5px;
+          bottom: 50px;
+        }
+      }
+    }
+    .input-group {
+      width: 108px !important;
+    }
+  }
+}
+
+// about pages
+.about {
+  header {
+    @include header();
+  }
+  .about-content {
+    box-shadow: 0 0px 10px rgb(58, 185, 233, 0.5);
+  }
+}
+
+// faq pages
+.faq {
+  header {
+    @include header();
+  }
+  iframe {
+    @include size(100%, 500px);
+  }
+  .bg-img {
+    @extend .bg-img;
+    background: url("https://static.wixstatic.com/media/c837a6_62f24bc406f0421aa3c07aefef8b8107~mv2.jpg/v1/fill/w_1519,h_648,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c837a6_62f24bc406f0421aa3c07aefef8b8107~mv2.jpg");
+    margin: -25px 0;
+    height: fit-content;
+    background-size: cover;
+  }
+  .accordion-item {
+    background: none;
+    button {
+      background: none;
+    }
+    &:last-child {
+      border-bottom: 1px solid #8858ed;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-page {
+    .products {
+      .card.card-product-grid {
+        &:hover {
+          .list-group {
+            left: 5px;
+          }
+        }
+      }
+    }
+  }
+  .offcanvas {
+    .offcanvas-body {
+      .offcanvas-card {
+        height: 650px;
+        margin-left: 0px;
+      }
+    }
+  }
+}

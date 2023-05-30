@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/5e36563075.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/favicon-32x32.png">
+  <title>Kloud+ Variety</title>
+</head>
+
+<body>
+  <header>
+    <div class="main-menu relative fixed-top bg-white w-100">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+        <div class="container">
+          <img class="logo" src="../assets/brandlogo.png" />
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <img class="logo" src="../assets/brandlogo.png" />
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./faq.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./ourteam.html">Team</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./store.html">Store</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Plans
+                  </a>
+                  <ul class="dropdown-menu mb-3">
+                    <li><a class="dropdown-item" href="./beginner.html">Beginner</a></li>
+                    <li><a class="dropdown-item active" href="./variety.html">Variety</a></li>
+                    <li><a class="dropdown-item" href="./pro.html">Pro</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <a>Sign Up to KLOUD<span>+</span></a>
+                  </button>
+
+                  <!-- Modal -->
+
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <img class="logo" src="../assets/brandlogo.png" />
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="row g-3">
+                    <div class="col-md-6">
+                      <label for="inputEmail4" class="form-label">Email</label>
+                      <input required type="email" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputPassword4" class="form-label">Password</label>
+                      <input required type="password" class="form-control" id="inputPassword4">
+                    </div>
+                    <div class="col-12">
+                      <label for="inputAddress" class="form-label">Address</label>
+                      <input required type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    <div class="col-12">
+                      <label for="inputAddress2" class="form-label">Address 2</label>
+                      <input required type="text" class="form-control" id="inputAddress2"
+                        placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputCity" class="form-label">City</label>
+                      <input required type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="inputState" class="form-label">Plans</label>
+                      <select id="inputState" class="form-select">
+                        <option selected>Beginner</option>
+                        <option>Variety</option>
+                        <option>Pro</option>
+                      </select>
+                    </div>
+                    <div class="col-md-2">
+                      <label for="inputZip" class="form-label">Zip</label>
+                      <input type="text" class="form-control" id="inputZip">
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input required class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          I accept and agree to the Terms of Use
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <section class="variety-section1">
+    <div class="video-background">
+      <iframe
+        src="https://www.youtube.com/embed/4cJpiOPKH14?start=5&controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=4cJpiOPKH14"
+        frameborder="0" allowfullscreen></iframe>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>New Age For Variety Gaming</h2>
+            <p><small>Play Star Wars Eclipse Before Worldwide Release</small></p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <a>Go Variety<span>+</span></a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="variety-section2">
+    <div class="title">
+      <h2 class="text-center mb-3">Variety Plan Details</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card text-bg-dark">
+            <img
+              src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/43e6812a326d0229629eaa9596838715.jpg"
+              class="card-img" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Bandwith Size</h5>
+              <p class="card-text text-center">Our variety subscription service offers more bandwidth than our beginner
+                service, giving you the freedom to do more online without worrying about lag or buffering. You'll
+                experience seamless internet browsing, improved quality, and smoother streaming, all backed by our
+                dependable network.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-12">
+          <div class="card text-bg-dark">
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202106/0714/pYyqTYA34U1a7hv6BCrqgc24.png"
+              class="card-img" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Resolution</h5>
+              <p class="card-text text-center">Say goodbye to blurry, pixelated gaming and hello to crystal-clear
+                visuals that will make you feel like you're right there in the action. With Variety+, you'll never miss
+                a beat, and you'll always be able to enjoy the highest quality streaming and gaming experience possible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-12">
+          <div class="card text-bg-dark">
+            <img src="https://cdn.mos.cms.futurecdn.net/JarKa4TVZxSCuN8x8WNPSN.jpg" class="card-img" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Graphics</h5>
+              <p class="card-text text-center">With Variety+, get ready for stunning visuals that will bring your
+                favorite games to life. Our advanced graphics technology, including ray tracing, adds a new level of
+                realism and immersion to your gameplay, allowing you to see every detail and experience gaming like
+                never before.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-12">
+          <div class="card text-bg-dark">
+            <img src="https://cdn.alza.cz/Foto/ImgGalery/Image/star-wars-jedi-survivor-key-art.jpg" class="card-img"
+              alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Early Access</h5>
+              <p class="card-text text-center">Variety+ now comes with early access to most games! You'll be able to
+                experience new releases before anyone else, giving you a competitive edge and allowing you to be one of
+                the first to explore new game worlds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-12">
+          <div class="card text-bg-dark">
+            <img
+              src="https://sm.ign.com/t/ign_tr/news/f/final-fant/final-fantasy-16-is-probably-getting-a-pc-version-but-not-fo_v7v3.1280.jpg"
+              class="card-img" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Family Support</h5>
+              <p class="card-text text-center">Variety+ with the added benefit of support for up to 5 family members.
+                You'll be able to enjoy online content together without worrying about lag or buffering, and everyone
+                will have the freedom to do more online.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-12">
+          <div class="card text-bg-dark">
+            <img src="https://images7.alphacoders.com/749/thumb-1920-749807.png" class="card-img" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Upscaling</h5>
+              <p class="card-text text-center">Upscale any games upto 8K Resolution, 30fps. Variety+ is here to give you
+                full immersion.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="variety-section3">
+    <div class="video-background">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/NZP4_gaZACc?start=5&controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=NZP4_gaZACc"
+        frameborder="0" allowfullscreen></iframe>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>RTX, It's On.</h2>
+            <p>Play thousands of games with Ray Tracing Technology.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="variety-section4">
+    <div class="title">
+      <h2 class="text-center mb-3">Our Clients Experience</h2>
+      <p class="text-center">They go <span>Variety</span>, It's your turn.</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="img-wrapper1 border-1">
+            <img src="https://i.kym-cdn.com/photos/images/original/001/875/269/a15.jpg" class="img-fluid rounded">
+          </div>
+          <h5 class="text-center mt-3">Sodapoppin</h5>
+          <div class="text-border mt-3 mb-3 rounded">
+            <p class="">Hey everyone, it's Sodapoppin and I gotta tell you about Kloud+ cloud gaming service - Variety+.
+              It's seriously amazing. The upscaling and ray tracing features are out of this world, and the
+              high-performance bandwidth size means no lag or buffering. I can play on any device, anywhere, and feel
+              like I'm actually in the game. Plus, with family support for up to 5 people, everyone in my family can
+              enjoy it too. Kloud+ has changed the game for me and my family. If you want the ultimate gaming
+              experience, you gotta check it out.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="img-wrapper1 border-1">
+            <img src="https://assets.night.co/630bc46507ee3300e9a1f6e8/63bdce1af8fbb50720ad81d1_Headshot-Asmongold.webp"
+              class="img-fluid rounded">
+          </div>
+          <h5 class="text-center mt-3">Asmongold</h5>
+          <div class="text-border mt-3 mb-3 rounded">
+            <p>It's your boi Asmongold and I gotta tell you about Variety+. If you're into MMORPGs, then you need to
+              check this out. I've never experienced any lag or buffering while playing my favorite games, thanks to the
+              high-performance bandwidth size of this service. And the graphics? They're seriously next level. Addition
+              to that, you don't need to download any games at all. It's like I'm actually in the game. It's fast,
+              reliable, and perfect for anyone who loves MMORPGs. If you want to take your gaming experience to the next
+              level.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="img-wrapper1 border-1">
+            <img src="https://image-cdn.essentiallysports.com/wp-content/uploads/DftQsxlV4AIlQiL.jpg?width=600"
+              class="img-fluid rounded">
+          </div>
+          <h5 class="text-center mt-3">Lirik</h5>
+          <div class="text-border mt-3 mb-3 rounded">
+            <p>Hey everyone, it's Lirik. Let me tell you, this service is seriously impressive. It gives you early
+              access to most upcoming games. As a streamer, I need to stay on top of the latest games, and with
+              Variety's service, I can do just that. I get early access to the most highly anticipated games before
+              anyone else, which means I can provide my viewers with the ultimate gaming experience. So why wait? Sign
+              up today and take your gaming experience to absolute insanity mode. I highly recommend it to all gamers.
+              It's breathtaking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <section class="footer-top border-top border-secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h5>Follow Kloud+
+              <span class="m-1"><i class="fa-brands fa-square-facebook"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-instagram"></i></span>
+              <span class="m-1"><i class="fa-brands fa-square-twitter"></i></span>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footer-bottom mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-sm">
+            <div class="title">
+              <h6>Browse</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">Store</a>
+              </li>
+              <li>
+                <a href="#">Games</a>
+              </li>
+              <li>
+                <a href="#">Plans</a>
+              </li>
+              <li>
+                <a href="#">Merch</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>Resources</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">News</a>
+              </li>
+              <li>
+                <a href="#">Support
+                </a>
+              </li>
+              <li>
+                <a href="#">Feedback</a>
+              </li>
+              <li>
+                <a href="#">Community Standards</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>Kloud+ Store</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">Kloud+ account</a>
+              </li>
+              <li>
+                <a href="#">Kloud+ Store Support</a>
+              </li>
+              <li>
+                <a href="#">Returns</a>
+              </li>
+              <li>
+                <a href="#">Orders tracking</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <div class="title">
+              <h6>For Developers</h6>
+            </div>
+            <ul>
+              <li>
+                <a href="#">OpenAI</a>
+              </li>
+              <li>
+                <a href="#">Windows</a>
+              </li>
+              <li>
+                <a href="#">API</a>
+              </li>
+              <li>
+                <a href="#">Designed for Kloud+</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>English ( United States )</span>
+            <p class="mt-2">© 2023 Kloud+ USA, All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script>
+    const dropdownElementList = document.querySelectorAll(".dropdown-toggle");
+    const dropdownList = [...dropdownElementList].map(
+      (dropdownToggleEl) => new bootstrap.Dropdown(dropdownToggleEl)
+    );
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+-ödevin bulunduğu klasörde terminal açılır npm install ve npm run json:server komutu verilerek çalıştırılır.
+-go live dedikten sonra proje hazırdır.
