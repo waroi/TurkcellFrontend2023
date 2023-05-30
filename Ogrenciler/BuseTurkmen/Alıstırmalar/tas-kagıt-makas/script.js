@@ -1,120 +1,116 @@
-// Oyun sayfasını gizle, karşılama ekranını göster
-document.getElementById ('game-screen').style.display = 'none';
-document.getElementById('welcome-screen').style.display = 'block';
+const game = () => {
+  let pScore = 0;
+  let cScore = 0;
 
-// Skorları sıfırla
-let computerScore = 0;
-let playerScore = 0;
-updateScores();
+  //Start the Game
+  const startGame = () => {
+    const playBtn = document.querySelector(".intro button");
+    const introScreen = document.querySelector(".intro");
+    const match = document.querySelector(".match");
 
-// Oyun başlatma butonuna tıklandığında
-document.getElementById('play-button').addEventListener('click', function() {
-  // Karşılama ekranını gizle, oyun sayfasını göster
-  document.getElementById('welcome-screen').style.display = 'none';
-  document.getElementById('game-screen').style.display = 'block';
-});
+    playBtn.addEventListener("click", () => {
+      introScreen.classList.add("fadeOut");
+      match.classList.add("fadeIn");
+    });
+  };
+  //Play Match
+  const playMatch = () => {
+    const options = document.querySelectorAll(".options button");
+    const playerHand = document.querySelector(".player-hand");
+    const computerHand = document.querySelector(".computer-hand");
+    const hands = document.querySelectorAll(".hands img");
 
-// Taş, kağıt, makas butonlarına tıklandığında
-const handButtons = document.getElementsByClassName('hand-button');
-for (let i = 0; i < handButtons.length; i++) {
-  handButtons[i].addEventListener('click', function() {
-    const playerChoice = this.getAttribute('data-choice');
-    const computerChoice = getComputerChoice();
-    animateHands(playerChoice, computerChoice);
-    const result = getResult(playerChoice, computerChoice);
-    updateResult(result);
-    updateScores();
-    checkEndGame();
-  });
-}
+    hands.forEach(hand => {
+      hand.addEventListener("animationend", function() {
+        this.style.animation = "";
+      });
+    });
+    //Computer Options
+    const computerOptions = ["rock", "paper", "scissors"];
 
-// Çıkış butonuna tıklandığında
-document.getElementById('exit-button').addEventListener('click', function() {
-  resetGame();
-});
+    options.forEach(option => {
+      option.addEventListener("click", function() {
+        //Computer Choice
+        const computerNumber = Math.floor(Math.random() * 3);
+        const computerChoice = computerOptions[computerNumber];
 
-// Tekrar oyna butonuna tıklandığında
-document.getElementById('play-again-button').addEventListener('click', function() {
-  resetGame();
-  document.getElementById('result-modal').style.display = 'none';
-  document.getElementById('game-screen').style.display = 'block';
-});
+        setTimeout(() => {
+          //Here is where we call compare hands
+          compareHands(this.textContent, computerChoice);
+          //Update Images
+          playerHand.src = `./assets/${this.textContent}.png`;
+          computerHand.src = `./assets/${computerChoice}.png`;
+        }, 2000);
+        //Animation
+        playerHand.style.animation = "shakePlayer 2s ease";
+        computerHand.style.animation = "shakeComputer 2s ease";
+      });
+    });
+  };
 
-// Bilgisayarın rastgele seçim yapması
-function getComputerChoice() {
-  const choices = ['rock', 'paper', 'scissors'];
-  const randomIndex = Math.floor(Math.random() * choices.length);
-  return choices[randomIndex];
-}
+  const updateScore = () => {
+    const playerScore = document.querySelector(".player-score p");
+    const computerScore = document.querySelector(".computer-score p");
+    playerScore.textContent = pScore;
+    computerScore.textContent = cScore;
+  };
 
-// Ellerin animasyonlu olarak gösterilmesi
-function animateHands(playerChoice, computerChoice) {
-  const playerHand = document.getElementById('player-hand');
-  const computerHand = document.getElementById('computer-hand');
-  playerHand.src = playerChoice + '.png';
-  computerHand.src = computerChoice + '.png';
-  playerHand.classList.add('animate');
-  computerHand.classList.add('animate');
-  setTimeout(function() {
-    playerHand.classList.remove('animate');
-    computerHand.classList.remove('animate');
-  }, 1000);
-}
-
-// Sonucun hesaplanması
-function getResult(playerChoice, computerChoice) {
-  if (playerChoice === computerChoice) {
-    return 'draw';
-  } else if (
-    (playerChoice === 'rock' && computerChoice === 'scissors') ||
-    (playerChoice === 'paper' && computerChoice === 'rock') ||
-    (playerChoice === 'scissors' && computerChoice === 'paper')
-  ) {
-    return 'win';
-  } else {
-    return 'lose';
-  }
-}
-
-// Sonucun güncellenmesi
-function updateResult(result) {
-  const resultElement = document.getElementById('result');
-  if (result === 'draw') {
-    resultElement.innerHTML = 'Berabere!';
-  } else if (result === 'win') {
-    resultElement.innerHTML = 'Kazandın!';
-  } else {
-    resultElement.innerHTML = 'Kaybettin!';
-  }
-}
-
-// Skorların güncellenmesi
-function updateScores() {
-  document.getElementById('computer-score').innerHTML = 'Computer: ' + computerScore;
-  document.getElementById('player-score').innerHTML = 'Player: ' + playerScore;
-}
-
-// Oyunun sonunu kontrol etme
-function checkEndGame() {
-  if (computerScore === 10 || playerScore === 10) {
-    let modalMessage = '';
-    if (playerScore > computerScore) {
-      modalMessage = 'Kazandınız!';
-    } else if (playerScore < computerScore) {
-      modalMessage = 'Kaybettiniz!';
-    } else {
-      modalMessage = 'Berabere!';
+  const compareHands = (playerChoice, computerChoice) => {
+    //Update Text
+    const winner = document.querySelector(".winner");
+    //Checking for a tie
+    if (playerChoice === computerChoice) {
+      winner.textContent = "It is a tie";
+      return;
     }
-    document.getElementById('modal-message').innerHTML = modalMessage;
-    document.getElementById('result-modal').style.display = 'block';
-    document.getElementById('game-screen').style.display = 'none';
-  }
-}
+    //Check for Rock
+    if (playerChoice === "rock") {
+      if (computerChoice === "scissors") {
+        winner.textContent = "Player Wins";
+        pScore++;
+        updateScore();
+        return;
+      } else {
+        winner.textContent = "Computer Wins";
+        cScore++;
+        updateScore();
+        return;
+      }
+    }
+    //Check for Paper
+    if (playerChoice === "paper") {
+      if (computerChoice === "scissors") {
+        winner.textContent = "Computer Wins";
+        cScore++;
+        updateScore();
+        return;
+      } else {
+        winner.textContent = "Player Wins";
+        pScore++;
+        updateScore();
+        return;
+      }
+    }
+    //Check for Scissors
+    if (playerChoice === "scissors") {
+      if (computerChoice === "rock") {
+        winner.textContent = "Computer Wins";
+        cScore++;
+        updateScore();
+        return;
+      } else {
+        winner.textContent = "Player Wins";
+        pScore++;
+        updateScore();
+        return;
+      }
+    }
+  };
 
-// Oyunu sıfırlama
-function resetGame() {
-  computerScore = 0;
-  playerScore = 0;
-  updateScores();
-}
+  //Is call all the inner function
+  startGame();
+  playMatch();
+};
 
+//start the game function
+game();
