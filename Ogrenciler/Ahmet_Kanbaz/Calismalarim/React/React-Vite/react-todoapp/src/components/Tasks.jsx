@@ -3,7 +3,14 @@ import PropTypes from 'prop-types'
 function Tasks({task}) {
 
   const deleteTask = (e) => {
-    e.target.parentNode.remove();
+    const allTasks = JSON.parse(localStorage.getItem('tasks'));
+    allTasks.map((item, index) => {
+      if(item.id === task.id) {
+        allTasks.splice(index, 1);
+        localStorage.setItem('tasks', JSON.stringify(allTasks));
+        e.target.parentElement.remove();
+      }
+    });
   }
 
 
@@ -16,15 +23,16 @@ function Tasks({task}) {
       style = {{
         listStyle: 'none',
       }}
+      id={task.id}
       onClick={doneTask}>
-      {task}
+      {task.text}
       <span className="float-end fa-solid fa-xmark pt-1" onClick={deleteTask}></span>
     </li>
   )
 }
 
 Tasks.propTypes = {
-  task: PropTypes.string.isRequired,
+  task: PropTypes.object.isRequired,
 }
 
 export default Tasks

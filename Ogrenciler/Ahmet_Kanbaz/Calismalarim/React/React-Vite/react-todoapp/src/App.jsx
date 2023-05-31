@@ -12,10 +12,6 @@ function App() {
     }
   }, [])
 
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(todo))
-  }, [todo])
-
   const handleChange = (e) => {
     setInput(e.target.value)
   }
@@ -27,8 +23,11 @@ function App() {
         text: input,
         isCompleted: false
       }
-      setToDo([...todo, newToDo]);
+      const newToDoList = [...todo, newToDo];
+      setToDo(newToDoList);
+      localStorage.setItem('tasks', JSON.stringify(newToDoList));
       setInput('');
+
     }
   }
 
@@ -44,7 +43,7 @@ function App() {
         <ul className='w-75'>
           {
             todo.map((item) => {
-              return <Tasks key={item.id} task={item.text}/>
+              return <Tasks key={item.id} task={item}/>
               })
           }
         </ul>
