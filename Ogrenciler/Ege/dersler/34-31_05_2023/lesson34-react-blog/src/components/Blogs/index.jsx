@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import FullPost from "../FullPost";
-
+import { Grid } from "@mui/material";
 const Blogs = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -10,9 +10,16 @@ const Blogs = () => {
   }, []);
   return (
     <div>
+      <Grid container spacing={4}>
       {posts.map((post) => (
-        <FullPost key={post.id} post={post} />
+        <>
+          <Grid item xs={12}>
+            <FullPost key={post.id} post={post} />
+          </Grid>
+        </>
       ))}
+      </Grid>
+      
     </div>
   );
 };
