@@ -1,23 +1,33 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-  const [deger, setDeger] = useState(0);
-  // function Arttır(){setDeger(deger+1)}
-  // function Azalt(){setDeger(deger-1)}
-  const Arttır = () => setDeger(deger + 1)
-  const Azalt = () => setDeger(deger - 1)
+  const [timer, setTimer] = useState(5)
+
+  useEffect(() => {
+
+    if (timer !== 0) {
+      const interval = setInterval(() => {
+        setTimer(timer - 1)
+      }, 1000)
+
+      return () => clearInterval(interval)
+    }
+
+
+
+  }, [timer])
+
   return (
     <div className='App'>
-      <button onClick={Arttır}>Arttır</button>
-      <p>{deger}</p>
-      <button onClick={Azalt}>Azalt</button>
+      <div style={{
+        height: "150px", width: "150px", backgroundColor: "blue", borderRadius: "50%",
+        color: "white", fontSize: "30px", marin: "10px auto", lineHeight: "150px"
+      }}>
+        {timer}
+      </div>
     </div>
   )
 }
 
 export default App
-
-
-
-
