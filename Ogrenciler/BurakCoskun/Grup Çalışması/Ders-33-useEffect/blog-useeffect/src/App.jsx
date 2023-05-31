@@ -25,7 +25,7 @@ function App() {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
       .then((data) => setContents(data));
-    fetch("https://jsonplaceholder.typicode.com/photos?_limit=100")
+    fetch("https://picsum.photos/v2/list?page=1&limit=100")
       .then((response) => response.json())
       .then((data) => setImages(data));
   }, []);
@@ -35,7 +35,9 @@ function App() {
       <h1>React App</h1>
       <div className="container">
         {contents.map((content) => {
-          const image = images.find((image) => image.id === content.id);
+          const image = images.find(
+            (image) => parseInt(image.id) + 1 === parseInt(content.id)
+          );
           return <Card key={content.id} content={content} image={image} />;
         })}
       </div>
