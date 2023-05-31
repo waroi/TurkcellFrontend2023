@@ -15,11 +15,30 @@ function Tasks({task}) {
 
 
   function doneTask(e) {
-    e.target.classList.toggle('done');
+    if(e.target.classList.contains('taskItemLi')) {
+      e.target.classList.toggle('done');
+      if(e.target.classList.contains('done')) {
+        doneTaskInLocalStorage(e.target.id, 'done');
+      }
+      else {
+        doneTaskInLocalStorage(e.target.id, '');
+      }
+    }
+  }
+
+  function doneTaskInLocalStorage(id, status) {
+    const allTasks = JSON.parse(localStorage.getItem('tasks'));
+    allTasks.map((item) => {
+      if(item.id == id) {
+        item.isCompleted = status;
+      }
+      return item;
+    });
+    localStorage.setItem('tasks', JSON.stringify(allTasks));
   }
 
   return (
-    <li className='mt-2 rounded-4 py-2 px-3'
+    <li className={`mt-2 rounded-4 py-2 px-3 taskItemLi ${task.isCompleted}`}
       style = {{
         listStyle: 'none',
       }}

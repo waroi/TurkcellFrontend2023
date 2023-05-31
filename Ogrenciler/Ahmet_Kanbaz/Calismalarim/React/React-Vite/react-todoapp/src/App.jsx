@@ -21,7 +21,7 @@ function App() {
       const newToDo = {
         id: Date.now(),
         text: input,
-        isCompleted: false
+        isCompleted: ''
       }
       const newToDoList = [...todo, newToDo];
       setToDo(newToDoList);
