@@ -26,7 +26,27 @@ const AddTodo = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [text, setText] = useState("");
-  const [deadline, setDeadline] = useState("");
+  const [deadline, setDeadline] = useState({});
+  const handleSubmit = () => {
+    const newTodo = {
+      text: text,
+      deadline: deadline,
+      completed: false,
+    };
+    fetch("http://localhost:3000/todos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTodo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        handleClose();
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
@@ -38,7 +58,13 @@ const AddTodo = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <TextField id="outlined-basic" label="Todo" variant="outlined" />
+          <TextField
+            id="outlined-basic"
+            label="Todo"
+            variant="outlined"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={["DateTimePicker"]}>
               <DateTimePicker
@@ -46,7 +72,7 @@ const AddTodo = () => {
                 label="Deadline"
                 ampm={false}
                 onChange={(date) =>
-                  console.log(date.format("DD/MM/YYYY HH:mm"))
+                  setDeadline(Date.parse(date.format("YYYY-MM-DD HH:mm")))
                 }
               />
             </DemoContainer>
@@ -55,7 +81,9 @@ const AddTodo = () => {
             <Button variant="outlined" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="contained">Add Todo</Button>
+            <Button variant="contained" onClick={handleSubmit}>
+              Add Todo
+            </Button>
           </Stack>
         </Box>
       </Modal>
