@@ -1,0 +1,50 @@
+.card {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 3%;
+  color: black;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px -5px rgb(236, 236, 236);
+}
+
+.card-header {
+  display: flex;
+}
+
+.card-body {
+  padding: 1rem;
+  
+}
+
+h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  max-height: 168px;
+}
+
+
+@media screen and (min-width: 375px) {
+  .card-body {
+    padding: 3px;
+  }
+}
