@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import SingleCard from '../Cards/SingleCard';
+import './allcards.css'
 const Allcards = ({posts, images}) => {
   const newCards = [];
   {
@@ -18,12 +19,10 @@ const Allcards = ({posts, images}) => {
     });
   }
   return (
-    <div>
-      {
-        newCards.map((singleCard) => {
-          <SingleCard a='Hello' key={singleCard.id}/>
-        })
-      }
+    <div className='allCards'>
+      {newCards.map((newCard) => (
+        <SingleCard key={newCard.id} newCard={newCard}/>
+      ))}
     </div>
   )
 }
@@ -34,14 +33,3 @@ Allcards.propTypes = {
 }
 
 export default Allcards
-
-//Single Card Component
-/* <div className="singleCard">
-        <div className="cardImage">
-        <img src={singleCard.imageUrl} alt={singleCard.title} />
-        </div>
-        <div className="cardContent">
-        <h3>{singleCard.title}</h3>
-        <p>{singleCard.body}</p>
-        </div>
-      </div> */

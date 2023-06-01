@@ -1,17 +1,22 @@
 import PropTypes from 'prop-types'
 import './singlecard.css'
 
-const SingleCard = ({a}) => {
+const SingleCard = ({newCard}) => {
   return (
-    <div className='singleCards'>
-      {}
-      {console.log(a)}
+    <div className='singleCard'>
+        <div className="cardImage">
+          <img src={newCard.imageUrl} alt={newCard.title} />
+        </div>
+      <div className="cardContent">
+        <h3>{newCard.title}</h3>
+        <p>{newCard.body}</p>
+      </div>
     </div>
   )
 }
 
 SingleCard.propTypes = {
-  a: PropTypes.string
+  newCard: PropTypes.object
 }
 
 export default SingleCard
