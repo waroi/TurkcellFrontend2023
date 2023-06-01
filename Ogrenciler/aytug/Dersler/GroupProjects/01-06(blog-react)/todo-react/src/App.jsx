@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
+import Card from "./components/CardContainer/Card";
 import "./App.css";
 
 function App() {
-	const [todo, setTodo] = useState([]);
-
-	useEffect(() => {
-		fetch("http://localhost:3000/")
-			.then((resp) => resp.json())
-			.then((data) => setTodo(data));
-	}, []);
-	return <></>;
+	return (
+		<>
+			<Card>TODOLIST</Card>
+		</>
+	);
 }
 
 export default App;
