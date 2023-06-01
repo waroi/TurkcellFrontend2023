@@ -54,16 +54,4 @@ function CardList() {
   );
 }
 
-// joint.map((obj, i) => {
-//     return (
-//       <Card
-//         key={i}
-//         id={obj.id}
-//         src={obj.img}
-//         title={obj.title}
-//         body={obj.body}
-//       />
-//     );
-//   })
-
 export default CardList;
