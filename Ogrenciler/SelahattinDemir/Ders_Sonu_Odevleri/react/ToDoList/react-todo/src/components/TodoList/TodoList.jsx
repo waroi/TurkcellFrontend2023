@@ -11,14 +11,14 @@ const TodoList = () => {
       .then((res) => res.json())
       .then((data) => setTodos(data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [todos]);
 
   console.log(todos);
   return (
     <div>
       {todos.map((todo) => (
         <div key={todo.id}>
-          <Todo todo={todo} />
+          <Todo todo={todo} todos={todos} setTodos={setTodos} />
         </div>
       ))}
     </div>
