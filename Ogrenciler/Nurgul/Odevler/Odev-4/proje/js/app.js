@@ -223,38 +223,38 @@ modal.show();
     }
   }
   
-  async addToCart(productId) {
-    try {
-    const response = await fetch(`${this.apiUrl}/${productId}`);
-    const product = await response.json();     if (product) {
-      this.cartItems.push(product);
-      this.updateCartIcon();
-    }
-    } catch (error) {
-    console.error("Hata:", error);
-    }
-    }
-    openCartModal() {
-        const modal = new bootstrap.Modal(document.querySelector("#cartModal"));
-        const cartItemsContainer = document.querySelector("#cartItemsContainer");
-        const totalPrice = document.querySelector("#totalPrice");cartItemsContainer.innerHTML = "";
-        let total = 0;
+  // async addToCart(productId) {
+  //   try {
+  //   const response = await fetch(`${this.apiUrl}/${productId}`);
+  //   const product = await response.json();     if (product) {
+  //     this.cartItems.push(product);
+  //     this.updateCartIcon();
+  //   }
+  //   } catch (error) {
+  //   console.error("Hata:", error);
+  //   }
+  //   }
+  //   openCartModal() {
+  //       const modal = new bootstrap.Modal(document.querySelector("#cartModal"));
+  //       const cartItemsContainer = document.querySelector("#cartItemsContainer");
+  //       const totalPrice = document.querySelector("#totalPrice");cartItemsContainer.innerHTML = "";
+  //       let total = 0;
         
-        this.cartItems.forEach(item => {
-        const itemTemplate = `
-          <div class="cart-item">
-            <div>${item.name}</div>
-            <div>${item.price}</div>
-          </div>
-        `;
-        cartItemsContainer.innerHTML += itemTemplate;
-        total += parseFloat(item.price);
-        });
+  //       this.cartItems.forEach(item => {
+  //       const itemTemplate = `
+  //         <div class="cart-item">
+  //           <div>${item.name}</div>
+  //           <div>${item.price}</div>
+  //         </div>
+  //       `;
+  //       cartItemsContainer.innerHTML += itemTemplate;
+  //       total += parseFloat(item.price);
+  //       });
         
-        totalPrice.textContent = total.toFixed(2);
+  //       totalPrice.textContent = total.toFixed(2);
         
-        modal.show();
-        }
+  //       modal.show();
+  //       }
    
   //Search
   searchProductsByName(searchTerm) {
@@ -337,17 +337,14 @@ function buyCart() {
     document.getElementById("cartItemsContainer").innerHTML = "";
     document.getElementById("totalPrice").textContent = "";
 
-    // Ürün stoklarını güncelle
-    // Bu kısımda, sepetten alınan ürünlerin stoklarını güncellemek için
-    // uygun bir veritabanı veya veri kaynağına bağlanmanız gerekecektir.
-    // İşte bir örnek:
-    var cartItems = []; // Sepetteki ürünleri temsil eden bir dizi
+  
+    var cartItems = []; // Sepetteki ürünleri temsil ediyor
     for (var i = 0; i < cartItems.length; i++) {
       var item = cartItems[i];
-      // Ürün stoklarını güncelleme işlemleri burada yapılacak
+    
     }
 
-    // İşlem tamamlandıktan sonra kullanıcıya bir mesaj gösterebilirsiniz
+    
     alert("Purchase completed. Thank you for your order!");
   }
 const addProductButton = document.querySelector("#addProductButton");
