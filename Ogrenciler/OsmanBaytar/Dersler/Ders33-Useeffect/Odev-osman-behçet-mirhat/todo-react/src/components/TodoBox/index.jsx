@@ -20,23 +20,15 @@ const TodoBox = ({ number, person, job, date }) => {
   const getEditedData=(e)=>{
     const editID =
       e.target.parentElement.parentElement.firstChild.firstChild.textContent;
-      console.log(editID);
       fetch(`${url}/${editID}`)
       .then((response) => response.json())
       .then((data) => setEditedData(data));
-      console.log(`${url}/${editID}`)
-      console.log(editedData);
-      console.log(editedData.person);
+  
       document.getElementById("addPerson").value=editedData.person;
       document.getElementById("addJob").value=editedData.job;
       document.getElementById("addDate").value=editedData.date;
       return editID;
   }
-  // const getEditedId=(e)=>{
-  //   const editID =
-  //     e.target.parentElement.parentElement.firstChild.firstChild.textContent;
-  //   return editID;
-  // }
 
   return (
     <div className="col-lg-4 todoBox">

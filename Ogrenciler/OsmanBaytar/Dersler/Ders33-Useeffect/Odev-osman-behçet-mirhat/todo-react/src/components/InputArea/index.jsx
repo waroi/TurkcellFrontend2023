@@ -20,7 +20,6 @@ const InputArea = () => {
     const deleteJobData =document.getElementById("addJob").value;
     const deleteDateData =document.getElementById("addDate").value;
     let editedUrl =`${url}?person=${deletePersonData}&job=${deleteJobData}&date=${deleteDateData}`
-    console.log(editedUrl);
     fetch(editedUrl)
       .then((response) => response.json())
       .then((data) => setId(data[0].id));
