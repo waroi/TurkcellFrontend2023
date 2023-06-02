@@ -57,7 +57,6 @@ const TodoItem = ({todo,setFlag}) => {
     }
 
     const editOn = () => {
-        console.log("edit on")
         setIsEdit(true)
     }
 
@@ -84,14 +83,15 @@ const TodoItem = ({todo,setFlag}) => {
   return (
     
         <div className={`rounded-3 bg-white py-2 row justify-content-between align-items-center mb-3 ${date<0 &&"border border-2 border-danger"}`}>    
+
             <input className='col-lg-8 col-sm-12 titleCut text-start m-0 border-0' name='title' type="text"
              readOnly={isEdit?false:true} value={todos.title}  onClick={editOn} onChange={handleChange} onBlur={editDone}/>
-
 
             <div className='col-lg-2 col-sm-6 py-lg-0 py-sm-2 text-start'>
                 <input className='border-0' name='expDate' type="date" min={today} value={todos.expDate} readOnly={isEdit?false:true}  onClick={editOn} onChange={handleChange} onBlur={editDone}/>
                 <p className='m-0'>({ date<0 ? "Tarihi Geçti" : date + " Gün Kaldı"})</p>
-                </div>
+            </div>
+
             <div className='col-lg-2 col-sm-6 text-lg-center text-sm-end'>
                 <button className='bg-transparent border-0' onClick={handleDone}>{isDone?<i className="fa-regular fa-circle-check fa-lg" style={{color:"#ca8bfe"}}></i>:<i className="fa-regular fa-circle fa-lg" style={{color:"#717082"}}></i>}</button>
                 <span>|</span>
