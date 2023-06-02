@@ -1,16 +1,23 @@
 import { addTodo, changeStatusTodo } from "../../services/api";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-const InputTodo = ({ setNewTodo, value, setIsEdit, isEdit }) => {
+const InputTodo = ({ setNewTodo, value, setIsEdit, isEdit, setValue }) => {
 	const [todoInput, setTodoInput] = useState(value);
 
 	useEffect(() => {
 		value == null ? setTodoInput("") : setTodoInput(value.title);
-	}, [value]);
+	}, [value, isEdit]);
+
+	console.log(todoInput);
 
 	function addNewTodo() {
 		if (isEdit) {
 			changeStatusTodo(value.id, todoInput, value.completed);
+			setNewTodo(Date.now());
+			setTodoInput("");
+			setIsEdit(false);
+			setValue("");
 		} else {
 			if (todoInput.trim() === "") {
 				alert("Todo boş olamaz");
@@ -18,6 +25,7 @@ const InputTodo = ({ setNewTodo, value, setIsEdit, isEdit }) => {
 				addTodo(todoInput);
 				setNewTodo(Date.now());
 				setTodoInput("");
+				console.log(isEdit);
 			}
 		}
 	}
@@ -33,15 +41,21 @@ const InputTodo = ({ setNewTodo, value, setIsEdit, isEdit }) => {
 					id="addNewTodo"
 					placeholder="Todo ekleyin"
 				/>
-				<button
-					className="btn btn-primary ms-3"
-					onClick={() => addNewTodo()}
-				>
+				<button type="button" className="btn btn-primary ms-3" onClick={() => addNewTodo()}>
 					{isEdit ? "Güncelle" : "Ekle"}
 				</button>
 			</div>
 		</form>
 	);
+};
+
+InputTodo.propTypes = {
+	value: PropTypes.object,
+	isEdit: PropTypes.bool,
+	setValue: PropTypes.func,
+	setCompleted: PropTypes.func,
+	setIsEdit: PropTypes.func,
+	setNewTodo: PropTypes.func,
 };
 
 export default InputTodo;

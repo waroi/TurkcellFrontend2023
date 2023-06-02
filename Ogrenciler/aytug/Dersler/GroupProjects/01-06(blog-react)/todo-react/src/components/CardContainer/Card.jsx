@@ -13,7 +13,7 @@ const Card = () => {
 
 	useEffect(() => {
 		getTodos();
-	}, [completed, newTodo]);
+	}, [completed, newTodo, value, isEdit]);
 
 	const getTodos = async () => {
 		const response = await getAllTodos();
@@ -33,7 +33,7 @@ const Card = () => {
 				</div>
 			</div>
 			<div className="card__content">
-				<InputTodo setNewTodo={setNewTodo} value={value} setIsEdit={setIsEdit} isEdit={isEdit} />
+				<InputTodo setNewTodo={setNewTodo} value={value} setIsEdit={setIsEdit} setValue={setValue} isEdit={isEdit} />
 				{todoList.map((todo) => (
 					<AddTodo
 						completed={completed}
