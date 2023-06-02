@@ -70,16 +70,19 @@ const Todo = ({ todo, setTodos }) => {
 
   return (
     <div className={`${passed ? "passed" : ""} ${todo.completed ? "completed" : ""} todo `}>
+      <div className="todo-info">
       <h3>{todo.text}</h3>
       <p>
-        {date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}{" "}
+        {date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}{"/"}
         {date.getMonth() < 10
           ? "0" + (date.getMonth() + 1)
-          : date.getMonth() + 1}{" "}
+          : date.getMonth() + 1}{"/"}
         {date.getFullYear()}{" "}
         {date.getHours() < 10 ? "0" + date.getHours() : date.getHours()}:
         {date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}
       </p>
+      </div>
+      <div className="buttons-area">
       <Button  onClick={() => handleDelete()}>
         <DeleteIcon className="Buttons"/>
       </Button>
@@ -106,6 +109,7 @@ const Todo = ({ todo, setTodos }) => {
       <Button  onClick = {() => handleComplete()}>
           <CheckIcon className="Buttons"/>
         </Button>
+      </div>
     </div>
   );
 };

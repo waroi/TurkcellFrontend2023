@@ -15,8 +15,6 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
 };
@@ -74,12 +72,15 @@ const EditTodo = ({
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        className="modal"
       >
         <Box sx={style}>
           <TextField
             id="outlined-basic"
             label="Todo"
             variant="outlined"
+            className="modalBox"
+            sx={{ input: { color: "gold" }, "label": {color: "gold"} }}
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
@@ -89,6 +90,7 @@ const EditTodo = ({
                 format="DD/MM/YYYY HH:mm"
                 label="Deadline"
                 ampm={false}
+                sx={{ input: { color: "gold" }, "label": {color: "gold"} }}
                 defaultValue={deadline}
                 onChange={(date) =>
                   setDeadline(Date.parse(date.format("YYYY-MM-DD HH:mm")))
@@ -96,11 +98,11 @@ const EditTodo = ({
               />
             </DemoContainer>
           </LocalizationProvider>
-          <Stack spacing={2} direction="row">
-            <Button variant="outlined" onClick={handleClose}>
+          <Stack spacing={2} sx={{mt: 2}} direction="row">
+            <Button className="closeBtn" variant="outlined" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="contained" onClick={handleSubmit}>
+            <Button className="addToDoBtn" variant="contained" onClick={handleSubmit}>
               Edit Todo
             </Button>
           </Stack>

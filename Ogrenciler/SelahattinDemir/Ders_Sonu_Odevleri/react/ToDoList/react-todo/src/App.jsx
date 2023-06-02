@@ -16,7 +16,9 @@ function App() {
 
   return (
     <>
+
     <div className="container">
+    <h1 className="title">Lord of Todos</h1>
       <TodoTools todos={todos} setTodos={setTodos} filter={filter} setFilter={setFilter} />
       <TodoList todos={todos} setTodos = {setTodos} filter={filter} />
     </div>

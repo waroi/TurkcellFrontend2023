@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import Todo from "../Todo/Todo";
+import "./style.css"
 
 
 const TodoList = ({todos, setTodos, filter}) => {
@@ -24,7 +25,7 @@ const TodoList = ({todos, setTodos, filter}) => {
   //   setFilteredTodos(todos)
   // }, [])
   return (
-    <div>
+    <div className="todoList">
      
       {
       todos.map((todo) => (

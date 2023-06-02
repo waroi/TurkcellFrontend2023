@@ -13,6 +13,7 @@ const TodoTools = ({ todos, setTodos}) => {
   };
 
   return (
+    <>
     <div className="todoTools">
       <AddTodo setTodos={setTodos} />
       <Search
@@ -20,8 +21,10 @@ const TodoTools = ({ todos, setTodos}) => {
         handleOriginal={handleOriginal}
         setTodos={setTodos}
       />
-    {/* <Filter todos={todos} setTodos={setTodos} handleOriginal={handleOriginal} filter={filter} setFilter = {setFilter}/> */}
+      
     </div>
+    <hr />
+    </>
   );
 };
 

@@ -17,10 +17,8 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
-  p: 4,
+    p: 4,
 };
 
 const AddTodo = ({setTodos}) => {
@@ -66,16 +64,18 @@ const AddTodo = ({setTodos}) => {
       <Modal
         open={open}
         onClose={handleClose}
+        className="modal"
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} className="modalBox">
           <TextField
             id="outlined-basic"
             label="Todo"
             variant="outlined"
             value={text}
             onChange={(e) => setText(e.target.value)}
+            sx={{ input: { color: "gold" }, "label": {color: "gold"} }}
           />
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={["DateTimePicker"]}>
@@ -83,17 +83,18 @@ const AddTodo = ({setTodos}) => {
                 format="DD/MM/YYYY HH:mm"
                 label="Deadline"
                 ampm={false}
+                sx={{ input: { color: "gold" }, "label": {color: "gold"} }}
                 onChange={(date) =>
                   setDeadline(Date.parse(date.format("YYYY-MM-DD HH:mm")))
                 }
               />
             </DemoContainer>
           </LocalizationProvider>
-          <Stack spacing={2} direction="row">
-            <Button variant="outlined" onClick={handleClose}>
+          <Stack spacing={2} sx={{mt: 2}} direction="row">
+            <Button className="closeBtn" variant="outlined" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="contained" onClick={handleSubmit}>
+            <Button className="addToDoBtn" variant="contained" onClick={handleSubmit}>
               Add Todo
             </Button>
           </Stack>
