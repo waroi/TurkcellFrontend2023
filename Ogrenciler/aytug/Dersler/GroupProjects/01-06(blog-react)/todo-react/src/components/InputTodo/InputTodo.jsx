@@ -1,35 +1,43 @@
-import { addTodo } from "../../services/api";
+import { addTodo, changeStatusTodo } from "../../services/api";
+import { useState, useEffect } from "react";
 
-const InputTodo = ({ setNewTodo }) => {
-	function addNewTodo(e) {
-		e.preventDefault();
-		const todo = document.getElementById("addNewTodo").value;
-		if (todo.trim() === "") {
-			alert("Todo boş olamaz");
+const InputTodo = ({ setNewTodo, value, setIsEdit, isEdit }) => {
+	const [todoInput, setTodoInput] = useState(value);
+
+	useEffect(() => {
+		value == null ? setTodoInput("") : setTodoInput(value.title);
+	}, [value]);
+
+	function addNewTodo() {
+		if (isEdit) {
+			changeStatusTodo(value.id, todoInput, value.completed);
 		} else {
-			document.getElementById("addNewTodo").value = "";
-			addTodo(todo);
-			setNewTodo(Date.now());
+			if (todoInput.trim() === "") {
+				alert("Todo boş olamaz");
+			} else {
+				addTodo(todoInput);
+				setNewTodo(Date.now());
+				setTodoInput("");
+			}
 		}
 	}
-	function changeStatusTodo(e) {
-		// const todo = document.getElementById("addNewTodo").value;
-		// if (todo.trim() === "") {
-		//   alert("Todo boş olamaz");
-		// } else {
-		//   document.getElementById("addNewTodo").value = "";
-		//   addTodo(todo);
-		// }
-		e.preventDefault();
-		console.log(e.target.value);
-		console.log("ONCHANGE");
-	}
+
 	return (
 		<form>
 			<div className="mb-3 d-flex justify-content-center">
-				<input type="text" className="form-control w-50" id="addNewTodo" placeholder="Todo ekleyin" />
-				<button className="btn btn-primary ms-3" onClick={(e) => addNewTodo(e)}>
-					Ekle
+				<input
+					type="text"
+					value={todoInput}
+					onChange={(e) => setTodoInput(e.target.value)}
+					className="form-control w-50"
+					id="addNewTodo"
+					placeholder="Todo ekleyin"
+				/>
+				<button
+					className="btn btn-primary ms-3"
+					onClick={() => addNewTodo()}
+				>
+					{isEdit ? "Güncelle" : "Ekle"}
 				</button>
 			</div>
 		</form>

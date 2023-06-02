@@ -1,11 +1,16 @@
 import PropTypes from "prop-types";
 import { changeStatusTodo, deleteTodo } from "../../services/api";
 
-const AddTodo = ({ todo, setCompleted, completed, setNewTodo }) => {
+const AddTodo = ({ todo, setCompleted, completed, setNewTodo, setValue, setIsEdit }) => {
 	// const [completed, setCompleted] = useState();
 	// useEffect(() => {
 	// 	setCompleted(todo.completed);
 	// }, []);
+
+	const handleEdit = (todo) => {
+		console.log(todo);
+		setValue(todo);
+	};
 
 	return (
 		<div className="d-flex justify-content-between mt-1">
@@ -22,7 +27,7 @@ const AddTodo = ({ todo, setCompleted, completed, setNewTodo }) => {
 				<p className="text-white text-align-start m-0 ms-1">{todo.title.toUpperCase()}</p>
 			</div>
 			<div>
-				<button className="btn btn-primary me-2">
+				<button className="btn btn-primary me-2" onClick={() => { handleEdit(todo); setIsEdit(true) }}>
 					<i className="bi bi-pencil-square"></i>
 				</button>
 				<button
@@ -41,6 +46,7 @@ const AddTodo = ({ todo, setCompleted, completed, setNewTodo }) => {
 
 AddTodo.propTypes = {
 	todo: PropTypes.object.isRequired,
+	setValue: PropTypes.func.isRequired,
 };
 
 export default AddTodo;

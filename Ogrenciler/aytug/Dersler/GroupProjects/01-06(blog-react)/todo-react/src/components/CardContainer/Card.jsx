@@ -8,8 +8,9 @@ const Card = () => {
 	const [todoList, setTodoList] = useState([]);
 	const [completed, setCompleted] = useState("false");
 	const [newTodo, setNewTodo] = useState("");
+	const [value, setValue] = useState();
+	const [isEdit, setIsEdit] = useState(false);
 
-	console.log(newTodo);
 	useEffect(() => {
 		getTodos();
 	}, [completed, newTodo]);
@@ -18,7 +19,6 @@ const Card = () => {
 		const response = await getAllTodos();
 		setTodoList(response);
 	};
-
 	return (
 		<div className="card">
 			<div className="tools">
@@ -33,7 +33,7 @@ const Card = () => {
 				</div>
 			</div>
 			<div className="card__content">
-				<InputTodo setNewTodo={setNewTodo} />
+				<InputTodo setNewTodo={setNewTodo} value={value} setIsEdit={setIsEdit} isEdit={isEdit} />
 				{todoList.map((todo) => (
 					<AddTodo
 						completed={completed}
@@ -41,6 +41,8 @@ const Card = () => {
 						setNewTodo={setNewTodo}
 						todo={todo}
 						key={todo.id}
+						setValue={setValue}
+						setIsEdit={setIsEdit}
 					/>
 				))}
 			</div>
