@@ -51,7 +51,7 @@ const SingleItem = ({ singleTask }) => {
     })
       .then(res => res.json())
     changeIsUpdate();
-    singleTask.task = updatedTask
+    singleTask.task = updatedTask;
     e.preventDefault();
   }
   return (
@@ -70,10 +70,8 @@ const SingleItem = ({ singleTask }) => {
               defaultValue = {singleTask.task}
               style = {{ border: 'none', outline: 'none', borderRadius: '7px', padding: '5px 10px', width: '80%' }} />
             <a href='#' style = {{ textDecoration: 'none', color: '#000000', marginLeft: '2rem' }} onClick={updateTask}>Güncelle</a>
-          </div> : singleTask.task
+          </div> : <span className='taskName'>{singleTask.task}</span>
         }
-
-        {/* Iconlar yeni bir component kullanılarak çekilebilir. */}
         <div className='icons'>
           <span className='fa-solid fa-pen' onClick={changeIsUpdate}></span>
           <span className='fa-solid fa-trash' onClick={deleteItem}></span>
