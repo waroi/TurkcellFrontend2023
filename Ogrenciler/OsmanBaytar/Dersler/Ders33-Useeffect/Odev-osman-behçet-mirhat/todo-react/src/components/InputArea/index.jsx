@@ -3,7 +3,7 @@ import "./index.css";
 
 const InputArea = () => {
   const [add, setAdd] = useState({ person: "", job: "", date: "", id: "" });
-  // const [isClicked, setisClicked] = useState(false);
+  const [id,setId]=useState();
 
   const postContent = () => {
     fetch("http://localhost:3000/boxes", {
@@ -13,12 +13,41 @@ const InputArea = () => {
     }).then((response) => response.json());
   };
 
-  // useEffect(() => {
-  //   if (isClicked) {
-  //     postContent();
-  //     setisClicked(false);
-  //   }
-  // }, [isClicked]);
+  const url = "http://localhost:3000/boxes";
+
+  const editContent = () => {
+    const deletePersonData =document.getElementById("addPerson").value;
+    const deleteJobData =document.getElementById("addJob").value;
+    const deleteDateData =document.getElementById("addDate").value;
+    let editedUrl =`${url}?person=${deletePersonData}&job=${deleteJobData}&date=${deleteDateData}`
+    console.log(editedUrl);
+    fetch(editedUrl)
+      .then((response) => response.json())
+      .then((data) => setId(data[0].id));
+    editedUrl=`${url}/${id}`;  
+    return editedUrl;
+  };
+
+  
+  const saveContent=()=>{
+
+    let editedUrl =editContent();
+    const savePersonData =document.getElementById("addPerson").value;
+    const saveJobData =document.getElementById("addJob").value;
+    const saveDateData =document.getElementById("addDate").value;
+    const saveData = {
+      "person": savePersonData,
+      "job": saveJobData,
+      "date": saveDateData
+    };
+    fetch(editedUrl, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(saveData),
+    }).then((response) => response.json());
+  }
 
   return (
     <div className="container inputArea">
@@ -49,7 +78,8 @@ const InputArea = () => {
         <button onClick={postContent} className="btn btn-primary">
           Add Todo
         </button>
-        <button className="btn btn-success">Edit Todo</button>
+        <button onClick={editContent} className="btn btn-success">Edit Todo</button>
+        <button onClick={saveContent} className="btn btn-secondary">Save Todo</button>
       </div>
     </div>
   );
