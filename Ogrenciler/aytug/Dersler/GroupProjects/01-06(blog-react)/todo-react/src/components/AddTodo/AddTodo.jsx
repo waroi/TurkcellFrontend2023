@@ -50,7 +50,7 @@ AddTodo.propTypes = {
 	setCompleted: PropTypes.func.isRequired,
 	setIsEdit: PropTypes.func.isRequired,
 	setNewTodo: PropTypes.func.isRequired,
-	completed: PropTypes.bool.isRequired,
+	completed: PropTypes.string,
 };
 
 export default AddTodo;

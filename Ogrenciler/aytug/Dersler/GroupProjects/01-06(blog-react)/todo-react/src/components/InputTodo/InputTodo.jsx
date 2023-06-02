@@ -9,8 +9,6 @@ const InputTodo = ({ setNewTodo, value, setIsEdit, isEdit, setValue }) => {
 		value == null ? setTodoInput("") : setTodoInput(value.title);
 	}, [value, isEdit]);
 
-	console.log(todoInput);
-
 	function addNewTodo() {
 		if (isEdit) {
 			changeStatusTodo(value.id, todoInput, value.completed);
