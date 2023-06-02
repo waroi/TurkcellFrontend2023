@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as React from "react";
 import { useEffect, useState } from "react";
 import "./App.css";
@@ -14,11 +15,12 @@ import {
   faCircleCheck,
   faCircleXmark,
   faPenToSquare,
+  faVolumeHigh,
 } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -34,6 +36,7 @@ function App() {
       })
       .catch((error) => console.log(error));
   };
+  
   useEffect(() => {
     getData();
   }, []);
@@ -94,6 +97,7 @@ function App() {
       })
       .catch((error) => console.log(error));
   };
+
   const handleDelete = (id) => {
     const requestOptions = {
       method: "DELETE",
@@ -153,12 +157,50 @@ function App() {
       });
   };
 
+  const searchTodos = (e) => {
+    const searchValue = e.target.value.toLowerCase();
+    if (searchValue === "") {
+      return getData();
+    }
+
+    const filteredPosts = posts.filter((post) => {
+      return (
+        post.title.toLowerCase().includes(searchValue) ||
+        post.description.toLowerCase().includes(searchValue)
+      );
+    });
+
+    setPosts(filteredPosts);
+  };
+
+  const handleDeleteAll = async () => {
+    posts.map((post) => {
+      fetch(`http://localhost:3000/tasks/${post.id}`, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => {})
+        .catch((error) => console.log(error));
+    });
+    setPosts([]);
+  };
+
   return (
     <>
       <nav className="navbar">
         <h1>Todo App</h1>
+        <input
+          type="text"
+          placeholder="Search"
+          className="searchInput"
+          onChange={searchTodos}
+        />
+
         <button className="addTaskBtn" onClick={handleOpen}>
           Add New Task
+        </button>
+        <button className="deleteAll" onClick={handleDeleteAll}>
+          Delete All
         </button>
       </nav>
 
@@ -171,6 +213,7 @@ function App() {
       >
         {posts.map((post) => (
           <Card
+            key={post.id}
             sx={{
               display: "flex",
               marginBottom: "10px",
