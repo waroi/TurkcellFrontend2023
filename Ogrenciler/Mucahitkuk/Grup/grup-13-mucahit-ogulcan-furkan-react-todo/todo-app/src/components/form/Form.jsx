@@ -8,12 +8,12 @@ const Form = ({setTodoList, setText, text, isChange}) => {
     e.preventDefault()
     if (text.trim() === "") {
       setText("Todo cannot be empty.");
-      setTimeout(() => setText(""), 2000);
+      setTimeout(() => setText(""), 1000);
       return;
     }
     if (text.length > 50) {
       setText("Todo should be less than 50 characters.");
-      setTimeout(() => setText(""), 2000);
+      setTimeout(() => setText(""), 1000);
       return;
     }
     const todo = new Todo(text);
@@ -34,4 +34,9 @@ const Form = ({setTodoList, setText, text, isChange}) => {
 
 export default Form
 
-Form.propTypes = { setTodoList: PropTypes.func.isRequired }
+Form.propTypes = {
+  setTodoList: PropTypes.func.isRequired,
+  setText: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+  isChange: PropTypes.bool.isRequired
+};
