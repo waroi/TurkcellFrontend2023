@@ -1,0 +1,145 @@
+body {
+  background: url("https://img.freepik.com/free-photo/abstract-uv-ultraviolet-light-composition_23-2149243965.jpg?w=1380&t=st=1685667820~exp=1685668420~hmac=9924a259fa6e9a782420a0d99601d24b461ab08d2ae7ffd774dc8e893dc5e538");
+  /* background: url("https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?w=1380&t=st=1685668362~exp=1685668962~hmac=1a71899dc1ccb1d070281fb4384421d5989c7c2e65ee8847af8a2d20923ea904"); */
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#root {
+  /* From https://css.glass */
+
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 4rem 1rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  min-width: 30%;
+  max-width: 100%;
+}
+
+.todo {
+  margin: auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+
+  border: 1px #ccc dotted;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.complete {
+  background-color: #18bd62;
+  color: #fff;
+}
+
+.important {
+  text-decoration: line-through;
+  background-color: #ee8726;
+  color: #fff;
+  text-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 21px #fff,
+    0 0 10px rgb(255, 166, 0), 0 0 40px rgb(250, 170, 50),
+    0 0 40px rgb(202, 133, 4), 0 0 70px rgb(255, 145, 0),
+    0 0 80px rgb(255, 166, 0);
+}
+
+.add-button {
+  color: rgb(255, 255, 255);
+  padding: 1rem 1rem;
+  border-radius: 50%;
+  background-color: rgb(11, 101, 180);
+  cursor: pointer;
+}
+.input-box {
+  margin-bottom: 2rem;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+input {
+  background: rgba(255, 255, 255, 0.404);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.5px);
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000000;
+  font-weight: 700;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  margin-right: 46px;
+  align-items: center;
+}
+li {
+  min-width: 100%;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.5px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin-bottom: 2em;
+  list-style: none;
+}
+li:hover {
+  background-color: rgba(115, 86, 209, 0.29);
+  color: #fff;
+  box-shadow: 0px 0px 61px 21px rgba(115, 86, 209, 0.29);
+}
+
+.todo-items {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.todo-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+
+.todo-items span {
+  display: flex;
+  justify-content: flex-start;
+}
