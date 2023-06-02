@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import AddTodo from "../modals/AddTodo/AddTodo";
 import Search from "../Search/Search";
+import "./style.css";
 
 const TodoTools = ({ todos, setTodos}) => {
   
@@ -12,7 +13,7 @@ const TodoTools = ({ todos, setTodos}) => {
   };
 
   return (
-    <div>
+    <div className="todoTools">
       <AddTodo setTodos={setTodos} />
       <Search
         todos={todos}

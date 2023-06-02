@@ -6,11 +6,18 @@ import CheckIcon from '@mui/icons-material/Check';
 import Button from "@mui/material/Button";
 import dayjs from "dayjs";
 import "./style.css"
+import EditTodo from "../modals/EditTodo/EditTodo";
 
-const Todo = ({ todo, handleOpen, setText, setDeadline, setTodos }) => {
+const Todo = ({ todo, setTodos }) => {
   const [passed, setPassed] = useState(false);
   const date = new Date(todo.deadline);
   const current = Date.now();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const [text, setText] = useState("");
+  const [deadline, setDeadline] = useState({});
   const handlePreSubmit = () => {
     setText(todo.text);
     setDeadline(dayjs(todo.deadline));
@@ -62,7 +69,7 @@ const Todo = ({ todo, handleOpen, setText, setDeadline, setTodos }) => {
 
 
   return (
-    <div className={`${passed ? "passed" : ""} ${todo.completed ? "completed" : ""}`}>
+    <div className={`${passed ? "passed" : ""} ${todo.completed ? "completed" : ""} todo `}>
       <h3>{todo.text}</h3>
       <p>
         {date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}{" "}
@@ -73,19 +80,31 @@ const Todo = ({ todo, handleOpen, setText, setDeadline, setTodos }) => {
         {date.getHours() < 10 ? "0" + date.getHours() : date.getHours()}:
         {date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}
       </p>
-      <Button onClick={() => handleDelete()}>
-        <DeleteIcon />
+      <Button  onClick={() => handleDelete()}>
+        <DeleteIcon className="Buttons"/>
       </Button>
-      <Button
+      <Button 
         onClick={() => {
           handleOpen();
           handlePreSubmit();
+
         }}
       >
-        <EditIcon />
+        <EditIcon className="Buttons"/>
       </Button>
-      <Button onClick = {() => handleComplete()}>
-          <CheckIcon/>
+      <EditTodo
+      id={todo.id}
+      todo={todo}
+      open={open}
+      handleClose={handleClose}
+      text={text}
+      deadline={deadline}
+      setDeadline={setDeadline}
+      setText={setText}
+      setTodos = {setTodos}
+    />
+      <Button  onClick = {() => handleComplete()}>
+          <CheckIcon className="Buttons"/>
         </Button>
     </div>
   );

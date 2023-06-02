@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
+import "./style.css";
 
 const Search = ({ todos, handleOriginal, setTodos }) => {
   const [search, setSearch] = useState("");
@@ -26,6 +27,10 @@ const Search = ({ todos, handleOriginal, setTodos }) => {
         label="Search"
         variant="outlined"
         value={search}
+      //   InputLabelProps={{
+      //     style: { color: '#fff' }, 
+      //  }}
+      sx={{ input: { color: "gold" }, "label": {color: "gold"} }}
         onChange={(e) => setSearch(e.target.value)}
       />
     </div>

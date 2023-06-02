@@ -22,6 +22,7 @@ const style = {
 };
 
 const EditTodo = ({
+  id,
   handleClose,
   open,
   todo,
@@ -44,10 +45,11 @@ const EditTodo = ({
     const newTodo = {
       text: text,
       deadline: deadline,
-      completed: false,
+      completed: todo.completed,
     };
+    console.log(id)
 
-    fetch(`http://localhost:3000/todos/${todo.id}`, {
+    fetch(`http://localhost:3000/todos/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -62,6 +64,7 @@ const EditTodo = ({
       .then(fetchData)
       .catch((err) => console.log(err));
     setText("");
+    
   };
 
   return (

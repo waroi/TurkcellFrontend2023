@@ -16,8 +16,10 @@ function App() {
 
   return (
     <>
+    <div className="container">
       <TodoTools todos={todos} setTodos={setTodos} filter={filter} setFilter={setFilter} />
       <TodoList todos={todos} setTodos = {setTodos} filter={filter} />
+    </div>
     </>
   );
 }
