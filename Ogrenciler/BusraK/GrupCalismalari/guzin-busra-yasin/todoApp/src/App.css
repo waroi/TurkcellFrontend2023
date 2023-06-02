@@ -1,11 +1,9 @@
 body {
   background: url("https://img.freepik.com/free-photo/abstract-uv-ultraviolet-light-composition_23-2149243965.jpg?w=1380&t=st=1685667820~exp=1685668420~hmac=9924a259fa6e9a782420a0d99601d24b461ab08d2ae7ffd774dc8e893dc5e538");
   /* background: url("https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?w=1380&t=st=1685668362~exp=1685668962~hmac=1a71899dc1ccb1d070281fb4384421d5989c7c2e65ee8847af8a2d20923ea904"); */
-
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: #ffffff;
@@ -19,8 +17,6 @@ body {
 }
 
 #root {
-  /* From https://css.glass */
-
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -46,6 +42,38 @@ body {
   align-items: center;
 }
 
+.todo-icon {
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+.todo-icon:hover {
+  color: #fff;
+  box-shadow: 0px 0px 61px 21px rgba(115, 86, 209, 0.29);
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-2px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
 .complete {
   background-color: #18bd62;
   color: #fff;
@@ -67,6 +95,12 @@ body {
   border-radius: 50%;
   background-color: rgb(11, 101, 180);
   cursor: pointer;
+}
+
+.add-button:hover {
+  box-shadow: 0px 0px 61px 21px rgba(115, 86, 209, 0.29);
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
 }
 .input-box {
   margin-bottom: 2rem;
@@ -96,6 +130,10 @@ input {
   color: #000000;
   font-weight: 700;
 }
+input:hover {
+  box-shadow: 0px 0px 61px 21px rgba(115, 86, 209, 0.29);
+}
+
 ul {
   display: flex;
   flex-direction: column;
