@@ -29,6 +29,7 @@ const Todo = ({ todo, setTodos }) => {
     }else {
       setPassed(false)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const fetchData = () => {
