@@ -29,7 +29,17 @@ const EditTodo = ({
   deadline,
   setText,
   setDeadline,
+  setTodos
 }) => {
+
+  const fetchData = () => {
+    fetch("http://localhost:3000/todos")
+      .then((res) => res.json())
+      .then((data) => setTodos(data))
+      .catch((err) => console.log(err));
+  }
+
+
   const handleSubmit = () => {
     const newTodo = {
       text: text,
@@ -49,6 +59,7 @@ const EditTodo = ({
         console.log(data);
         handleClose();
       })
+      .then(fetchData)
       .catch((err) => console.log(err));
     setText("");
   };

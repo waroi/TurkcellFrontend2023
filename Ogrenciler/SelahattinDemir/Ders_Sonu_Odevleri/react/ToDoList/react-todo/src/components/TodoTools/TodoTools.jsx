@@ -2,7 +2,7 @@
 import AddTodo from "../modals/AddTodo/AddTodo";
 import Search from "../Search/Search";
 
-const TodoTools = ({ todos, setTodos }) => {
+const TodoTools = ({ todos, setTodos}) => {
   
   const handleOriginal = () => {
     fetch("http://localhost:3000/todos")
@@ -13,12 +13,13 @@ const TodoTools = ({ todos, setTodos }) => {
 
   return (
     <div>
-      <AddTodo />
+      <AddTodo setTodos={setTodos} />
       <Search
         todos={todos}
         handleOriginal={handleOriginal}
         setTodos={setTodos}
       />
+    {/* <Filter todos={todos} setTodos={setTodos} handleOriginal={handleOriginal} filter={filter} setFilter = {setFilter}/> */}
     </div>
   );
 };

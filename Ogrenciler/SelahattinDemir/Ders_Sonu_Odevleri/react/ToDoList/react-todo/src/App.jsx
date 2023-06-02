@@ -5,6 +5,7 @@ import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState("")
 
   useEffect(() => {
     fetch("http://localhost:3000/todos")
@@ -15,8 +16,8 @@ function App() {
 
   return (
     <>
-      <TodoTools todos={todos} setTodos={setTodos} />
-      <TodoList todos={todos} />
+      <TodoTools todos={todos} setTodos={setTodos} filter={filter} setFilter={setFilter} />
+      <TodoList todos={todos} setTodos = {setTodos} filter={filter} />
     </>
   );
 }

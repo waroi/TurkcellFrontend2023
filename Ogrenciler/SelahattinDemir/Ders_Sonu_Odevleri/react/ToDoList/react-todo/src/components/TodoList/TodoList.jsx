@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Todo from "../Todo/Todo";
 import EditTodo from "../modals/EditTodo/EditTodo";
 
-const TodoList = ({todos}) => {
-  const [process, setProcess] = useState([]);
+const TodoList = ({todos, setTodos, filter}) => {
+  const [filteredTodos, setFilteredTodos] = useState([]);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -14,29 +14,32 @@ const TodoList = ({todos}) => {
   const [text, setText] = useState("");
   const [deadline, setDeadline] = useState({});
 
- 
+  // useEffect (() => {
+  //   if(filter == "completed"){
+  //     setFilteredTodos(todos.filter(todo => todo.completed == true))
+  //   }
+  //   else if(filter == "uncompleted"){
+  //     setFilteredTodos(todos.filter(todo => todo.completed == false))
+  //   }
+  //   else {
+  //       setFilteredTodos(todos)}
+  // }, [filter])
 
-  const handleDelete = (id) => {
-    fetch(`http://localhost:3000/todos/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => setProcess(data))
-      .catch((err) => console.log(err));
-
-    return <Todo todo={process} />;
-  };
-
+  // useEffect(() => {
+  //   setFilteredTodos(todos)
+  // }, [])
   return (
     <div>
-      {todos.map((todo) => (
+     
+      {
+      todos.map((todo) => (
         <div key={todo.id}>
           <Todo
             todo={todo}
-            handleDelete={handleDelete}
             handleOpen={handleOpen}
             setText={setText}
             setDeadline={setDeadline}
+            setTodos = {setTodos}
           />
           <EditTodo
             todo={todo}
@@ -46,6 +49,7 @@ const TodoList = ({todos}) => {
             deadline={deadline}
             setDeadline={setDeadline}
             setText={setText}
+            setTodos = {setTodos}
           />
         </div>
       ))}

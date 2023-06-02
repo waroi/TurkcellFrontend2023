@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -21,12 +22,20 @@ const style = {
   p: 4,
 };
 
-const AddTodo = () => {
+const AddTodo = ({setTodos}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [text, setText] = useState("");
   const [deadline, setDeadline] = useState({});
+
+  const fetchData = () => {
+    fetch("http://localhost:3000/todos")
+      .then((res) => res.json())
+      .then((data) => setTodos(data))
+      .catch((err) => console.log(err));}
+
+
   const handleSubmit = () => {
     const newTodo = {
       text: text,
@@ -45,6 +54,7 @@ const AddTodo = () => {
         console.log(data);
         handleClose();
       })
+      .then(fetchData)
       .catch((err) => console.log(err));
       setText("");
   };
