@@ -6,16 +6,28 @@
 
 section {
   height: 100vh;
-  background-color: rgb(39, 41, 68);
+  background-color: rgb(199, 188, 230);
   font-family: sans-serif;
 }
 
 .score {
-  color: rgb(224, 224, 224);
+  color: rgb(152, 88, 204);
   height: 20vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.player-score {
+  border: 3px solid rgb(152, 88, 204);
+  padding: 15px;
+  border-radius: 30px;
+  font-family: cursive;
+}
+.computer-score {
+  border: 3px solid  rgb(152, 88, 204);
+  padding: 15px;
+  border-radius: 30px;
+  font-family: cursive;
 }
 .score h2 {
   font-size: 30px;
@@ -27,13 +39,25 @@ section {
 }
 
 .intro {
-  color: rgb(224, 224, 224);
+  color: rgb(233, 170, 170);
   height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   transition: opacity 0.5s ease;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+  color: rgb(91, 15, 141);
+  font-family: cursive;
+  font-size: 40px;
+  border-bottom: 2px rgb(116, 0, 139) dashed;
 }
 
 .intro h1 {
@@ -45,11 +69,13 @@ section {
   height: 50px;
   background: none;
   border: none;
-  color: rgb(224, 224, 224);
+  color: rgb(219, 167, 219);
   font-size: 20px;
-  background: rgb(45, 117, 96);
+  background: rgb(128, 69, 143);
   border-radius: 3px;
   cursor: pointer;
+  font-size: 25px;
+  font-family: cursive;
 }
 
 .match {
@@ -60,7 +86,8 @@ section {
   transition: opacity 0.5s ease 0.5s;
 }
 .winner {
-  color: rgb(224, 224, 224);
+  margin-top: 180px;
+  color: rgb(152, 88, 204);
   text-align: center;
   font-size: 50px;
 }
