@@ -10,7 +10,7 @@ function Todo(props) {
 
   const createEditUI = (e) => {
     return (
-      <div>
+      <div className="edit-div">
         <input
           type="text"
           placeholder="todo güncelle"
@@ -34,7 +34,7 @@ function Todo(props) {
   return (
     <div className="todo-card" id={props.id}>
       <div className="todo-headline">
-        <h2>{props.text}</h2>
+        <h2>{props.text.charAt(0).toUpperCase() + props.text.slice(1)}</h2>
       </div>
       <div className="todo-edit">{createEditUI()}</div>
       <div className="todo-buttons">

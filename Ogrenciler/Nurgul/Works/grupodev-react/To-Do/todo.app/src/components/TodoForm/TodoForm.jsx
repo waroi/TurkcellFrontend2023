@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Todo from "../Todo/Todo";
+import "./TodoForm.css";
 
 function TodoForm() {
   const [input, setInput] = useState("");
@@ -58,7 +59,7 @@ function TodoForm() {
   }, []);
 
   return (
-    <div>
+    <div className="todo-form">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
