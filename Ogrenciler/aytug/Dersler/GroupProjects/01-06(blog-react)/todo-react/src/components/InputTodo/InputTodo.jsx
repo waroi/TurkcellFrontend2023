@@ -25,7 +25,6 @@ const InputTodo = ({ setNewTodo, value, setIsEdit, isEdit, setValue }) => {
 				addTodo(todoInput);
 				setNewTodo(Date.now());
 				setTodoInput("");
-				console.log(isEdit);
 			}
 		}
 	}
