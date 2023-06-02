@@ -1,35 +1,17 @@
 /* eslint-disable react/prop-types */
-import {  useEffect } from "react";
+// import {  useEffect } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Button from "@mui/material/Button";
+import dayjs from "dayjs";
 
-const Todo = ({ todo, setTodos }) => {
-  
+const Todo = ({ todo, handleDelete, handleOpen, setText, setDeadline }) => {
   const date = new Date(todo.deadline);
 
-  
-  const fetchData = () => {
-    fetch("http://localhost:3000/todos")
-      .then((res) => res.json())
-      .then((data) => setTodos(data))
-      .catch((err) => console.log(err));
-  }
-
-  
-  const handleDelete = () => {
-    fetch(`http://localhost:3000/todos/${todo.id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then(fetchData)
-      .catch((err) => console.log(err));
+  const handlePreSubmit = () => {
+    setText(todo.text);
+    setDeadline(dayjs(todo.deadline));
   };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-  
 
   return (
     <div className="card">
@@ -43,10 +25,17 @@ const Todo = ({ todo, setTodos }) => {
         {date.getHours() < 10 ? "0" + date.getHours() : date.getHours()}:
         {date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}
       </p>
-      <Button onClick={handleDelete}>
+      <Button onClick={() => handleDelete(todo.id)}>
         <DeleteIcon />
       </Button>
-      <EditIcon />
+      <Button
+        onClick={() => {
+          handleOpen();
+          handlePreSubmit();
+        }}
+      >
+        <EditIcon />
+      </Button>
     </div>
   );
 };
