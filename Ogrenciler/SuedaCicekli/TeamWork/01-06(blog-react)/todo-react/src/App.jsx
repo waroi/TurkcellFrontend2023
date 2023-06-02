@@ -4,7 +4,8 @@ import "./App.css";
 function App() {
 	return (
 		<>
-			<Card>TODOLIST</Card>
+			<h1 className="fw-bold mb-4">TODO APP </h1>
+			<Card >TODOLIST</Card>
 		</>
 	);
 }

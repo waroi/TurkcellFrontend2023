@@ -1,22 +1,21 @@
 import { addTodo, changeStatusTodo } from "../../services/api";
 import { useState, useEffect } from "react";
 
-const InputTodo = ({ setNewTodo, value, setValue, setIsEdit, isEdit }) => {
+const InputTodo = ({ setNewTodo, value, setIsEdit, setValue, isEdit }) => {
 	const [todoInput, setTodoInput] = useState(value);
 
 	useEffect(() => {
 		value == null ? setTodoInput("") : setTodoInput(value.title);
 	}, [isEdit]);
 
-	const handleAddTodo = (event) => {
-		event.preventDefault(); // Form gönderimini engelle
-
+	const addNewTodo = (event) => {
+		event.preventDefault();
 		if (isEdit) {
 			changeStatusTodo(value.id, todoInput, value.completed);
 			setTodoInput("")
 			setIsEdit(false);
-			setValue("a");
 			setNewTodo(Date.now());
+			setValue(Date.now());
 		} else {
 			if (todoInput.trim() === "") {
 				alert("Todo boş olamaz");
@@ -26,7 +25,7 @@ const InputTodo = ({ setNewTodo, value, setValue, setIsEdit, isEdit }) => {
 				setTodoInput("");
 			}
 		}
-	};
+	}
 
 	return (
 		<form>
@@ -39,7 +38,10 @@ const InputTodo = ({ setNewTodo, value, setValue, setIsEdit, isEdit }) => {
 					id="addNewTodo"
 					placeholder="Todo ekleyin"
 				/>
-				<button className="btn btn-primary ms-3" onClick={handleAddTodo}>
+				<button
+					className="btn btn-primary ms-3"
+					onClick={addNewTodo}
+				>
 					{isEdit ? "Güncelle" : "Ekle"}
 				</button>
 			</div>

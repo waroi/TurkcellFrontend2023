@@ -7,6 +7,7 @@ const AddTodo = ({ todo, setCompleted, completed, setNewTodo, setValue, setIsEdi
 
 	const handleEdit = (todo) => {
 		setValue(todo);
+		setIsEdit(true)
 	};
 
 	return (
@@ -24,7 +25,7 @@ const AddTodo = ({ todo, setCompleted, completed, setNewTodo, setValue, setIsEdi
 				<p className="text-white text-align-start m-0 ms-1">{todo.title}</p>
 			</div>
 			<div>
-				<button className="btn btn-primary me-2" onClick={() => { handleEdit(todo); setIsEdit(true) }}>
+				<button className="btn btn-primary me-2" onClick={() => { handleEdit(todo); }}>
 					<i className="bi bi-pencil-square"></i>
 				</button>
 				<button
