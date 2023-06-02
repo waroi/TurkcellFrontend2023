@@ -11,27 +11,42 @@ function TodoForm() {
       .then((data) => setDatabase(data));
   }
 
+  const deleteTodo = (id) => {
+    fetch("http://localhost:3000/todos/" + id, {
+      method: "DELETE",
+    }).then(() => fetchDatabase());
+  };
+
+  const editTodo = (id, data) => {
+    fetch("http://localhost:3000/todos/" + id, {
+      method: "PUT",
+      body: JSON.stringify({ id: id, text: data }),
+      headers: { "Content-Type": "application/json" },
+    }).then(() => fetchDatabase());
+  };
+
   function addTodo() {
     let id = Date.now();
     fetch("http://localhost:3000/todos/", {
       method: "POST",
       body: JSON.stringify({ id: id, text: input }),
       headers: { "Content-Type": "application/json" },
-    }).then(() => fetchDatabase());
+    }).then(() => {
+      setInput("");
+      return fetchDatabase();
+    });
   }
 
   function deleteAllTodo() {
     database.map((item) => {
       fetch("http://localhost:3000/todos/" + item.id, {
         method: "DELETE",
-      }).then(() => console.log("silindi"));
+      }).then(() => fetchDatabase());
     });
-    fetchDatabase();
   }
 
   const handleValue = (e) => {
     setInput(e.target.value);
-    console.log(input);
   };
 
   const handleSubmit = (e) => {
@@ -60,7 +75,15 @@ function TodoForm() {
         <button onClick={deleteAllTodo}>Tüm To Do Listesini Temizle</button>
       </div>
       {database.map((todo) => {
-         return <Todo key={todo.id} text={todo.text} />;
+        return (
+          <Todo
+            key={todo.id}
+            id={todo.id}
+            text={todo.text}
+            removeTodo={deleteTodo}
+            editTodo={editTodo}
+          />
+        );
       })}
     </div>
   );
