@@ -9,8 +9,8 @@ const ImageUrl = document.getElementById("imageUrl")
 const button = document.getElementById("addOrEditButton");
 const title = document.getElementById("booksModalLabel");
 const sort = document.getElementById("sort");
+// const listBook = document.getElementById("bookList");
 
-console.log(imageUrl)
 
 UI.prototype.addBook = function () {
   const id = Date.now();
@@ -23,7 +23,6 @@ UI.prototype.addBook = function () {
     yearInput.value.trim(),
     bookAuthor.value.trim()
   );
-  console.log(book)
   saveLocalStorage(book);
 
 
@@ -41,18 +40,18 @@ UI.prototype.editBook = function () {
   );
   storage.updateBookFromLocalStorage(book);
 
-  // butonu düzenle
+
   button.innerHTML = "Ekle";
   button.className = "btn btn-success w-25";
   delete button.dataset.editBookId;
 
-  // title düzenle
+
   title.innerHTML = "Kitap Ekle";
 
   this.showBookFromUI()
 }
 
-// Kitapları UI'a ekle
+
 UI.prototype.formListenSubmitFromUI = function (e) {
 
   const bookName = document.getElementById("bookName").value.trim();
@@ -80,36 +79,38 @@ UI.prototype.formListenSubmitFromUI = function (e) {
 };
 
 UI.prototype.editBookFromUI = function (e) {
-  if (e.target.classList.contains("btn-warning")) {
+  if (e.target.classList.contains("btn-edit")) {
     const book = e.target.closest(".col-lg-4");
     const bookChangeId = book.id;
     console.log(bookChangeId)
     let books = storage.getBookFromLocalStorage();
     books.forEach((book) => {
       console.log(book.id)
+      debugger
       if (book.id == bookChangeId) {
-        const button = document.getElementById("addOrEditButton");
-        const title = document.getElementById("booksModalLabel");
-        const bookName = document.getElementById("bookName");
-        const bookCategorySelect = document.getElementById("bookCategorySelect");
-        const yearInput = document.getElementById("yearInput");
-        const bookAuthor = document.getElementById("bookAuthor");
-        const ImageUrl = document.getElementById("imageUrl");
+        // const button = document.getElementById("addOrEditButton");
+        // const title = document.getElementById("booksModalLabel");
+        // const bookName = document.getElementById("bookName");
+        // const bookCategorySelect = document.getElementById("bookCategorySelect");
+        // const yearInput = document.getElementById("yearInput");
+        // const bookAuthor = document.getElementById("bookAuthor");
+        // const ImageUrl = document.getElementById("imageUrl");
         const form = document.getElementById("book-form");
 
+
         form.id = book.id;
-        ImageUrl.value = book.imageUrl;
+        ImageUrl.value = book.img;
+        console.log(ImageUrl.value)
         bookName.value = book.name;
         bookCategorySelect.value = book.category;
         yearInput.value = book.year;
         bookAuthor.value = book.author;
 
-        // butonu düzenle
         button.innerHTML = "Düzenle";
         button.className = "btn btn-warning w-25";
         button.dataset.editBookId = bookChangeId;
 
-        // title düzenle
+
         title.innerHTML = "Kitap Düzenle";
       }
     });
@@ -124,7 +125,13 @@ UI.prototype.deleteBookFromUI = function (e) {
     const bookDeleteId = book.id;
     if (confirm("Bu kitabı silmek istediğinize emin misiniz?")) {
       storage.deleteFromLocalStorage(bookDeleteId);
-      book.remove();
+      // this.showBookFromUI();
+      // book.remove();
+      const books = storage.getBookFromLocalStorage();
+      listBook.innerHTML = ""
+      books.forEach((book) => {
+        bookCard.addBookFromBookCard(book);
+      });
     }
   }
   e.preventDefault();
@@ -194,7 +201,7 @@ UI.prototype.showBookFromUI = function () {
 UI.prototype.searchFromUI = function (value) {
   const books = storage.getBookFromLocalStorage();
   const filtered = books.filter(book => book.name.toLowerCase().includes(value.toLowerCase()) || book.author.toLowerCase().includes(value.toLowerCase()))
-  bookList.innerHTML = ""
+  listBook.innerHTML = ""
   filtered.forEach(book => {
     bookCard.addBookFromBookCard(book)
 
@@ -222,7 +229,7 @@ UI.prototype.sortValues = function (condition) {
 
   listBook.innerHTML = "";
 
-  // UI'ya sıralanmış kitaplar ekleyin
+
   data.forEach((book) => {
     bookCard.addBookFromBookCard(book);
   });
