@@ -1,0 +1,157 @@
+.infoWrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.leftSide{
+  display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    max-width: 90%;
+    margin-top: 1rem;
+  }
+  
+  .card .cardHeader {
+    padding: 0.75rem 1.25rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 0;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
+  .card .listGroup{
+    text-align: center;
+    position: relative;
+    display: block;
+    padding: 0 ;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    margin:0
+  }
+  
+  .card .listGroupItem {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
+  .listGroupItem:hover{
+    background-color: #f8f9fa;
+  }
+
+  .loadMoreBtn{
+    text-align: center;
+    background-color: #FE481C;
+    color: white;
+    padding: 0.5rem .5rem;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: medium;
+    border-color: transparent;
+    min-width: 5rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: 700;
+
+    &:hover{
+      background-color: #fff;
+      color: #FE481C;
+      transition: all 0.3s ease-in-out;
+      border: #FE481C 2px solid;
+    }
+}
+
+.userTitle{
+  /* animation: colorChange .5s infinite; */
+}
+
+.hireMe{
+  background-color: white;
+  color: white;
+  animation: BgcolorChange .5s infinite;
+  border-radius: 10px;
+  padding: 5px 12px;
+}
+
+@keyframes colorChange {
+  0% {
+    color: #FE481C
+  }
+  10% {
+    color: rgb(0, 132, 255);
+  }
+  20% {
+    color: rgb(119, 0, 255);
+  }
+  30% {
+    color: rgb(0, 255, 64);
+  }
+  40% {
+    color: rgb(234, 18, 241);
+  }
+  50% {
+    color: rgb(255, 2, 2);
+  }
+  60% {
+    color: rgb(255, 238, 0);
+  }
+  70% {
+    color: rgb(24, 1, 54);
+  }
+  80% {
+    color: #00ffea;
+  }
+  90% {
+    color: #ff00d4;
+  }
+  100% {
+    color: #FE481C;
+  }
+}
+@keyframes BgcolorChange {
+  0% {
+    background-color: #FE481C
+  }
+  10% {
+    background-color: rgb(0, 132, 255);
+  }
+  20% {
+    background-color: rgb(119, 0, 255);
+  }
+  30% {
+    background-color: rgb(0, 255, 64);
+  }
+  40% {
+    background-color: rgb(234, 18, 241);
+  }
+  50% {
+    background-color: rgb(255, 2, 2);
+  }
+  60% {
+    background-color: rgb(255, 238, 0);
+  }
+  70% {
+    background-color: rgb(24, 1, 54);
+  }
+  80% {
+    background-color: #00ffea;
+  }
+  90% {
+    background-color: #ff00d4;
+  }
+  100% {
+    background-color: #FE481C;
+  }
+}
+  
