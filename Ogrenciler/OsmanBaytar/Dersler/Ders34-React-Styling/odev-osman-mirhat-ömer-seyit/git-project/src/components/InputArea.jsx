@@ -34,13 +34,16 @@ const InputArea = () => {
   return (
     <div className='container mt-5'>
       <div className='row'>
-        <div className={`${InputAreaStyle.inputArea} col-4`}>
+        <div className={`${InputAreaStyle.inputArea} col-6`}>
           <h2>Github User Search Area</h2>
           <form onSubmit={(e) => handleSubmit(e)} >
             <label>Please type username</label>
             <input className='mt-3' type="text" placeholder='Username' id='searchUsername' />
             <button type="submit" className="btn btn-primary mt-3">Search Username</button>
           </form>
+        </div>
+        <div className="col-6">
+        {latest && <LatestSearchs data={latest} username={items}/>}
         </div>
       </div>
       {/* {
@@ -50,7 +53,6 @@ const InputArea = () => {
       } */}
       {/* <UserArea data={items}/> */}
       {items && <UserArea data={items}/>}
-      {/* <LatestRepos data={items}/> */}
       {items && <LatestRepos data={items}/>}
     </div>
   )
