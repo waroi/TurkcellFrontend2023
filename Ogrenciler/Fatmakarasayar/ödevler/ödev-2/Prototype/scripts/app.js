@@ -1,6 +1,5 @@
 
 const listBook = document.getElementById("bookList");
-
 const addBookBtn = document.getElementById("addOrEditButton");
 const sortBook = document.getElementById("sort");
 const search = document.getElementById("search");
@@ -50,7 +49,7 @@ function formListenSubmitEvent(e) {
   searchInput.value = "";
 }
 
-// Kitap objesini local storage'a kaydet
+
 function saveLocalStorage(book) {
   let books = storage.getBookFromLocalStorage();
   books.push(book);
