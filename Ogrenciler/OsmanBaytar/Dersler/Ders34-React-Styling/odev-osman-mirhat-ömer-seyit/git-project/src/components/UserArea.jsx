@@ -1,13 +1,14 @@
 import UserAreaStyle from "../CustomStyle.module.css";
 
 const UserArea = ({data}) => {
+    // console.log(data);
   return (
     <div className='container mt-5'>
         <div className='row'>
             <div className={`${UserAreaStyle.userArea} col-12 d-flex justify-content-between userArea`}>
                 <div className='user-left col-6'>
                     <img src=""/>
-                    <span className='span-follower'>{data}</span>
+                    <span className='span-follower'></span>
                     <span className='span-following'>Following</span>
                     <span className='span-repo'>Repos</span>
                 </div>

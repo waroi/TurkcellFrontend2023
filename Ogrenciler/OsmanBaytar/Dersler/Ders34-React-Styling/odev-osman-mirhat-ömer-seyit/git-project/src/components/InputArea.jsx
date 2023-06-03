@@ -8,18 +8,29 @@ import { useEffect, useState } from "react";
 
 const InputArea = () => {
   const [items, setItems] = useState();
+  const [user, setUser] = useState([]);
   const [latest, setLatest] = useState([]);
 
-
+  useEffect(() => {
+    // declare the async data fetching function
+    if(user == []){
+      return
+    }
+    const fetchData = async (user) => {
+      const data = await fetch(`https://api.github.com/users/${user}`);
+      const json = await data.json();
+      console.log(json);
+      await setItems(json);
+    }
+    fetchData(user)
+    .catch(console.error);
+  }, [user])
 
   async function handleSubmit(e) {
     e.preventDefault();
     const searchInput = document.getElementById("searchUsername").value;
-    await setLatest([...latest, searchInput])
-    //  console.log(latest);
-    await fetch(`https://api.github.com/users/${searchInput}`)
-      .then((response) => response.json()).then((res) => setItems(res));
-    items ? console.log(items) : null;
+    await setUser([searchInput]);
+    await setLatest([...latest,searchInput]);
   }
   return (
     <div className='container mt-5'>
@@ -33,13 +44,11 @@ const InputArea = () => {
           </form>
         </div>
       </div>
-      <UserArea data={items} />
-      <LatestRepos data={items} />
-      {
-      latest.length > 0 ? latest.map((item, i) => (
+      {/* {
+      user.length > 0 ? user.map((item, i) => (
         <LatestSearchs key={i} data={item} />
       )) : []
-      }
+      } */}
     </div>
   )
 }
