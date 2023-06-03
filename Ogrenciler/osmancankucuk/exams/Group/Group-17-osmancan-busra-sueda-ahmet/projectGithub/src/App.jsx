@@ -15,6 +15,12 @@ function App() {
     
     
   },[currentUser])
+  try {
+    currentUser.then((resp)=>console.log(resp))
+    
+  } catch (error) {
+    
+  }
   
 
   return (
