@@ -17,8 +17,9 @@ class Fetch {
     `${this.url}${username}/repos?sort=created&per_page=5`,
    );
    const REPOS_DATA = await REPOS_RESPONSE.json();
+   
    const JUST_REPO_NAMES = REPOS_DATA.map((repo) => {
-    return { repoName: repo.name, repoUrl: repo.html_url };
+    return { repoName: repo.name, repoUrl: repo.html_url, stars: repo.stargazers_count, forks: repo.forks_count, watchers: repo.watchers_count };
    });
    return {
     repo: JUST_REPO_NAMES,
@@ -38,8 +39,15 @@ class Fetch {
   if (SEARCHES.length == 2) {
    SEARCHES.pop();
   }
-  SEARCHES.unshift(username);
-  localStorage.setItem('search', JSON.stringify(SEARCHES));
+  const isTrue =  SEARCHES.find((search) => search === username)
+  if(!isTrue){
+   SEARCHES.unshift(username);
+   localStorage.setItem('search', JSON.stringify(SEARCHES));
+  }
+ }
+ deleteAllLatestSearch() {
+  localStorage.removeItem('search');
+  return [];
  }
 }
 export default Fetch;
