@@ -1,16 +1,12 @@
-import logo from "./logo.svg";
-import Deneme from "./Deneme";
 import "./App.css";
+import Deneme from "./Deneme";
 
 function App() {
   let name = "Gizem";
   return (
     <div className="App">
+      <header className="App-header">Hiii {name} </header>
       <Deneme />
-      <header className="App-header">
-        Hello {name}
-        <Deneme />
-      </header>
     </div>
   );
 }

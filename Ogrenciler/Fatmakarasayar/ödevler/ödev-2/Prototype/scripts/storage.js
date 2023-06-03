@@ -1,11 +1,11 @@
 function LocalStorage() { }
 
-// Local Storage'da bulunan kitapları alma
+
 LocalStorage.prototype.getBookFromLocalStorage = function () {
   return JSON.parse(localStorage.getItem("books")) || [];
 };
 
-// Local Storage'a kitap ekleme
+
 LocalStorage.prototype.saveBookFromLocalStorage = function (books) {
   localStorage.setItem("books", JSON.stringify(books));
 };
