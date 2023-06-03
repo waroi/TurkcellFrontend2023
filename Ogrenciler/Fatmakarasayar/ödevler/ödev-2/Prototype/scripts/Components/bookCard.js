@@ -5,7 +5,7 @@ BookCard.prototype.addBookFromBookCard = function (book) {
   <div class="col-lg-4 mb-5 " id="${book.id}">
   <div class="card h-100">
     <div class="image">
-      <img src="${book.img}"/>
+      <img src="${book.img}" />
     </div>
     <div class="card-inner">
       <div class="header">
@@ -17,7 +17,7 @@ BookCard.prototype.addBookFromBookCard = function (book) {
         <p>${book.year}</p>
       </div>
       <div class="content d-flex justify-content-center">
-        <button class="btn btn-warning me-3 "data-bs-toggle="modal"
+        <button class="btn-edit btn btn-warning me-3 "data-bs-toggle="modal"
             data-bs-target="#booksModal" >Düzenle</button>
         <button class="btn btn-danger px-4">Sil</button>
       </div>
