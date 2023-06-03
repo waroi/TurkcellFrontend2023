@@ -13,8 +13,15 @@ function App() {
     await fetch(`https://api.github.com/users/${searchValue}`).then((res) =>
       res.json().then((data) => setUser(data))
     );
-    setLastSearches([...lastSearches, searchValue]);
+    if (lastSearches.indexOf(searchValue) === -1) {
+      setLastSearches([...lastSearches, searchValue]);
+    }
   };
+
+  const handleLastSearch = async (lastSearch) => {
+    setSearchValue(lastSearch);
+    await handleSearch();
+  }
 
   return (
     <>
@@ -27,7 +34,7 @@ function App() {
         </div>
         <Profile user={user} />
         <Repos username={user.login} />
-        <LastSearches lastSearches={lastSearches} />
+        <LastSearches lastSearches={lastSearches} onLastSearchClick = {handleLastSearch} />
       </div>
     </>
   );
