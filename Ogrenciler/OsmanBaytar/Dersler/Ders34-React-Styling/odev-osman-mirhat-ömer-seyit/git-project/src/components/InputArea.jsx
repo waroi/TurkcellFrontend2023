@@ -12,14 +12,13 @@ const InputArea = () => {
   const [latest, setLatest] = useState([]);
 
   useEffect(() => {
-    // declare the async data fetching function
     if(user == []){
       return
     }
     const fetchData = async (user) => {
       const data = await fetch(`https://api.github.com/users/${user}`);
       const json = await data.json();
-      console.log(json);
+      // console.log(json);
       await setItems(json);
     }
     fetchData(user)
@@ -49,6 +48,10 @@ const InputArea = () => {
         <LatestSearchs key={i} data={item} />
       )) : []
       } */}
+      {/* <UserArea data={items}/> */}
+      {items && <UserArea data={items}/>}
+      {/* <LatestRepos data={items}/> */}
+      {items && <LatestRepos data={items}/>}
     </div>
   )
 }
