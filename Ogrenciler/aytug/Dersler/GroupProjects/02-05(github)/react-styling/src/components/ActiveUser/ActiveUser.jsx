@@ -13,20 +13,24 @@ const ActiveUser = ({ activeUser, userRepos }) => {
                     <div className="col-md-4">
                         <img src={activeUser.avatar_url} className="img-fluid rounded-start" alt="..." />
                     </div>
-                    <div className="col-md-4">
-                        <div className="card-body">
+                    <div className="col-md-8">
+                        <div className="card-body text-start">
                             <h5 className="card-title">{activeUser.name}</h5>
                             <p className="card-text">{activeUser.bio} | {activeUser.company}</p>
-                            <p className="card-text">Repo sayısı:{activeUser.public_repos} | {userRepos[userRepos.length - 1].name}</p>
+                            <p className="card-text">Repo sayısı : {activeUser.public_repos}</p>
+                            <ul className='list-group'>Son repolar : 
+                                <li className='list-group'>{userRepos[userRepos.length - 1].name}</li> 
+                                <li className='list-group'>{userRepos[userRepos.length - 2].name}</li>
+                            </ul>
                             <button disabled className='btn btn-danger'> takip edilen:{activeUser.following}</button>
                             <button disabled className='btn btn-danger'>takipçi:{activeUser.followers}</button>
                         </div>
                     </div>
-                    <div className='col-md-4'>
+                    {/* <div className='col-md-4'>
                         <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             İncele
                         </button>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

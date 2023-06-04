@@ -7,6 +7,7 @@ const UserList = ({ setUser, setUserRepos }) => {
 
     const getUserRepos = async (userName) => {
         let userRepos = await getUserReposFromDb(userName);
+        userRepos.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
         return setUserRepos(userRepos);
     }
 
@@ -16,7 +17,6 @@ const UserList = ({ setUser, setUserRepos }) => {
                 userList.length > 0 &&
                 userList.map((user) => {
                     return (
-
                         <div className="card col-4" onClick={async () => {
                                 await getUserRepos(user.login).then(()=>setUser(user));
                         }} key={user.id}>
@@ -24,11 +24,17 @@ const UserList = ({ setUser, setUserRepos }) => {
                             <div className="card-body">
                                 <h5 className="card-title">{user.name}</h5>
                                 <p className="card-text">{user.bio}</p>
+                                {/* <button className='btn btn-danger' onClick={()=> {
+                                        // JSON.parse(localStorage.getItem("userList"));
+                                        let userList = JSON.parse(localStorage.getItem("userList"));
+                                        let index = userList.findIndex((user) => user.id === user.id);
+                                        userList.splice(index, 1);
+                                        localStorage.setItem("userList", JSON.stringify(userList));
+                                    }}>Sil</button> */}
                             </div>
                         </div>
                     )
                 })
-
             }
         </div>
     )

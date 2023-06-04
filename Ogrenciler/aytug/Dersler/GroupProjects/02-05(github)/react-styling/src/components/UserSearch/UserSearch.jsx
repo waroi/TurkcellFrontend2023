@@ -14,11 +14,9 @@ const UserSearch = ({ activeUser, setActiveUser, userRepos, setUserRepos, render
         localStorage.setItem("userList", JSON.stringify([]))
     }
     const getUser = async () => {
-
         const mainInput = document.getElementById("mainInput")
         let activeUser = await getUserFromDb(mainInput.value)
         let userRepos = await getUserReposFromDb(mainInput.value)
-        console.log(activeUser);
 
         if (activeUser.message != "Not Found") {
             userList.push(activeUser)
@@ -32,6 +30,7 @@ const UserSearch = ({ activeUser, setActiveUser, userRepos, setUserRepos, render
             // })
 
             localStorage.setItem("userList", JSON.stringify(userList));
+            userRepos.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
             setUserRepos(userRepos)
             setActiveUser(activeUser)
             setUserData([activeUser, ...userData])
