@@ -24,7 +24,10 @@ function SearchUser({ getUserInfo }) {
       <button
         className={UserStyle.formButton}
         type="submit"
-        onClick={() => getUserInfo(user)}
+        onClick={() => {
+          getUserInfo(user);
+          setUser("");
+        }}
       >
         Kullanıcı Ara
       </button>
