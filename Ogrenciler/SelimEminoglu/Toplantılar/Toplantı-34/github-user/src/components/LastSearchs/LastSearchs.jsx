@@ -1,6 +1,8 @@
+import LastStyle from "./LastSearchs.module.css";
+
 function LastSearchs({ searchs }) {
   return (
-    <div className="lastSearchDiv">
+    <div className={LastStyle.lastDiv}>
       <h2>Son Aramalar</h2>
       <ul>
         {searchs.map((search) => {

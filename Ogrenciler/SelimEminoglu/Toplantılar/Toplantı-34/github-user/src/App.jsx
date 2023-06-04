@@ -19,6 +19,7 @@ function App() {
   const [following, setFollowing] = useState("");
   const [repo_number, setRepoNumber] = useState(0);
   const [repos, setRepos] = useState([]);
+  const [location, setLocation] = useState("");
   const [lastSearch, setLastSearch] = useState([]);
 
   function getUserInfo(user) {
@@ -36,10 +37,13 @@ function App() {
         setFollowing(data.following);
         setPicture(data.avatar_url);
         setRepoNumber(data.public_repos);
+        setLocation(data.location);
 
         fetch(`https://api.github.com/users/${user}/repos`)
           .then((response) => response.json())
-          .then((data) => setRepos(data));
+          .then((data) => {
+            setRepos(data);
+          });
 
         lastSearch.push({ id: Date.now(), name: user });
 
@@ -47,7 +51,7 @@ function App() {
 
         setSearchArray(getLocal);
       })
-      .catch((error) => {
+      .catch(() => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -59,15 +63,24 @@ function App() {
     <>
       <h1>Github User Founder</h1>
       <SearchUser getUserInfo={getUserInfo} />
-      <SearchProfile
-        name={name}
-        picture={picture}
-        follower={follower}
-        following={following}
-        repo_number={repo_number}
-      />
-      <SearchRepos repos={repos} />
-      <LastSearchs searchs={searchArray} />
+      <div className="row">
+        <div className="col-4">
+          <SearchProfile
+            name={name}
+            picture={picture}
+            follower={follower}
+            following={following}
+            repo_number={repo_number}
+            location={location}
+          />
+        </div>
+        <div className="col-8">
+          <SearchRepos repos={repos} />
+        </div>
+      </div>
+      <div className="lastSearchDiv">
+        <LastSearchs searchs={searchArray} />
+      </div>
     </>
   );
 }

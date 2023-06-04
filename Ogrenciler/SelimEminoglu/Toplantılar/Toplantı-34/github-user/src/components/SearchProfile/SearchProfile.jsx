@@ -1,6 +1,13 @@
 import ProfileStyle from "./SearchProfile.module.css";
 
-function SearchProfile({ name, picture, follower, following, repo_number }) {
+function SearchProfile({
+  name,
+  picture,
+  follower,
+  following,
+  repo_number,
+  location,
+}) {
   return (
     <div className={ProfileStyle.profileDiv}>
       <div className="profilePicture">
@@ -16,6 +23,7 @@ function SearchProfile({ name, picture, follower, following, repo_number }) {
         )}
       </div>
       <div className="profileState">
+        <p>{location}</p>
         <h1 className={ProfileStyle.h1}>{name}</h1>
         <h3 className={ProfileStyle.h3}>Takipçiler</h3>
         <p className={ProfileStyle.p}>{follower}</p>
