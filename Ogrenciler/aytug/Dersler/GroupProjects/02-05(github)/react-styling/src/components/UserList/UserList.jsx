@@ -1,16 +1,12 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { getUserReposFromDb } from '../../services/services';
 
-import ActiveUser from '../ActiveUser/ActiveUser'
 
-const UserList = ({ setUser, userRepos, setUserRepos }) => {
+const UserList = ({ setUser, setUserRepos }) => {
     let userList = JSON.parse(localStorage.getItem("userList"));
 
     const getUserRepos = async (userName) => {
-        // const response = await fetch(`https://api.github.com/users/${username}/repos`);
-        // const data = await response.json();
         let userRepos = await getUserReposFromDb(userName);
-        console.log(userRepos);
         return setUserRepos(userRepos);
     }
 
@@ -39,6 +35,9 @@ const UserList = ({ setUser, userRepos, setUserRepos }) => {
 }
 
 export default UserList
-// UserList.propTypes = {
-//     user: PropTypes.object
-// }
+UserList.propTypes = {
+    user: PropTypes.object,
+    setUser: PropTypes.func,
+    userRepos: PropTypes.array,
+    setUserRepos: PropTypes.func,
+}

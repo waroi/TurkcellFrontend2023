@@ -6,7 +6,6 @@ const ActiveUser = ({ activeUser, userRepos }) => {
     // console.log(userRepos.sort((a, b) => {
     //     a.created_at - b.created_at
     // }));
-console.log("userRepos", userRepos);
     return (
         <div>
             <div className="card mb-3" >
@@ -32,9 +31,6 @@ console.log("userRepos", userRepos);
                 </div>
             </div>
 
-
-
-
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -53,7 +49,6 @@ console.log("userRepos", userRepos);
                 </div>
             </div>
         </div>
-
     )
 }
 
