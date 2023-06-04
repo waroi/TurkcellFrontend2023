@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import style from "../../CustomStyle.module.css";
 
 const RepoContainer = ({ user }) => {
   const [repos, setRepos] = useState([]);
@@ -12,18 +13,19 @@ const RepoContainer = ({ user }) => {
   const LastTwoRepos = repos.slice(repos.length - 2);
 
   return (
-    <div>
-      <h2>En Son Repolar</h2>
+    <div className={style.containerRepos}>
+      <h2 className={style.h2}>En Son Repolar</h2>
       <ul className="list-unstyled">
         {LastTwoRepos.map((repo) => (
           <li key={repo.id}>
-            <a href={repo.html_url}>{repo.name}</a>
-            <span className="badge bg-primary">
+            <a className={style.repos} href={repo.html_url}>
+              {repo.name}:
+            </a>{" "}
+            <br />
+            <button className={style.btn}>
               Starlar: {repo.stargazers_count}
-            </span>
-            <span className="badge bg-secondary">
-              Forklar: {repo.forks_count}
-            </span>
+            </button>
+            <button className={style.btn}>Forklar: {repo.forks_count}</button>
           </li>
         ))}
       </ul>

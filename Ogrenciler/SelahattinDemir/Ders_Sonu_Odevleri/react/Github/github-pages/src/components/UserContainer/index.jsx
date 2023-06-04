@@ -1,30 +1,36 @@
 /* eslint-disable react/prop-types */
-import { Card, Row, Col, Button } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import style from "../../CustomStyle.module.css";
 
-const User = ({ user }) => {
-  console.log(user);
+const UserContainer = ({ user }) => {
   return (
-    <div>
-      <Card className="mb-3">
-        <Row className="g-0">
-          <Col md={4}>
-            <Card.Img src={user.avatar_url} />
-          </Col>
+    <div className={style.container}>
+      <Card className={style.noBorder}>
+        <Row className={style.noBorder}>
           <Col md={8}>
-            <Card.Body>
-              <Card.Title>{user.name}</Card.Title>
+            <Card.Body className={style.card}>
+              <h1>{user.name}</h1>
               <Card.Text>{user.bio}</Card.Text>
               <Card.Text>
-                <small className="text-medium-emphasis">
+                <div>
                   <a href={user.blog}>{user.blog}</a>
-                </small>
+                </div>
               </Card.Text>
+
+              <div className={style.footer}>
+                <button className={style.btn}>Takipçi: {user.followers}</button>
+                <button className={style.btn}>
+                  Takip Edilen: {user.following}
+                </button>
+                <button className={style.btn}>
+                  Repolar: {user.public_repos}
+                </button>
+              </div>
             </Card.Body>
-            <Card.Footer>
-              <Button className="me-3 btn btn-secondary">Takipçi: {user.followers}</Button>
-              <Button className="me-3 btn btn-info">Takip Edilen: {user.following}</Button>
-              <Button className="me-3 btn btn-danger">Repolar: {user.public_repos}</Button>
-            </Card.Footer>
+          </Col>
+          <Col md={4} className={style.img}>
+            <Card.Img src={user.avatar_url} />
           </Col>
         </Row>
       </Card>
@@ -32,4 +38,4 @@ const User = ({ user }) => {
   );
 };
 
-export default User;
+export default UserContainer;
