@@ -18,19 +18,21 @@ const InputArea = () => {
     const fetchData = async (user) => {
       const data = await fetch(`https://api.github.com/users/${user}`);
       const json = await data.json();
-      // console.log(json);
       await setItems(json);
     }
     fetchData(user)
-    .catch(console.error);
+
   }, [user])
 
   async function handleSubmit(e) {
     e.preventDefault();
     const searchInput = document.getElementById("searchUsername").value;
+    const clickedValue = document.getElementById("latestArea");
+    clickedValue.addEventListener("click", (e) => setUser([e.target.value]));
     await setUser([searchInput]);
     await setLatest([...latest,searchInput]);
   }
+
   return (
     <div className='container mt-5'>
       <div className='row'>

@@ -16,7 +16,6 @@ const LatestRepos = ({ data }) => {
       .catch(console.error);
 
   }, [data])
-  console.log(repos);
 
   return (
     <>
@@ -32,7 +31,7 @@ const LatestRepos = ({ data }) => {
                 <h6>Language: {item.language ? item.language : "Not Found"}</h6>
               </div>
             )) : <div>
-                User Not Found
+               
             </div>
           }
         </div>

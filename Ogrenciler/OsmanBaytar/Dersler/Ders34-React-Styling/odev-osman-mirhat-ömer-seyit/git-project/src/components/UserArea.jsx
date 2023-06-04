@@ -1,7 +1,6 @@
 import UserAreaStyle from "../CustomStyle.module.css";
 
 const UserArea = ({data}) => {
-    console.log(data);
   return (
     <>
     <div className='container mt-5'>
