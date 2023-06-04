@@ -1,6 +1,8 @@
 import { getUserFromDb, getUserReposFromDb } from '../../services/services'
 import { useState } from "react"
 import ActiveUser from '../ActiveUser/ActiveUser'
+import PropTypes from 'prop-types'
+
 
 const UserSearch = ({ activeUser, setActiveUser, userRepos, setUserRepos, renderCheck, setRenderCheck }) => {
 
@@ -58,4 +60,13 @@ const UserSearch = ({ activeUser, setActiveUser, userRepos, setUserRepos, render
     )
 }
 
-export default UserSearch
+export default UserSearch;
+
+UserSearch.propTypes = {
+    activeUser: PropTypes.object,
+    setActiveUser: PropTypes.func,
+    userRepos: PropTypes.array,
+    setUserRepos: PropTypes.func,
+    renderCheck: PropTypes.bool,
+    setRenderCheck: PropTypes.func,
+}
