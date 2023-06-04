@@ -1,0 +1,46 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.dgrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  height: 100vh;
+  width: 100%;
+}
+
+.searchGrid {
+  grid-column: span 3;
+  background-color: #fbfbfb;
+  width: 100%;
+}
+
+.userDetailGrid {
+  grid-column: span 9;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .dgrid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .searchGrid {
+    grid-column: span 12;
+    order: 1;
+    
+  }
+
+  .userDetailGrid {
+    grid-column: span 12;
+    order: 2;
+   
+  }
+}
+
+.dflex{
+  display: flex;
+}
