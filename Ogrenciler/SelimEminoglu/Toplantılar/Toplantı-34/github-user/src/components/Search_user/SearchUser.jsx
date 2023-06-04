@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UserStyle from "./SearchUser.module.css";
 
-function SearchUser() {
+function SearchUser({ getUserInfo }) {
   const [user, setUser] = useState("");
 
   const takeValue = (e) => {
@@ -21,7 +21,11 @@ function SearchUser() {
         value={user}
         className={`${UserStyle.formInput} form-control`}
       />
-      <button className={UserStyle.formButton} type="submit">
+      <button
+        className={UserStyle.formButton}
+        type="submit"
+        onClick={() => getUserInfo(user)}
+      >
         Kullanıcı Ara
       </button>
     </form>
