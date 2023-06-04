@@ -12,8 +12,8 @@ const LatestSearchs = ({data,username}) => {
               <h5>Latest Searchs</h5>
               <div id="latestArea" className={LatestSearchsStyle.ulList}>
               {
-                 uniqueData.slice(-5).map((item) => (
-                  <div key={item}>
+                 uniqueData.slice(-5).map((item,index) => (
+                  <div key={index}>
                     <button className={`${LatestSearchsStyle.latestSearchBtn}`} value={item}>{item}</button>
                   </div>
                 )) 

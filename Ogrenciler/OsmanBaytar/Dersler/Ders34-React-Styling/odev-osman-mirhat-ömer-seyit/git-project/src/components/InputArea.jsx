@@ -28,10 +28,10 @@ const InputArea = () => {
     e.preventDefault();
     const searchInput = document.getElementById("searchUsername");
     const clickedValue = document.getElementById("latestArea");
-    if (searchInput.value != "") {
+    if (searchInput.value.trim() !== "") {
       clickedValue.addEventListener("click", (e) => setUser([e.target.value]));
-      await setUser([searchInput.value]);
-      await setLatest([...latest, searchInput.value]);
+      await setUser([searchInput.value.trim()]);
+      await setLatest([...latest, searchInput.value.trim()]);
       searchInput.value = "";
     } else {
       return ``

@@ -22,9 +22,9 @@ const LatestRepos = ({ data }) => {
       <div>
         <div className="row">
           {
-            data.name ? repos && repos.slice(0, 3).map((item) => (
-              <div className={`${LatestReposStyle.repoAreaParent} col-lg-4`}>
-                <div key={item.id} className={`${LatestReposStyle.repoArea}`}>
+            data.name ? repos && repos.slice(0, 3).map((item, index) => (
+              <div className={`${LatestReposStyle.repoAreaParent} col-lg-4`} key={index}>
+                <div className={`${LatestReposStyle.repoArea}`}>
                     <h4>Repo Name: {item.name} </h4>
                   <div className={LatestReposStyle.repoInfoArea}>
                     <h6>Forks: {item.forks} </h6>
