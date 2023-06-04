@@ -1,25 +1,22 @@
 import GitHubDetail from "../GitHubDetail/GitHubDetail"
-import AllPastSearches from "../PastSearches/AllPastSearchs/AllPastSearches"
 import PersonDetail from "../PersonDetail/PersonDetail"
-import PersonOtherInfo from "../PersonOtherInfo/PersonOtherInfo"
-import AllRepos from "../Repos/AllRepos/AllRepos"
+import PropTypes from 'prop-types'
 
-const Person = () => {
-    return (
+const Person = ({personAllInfos}) => {
+  return (
+    <div>
       <div>
-        <div>
-          <img src="https://avatars.githubusercontent.com/u/3173292?v=4" alt="userLogo"  width='400px'/>
-          <div>
-            <PersonDetail />
-            <PersonOtherInfo />
-          </div>
-        </div>
-        <GitHubDetail />
-        <AllRepos />
-        <AllPastSearches />
+        <img src={personAllInfos.avatar_url} alt="userLogo"  width='400px'/>
+          <PersonDetail personAllInfos = {personAllInfos}/>
       </div>
-    )
-  }
+      <GitHubDetail personAllInfos = {personAllInfos}/>
+    </div>
+  )
+}
+
+Person.propTypes = {
+  personAllInfos: PropTypes.object
+}
   
   export default Person
   

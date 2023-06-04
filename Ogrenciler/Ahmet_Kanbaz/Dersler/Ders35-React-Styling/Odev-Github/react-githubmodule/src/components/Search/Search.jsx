@@ -1,25 +1,33 @@
 import {useState} from 'react'
-import Person from '../Person/Person';
+import Person from '../Person/Person'
+import AllRepos from '../Repos/AllRepos/AllRepos'
+import AllPastSearches from '../PastSearches/AllPastSearchs/AllPastSearches'
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [datas, setDatas] = useState([])
+  const [personAllInfos, setPersonAllInfos] = useState({});
+
+  const getInputValue = (e) => {
+    setSearchValue(e.target.value)
+  }
 
   const getGithubValue = async () => {
     const response = await fetch(`https://api.github.com/users/${searchValue}`)
     const data = await response.json()
-    setDatas(data)
+    setPersonAllInfos(data)
   }
     
   return (
     <>
       <div>
-        <input type="text" onChange={(e) => setSearchValue(e.target.value)}/>
+        <input type="text" onChange={getInputValue}/>
         <button type='button' onClick={getGithubValue}>Ara</button>
-        {console.log(datas)}
+        
       </div>
 
-      <Person />
+      <Person personAllInfos = {personAllInfos}/>
+      <AllRepos searchValue = {searchValue}/>
+      <AllPastSearches />
     </>
   )
 }
