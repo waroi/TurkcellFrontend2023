@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
 import { changeStatusTodo, deleteTodo } from "../../services/api";
-import { useEffect } from "react";
+
 
 const AddTodo = ({ todo, setCompleted, completed, setNewTodo, setValue, setIsEdit }) => {
-	// const [completed, setCompleted] = useState();
 
 	const handleEdit = (todo) => {
 		setValue(todo);
