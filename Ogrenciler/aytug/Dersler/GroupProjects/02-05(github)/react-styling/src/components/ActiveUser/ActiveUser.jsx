@@ -6,7 +6,7 @@ const ActiveUser = ({ activeUser, userRepos }) => {
     // console.log(userRepos.sort((a, b) => {
     //     a.created_at - b.created_at
     // }));
-
+console.log("userRepos", userRepos);
     return (
         <div>
             <div className="card mb-3" >

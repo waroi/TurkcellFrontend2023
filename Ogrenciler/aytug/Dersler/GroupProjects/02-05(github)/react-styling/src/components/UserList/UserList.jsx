@@ -1,9 +1,18 @@
 // import PropTypes from 'prop-types'
+import { getUserReposFromDb } from '../../services/services';
 
 import ActiveUser from '../ActiveUser/ActiveUser'
 
-const UserList = ({ setUser, userRepos }) => {
+const UserList = ({ setUser, userRepos, setUserRepos }) => {
     let userList = JSON.parse(localStorage.getItem("userList"));
+
+    const getUserRepos = async (userName) => {
+        // const response = await fetch(`https://api.github.com/users/${username}/repos`);
+        // const data = await response.json();
+        let userRepos = await getUserReposFromDb(userName);
+        console.log(userRepos);
+        return setUserRepos(userRepos);
+    }
 
     return (
         <div className="row">
@@ -12,9 +21,8 @@ const UserList = ({ setUser, userRepos }) => {
                 userList.map((user) => {
                     return (
 
-                        <div className="card col-4" onClick={() => {
-                            console.log("first"),
-                                setUser(user)
+                        <div className="card col-4" onClick={async () => {
+                                await getUserRepos(user.login).then(()=>setUser(user));
                         }} key={user.id}>
                             <img src={user.avatar_url} className="card-img-top" alt="..." />
                             <div className="card-body">

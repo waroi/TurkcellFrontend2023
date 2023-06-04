@@ -23,7 +23,7 @@ function App() {
         <h3>Son Aramalar</h3>
 
 
-        <UserList setUser={setActiveUser}  userRepos={userRepos}/>
+        <UserList setUser={setActiveUser}  userRepos={userRepos} setUserRepos={setUserRepos}/>
 
 
       </div>
