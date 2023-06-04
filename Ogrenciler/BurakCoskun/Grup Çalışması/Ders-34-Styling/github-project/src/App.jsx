@@ -8,32 +8,30 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [user, setUser] = useState({});
   const [lastSearches, setLastSearches] = useState([]);
-  // const [isSearch, setIsSearch] = useState(false);
-  const [data, setData] = useState("");
+  const [isSearch, setIsSearch] = useState(false);
 
   
   const handleSearch = async () => {
-    setData(!data && searchValue);
-    await fetch(`https://api.github.com/users/${data}`).then((res) =>
+    await fetch(`https://api.github.com/users/${searchValue}`).then((res) =>
       res.json().then((data) => setUser(data))
     );
-    if (lastSearches.indexOf(data) === -1) {
-      setLastSearches([...lastSearches, data]);
+    if (lastSearches.indexOf(searchValue) === -1) {
+      setLastSearches([...lastSearches, searchValue]);
     }
   };
 
 
   useEffect(()=>{
-    if (data){
+    if (searchValue && isSearch){
      handleSearch();
     }
-},[data])
+},[searchValue])
 
   const handleLastSearch =  async (lastSearch) => {
-     setData(lastSearch);
-    //  setIsSearch(true)
+  setSearchValue(lastSearch)
+     setIsSearch(true)
      await handleSearch();
-    // setIsSearch(false)
+    setIsSearch(false)
   }
 
   return (
