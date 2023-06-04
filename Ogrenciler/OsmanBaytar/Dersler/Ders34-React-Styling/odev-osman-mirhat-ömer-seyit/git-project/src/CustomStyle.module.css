@@ -1,20 +1,64 @@
-.inputArea{
-    border: 1px solid black;
+
+.inputArea {
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.5px);
+    -webkit-backdrop-filter: blur(9.5px);
+    border: 1px solid rgba(255, 255, 255, 0.47);
     padding: 12px;
 }
 
-.input-user{
+.input-user {
     margin-left: 10px;
 }
 
-.userArea{
+.searchUsername {
+    max-width: 200px;
+    border-radius: 5px;
+    border: 1px solid var(--tertiary-color);
+    padding: 5px;
+}
+.searchUsername::placeholder{
+    color: blue;
+}
+.searchUsernameBtn {
+    margin: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    background-color: var(--tertiary-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+.latestSearchBtn {
+    background-color: var(--tertiary-color);
+    border: 0;
+    border-radius: .25rem;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    margin: 4px;
+}
+
+
+.userArea {
     border: 1px solid black;
     padding: 12px;
 }
 
-.repoBoxSpan{
+.repoBoxSpan {
     border: 1px solid red;
 }
+
 .ulList {
     display: flex !important;
     flex-direction: column-reverse;

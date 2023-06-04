@@ -6,7 +6,7 @@ const LatestSearchs = ({data,username}) => {
 
   return (
     <>
-    <div className="container">
+    <div className="container mt-3">
         <div className="row">
             <div className="col-12">
               <h5>Latest Searchs</h5>
@@ -14,7 +14,7 @@ const LatestSearchs = ({data,username}) => {
               {
                  uniqueData.slice(-5).map((item) => (
                   <div key={item}>
-                    <button value={item}>{item}</button>
+                    <button className={`${LatestSearchsStyle.latestSearchBtn}`} value={item}>{item}</button>
                   </div>
                 )) 
               }
