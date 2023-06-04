@@ -6,6 +6,13 @@ import SearchRepos from "./components/SearchRepos/SearchRepos";
 import LastSearchs from "./components/LastSearchs/LastSearchs";
 
 function App() {
+  let getLocal = JSON.parse(localStorage.getItem("searches"));
+
+  if (!getLocal) {
+    localStorage.setItem("searches", JSON.stringify([]));
+  }
+
+  const [searchArray, setSearchArray] = useState([]);
   const [name, setName] = useState("");
   const [picture, setPicture] = useState("");
   const [follower, setFollower] = useState("");
@@ -13,7 +20,6 @@ function App() {
   const [repo_number, setRepoNumber] = useState(0);
   const [repos, setRepos] = useState([]);
   const [lastSearch, setLastSearch] = useState([]);
-  const [searchArray, setSearchArray] = useState([]);
 
   function getUserInfo(user) {
     fetch(`https://api.github.com/users/${user}`)
@@ -35,21 +41,11 @@ function App() {
           .then((response) => response.json())
           .then((data) => setRepos(data));
 
-        if (JSON.parse(localStorage.getItem("searches"))) {
-          JSON.parse(localStorage.getItem("searches")).map((item) => {
-            if (item.name != user) {
-              lastSearch.push(item);
-            }
-          });
-        } else {
-          localStorage.setItem("searches", JSON.stringify([]));
-        }
-
         lastSearch.push({ id: Date.now(), name: user });
 
         localStorage.setItem("searches", JSON.stringify(lastSearch));
 
-        setSearchArray(JSON.parse(localStorage.getItem("searches")));
+        setSearchArray(getLocal);
       })
       .catch((error) => {
         Swal.fire({
