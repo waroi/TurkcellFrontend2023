@@ -44,10 +44,11 @@ function App() {
           <button className={Styles.searchButton} onClick={handleSearch}>Ara</button>
         </div>
         <LastSearches lastSearches={lastSearches} onLastSearchClick = {handleLastSearch} />
-        <Profile user={user} />
+        <div className={Styles.content}>
+          <Profile user={user} />
         {
           user.name && <Repos username={user.login} /> 
-        }
+        }</div>
       </div>
     </>
   );
