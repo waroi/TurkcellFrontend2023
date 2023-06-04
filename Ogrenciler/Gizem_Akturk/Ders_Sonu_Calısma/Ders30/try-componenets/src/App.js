@@ -14,7 +14,7 @@ function App() {
       <header className="App-header">
         <Try name={name} surname={surname} age={age} job={job} />
         <ul>
-          {jobs.map((job,index) => <Try key={index} job={job}/>)}
+          {jobs.map((job,index) => <ListItem key={index} job={job}/>)}
         </ul>
       
       </header>
