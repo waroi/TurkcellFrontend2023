@@ -12,7 +12,7 @@ const InputArea = () => {
   const [latest, setLatest] = useState([]);
 
   useEffect(() => {
-    if(user == []){
+    if (user == []) {
       return
     }
     const fetchData = async (user) => {
@@ -26,11 +26,16 @@ const InputArea = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const searchInput = document.getElementById("searchUsername").value;
+    const searchInput = document.getElementById("searchUsername");
     const clickedValue = document.getElementById("latestArea");
-    clickedValue.addEventListener("click", (e) => setUser([e.target.value]));
-    await setUser([searchInput]);
-    await setLatest([...latest,searchInput]);
+    if (searchInput.value != "") {
+      clickedValue.addEventListener("click", (e) => setUser([e.target.value]));
+      await setUser([searchInput.value]);
+      await setLatest([...latest, searchInput.value]);
+      searchInput.value = "";
+    } else {
+      return ``
+    }
   }
 
   return (
@@ -39,19 +44,19 @@ const InputArea = () => {
         <div className={`${InputAreaStyle.inputArea} col-md-6 `}>
           <h2>Github User Search Area</h2>
           <form onSubmit={(e) => handleSubmit(e)} >
-            <div>
-            <label className="me-3">Please type username</label>
-            <input className={`${InputAreaStyle.searchUsername} mt-3 w-100`} type="text" placeholder='Username' id='searchUsername' />
+            <div className="">
+              <label className={InputAreaStyle.inputParent}>Please type username</label>
+              <input className={`${InputAreaStyle.searchUsername} mt-3 w-100`} type="text" placeholder='Username' id='searchUsername' />
             </div>
-            <button type="submit" className={`${InputAreaStyle.searchUsernameBtn} mt-3`}>Search Username</button>
+            <button type="submit" className={`${InputAreaStyle.searchUsernameBtn}`}>Search Username</button>
           </form>
         </div>
         <div className="col-md-6 ">
-        {latest && <LatestSearchs data={latest} username={items}/>}
+          {latest && <LatestSearchs data={latest} username={items} />}
         </div>
       </div>
-      {items && <UserArea data={items}/>}
-      {items && <LatestRepos data={items}/>}
+      {items && <UserArea data={items} />}
+      {items && <LatestRepos data={items} />}
     </div>
   )
 }

@@ -1,29 +1,33 @@
-
 .inputArea {
-    background: rgba(255, 255, 255, 0.16);
+    background: rgba(0, 0, 0, 0.29);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.5px);
-    -webkit-backdrop-filter: blur(9.5px);
-    border: 1px solid rgba(255, 255, 255, 0.47);
+    backdrop-filter: blur(2.6px);
+    -webkit-backdrop-filter: blur(2.6px);
+    border: 1px solid rgba(0, 0, 0, 0.55);
     padding: 12px;
 }
 
 .input-user {
     margin-left: 10px;
 }
+.inputParent{
+    display: flex;
+    flex-direction: column;
+}
 
 .searchUsername {
-    max-width: 200px;
-    border-radius: 5px;
-    border: 1px solid var(--tertiary-color);
-    padding: 5px;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgb(92, 92, 92);
+    outline: 1px rgba(255, 255, 255, 0.16);
 }
-.searchUsername::placeholder{
-    color: blue;
+
+.searchUsername::placeholder {
 }
+
 .searchUsernameBtn {
-    margin: 10px;
+    margin-top: 16px;
     padding: 15px 30px;
     text-align: center;
     text-transform: uppercase;
@@ -51,8 +55,22 @@
 
 
 .userArea {
-    border: 1px solid black;
+    background: rgba(0, 0, 0, 0.29);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.6px);
+    -webkit-backdrop-filter: blur(2.6px);
     padding: 12px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.55);
+
+}
+
+.userArea img {
+    margin-right: 30px;
+    margin-bottom: 30px;
 }
 
 .repoBoxSpan {
@@ -62,5 +80,30 @@
 .ulList {
     display: flex !important;
     flex-direction: column-reverse;
+}
 
+.userInfo {
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.repoArea {
+    background: rgba(0, 0, 0, 0.29);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.6px);
+    -webkit-backdrop-filter: blur(2.6px);
+    border: 1px solid rgba(0, 0, 0, 0.55);
+    padding: 20px;
+    height:300px ;
+}
+.repoAreaParent{
+    margin-bottom: 100px;
+}
+.repoInfoArea{
+    margin-top: 20px;
+}
+.headerText{
+    font-weight: 700;
 }
