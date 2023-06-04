@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Repos from "./components/Repos";
 import Profile from "./components/Profile";
 import LastSearches from "./components/LastSearches";
@@ -9,6 +9,7 @@ function App() {
   const [user, setUser] = useState({});
   const [lastSearches, setLastSearches] = useState([]);
 
+  
   const handleSearch = async () => {
     await fetch(`https://api.github.com/users/${searchValue}`).then((res) =>
       res.json().then((data) => setUser(data))
@@ -17,10 +18,14 @@ function App() {
       setLastSearches([...lastSearches, searchValue]);
     }
   };
+  console.log(user);
+  useEffect(()=>{
+console.log(searchValue)
+},[searchValue])
 
-  const handleLastSearch = async (lastSearch) => {
-    setSearchValue(lastSearch);
-    await handleSearch();
+  const handleLastSearch =  async (lastSearch) => {
+     setSearchValue(lastSearch);
+     await handleSearch();
   }
 
   return (
@@ -29,12 +34,12 @@ function App() {
         <div className={Styles.searchArea}>
           <h2>Github Kullanıcısı Arayın</h2>
           <p>Bir kullanıcı adı girin ve github bilgilerini görün!</p>
-          <input type="text" onChange={(e) => setSearchValue(e.target.value)} />
-          <button onClick={handleSearch}>Ara</button>
+          <input className={Styles.searchInput} type="text" onChange={(e) => setSearchValue(e.target.value)} />
+          <button className={Styles.searchButton} onClick={handleSearch}>Ara</button>
         </div>
+        <LastSearches lastSearches={lastSearches} onLastSearchClick = {handleLastSearch} />
         <Profile user={user} />
         <Repos username={user.login} />
-        <LastSearches lastSearches={lastSearches} onLastSearchClick = {handleLastSearch} />
       </div>
     </>
   );

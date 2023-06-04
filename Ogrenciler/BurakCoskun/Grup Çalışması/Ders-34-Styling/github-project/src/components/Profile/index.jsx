@@ -4,23 +4,24 @@ import Styles from "./Profile.module.css";
 const index = ({ user }) => {
   return (
     <div className={Styles.container}>
-      <div className="row">
-        <div className="col-md-6">
+      <div className=
+      {`row ${Styles.userArea}`}>
+        <div className= "col-md-5">
           <div className={Styles.profile}>
             <img src={user.avatar_url} alt="" className="img-fluid" />
-            <h2>{user.name}</h2>
+            <h4>{user.name}</h4>
             <p>{user.bio ? user.bio : "Bio yok"}</p>
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-7 ">
           <div className={Styles.profileInfo}>
             <div className={Styles.profileInfoItem}>
-              <a className="btn btn-primary">
+              <a className="btn btn-sm btn-dark">
                 <i className="fa fa-users"></i>
                 <span>Takipçiler</span>
-                <span className="badge badge-light">{user.followers}</span>
+                <span className="badge">{user.followers}</span>
               </a>
-              <a className="btn btn-info ms-3 text-white">
+              <a className="btn btn-sm btn-info ms-3 text-white">
                 <i className="fa fa-user-plus"></i>
                 <span>Takip Edilenler</span>
                 <span className="badge badge-light">{user.following}</span>

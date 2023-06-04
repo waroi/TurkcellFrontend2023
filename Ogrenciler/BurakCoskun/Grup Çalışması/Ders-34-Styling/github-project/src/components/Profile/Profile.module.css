@@ -1,2 +1,45 @@
-.container {
+.userArea{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    padding: 0;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    max-width: 350px;
+    padding: 50px 25px;
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.profile img{
+    max-width: 50%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+  .profileInfoItem {
+    text-align: center;
+}
+  .profileInfoItem a {
+    width: 120px;
+}
+strong{
+    color:black;
+}
+@media only screen and (min-width: 720px) {
+  .userArea{
+    width:800px;
+    max-width: none;
+  }
+  .profileInfoItem{
+    text-align: start;
+  }
+    .profileInfoItem a {
+    width: auto;
+}
+
 }

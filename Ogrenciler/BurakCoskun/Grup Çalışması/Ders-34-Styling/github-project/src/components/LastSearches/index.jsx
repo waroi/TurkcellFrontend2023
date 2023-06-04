@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
+import Styles from "./Latest.module.css"
 
 const LastSearches = ({ lastSearches, onLastSearchClick   }) => {
   return (
     <div>
       <h3>Son Aramalar</h3>
-      <ul className="list-group">
+      <ul className={Styles.listGroup}>
         {lastSearches.map((item, index) => (
-          <li className="list-group-item" key={index} onClick={()=>onLastSearchClick(item)} >
-            {item}
+          <li className= {Styles.lastSearch} key={index} onClick={()=>onLastSearchClick(item)} >
+            #{item}
           </li>
         ))}
       </ul>
