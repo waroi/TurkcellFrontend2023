@@ -1,7 +1,20 @@
 .filterButton {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: start;
+  gap: 3em;
   flex-direction: row;
   flex-wrap: wrap;
+  
+}
+
+@media (max-width:768px) {
+  .filterButton{
+    gap: 0;
+    justify-content: center;
+  }
+  .button{
+    width: 45%;
+  }
+  
 }

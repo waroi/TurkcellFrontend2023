@@ -19,8 +19,6 @@ const UserInfos = ({ user }) => {
   useEffect(() => {
     const fetchUser = async () => {
       let users = JSON.parse(localStorage.getItem("items"));
-      console.log(users[users.length - 1]);
-
       try {
         const userData = await user;
         setUserData(userData);
@@ -80,11 +78,13 @@ const UserInfos = ({ user }) => {
   };
 
   return (
-    <div className={style.filterButton}>
-      <button onClick={showUser}> User Data</button>
-      <button onClick={showFollowerss}> Followers({userData.followers})</button>
-      <button onClick={showFollowingg}>Following ({userData.following})</button>
-      <button onClick={showReposs}> Repos ({userData.public_repos})</button>
+    <div >
+      <div className={style.filterButton}>
+      <button className={style.button} onClick={showUser}> User Data</button>
+      <button className={style.button} onClick={showFollowerss}> Followers({userData.followers})</button>
+      <button className={style.button} onClick={showFollowingg}>Following ({userData.following})</button>
+      <button className={style.button} onClick={showReposs}> Repos ({userData.public_repos})</button>
+      </div>
 
       {showUserData && !showFollowers && <UserInfoPage userData={userData} />}
 

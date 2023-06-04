@@ -3,6 +3,7 @@ import { MdLocationOn } from "react-icons/md";
 import { GrTwitter, GrGithub } from "react-icons/gr";
 import { BiLink } from "react-icons/bi";
 import { BsPersonHearts, BsPersonHeart, BsBuildings } from "react-icons/bs";
+import PropTypes from "prop-types"
 
 const UserInfoPage = ({ userData }) => {
   return (
@@ -40,13 +41,13 @@ const UserInfoPage = ({ userData }) => {
       </div>
       <div className={style.grid}>
         <div>
-          <a href={userData.blog} target="_blank">
+          <a href={userData.blog} target="_blank" rel="noreferrer">
             {" "}
             <BiLink /> {userData.blog}
           </a>
         </div>
         <div>
-          <a href={userData.html_url} target="_blank">
+          <a href={userData.html_url} target="_blank" rel="noreferrer">
             {" "}
             <GrGithub /> {userData.html_url}
           </a>
@@ -57,6 +58,16 @@ const UserInfoPage = ({ userData }) => {
       </div>
     </div>
   );
+};
+UserInfoPage.propTypes = {
+  userData: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      blog:PropTypes.string.isRequired,
+      html_url:PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default UserInfoPage;

@@ -7,12 +7,10 @@ import UserInfos from "./components/UserInfos/UserInfos.jsx";
 function App() {
   const [user, setUser] = useState([]);
   const [currentUser, setCurUser] = useState([]);
-  console.log(currentUser);
+
 
   useEffect(() => {}, [currentUser]);
-  try {
-    currentUser.then((resp) => console.log(resp));
-  } catch (error) {}
+
 
   return (
     <>

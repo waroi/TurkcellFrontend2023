@@ -2,11 +2,15 @@ import style from "./SearchNav.module.css";
 import { getUsers } from "../../utilities/Api";
 import { useState, useEffect } from "react";
 import LogoImg from "../../assets/logo/soab.png";
+import PropTypes from "prop-types"
 
 const SearchNav = ({ setCurUser }) => {
   const [search, setSearch] = useState("");
   const [items, setItems] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [repos, setRepos] = useState([]);
+  const [userExist ,setUserExist]=useState(false)
+  const [sameUser ,setSameUser]=useState(false)
 
   useEffect(() => {
     const storedItems = JSON.parse(localStorage.getItem("items"));
@@ -14,7 +18,7 @@ const SearchNav = ({ setCurUser }) => {
       setItems(storedItems);
     }
   }, []);
-  // console.log(items);
+  
 
   function getUsersFromApi(e) {
     e.preventDefault();
@@ -25,23 +29,30 @@ const SearchNav = ({ setCurUser }) => {
           setCurUser(getUsers(search));
           setRepos(getUsers(search));
           const storedItems = JSON.parse(localStorage.getItem("items")) || [];
-          console.log(storedItems.length);
+
           if (storedItems.length >= 5) {
             storedItems.shift();
           }
           let cur = storedItems.find((item) => item === search);
           if (cur) {
-            alert("Bu kullanici zaten var");
+            setSameUser(true)
+            setTimeout(()=>{
+              setSameUser(false)
+            },2000)
+            
           } else {
             const updatedItems = [...storedItems, search];
             localStorage.setItem("items", JSON.stringify(updatedItems));
             setItems(updatedItems);
           }
         } else {
-          alert("There is no user with that text");
+          setUserExist(true)
+          setTimeout(()=>{
+            setUserExist(false)
+          },2000)
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) =>console.log(err));
 
     setSearch("");
   }
@@ -78,6 +89,13 @@ const SearchNav = ({ setCurUser }) => {
           </button>
         </div>
       </form>
+      {userExist && (<div className={style.searchErr}>
+        There is no user with that username!
+      </div> )}
+      {sameUser && (<div className={style.searchErr}>
+        User has already added
+      </div> )}
+      
 
       {items.slice(-5).map((item, i) => (
         <button onClick={() => getUserFromLatest(item)} key={i}>
@@ -86,6 +104,9 @@ const SearchNav = ({ setCurUser }) => {
       ))}
     </div>
   );
+};
+SearchNav.propTypes = {
+  setCurUser:PropTypes.object.isRequired,
 };
 
 export default SearchNav;
