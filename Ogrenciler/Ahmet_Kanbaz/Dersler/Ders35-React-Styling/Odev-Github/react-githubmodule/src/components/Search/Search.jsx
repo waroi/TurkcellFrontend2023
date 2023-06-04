@@ -16,6 +16,7 @@ const Search = () => {
       <div>
         <input type="text" onChange={(e) => setSearchValue(e.target.value)}/>
         <button type='button' onClick={getGithubValue}>Ara</button>
+        {console.log(datas)}
       </div>
 
       <Person />
