@@ -2,30 +2,35 @@ import { useState, useEffect } from "react"
 import SingleRepo from "../SingleRepo/SingleRepo"
 import PropTypes from 'prop-types'
 
-const AllRepos = ({searchValue}) => {
-  const [allRepos, setAllRepos] = useState({})
+const AllRepos = ({userName4Repos}) => {
+  const [allRepos, setAllRepos] = useState([])
 
   useEffect(() => {
-    const getRepos = async() => {
-      const response = await fetch(`https://api.github.com/users/${searchValue}/repos`);
+    const getRepos = async () => {
+      const response = await fetch(`https://api.github.com/users/${userName4Repos}/repos`)
       const data = await response.json();
-      setAllRepos(data);
+      const sortedRepos = data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      const latestRepos = sortedRepos.slice(0, 6);
+      setAllRepos(latestRepos);
     }
-    getRepos();
-  }, [searchValue])
+    if(userName4Repos !== '') {
+      getRepos();
+    }
+  }, [userName4Repos])
+  
   return (
     <div>
-      <h3>Repo Adı</h3>
-      <p>Repo Açıklaması</p>
-      <p>Repo Oluşturma Zamanı</p>
-      <p>Repo Güncelleme Zamanı</p>
-      <SingleRepo />
+      {
+        allRepos.map((repo) => (
+          <SingleRepo key={repo.id} repo={repo}/>
+        ))
+      }
     </div>
   )
 }
 
 AllRepos.propTypes = {
-  searchValue: PropTypes.string.isRequired
+  userName4Repos: PropTypes.string
 }
 
 export default AllRepos

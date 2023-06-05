@@ -1,22 +1,21 @@
 import PropTypes from 'prop-types'
 
-const PersonDetail = ({personAllInfos}) => {
+const PersonDetail = ({personDetail}) => {
   return (
     <div>
-      <h4>{personAllInfos.name}</h4>
-      <h5>{personAllInfos.login}</h5>
+      <h4>{personDetail.name}</h4>
+      <h5>{personDetail.login}</h5>
       <div>
         <div>
           <ul>
-            <li>Bio: <span>{personAllInfos.bio}</span></li>
-            <li>Email: <span>{personAllInfos.email}</span></li>
-            {/* <li><button href="#" disabled>Waroi</button></li> İçerik null ise default bir değer verilerek disabled yapılabilir. */}
+            <li>Bio: <span>{personDetail.bio}</span></li>
+            <li>Email: <span>{personDetail.email}</span></li>
           </ul>
         </div>
         <div>
           <ul>
-            <li>Location: <span>{personAllInfos.location}</span></li>
-            <li>Company: <span>{personAllInfos.company}</span></li>
+            <li>Location: <span>{personDetail.location}</span></li>
+            <li>Company: <span>{personDetail.company}</span></li>
           </ul>
         </div>
       </div>
@@ -25,7 +24,7 @@ const PersonDetail = ({personAllInfos}) => {
 }
 
 PersonDetail.propTypes = {
-  personAllInfos: PropTypes.object
+  personDetail: PropTypes.object
 }
 
 export default PersonDetail
