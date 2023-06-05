@@ -18,7 +18,6 @@ const UserSearch = ({ activeUser, setActiveUser, userRepos, setUserRepos, render
 		if (activeUser && activeUser.name && activeUser.message != "Not Found") {
 			setRenderCheck(!renderCheck);
 			let alreadySaved = userList.some((user) => user.id === activeUser.id);
-			// alreadySaved ? console.log("ZATEN VAR") : userList.push(activeUser);
 			if (!alreadySaved) {
 				userList.push(activeUser);
 			}

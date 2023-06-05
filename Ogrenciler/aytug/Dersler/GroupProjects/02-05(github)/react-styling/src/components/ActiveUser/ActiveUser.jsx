@@ -43,10 +43,10 @@ const ActiveUser = ({ activeUser, userRepos }) => {
 									<ul className="list-group text-start">
 										<li className="list-group-item mt-2">
 											<div className="row">
-												<div className="col-8">
+												<a className="col-8" href={userRepos[userRepos.length - 1].html_url}>
 													<p className={styles.p}>{userRepos[userRepos.length - 1].name}</p>
 													<p className="card-text mb-1">{userRepos[userRepos.length - 1].created_at.slice(0, 10)}</p>
-												</div>
+												</a>
 												<div className="col-4">
 													<p className="card-text mb-1">Forks :{userRepos[userRepos.length - 1].forks}</p>
 													<p className="card-text mb-1">Watchers :{userRepos[userRepos.length - 1].watchers}</p>
@@ -55,10 +55,10 @@ const ActiveUser = ({ activeUser, userRepos }) => {
 										</li>
 										<li className="list-group-item mt-2 ">
 											<div className="row">
-												<div className="col-8">
+												<a className="col-8" href={userRepos[userRepos.length - 2].html_url}>
 													<p className="card-text mb-1">{userRepos[userRepos.length - 2].name}</p>
 													<p className="card-text mb-1">{userRepos[userRepos.length - 2].created_at.slice(0, 10)}</p>
-												</div>
+												</a>
 												<div className="col-4">
 													<p className="card-text mb-1">Forks :{userRepos[userRepos.length - 2].forks}</p>
 													<p className="card-text mb-1">Watchers :{userRepos[userRepos.length - 2].watchers}</p>
@@ -67,10 +67,10 @@ const ActiveUser = ({ activeUser, userRepos }) => {
 										</li>
 										<li className="list-group-item mt-2">
 											<div className="row">
-												<div className="col-8">
+												<a className="col-8" href={userRepos[userRepos.length - 3].html_url}>
 													<p className="card-text mb-1">{userRepos[userRepos.length - 3].name}</p>
 													<p className="card-text mb-1">{userRepos[userRepos.length - 3].created_at.slice(0, 10)}</p>
-												</div>
+												</a>
 												<div className="col-4">
 													<p className="card-text mb-1">Forks :{userRepos[userRepos.length - 3].forks}</p>
 													<p className="card-text mb-1">Watchers :{userRepos[userRepos.length - 3].watchers}</p>
