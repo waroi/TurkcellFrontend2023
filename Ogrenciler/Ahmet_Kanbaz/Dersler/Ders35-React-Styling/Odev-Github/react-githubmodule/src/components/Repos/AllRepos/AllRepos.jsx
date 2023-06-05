@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import SingleRepo from "../SingleRepo/SingleRepo"
 import PropTypes from 'prop-types'
+import styles from '../Repos.module.css'
 
 const AllRepos = ({userName4Repos}) => {
   const [allRepos, setAllRepos] = useState([])
@@ -19,7 +20,7 @@ const AllRepos = ({userName4Repos}) => {
   }, [userName4Repos])
   
   return (
-    <div>
+    <div className={styles.allreposDiv}>
       {
         allRepos.map((repo) => (
           <SingleRepo key={repo.id} repo={repo}/>

@@ -1,6 +1,7 @@
 import GitHubDetail from "../GitHubDetail/GitHubDetail"
 import PersonDetail from "../PersonDetail/PersonDetail"
 import PropTypes from 'prop-types'
+import styles from './Person.module.css'
 
 const Person = ({personAllInfos}) => {
   const personDetail = {
@@ -21,8 +22,8 @@ const Person = ({personAllInfos}) => {
   }
 
   return (
-    <div>
-      <div>
+    <div className={styles.personDiv}>
+      <div className={styles.personInfo}>
         <img src={personAllInfos.avatar_url} alt="userLogo"  width='400px'/>
         <PersonDetail personDetail={personDetail} />
       </div>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import SinglePastSearch from '../SinglePastSearch/SinglePastSearch'
 import PropTypes from 'prop-types'
+import styles from '../PastSearches.module.css'
+import searchStyles from '../../Search/Search.module.css'
 
 const AllPastSearches = ({userName4Repos, setSearchValue}) => {
   const [pastSearches, setPastSearches] = useState([]);
@@ -22,15 +24,18 @@ const AllPastSearches = ({userName4Repos, setSearchValue}) => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userName4Repos])
-  
+
+  const deleteAllPastSearches = () => {
+    setPastSearches([]);
+    localStorage.removeItem('pastSearches');
+  }
   return (
-    <div>
-      Geçmiş Aramalar
-      <ul>
+    <div className={styles.pastSearchesDiv}>
+      <p>Geçmiş Aramalar</p>
         {pastSearches.map((pastSearch, index) => 
-          <SinglePastSearch key={index} pastSearch={pastSearch} setSearchValue = {setSearchValue}/>
+          <SinglePastSearch key={index} pastSearch={pastSearch} setSearchValue = {setSearchValue} setPastSearches = {setPastSearches}/>
         )}
-      </ul>
+      <button type='button' className={searchStyles.searchButton} onClick={deleteAllPastSearches}>Tüm Aramaları Temizle</button>
     </div>
   )
 }
