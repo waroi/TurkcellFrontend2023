@@ -14,7 +14,7 @@ const Following = ({ following }) => {
          <img className={style.followerAvatar}  src={following.avatar_url} />
          <div style={{display:"flex",alignItems:"center"}}>
          <h3>{following.login}</h3>
-         {/* <h4>{followers} </h4> */}
+
         
          </div>
          

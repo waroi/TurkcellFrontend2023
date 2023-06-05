@@ -86,16 +86,17 @@ const UserInfos = ({ user }) => {
       <button className={style.button} onClick={showReposs}> Repos ({userData.public_repos})</button>
       </div>
 
-      {showUserData && !showFollowers && <UserInfoPage userData={userData} />}
+      {showUserData && <UserInfoPage userData={userData} />}
 
       {showRepos && <Repos repos={repos} />}
 
-      {!showRepos && !showUserData && !showFollowers && (
-        <Following following={following} />
+      {showFollowers && (
+        
+        <Followers followers={followers} />
       )}
 
-      {!showRepos && !showUserData && !showFollowing && (
-        <Followers followers={followers} />
+      {showFollowing && (
+        <Following following={following} />
       )}
     </div>
   );
