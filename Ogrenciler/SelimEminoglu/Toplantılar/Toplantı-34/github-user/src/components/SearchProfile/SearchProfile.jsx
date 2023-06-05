@@ -8,6 +8,7 @@ function SearchProfile({
   following,
   repo_number,
   location,
+  accountUrl,
 }) {
   return (
     <div className={ProfileStyle.profileDiv}>
@@ -25,7 +26,7 @@ function SearchProfile({
       </div>
       <div className={ProfileStyle.profileState}>
         <p className={ProfileStyle.pText}>
-          {location !== null && <AiFillHome />}
+          {(location !== null || location !== undefined) && <AiFillHome />}
           {location}
         </p>
         <h1 className={ProfileStyle.nameH1}>{name}</h1>
@@ -35,6 +36,11 @@ function SearchProfile({
         <p className={ProfileStyle.pText}>{following}</p>
         <h3 className={ProfileStyle.h3}>Repo Sayısı</h3>
         <p className={ProfileStyle.pText}>{repo_number}</p>
+        <button className={ProfileStyle.accountButton}>
+          <a href={accountUrl} target="_blank">
+            Profile Git
+          </a>
+        </button>
       </div>
     </div>
   );

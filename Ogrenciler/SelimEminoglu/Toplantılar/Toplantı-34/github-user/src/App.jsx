@@ -14,6 +14,7 @@ function App() {
   const [follower, setFollower] = useState("");
   const [following, setFollowing] = useState("");
   const [repo_number, setRepoNumber] = useState(0);
+  const [accountUrl, setAccountUrl] = useState("");
   const [repos, setRepos] = useState([]);
   const [location, setLocation] = useState("");
   let [lastSearch, setLastSearch] = useState([]);
@@ -40,6 +41,7 @@ function App() {
         setPicture(data.avatar_url);
         setRepoNumber(data.public_repos);
         setLocation(data.location);
+        setAccountUrl(data.html_url);
 
         fetch(`https://api.github.com/users/${user}/repos`)
           .then((response) => response.json())
@@ -91,6 +93,7 @@ function App() {
             following={following}
             repo_number={repo_number}
             location={location}
+            accountUrl={accountUrl}
           />
         </div>
         <div className="col-8">
