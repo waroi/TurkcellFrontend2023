@@ -9,7 +9,7 @@ function App() {
   const [user, setUser] = useState({});
   const [lastSearches, setLastSearches] = useState([]);
   const [isSearch, setIsSearch] = useState(false);
-  const [error, setError] = useState(null); // Hata durumu için bir state eklenmiştir
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
     const lastSearchesFromStorage = localStorage.getItem("lastSearches");
@@ -39,7 +39,6 @@ function App() {
     }
   };
   
-
   useEffect(() => {
     if (searchValue && isSearch) {
       handleSearch();
