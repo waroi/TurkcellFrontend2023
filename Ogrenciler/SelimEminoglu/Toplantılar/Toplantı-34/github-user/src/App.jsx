@@ -6,12 +6,6 @@ import SearchRepos from "./components/SearchRepos/SearchRepos";
 import LastSearchs from "./components/LastSearchs/LastSearchs";
 
 function App() {
-  let getLocal = JSON.parse(localStorage.getItem("searches"));
-
-  if (!getLocal) {
-    localStorage.setItem("searches", JSON.stringify([]));
-  }
-
   const [searchArray, setSearchArray] = useState([]);
   const [name, setName] = useState("");
   const [picture, setPicture] = useState("");
@@ -20,7 +14,15 @@ function App() {
   const [repo_number, setRepoNumber] = useState(0);
   const [repos, setRepos] = useState([]);
   const [location, setLocation] = useState("");
-  const [lastSearch, setLastSearch] = useState([]);
+  let [lastSearch, setLastSearch] = useState([]);
+
+  let getLocal = JSON.parse(localStorage.getItem("searches"));
+
+  function clearAllSearch() {
+    localStorage.setItem("searches", JSON.stringify([]));
+    setSearchArray([]);
+    setLastSearch([]);
+  }
 
   function getUserInfo(user) {
     fetch(`https://api.github.com/users/${user}`)
@@ -45,9 +47,22 @@ function App() {
             setRepos(data);
           });
 
-        lastSearch.push({ id: Date.now(), name: user });
+        if (
+          getLocal === null ||
+          getLocal === undefined ||
+          getLocal.length === 0
+        ) {
+          lastSearch.push({ id: Date.now(), name: user });
 
-        localStorage.setItem("searches", JSON.stringify(lastSearch));
+          localStorage.setItem("searches", JSON.stringify(lastSearch));
+        } else {
+          const controlName = lastSearch.find((item) => item.name === user);
+
+          if (!controlName) {
+            lastSearch.push({ id: Date.now(), name: user });
+            localStorage.setItem("searches", JSON.stringify(lastSearch));
+          }
+        }
 
         setSearchArray(getLocal);
       })
@@ -79,7 +94,11 @@ function App() {
         </div>
       </div>
       <div className="lastSearchDiv">
-        <LastSearchs searchs={searchArray} />
+        <LastSearchs
+          searchs={searchArray}
+          picture={picture}
+          clearAllSearch={clearAllSearch}
+        />
       </div>
     </>
   );
