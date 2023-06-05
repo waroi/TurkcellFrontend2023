@@ -33,7 +33,10 @@ const UserSearch = ({ activeUser, setActiveUser, userRepos, setUserRepos, render
 			setActiveUser(activeUser);
 			setUserData([activeUser, ...userData]);
 		} else {
-			alert("kullanıcı yok"); //toast message ekle
+			// alert("kullanıcı yok"); //toast message ekle
+			const toastLiveExample = document.getElementById("liveToast");
+			const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+			toastBootstrap.show();
 		}
 		console.log("userData LS", userData);
 		mainInput.value = "";
