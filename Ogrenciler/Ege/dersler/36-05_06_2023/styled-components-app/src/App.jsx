@@ -18,8 +18,8 @@ function App() {
       <h1>Styled Components</h1>
       <button>Deneme 1</button>
       <Button>Deneme 2 styled</Button>
-      <PrimaryButton size="30" onClick={() => console.log("clicked")}>
-        Deneme 3 styled
+      <PrimaryButton size="30" onClick={() => console.log("Deneme")}>
+        Deneme 3 Primary Button
       </PrimaryButton>
     </>
   );
