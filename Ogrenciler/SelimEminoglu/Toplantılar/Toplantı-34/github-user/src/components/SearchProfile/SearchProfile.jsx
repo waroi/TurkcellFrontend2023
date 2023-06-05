@@ -26,7 +26,9 @@ function SearchProfile({
       </div>
       <div className={ProfileStyle.profileState}>
         <p className={ProfileStyle.pText}>
-          {(location !== null || location !== undefined) && <AiFillHome />}
+          {(location !== null ||
+            location !== undefined ||
+            location.length == 0) && <AiFillHome />}
           {location}
         </p>
         <h1 className={ProfileStyle.nameH1}>{name}</h1>
