@@ -25,36 +25,38 @@ const Repos = ({ username }) => {
           .map((repo) => {
             return (
               <table key={repo.id}> 
-              <div className="col-md-4">
+              <div className="col-md-4 ">
                 <div className={Styles.repo}>
                   <h3>{repo.name}</h3>
                   <div className={Styles.repos}>           
-                    <a className="btn btn-light" href={repo.html_url} target="_blank" rel="noreferrer">
-                      <i className="fa-solid fa-arrow-right"></i>
-                      <span>Repoya git</span>
-                    </a>
-                     <a className="btn btn-dark">
+                    
+                     <a className={`btn btn-dark ${Styles.repo_btn}`}>
                       <i className="fa fa-code"></i>
                       <span className="badge badge-light">{repo.language}</span>
                     </a>
-                    <a className="btn btn-primary ">
+                    <a className={`btn btn-primary ${Styles.repo_btn}`}>
                       <i className="fa fa-star"></i>
                       <span>Starlar</span>
-                      <span className="badge badge-light">
+                      <span className={Styles.repo_info}>
                         {repo.stargazers_count}
                       </span>
                     </a>
-                  <a className="btn btn-info text-white">
+                  <a className={`btn btn-info ${Styles.repo_btn}`}>
                     <i className="fa fa-code-branch"></i>
                     <span>Forklar</span>
-                    <span className="badge badge-light">{repo.forks}</span>
+                    <span className={Styles.repo_info}>{repo.forks}</span>
                   </a>
 
-                  <a className="btn btn-danger text-white">
+                  <a className={`btn btn-danger ${Styles.repo_btn}`}>
                     <i className="fa fa-eye"></i>
                     <span>Watchers</span>
-                    <span className="badge badge-light">{repo.watchers}</span>
-                  </a></div>
+                    <span className={Styles.repo_info}>{repo.watchers}</span>
+                  </a>
+                  <a className={`btn btn-success ${Styles.repo_btn}`} href={repo.html_url} target="_blank" rel="noreferrer">
+                      <i className="fa-solid fa-arrow-right"></i>
+                      <span>Repoya git</span>
+                    </a>
+                    </div>
        
                 </div>
               </div></table>

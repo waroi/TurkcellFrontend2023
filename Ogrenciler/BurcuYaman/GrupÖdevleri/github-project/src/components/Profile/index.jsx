@@ -6,7 +6,8 @@ const index = ({ user }) => {
     <div className={Styles.container}>
     <div >
       <div className=
-      {`row ${Styles.userArea}`}>
+       {Styles.userArea}>
+        <div className="row">
         <div className= "col-md-5">
           <div className={Styles.profile}>
             <img src={user.avatar_url} alt="" className="img-fluid" />
@@ -14,18 +15,18 @@ const index = ({ user }) => {
             <p>{user.bio ? user.bio : "Bio yok"}</p>
           </div>
         </div>
-        <div className="col-md-7 ">
+        <div className="col-md-7">
           <div className={Styles.profileInfo}>
             <div className={Styles.profileInfoItem}>
               <a className="btn btn-sm btn-dark">
                 <i className="fa fa-users me-2"></i>
                 <span>Takipçiler</span>
-                <span className="badge">{user.followers}</span>
+                <span className={Styles.profile_btn}>{user.followers}</span>
               </a>
               <a className="btn btn-sm btn-info ms-3 text-white">
                 <i className="fa fa-user-plus me-2"></i>
                 <span>Takip Edilenler</span>
-                <span className="badge badge-light">{user.following}</span>
+                <span className={Styles.profile_btn}>{user.following}</span>
               </a>
             </div>
             <hr />
@@ -54,6 +55,7 @@ const index = ({ user }) => {
               </ul>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>
