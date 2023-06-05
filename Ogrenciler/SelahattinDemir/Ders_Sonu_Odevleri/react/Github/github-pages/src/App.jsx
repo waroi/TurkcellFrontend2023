@@ -44,8 +44,8 @@ function App() {
     setSearchQuery("");
   };
 
-  const handleSearchHistory = (e) => {
-    fetch(`https://api.github.com/users/${e.target.innerText}`)
+  const handleSearchHistory = (search) => {
+    fetch(`https://api.github.com/users/${search}`)
       .then((res) => res.json())
       .then((data) => {
         setUser(data);
@@ -64,14 +64,13 @@ function App() {
       </div>
       <div className={style.flex}>
         <div>
-          <UserContainer user={user} />
+          <UserContainer user={user} setUser={setUser} />
         </div>
         <div className={style.margin}>
           <RepoContainer user={user} />
         </div>
         <div>
           <LastSearch
-            searchHistory={searchHistory}
             handleSearchHistory={handleSearchHistory}
             setSearchHistory={setSearchHistory}
           />

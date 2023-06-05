@@ -7,29 +7,37 @@ import {
   ul,
 } from "../../CustomStyle.module.css";
 
-const LastSerach = ({
-  searchHistory,
-  handleSearchHistory,
-  setSearchHistory,
-}) => {
+const LastSerach = ({ handleSearchHistory, setSearchHistory }) => {
   const handleAllDelete = () => {
     localStorage.removeItem("searchHistory");
     setSearchHistory([]);
   };
 
-  const uniqueSearchHistory = [...new Set(searchHistory)];
+  // localStorage'dan searchHistory verisini al
+  const storedSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
 
-  const lastThreeSearch = uniqueSearchHistory.slice(
-    uniqueSearchHistory.length - 3
-  );
+  // Son üç unique (benzersiz) aramayı elde etmek için aynı isimde olanları tekrar ekle
+  const lastThreeSearch = [];
+  const addedNames = new Set();
+  for (
+    let i = storedSearchHistory.length - 1;
+    i >= 0 && lastThreeSearch.length < 3;
+    i--
+  ) {
+    const current = storedSearchHistory[i];
+    if (!addedNames.has(current) || i === storedSearchHistory.length - 1) {
+      lastThreeSearch.unshift(current); // Başa ekle
+      addedNames.add(current);
+    }
+  }
 
   return (
     <div className={`${containerRepos}`}>
       <h2 className={h2}>Son Arananlar</h2>
       <ul className={ul}>
-        {lastThreeSearch.map((search) => (
-          <li key={search}>
-            <button className={btn} onClick={handleSearchHistory}>
+        {lastThreeSearch.map((search, index) => (
+          <li key={index}>
+            <button className={btn} onClick={() => handleSearchHistory(search)}>
               {search}
             </button>
           </li>
