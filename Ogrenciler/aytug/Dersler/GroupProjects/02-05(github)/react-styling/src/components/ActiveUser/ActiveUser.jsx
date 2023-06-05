@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import styles from "./ActiveUser.module.css";
 
 const ActiveUser = ({ activeUser, userRepos }) => {
 	// console.log(userRepos[0].created_at);
@@ -19,7 +20,7 @@ const ActiveUser = ({ activeUser, userRepos }) => {
 						</div>
 						<div className="col-12">
 							<div className="row">
-								<div className="col-6 px-5">
+								<div className="col-5 ps-3">
 									<div className="card-body text-start">
 										<p className="card-text mb-2">
 											<i className="bi bi-building"></i>
@@ -35,18 +36,18 @@ const ActiveUser = ({ activeUser, userRepos }) => {
 										</p>
 									</div>
 								</div>
-								<div className="col-6">
+								<div className="col-7">
 									<p className="card-text mb-2">
 										<i className="bi bi-journal-bookmark-fill"></i> {activeUser.public_repos} repos
 									</p>
 									<ul className="list-group text-start">
 										<li className="list-group-item mt-2">
 											<div className="row">
-												<div className="col-6">
-													<p className="card-text mb-1">{userRepos[userRepos.length - 1].name}</p>
+												<div className="col-8">
+													<p className={styles.p}>{userRepos[userRepos.length - 1].name}</p>
 													<p className="card-text mb-1">{userRepos[userRepos.length - 1].created_at.slice(0, 10)}</p>
 												</div>
-												<div className="col-6">
+												<div className="col-4">
 													<p className="card-text mb-1">Forks :{userRepos[userRepos.length - 1].forks}</p>
 													<p className="card-text mb-1">Watchers :{userRepos[userRepos.length - 1].watchers}</p>
 												</div>
@@ -54,11 +55,11 @@ const ActiveUser = ({ activeUser, userRepos }) => {
 										</li>
 										<li className="list-group-item mt-2 ">
 											<div className="row">
-												<div className="col-6">
+												<div className="col-8">
 													<p className="card-text mb-1">{userRepos[userRepos.length - 2].name}</p>
 													<p className="card-text mb-1">{userRepos[userRepos.length - 2].created_at.slice(0, 10)}</p>
 												</div>
-												<div className="col-6">
+												<div className="col-4">
 													<p className="card-text mb-1">Forks :{userRepos[userRepos.length - 2].forks}</p>
 													<p className="card-text mb-1">Watchers :{userRepos[userRepos.length - 2].watchers}</p>
 												</div>
@@ -66,11 +67,11 @@ const ActiveUser = ({ activeUser, userRepos }) => {
 										</li>
 										<li className="list-group-item mt-2">
 											<div className="row">
-												<div className="col-6">
+												<div className="col-8">
 													<p className="card-text mb-1">{userRepos[userRepos.length - 3].name}</p>
 													<p className="card-text mb-1">{userRepos[userRepos.length - 3].created_at.slice(0, 10)}</p>
 												</div>
-												<div className="col-6">
+												<div className="col-4">
 													<p className="card-text mb-1">Forks :{userRepos[userRepos.length - 3].forks}</p>
 													<p className="card-text mb-1">Watchers :{userRepos[userRepos.length - 3].watchers}</p>
 												</div>

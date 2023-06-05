@@ -5,40 +5,33 @@ import PropTypes from "prop-types";
 
 const UserSearch = ({ activeUser, setActiveUser, userRepos, setUserRepos, renderCheck, setRenderCheck }) => {
 	const [userData, setUserData] = useState([]);
-	// let localStorage = localStorage.getItem("userList") ? JSON.parse(localStorage.getItem("userList")) : localStorage.setItem("userList", [])
-	// let localStorage=JSON.parse(localStorage.getItem("userList"));
 	const userList = JSON.parse(localStorage.getItem("userList"));
 	if (!userList) {
 		localStorage.setItem("userList", JSON.stringify([]));
 	}
+
 	const getUser = async () => {
 		const mainInput = document.getElementById("mainInput");
 		let activeUser = await getUserFromDb(mainInput.value);
 		let userRepos = await getUserReposFromDb(mainInput.value);
 
-		if (activeUser.message != "Not Found") {
-			userList.push(activeUser);
+		if (activeUser && activeUser.name && activeUser.message != "Not Found") {
 			setRenderCheck(!renderCheck);
-			//BAKICAZ
-			// userList.map(item => {
-			//     console.log("itemid", item.id);
-			//     console.log("userid", activeUser.id);
-			//     // if (item.id != activeUser.id) {
-			//     // }
-			// })
-
+			let alreadySaved = userList.some((user) => user.id === activeUser.id);
+			// alreadySaved ? console.log("ZATEN VAR") : userList.push(activeUser);
+			if (!alreadySaved) {
+				userList.push(activeUser);
+			}
 			localStorage.setItem("userList", JSON.stringify(userList));
 			userRepos.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
 			setUserRepos(userRepos);
 			setActiveUser(activeUser);
 			setUserData([activeUser, ...userData]);
 		} else {
-			// alert("kullanıcı yok"); //toast message ekle
 			const toastLiveExample = document.getElementById("liveToast");
 			const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
 			toastBootstrap.show();
 		}
-		console.log("userData LS", userData);
 		mainInput.value = "";
 	};
 
