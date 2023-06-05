@@ -21,6 +21,7 @@
 - [Grid Generator](https://cssgrid-generator.netlify.app/)
 - [Json Placeholder](https://jsonplaceholder.typicode.com/)
 - [Json Server](https://github.com/typicode/json-server)
+- [Styled Components](https://styled-components.com/)
 
 ## Extra Kaynaklar
 
