@@ -1,0 +1,82 @@
+#root {
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: blanchedalmond;
+}
+.navbar {
+  display: flex;
+  background-color: rgb(35, 155, 240);
+  margin-bottom: 50px;
+  justify-content: space-between;
+}
+.cardImage {
+  height: 200px;
+  max-width: 200px;
+}
+.addTaskBtn,
+.deleteAll {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 50%;
+  margin: auto 0;
+  margin-right: 10px;
+}
+
+.deleteAll {
+  background-color: red;
+  color: white;
+}
+
+.modalBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: aquamarine;
+  border: 2px solid black;
+  padding: 20px;
+}
+#modal-modal-description {
+  display: flex;
+  flex-direction: column;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.editCardBtn,
+.deleteCardBtn,
+.completeCardBtn {
+  border: 1px solid black !important;
+  font-size: 20px !important;
+}
+/* .editCardBtn {
+  color: ;
+} */
+.deleteCardBtn {
+  color: red !important;
+}
+.completeCardBtn {
+  color: green !important;
+}
+.completed {
+  text-decoration: line-through;
+}
+
+.searchInput {
+  margin: auto 0;
+  height: 30px;
+  width: 60%;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: transparent;
+  border: 2px solid black;
+}
