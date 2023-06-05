@@ -2,12 +2,14 @@ import PropTypes from "prop-types";
 import Styles from "./Latest.module.css"
 
 const LastSearches = ({ lastSearches, onLastSearchClick   }) => {
-  lastSearches=lastSearches.reverse();
+
+ const reverse = [...lastSearches].reverse();
+
   return (
     <div>
       <h3>Son Aramalar</h3>
       <ul className={Styles.listGroup}>
-        {lastSearches.map((item, index) => {
+        {reverse.map((item, index) => {
           return (
           <li className= {Styles.lastSearch} key={index} onClick={()=>onLastSearchClick(item)} >
             #{item}
