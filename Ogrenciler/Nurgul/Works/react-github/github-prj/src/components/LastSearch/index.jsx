@@ -1,23 +1,57 @@
 /* eslint-disable react/prop-types */
-import style from "../UserContainer/CustomStyle.module.css";
+import {
+  containerRepos,
+  h2,
+  btn,
+  btnDelete,
+  ul,
+} from "../../CustomStyle.module.css";
 
-const LastSerach = ({ searchHistory, handleSearchHistory }) => {
-  const handleDelete = () => {
-    // Arama geçmişini temizleme işlemi yapılcak
+const LastSerach = ({ handleSearchHistory, setSearchHistory }) => {
+  const handleAllDelete = () => {
+    localStorage.removeItem("searchHistory");
+    setSearchHistory([]);
   };
 
-  console.log("searchHistory", searchHistory);
+  // localStorage'dan searchHistory verisini al
+  const storedSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+
+  let lastThreeSearch;
+
+  if (storedSearchHistory !== null) {
+    // Son üç unique (benzersiz) aramayı elde etmek için aynı isimde olanları tekrar ekle
+    lastThreeSearch = [];
+    const addedNames = new Set();
+    for (
+      let i = storedSearchHistory.length - 1;
+      i >= 0 && lastThreeSearch.length < 3;
+      i--
+    ) {
+      const current = storedSearchHistory[i];
+      if (!addedNames.has(current) || i === storedSearchHistory.length - 1) {
+        lastThreeSearch.unshift(current); // Başa ekle
+        addedNames.add(current);
+      }
+    }
+  } else {
+    lastThreeSearch = [];
+  }
+
   return (
-    <div className={`${style.containerRepos} ${searchHistory.length > 4 ? style.overflow : ''}`}>
-      <h2 className={style.h2}>Son Arananlar</h2>
-      <ul className="list-unstyled">
-        {searchHistory.map((search) => (
-          <li key={search}>
-            <button className={style.btn} onClick={handleSearchHistory}>{search}</button>
+    <div className={containerRepos}>
+      <h2 className={h2}>Son Arananlar</h2>
+      <ul className={ul}>
+        {lastThreeSearch.map((search, index) => (
+          <li key={index}>
+            <button className={btn} onClick={() => handleSearchHistory(search)}>
+              {search}
+            </button>
           </li>
         ))}
       </ul>
-      <button className={style.btnDelete} onClick={handleDelete}>Arama Geçmişini Temizle</button>
+      <button className={btnDelete} onClick={handleAllDelete}>
+        Arama Geçmişini Temizle
+      </button>
     </div>
   );
 };
