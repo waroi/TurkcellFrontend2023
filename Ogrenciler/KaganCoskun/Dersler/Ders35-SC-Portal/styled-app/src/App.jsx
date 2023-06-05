@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import './App.css'
 import styled from 'styled-components'
+import {Input} from './styledComps'
 
 function App() {
 
@@ -30,7 +31,8 @@ function App() {
       <h1>Kagan Coskun Styled Components</h1>
       <button>Deneme 1</button>
       <Button>Deneme 2</Button>
-      <PrimaryBtn size="50" >Deneme 3</PrimaryBtn >
+      <PrimaryBtn size="50" onClick={()=>console.log("Denem")}>Deneme 3</PrimaryBtn >
+      <Input type='text'/>
     </>
   )
 }
