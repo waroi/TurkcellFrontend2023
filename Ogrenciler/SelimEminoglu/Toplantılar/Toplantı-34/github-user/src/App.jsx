@@ -6,7 +6,9 @@ import SearchRepos from "./components/SearchRepos/SearchRepos";
 import LastSearchs from "./components/LastSearchs/LastSearchs";
 
 function App() {
-  const [searchArray, setSearchArray] = useState([]);
+  let getLocal = JSON.parse(localStorage.getItem("searches"));
+
+  const [searchArray, setSearchArray] = useState(getLocal);
   const [name, setName] = useState("");
   const [picture, setPicture] = useState("");
   const [follower, setFollower] = useState("");
@@ -15,8 +17,6 @@ function App() {
   const [repos, setRepos] = useState([]);
   const [location, setLocation] = useState("");
   let [lastSearch, setLastSearch] = useState([]);
-
-  let getLocal = JSON.parse(localStorage.getItem("searches"));
 
   function clearAllSearch() {
     localStorage.setItem("searches", JSON.stringify([]));
@@ -52,14 +52,18 @@ function App() {
           getLocal === undefined ||
           getLocal.length === 0
         ) {
-          lastSearch.push({ id: Date.now(), name: user });
+          lastSearch.push({ id: Date.now(), name: user, img: data.avatar_url });
 
           localStorage.setItem("searches", JSON.stringify(lastSearch));
         } else {
           const controlName = lastSearch.find((item) => item.name === user);
 
           if (!controlName) {
-            lastSearch.push({ id: Date.now(), name: user });
+            lastSearch.push({
+              id: Date.now(),
+              name: user,
+              img: data.avatar_url,
+            });
             localStorage.setItem("searches", JSON.stringify(lastSearch));
           }
         }
@@ -69,7 +73,7 @@ function App() {
       .catch(() => {
         Swal.fire({
           icon: "error",
-          title: "Oops...",
+          title: "Hay Aksi...",
           text: "Aradığınız Kullanıcı Bulunamadı!",
         });
       });
@@ -96,7 +100,7 @@ function App() {
       <div className="lastSearchDiv">
         <LastSearchs
           searchs={searchArray}
-          picture={picture}
+          getUserInfo={getUserInfo}
           clearAllSearch={clearAllSearch}
         />
       </div>

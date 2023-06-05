@@ -12,13 +12,13 @@ function SearchProfile({
     <div className={ProfileStyle.profileDiv}>
       <div className="profilePicture">
         {picture != "" && (
-          <img src={picture} alt="images" className={ProfileStyle.img} />
+          <img src={picture} alt="images" className={ProfileStyle.profilePic} />
         )}
         {picture == "" && (
           <img
             src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
             alt="images"
-            className={ProfileStyle.img}
+            className={ProfileStyle.profilePic}
           />
         )}
       </div>

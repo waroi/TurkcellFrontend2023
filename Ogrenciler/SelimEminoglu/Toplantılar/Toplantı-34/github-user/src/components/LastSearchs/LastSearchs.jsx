@@ -1,6 +1,13 @@
 import LastStyle from "./LastSearchs.module.css";
 
-function LastSearchs({ searchs, clearAllSearch, picture }) {
+function LastSearchs({ searchs, clearAllSearch, getUserInfo }) {
+  function scrollToTop() {
+    window.scrollTo({
+      top: 90,
+      behavior: "smooth",
+    });
+  }
+
   return (
     <div className={LastStyle.lastDiv}>
       <div className={`${LastStyle.buttonRow} row  justify-content-around`}>
@@ -19,11 +26,27 @@ function LastSearchs({ searchs, clearAllSearch, picture }) {
         </div>
       </div>
       <ul className={LastStyle.ul}>
+        {searchs.length == 0 && (
+          <p className={LastStyle.noDataTitle}>Henüz Veri Yok...</p>
+        )}
         {searchs != null &&
           searchs.map((search) => {
             return (
               <li key={search.id}>
-                <button className={LastStyle.buttonLi}>{search.name}</button>
+                <button
+                  className={LastStyle.buttonLi}
+                  onClick={() => {
+                    getUserInfo(search.name);
+                    scrollToTop();
+                  }}
+                >
+                  <img
+                    src={search.img}
+                    alt="images"
+                    className={LastStyle.pictureSearch}
+                  />
+                  {search.name}
+                </button>
               </li>
             );
           })}
