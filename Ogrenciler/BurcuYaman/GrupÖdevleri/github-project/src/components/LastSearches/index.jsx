@@ -8,9 +8,7 @@ const LastSearches = ({ lastSearches, onLastSearchClick   }) => {
       <h3>Son Aramalar</h3>
       <ul className={Styles.listGroup}>
         {lastSearches.map((item, index) => {
-          console.log(item)
           return (
-          
           <li className= {Styles.lastSearch} key={index} onClick={()=>onLastSearchClick(item)} >
             #{item}
           </li>

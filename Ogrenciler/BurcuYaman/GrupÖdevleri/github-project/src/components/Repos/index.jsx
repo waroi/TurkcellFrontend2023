@@ -24,7 +24,7 @@ const Repos = ({ username }) => {
           .filter((repo) => repo.language)
           .map((repo) => {
             return (
-              <table   key={repo.id}> 
+              <table key={repo.id}> 
               <div className="col-md-4">
                 <div className={Styles.repo}>
                   <h3>{repo.name}</h3>
