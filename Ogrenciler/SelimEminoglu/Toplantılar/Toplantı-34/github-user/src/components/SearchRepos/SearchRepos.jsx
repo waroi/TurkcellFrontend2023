@@ -23,7 +23,7 @@ function SearchRepos({ repos }) {
                   </div>
                   <div className={ReposStyle.cardBody}>
                     <p className={ReposStyle.repoDetail}>
-                      {repo.description.length < 50
+                      {repo.description < 50
                         ? repo.description
                         : repo.description.slice(0, 50) + "..."}
                     </p>

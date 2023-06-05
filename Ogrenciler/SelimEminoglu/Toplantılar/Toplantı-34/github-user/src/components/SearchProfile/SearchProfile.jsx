@@ -1,4 +1,5 @@
 import ProfileStyle from "./SearchProfile.module.css";
+import { AiFillHome } from "react-icons/ai";
 
 function SearchProfile({
   name,
@@ -10,7 +11,7 @@ function SearchProfile({
 }) {
   return (
     <div className={ProfileStyle.profileDiv}>
-      <div className="profilePicture">
+      <div className={ProfileStyle.profilePictureDiv}>
         {picture != "" && (
           <img src={picture} alt="images" className={ProfileStyle.profilePic} />
         )}
@@ -22,15 +23,18 @@ function SearchProfile({
           />
         )}
       </div>
-      <div className="profileState">
-        <p>{location}</p>
-        <h1 className={ProfileStyle.h1}>{name}</h1>
+      <div className={ProfileStyle.profileState}>
+        <p className={ProfileStyle.pText}>
+          {location !== null && <AiFillHome />}
+          {location}
+        </p>
+        <h1 className={ProfileStyle.nameH1}>{name}</h1>
         <h3 className={ProfileStyle.h3}>Takipçiler</h3>
-        <p className={ProfileStyle.p}>{follower}</p>
+        <p className={ProfileStyle.pText}>{follower}</p>
         <h3 className={ProfileStyle.h3}>Takip Edilen</h3>
-        <p className={ProfileStyle.p}>{following}</p>
+        <p className={ProfileStyle.pText}>{following}</p>
         <h3 className={ProfileStyle.h3}>Repo Sayısı</h3>
-        <p className={ProfileStyle.p}>{repo_number}</p>
+        <p className={ProfileStyle.pText}>{repo_number}</p>
       </div>
     </div>
   );
