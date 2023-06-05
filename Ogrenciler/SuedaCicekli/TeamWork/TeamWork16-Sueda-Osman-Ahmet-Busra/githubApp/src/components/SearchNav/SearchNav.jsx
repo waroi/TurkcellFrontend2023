@@ -108,7 +108,7 @@ const SearchNav = ({ setCurUser }) => {
   );
 };
 SearchNav.propTypes = {
-  setCurUser: PropTypes.object.isRequired,
+  setCurUser: PropTypes.func.isRequired,
 };
 
 export default SearchNav;

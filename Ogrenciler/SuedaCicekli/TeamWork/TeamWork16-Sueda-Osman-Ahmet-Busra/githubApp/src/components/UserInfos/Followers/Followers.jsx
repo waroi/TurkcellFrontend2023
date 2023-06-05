@@ -1,19 +1,8 @@
-import { useEffect } from "react";
 import style from "./Followers.module.css"
-// import { getUsers } from "../../../utilities/Api";
 import PropTypes from "prop-types"
 
 const Followers = ({ followers }) => {
-  
-  
-  useEffect(()=>{
-    // followers.map((user)=>{
-      
 
-    
-
-    // })
-  })
 
   return (
     <div>
@@ -32,7 +21,6 @@ const Followers = ({ followers }) => {
           <img className={style.followerAvatar}  src={followers.avatar_url} />
           <div style={{display:"flex",alignItems:"center"}}>
           <h3>{followers.login}</h3>
-          {/* <h4>{followers} </h4> */}
          
           </div>
           
