@@ -40,14 +40,41 @@ const ActiveUser = ({ activeUser, userRepos }) => {
 										<i className="bi bi-journal-bookmark-fill"></i> {activeUser.public_repos} repos
 									</p>
 									<ul className="list-group text-start">
-										<li className="list-group">
-											{userRepos[userRepos.length - 1].name} | {userRepos[userRepos.length - 1].created_at.slice(0, 10)}
+										<li className="list-group-item mt-2">
+											<div className="row">
+												<div className="col-6">
+													<p className="card-text mb-1">{userRepos[userRepos.length - 1].name}</p>
+													<p className="card-text mb-1">{userRepos[userRepos.length - 1].created_at.slice(0, 10)}</p>
+												</div>
+												<div className="col-6">
+													<p className="card-text mb-1">Forks :{userRepos[userRepos.length - 1].forks}</p>
+													<p className="card-text mb-1">Watchers :{userRepos[userRepos.length - 1].watchers}</p>
+												</div>
+											</div>
 										</li>
-										<li className="list-group">
-											{userRepos[userRepos.length - 2].name} | {userRepos[userRepos.length - 2].created_at.slice(0, 10)}
+										<li className="list-group-item mt-2 ">
+											<div className="row">
+												<div className="col-6">
+													<p className="card-text mb-1">{userRepos[userRepos.length - 2].name}</p>
+													<p className="card-text mb-1">{userRepos[userRepos.length - 2].created_at.slice(0, 10)}</p>
+												</div>
+												<div className="col-6">
+													<p className="card-text mb-1">Forks :{userRepos[userRepos.length - 2].forks}</p>
+													<p className="card-text mb-1">Watchers :{userRepos[userRepos.length - 2].watchers}</p>
+												</div>
+											</div>
 										</li>
-										<li className="list-group">
-											{userRepos[userRepos.length - 3].name} | {userRepos[userRepos.length - 3].created_at.slice(0, 10)}
+										<li className="list-group-item mt-2">
+											<div className="row">
+												<div className="col-6">
+													<p className="card-text mb-1">{userRepos[userRepos.length - 3].name}</p>
+													<p className="card-text mb-1">{userRepos[userRepos.length - 3].created_at.slice(0, 10)}</p>
+												</div>
+												<div className="col-6">
+													<p className="card-text mb-1">Forks :{userRepos[userRepos.length - 3].forks}</p>
+													<p className="card-text mb-1">Watchers :{userRepos[userRepos.length - 3].watchers}</p>
+												</div>
+											</div>
 										</li>
 									</ul>
 								</div>
