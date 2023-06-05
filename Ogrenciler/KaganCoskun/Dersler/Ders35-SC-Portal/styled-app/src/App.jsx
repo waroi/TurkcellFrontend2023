@@ -23,7 +23,7 @@ function App() {
     &:hover {
       background-color: yellow;
     }
-    font-size: ${props => props.size}px;
+    font-size: ${(props) => props.size}px;
   `
 
   return (
