@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import style from "../../CustomStyle.module.css";
 
 const UserContainer = ({ user, setUser }) => {
-  
   const handleCounter = () => {
     setUser((prevUser) => ({
       ...prevUser,
@@ -22,9 +21,7 @@ const UserContainer = ({ user, setUser }) => {
               <h1>{user.name}</h1>
               <Card.Text>{user.bio}</Card.Text>
               <Card.Text>
-                <div>
-                  <a href={user.blog}>{user.blog}</a>
-                </div>
+                <a href={user.blog}>{user.blog}</a>
               </Card.Text>
 
               <div className={style.footer}>

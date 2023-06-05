@@ -17,7 +17,7 @@ const LastSerach = ({ handleSearchHistory, setSearchHistory }) => {
   const storedSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
 
   // Son üç unique (benzersiz) aramayı elde etmek için aynı isimde olanları tekrar ekle
-  const lastThreeSearch = [];
+  let lastThreeSearch;
   const addedNames = new Set();
   for (
     let i = storedSearchHistory.length - 1;
@@ -28,6 +28,9 @@ const LastSerach = ({ handleSearchHistory, setSearchHistory }) => {
     if (!addedNames.has(current) || i === storedSearchHistory.length - 1) {
       lastThreeSearch.unshift(current); // Başa ekle
       addedNames.add(current);
+    }
+    else{
+      lastThreeSearch=[]
     }
   }
 
