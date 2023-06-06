@@ -78,17 +78,7 @@ function App() {
         )
         
       )}
-    {/* {
-      error ? <div className={style.error}>Kullanıcı Bulunamadı</div> : (
-        loading ? <Loading />
-        :(
-         <div className={style.container}>
-          {user &&  <UserInfo  userInfo={userInfo} />}
-          {repo && <UserRepo repo={repo} />}
-         </div>
-        )
-        
-      )} */}
+    
     </div>
 
   </div>

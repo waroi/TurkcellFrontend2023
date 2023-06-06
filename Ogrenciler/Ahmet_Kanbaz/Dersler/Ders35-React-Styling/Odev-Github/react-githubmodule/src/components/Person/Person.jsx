@@ -1,49 +1,40 @@
-import './person.css'
-const Person = () => {
+import GitHubDetail from "../GitHubDetail/GitHubDetail"
+import PersonDetail from "../PersonDetail/PersonDetail"
+import PropTypes from 'prop-types'
+import styles from './Person.module.css'
+
+const Person = ({personAllInfos}) => {
+  const personDetail = {
+    name: personAllInfos.name,
+    login: personAllInfos.login,
+    bio: personAllInfos.bio,
+    email: personAllInfos.email,
+    location: personAllInfos.location,
+    company: personAllInfos.company
+  }
+
+  const githubDetail = {
+    followers: personAllInfos.followers,
+    following: personAllInfos.following,
+    public_repos: personAllInfos.public_repos,
+    created_at: personAllInfos.created_at,
+    updated_at: personAllInfos.updated_at
+  }
+
   return (
-    <div>
-      <div className="personInfo">
-        <img src="https://avatars.githubusercontent.com/u/3173292?v=4" alt="userLogo"  width='400px'/>
-        <div className='info'>
-          <h4>Kullanıcı Adı ve Soyadı</h4>
-          <h6>Username</h6>
-          <div>
-            <div>
-              <ul>
-                <li>Location: </li>
-                <li>Company: </li>
-                <li>Website: </li>
-              </ul>
-            </div>
-            <div>
-              <ul>
-                <li>Bio: </li>
-                <li>Email: </li>
-                <li><button href="#" disabled>Waroi</button></li> {/*İçerik null ise default bir değer verilerek disabled yapılabilir. */}
-              </ul>
-            </div>
-          </div>
-        </div>
+    <div className={styles.personDiv}>
+      <div className={styles.personInfo}>
+        <img src={personAllInfos.avatar_url} alt="userLogo"  width='400px'/>
+        <PersonDetail personDetail={personDetail} />
       </div>
-      <div>
-        <ul>
-          <li>Followers: 0</li>
-          <li>Following: 0</li>
-          <li>Repos: 0</li>
-        </ul>
-      </div>
-      <div>
-        <span>Github Oluşturma Zamanı</span>
-        <span>Son Güncelleme Zamanı</span>
-      </div>
-      <div>
-        <h3>Repo Adı</h3>
-        <p>Repo Açıklaması</p>
-        <p>Repo Oluşturma Zamanı</p>
-        <p>Repo Güncelleme Zamanı</p>
-      </div>
+      <GitHubDetail githubDetail = {githubDetail}/>
     </div>
   )
 }
 
-export default Person
+Person.propTypes = {
+  personAllInfos: PropTypes.object
+}
+  
+  export default Person
+  

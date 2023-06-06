@@ -2,9 +2,6 @@ import style from './userRepoStyle.module.css';
 import PropTypes from 'prop-types';
 import {Share, Watch, StarEmpty, StarFull} from '../../utils/Icons';
 
-
-
-
 const UserRepo = ({repo}) => {
 
  return <div className={style.repoDIV}>
@@ -55,13 +52,7 @@ const UserRepo = ({repo}) => {
            {item.forks}
          </span> }
      </div>
-     
-
-
-
-  
      </div>
-     {/* <p>{item.repoUrl}</p> */}
     </a>
    )
   })}
