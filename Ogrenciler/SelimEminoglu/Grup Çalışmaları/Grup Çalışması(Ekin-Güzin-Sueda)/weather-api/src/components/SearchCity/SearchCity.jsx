@@ -1,3 +1,7 @@
+/* eslint-disable react/prop-types */
+import { SearchForm, SearchInput, SearchButton } from './styleSearchCity'
+import { BiSearch } from 'react-icons/bi'
+
 function SearchCity({ searchValue, setSearchValue, fetchWeather }) {
   const handleChange = (e) => {
     setSearchValue(e.target.value);
@@ -8,15 +12,16 @@ function SearchCity({ searchValue, setSearchValue, fetchWeather }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+
+    <SearchForm onSubmit={handleSubmit}>
+      <SearchInput
         type="text"
         placeholder="Şehir Girin"
         onChange={handleChange}
         value={searchValue}
       />
-      <button onClick={() => fetchWeather()}>Hava Durumunu Getir</button>
-    </form>
+      <SearchButton onClick={() => fetchWeather()}><BiSearch /></SearchButton>
+    </SearchForm>
   );
 }
 

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { getWeather } from "./utils/Request";
 import SearchCity from "./components/SearchCity/SearchCity";
-import İnformationCity from "./components/İnformationCity/İnformationCity";
+import InformationCity from "./components/InformationCity/InformationCity";
 
 function App() {
   const [weather, setWeather] = useState("");
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("ankara");
 
   async function fetchWeather() {
     const data = await getWeather(searchValue);
@@ -20,7 +20,7 @@ function App() {
         setSearchValue={setSearchValue}
         fetchWeather={fetchWeather}
       />
-      <İnformationCity weather={weather} />
+      <InformationCity weather={weather} />
     </>
   );
 }
