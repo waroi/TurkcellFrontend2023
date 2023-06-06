@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import SearchInput from './components/SearchInput/SearchInput'
-import Button from './components/Button/Button'
-
-const SearchArea = ({city, setCity, handleFetchWeather}) => {
+import SearchInput from "./components/SearchInput/SearchInput";
+import Button from "./components/Button/Button";
+import "./SearchArea.css";
+const SearchArea = ({ city, setCity, handleFetchWeather }) => {
   return (
     <div>
       <form onSubmit={(e) => handleFetchWeather(e)}>
@@ -10,7 +10,7 @@ const SearchArea = ({city, setCity, handleFetchWeather}) => {
         <Button />
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default SearchArea
+export default SearchArea;
