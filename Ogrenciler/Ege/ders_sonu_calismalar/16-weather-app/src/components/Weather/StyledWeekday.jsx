@@ -21,9 +21,8 @@ const StyledWeekday = ({ day }) => {
     }
     @media screen and (max-width: 300px) {
       padding: 0.5em;
-    }
-  `;
-  console.log(day);
+    }`;
+  console.log(day.status);
   return (
     <Weekday>
       <p>{day.date}</p>

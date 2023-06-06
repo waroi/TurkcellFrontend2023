@@ -10,16 +10,14 @@ const StyledWeather = ({ today, weekday }) => {
     @media screen and (max-width: 600px) {
       flex-direction: column;
       width: 100%;
-    }
-  `;
+    }`;
   const Weekdays = styled.div`
-    display: grid;
+  display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
     @media screen and (max-width: 600px) {
       grid-template-columns: 1fr 1fr;
-    }
-  `;
+    }`;
   return (
     <Weather>
       {today.day && <StyledToday today={today} />}
