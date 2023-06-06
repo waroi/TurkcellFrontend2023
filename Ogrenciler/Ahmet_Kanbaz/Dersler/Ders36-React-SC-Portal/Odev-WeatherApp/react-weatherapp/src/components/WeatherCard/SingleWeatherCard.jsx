@@ -1,18 +1,23 @@
 import PropTypes from "prop-types";
+import styled from 'styled-components'
 const SingleWeatherCard = ({ weatherData }) => {
+  function addCardLocalStorage() {
+    let cardList = JSON.parse(localStorage.getItem("weatherCardList")) || [];
+    cardList.push(weatherData);
+    localStorage.setItem("weatherCardList", JSON.stringify(cardList));
+  }
+
+  const SingleCardInfo = styled.div `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `;
   return (
-    <div>
-      <img src={weatherData.icon} alt={weatherData.description} />
-      <p>{weatherData.date}</p>
+    <SingleCardInfo>
       <p>{weatherData.day}</p>
-      <p>{weatherData.description}</p>
-      <p>{weatherData.status}</p>
-      <p>{Math.round(weatherData.degree)}</p>
-      <p>{weatherData.humidity}%</p>
-      <p>{Math.round(weatherData.min)}</p>
-      <p>{Math.round(weatherData.night)}</p>
-      <p>{Math.round(weatherData.max)}</p>
-    </div>
+      <img src={weatherData.icon} alt={weatherData.description} width='20px'/>
+      <p>{Math.round(weatherData.degree)}°</p>
+    </SingleCardInfo>
   );
 };
 
