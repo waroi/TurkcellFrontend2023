@@ -12,99 +12,11 @@ a {
 ul {
 	list-style: none;
 }
-
-.header {
-	img {
-		height: 70vh;
-		max-height: 500px;
-	}
+.cardParent ,.dailycards, .searchParent{
+background: rgba(255, 255, 255, 0.3);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.5px);
+-webkit-backdrop-filter: blur(8.5px);
+border: 1px solid rgba(255, 255, 255, 0.37);
 }
-
-.bar {
-	.searchArea {
-		padding: 0.5em 1em;
-		border-radius: 25px;
-		border: 1px solid black;
-		&:focus {
-			outline: none;
-		}
-	}
-}
-
-.book-list {
-	.bookRow {
-		padding: 1em;
-		background-image: url(../assets/img/shelf-bck.png);
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		.book {
-			cursor: pointer;
-			.card-img {
-				height: 12em;
-			}
-		}
-		.bookSmall {
-			cursor: pointer;
-			border: 5px solid blue;
-			.kurgu {
-				background-color: aqua;
-			}
-			.tarih {
-				background-color: chocolate;
-			}
-			.bilim {
-				background-color: dodgerblue;
-			}
-			.klasik {
-				background-color: goldenrod;
-			}
-			.verticalText {
-				writing-mode: tb-rl;
-				filter: flipv fliph;
-			}
-		}
-	}
-}
-
-#bookModal {
-	padding: 0.5rem;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	translate: -50% -50%;
-	border-radius: 0.25rem;
-}
-
-#bookModal::backdrop {
-	background: rgba(0, 0, 0, 0.5);
-}
-
-#closeBookModal {
-	display: flex;
-	margin: auto;
-	padding: 0.25rem 0.5rem;
-}
-
-#bCover {
-	display: flex;
-	margin: auto;
-	width: 200px;
-}
-
-@media screen and (max-width: 768px) {
-	.header {
-		img {
-			max-height: 300px;
-		}
-	}
-}
-
-// .default {
-// 	background-color: ;
-// }
-
-// @mixin colorCreator {
-
-// 	background-color: ;
-// }
