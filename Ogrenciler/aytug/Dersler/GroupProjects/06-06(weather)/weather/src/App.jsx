@@ -1,18 +1,18 @@
-import { useEffect } from 'react';
-import './App.css'
-import { getWeatherData } from './services/api'
+import { useState } from "react";
+// import { useEffect } from "react";
+import "./App.css";
+import SearchCity from "./components/SearchCity/SearchCity";
+import ActiveCity from "./components/ActiveCity/ActiveCity";
 
 function App() {
-// console.log(getWeatherData("izmir"));
-useEffect(()=>{
-  const city = getWeatherData("izmir");
-  console.log(city)},[])
+	const [activeCity, setActiveCity] = useState();
 
-  return (
-    <>
-    
-    </>
-  )
+	return (
+		<>
+			<SearchCity setActiveCity={setActiveCity} />
+			{activeCity && <ActiveCity activeCity={activeCity} />}
+		</>
+	);
 }
 
-export default App
+export default App;
