@@ -1,6 +1,6 @@
-import styled from "styled-components"
+// import styled from "styled-components"
 
-export const SearchBar = styled.input`
-  width:100%;
-  border-radius:20px;
-`
+// export const SearchBar = styled.input`
+//   width:100%;
+//   border-radius:20px;
+// `

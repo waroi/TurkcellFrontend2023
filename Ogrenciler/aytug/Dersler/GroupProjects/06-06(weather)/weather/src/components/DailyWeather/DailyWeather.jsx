@@ -30,8 +30,8 @@ switch (day) {
     break;
 }
   return (
-    <div className='col'>
-      <div className='card border-0 dailycards'>
+    <div className='col p-1'>
+      <div className='card border-0 dailycards py-4'>
         <h4>{dayName}</h4>
         <div className='d-flex text-center justify-content-around mt-3'>
           <p className='fs-5'><i class="bi text-primary bi-thermometer-low"></i> {Math.floor(min_temp[0].main.temp_min)}°C - {Math.floor(max_temp[0].main.temp_max)}°C <i class="bi text-danger bi-thermometer-high"></i></p>

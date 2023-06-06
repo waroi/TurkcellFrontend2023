@@ -14,9 +14,9 @@ const ActiveCity = ({ activeCity }) => {
 	const remainingDayData = activeCity.list.filter((item) => item.dt_txt.slice(0,10) !== dateNow);
 	const remainingDays = [...chunked(remainingDayData,8)];
 	console.log(remainingDays);
-	
+
 	return (
-		<div>
+		<div className="container">
 			
 			<p>{activeCity.city.address}</p>
 			{/* <img src={`https://kitt.lewagon.com/placeholder/cities/${activeCity.city.slug}`} alt={activeCity.city.name} /> */}
@@ -26,7 +26,7 @@ const ActiveCity = ({ activeCity }) => {
 					<TodayWeather key={weather.id} weather={weather} />
 				))}
 			</div>
-			<div className="row mt-4">
+			<div className="row mt-3">
 				{
 				remainingDays.map((weather,i) => (
 					<DailyWeather key={weather.id} weather={weather}/>
