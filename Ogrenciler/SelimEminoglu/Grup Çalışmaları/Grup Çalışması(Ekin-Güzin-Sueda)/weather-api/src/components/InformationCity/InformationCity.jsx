@@ -20,7 +20,7 @@ function InformationCity({ weather }) {
         </div>
         <DetailCity weather={weather} />
       </Dflex>
-      <WeeklyWeather />
+      <WeeklyWeather weather={weather} />
     </Container>
   );
 }
