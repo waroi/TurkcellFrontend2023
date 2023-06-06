@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 
-
-const Button = ({handleFetchWeather}) => {
+const Button = () => {
   return (
     <div>
-      <button onClick={handleFetchWeather} type="submit">Search</button>
+      <button type="submit">Search</button>
     </div>
   )
 }
