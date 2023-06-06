@@ -1,0 +1,67 @@
+.personDiv {
+  width: 1280px;
+  margin-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.personInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.personInfo > img {
+  border-radius: 50%;
+}
+
+.personDetailDiv {
+  width: 50%;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.personDetailDiv > h3 {
+  margin-bottom: 0;
+}
+
+.personDetailDiv > h4 {
+  margin-top: .7rem;
+  opacity: .6;
+  font-style: italic;
+}
+
+.bioandLoc {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+
+.bio > div,
+.loc > div {
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+}
+
+.bio > div:nth-child(2),
+.loc > div:nth-child(2) {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .personDiv {
+    width: 100%;
+  }
+  .personInfo > img {
+    width: 50%;
+  }
+  .personDetailDiv {
+    width: 80%;
+  }
+
+  .bioandLoc {
+    flex-direction: column;
+    align-items: center;
+  }
+}

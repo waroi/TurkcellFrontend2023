@@ -1,0 +1,35 @@
+.githubDetailDiv {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.githubFollow,
+.githubDates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.githubDates {
+  margin-top: 1.7rem;
+  justify-content: center;
+  gap: 7rem;
+}
+
+.githubFollow > span {
+  font-style: italic;
+  opacity: .8;
+}
+
+@media screen and (max-width: 768px) {
+  .githubFollow,
+  .githubDates {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+}
