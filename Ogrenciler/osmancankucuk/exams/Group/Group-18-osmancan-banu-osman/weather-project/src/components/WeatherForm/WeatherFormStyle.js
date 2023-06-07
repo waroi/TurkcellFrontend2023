@@ -33,3 +33,11 @@ export const Box = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 1em;
 `;
+export const Error = styled.div`
+  background-color: rgba(189, 50, 50, 0.899);
+  color: white;
+  margin-top: 1em;
+  border-radius: 5px;
+  padding: 1em;
+  width: 50%;
+`;

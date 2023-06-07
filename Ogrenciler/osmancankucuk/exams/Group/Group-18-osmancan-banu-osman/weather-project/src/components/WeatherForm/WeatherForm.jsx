@@ -1,20 +1,31 @@
-import { Button, WeatherInput } from "./WeatherFormStyle";
+import { Button, WeatherInput, Error } from "./WeatherFormStyle";
 import { useEffect, useRef, useState } from "react";
 import { Box } from "./WeatherFormStyle";
 
 const WeatherFormm = ({ setWeather, weather }) => {
-  const [error, setError] = useState(false);
-  useEffect(() => {}, [error]);
+  const [errorMessage, setErrorMessage] = useState(false);
+
   async function handleSubmit(e) {
     e.preventDefault();
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${e.target[0].value
       .toLowerCase()
       .trim()}&APPID=97d8b9001ba6e85cf96f1158eead208f&units=metric`;
     e.target[0].value = "";
-    await fetch(url)
-      .then((resp) => resp.json())
-      .then((resp) => setWeather(resp))
-      .catch((err) => console.log(err));
+
+    try {
+      const response = await fetch(url);
+      if (response.status === 200) {
+        const data = await response.json();
+        setWeather(data);
+      } else {
+        setErrorMessage(true);
+        setTimeout(() => {
+          setErrorMessage(false);
+        }, 2000);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const inputElement = useRef(null);
@@ -29,7 +40,7 @@ const WeatherFormm = ({ setWeather, weather }) => {
           placeholder="City Name"
         />
 
-        {error && <div>Hata var aga</div>}
+        {errorMessage && <Error>Yanlisin var u-usta!!</Error>}
         <Button>Search</Button>
       </form>
     </Box>
