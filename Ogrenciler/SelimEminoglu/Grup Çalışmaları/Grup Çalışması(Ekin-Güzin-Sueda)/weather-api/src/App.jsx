@@ -21,7 +21,10 @@ function App() {
         setSearchValue={setSearchValue}
         fetchWeather={fetchWeather}
       />
-      <InformationCity weather={weather} />
+      {weather.success && searchValue != null && (
+        <InformationCity weather={weather} />
+      )}
+      {searchValue.length == 0 && <h3>Şehir İsmi Giriniz</h3>}
     </>
   );
 }
