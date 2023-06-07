@@ -4,7 +4,31 @@ import InputCity from "./components/InputCity";
 import { weatherForecast } from "./utilities/WeatherAPI";
 import WeatherShow from "./components/Weather/WeatherShow";
 import Loader from "./components/Loader";
+import styled from "styled-components";
+import {
+  DefaultBackground,
+  ClearBackground,
+  RainBackground,
+  CloudsBackground,
+  SnowBackground,
+} from "../src/components/StyledBg";
 
+const ContentContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+`;
+
+const BackgroundContainer = styled.div`
+  height: 100vh;
+  width: 100%;
+`;
 function App() {
   const [bg, setBg] = useState("defaultBg");
   const bgs = ["defaultBg", "clearBg", "rainBg", "cloudsBg", "snowBg"];
@@ -108,7 +132,7 @@ function App() {
           wind: dailyData[0].wind_speed,
           pressure: dailyData[0].pressure,
         };
-        //slice(0, 3)bak
+
         const weekData = dailyData.slice(1);
 
         const weekInfo = weekData.map((data, index) => {
@@ -158,45 +182,51 @@ function App() {
   }, [state.current]);
 
   return (
-        <div className={bg}>
-          {state.weatherData && (
-            <div>
-              <h2>{state.value}</h2>
-            </div>
-          )}
+    <BackgroundContainer>
+      {bg === "defaultBg" && <DefaultBackground />}
+      {bg === "clearBg" && <ClearBackground />}
+      {bg === "rainBg" && <RainBackground />}
+      {bg === "cloudsBg" && <CloudsBackground />}
+      {bg === "snowBg" && <SnowBackground />}
 
-          <InputCity
-            value={state.value}
-            data={state}
-            showResult={(state.weatherInfo || state.error) && true}
-            change={handleInputChange}
-            submit={handleSearchCity}
-          />
-          {state.loading === true ? (
-            <Loader />
-          ) : (
-            <div>
-              {state.current !== undefined ? (
-                
-                <div>
-                    <WeatherShow
-                    name = {location}
-                      today={state.current}
-                      weekly={state.weekInfo}
-                    />
-                  </div>
-                
-              ) : state.error ? (
-                <p>
-                  Sorry! We don't have any information on the specified
-                  location.
-                </p>
-              ) : (
-               <></>
-              )}
-            </div>
-          )}
-        </div>
+      <ContentContainer>
+        {state.weatherData && (
+          <div>
+            <h2>{state.value}</h2>
+          </div>
+        )}
+
+        <InputCity
+          value={state.value}
+          data={state}
+          showResult={(state.weatherInfo || state.error) && true}
+          change={handleInputChange}
+          submit={handleSearchCity}
+        />
+
+        {state.loading === true ? (
+          <Loader />
+        ) : (
+          <div>
+            {state.current !== undefined ? (
+              <div>
+                <WeatherShow
+                  name={location}
+                  today={state.current}
+                  weekly={state.weekInfo}
+                />
+              </div>
+            ) : state.error ? (
+              <p>
+                Sorry! We don't have any information on the specified location.
+              </p>
+            ) : (
+              <></>
+            )}
+          </div>
+        )}
+      </ContentContainer>
+    </BackgroundContainer>
   );
 }
 

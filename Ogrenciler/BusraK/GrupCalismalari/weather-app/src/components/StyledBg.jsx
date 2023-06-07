@@ -1,0 +1,52 @@
+import styled from "styled-components";
+export const RootContainer = styled.div`
+  text-align: center;
+  background: url("https://images.unsplash.com/photo-1462524500090-89443873e2b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80");
+  font-family: "Righteous", cursive;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+`;
+
+export const DefaultBackground = styled.div`
+  background: url("https://waterstreetblog.com/wp-content/uploads/2018/11/climate-change-2200x1465.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+`;
+
+export const ClearBackground = styled.div`
+  background: url("https://images.photowall.com/products/44478/sunny-sky.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+`;
+
+export const RainBackground = styled.div`
+  background: url("https://w0.peakpx.com/wallpaper/376/49/HD-wallpaper-rainy-skies-blue-clouds-rain-raining-sky-springs.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+`;
+
+export const CloudsBackground = styled.div`
+  background: url("https://images.unsplash.com/photo-1532178910-7815d6919875?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xvdWR5JTIwc2t5fGVufDB8fDB8fHww&w=1000&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+`;
+
+export const SnowBackground = styled.div`
+  background: url("https://m.media-amazon.com/images/I/71BLeyyl0qL._AC_UF894,1000_QL80_.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+`;
