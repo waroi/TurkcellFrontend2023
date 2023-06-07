@@ -45,3 +45,8 @@ export const CityCardHumi = styled.span`
   opacity: 0.8;
   font-style: italic;
 `;
+
+export const FeelsDegree = styled(CityCardHumi)`
+  font-size: 1.8rem;
+  font-style: normal;
+`;

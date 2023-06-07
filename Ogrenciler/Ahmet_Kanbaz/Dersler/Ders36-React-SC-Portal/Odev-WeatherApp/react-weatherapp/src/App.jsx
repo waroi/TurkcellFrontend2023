@@ -42,8 +42,8 @@ function App() {
       </SearchForm>
       {weatherDatas.length > 0 && (
         <SearchCity weatherDatas={weatherDatas} cityName={inputRef.current} />
-      )}
-      <CurrentCity />
+        )}
+        <CurrentCity/>
     </FormContainer>
   );
 }
