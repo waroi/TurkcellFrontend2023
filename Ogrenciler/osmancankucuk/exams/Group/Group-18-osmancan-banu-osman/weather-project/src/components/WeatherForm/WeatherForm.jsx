@@ -1,5 +1,5 @@
 import { Button, WeatherInput, Error } from "./WeatherFormStyle";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Box } from "./WeatherFormStyle";
 import PropTypes from "prop-types";
 const WeatherFormm = ({ setWeather }) => {
