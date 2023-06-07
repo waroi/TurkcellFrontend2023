@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Weather = ({ data }) => {
+const Weather = ({data}) => {
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
