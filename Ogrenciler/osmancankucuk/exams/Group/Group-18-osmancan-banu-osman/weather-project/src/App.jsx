@@ -11,7 +11,7 @@ function App() {
       <div className="container">
         <div className="row align-items-center h-100">
           <div className="col-md-5">
-            <WeatherFormm weather={weather} setWeather={setWeather} />
+            <WeatherFormm setWeather={setWeather} />
           </div>
           <div className="col-md-7">
             {weather && <WeatherInfoo weather={weather} />}

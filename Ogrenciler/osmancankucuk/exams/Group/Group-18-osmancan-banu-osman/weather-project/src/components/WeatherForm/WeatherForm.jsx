@@ -28,19 +28,13 @@ const WeatherFormm = ({ setWeather }) => {
     }
   }
 
-  const inputElement = useRef(null);
   return (
     <Box>
       <h5 className="mb-4">Please give city information</h5>
       <form onSubmit={(e) => handleSubmit(e)} className="mt-2">
-        <WeatherInput
-          ref={inputElement}
-          className="d-block"
-          type="text"
-          placeholder="City Name"
-        />
+        <WeatherInput className="d-block" type="text" placeholder="City Name" />
 
-        {errorMessage && <Error>Yanlisin var u-usta!!</Error>}
+        {errorMessage && <Error>Bu nasil sehir u-usta!</Error>}
         <Button>Search</Button>
       </form>
     </Box>
