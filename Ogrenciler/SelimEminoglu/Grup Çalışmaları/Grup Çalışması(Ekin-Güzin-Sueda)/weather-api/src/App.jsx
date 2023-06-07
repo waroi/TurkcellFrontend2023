@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { getWeather } from "./utils/Request";
 import SearchCity from "./components/SearchCity/SearchCity";

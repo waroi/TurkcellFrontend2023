@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import { FaTemperatureHigh } from "react-icons/fa";
-import { DegreeFlex } from "./styleDetailCity";
+import { TbTemperatureCelsius } from "react-icons/tb";
+import { TbTemperaturePlus, TbTemperatureMinus } from "react-icons/tb";
+import { Heat, StatusWeather, Minmax } from "./styleDetailCity";
 
 
 function DetailCity({ weather }) {
@@ -8,18 +9,18 @@ function DetailCity({ weather }) {
   return (
     <>
       <div>
-        <h1><FaTemperatureHigh />{weather.result[0].degree}</h1>
+        <Heat>{weather.result[0].degree} <TbTemperatureCelsius size="40px" /></Heat>
       </div>
-      <div className="detailDiv">
-        <p>
+      <div >
+        <StatusWeather>
           {weather.result[0].status}
-        </p>
-        <p>Min:<span>
+        </StatusWeather>
+        <Minmax><TbTemperaturePlus /><span>
           {weather.result[0].min}
-        </span></p>
-        <p>Max:
+        </span></Minmax>
+        <Minmax><TbTemperatureMinus />
           <span>{weather.result[0].max}</span>
-        </p>
+        </Minmax>
       </div>
 
     </>

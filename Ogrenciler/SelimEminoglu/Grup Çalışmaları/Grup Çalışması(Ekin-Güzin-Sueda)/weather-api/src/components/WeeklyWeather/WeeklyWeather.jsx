@@ -1,4 +1,5 @@
-import { ListImg, ListUl, ListLi } from "./styleWeeklyWeather";
+/* eslint-disable react/prop-types */
+import { ListImg, ListUl, ListLi, WeeklyTemp } from "./styleWeeklyWeather";
 import { TbTemperatureCelsius } from "react-icons/tb";
 
 function WeeklyWeather({ weather }) {
@@ -8,10 +9,10 @@ function WeeklyWeather({ weather }) {
         return (
           <ListLi key={i}>
             <ListImg src={item.icon} alt="images" />
-            <p>
+            <WeeklyTemp>
               {item.degree}
-              <TbTemperatureCelsius />
-            </p>
+              <TbTemperatureCelsius size="20px" />
+            </WeeklyTemp>
             <p>{item.day}</p>
           </ListLi>
         );

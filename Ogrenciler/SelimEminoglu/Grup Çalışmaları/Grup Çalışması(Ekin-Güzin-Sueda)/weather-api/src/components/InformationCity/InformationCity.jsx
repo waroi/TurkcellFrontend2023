@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import DetailCity from "../DetailCity/DetailCity";
 import WeeklyWeather from "../WeeklyWeather/WeeklyWeather";
-import { Container, Dflex, WeatherIcon, CityNameArea } from './styleInformationCity.js'
+import { Container, Dflex, WeatherIcon, CityNameArea, Row, CityName, DateforDay } from './styleInformationCity.js'
 
 function InformationCity({ weather }) {
   if (!weather) {
@@ -10,15 +11,22 @@ function InformationCity({ weather }) {
     <Container>
       <Dflex>
         <div>
+
           <CityNameArea>
-            <p>{weather?.city}</p>
-            <p>{weather?.result[0].date}</p>
+            <CityName>{weather?.city}</CityName>
+            <DateforDay>{weather?.result[0].date}</DateforDay>
           </CityNameArea>
-          <div className="img">
-            <WeatherIcon src={weather?.result[0].icon} alt="images" />
-          </div>
+          <Row>
+            <div>
+              <WeatherIcon src={weather?.result[0].icon} alt="images" />
+            </div>
+            <div>
+              <DetailCity weather={weather} />
+            </div>
+          </Row>
         </div>
-        <DetailCity weather={weather} />
+
+
       </Dflex>
       <WeeklyWeather weather={weather} />
     </Container>

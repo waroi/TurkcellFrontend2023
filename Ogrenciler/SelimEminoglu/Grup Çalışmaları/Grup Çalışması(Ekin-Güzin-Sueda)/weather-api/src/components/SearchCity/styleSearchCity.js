@@ -35,3 +35,6 @@ export const SearchButton = styled.button`
   justify-content: center;
   `;
 
+
+
+

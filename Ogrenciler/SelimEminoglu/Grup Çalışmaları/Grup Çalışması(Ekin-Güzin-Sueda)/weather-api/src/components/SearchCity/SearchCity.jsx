@@ -2,6 +2,7 @@
 import { SearchForm, SearchInput, SearchButton } from './styleSearchCity'
 import { BiSearch } from 'react-icons/bi'
 
+
 function SearchCity({ searchValue, setSearchValue, fetchWeather }) {
   const handleChange = (e) => {
     setSearchValue(e.target.value);
@@ -20,7 +21,7 @@ function SearchCity({ searchValue, setSearchValue, fetchWeather }) {
         onChange={handleChange}
         value={searchValue}
       />
-      <SearchButton onClick={() => fetchWeather()}><BiSearch /></SearchButton>
+      <SearchButton onClick={() => fetchWeather()}><BiSearch size="20px" /></SearchButton>
     </SearchForm>
   );
 }
