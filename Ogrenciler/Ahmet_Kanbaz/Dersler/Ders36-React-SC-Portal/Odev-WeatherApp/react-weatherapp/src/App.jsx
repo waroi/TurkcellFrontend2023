@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-// import CurrentCity from "./components/CurrentCity/CurrentCity";
 import SearchCity from "./components/SearchCity/SearchCity";
 import {FormContainer, SearchForm, SearchInput, SearchButton} from './components/AppStyle/Style'
 import CurrentCity from "./components/CurrentCity/CurrentCity";
@@ -27,7 +26,7 @@ function App() {
     <FormContainer>
       <h2>Weather App</h2>
       <SearchForm>
-        <SearchInput type="text" ref={inputRef} />
+        <SearchInput type="text" ref={inputRef} placeholder="Şehir Adı Giriniz..."/>
         <SearchButton type="button" onClick={getWeatherDatas}>
           Search
         </SearchButton>

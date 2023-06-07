@@ -14,7 +14,7 @@ const CurrentCity = () => {
         long: position.coords.longitude
       })
     })
-    console.log(currentLocation.lat - currentLocation.long)
+    // console.log(currentLocation.lat - currentLocation.long)
 
     const getCurrentCityWeatherDatas = async () => {
       const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${currentLocation.lat}&lon=${currentLocation.long}&exclude=current,hourly,minutely,alerts&units=metric&appid=5a9887854f41e5c7752c6dd70fa176f7`);
