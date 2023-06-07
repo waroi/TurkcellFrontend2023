@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
-import {CityCard, CityDailyInfo, FeelsDegree, CityCardDegree, CityCardHumi} from '../SearchCity/Style'
+import {
+  CityCard,
+  CityDailyInfo,
+  FeelsDegree,
+  CityCardDegree,
+  CityCardHumi,
+} from "../SearchCity/Style";
 const CurrentCity = () => {
   const [lat, setLat] = useState([0]);
   const [long, setLong] = useState([0]);
@@ -18,17 +24,20 @@ const CurrentCity = () => {
       const data = await response.json();
       setCurrentLocationWeather(data);
     };
-    lat ? long ? getCurrentCityWeatherDatas() : null : null;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    lat ? (long ? getCurrentCityWeatherDatas() : null) : null;
   }, [lat, long]);
   return (
     <CityCard>
       <h2>Bulunduğunuz Konum</h2>
       <CityDailyInfo>
-        <CityCardDegree>{Math.round(currentLocationWeather?.main?.temp)}°</CityCardDegree>
+        <CityCardDegree>
+          {Math.round(currentLocationWeather?.main?.temp)}°
+        </CityCardDegree>
         <CityCardHumi>{currentLocationWeather?.main?.humidity}%</CityCardHumi>
       </CityDailyInfo>
-        <FeelsDegree>Hissedilen Sıcaklık: {currentLocationWeather?.main?.feels_like}</FeelsDegree>
+      <FeelsDegree>
+        Hissedilen Sıcaklık: {currentLocationWeather?.main?.feels_like}
+      </FeelsDegree>
     </CityCard>
   );
 };

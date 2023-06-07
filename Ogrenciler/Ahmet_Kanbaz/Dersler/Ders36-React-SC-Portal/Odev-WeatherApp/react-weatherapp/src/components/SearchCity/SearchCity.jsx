@@ -1,5 +1,12 @@
 import PropTypes from "prop-types";
-import {CityCard, CityDailyInfo, CityCardAllDays, CityCardImage, CityCardDegree, CityCardHumi} from './Style'
+import {
+  CityCard,
+  CityDailyInfo,
+  CityCardAllDays,
+  CityCardImage,
+  CityCardDegree,
+  CityCardHumi,
+} from "./Style";
 import SingleWeatherCard from "../WeatherCard/SingleWeatherCard";
 
 const SearchCity = ({ weatherDatas, cityName }) => {
@@ -13,7 +20,7 @@ const SearchCity = ({ weatherDatas, cityName }) => {
         <CityCardHumi>{weatherDatas[0]?.humidity}%</CityCardHumi>
       </CityDailyInfo>
       <CityCardAllDays>
-        {weatherDatas.slice(1,7).map((weatherData) => (
+        {weatherDatas.slice(1).map((weatherData) => (
           <SingleWeatherCard key={weatherData.date} weatherData={weatherData} />
         ))}
       </CityCardAllDays>
@@ -23,7 +30,7 @@ const SearchCity = ({ weatherDatas, cityName }) => {
 
 SearchCity.propTypes = {
   weatherDatas: PropTypes.array.isRequired,
-  cityName: PropTypes.object
+  cityName: PropTypes.object,
 };
 
 export default SearchCity;

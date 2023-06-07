@@ -5,13 +5,16 @@ import {
   SearchForm,
   SearchInput,
   SearchButton,
+  Toast,
 } from "./components/AppStyle/Style";
 import CurrentCity from "./components/CurrentCity/CurrentCity";
 function App() {
   const inputRef = useRef(null);
   const [weatherDatas, setWeatherDatas] = useState([]);
+  const [error, setError] = useState(false);
 
   const getWeatherDatas = async () => {
+    setError(false);
     const cityName = inputRef.current.value;
     const response = await fetch(
       `https://api.collectapi.com/weather/getWeather?data.lang=tr&data.city=${cityName.toLowerCase()}`,
@@ -23,7 +26,12 @@ function App() {
         },
       }
     );
+
     const data = await response.json();
+    if (data.success === false) {
+      setError(true);
+      return;
+    }
     setWeatherDatas(data.result);
   };
 
@@ -40,10 +48,16 @@ function App() {
           Search
         </SearchButton>
       </SearchForm>
-      {weatherDatas.length > 0 && (
-        <SearchCity weatherDatas={weatherDatas} cityName={inputRef.current} />
-        )}
-        <CurrentCity/>
+      {error ? (
+        <Toast>
+          <h3>Şehir Bulunamadı Geçerli Bir Şehir adı Giriniz!</h3>
+        </Toast>
+      ) : (
+        weatherDatas?.length > 0 && (
+          <SearchCity weatherDatas={weatherDatas} cityName={inputRef.current} />
+        )
+      )}
+      <CurrentCity />
     </FormContainer>
   );
 }
