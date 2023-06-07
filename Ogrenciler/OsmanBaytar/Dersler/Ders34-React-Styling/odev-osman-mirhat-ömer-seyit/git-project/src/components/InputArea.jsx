@@ -3,6 +3,7 @@ import UserArea from './UserArea';
 import LatestRepos from './LatestRepos';
 import LatestSearchs from './LatestSearchs';
 import { useEffect, useState } from "react";
+// import { fetchItems } from "./services";
 
 
 const InputArea = () => {
@@ -10,15 +11,14 @@ const InputArea = () => {
   const [user, setUser] = useState([]);
   const [latest, setLatest] = useState([]);
 
-  const fetchData = async (user) => {
-    const data = await fetch(`https://api.github.com/users/${user}`);
-    const json = await data.json();
-    await setItems(json);
-  }
-
   useEffect(() => {
     if (user == []) {
       return
+    }
+    const fetchData = async (user) => {
+      const data = await fetch(`https://api.github.com/users/${user}`);
+      const json = await data.json();
+      await setItems(json);
     }
     fetchData(user)
 
