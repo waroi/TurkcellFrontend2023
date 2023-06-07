@@ -19,7 +19,7 @@ const ActiveCity = ({ activeCity }) => {
 			<p>{activeCity.city.address}</p>
 			<div className="row cardParent p-3">
 				<h3>
-					Bugün <span className="text-decoration-underline">{activeCity.city.name}</span> hava durumu:
+					Bugün <span className="text-decoration-underline">{activeCity.city.name}</span> hava durumu
 				</h3>
 				{dailyWeathers[0].map((weather) => (
 					<TodayWeather key={weather.id} weather={weather} />

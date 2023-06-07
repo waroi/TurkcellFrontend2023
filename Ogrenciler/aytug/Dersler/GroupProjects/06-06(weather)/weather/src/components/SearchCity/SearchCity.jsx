@@ -4,21 +4,11 @@ import PropTypes from "prop-types";
 import { SearchBar } from "./SearchCityStyle";
 
 const SearchCity = ({ setActiveCity }) => {
-	const cityList = JSON.parse(localStorage.getItem("cityList"));
-	if (!cityList) {
-		localStorage.setItem("cityList", JSON.stringify([]));
-	}
 	const cityName = useRef();
 
 	const getCity = async () => {
 		const activeCity = await getCityData(cityName.current.value);
-
-		if (activeCity && activeCity.message != "city not found") {
-			let alreadySaved = cityList?.find((city) => city.id === activeCity.city.id);
-			if (!alreadySaved) {
-				cityList.push(activeCity.city);
-			}
-			localStorage.setItem("cityList", JSON.stringify(cityList));
+		if (activeCity?.message != "city not found" ) {
 			setActiveCity(activeCity);
 		} else {
 			const toastLiveExample = document.getElementById("liveToast");
