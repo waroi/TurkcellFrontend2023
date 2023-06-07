@@ -8,6 +8,8 @@ const StyledWeekday = ({ day }) => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    text-align: center;
     gap: 10px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.25);
@@ -17,8 +19,12 @@ const StyledWeekday = ({ day }) => {
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     img {
-      width: 30%;
+      width: 35%;
     }
+    .desc{
+      height: 50px;
+    }
+  
     @media screen and (max-width: 300px) {
       padding: 0.5em;
     }`;
@@ -28,7 +34,7 @@ const StyledWeekday = ({ day }) => {
       <p>{day.date}</p>
       <p>{day.day}</p>
       <img src={day.icon} alt="" />
-      <p>{day.description}</p>
+      <p className="desc">{day.description}</p>
       <p>{day.degree}</p>
       <p>{day.night}</p>
     </Weekday>

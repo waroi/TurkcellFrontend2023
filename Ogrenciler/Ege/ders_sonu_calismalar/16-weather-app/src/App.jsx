@@ -10,6 +10,8 @@ function App() {
   const [today, setToday] = useState({});
   const [weekday, setWeekday] = useState([]);
   const [city, setCity] = useState("");
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
   const backgrounds = {
     Rain:
       "https://r4.wallpaperflare.com/wallpaper/342/808/970/glass-drops-rain-moisture-wallpaper-68922af1066bb76772452b9889c891cd.jpg",
@@ -31,10 +33,20 @@ function App() {
   useEffect(() => {
     if (!city) return;
     const fetch = new Fetch();
-    fetch.getWeather(city).then((response) => {
-      setToday(response.shift());
-      setWeekday(response);
-    });
+    setLoading(true)
+    setTimeout(() =>{
+      fetch.getWeather(city).then((response) => {
+        if(response == "404" || response == undefined){
+          setLoading(false);
+          setError(true);
+          return;
+        }
+        setError(false)
+        setToday(response.shift());
+        setWeekday(response);
+        setLoading(false);
+      });
+    },500)
   }, [city]);
 
   const Background = styled.div`
@@ -58,12 +70,24 @@ function App() {
     justify-content: center;
     align-items: center;
     width: 100%;`;
+
+  const Error = styled.div`
+  font-size:24px;
+  `
+  const Loading = styled.div`
+  font-size: 24px;
+  `
+
   return (
     <Background status={today.status}>
       <Container>
         <Body>
           <StyledHeader setCity={setCity} />
-          <StyledWeather today={today} weekday={weekday} />
+          {
+            loading ? <Loading>Yükleniyor</Loading>
+            : error ? <Error>Hata</Error>
+            : <StyledWeather today={today} weekday={weekday} />
+          }
         </Body>
       </Container>
     </Background>

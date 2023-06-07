@@ -48,6 +48,10 @@ const StyledToday = ({ today }) => {
       justify-content: space-between;
       width: 50%;
     }
+
+    h3{
+      text-transform: capitalize;
+    }
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
