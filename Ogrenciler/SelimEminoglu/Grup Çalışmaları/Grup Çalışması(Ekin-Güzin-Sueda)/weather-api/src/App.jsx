@@ -11,6 +11,7 @@ function App() {
   async function fetchWeather() {
     const data = await getWeather(searchValue);
     setWeather(data);
+    setSearchValue("");
   }
 
   return (
