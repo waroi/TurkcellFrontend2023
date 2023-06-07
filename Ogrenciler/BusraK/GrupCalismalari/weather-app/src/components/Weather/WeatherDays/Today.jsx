@@ -47,7 +47,6 @@ const WeatherData = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 `;
 
 const WeatherIcon = styled.img`
@@ -61,11 +60,10 @@ const WeatherDataCard = styled.div`
   margin-top: 20px;
 `;
 
-function Today({ today, name}) {
+function Today({ today, name }) {
   return (
     <div>
       <CardContainer>
-        
         <WeatherCard>
           <h2>{name}</h2>
           <WeatherIcon

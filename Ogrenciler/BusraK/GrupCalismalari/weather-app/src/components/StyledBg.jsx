@@ -12,9 +12,10 @@ export const RootContainer = styled.div`
 `;
 
 export const DefaultBackground = styled.div`
-  background: url("https://waterstreetblog.com/wp-content/uploads/2018/11/climate-change-2200x1465.jpg");
+  background: url("https://i.pinimg.com/originals/3c/4b/07/3c4b078af7284e4f772eb1daea326199.gif");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   height: 100vh;
   width: 100%;
 `;
@@ -28,7 +29,7 @@ export const ClearBackground = styled.div`
 `;
 
 export const RainBackground = styled.div`
-  background: url("https://w0.peakpx.com/wallpaper/376/49/HD-wallpaper-rainy-skies-blue-clouds-rain-raining-sky-springs.jpg");
+  background: url("https://media.tenor.com/QX2oKBhG_sYAAAAC/sad-aesthetic.gif");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -36,7 +37,7 @@ export const RainBackground = styled.div`
 `;
 
 export const CloudsBackground = styled.div`
-  background: url("https://images.unsplash.com/photo-1532178910-7815d6919875?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xvdWR5JTIwc2t5fGVufDB8fDB8fHww&w=1000&q=80");
+  background: url("http://panoviewimaging.com/tumblr/clouds3_1024.gif");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -44,7 +45,7 @@ export const CloudsBackground = styled.div`
 `;
 
 export const SnowBackground = styled.div`
-  background: url("https://m.media-amazon.com/images/I/71BLeyyl0qL._AC_UF894,1000_QL80_.jpg");
+  background: url("https://simsvip.com/wp-content/uploads/2018/06/ezgif-3-5d0c8edfc1.gif");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
