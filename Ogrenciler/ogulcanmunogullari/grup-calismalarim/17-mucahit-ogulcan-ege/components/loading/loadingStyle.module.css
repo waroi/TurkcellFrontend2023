@@ -1,0 +1,32 @@
+.ldsCubun {
+
+ transform: translateZ(1px);
+ display: flex;
+ justify-content: center;
+ padding: 5em 0;
+}
+
+.ldsCubun > div {
+  width: 0; 
+  height: 0; 
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 200px solid #f4ab02be;
+  animation: lds-Cubun 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes lds-Cubun {
+ 0%, 100% {
+   animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+ }
+ 0% {
+   transform: rotateY(0deg);
+ }
+ 50% {
+   transform: rotateY(1800deg);
+   animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+ }
+ 100% {
+   transform: rotateY(3600deg);
+ }
+}
