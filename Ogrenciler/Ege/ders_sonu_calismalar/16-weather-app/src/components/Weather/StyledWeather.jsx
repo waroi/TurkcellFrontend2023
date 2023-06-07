@@ -7,17 +7,19 @@ const StyledWeather = ({ today, weekday }) => {
   const Weather = styled.div`
     display: flex;
     gap: 2rem;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 700px) {
       flex-direction: column;
       width: 100%;
-    }`;
+    }
+  `;
   const Weekdays = styled.div`
-  display: grid;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 700px) {
       grid-template-columns: 1fr 1fr;
-    }`;
+    }
+  `;
   return (
     <Weather>
       {today.day && <StyledToday today={today} />}
