@@ -1,0 +1,68 @@
+.container {
+    background: rgba(191, 190, 190, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 25px 25px;
+    overflow: auto;
+    width: 80%;
+    height: 350px;
+}
+
+.repos {
+    display: flex;
+    gap: 10px;
+}
+
+.repo_btn {
+    min-width: 170px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.repo_info {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+h3 {
+    font-size: large;
+}
+
+table {
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 720px) {
+    .repo_btn {
+        width: 150px;
+        height: 50px;
+    }
+
+    .container {
+        margin-bottom: 20px;
+        margin-top: 20px;
+        width: 90%;
+        height: 500px;
+    }
+
+    .repos {
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
