@@ -18,10 +18,8 @@ const SearchCity = ({ setActiveCity }) => {
 			if (!alreadySaved) {
 				cityList.push(activeCity.city);
 			}
-
 			localStorage.setItem("cityList", JSON.stringify(cityList));
 			setActiveCity(activeCity);
-			setUserData([activeCity, ...userData]);
 		} else {
 			const toastLiveExample = document.getElementById("liveToast");
 			const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
