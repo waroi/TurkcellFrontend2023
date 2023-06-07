@@ -1,6 +1,5 @@
-import { useEffect } from "react";
 import { Card, CardDetail } from "./WeatherInfoStyle";
-import { Box } from "../WeatherForm/WeatherFormStyle";
+import PropTypes from "prop-types";
 
 const WeatherInfoo = ({ weather }) => {
   console.log();
@@ -33,8 +32,6 @@ const WeatherInfoo = ({ weather }) => {
                   <span>&#176;</span>C{" "}
                 </h5>
               </li>
-              <li> </li>
-              <li></li>
             </ul>
           </div>
           <div className="col-6">
@@ -45,15 +42,15 @@ const WeatherInfoo = ({ weather }) => {
               <li>
                 <h5>Humidity: {weather.main.humidity} </h5>
               </li>
-              <li></li>
-              <li></li>
-              <li></li>
             </ul>
           </div>
         </CardDetail>
       </Card>
     </div>
   );
+};
+WeatherInfoo.propTypes = {
+  weather: PropTypes.object.isRequired,
 };
 
 export default WeatherInfoo;

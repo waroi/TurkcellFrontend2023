@@ -1,8 +1,8 @@
 import { Button, WeatherInput, Error } from "./WeatherFormStyle";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Box } from "./WeatherFormStyle";
-
-const WeatherFormm = ({ setWeather, weather }) => {
+import PropTypes from "prop-types";
+const WeatherFormm = ({ setWeather }) => {
   const [errorMessage, setErrorMessage] = useState(false);
 
   async function handleSubmit(e) {
@@ -46,5 +46,7 @@ const WeatherFormm = ({ setWeather, weather }) => {
     </Box>
   );
 };
-
+WeatherFormm.propTypes = {
+  setWeather: PropTypes.func,
+};
 export default WeatherFormm;

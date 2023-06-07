@@ -1,12 +1,10 @@
 import "./App.css";
 import WeatherFormm from "./components/WeatherForm/WeatherForm";
 import WeatherInfoo from "./components/WeatherInfo/WeatherInfo";
-import { useEffect, useState } from "react";
-import { Div } from "./appStyle";
+import { useState } from "react";
 
 function App() {
   const [weather, setWeather] = useState();
-  useEffect(() => {}, []);
 
   return (
     <>
