@@ -1,6 +1,44 @@
 import { useState } from "react";
-import Styles from "./App.module.css";
 import Weather from "./components/Weather";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background-color: #f7f7f7;
+`;
+
+const AppDiv = styled.div`
+  margin: 1em;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+`;
+
+const SearchInput = styled.input`
+  padding: 0.5em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 0.5em;
+`;
+
+const SearchButton = styled.button`
+  padding: 0.5em 1em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
 
 function App() {
   const [city, setCity] = useState("");
@@ -27,24 +65,20 @@ function App() {
   };
 
   return (
-    <div className={Styles.container}>
-      <div className={Styles.app}>
+    <Container>
+      <AppDiv>
         <div>
           <h2>Weather</h2>
-          <input
+          <SearchInput
             placeholder="Search for a city"
             value={city}
             onChange={handleInputChange}
-          ></input>
-          <button onClick={citySearch}>ara</button>
+          />
+          <SearchButton onClick={citySearch}>ara</SearchButton>
         </div>
-        <div>
-          <div className={Styles.city}></div>
-          <div className={Styles.country}></div>
-        </div>
-      </div>
-      {cityWeather && <Weather data={cityWeather} />}
-    </div>
+        {cityWeather && <Weather data={cityWeather} />}
+      </AppDiv>
+    </Container>
   );
 }
 
