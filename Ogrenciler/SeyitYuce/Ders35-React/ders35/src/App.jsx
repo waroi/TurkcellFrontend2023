@@ -17,12 +17,12 @@ function App() {
     font-size: ${(props) => props.size}px;
   `;
   const divRef = useRef(null);
-  const [portalOpen, setPortalOpen] = useState(false);
+  const [portalTarget, setPortalTarget] = useState(document.body);
 
-  const handleClick = () => {
-    setPortalOpen(true);
-    const portalDiv = document.getElementById("portalDiv");
-    portalDiv.style.display = "none";
+  const handlePortalClick = () => {
+    setPortalTarget((prevTarget) =>
+      prevTarget === divRef.current ? document.body : divRef.current
+    );
   };
 
   return (
@@ -40,9 +40,8 @@ function App() {
       >
         Deneme 3 styled
       </PrimaryButton>
-      <div id="portalDiv" onClick={handleClick}>
-        Buradayım
-        {portalOpen && <Portal text="buradayım" target={divRef.current} />}
+      <div onClick={handlePortalClick}>
+        <Portal text="buradayım" target={portalTarget} />
       </div>
     </>
   );
