@@ -14,6 +14,7 @@ function App() {
   const [error, setError] = useState(false);
 
   const getWeatherDatas = async () => {
+    setWeatherDatas([]);
     setError(false);
     const cityName = inputRef.current.value;
     const response = await fetch(
@@ -30,6 +31,9 @@ function App() {
     const data = await response.json();
     if (data.success === false) {
       setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 3000);
       return;
     }
     setWeatherDatas(data.result);

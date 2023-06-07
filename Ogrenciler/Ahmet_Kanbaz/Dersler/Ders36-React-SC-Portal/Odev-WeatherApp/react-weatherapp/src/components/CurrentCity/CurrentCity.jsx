@@ -28,7 +28,7 @@ const CurrentCity = () => {
   }, [lat, long]);
   return (
     <CityCard>
-      <h2>Bulunduğunuz Konum</h2>
+      <h2>Bulunduğunuz Konum: {currentLocationWeather?.name}</h2>
       <CityDailyInfo>
         <CityCardDegree>
           {Math.round(currentLocationWeather?.main?.temp)}°
