@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 export const TodayWeather = ({ weather }) => {
 	return (
 		<div className="col-2" key={weather.id}>
-			<div className="card bg-transparent border-0 p-3" weatherStatus={weather.weather[0].description}>
+			<div className="card bg-transparent border-0 p-3">
 				<img
 					src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
 					alt={weather.weather[0].description}

@@ -8,7 +8,8 @@ const SearchCity = ({ setActiveCity }) => {
 
 	const getCity = async () => {
 		const activeCity = await getCityData(cityName.current.value);
-		if (activeCity?.message != "city not found" ) {
+		
+		if (activeCity?.cod==200 ) {
 			setActiveCity(activeCity);
 		} else {
 			const toastLiveExample = document.getElementById("liveToast");
