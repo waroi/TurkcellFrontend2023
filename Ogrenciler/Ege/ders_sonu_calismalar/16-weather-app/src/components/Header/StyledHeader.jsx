@@ -25,7 +25,7 @@ const StyledHeader = ({ setCity }) => {
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    @media screen and (max-width: 300px) {
+    @media screen and (max-width: 700px) {
       padding: 0.5em;
     }
   `;

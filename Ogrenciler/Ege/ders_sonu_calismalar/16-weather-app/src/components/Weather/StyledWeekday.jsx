@@ -18,25 +18,46 @@ const StyledWeekday = ({ day }) => {
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 20px;
+    transition: 0.3s all;
+    &:hover{
+      transform: translateY(-5px);
+    }
+
     img {
       width: 35%;
     }
     .desc{
-      height: 50px;
+        display: flex;
+        align-items: center;
+        font-size: ${props => props.desc.split(" ").length > 2 ? "16px" : "20px"};
+      }
+    .night{
+      font-size: 18px;
+      opacity: 0.8;
     }
-  
-    @media screen and (max-width: 300px) {
+    @media screen and (max-width: 700px) {
       padding: 0.5em;
+      font-size: 16px;
+      .desc{
+        font-size: ${props => props.desc.split(" ").length > 2 ? "13px" : "16px"};
+
+        min-height: 35px;
+      }
+      .night{
+        font-size: 14px;
+      }
+     
     }`;
   console.log(day.status);
   return (
-    <Weekday>
+    <Weekday desc={day.description}>
       <p>{day.date}</p>
       <p>{day.day}</p>
       <img src={day.icon} alt="" />
       <p className="desc">{day.description}</p>
-      <p>{day.degree}</p>
-      <p>{day.night}</p>
+      <p>{day.degree} C°</p> 
+      <p className="night">{day.night} C°</p> 
     </Weekday>
   );
 };
