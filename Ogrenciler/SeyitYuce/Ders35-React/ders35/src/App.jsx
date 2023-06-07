@@ -23,7 +23,7 @@ const divRef = useRef(null)
       <div id='div' ref={divRef}>ref deneme yazısı</div>
       <Button>Deneme 2 styled</Button>
       <PrimaryButton size="10" bgColor="ff00ff" onClick={() => console.log("gfd")}>Deneme 3 styled</PrimaryButton>
-      {/* <Portal text="dünyayı ele geçirmek" target="#div" /> */}
+      <Portal text="dünyayı ele geçirmek" target="#div" />
     </>
   )
 }

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchArea from "./components/SearchArea/SearchArea";
-import CityConteiner from "./components/CityConteiner/DefinitelyNotCityContainer";
+import CityContainer from "./components/CityContainer/DefinitelyNotCityContainer";
 import "./App.css";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
     setWeather(data);
     setCity("");
     const imageResponse = await fetch(
-      `https://api.unsplash.com/photos/random?query=${city}&orientation=landscape&client_id=${key1}`
+      `https://api.unsplash.com/photos/random?query=${city}&orientation=landscape&client_id=${key2}`
     );
     if (imageResponse.ok) {
       const data = await imageResponse.json();
@@ -36,12 +36,23 @@ function App() {
       throw new Error("Bir hata oluştu");
     }
   };
+  useEffect(() => {
+    fetch(`${url}weather?q=şebinkarahisar&appid=${key}&units=metric&lang=tr`)
+      .then((res) => res.json())
+      .then((data) => setWeather(data));
+
+    fetch(
+      `https://api.unsplash.com/photos/random?query=şebinkarahisar&orientation=landscape&client_id=${key2}`
+    )
+      .then((res) => res.json())
+      .then((data) => setImageUrl(data.urls.regular));
+  }, []);
 
   return (
     <>
       <img
-        src="https://cdn.discordapp.com/attachments/1089995629633228900/1115614339181850744/SAS.png"
-        alt=""
+        src="https://cdn.discordapp.com/attachments/1089995629633228900/1115984913158647878/sass.png"
+        alt="logo"
         id="logo"
       />
       <SearchArea
@@ -49,7 +60,7 @@ function App() {
         setCity={setCity}
         handleFetchWeather={handleFetchWeather}
       />
-      <CityConteiner weather={weather} />
+      <CityContainer weather={weather} />
     </>
   );
 }
