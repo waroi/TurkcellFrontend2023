@@ -9,6 +9,7 @@ export const RootContainer = styled.div`
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
+  transition: all 0.5s ease-in-out;
 `;
 
 export const DefaultBackground = styled.div`
@@ -18,6 +19,7 @@ export const DefaultBackground = styled.div`
   background-position: center;
   height: 100vh;
   width: 100%;
+  transition: all 0.5s ease-in-out;
 `;
 
 export const ClearBackground = styled.div`
@@ -26,6 +28,7 @@ export const ClearBackground = styled.div`
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
+  transition: all 0.5s ease-in-out;
 `;
 
 export const RainBackground = styled.div`
@@ -34,6 +37,7 @@ export const RainBackground = styled.div`
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
+  transition: all 0.5s ease-in-out;
 `;
 
 export const CloudsBackground = styled.div`
@@ -42,6 +46,7 @@ export const CloudsBackground = styled.div`
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
+  transition: all 0.5s ease-in-out;
 `;
 
 export const SnowBackground = styled.div`
@@ -50,4 +55,5 @@ export const SnowBackground = styled.div`
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
+  transition: all 0.5s ease-in-out;
 `;

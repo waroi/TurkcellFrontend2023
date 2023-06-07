@@ -71,7 +71,7 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        if (!data || !data.daily || data.daily.length === 0) {
+        if (!data.daily || data.daily.length === 0) {
           throw new Error("Invalid weather data received.");
         }
 
