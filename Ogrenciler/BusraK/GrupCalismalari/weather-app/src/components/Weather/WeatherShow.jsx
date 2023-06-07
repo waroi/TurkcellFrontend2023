@@ -8,12 +8,12 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const WeatherShow = ({ today, weekly }) => {
+const WeatherShow = ({ today, weekly,name }) => {
   return (
     <Container>
-      <LocalInfo today={today} />
+      <LocalInfo today={today}/>
 
-      <Today today={today} />
+      <Today today={today}  name={name}/>
 
       <Weekly weekData={weekly} />
     </Container>

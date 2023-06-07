@@ -7,5 +7,7 @@ export const weatherForecast = async (loc) => {
   const geoData = await geoResponse.json();
   const lat = geoData[0].lat;
   const lon = geoData[0].lon;
-  return `${URL}?lat=${lat}&lon=${lon}&exclude=current,hourly,minutely,alerts&units=metric&appid=${API_KEY}`;
+  const name = geoData[0].name;
+
+  return [`${URL}?lat=${lat}&lon=${lon}&exclude=current,hourly,minutely,alerts&units=metric&appid=${API_KEY}` , name];
 };

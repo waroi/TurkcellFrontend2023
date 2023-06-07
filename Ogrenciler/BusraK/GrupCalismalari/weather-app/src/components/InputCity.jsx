@@ -19,7 +19,7 @@ const StyledInput = styled.input`
   border: 0;
   width: 20%;
   height: 50px;
-
+  color: black;
   background-color: #e2e2e2;
   outline-offset: 3px;
   padding: 10px 1rem;
@@ -31,7 +31,7 @@ const StyledInput = styled.input`
   outline: none;
   &:focus {
     outline-offset: 5px;
-    background-color: #fff
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 `;

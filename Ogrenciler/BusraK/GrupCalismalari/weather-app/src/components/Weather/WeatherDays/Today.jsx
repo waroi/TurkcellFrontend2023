@@ -46,6 +46,8 @@ const WeatherInfo = styled.div`
 const WeatherData = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
 `;
 
 const WeatherIcon = styled.img`
@@ -54,15 +56,18 @@ const WeatherIcon = styled.img`
 const WeatherDataCard = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  align-items: center;
+  justify-content: center;
   margin-top: 20px;
 `;
 
-function Today({ today }) {
+function Today({ today, name}) {
   return (
     <div>
       <CardContainer>
+        
         <WeatherCard>
+          <h2>{name}</h2>
           <WeatherIcon
             src={`https://openweathermap.org/img/w/${today.icon}.png`}
             alt={today.icon}
