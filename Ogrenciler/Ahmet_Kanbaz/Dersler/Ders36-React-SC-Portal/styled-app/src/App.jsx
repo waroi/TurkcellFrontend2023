@@ -2,6 +2,7 @@ import './App.css'
 import styled from 'styled-components'
 import {useRef} from 'react'
 import UsingUseRef from './components/UsingUseRef'
+import MoveToPortal from './components/MoveToPortal/MoveToPortal'
 
 function App() {
   const defaultRef = useRef(null)
@@ -31,6 +32,7 @@ function App() {
       <RedButton onClick={() => console.log(defaultRef.current.textContent)}>Red Button Styled Components</RedButton>
       <PrimaryButton>Primary Button Styled Components</PrimaryButton>
       <UsingUseRef defaultRef = {defaultRef}/>
+      <MoveToPortal />
     </>
   )
 }
