@@ -1,19 +1,17 @@
-export async function getWheatherByCity(city){
+export async function getWeatherByCity(city){
 
    const data = await fetch(`${import.meta.env.VITE_ENDPOINT}/data/2.5/forecast?q=${city}&appid=${import.meta.env.VITE_API_KEY}&units=metric&lang=tr`);
    const response = await data.json();
 
    return response;
 }
-export async function getWheatherByLocation(lat,lon){
+export async function getWeatherByLocation(lat,lon){
 
    const data = await fetch(`${import.meta.env.VITE_ENDPOINT}/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_API_KEY}&units=metric&lang=tr`);
    const response = await data.json();
 
    return response[0].name;
 }
-
-
 
 
 export  const getLocation = () => {
