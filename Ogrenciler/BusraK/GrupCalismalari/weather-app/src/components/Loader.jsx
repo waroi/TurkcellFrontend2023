@@ -1,9 +1,9 @@
 import React from "react";
-
+import XOsX from "../assets/XOsX.gif";
 function Loader() {
   return (
-    <div className="lds-ripple">
-      <div></div>
+    <div>
+      <img src={XOsX} alt="XOsX" />
       <div></div>
     </div>
   );
