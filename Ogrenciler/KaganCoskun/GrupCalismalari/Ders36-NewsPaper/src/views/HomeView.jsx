@@ -28,6 +28,7 @@ const HomeView = () => {
         getNews(category?category:"general",page,"tr").then((data) =>setNews(data)).then(()=>setCardLoad(false))
       }, [page,category])
 
+      console.log(news)
     
   return (
     <div>
@@ -42,16 +43,14 @@ const HomeView = () => {
       <div>
         {cardLoad && <div>Card loading</div>}
              <NewsContainerDiv >
-                {!cardLoad && news && news?.result?.map((item)=><Link key={item.key} to={`/newsDetail/${item.key}?page=${page}&category=${category?category:"general"}`}><NewsCards  news={item} /></Link>)}
+                {!cardLoad && news && news?.result?.map((item)=><NewsCards key={item.key} news={item} link={`/newsDetail/${item.key}?page=${page}&category=${category?category:"general"}`}/>)}
               </NewsContainerDiv>
-       
       </div>
-
-        <button disabled={page === 1 ?true:false} onClick={()=>{setPage(page-1);setCardLoad(true)}}>Önceki Sayfa</button>
+    <div style={{display:"flex", margin:"20px auto", justifyContent:"center", gap:"2rem"}}>
+    <button disabled={page === 1 ?true:false} onClick={()=>{setPage(page-1);setCardLoad(true)}}>Önceki Sayfa</button>
         <button onClick={()=>{setPage(page+1);setCardLoad(true)}}>Sonraki Sayfa</button>
-      
-       
-          {/* <NewsCards /> */}
+    </div>
+       {/* <NewsCards /> */}
         
     </div>
   )
