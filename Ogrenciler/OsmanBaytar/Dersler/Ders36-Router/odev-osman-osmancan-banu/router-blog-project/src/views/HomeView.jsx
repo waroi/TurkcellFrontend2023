@@ -23,9 +23,13 @@ const HomeView = () => {
   return (
     <div className="container">
       <div className="row">
-        {items.map((item, index) => (
-          <HomeViewBox info={item} key={index} index={index} />
-        ))}
+        {items.map((item, index) => {
+          if (item.urlToImage) {
+            return <HomeViewBox info={item} key={index} index={index} />;
+          } else {
+            return null;
+          }
+        })}
       </div>
     </div>
   );

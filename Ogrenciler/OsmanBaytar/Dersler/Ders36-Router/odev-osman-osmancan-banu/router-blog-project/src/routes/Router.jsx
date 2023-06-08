@@ -10,10 +10,6 @@ const Router = () => {
       element: <HomeView />,
     },
     {
-      path: "/BlogInfo",
-      element: <BlogInfo />,
-    },
-    {
       path: "/BlogInfo/:id",
       element: <BlogInfo />,
     },

@@ -1,15 +1,17 @@
-import { Box } from "./HomeViewBoxStyle";
+import { Box, Image, Author, Title } from "./HomeViewBoxStyle";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const HomeViewBox = ({ info, index }) => {
+  const navigate = useNavigate();
   return (
-    <div className="col-lg-4" id={index}>
-      <Box>
+    <div className="col-md-6 col-lg-4">
+      <Box id={index} onClick={() => navigate(`BlogInfo/${index}`)}>
         <div>
-          <img className="img-fluid" src={info.urlToImage} />
+          <Image className="img-fluid" src={info.urlToImage} />
         </div>
         <div>
-          <div>{info.author}</div>
-          <div>{info.title}</div>
+          <Author>{info.author}</Author>
+          <Title>{info.title}</Title>
         </div>
       </Box>
     </div>
