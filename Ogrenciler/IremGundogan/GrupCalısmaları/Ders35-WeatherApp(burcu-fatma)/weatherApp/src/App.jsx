@@ -34,7 +34,7 @@ const SearchButton = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
-
+  
   &:hover {
     background-color: #0056b3;
   }
