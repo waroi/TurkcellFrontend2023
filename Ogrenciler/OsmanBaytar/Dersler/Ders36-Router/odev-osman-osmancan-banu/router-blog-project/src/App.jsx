@@ -2,6 +2,7 @@ import Router from "./routes/Router";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -14,6 +15,7 @@ function App() {
     const json = await data.json();
     setItems(json.articles);
   };
+  console.log(items);
 
   useEffect(() => {
     if (items == []) {
@@ -24,6 +26,7 @@ function App() {
 
   return (
     <>
+      <a href="">asdasd</a>
       <Header />
       <Router data={items} />
       <Footer />
