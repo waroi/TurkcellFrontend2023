@@ -1,4 +1,4 @@
-import { Box, Image, Author, Title } from "./HomeViewBoxStyle";
+import { Box, Image, Author, InfoTitle } from "./HomeViewBoxStyle";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const HomeViewBox = ({ info, index }) => {
@@ -11,7 +11,7 @@ const HomeViewBox = ({ info, index }) => {
         </div>
         <div>
           <Author>{info.author}</Author>
-          <Title>{info.title}</Title>
+          <InfoTitle>{info.title}</InfoTitle>
         </div>
       </Box>
     </div>

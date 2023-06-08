@@ -3,15 +3,15 @@ import { useRoutes } from "react-router-dom";
 import HomeView from "../views/HomeView";
 import BlogInfo from "../views/BlogInfo";
 
-const Router = () => {
+const Router = ({ data }) => {
   const routes = useRoutes([
     {
       path: "/",
-      element: <HomeView />,
+      element: <HomeView data={data} />,
     },
     {
       path: "/BlogInfo/:id",
-      element: <BlogInfo />,
+      element: <BlogInfo data={data} />,
     },
   ]);
   return routes;
