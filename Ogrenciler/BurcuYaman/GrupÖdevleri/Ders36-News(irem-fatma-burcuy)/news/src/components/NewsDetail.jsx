@@ -11,6 +11,7 @@ function NewsDetail() {
       .then(data => setDetail(data.articles[id]));
   }, [id]);
 
+  console.log(detail);
   return (
     <div>
       <h1>{detail.title}</h1>
