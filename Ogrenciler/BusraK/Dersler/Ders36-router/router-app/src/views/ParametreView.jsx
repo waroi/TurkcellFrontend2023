@@ -7,4 +7,5 @@ const ParametreView = () => {
 //birkaç sayfalık uygulama yap haber sayfası
 //haber sayfasına gitsin
 //navigasyon bar ile linklerle
+//bu bir deneme yazisidir
 export default ParametreView;
