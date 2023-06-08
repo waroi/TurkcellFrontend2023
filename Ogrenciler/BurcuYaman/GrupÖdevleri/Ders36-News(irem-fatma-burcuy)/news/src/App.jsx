@@ -1,19 +1,14 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import NewsList from './components/NewsList';
-import NewsDetail from './components/NewsDetail';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NewsList from "./components/NewsList";
+import NewsDetail from "./components/NewsDetail";
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/" exact>
-          <NewsList />
-        </Route>
-        <Route path="/news/:id">
-          <NewsDetail />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/news/:id" element={<NewsDetail />} />
+        <Route path="/" element={<NewsList />} />
+      </Routes>
     </Router>
   );
 }
