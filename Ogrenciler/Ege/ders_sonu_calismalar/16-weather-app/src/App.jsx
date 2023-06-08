@@ -56,6 +56,7 @@ function App() {
       max-width: 100%;
       padding: 0 1rem;
     }
+    
   `;
   const Body = styled.div`
     display: flex;
@@ -65,6 +66,7 @@ function App() {
     align-items: center;
     width: 100%;
     min-height: 100vh;
+
   `;
 
   const Error = styled.div`
