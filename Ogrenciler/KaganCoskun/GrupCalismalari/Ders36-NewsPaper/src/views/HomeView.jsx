@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { getNews } from '../services/requets'
 import { Link, useParams } from 'react-router-dom'
+import NewsContainer from "../components/News/NewsContainer/NewsContainer"
+import Slider from "../components/Slider/Slider"
+
 
 const HomeView = () => {
     const { category } = useParams()
@@ -42,6 +45,8 @@ const HomeView = () => {
 
         <button disabled={page === 1 ?true:false} onClick={()=>{setPage(page-1);setCardLoad(true)}}>Önceki Sayfa</button>
         <button onClick={()=>{setPage(page+1);setCardLoad(true)}}>Sonraki Sayfa</button>
+        <Slider/>
+       <NewsContainer />
     </div>
   )
 }
