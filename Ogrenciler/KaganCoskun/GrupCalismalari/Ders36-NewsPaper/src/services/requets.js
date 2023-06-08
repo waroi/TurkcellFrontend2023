@@ -8,7 +8,13 @@ export async function getNews(category,page,country){
         }
     })
     const news = await data.json()
-    console.log("services=>",news)
     return news
 
+}
+
+
+export async function getNewsDetail(id,page,category,country){
+    const newsPage =await getNews(category,page,country)
+    const news = newsPage?.result?.find((news)=>news.key===id)
+    return news
 }
