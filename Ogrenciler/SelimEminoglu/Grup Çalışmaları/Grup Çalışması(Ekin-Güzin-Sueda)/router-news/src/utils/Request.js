@@ -1,7 +1,7 @@
-const API_KEY = "8a4207ac2a1148dfb82d6414c5d102e3";
+const API_KEY = "2aQS3C9tImRHv3JSbIuHn4:571eSwQSccFrpJ4zLdEV24";
 
 export async function getNews() {
-  const url = `https://newsapi.org/v2/top-headlines?q=microsoft&from=2023-06-08&sortBy=popularity&apiKey=${API_KEY}`;
+  const url = `https://api.collectapi.com/news/getNews?country=tr&tag=general`;
 
   try {
     const response = await fetch(url, {
@@ -14,7 +14,8 @@ export async function getNews() {
     }
 
     const data = await response.json();
-    return data;
+    console.log(data.result)
+    return data.result;
   } catch (err) {
     console.error(err);
     throw err;
