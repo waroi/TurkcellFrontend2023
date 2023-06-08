@@ -15,7 +15,7 @@ const HomeView = ({ setLatestNews }) => {
 	};
 	return (
 		<div className="searchParent p-4">
-			<h3>Haber Sitesi</h3>
+			<h3>Boş Haber Sitesi</h3>
 			<div className="row">
 				<div className="col-8 d-flex flex-column mx-auto mt-3 align-items-center justify-content-center">
 					<div className="inputArea mt-3">
