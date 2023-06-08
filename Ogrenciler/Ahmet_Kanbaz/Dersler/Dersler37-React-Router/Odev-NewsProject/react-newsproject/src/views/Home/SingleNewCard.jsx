@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from 'styled-components'
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 const SingleNewCard = ({ singleNew }) => {
   const navigate = useNavigate();
@@ -51,19 +51,18 @@ const SingleNewCard = ({ singleNew }) => {
   `;
 
   return (
-    <Link to= {`/new/${singleNew.key}`} state={{singleNew: 'singleNew'}}>
-      <SingleCard>
-        <SingleCardImage src={singleNew.image} alt={singleNew.name} />
-        <SingleCardInfo>
-          <h3>{singleNew.name}</h3>
-          <Description>{singleNew.description}</Description>
-          <SingleCardBottom>
-            <span>{singleNew.source}</span>
-            <span>08/06/2023</span>
-          </SingleCardBottom>
-        </SingleCardInfo>
-      </SingleCard>
-    </Link>
+    <SingleCard onClick={() => navigate(`/new/${singleNew.key}`, {state: singleNew})}>
+      <SingleCardImage src={singleNew.image} alt={singleNew.name} />
+      <SingleCardInfo>
+        <h3>{singleNew.name}</h3>
+        <Description>{singleNew.description}</Description>
+        <SingleCardBottom>
+          <span>{singleNew.source}</span>
+          <span>08/06/2023</span>
+        </SingleCardBottom>
+      </SingleCardInfo>
+    </SingleCard>
+
   )
 }
 
