@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import { getNews } from './services/requets'
-
+import Router from './routers/Router'
+import Header from './components/Header'
 function App() {
 const [news, setNews] = useState([])
 
@@ -14,7 +15,9 @@ const [news, setNews] = useState([])
 
   return (
     <>
-      
+     <Header/>
+      <Router />
+      <footer></footer>
     </>
   )
 }
