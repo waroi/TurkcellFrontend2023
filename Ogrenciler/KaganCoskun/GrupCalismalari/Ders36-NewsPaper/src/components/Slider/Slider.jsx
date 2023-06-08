@@ -45,7 +45,7 @@ function Slider() {
     fontWeight: 'bold',
   }
   return (
-    <div className="App">
+    <div style={{ marginBottom: "10rem"}}>
       <div style={{ textAlign: "center" }}>
         <div style={{
           padding: "0 20px"
