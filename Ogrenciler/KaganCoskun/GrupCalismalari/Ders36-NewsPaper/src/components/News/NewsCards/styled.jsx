@@ -10,6 +10,7 @@ export const Card = styled.div`
   background: white;
   transition: all 300ms ease-in-out;
   border-radius: 5px;
+  min-height: 310px;
   &:hover {
     cursor: pointer;
     transform: translateY(-5px);
