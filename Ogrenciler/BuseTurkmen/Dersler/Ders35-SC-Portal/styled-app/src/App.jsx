@@ -1,4 +1,5 @@
-import { useState,useRef } from "react";
+/* eslint-disable react/prop-types */
+import { useRef } from "react";
 import styled from "styled-components";
 import Portal from "./components/Portal";
 
@@ -17,11 +18,6 @@ function App() {
   `;
 
   const divRef = useRef();
-  const [isPortalActive, setIsPortalActive] = useState(false);
-
-  const handlePortalClick = () => {
-    setIsPortalActive(!isPortalActive);
-  };
 
   return (
     <>
@@ -34,12 +30,16 @@ function App() {
       <PrimaryButton size="30" onClick={() => console.log("Deneme")}>
         Deneme 3 Primary
       </PrimaryButton>
-      <div onClick={handlePortalClick}>
-        {isPortalActive ? (
-          <Portal text="Body" target={divRef.current} />
-        ) : ( <Portal text="Body" target={document.body} />)} 
-      </div>
-      
+      <Portal text="Body" target={document.body} />
+      {/* portal compenentine tıklandığında yeri div elementinin içi olarak değişsin
+      https://legacy.reactjs.org/docs/portals.html
+      https://tsafaelmali.medium.com/react-react-portal-nedir-46cb5fa9c0cc
+
+      https://collectapi.com/tr/api/weather/hava-durumu-api
+      https://openweathermap.org/api/one-call-3
+      bu aplerden biri ile hava durumu uygulaması yapacağız, hava durumu bilgilerini
+      alıp ekranda göstereceğiz. styled components kullanacağız.
+      */}
     </>
   );
 }
