@@ -21,11 +21,13 @@ const HomeView = ({ setLatestNews }) => {
 					<div className="inputArea mt-3">
 						<label htmlFor="countries">Ülke Seçin</label>
 						<select className="form-select mt-2" name="countries" ref={countryCode}>
-							<option value="tr">🇹🇷 Türkiye</option>
-							<option value="us">🇺🇸 Amerika</option>
-							<option value="ru">🇷🇺 Rusya</option>
-							<option value="de">🇩🇪 Almanya</option>
-							<option value="gb">🇬🇧 Birleşik Krallık</option>
+							<option value="tr">&#127481;&#127479; Türkiye</option>
+							<option value="us">&#127482;&#127480; Amerika</option>
+							<option value="ru">&#127479;&#127482; Rusya</option>
+							<option value="de">&#127465;&#127466; Almanya</option>
+							<option value="gb">
+								&#127988;&#917607;&#917602;&#917605;&#917614;&#917607;&#917631; Birleşik Krallık
+							</option>
 						</select>
 					</div>
 					<div className="inputArea mt-3">
