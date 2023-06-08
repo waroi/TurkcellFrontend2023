@@ -4,11 +4,21 @@ import "./App.css";
 
 function App() {
   const [newsArr, setNewsArr] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    setNewsArr(getNews());
+    getNews()
+      .then((news) => {
+        console.log("veri geldi");
+        console.log(news.articles);
+        setNewsArr(news.articles);
+      })
+      .catch((error) => {
+        setError(error);
+      });
   }, []);
-  return <>{console.log(newsArr)}</>;
+
+  return <>{error != "" && <h3>Veri Yok</h3>}</>;
 }
 
 export default App;
