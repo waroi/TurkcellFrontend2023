@@ -42,7 +42,7 @@ const HomeView = () => {
       <div>
         {cardLoad && <div>Card loading</div>}
              <NewsContainerDiv >
-                {!cardLoad && news && news?.result?.map((item)=><NewsCards key={item.key}  news={item} />)}
+                {!cardLoad && news && news?.result?.map((item)=><Link key={item.key} to={`/newsDetail/${item.key}?page=${page}&category=${category?category:"general"}`}><NewsCards  news={item} /></Link>)}
               </NewsContainerDiv>
        
       </div>
@@ -59,4 +59,3 @@ const HomeView = () => {
 
 export default HomeView
  
-{/* <Link key={item.key} to={`/newsDetail/${item.key}?page=${page}&category=${category?category:"general"}`}><NewsCards  news={item} /></Link> */}
