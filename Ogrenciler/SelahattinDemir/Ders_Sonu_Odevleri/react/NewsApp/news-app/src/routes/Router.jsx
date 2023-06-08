@@ -58,13 +58,14 @@ const Router = () => {
       path: "/politics",
       element: <Politics news={news} />,
     },
-    {
-      path: "*",
-      element: <Navbar country={country} setCountry={setCountry} />,
-    },
   ];
 
-  return useRoutes(routes);
+  return (
+    <>
+      <Navbar country={country} setCountry={setCountry} />
+      {useRoutes(routes)}
+    </>
+  );
 };
 
 export default Router;
