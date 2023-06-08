@@ -16,29 +16,33 @@ const categoryName = useRef();
 	};
 	return (
 		<div className="searchParent p-4">
-			<h3>HAVA SOĞUK MU?</h3>
+			<h3>Haber Sitesi</h3>
 			<div className="row">
-				<div className="col-8 d-flex mx-auto mt-3 align-items-center justify-content-center">
+				<div className="col-8 d-flex flex-column mx-auto mt-3 align-items-center justify-content-center">
+					<div className="inputArea mt-3">
 					<label htmlFor="countries">Ülke Seçin</label>
-					<select  name="countries" ref={countryCode}>
-						<option value="tr">Türkiye</option>
+					<select className="form-select mt-2" name="countries" ref={countryCode}>
+						<option value="tr">:flag_tr Türkiye</option>
 						<option value="us">Amerika</option>
 						<option value="ru">Rusya</option>
 						<option value="de">Almanya</option>
 						<option value="gb">Birleşik Krallık</option>
 					</select>
-					<label htmlFor="categories">Ülke Seçin</label>
-					<select  name="categories" ref={categoryName}>
+					</div>
+				<div className="inputArea mt-3">
+				<label htmlFor="categories">Kategori Seçin</label>
+					<select className="form-select mt-2"  name="categories" ref={categoryName}>
 						<option value="general">Genel</option>
 						<option value="business">İş Dünyası</option>
 						<option value="science">Bilim</option>
 						<option value="technology">Teknoloji</option>
 						<option value="sport">Spor</option>
 					</select>
+				</div>
 					{
 					<Link
 						to="/news"
-						className="btn btn-success"
+						className="btn btn-success mt-3 w-100"
 						onClick={() => {
 							getNewsFromDb();
 						}}

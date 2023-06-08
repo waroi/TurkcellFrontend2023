@@ -5,8 +5,8 @@ const News = ({ latestNews }) => {
 	return (
 		<div className="row">
 			{latestNews?.articles.map((item, i) => (
-					<div className="col-3 g-4">
-				<Link  key={i} to={`/news/${item.url.slice(38)}`} >
+					<div key={i} className="col-3 g-4">
+				<Link to={`/news/${item.publishedAt}`} >
 				<div className="card h-100" >
 					<img src={`https://picsum.photos/id/${i}/200/300`} alt=""  className="img-fluid"/>
 				<div className="card-body">
