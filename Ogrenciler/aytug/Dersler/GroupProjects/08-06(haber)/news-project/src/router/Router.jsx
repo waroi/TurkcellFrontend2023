@@ -4,16 +4,16 @@ import HomeView from "../views/HomeView";
 import News from "../views/News";
 
 const Router = () => {
-	const [country, setCountry] = useState();
-	const [category, setCategory] = useState();
-	const [latestNews, setLatestNews] = useState({});
+	// const [country, setCountry] = useState();
+	// const [category, setCategory] = useState();
+	const [latestNews, setLatestNews] = useState();
 
 	const routes = useRoutes([
 		{
 			path: "/",
-			element: <HomeView />,
+			element: <HomeView setLatestNews={setLatestNews}/>,
 		},
-		{ path: `/news`, element: <News /> },
+		{ path: `/news`, element: <News  latestNews={latestNews}/> },
 		{ path: "/news/:id", element: <News /> },
 	]);
 	return routes;
