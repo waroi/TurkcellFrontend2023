@@ -1,5 +1,4 @@
 export async function getNews(category,page,country){
-
     const data = await fetch(`${import.meta.env.VITE_API_URI}?country=${country}&tag=${category}&paging=${page}`,{
         method: 'GET',
         headers: {
@@ -8,7 +7,6 @@ export async function getNews(category,page,country){
         }
     })
     const news = await data.json()
-    console.log("services=>",news)
     return news
 
 }
