@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css'
 
 const Slider = ({ newsArr }) => {
-  console.log(newsArr);
+
   const newsSlice = newsArr.slice(0, 3);
 
   return (

@@ -3,12 +3,9 @@ import { Link } from 'react-router-dom'
 import Slider from '../Slider/Slider'
 import "./style.css"
 const BlogList = ({ newsArr }) => {
-  let kelimeler = "";
-  let ilkUcKelime = "";
-  let name;
+
   return (
     <div>
-
       <Slider newsArr={newsArr} />
       <div className="text-center">
         <h1 className="my-4">Son Dakika !</h1>
@@ -20,15 +17,12 @@ const BlogList = ({ newsArr }) => {
             <div className="card">
               <img src={news.image} alt="" />
               <div className="card-content">
-                <h2>
+                <h2 className='mt-3'>
                   {news.name.split(" ").slice(0, 4).join(" ")}..
                 </h2>
                 <p>
                   {news.description.slice(0, 50)}
                 </p>
-                <a href="#" className="button">
-                  Devamı...
-                </a>
               </div>
             </div>
           </li></Link>

@@ -1,6 +1,5 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
 import { useParams } from 'react-router-dom'
-import BlogList from '../BlogList/BlogList'
 import "./style.css"
 const BlogDetail = ({ newsArr }) => {
 
@@ -16,8 +15,8 @@ const BlogDetail = ({ newsArr }) => {
         </div>
         <div className='author mt-4'>
           <img className='authorImg' src="https://images.pexels.com/photos/2690323/pexels-photo-2690323.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-          <d className="flex"> <h5 className='m-0'>EGSS Media</h5>
-            <p className='m-0'>{newsArr[id].source}</p></d>
+          <div className="flex"> <h5 className='m-0'>EGSS Media</h5>
+            <p className='m-0'>{newsArr[id].source}</p></div>
         </div>
       </div>
 
