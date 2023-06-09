@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react'
 import { getNews } from '../services/requets'
 import { useParams } from 'react-router-dom'
-import Slider from "../components/Slider/Slider"
 import { NewsContainerDiv } from '../components/News/NewsContainer/styled'
-import NewsCards from '../components/News/NewsCards/NewsCards'
 import { SliderContainer } from './HomeViewStyled'
-import Loading from '../components/Loading/Index'
 import { ButtonContainer, LoadingContainer } from './newsDetailStyles'
-import Footer from '../components/Footer/Footer'
+import {getAllCurrency} from "../services/requets"
+import Slider from "../components/Slider/Slider"
+import NewsCards from '../components/News/NewsCards/NewsCards'
+import Loading from '../components/Loading/Index'
+import Currency from '../components/Currency/Currency'
 
 
 const HomeView = () => {
     const { category } = useParams()
-
+    const [currency, setCurrency] = useState()
 
     const [sliderNews, setSliderNews] = useState()
     const [news, setNews] = useState()
@@ -23,7 +24,9 @@ const HomeView = () => {
     useEffect(() => {
       setSliderLoad(true)
       setCardLoad(true)
-        getNews(category?category:"general","0","tr").then((data) =>setSliderNews(data)).then(()=>setSliderLoad(false)).then(()=>setPage(1))
+      category === "economy" && getAllCurrency().then((data)=>setCurrency(data))
+      getNews(category?category:"general","0","tr").then((data) =>setSliderNews(data)).then(()=>setSliderLoad(false)).then(()=>setPage(1))
+
       }, [category])
 
     useEffect(() => {
@@ -34,6 +37,7 @@ const HomeView = () => {
 
   return (
     <div>
+      {category==="economy" &&currency&&<Currency currency={currency}/>}
           <SliderContainer>
             {sliderLoad && <LoadingContainer><Loading/></LoadingContainer>}
             {!sliderLoad && sliderNews && <Slider news={sliderNews?.result} page={0} category={category}/>}
@@ -49,14 +53,10 @@ const HomeView = () => {
         <button onClick={()=>{setPage(page+1);setCardLoad(true)}}>Sonraki Sayfa</button>
     </ButtonContainer>
     <div>
-       <Footer />
     </div>
     </div>
    
   )
 }
 
-export default HomeView
- 
-
-// {`/newsDetail/${item.key}?page=${page}&category=${category?category:"general"}`}
+export default HomeView;
