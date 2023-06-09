@@ -28,6 +28,13 @@ export const NewsDate = styled.p`
 `
 
 
+export const ButtonContainer = styled.div`
+display: flex;
+margin: 20px auto;
+justify-content: center;
+gap: 2rem;
+`;
+
 export const NewsSource = styled.p`
 `
 
@@ -39,3 +46,8 @@ export const Url = styled.a`
 `
 
 export const Description = styled.p``
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;

@@ -14,8 +14,6 @@ useEffect(() => {
   getNewsDetail(id,searchParams.get("page"),searchParams.get("category"),"tr").then((data) =>setNews(data))
 }, [id,searchParams]);
 
-console.log(news)
- 
   return (
     <>
     <Container>

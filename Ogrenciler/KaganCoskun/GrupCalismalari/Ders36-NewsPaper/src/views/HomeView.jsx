@@ -5,11 +5,13 @@ import Slider from "../components/Slider/Slider"
 import { NewsContainerDiv } from '../components/News/NewsContainer/styled'
 import NewsCards from '../components/News/NewsCards/NewsCards'
 import { SliderContainer } from './HomeViewStyled'
+import Loading from '../components/Loading/Index'
+import { ButtonContainer, LoadingContainer } from './newsDetailStyles'
+import Footer from '../components/Footer/Footer'
 
 
 const HomeView = () => {
     const { category } = useParams()
-
 
 
     const [sliderNews, setSliderNews] = useState()
@@ -27,29 +29,30 @@ const HomeView = () => {
     useEffect(() => {
         getNews(category?category:"general",page,"tr").then((data) =>setNews(data)).then(()=>setCardLoad(false))
       }, [page,category])
-
-      console.log(news)
     
+
+
   return (
     <div>
-
           <SliderContainer>
-            {sliderLoad && <div>Slider loading</div>}
+            {sliderLoad && <LoadingContainer><Loading/></LoadingContainer>}
             {!sliderLoad && sliderNews && <Slider news={sliderNews?.result} page={0} category={category}/>}
           </SliderContainer>
- 
       <div>
-        {cardLoad && <div>Card loading</div>}
+      {cardLoad && !sliderLoad && <LoadingContainer><Loading/></LoadingContainer>}
              <NewsContainerDiv >
                 {!cardLoad && news && news?.result?.map((item)=><NewsCards key={item.key} news={item} link={`/newsDetail/${item.key}?page=${page}&category=${category?category:"general"}`}/>)}
               </NewsContainerDiv>
-      </div>
-    <div style={{display:"flex", margin:"20px auto", justifyContent:"center", gap:"2rem"}}>
+    </div>
+    <ButtonContainer>
     <button disabled={page === 1 ?true:false} onClick={()=>{setPage(page-1);setCardLoad(true)}}>Önceki Sayfa</button>
         <button onClick={()=>{setPage(page+1);setCardLoad(true)}}>Sonraki Sayfa</button>
+    </ButtonContainer>
+    <div>
+       <Footer />
     </div>
-        
     </div>
+   
   )
 }
 
