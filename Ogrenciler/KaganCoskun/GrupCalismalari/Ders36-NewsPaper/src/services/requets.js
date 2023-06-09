@@ -13,7 +13,7 @@ export async function getNews(category,page,country){
 
 
 export async function getNewsDetail(id,page,category,country){
-    const newsPage =await getNews(category,page,country)
+    const newsPage = await getNews(category,page,country)
     const news = newsPage?.result?.find((news)=>news.key===id)
     return news
 }

@@ -1,0 +1,44 @@
+.container {
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    padding: 0;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 50px 25px;
+    overflow: auto;
+    width: 800px;
+    height: 300px;
+}
+.repos {
+    display: flex;
+    gap: 10px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: large;
+}
+
+table {
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 720px) {
+    
+    .container{
+        margin-bottom: 20px;
+        margin-top: 20px;
+        width: 400px;
+        height: 300px;
+    }
+    .repos{
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
