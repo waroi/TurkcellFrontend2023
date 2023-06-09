@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import SingleNewCard from './SingleNewCard'
-import styled from 'styled-components'
+import {AllNewsContainer} from './HomeandCardStyle'
 
 const Home = () => {
 
@@ -22,12 +22,6 @@ const Home = () => {
     getNewsDatas()
   }, [])
 
-  const AllNewsContainer = styled.div `
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  `;
   return (
     <AllNewsContainer>
       {

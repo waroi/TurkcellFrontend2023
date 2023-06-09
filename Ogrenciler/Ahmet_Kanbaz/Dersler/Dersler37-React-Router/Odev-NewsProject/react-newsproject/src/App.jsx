@@ -1,11 +1,14 @@
+import Footer from "./components/Footer/Footer"
+import Navbar from "./components/Navbar/Navbar"
 import Router from "./routes/Router"
 
 function App() {
 
   return (
     <>
-      <h1>Vite + React</h1>
+      <Navbar />
       <Router />
+      <Footer />
     </>
   )
 }
