@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { getNews } from '../services/requets'
-import { Link, useParams } from 'react-router-dom'
-import NewsContainer from "../components/News/NewsContainer/NewsContainer"
+import { useParams } from 'react-router-dom'
 import Slider from "../components/Slider/Slider"
 import { NewsContainerDiv } from '../components/News/NewsContainer/styled'
 import NewsCards from '../components/News/NewsCards/NewsCards'
+import { SliderContainer } from './HomeViewStyled'
 
 
 const HomeView = () => {
@@ -32,14 +32,12 @@ const HomeView = () => {
     
   return (
     <div>
-      <div>
-        {sliderLoad && <div>Slider loading</div>}
-        <ul>
-          {/* {!sliderLoad && sliderNews && sliderNews?.result?.map((item)=><li key={item.key}><Link to={`/newsDetail/${item.key}?page=${page}&category=${category?category:"general"}`}>{item.name}</Link></li>)} */}
-          <Slider/>
-        </ul>
-      </div>
 
+          <SliderContainer>
+            {sliderLoad && <div>Slider loading</div>}
+            {!sliderLoad && sliderNews && <Slider news={sliderNews?.result} page={0} category={category}/>}
+          </SliderContainer>
+ 
       <div>
         {cardLoad && <div>Card loading</div>}
              <NewsContainerDiv >
@@ -50,7 +48,6 @@ const HomeView = () => {
     <button disabled={page === 1 ?true:false} onClick={()=>{setPage(page-1);setCardLoad(true)}}>Önceki Sayfa</button>
         <button onClick={()=>{setPage(page+1);setCardLoad(true)}}>Sonraki Sayfa</button>
     </div>
-       {/* <NewsCards /> */}
         
     </div>
   )
@@ -58,3 +55,5 @@ const HomeView = () => {
 
 export default HomeView
  
+
+// {`/newsDetail/${item.key}?page=${page}&category=${category?category:"general"}`}
