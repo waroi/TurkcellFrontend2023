@@ -1,10 +1,8 @@
-import React from 'react'
-import {useParams, userParams} from "react-router-dom"
+import React from "react";
+import { useParams } from "react-router-dom";
 const ParameterView = () => {
-    const {id} = useParams()
-  return (
-    <div>ParameterView{id}</div>
-  )
-}
+  const { id } = useParams();
+  return <div>ParameterView{id}</div>;
+};
 
-export default ParameterView
+export default ParameterView;
