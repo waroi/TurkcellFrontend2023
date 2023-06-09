@@ -26,7 +26,6 @@ function App() {
 
   return (
     <>
-      <a href="">asdasd</a>
       <Header />
       <Router data={items} />
       <Footer />

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   BlogTitle,
@@ -21,7 +20,7 @@ const BlogInfo = ({ data }) => {
             <BlogImage src={currentData?.urlToImage}></BlogImage>
             <div className="d-flex justify-content-between">
               <BlogAuthor>{currentData?.author}</BlogAuthor>
-              <BlogDate>{currentData?.publishedAt}</BlogDate>
+              <BlogDate>{currentData?.publishedAt.slice(0, 10)}</BlogDate>
             </div>
           </div>
 
