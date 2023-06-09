@@ -49,7 +49,7 @@ const Navbar = ({ country, setCountry, news, setNews }) => {
       );
       setNews({ results: searchResults });
     } else {
-      setNews(news); // Revert to original data
+      setNews(news);
     }
   };
   const handleChange = (e) => {
@@ -85,10 +85,9 @@ const Navbar = ({ country, setCountry, news, setNews }) => {
             />
           </div>
           <select value={country} onChange={handleChange}>
-            <option value="">Select a country</option>
-            <option value="tr">&#127481; &#127479;</option>
-            <option value="de"> &#x1F1E9; &#x1F1EA;</option>
-            <option value="fr">&#x1F1EB; &#x1F1F7;</option>
+            <option value="tr">&#127481;&#127479;</option>
+            <option value="de"> &#x1F1E9;&#x1F1EA;</option>
+            <option value="fr">&#x1F1EB;&#x1F1F7;</option>
           </select>
         </StyledDiv>
         <StyledUl>
