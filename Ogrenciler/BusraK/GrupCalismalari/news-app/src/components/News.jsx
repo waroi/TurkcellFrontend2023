@@ -12,7 +12,6 @@ const Container = styled.div`
   gap: 20px;
   position: relative;
   bottom: 200px;
-  color: black;
 `;
 
 const MainContainer = styled.div`
@@ -20,7 +19,7 @@ const MainContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 768px) {
+  media screen and (max-width: 768px) {
     flex-direction: column;
   }
 `;

@@ -36,7 +36,7 @@ const NewsItem = ({
         <DateParagraph>{formatDate(publishedAt)}</DateParagraph>
 
         <CardAction>
-          <Link to={`/news/${id}`} >Read More</Link>
+          <Link to={`/news/${id}`}>Read More</Link>
         </CardAction>
       </Card>
     </Container>
