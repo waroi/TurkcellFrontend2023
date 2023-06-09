@@ -6,5 +6,3 @@ export const getNews = async (country, category) => {
 	const data = await response.json();
 	return data;
 };
-
-// "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=58687735d29a4d8cbe9558af624c4f4f";
