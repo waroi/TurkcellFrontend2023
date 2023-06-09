@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { formatDate } from "../utils/DateUtils";
+
 const Card = styled.div`
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -47,6 +48,7 @@ const CardContent = styled.div`
   width: 70%;
   left: 16px;
   line-height: 1.5;
+  color:black;
 `;
 
 const CardAction = styled.div`
@@ -56,7 +58,8 @@ const CardAction = styled.div`
 `;
 
 const Container = styled.div`
-  // min-width: 1519px;
+  min-width: 1900px; 
+  @media screen and (max-width: 1900px) { min-width: 90%};
 `;
 
 const SelectedNews = () => {
@@ -71,6 +74,7 @@ const SelectedNews = () => {
     try {
       const decodedId = id.replace(/%20/g, " ");
       const response = await fetch(
+
         `https://newsapi.org/v2/everything?q=${decodedId}&apiKey=c987da6e68ca4ff681632866b4c52895`
       );
       const data = await response.json();

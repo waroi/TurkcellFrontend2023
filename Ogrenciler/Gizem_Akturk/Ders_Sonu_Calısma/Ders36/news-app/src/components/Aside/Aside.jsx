@@ -20,7 +20,7 @@ const Aside = () => {
     <AsideContainer>
       <h2 style = {{color:"black"}}>En Son Haberler</h2>
       {latestNews.map((news, index) => (
-        <AsideItem>
+        <AsideItem key={index}>
           <NewsItem key={index} {...news} id={news.title} />
         </AsideItem>
       ))}
