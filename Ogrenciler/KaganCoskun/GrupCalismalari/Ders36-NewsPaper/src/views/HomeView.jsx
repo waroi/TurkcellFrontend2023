@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getNews } from '../services/requets'
 import { useParams } from 'react-router-dom'
 import { NewsContainerDiv } from '../components/News/NewsContainer/styled'
-import { SliderContainer } from './HomeViewStyled'
+import { PageViews, SliderContainer } from './HomeViewStyled'
 import { ButtonContainer, LoadingContainer } from './newsDetailStyles'
 import {getAllCurrency} from "../services/requets"
 import Slider from "../components/Slider/Slider"
@@ -50,6 +50,7 @@ const HomeView = () => {
     </div>
     <ButtonContainer>
     <button disabled={page === 1 ?true:false} onClick={()=>{setPage(page-1);setCardLoad(true)}}>Önceki Sayfa</button>
+        <PageViews>{page}</PageViews>
         <button onClick={()=>{setPage(page+1);setCardLoad(true)}}>Sonraki Sayfa</button>
     </ButtonContainer>
     <div>

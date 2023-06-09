@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <Header/>
+      <main style={{minHeight: '100vh'}}>
       <Router />
+      </main>
       <Footer />
     </>
   )
