@@ -12,7 +12,7 @@ import {
 
 const Home = () => {
   const [allNews, setAllNews] = useState([]);
-  const [category, setCategory] = useState("general"); // ['general', 'magazine', 'sport', 'technology'
+  const [category, setCategory] = useState("general");
   const [color, setColor] = useState("white");
 
   const getNewsDatas = async () => {

@@ -32,6 +32,7 @@ const DetailNew = () => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('tr-TR', options);
   };
+  
   if (news === null) {
     return (
       <DeatilPageContainer>
