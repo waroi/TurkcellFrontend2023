@@ -19,42 +19,59 @@ h1 {
   font-size: 30px;
 }
 
-#searchBox {
-  border-radius: 25px;
+.search-box {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+.input-search {
+  height: 50px;
+  width: 50px;
+  border-style: none;
   padding: 10px;
-  background: #f0f3ff;
-  display: flex;
-  align-items: center;
-  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
-    -6px -6px 10px -1px rgba(40, 39, 39, 0.7);
-}
-
-#googleIcon {
-  width: 20px;
-  cursor: pointer;
-}
-
-.fa-microphone {
-  transition: 0.5s;
-  transition-delay: 0.5s;
-}
-
-input {
-  font-size: 12px;
-  width: 0px;
-  border: 0;
-  background: transparent;
+  font-size: 18px;
+  letter-spacing: 2px;
   outline: none;
-  transition: 2s;
+  border-radius: 25px;
+  transition: all 0.5s ease-in-out;
+  background-color: transparent;
+  padding-right: 40px;
+  color: #fff;
 }
-
-.active input {
-  width: 100px;
-  padding: 12px 20px;
+.input-search::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
 }
-
-.active .mic-icon {
-  width: 20px;
+.btn-search {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #ffffff;
+  background-color: transparent;
+  pointer-events: painted;
+}
+.btn-search:focus ~ .input-search {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+.input-search:focus {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 .li-link {
   color: gold;

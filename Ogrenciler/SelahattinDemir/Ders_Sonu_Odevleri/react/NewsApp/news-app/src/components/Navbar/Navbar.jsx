@@ -2,7 +2,10 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "./Navbar.css";
-const Navbar = ({ setCountry }) => {
+import { AiOutlineSearch } from "react-icons/ai";
+import { useState } from "react";
+
+const Navbar = ({ setCountry, news }) => {
   const StyledNav = styled.nav`
     width: 100%;
   `;
@@ -17,6 +20,7 @@ const Navbar = ({ setCountry }) => {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
   `;
   const StyledUl = styled.ul`
     display: flex;
@@ -33,12 +37,19 @@ const Navbar = ({ setCountry }) => {
       background-color: #2e2e2e;
     }
   `;
-  const searchBox = document.getElementById("searchBox");
-  const googleIcon = document.getElementById("googleIcon");
 
-  function googleIcons() {
-    searchBox.classList.toggle("active");
-  }
+  const [value, setValue] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchTerm = value.trim();
+    if (searchTerm) {
+      const searchResults = news.results.filter((item) =>
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      console.log(searchResults);
+    }
+  };
 
   return (
     <StyledNav>
@@ -56,16 +67,18 @@ const Navbar = ({ setCountry }) => {
             width="200px"
           />
           <h1>SAS NewsWire</h1>
-          <div className="hero">
-            <div id="searchBox">
-              <i
-                className="fab fa-google fa-m"
-                id="googleIcon"
-                onclick={googleIcons}
-              ></i>
-              <input type="text" placeholder="Search News" />
-              <i className="fas fa-microphone fa-m "></i>
-            </div>
+          <div className="search-box">
+            <button className="btn-search">
+              <AiOutlineSearch onClick={handleSearch} />
+            </button>
+
+            <input
+              type="text"
+              className="input-search"
+              placeholder="Type to Search"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+            />
           </div>
           <select onChange={(e) => setCountry(e.target.value)}>
             <option value="tr">&#127481; &#127479;</option>

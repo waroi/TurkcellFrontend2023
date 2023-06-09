@@ -62,7 +62,7 @@ const Router = () => {
 
   return (
     <>
-      <Navbar country={country} setCountry={setCountry} />
+      <Navbar country={country} setCountry={setCountry} news={news} />
       {useRoutes(routes)}
     </>
   );
