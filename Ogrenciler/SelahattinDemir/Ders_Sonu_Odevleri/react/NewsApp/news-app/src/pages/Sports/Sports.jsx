@@ -18,10 +18,13 @@ const Sports = ({ news }) => {
               month: "numeric",
               day: "numeric",
             });
+            const defaultImage =
+              "https://media.discordapp.net/attachments/1089995629633228900/1116682313871409173/b53.png";
+            const imageUrl = item.image_url || defaultImage;
             return (
               <div key={index} className="wrapper">
                 <div className="card-top">
-                  <img src={item.image_url} alt="" className="banner-image" />
+                  <img src={imageUrl} alt="" className="banner-image" />
                   <div className="card-top-right">
                     <h1 className={titleClass}>{item.title}</h1>
                     <p>{pubDate}</p>

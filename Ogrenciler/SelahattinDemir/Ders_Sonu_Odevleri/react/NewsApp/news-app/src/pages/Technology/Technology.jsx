@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-const Financial = ({ news }) => {
-  console.log(news);
+const Technology = ({ news }) => {
   return (
     <main>
       <div className="news container">
@@ -19,10 +18,13 @@ const Financial = ({ news }) => {
               month: "numeric",
               day: "numeric",
             });
+            const defaultImage =
+              "https://media.discordapp.net/attachments/1089995629633228900/1116682766579413062/turkcell-Y2UV_cover.png?width=726&height=408";
+            const imageUrl = item.image_url || defaultImage;
             return (
               <div key={index} className="wrapper">
                 <div className="card-top">
-                  <img src={item.image_url} alt="" className="banner-image" />
+                  <img src={imageUrl} alt="" className="banner-image" />
                   <div className="card-top-right">
                     <h1 className={titleClass}>{item.title}</h1>
                     <p>{pubDate}</p>
@@ -44,4 +46,4 @@ const Financial = ({ news }) => {
   );
 };
 
-export default Financial;
+export default Technology;

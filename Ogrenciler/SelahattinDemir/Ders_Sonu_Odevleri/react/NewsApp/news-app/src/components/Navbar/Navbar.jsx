@@ -21,11 +21,12 @@ const Navbar = ({ setCountry, news, setNews }) => {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 1rem;
   `;
   const StyledUl = styled.ul`
     display: flex;
     justify-content: space-between;
-    margin: 30px 0;
+    margin: 30px 0 50px;
   `;
   const StyledLi = styled.li`
     border: 1px inset black;
@@ -38,18 +39,15 @@ const Navbar = ({ setCountry, news, setNews }) => {
     }
   `;
 
-  // const [value, setValue] = useState("");
   const searchRef = useRef("");
 
-  const handleSearch = (e) => {
-    e.preventDefault();
+  const handleSearch = () => {
     const searchTerm = searchRef.current.value.trim();
     if (searchTerm) {
       const searchResults = news.results.filter((item) =>
         item.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setNews({ results: searchResults });
-      console.log(searchResults);
     } else {
       setNews(news); // Revert to original data
     }
@@ -71,7 +69,7 @@ const Navbar = ({ setCountry, news, setNews }) => {
           />
           <h1>SAS NewsWire</h1>
           <div className="search-box">
-            <button onClick={handleSearch} className="btn-search">
+            <button className="btn-search">
               <AiOutlineSearch />
             </button>
 
@@ -80,12 +78,13 @@ const Navbar = ({ setCountry, news, setNews }) => {
               className="input-search"
               placeholder="Type to Search"
               ref={searchRef}
+              onKeyUp={handleSearch}
             />
           </div>
           <select onChange={(e) => setCountry(e.target.value)}>
-            <option value="tr">&#127481; &#127479;</option>
-            <option value="de"> &#x1F1E9; &#x1F1EA;</option>
-            <option value="fr">&#x1F1EB; &#x1F1F7;</option>
+            <option value="tr">&#127481;&#127479;</option>
+            <option value="de"> &#x1F1E9;&#x1F1EA;</option>
+            <option value="fr">&#x1F1EB;&#x1F1F7;</option>
           </select>
         </StyledDiv>
         <StyledUl>
