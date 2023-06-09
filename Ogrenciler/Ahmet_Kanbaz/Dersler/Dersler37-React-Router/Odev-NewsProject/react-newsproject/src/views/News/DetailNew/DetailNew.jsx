@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useLocation, useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
-import {DeatilPageContainer, DetailPageImageDiv, DetailPageInfo, DetailPageButton} from './DetailNewStyle'
+import { DeatilPageContainer, DetailPageImageDiv, DetailPageInfo, DetailPageButton } from './DetailNewStyle'
 import NotFound from "../../NotFound/NotFound"
 const DetailNew = () => {
-  const [news, setNews] = useState()
+  const [news, setNews] = useState(null)
   const location = useLocation()
   const { id } = useParams()
 
@@ -32,7 +32,13 @@ const DetailNew = () => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('tr-TR', options);
   };
-
+  if (news === null) {
+    return (
+      <DeatilPageContainer>
+        Loading
+      </DeatilPageContainer>
+    )
+  }
   return (
     news ? (
       <DeatilPageContainer>
@@ -49,8 +55,8 @@ const DetailNew = () => {
         </DetailPageInfo>
       </DeatilPageContainer>
     )
-    :
-    <NotFound />
+      :
+      <NotFound />
   )
 }
 

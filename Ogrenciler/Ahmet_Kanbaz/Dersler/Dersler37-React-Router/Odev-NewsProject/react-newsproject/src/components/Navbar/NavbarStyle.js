@@ -11,13 +11,17 @@ export const Nav = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    a {
+      text-decoration: none;
+      color: #000;
+    }
     img{
       width: 120px;
     }
     div{
       ul{
         display: flex;
+        gap: 1rem;
         li{
           list-style: none;
           margin: 0 10px;

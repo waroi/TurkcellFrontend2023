@@ -10,12 +10,6 @@ const Navbar = () => {
           <li>İletişim</li>
         </ul>
       </div>
-      <div>
-        <ul>
-          <li><button>TR</button></li>
-          <li><button>DE</button></li>
-        </ul>
-      </div>
     </Nav>
   )
 }
