@@ -1,9 +1,12 @@
-import React from 'react'
+import "./style.css";
+import error from "../../assets/404.png";
 
 const NotFound = () => {
   return (
-    <div>NotFound</div>
-  )
-}
+    <div className="not-found-div">
+      <img src={error} alt="images" />
+    </div>
+  );
+};
 
-export default NotFound
+export default NotFound;
