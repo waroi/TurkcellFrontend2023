@@ -26,7 +26,7 @@ function App() {
       <Navbar />
       {error != "" && <h3>Veri Yok {error}</h3>}
       <Routes>
-        <Route exact path="/" element={<BlogList newsArr={newsArr} />} />
+        <Route path="/" element={<BlogList newsArr={newsArr} />} />
         <Route exact path="/blogs" element={<BlogList newsArr={newsArr} />} />
         <Route path="/blogs/:id" element={<BlogDetail newsArr={newsArr} />} />
         <Route path="*" element={<NotFound />} />
