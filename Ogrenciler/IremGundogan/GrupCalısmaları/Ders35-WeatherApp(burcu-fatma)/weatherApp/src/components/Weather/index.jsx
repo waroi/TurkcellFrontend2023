@@ -35,7 +35,7 @@ const Weather = ({ data }) => {
     } else if (itemDay !== day) {
       day = itemDay;
       count++;
-      if (count <= 5) {
+      if (count <= 6) {
         dailyData.push(item);
       }
     }
@@ -56,4 +56,3 @@ const Weather = ({ data }) => {
 };
 
 export default Weather;
-
