@@ -5,7 +5,7 @@ import "./Navbar.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useRef } from "react";
 
-const Navbar = ({ setCountry, news, setNews }) => {
+const Navbar = ({ country, setCountry, news, setNews }) => {
   const StyledNav = styled.nav`
     width: 100%;
   `;
@@ -52,6 +52,9 @@ const Navbar = ({ setCountry, news, setNews }) => {
       setNews(news); // Revert to original data
     }
   };
+  const handleChange = (e) => {
+    setCountry(e.target.value);
+  };
   return (
     <StyledNav>
       <img
@@ -81,10 +84,11 @@ const Navbar = ({ setCountry, news, setNews }) => {
               onKeyUp={handleSearch}
             />
           </div>
-          <select onChange={(e) => setCountry(e.target.value)}>
-            <option value="tr">&#127481;&#127479;</option>
-            <option value="de"> &#x1F1E9;&#x1F1EA;</option>
-            <option value="fr">&#x1F1EB;&#x1F1F7;</option>
+          <select value={country} onChange={handleChange}>
+            <option value="">Select a country</option>
+            <option value="tr">&#127481; &#127479;</option>
+            <option value="de"> &#x1F1E9; &#x1F1EA;</option>
+            <option value="fr">&#x1F1EB; &#x1F1F7;</option>
           </select>
         </StyledDiv>
         <StyledUl>
