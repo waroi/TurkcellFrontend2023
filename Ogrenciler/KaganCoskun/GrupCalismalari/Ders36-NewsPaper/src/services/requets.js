@@ -18,15 +18,8 @@ export async function getNewsDetail(id,page,category,country){
 }
 
 export async function getAllCurrency(){
-    const data = await fetch(`${import.meta.env.VITE_CURRENCY_API_URI}/allCurrency `,{
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'authorization': `apikey ${import.meta.env.VITE_API_KEY}`
-        }
-    })
+    const data = await fetch(`${import.meta.env.VITE_CURRENCY_API_URI}`)
     const currency = await data.json()
-    console.log(currency)
-    return currency
+    return currency.data
 
 }
