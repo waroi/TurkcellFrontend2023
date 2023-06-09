@@ -1,6 +1,7 @@
+const key4 = "10e94e7ab8mshdda0cc3310e7fabp10a76fjsnec38ed73c873";
 export const getNews = async (country, setNews) => {
   const key3 = "d7b05a9c89mshbf803db5887cef9p186790jsndefd941dc873";
-  const key4 = "10e94e7ab8mshdda0cc3310e7fabp10a76fjsnec38ed73c873";
+
   const url = `https://newsdata2.p.rapidapi.com/news?country=${country}&category=technology%2Cpolitics%2Centertainment%20&language=${country}`;
   const options = {
     method: "GET",
@@ -20,7 +21,7 @@ export const getNewsByCategory = async (category, setNews) => {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "10e94e7ab8mshdda0cc3310e7fabp10a76fjsnec38ed73c873",
+      "X-RapidAPI-Key": `${key4}`,
       "X-RapidAPI-Host": "newsdata2.p.rapidapi.com",
     },
   };

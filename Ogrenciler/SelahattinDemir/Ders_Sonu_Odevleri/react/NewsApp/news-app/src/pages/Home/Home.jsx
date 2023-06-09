@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 
 const Home = ({ news }) => {
-  // const[country, setCountry] = useState("tr");
-  // const[language, setLanguage] = useState("tr");
-
   return (
     <main>
       <div className="news container">

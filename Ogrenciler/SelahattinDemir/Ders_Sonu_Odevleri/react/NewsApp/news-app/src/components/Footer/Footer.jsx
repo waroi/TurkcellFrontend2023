@@ -1,5 +1,6 @@
 import "./Footer.css";
 import styled from "styled-components";
+import { MdLocationPin } from "react-icons/md";
 
 const Footer = () => {
   const FooterStart = styled.div`
@@ -59,10 +60,13 @@ const Footer = () => {
             <h1>SAS NewsWire</h1>
           </FlexImg>
 
-          <p> ŞebinKarahisar, Turkey</p>
+          <p>
+            {" "}
+            <MdLocationPin /> ŞebinKarahisar, Turkey
+          </p>
           <a href="">+905388752355</a>
           <div className="contributors">
-            <h3>Contibutors</h3>
+            <h3>Contributors</h3>
             <FooterStartUl>
               <li className="footerStart-li">
                 <a href="https://github.com/seyityuce">Seyit Yüce</a>

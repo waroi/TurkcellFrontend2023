@@ -3,22 +3,43 @@ import { Link } from "react-router-dom";
 
 const Magazine = ({ news }) => {
   return (
-    <div>
-      {news.results &&
-        news.results.map((item, index) => {
-          return (
-            <div key={index}>
-              <h1>{item.title}</h1>
-              <img src={item.image_url} alt="" />
-              <p>{item.description}</p>
-              <p>{item.category}</p>
-              <p>{item.pubDate}</p>
-              <a href={item.link}>{item.link}</a> <br />
-              <Link to={`/detail/${index}`}>Read More</Link>
-            </div>
-          );
-        })}
-    </div>
+    <main>
+      <div className="news container">
+        {news.results &&
+          news.results.map((item, index) => {
+            const titleClass =
+              item.title.split(" ").length > 6 ? "truncate" : "";
+            const descriptionClass =
+              item.description && item.description.split(" ").length > 12
+                ? "truncate"
+                : "";
+            const pubDate = new Date(item.pubDate).toLocaleDateString("tr-TR", {
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+            });
+            return (
+              <div key={index} className="wrapper">
+                <div className="card-top">
+                  <img src={item.image_url} alt="" className="banner-image" />
+                  <div className="card-top-right">
+                    <h1 className={titleClass}>{item.title}</h1>
+                    <p>{pubDate}</p>
+                    <p>{item.category}</p>
+                    <a className="item-link" href={item.link}>
+                      {item.source_id}
+                    </a>
+                  </div>
+                </div>
+                <p className={descriptionClass}>{item.description}</p>
+                <Link className="read-more" to={`/detail/${index}`}>
+                  Read More
+                </Link>
+              </div>
+            );
+          })}
+      </div>
+    </main>
   );
 };
 

@@ -28,7 +28,18 @@ const Navbar = ({ setCountry }) => {
     padding: 10px 25px;
     border-radius: 20px;
     background-color: #232325;
+    cursor: pointer;
+    &:hover {
+      background-color: #2e2e2e;
+    }
   `;
+  const searchBox = document.getElementById("searchBox");
+  const googleIcon = document.getElementById("googleIcon");
+
+  function googleIcons() {
+    searchBox.classList.toggle("active");
+  }
+
   return (
     <StyledNav>
       <img
@@ -47,11 +58,20 @@ const Navbar = ({ setCountry }) => {
           <h1>SAS NewsWire</h1>
           <div className="hero">
             <div id="searchBox">
-              <i className="fab fa-google fa-3x" id="googleIcon"></i>
-              <input type="text" placeholder="Search Google or type URL" />
-              <i className="fas fa-microphone fa-3x "></i>
+              <i
+                className="fab fa-google fa-m"
+                id="googleIcon"
+                onclick={googleIcons}
+              ></i>
+              <input type="text" placeholder="Search News" />
+              <i className="fas fa-microphone fa-m "></i>
             </div>
           </div>
+          <select onChange={(e) => setCountry(e.target.value)}>
+            <option value="tr">&#127481; &#127479;</option>
+            <option value="de"> &#x1F1E9; &#x1F1EA;</option>
+            <option value="fr">&#x1F1EB; &#x1F1F7;</option>
+          </select>
         </StyledDiv>
         <StyledUl>
           <StyledLi>
@@ -90,11 +110,6 @@ const Navbar = ({ setCountry }) => {
           heights. Thank you, SAS NewsWire Team
         </p>
       </StyledCon>
-      <select onChange={(e) => setCountry(e.target.value)}>
-        <option value="tr">TR</option>
-        <option value="de">DE</option>
-        <option value="fr">FR</option>
-      </select>
     </StyledNav>
   );
 };
