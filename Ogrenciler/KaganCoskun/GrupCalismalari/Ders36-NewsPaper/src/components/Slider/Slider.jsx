@@ -15,6 +15,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 
 const Slider = ({news,page,category}) => {
+
   return (
       <Swiper
         spaceBetween={30}
@@ -29,18 +30,14 @@ const Slider = ({news,page,category}) => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-      >
-        
+      > 
           {news && news?.map((item)=><SwiperSlide key={item.key}>
             <Link to={`/newsDetail/${item.key}?page=${page}&category=${category?category:"general"}`}>
-              <SliderImg  src={item?.image} alt="haber" />
+              <SliderImg src={item?.image} alt="Hatalı URL" />
               <h3>{item?.name}</h3>
-              
               </Link>
           </SwiperSlide>)}
-        
       </Swiper>
-
   );
 }
 
