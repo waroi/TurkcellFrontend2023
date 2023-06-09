@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "./Navbar.css";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useState } from "react";
+import { useRef } from "react";
 
-const Navbar = ({ setCountry, news }) => {
+const Navbar = ({ setCountry, news, setNews }) => {
   const StyledNav = styled.nav`
     width: 100%;
   `;
@@ -38,19 +38,22 @@ const Navbar = ({ setCountry, news }) => {
     }
   `;
 
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
+  const searchRef = useRef("");
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const searchTerm = value.trim();
+    const searchTerm = searchRef.current.value.trim();
     if (searchTerm) {
       const searchResults = news.results.filter((item) =>
         item.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
+      setNews({ results: searchResults });
       console.log(searchResults);
+    } else {
+      setNews(news); // Revert to original data
     }
   };
-
   return (
     <StyledNav>
       <img
@@ -68,16 +71,15 @@ const Navbar = ({ setCountry, news }) => {
           />
           <h1>SAS NewsWire</h1>
           <div className="search-box">
-            <button className="btn-search">
-              <AiOutlineSearch onClick={handleSearch} />
+            <button onClick={handleSearch} className="btn-search">
+              <AiOutlineSearch />
             </button>
 
             <input
               type="text"
               className="input-search"
               placeholder="Type to Search"
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
+              ref={searchRef}
             />
           </div>
           <select onChange={(e) => setCountry(e.target.value)}>

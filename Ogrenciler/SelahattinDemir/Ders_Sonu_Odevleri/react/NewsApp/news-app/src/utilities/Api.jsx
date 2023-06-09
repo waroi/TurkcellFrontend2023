@@ -1,7 +1,5 @@
-const key4 = "10e94e7ab8mshdda0cc3310e7fabp10a76fjsnec38ed73c873";
+const key4 = "2ce38e635fmsh318efba60c5eb1ep1ae045jsne33b23cc9ad9";
 export const getNews = async (country, setNews) => {
-  const key3 = "d7b05a9c89mshbf803db5887cef9p186790jsndefd941dc873";
-
   const url = `https://newsdata2.p.rapidapi.com/news?country=${country}&category=technology%2Cpolitics%2Centertainment%20&language=${country}`;
   const options = {
     method: "GET",
