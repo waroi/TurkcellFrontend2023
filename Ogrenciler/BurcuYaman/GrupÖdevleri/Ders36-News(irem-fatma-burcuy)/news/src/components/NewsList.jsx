@@ -7,7 +7,7 @@ function NewsList() {
 
   useEffect(() => {
     fetch(
-      "https://gnews.io/api/v4/{endpoint}?apikey=330681caa1286fcd6b9ca43891773fd7"
+      "https://newsapi.org/v2/top-headlines?country=us&apiKey=9cdb0842c86c4d079dbeffdf7233b632"
     )
       .then((response) => response.json())
       .then((data) => setNews(data.articles));
