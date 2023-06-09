@@ -20,7 +20,7 @@ const MainContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
   }
 `;
