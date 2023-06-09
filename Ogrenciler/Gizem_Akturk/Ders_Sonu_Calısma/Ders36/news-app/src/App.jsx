@@ -1,18 +1,18 @@
+import "./App.css";
 
-import './App.css'
-import News from './components/News'
-import Router from './routes/Router'
+import Router from "./routes/Router";
+import Footer from "./components/Footer/Footer";
 
+import Navbar from "./components/Navbar/Navbar";
+import fetchData from "./API/FetchData";
 function App() {
-  
-
   return (
     <>
-        <h1>React Router</h1>
-    <Router />
-  
+      <Navbar fetchData={fetchData} />
+      <Router />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
