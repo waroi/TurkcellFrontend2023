@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 
 const Financial = ({ news }) => {
+  console.log(news);
   return (
     <div>
       {news.results &&

@@ -6,26 +6,40 @@ import "./Home.css";
 const Home = ({ news }) => {
   // const[country, setCountry] = useState("tr");
   // const[language, setLanguage] = useState("tr");
-  
 
   return (
     <main>
       <div className="news container">
         {news.results &&
           news.results.map((item, index) => {
+            const titleClass =
+              item.title.split(" ").length > 6 ? "truncate" : "";
+            const descriptionClass =
+              item.description && item.description.split(" ").length > 12
+                ? "truncate"
+                : "";
+            const pubDate = new Date(item.pubDate).toLocaleDateString("tr-TR", {
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+            });
             return (
               <div key={index} className="wrapper">
                 <div className="card-top">
                   <img src={item.image_url} alt="" className="banner-image" />
-                  <div>
-                    <h1>{item.title}</h1>
-                    <p>{item.pubDate}</p>
+                  <div className="card-top-right">
+                    <h1 className={titleClass}>{item.title}</h1>
+                    <p>{pubDate}</p>
                     <p>{item.category}</p>
-                    <a href={item.link}>{item.source_id}</a>
+                    <a className="item-link" href={item.link}>
+                      {item.source_id}
+                    </a>
                   </div>
                 </div>
-                <p>{item.description}</p>
-                <Link to={`/detail/${index}`}>Read More</Link>
+                <p className={descriptionClass}>{item.description}</p>
+                <Link className="read-more" to={`/detail/${index}`}>
+                  Read More
+                </Link>
               </div>
             );
           })}

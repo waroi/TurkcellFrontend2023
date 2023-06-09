@@ -80,7 +80,7 @@ const Navbar = ({ setCountry }) => {
             </Link>
           </StyledLi>
         </StyledUl>
-        <p>
+        <p className="nav-intro">
           Hello! We are SAS NewsWire, a passionate news website aiming to bring
           a different perspective to the news. Our goal is to provide our
           readers with timely and diversified news, analyze significant events,
