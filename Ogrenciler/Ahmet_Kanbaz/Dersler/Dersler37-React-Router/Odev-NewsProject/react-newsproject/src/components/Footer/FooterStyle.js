@@ -9,7 +9,7 @@ export const FooterDiv = styled.div`
   font-size: 1.2rem;
   font-weight: 600;
   color: #212529;
-  margin-top: 20px;
+  border-top: 1px solid #212529;
   padding: 0 20px;
   @media (max-width: 768px) {
     font-size: 1rem;

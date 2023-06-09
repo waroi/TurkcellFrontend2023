@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
+import {useNavigate} from 'react-router-dom'
 import SingleNewCard from './SingleNewCard'
-import {AllNewsContainer} from './HomeandCardStyle'
+import {HomeDiv, ButtonsDiv, MagazineButton, SporButton, TechButton, AllNewsContainer} from './HomeandCardStyle'
 
 const Home = () => {
-
   const [allNews, setAllNews] = useState([])
+  const navigate = useNavigate()
 
   const getNewsDatas = async() => {
     const response = await fetch('https://api.collectapi.com/news/getNews?country=tr&tag=general', {
@@ -23,11 +24,18 @@ const Home = () => {
   }, [])
 
   return (
-    <AllNewsContainer>
+    <HomeDiv>
+      <ButtonsDiv>
+        <MagazineButton>Magazin</MagazineButton>
+        <SporButton>Spor</SporButton>
+        <TechButton>Teknoloji</TechButton>
+      </ButtonsDiv>
+      <AllNewsContainer>
       {
         allNews.length > 0 && allNews.map((singleNew) => <SingleNewCard singleNew={singleNew} key={singleNew.key}/>)
       }
     </AllNewsContainer>
+    </HomeDiv>
   )
 }
 

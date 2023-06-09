@@ -1,11 +1,55 @@
 import styled from "styled-components";
 
+export const HomeDiv = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 100px 0;
+  background-color: #f5f5f5;
+`;
+
+export const ButtonsDiv = styled.div `
+  display: flex;
+  gap: 1rem;
+`;
+
+export const MagazineButton = styled.button `
+  padding: 10px 20px;
+  border: none;
+  border-radius: 7px;
+  background-color: transparent;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #451541;
+    color: #fff;
+  }
+`;
+
+export const SporButton = styled(MagazineButton) `
+  &:hover {
+    background-color: #654745;
+  }
+`;
+
+export const TechButton = styled(MagazineButton) `
+  &:hover {
+    background-color: #4e5d6c;
+  }
+`;
+
 export const AllNewsContainer = styled.div`
   display: flex;
+  width: 1280px;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  padding: 6rem 0;
+  padding: 3rem 0;
 `;
 
 export const SingleCard = styled.div`
