@@ -1,3 +1,5 @@
+//Navbar.jsx
+
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import logo from "../assets/logo.png";
@@ -51,7 +53,6 @@ function Navbar() {
         <NavLink to="/">Health</NavLink>
         <NavLink to="/">Sports</NavLink>
         </NavItem>
-      {/* Diğer navigasyon linkleri */}
     </Navigation>
  
   );

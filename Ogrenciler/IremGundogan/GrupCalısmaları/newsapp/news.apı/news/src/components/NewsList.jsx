@@ -62,7 +62,7 @@ function NewsList() {
 
   useEffect(() => {
     fetch(
-      "https://gnews.io/api/v4/top-headlines?token=fd4d7712a43ca57a7366dd3efd7e929d&lang=en"
+      "https://gnews.io/api/v4/top-headlines?token=330681caa1286fcd6b9ca43891773fd7&lang=en"
     )
       .then((response) => response.json())
       .then((data) => setNews(data.articles));

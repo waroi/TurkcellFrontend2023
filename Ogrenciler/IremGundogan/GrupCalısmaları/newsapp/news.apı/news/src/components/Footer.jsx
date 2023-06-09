@@ -1,3 +1,4 @@
+//footer.jsx
 
 import styled from 'styled-components';
 
