@@ -1,13 +1,16 @@
-import './App.css'
 import Router from './routers/Router'
 import Header from './components/Header'
+import Footer from './components/Footer/Footer'
+
 function App() {
 
   return (
     <>
-     <Header/>
+      <Header/>
+      <main style={{minHeight: '100vh'}}>
       <Router />
-      <footer></footer>
+      </main>
+      <Footer />
     </>
   )
 }

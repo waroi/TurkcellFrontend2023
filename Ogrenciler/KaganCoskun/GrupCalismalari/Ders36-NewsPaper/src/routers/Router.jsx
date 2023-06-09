@@ -1,6 +1,5 @@
 import { useRoutes } from "react-router-dom"
 import HomeView from "../views/HomeView"
-// import CategoryView from "../views/CategoryView"
 import NewsDetail from "../views/NewsDetail"
 
 const Router = ({news}) => {
