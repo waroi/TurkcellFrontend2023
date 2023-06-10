@@ -7,8 +7,8 @@ const Home = () => {
   return (
     <BgWrapper>
       <div className="container px-4">
-        <h3 className="px-3 pt-3">Piyasa Değerine Göre , en iyi 100 Kripto Para Birimleri</h3>
-        <p className="p-3 pt-0 fs-5 text-secondary">The global crypto market cap is $1.05T,  decrease over the last day...</p>
+        <h3 className="px-3 pt-3">Check Out The Latest Cryptocurrency News</h3>
+        <p className="p-3 pt-0 fs-5 text-secondary">The global crypto market cap is $1.05T,  decrease over the last day.</p>
       </div>
       <CardWrapper>
         {news.map((item,i) => (<Card item={item} key={i}/>))}

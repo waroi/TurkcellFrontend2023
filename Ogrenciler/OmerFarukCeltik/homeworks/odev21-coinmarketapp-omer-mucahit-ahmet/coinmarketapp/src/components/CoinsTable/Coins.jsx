@@ -5,7 +5,6 @@ import { CoinsContainer, CustomIcon, CustomTable, CustomThead, CustomTr, StyledT
 import { AiOutlineStar } from "react-icons/ai";
 
 const Coins = () => {
-
   const { datas } = useFetch();
   return (
     <CoinsContainer>
