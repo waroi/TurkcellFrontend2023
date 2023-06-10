@@ -1,15 +1,12 @@
-import { useRoutes } from 'react-router-dom';
-import CoinListSection from '../views/CoinListSection.jsx';
-import HomeView from '../views/HomeView.jsx';
+import { useRoutes } from "react-router-dom";
+
+import HomeView from "../views/HomeView/HomeView.jsx";
 
 const Router = () => {
   const routes = useRoutes([
     {
-      path: '/',
+      path: "/",
       element: <HomeView />,
-      children: [
-        { index: true, element: <CoinListSection /> },
-      ],
     },
   ]);
 
