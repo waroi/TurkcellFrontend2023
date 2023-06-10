@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body {
+  .body-wrapper {
+    .form {
+      width: 400px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      padding: 0 2rem;
+      border: 1px solid black;
+      background-color: #ccc;
+
+      #blog-form {
+        div {
+          position: relative;
+          margin-bottom: 25px;
+          input {
+            font-size: 18px;
+            padding: 10px 10px 10px 5px;
+            display: block;
+            width: 300px;
+            border: none;
+
+            border-bottom: 1px solid #757575;
+            &:focus {
+              outline: none;
+            }
+          }
+          label {
+            color: #999;
+            font-size: 18px;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 5px;
+            top: 10px;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+
+          }
+          input:focus ~ label, input:valid ~ label{
+            top:-20px;
+            font-size:14px;
+            color:#5264AE;
+          } 
+
+          .bar {
+            position: relative;
+            display: block;
+            width: 300px;
+            &::before,
+            &::after {
+              content: "";
+              height: 2px;
+              width: 0;
+              bottom: 1px;
+              position: absolute;
+              background: #5264ae;
+              transition: 0.2s ease all;
+              -moz-transition: 0.2s ease all;
+              -webkit-transition: 0.2s ease all;
+            }
+            &::before {
+              left: 50%;
+            }
+            &::after {
+              right: 50%;
+            }
+            
+          }
+          input:focus ~ .bar:before, 
+          input:focus ~ .bar:after {
+            width:50%;
+          } 
+          .highlight {
+            position:absolute;
+            height:60%; 
+            width:100px; 
+            top:25%; 
+            left:0;
+            pointer-events:none;
+            opacity:0.5;
+          } 
+          @-webkit-keyframes inputHighlighter {
+            from { background:#5264AE; }
+            to 	{ width:0; background:transparent; }
+          }
+          @-moz-keyframes inputHighlighter {
+            from { background:#5264AE; }
+            to 	{ width:0; background:transparent; }
+          }
+          @keyframes inputHighlighter {
+            from { background:#5264AE; }
+            to 	{ width:0; background:transparent; }
+          } 
+        }
+      }
+    }
+    .blogs-wrapper {
+      margin-left: 400px;
+    }
+  }
+}
