@@ -15,7 +15,7 @@ const Router = () => {
       path: `/coinpage`,
       element: <Coins />,
     },
-    { path: "/coinpage/:id", element: <CoinDetail /> },
+    { path: "/:id", element: <CoinDetail /> },
     { path: `/aboutus`, element: <AboutUs /> },
     { path: `/faq`, element: <FAQpage /> },
     { path: `*`, element: <NotFound /> },
