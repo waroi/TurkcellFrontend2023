@@ -1,25 +1,19 @@
 import Navbar from './components/Navbar'
 import './App.css'
-// import Router from './router/Router'
-// import { DataProvider, useFetch } from './context/FetchContext'
-import  { ThemeProvider, useTheme }  from './context/ThemeContext'
+import Router from './router/Router'
+import { useFetch } from './context/FetchContext'
+import { useTheme } from './context/ThemeContext'
 function App() {
-// const { data } = useFetch();
-const { theme } = useTheme();
-// console.log(theme);
-// console.log(data);
+  const { datas } = useFetch();
+  const { theme } = useTheme();
+  console.log(theme);
+  console.log(datas);
   return (
     <>
-    {/* <DataProvider> */}
-   
-    <Navbar/>
-    {
-      <div>{theme}</div>
-    }
+      <Navbar />
+      {datas.coins}
       <h1>conimarketapp</h1>
-      {/* <Router/> */}
-
-      {/* </DataProvider> */}
+      <Router />
     </>
   )
 }

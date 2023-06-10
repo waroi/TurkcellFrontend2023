@@ -1,26 +1,26 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import axios from "axios";
+import { PropTypes } from "prop-types";
+
 
 const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  const [data, setData] = useState([]);
+  const [datas, setDatas] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      axios("https://api.coinstats.app/public/v1/coins?skip=0").then((res) => {
-    
-        setData(res);
-      }
-      );
+      fetch("https://api.coinstats.app/public/v1/coins?skip=0").then((res) => res.json()).then((res) => setDatas(res.coins));
     }
     fetchData();
   },[])
   const values = {
-    data,
-    setData
+    datas,
+    setDatas
   }
   return (
   <DataContext.Provider value={values}>{children}</DataContext.Provider>
   );
 }
-export const useFetch = () => useContext(DataProvider);
+DataProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+export const useFetch = () => useContext(DataContext);
