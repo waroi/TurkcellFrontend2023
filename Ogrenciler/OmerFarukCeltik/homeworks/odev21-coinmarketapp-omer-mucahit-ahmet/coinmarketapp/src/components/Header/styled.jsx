@@ -6,11 +6,11 @@ export const UpperHeader = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
+  background-color: #0d1421;
   border-bottom: 0.5px solid rgb(50 53 70);
 `;
 
 export const UpperContainer = styled.div`
-  background-color: #0d1421;
   max-width: 1240px;
   position: relative;
   display: flex;
@@ -85,12 +85,12 @@ export const BottomHeader = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
+  background-color: #0d1421;
   height: 75px;
   border-bottom: 0.5px solid rgb(50 53 70);
 `;
 
 export const BottomContainer = styled.div`
-  background-color: #0d1421;
   width: 100%;
   max-width: 1240px;
   position: relative;
