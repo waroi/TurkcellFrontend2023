@@ -2,8 +2,13 @@ import styled from 'styled-components';
 
 export const CoinsContainer = styled.div `
   display: flex;
-  max-width: 1240px;
+  width: 100%;
   margin: 0 auto;
+  justify-content: center;
+`
+
+export const CustomTr = styled.tr`
+      border-top: 0.5px solid rgb(50 53 70);
 `
 
 export const CustomThead = styled.thead `
@@ -21,3 +26,10 @@ export const CustomThead = styled.thead `
 export const CustomTable = styled.table `
   background-color: #1a1a1d;
 `
+export const StyledTd = styled.td `
+    color: ${({ value }) => (value < 0 ? '#ea3943' : '#16c784')};
+`
+
+export const CustomIcon = styled.img `
+border-radius: 50%;
+`;

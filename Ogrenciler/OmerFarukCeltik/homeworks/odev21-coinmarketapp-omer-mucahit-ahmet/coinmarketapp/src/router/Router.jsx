@@ -1,4 +1,3 @@
-import React from "react";
 import { useRoutes, Navigate } from "react-router-dom";
 import FAQpage from "../components/FAQpage";
 import AboutUs from "../components/AboutUs";
