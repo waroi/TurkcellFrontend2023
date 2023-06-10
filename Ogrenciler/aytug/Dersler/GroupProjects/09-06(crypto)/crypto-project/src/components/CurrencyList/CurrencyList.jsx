@@ -14,7 +14,7 @@ const CurrencyList = () => {
   useEffect(() => {
     getCurrencies();
   }, []);
-
+  console.log(allCurrencies);
   return (
     <div className="container">
       <table className="w-100 h-100" cellPadding={10}>

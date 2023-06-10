@@ -4,32 +4,35 @@ import { getCryptoCurrencyById } from "../services/api";
 // import NotFound from "./NotFound";
 
 const CurrencyView = () => {
-	const { id } = useParams();
-	const [currency, setCurrency] = useState();
-	const navigate = useNavigate();
+  const { id } = useParams();
+  const [currency, setCurrency] = useState();
+  const navigate = useNavigate();
 
-	const getCurrency = async (id) => {
-		try {
-			const currencyData = await getCryptoCurrencyById(id);
-			if (Object.keys(currencyData).length === 0) {
-				// return <NotFound />;
-				navigate("/NotFound");
-			}
-			setCurrency(currencyData.coin);
-		} catch (error) {
-			console.error("Error fetching currency:", error);
-		}
-	};
+  const getCurrency = async (id) => {
+    try {
+      const currencyData = await getCryptoCurrencyById(id);
+      if (Object.keys(currencyData).length === 0) {
+        // return <NotFound />;
+        navigate("/NotFound");
+      }
+      setCurrency(currencyData.coin);
+    } catch (error) {
+      console.error("Error fetching currency:", error);
+    }
+  };
 
-	useEffect(() => {
-		getCurrency(id);
-	}, [id]);
+  useEffect(() => {
+    getCurrency(id);
+  }, [id]);
 
-	return (
-		<>
-			<div>{currency && currency.name}</div>
-		</>
-	);
+  return (
+    <>
+      <div>
+        {currency && currency.name}
+        {currency && currency.price}
+      </div>
+    </>
+  );
 };
 
 export default CurrencyView;
