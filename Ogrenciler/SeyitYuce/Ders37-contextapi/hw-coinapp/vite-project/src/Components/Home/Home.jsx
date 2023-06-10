@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { getAllCoins } from "../../service/api";
 import CoinsListItem from "./CoinsListItem";
 import TrendCoinItem from "./TrendCoinItem";
-
+import { useCoin } from "../../context/Coincontext.jsx";
 const Home = () => {
-  const [allCoins, setAllCoins] = useState([]);
+  const { allCoins, setAllCoins } = useCoin();
+
   useEffect(() => {
     getAllCoins().then((data) => setAllCoins(data));
   }, []);

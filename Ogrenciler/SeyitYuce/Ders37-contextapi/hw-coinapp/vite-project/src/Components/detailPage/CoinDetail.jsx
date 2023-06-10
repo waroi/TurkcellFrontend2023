@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 
 const CoinDetail = () => {
     const { id } = useParams()
+
     return (
         <div>
 
