@@ -1,28 +1,69 @@
-import { useState, useEffect } from 'react'
-import NewsItem from './Newscast/NewsItem'
+import { useState, useEffect } from "react";
+import NewsItem from "./Newscast/NewsItem";
+import styled from "styled-components";
+import Aside from "./Aside/Aside";
+import fetchData from "../API/FetchData";
+const Container = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  bottom: 200px;
+  color: black;
+`;
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
 
 const News = () => {
-    useEffect(() => {
-        fetchItems()
-    }, [])
-    const [items, setItems] = useState([])
-    const fetchItems = async () => {
-        const data = await fetch("https://newsapi.org/v2/everything?domains=wsj.com&apiKey=4a055a5ef0a747b88f3745500b4eb756")
-        const news = await data.json()
-        console.log(items)
-        setItems([...items, ...news.articles])
-    }
-   
-  return (
-    <div>
-        {items.map((article,index) => {
-          return (
-            <NewsItem key={index} id={article.title}  article={article} title={article.title} image={article.urlToImage} content={article.content} description={article.description} publish={article.publishedAt} author={article.author}/>
-          )
-        })}
-         
-    </div>
-  )
-}
+  const [items, setItems] = useState([]);
+  const [visibleItems, setVisibleItems] = useState(9);
+  const [loading, setLoading] = useState(false);
 
-export default News
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  const fetchItems = async () => {
+    setLoading(true);
+    const news = await fetchData();
+    setItems(news.articles);
+    setLoading(false);
+  };
+
+  const handleLoadMore = () => {
+    setVisibleItems((prevVisibleItems) => prevVisibleItems + 9);
+  };
+
+  return (
+    <MainContainer>
+      <Container>
+        {items.slice(0, visibleItems).map((article, index) => {
+          return (
+            <div>
+              <NewsItem key={index} {...article} id={article.title} />
+            </div>
+          );
+        })}
+        {visibleItems < items.length && (
+          <button onClick={handleLoadMore} disabled={loading}>
+            {loading ? "Loading..." : "Show More"}
+          </button>
+        )}
+      </Container>
+      <Aside />
+    </MainContainer>
+  );
+};
+
+export default News;
