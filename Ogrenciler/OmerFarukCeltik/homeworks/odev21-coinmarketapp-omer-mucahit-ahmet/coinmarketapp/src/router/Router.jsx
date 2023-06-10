@@ -4,7 +4,7 @@ import AboutUs from "../components/AboutUs";
 import Home from "../components/views/Home/Home";
 import Coins from "../components/CoinsTable/Coins";
 import CoinDetail from "../components/CoinDetail";
-import NotFound from "../components/NotFound";
+import NotFound from "../components/views/404/NotFound";
 const Router = () => {
   const routes = useRoutes([
     {
