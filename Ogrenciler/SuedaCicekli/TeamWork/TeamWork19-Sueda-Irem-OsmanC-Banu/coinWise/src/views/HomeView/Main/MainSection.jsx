@@ -8,6 +8,7 @@ const MainSection = () => {
       <div className="container">
         <Wrap>
           <Navbar />
+          <div>osman can</div>
           <div className="d-flex flex-column justify-content-around h-75">
             <MainTitle>Navigate the Crypto Universe</MainTitle>
             <ExploreButton>Explore</ExploreButton>
