@@ -6,17 +6,17 @@ import Footer from "./components/Footer/Footer";
 import { useTheme } from "./context/ThemeContext";
 
 function App() {
-	const { theme } = useTheme();
-	return (
-		<>
-			<div className={`app ${theme}`}>
-				<NavBar />
-				<ThemeIcon />
-				<Router />
-				<Footer />
-			</div>
-		</>
-	);
+  const { theme } = useTheme();
+  return (
+    <>
+      <div className={` app ${theme}`}>
+        <NavBar />
+        <ThemeIcon />
+        <Router />
+        <Footer />
+      </div>
+    </>
+  );
 }
 
 export default App;
