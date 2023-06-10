@@ -1,8 +1,10 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 const CoinDetail = () => {
+  const {id} = useParams();
   return (
-    <div>CoinDetail</div>
+    <div>{id}</div>
   )
 }
 
