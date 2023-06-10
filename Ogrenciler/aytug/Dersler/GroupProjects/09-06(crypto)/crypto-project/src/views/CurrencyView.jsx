@@ -25,7 +25,11 @@ const CurrencyView = () => {
 		getCurrency(id);
 	}, [id]);
 
-	return <div>{currency && currency.name}</div>;
+	return (
+		<>
+			<div>{currency && currency.name}</div>
+		</>
+	);
 };
 
 export default CurrencyView;
