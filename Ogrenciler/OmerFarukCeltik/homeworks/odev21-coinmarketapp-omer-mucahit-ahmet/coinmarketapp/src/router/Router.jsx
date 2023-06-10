@@ -5,6 +5,7 @@ import AboutUs from '../components/AboutUs'
 import Home from '../components/Home'
 import Coins from '../components/Coins'
 import CoinDetail from '../components/CoinDetail'
+import NotFound from '../components/NotFound'
 const Router = () => {
   const routes = useRoutes([
     {
@@ -17,7 +18,7 @@ const Router = () => {
     { path: "/coinpage/:id", element: <CoinDetail/>},
     { path: `/aboutus`, element: <AboutUs /> },
     { path: `/faq`, element: <FAQpage /> },
-
+    { path: `*`, element: <NotFound /> }
   ])
   return routes
 }
