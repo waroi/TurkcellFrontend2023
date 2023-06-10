@@ -62,7 +62,7 @@ function NewsList() {
 
   useEffect(() => {
     fetch(
-      "https://gnews.io/api/v4/top-headlines?token=330681caa1286fcd6b9ca43891773fd7&lang=en"
+      "https://gnews.io/api/v4/top-headlines?token=88da1ae2f6fb69d1923fa8bfa83c8817&lang=en"
     )
       .then((response) => response.json())
       .then((data) => setNews(data.articles));
@@ -82,10 +82,10 @@ function NewsList() {
      <Content>
       <NewsGrid>
         {filteredNews.map((item) => (
-          <NewsCard key={item.id}>
+          <NewsCard key={item.title}>
             <Img src={item.image} alt=""></Img>
             <h2>{item.title}</h2>
-            <Link to={`/news/${item.id}`}>Read more...</Link>
+            <Link to={`/news/${item.title}`}>Read more...</Link>
           </NewsCard>
         ))}
       </NewsGrid>
