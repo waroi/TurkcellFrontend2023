@@ -5,10 +5,15 @@ export const CoinsContainer = styled.div `
   width: 100%;
   margin: 0 auto;
   justify-content: center;
+  font-weight: 600;
 `
 
 export const CustomTr = styled.tr`
       border-top: 0.5px solid rgb(50 53 70);
+      > a {
+        text-decoration: none;
+        color: #fff;
+      }
 `
 
 export const CustomThead = styled.thead `

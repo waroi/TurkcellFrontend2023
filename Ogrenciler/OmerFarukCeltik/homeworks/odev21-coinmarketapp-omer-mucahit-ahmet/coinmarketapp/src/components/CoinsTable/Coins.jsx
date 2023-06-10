@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useFetch } from "../../context/FetchContext";
 import { Link } from "react-router-dom";
 import { CoinsContainer, CustomIcon, CustomTable, CustomThead, CustomTr, StyledTd } from "./styled";
@@ -12,7 +11,7 @@ const Coins = () => {
         <CustomThead>
           <th></th>
           <th>#</th>
-          <th>logo</th>
+          <th>Logo</th>
           <th>Name</th>
           <th>Price</th>
           <th>1h %</th>
@@ -24,14 +23,15 @@ const Coins = () => {
         </CustomThead>
         <tbody>
           {datas.map((item, i) => (
-            <CustomTr>
-              {/* <Link key={item.id} to={`/coinpage/${item.id}`}> */}
+            <CustomTr key={i}>
               <td><AiOutlineStar /></td>
               <td>{item.rank}</td>
               <td>
                 <CustomIcon className="table-img" src={item.icon} alt="" />
               </td>
+              <Link to={`/${item.id}`}>
               <td>{item.name}</td>
+              </Link>
               <td>{(item.price).toFixed(2)}$</td>
               <StyledTd value={item.priceChange1d}>{item.priceChange1d} %</StyledTd>
               <StyledTd value={item.priceChange1h}>{item.priceChange1h} %</StyledTd>
@@ -43,7 +43,6 @@ const Coins = () => {
               <td>
                 {item.totalSupply.toLocaleString()} {item.symbol}
               </td>
-              {/* </Link> */}
             </CustomTr>
           ))}
         </tbody>

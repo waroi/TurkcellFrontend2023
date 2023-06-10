@@ -1,14 +1,11 @@
-import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useFetch } from '../context/FetchContext';
-import NotFound from './NotFound';
+import NotFound from './views/404/NotFound';
 
 const CoinDetail = () => {
   const { datas } = useFetch();
   const { id } = useParams();
   const currentCoin = datas.find((item) => item.id == id);
-  console.log(currentCoin);
-  console.log(id);
   if(!currentCoin){
     return <NotFound/>
   }

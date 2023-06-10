@@ -1,8 +1,7 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
 import { CardParent } from './styled'
 
 const Card = ({item}) => {
-  console.log("card-haberleri",item);
   return (
     <CardParent>
       <a href={item.link} target='_blank' rel='noreferrer'>
