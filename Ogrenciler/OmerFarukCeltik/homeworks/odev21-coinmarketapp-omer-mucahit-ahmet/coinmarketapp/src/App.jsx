@@ -1,13 +1,14 @@
-import Navbar from './components/Navbar'
 import './App.css'
 import Router from './router/Router'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 function App() {
 
   return (
     <>
-    <Navbar/>
-      <h1>conimarketapp</h1>
+      <Header/>
       <Router/>
+      <Footer/>
     </>
   )
 }
