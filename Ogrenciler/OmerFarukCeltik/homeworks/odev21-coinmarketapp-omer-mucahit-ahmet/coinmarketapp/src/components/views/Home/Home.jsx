@@ -11,7 +11,7 @@ const Home = () => {
         <p className="p-3 pt-0 fs-5 text-secondary">The global crypto market cap is $1.05T,  decrease over the last day...</p>
       </div>
       <CardWrapper>
-        {news.map((item,i) => (<Card key={i} item={item} />))}
+        {news.map((item,i) => (<Card item={item} key={i}/>))}
       </CardWrapper>
       <Coins />
     </BgWrapper>

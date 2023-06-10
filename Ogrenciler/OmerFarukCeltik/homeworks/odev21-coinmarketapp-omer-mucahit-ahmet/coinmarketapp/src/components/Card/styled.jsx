@@ -6,7 +6,7 @@ export const CardParent = styled.div`
     color: rgb(255, 255, 255);
     /* width: 25%; */
     width: 410px;
-    height: 200px;
+    height: 240px;
     padding: 16px;
     margin:5px;
     margin-top:20px;
