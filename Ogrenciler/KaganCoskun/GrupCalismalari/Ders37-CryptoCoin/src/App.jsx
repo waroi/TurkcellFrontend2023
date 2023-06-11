@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <CurrencyProvider>
-        <Header/>
         <CoinListProvider>
+        <Header/>
             <main>
               <Router></Router>
             </main>

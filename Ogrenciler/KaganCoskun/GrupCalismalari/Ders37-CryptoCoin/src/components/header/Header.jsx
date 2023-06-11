@@ -3,6 +3,7 @@ import { HeaderWrapper, OptionItem, SelectItem,Icon } from "./styled";
 import { useCurrency } from "../../context/CurrencyContext";
 import { getCurrencies } from "../../service/requests";
 import { useEffect, useState } from "react";
+import { useCoinList } from "../../context/CoinContext";
 
 const Header = () => {
   const [currencyList, setCurrencyList] = useState([]);
@@ -10,9 +11,18 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
   const { currency, setCurrency } = useCurrency();
 
+  const { coinList,setCoinList}= useCoinList();
+
   useEffect(() => {
     getCurrencies().then((data) => setCurrencyList(data));
   }, []);
+
+  const handeleSearch = (e) => {
+    let filter = [...coinList].filter((item) => {
+      return item.name.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+    setCoinList(filter);
+  }
 
   return (
     <HeaderWrapper theme={theme}>
@@ -27,7 +37,7 @@ const Header = () => {
           ))}
            
       </SelectItem>
-     
+     <input type="text" placeholder="Search" onChange={handeleSearch} />
         <Icon
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           className={

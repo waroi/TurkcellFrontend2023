@@ -23,12 +23,11 @@ const DetailView = () => {
           alt="image"
         />
         <Paragraph theme={theme}>
-          {" "}
-          {newCoin?.name}{" "}
+          {newCoin?.name}
           <Span
           >
             {newCoin?.symbol.toUpperCase()}
-          </Span>{" "}
+          </Span>
         </Paragraph>
       </Top>
       <Bottom>
