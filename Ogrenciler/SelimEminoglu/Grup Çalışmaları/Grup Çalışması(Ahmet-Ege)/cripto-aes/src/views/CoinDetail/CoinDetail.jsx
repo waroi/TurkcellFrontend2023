@@ -11,20 +11,20 @@ const CoinDetail = () => {
   const coin = coins.find(coin => coin.id == id)
   console.log(coins)
 
-  // useEffect(() => {
-  //   fetch(`https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=try&days=7&interval=daily`)
-  //     .then(res => res.json())
-  //     .then(dataCoin => setCoinData(
-  //       {
-  //         labels: dataCoin.prices.map(priceTime => priceTime[0]),
-  //         datasets: [{
-  //           label: "Coin Değeri",
-  //           data: dataCoin.prices.map(priceTime => priceTime[1])
+  useEffect(() => {
+    fetch(`https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=try&days=7&interval=daily`)
+      .then(res => res.json())
+      .then(dataCoin => setCoinData(
+        {
+          labels: dataCoin.prices.map(priceTime => priceTime[0]),
+          datasets: [{
+            label: "Coin Değeri",
+            data: dataCoin.prices.map(priceTime => priceTime[1])
 
-  //         }]
-  //       }
-  //     ))
-  // }, [coin.id])
+          }]
+        }
+      ))
+  }, [coin.id])
 
 
   // https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=try&days=7&interval=daily
@@ -42,7 +42,7 @@ const CoinDetail = () => {
         TotalVolume<span>{coin.total_volume}</span>
       </div>
 
-      {/* <BarChart chartData={coinData} /> */}
+      <BarChart chartData={coinData} />
     </>
   )
 }
