@@ -6,11 +6,11 @@ const CoinDetail = () => {
   const [coinData, setCoinData] = useState({})
   const [loaded, setLoaded] = useState(false)
   const { id } = useParams()
-  console.log(id)
   const coins = useCoin()
 
   const coin = coins.find(coin => coin.id == id)
-  console.log(coins)
+
+  //https://api.coingecko.com/api/v3/coins/markets?vs_currency=try&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en
 
   useEffect(() => {
     fetch(`https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=try&days=7&interval=daily`)
