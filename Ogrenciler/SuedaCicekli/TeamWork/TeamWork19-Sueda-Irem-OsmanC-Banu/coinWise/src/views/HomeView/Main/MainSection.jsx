@@ -1,4 +1,3 @@
-import Navbar from "../../../components/Navbar/Navbar";
 import { Wrap, ExploreButton, MainTitle, BackgroundWrap } from "./MainSecStyle";
 import background from "./backgroundLines.png";
 
@@ -8,7 +7,6 @@ const MainSection = () => {
       <BackgroundWrap src={background} alt="" />
       <div className="container">
         <Wrap>
-          <Navbar />
           <div className="d-flex flex-column justify-content-around h-75">
             <MainTitle>Navigate the Crypto Universe</MainTitle>
             <ExploreButton>Explore</ExploreButton>
