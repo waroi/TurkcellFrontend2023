@@ -11,7 +11,7 @@ export const ExploreButton = styled.button`
   border: none;
   color: white;
   padding: 10px;
-  margin-top: 200px;
+  margin-top: 300px;
   &:hover {
     background-color: white;
     color: #c389f7;

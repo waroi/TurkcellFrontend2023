@@ -1,13 +1,18 @@
 import { useData } from "../../../context/FetchContext";
 import StarIcon from "../../../assets/Icon.png";
+import GrayStar from "../../../assets/starIcon.png";
+import twitter from "../../../assets/SocialIcons/twitter.png";
+import website from "../../../assets/SocialIcons/website.png";
+import { Table } from "./CoinListStyle";
+
 const CoinListSection = () => {
   const data = useData();
 
   return (
     <div className="container my-5">
-      <table className="table ">
-        <thead>
-          <tr>
+      <Table className="table">
+        <thead className="">
+          <tr className="">
             <th scope="col">
               <button className="btn btn-warning">
                 <img src={StarIcon} alt="" />
@@ -27,23 +32,44 @@ const CoinListSection = () => {
         </thead>
         <tbody>
           {data.data.slice(0, 20).map((item) => (
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
+            <tr key={item.rank}>
+              <th scope="row">
+                <img src={GrayStar} alt="" />
+              </th>
+              <td>{item.rank}</td>
+              <td>
+                <img src={item.icon} alt=""  width="21px" height="21px" className="me-2"/>
+                {item.name}
+                <span className="ms-2">{item.symbol}</span>
+              </td>
+              <td>
+                ${item.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </td>
+              <td>{item.priceChange1h}%</td>
+              <td>{item.priceChange1d}%</td>
+              <td>{item.priceChange1w}%</td>
+              <td>${Math.floor(item.marketCap).toLocaleString("en-US")}</td>
+              <td>
+                {item.priceBtc.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                BTC
+              </td>
+              <td>
+                ${Math.floor(item.availableSupply).toLocaleString("en-US")}
+              </td>
+              <td>
+                <div className="d-flex">
+                  <a href="#" className="me-2">
+                    <img src={website} alt="" />
+                  </a>
+                  <a href="#">
+                    <img src={twitter} alt="" />
+                  </a>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };
