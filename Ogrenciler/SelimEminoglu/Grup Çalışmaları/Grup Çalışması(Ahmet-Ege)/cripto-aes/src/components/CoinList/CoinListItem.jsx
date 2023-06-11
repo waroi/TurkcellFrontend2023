@@ -4,14 +4,29 @@ import { TableRow } from './CoinListStyle'
 const CoinListItem = ({ coin }) => {
   const navigate = useNavigate()
 
+  const formatMoney = (number) => {
+    const parts = number.split(".");
+    const part1 = parts[0];
+    const part2 = parts[1];
+    console.log(part2)
 
+    // Creating a new string with groups of three digits
+    let newPart1 = "";
+    for (let i = part1.length - 1, j = 1; i >= 0; i--, j++) {
+      newPart1 = part1[i] + newPart1;
+      if (j % 3 === 0 && i !== 0) {
+        newPart1 = "," + newPart1;
+      }
+    }
 
-
-
+    // Displaying the result
+    const result = newPart1 + "." + part2;
+    return result;
+  }
   return (
     <TableRow onClick={() => navigate(`/coins/${coin.id}`)}>
       <td className='nameArea'><span><img src={coin.image} alt="" /></span> <span>{coin.name}</span></td>
-      <td>{coin.current_price}  <span className='symbol'>₺</span></td>
+      <td>{formatMoney(coin.current_price.toString())}  <span className='symbol'>₺</span></td>
       <td>{coin.high_24h}  <span className='symbol'>₺</span></td>
       <td>{coin.low_24h} <span className='symbol'>₺</span></td>
       <td>{coin.price_change_percentage_24h} <span className='symbol'> %</span> </td>

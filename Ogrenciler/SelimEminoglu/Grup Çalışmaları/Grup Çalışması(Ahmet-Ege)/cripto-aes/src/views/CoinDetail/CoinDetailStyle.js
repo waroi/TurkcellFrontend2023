@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 export const CoinPage = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
   padding: 100px 0;
-  gap: 4rem;
 
   .coinInfo {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     .coinBasics {
       display: flex;
       align-items: center;
@@ -16,6 +14,10 @@ export const CoinPage = styled.div`
       img {
         width: 50px;
       }
+    }
+
+    .coinPrice {
+      margin: 10px 0;
     }
 
     .coin24HourData,
@@ -33,5 +35,12 @@ export const CoinPage = styled.div`
 
   .barChartWrapper {
     width: 100%;
+  }
+
+  .coinDetails {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
   }
 `;

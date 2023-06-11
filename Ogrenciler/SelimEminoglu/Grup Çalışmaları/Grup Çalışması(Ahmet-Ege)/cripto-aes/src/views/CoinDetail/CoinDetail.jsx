@@ -3,6 +3,7 @@ import { useCoin } from '../../context/CoinContext'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { CoinPage } from './CoinDetailStyle.js'
+import AllNews from '../../components/News/AllNews'
 const CoinDetail = () => {
   const [coinData, setCoinData] = useState({})
   const [loaded, setLoaded] = useState(false)
@@ -34,42 +35,44 @@ const CoinDetail = () => {
 
   return (
     <CoinPage>
-      <div className='coinInfo'>
-        <div className='coinBasics'>
-          <img src={coin.image} alt="" />
-          <h2>{coin.name}</h2>
-          <h4>{coin.symbol.toUpperCase()}</h4>
+      <div className='coinDetails'>
+        <div className='coinInfo'>
+          <div className='coinBasics'>
+            <img src={coin.image} alt="" />
+            <h2>{coin.name}</h2>
+            <h4>{coin.symbol.toUpperCase()}</h4>
+          </div>
+          <div className="coinPrice">
+            <h1>{coin.current_price} TRY</h1>
+          </div>
+          <div className="coin24HourData">
+            <span> <h6>24 Saatte Değişim</h6><p> {coin.price_change_percentage_24h} %</p></span>
+            <span> <h6>24 Saatte En Yüksek</h6><p> {coin.high_24h} TRY</p></span>
+            <span> <h6>24 Saatte En Düşük</h6><p> {coin.low_24h} TRY</p></span>
+          </div>
+          <div className="coinSupplyData">
+            <span> <h6>Dolaşımdaki Arz</h6><p> {coin.circulating_supply} </p></span>
+            <span> <h6>Maks. Arz</h6> <p> {coin.total_supply} </p></span>
+            <span> <h6>Dolaşım Arzı / Maks. Arz Yüzde</h6> <p>{(coin.circulating_supply / coin.total_supply * 100).toFixed(2) + "%"}</p> </span>
+            <span> <h6>Tam seyreltilmiş Piyasa Değeri</h6> <p>{coin.fully_diluted_valuation}</p> </span>
+          </div>
+          <div className="highestLowest">
+            <span> <h6>En Yüksek Değer</h6> <p> {coin.ath} TRY</p> </span>
+            <span> <h6>En Yüksek Olduğu Tarih</h6> <p> {coin.ath_date.slice(0, 10).split("-").reverse().join(".")} </p> </span>
+            <span> <h6>En Düşük Değer</h6> <p> {coin.atl} TRY</p> </span>
+            <span> <h6>En Düşük Olduğu Tarih</h6> <p> {coin.atl_date.slice(0, 10).split("-").reverse().join(".")} </p> </span>
+          </div>
         </div>
-        <div className="coinPrice">
-          <h1>{coin.current_price} TRY</h1>
-        </div>
-        <div className="coin24HourData">
-          <span> <h6>24 Saatte Değişim</h6><p> {coin.price_change_percentage_24h} %</p></span>
-          <span> <h6>24 Saatte En Yüksek</h6><p> {coin.high_24h} TRY</p></span>
-          <span> <h6>24 Saatte En Düşük</h6><p> {coin.low_24h} TRY</p></span>
-        </div>
-        <div className="coinSupplyData">
-          <span> <h6>Dolaşımdaki Arz</h6><p> {coin.circulating_supply} </p></span>
-          <span> <h6>Maks. Arz</h6> <p> {coin.total_supply} </p></span>
-          <span> <h6>Dolaşım Arzı / Maks. Arz Yüzde</h6> <p>{(coin.circulating_supply / coin.total_supply * 100).toFixed(2) + "%"}</p> </span>
-          <span> <h6>Tam seyreltilmiş Piyasa Değeri</h6> <p>{coin.fully_diluted_valuation}</p> </span>
-        </div>
-        <div className="highestLowest">
-          <span> <h6>En Yüksek Değer</h6> <p> {coin.ath} TRY</p> </span>
-          <span> <h6>En Yüksek Olduğu Tarih</h6> <p> {coin.ath_date.slice(0, 10).split("-").reverse().join(".")} </p> </span>
-          <span> <h6>En Düşük Değer</h6> <p> {coin.atl} TRY</p> </span>
-          <span> <h6>En Düşük Olduğu Tarih</h6> <p> {coin.atl_date.slice(0, 10).split("-").reverse().join(".")} </p> </span>
-        </div>
-      </div>
 
-      <div className='barChartWrapper'>
-        {
-          loaded ? <BarChart chartData={coinData} /> : <h1>Loading...</h1>
-        }
+        <div className='barChartWrapper'>
+          {
+            loaded ? <BarChart chartData={coinData} /> : <h1>Loading...</h1>
+          }
+        </div>
       </div>
 
       <div>
-        News
+        <AllNews coinName={id} />
       </div>
 
     </CoinPage>
