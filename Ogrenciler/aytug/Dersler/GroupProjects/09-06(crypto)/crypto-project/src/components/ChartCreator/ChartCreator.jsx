@@ -1,66 +1,26 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 
 const ChartCreator = () => {
 	const { id } = useParams();
 
-	const chartRef = useRef(null);
-
-	const [latestPrice, setLatestPrice] = useState(0);
-	const [chart, setChart] = useState(null);
+	const [chartData, setChartData] = useState([]);
 
 	useEffect(() => {
-		let isMounted = true;
-
 		const fetchData = () => {
 			fetch(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7`)
 				.then((response) => response.json())
 				.then((data) => {
-					if (!isMounted) return;
-
 					if (!data.prices || data.prices.length === 0) {
 						console.log("No price data available.");
 						return;
 					}
-					const dates = data.prices.map((item) =>
-						new Date(item[0]).toLocaleString("tr-TR", {
-							month: "short",
-							day: "numeric",
-							hour: "numeric",
-							minute: "numeric",
-						})
-					);
-					const prices = data.prices.map((item) => item[1]);
-
-					const average = prices.reduce((sum, value) => sum + value, 0) / prices.length; // Ortalama hesaplama
-
-					const ctx = chartRef.current.getContext("2d");
-					if (chart) {
-						chart.destroy(); // Önceki grafik nesnesini yok et
-					}
-					const newChart = new window.Chart(ctx, {
-						type: "line",
-						data: {
-							labels: dates,
-							datasets: [
-								{
-									label: `${id} Price`,
-									data: prices,
-									borderColor: prices.map((price) => (price < average ? "red" : "green")),
-									fill: false,
-								},
-							],
-						},
-						options: {
-							responsive: true,
-							maintainAspectRatio: false,
-						},
-					});
-
-					setChart(newChart); // Yeni grafik nesnesini ayarla
-
-					const latestPrice = prices[prices.length - 1];
-					setLatestPrice(latestPrice);
+					const formattedData = data.prices.map((item) => ({
+						date: new Date(item[0]),
+						price: item[1],
+					}));
+					setChartData(formattedData);
 				})
 				.catch((error) => {
 					console.log("Error fetching data:", error);
@@ -68,21 +28,33 @@ const ChartCreator = () => {
 		};
 
 		fetchData();
-
-		// Komponentin unmount edildiğinde fetch işlemini iptal etmek için bir cleanup fonksiyonu
-		return () => {
-			isMounted = false;
-			if (chart) {
-				chart.destroy(); // Grafik nesnesini temizle
-			}
-		};
 	}, [id]);
+
+	// Verilerdeki minimum fiyat değerini bulma
+	const minPrice = chartData.reduce((min, current) => (current.price < min ? current.price : min), Infinity);
 
 	return (
 		<div>
 			<h3>{id} Price Chart</h3>
-			<p>Latest Price: ${latestPrice}</p>
-			<canvas ref={chartRef} width={800} height={400} style={{ maxHeight: "400px", maxWidth: "800px" }} />
+			<LineChart width={800} height={400} data={chartData}>
+				<CartesianGrid strokeDasharray="3 3" />
+				<XAxis dataKey="date" />
+				<YAxis type="number" domain={[minPrice, "dataMax"]} />
+				<Tooltip />
+				<Legend />
+				<Line
+					type="monotone"
+					dataKey="price"
+					stroke={
+						chartData.length > 0
+							? chartData[0].price < chartData[chartData.length - 1].price
+								? "green"
+								: "red"
+							: "blue"
+					}
+					dot={false}
+				/>
+			</LineChart>
 		</div>
 	);
 };
