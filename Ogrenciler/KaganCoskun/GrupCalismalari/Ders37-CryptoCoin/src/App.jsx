@@ -11,7 +11,9 @@ function App() {
       <CurrencyProvider>
         <Header/>
         <CoinListProvider>
-            <Router></Router>
+            <main>
+              <Router></Router>
+            </main>
         </CoinListProvider>
       </CurrencyProvider>
     </>
