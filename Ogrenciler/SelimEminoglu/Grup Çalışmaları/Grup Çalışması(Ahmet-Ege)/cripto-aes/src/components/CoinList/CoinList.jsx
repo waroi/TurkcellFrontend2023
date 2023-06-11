@@ -1,6 +1,6 @@
 import { useCoin } from "../../context/CoinContext"
 import CoinListItem from "./CoinListItem";
-import { CoinListTable, TableRow } from './CoinListStyle'
+import { CoinListTable } from './CoinListStyle'
 
 const CoinList = () => {
   const coins = useCoin();
