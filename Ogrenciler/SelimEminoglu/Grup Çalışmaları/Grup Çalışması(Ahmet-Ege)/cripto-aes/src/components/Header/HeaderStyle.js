@@ -5,7 +5,7 @@ export const HeaderComponent = styled.header`
   background: rgba(255, 250, 255, 0.3);
 
   a {
-    color: ${(props) => props.theme == 'light' ? '#000' : '#fff'};
+    color: ${(props) => (props.theme == "light" ? "#000" : "#fff")};
   }
   .wrapper {
     display: flex;
@@ -20,5 +20,14 @@ export const HeaderComponent = styled.header`
       align-items: center;
       gap: 2rem;
     }
+  }
+
+  .themeSwapButton {
+    border: none;
+    background: transparent;
+  }
+
+  .themeIconSun {
+    color: #fff;
   }
 `;
