@@ -16,12 +16,12 @@ const News = () => {
     });
   }, []);
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className="news-height">Loading...</p>;
   }
   console.log(news.articles.length);
   return (
-    <div className="container">
-      <div className="row my-5">
+    <div className="container ">
+      <div className="row my-5 ">
       {news?.articles.map((item, index) => (
         <div className="col-3 my-3" key={index}>
           <div className="card">

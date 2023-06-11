@@ -1,4 +1,5 @@
 import "./DetailPageStyle.css";
+import  Help  from "../../helpers/Help"
 const Detail = ({ foundCoin }) => {
   return (
     <div className="container mt-5">
@@ -11,7 +12,7 @@ const Detail = ({ foundCoin }) => {
               <span>{foundCoin.symbol}</span>
             </div>
             <div className="coin-main-price">
-              <h2>${Math.round(foundCoin.price * 10000) / 100}</h2>
+              <h2>${Help(foundCoin.price)}</h2>
             </div>
           </div>
         </div>
@@ -33,31 +34,31 @@ const Detail = ({ foundCoin }) => {
         <div className="col-lg-3 mt-4">
           <div className="market-cap">
             <h6>Market Cap</h6>
-            <h3>${Math.round(foundCoin.marketCap) / 100}</h3>
+            <h4>${Help(foundCoin.marketCap)}</h4>
           </div>
         </div>
         <div className="col-lg-3 mt-4">
           <div className="volume">
             <h6>Volume</h6>
-            <h3>${new Intl.NumberFormat('tr-TR').format(Math.round(foundCoin.volume) / 100)}</h3>
+            <h4>${Help(foundCoin.volume)}</h4>
           </div>
         </div>
         <div className="col-lg-3 mt-4">
           <div className="available">
             <h6>Available Supply</h6>
-            <h3>
-              {foundCoin.availableSupply}
-              <span>{foundCoin.symbol}</span>
-            </h3>
+            <h4 className="d-flex align-items-baseline justify-content-center">
+              {Help(foundCoin.availableSupply)}
+              <span className="ms-2">{foundCoin.symbol}</span>
+            </h4>
           </div>
         </div>
         <div className="col-lg-3 mt-4">
           <div className="total">
             <h6>Total Supply</h6>
-            <h3>
-              {foundCoin.totalSupply}
-              <span>{foundCoin.symbol}</span>
-            </h3>
+            <h4 className="d-flex align-items-baseline justify-content-center">
+              {Help(foundCoin.totalSupply)}
+              <span className="ms-2">{foundCoin.symbol}</span>
+            </h4>
           </div>
         </div>
       </div>

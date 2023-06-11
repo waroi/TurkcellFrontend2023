@@ -8,9 +8,9 @@ const CoinDetail = () => {
     // console.log(allCoins.coins?.find(item => item.id == id))
 
     return (
-        <div>
+        <div className='detail-height'>
             {
-                foundCoin && <Detail foundCoin ={foundCoin} /> || <p>Loading</p>
+                foundCoin && <Detail foundCoin ={foundCoin} /> || <p className='news-height'>Loading</p>
             }
             
 
