@@ -5,3 +5,7 @@ export const NavBarArea = styled.div`
 	justify-content: space-between;
 	background-color: blue;
 `;
+
+export const NavBarLogo = styled.svg`
+	color: white;
+`;
