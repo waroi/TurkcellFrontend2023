@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { getAllCoins } from "../../service/api";
+
 import CoinsListItem from "./CoinsListItem";
 import TrendCoinItem from "./TrendCoinItem";
 import { useCoin } from "../../context/Coincontext.jsx";
@@ -17,7 +16,7 @@ const Home = () => {
           <h4>All Coins</h4>
           <ul className="list-group">
             {allCoins.coins.length > 0 ? (
-              allCoins.coins.sort((a, b) => a.name > b.name).map((coin) => (
+              allCoins.coins.sort((a, b) => a.name.localeCompare(b.name)).map((coin) => (
                 <CoinsListItem key={coin.id} coin={coin} />
               ))
             ) : (

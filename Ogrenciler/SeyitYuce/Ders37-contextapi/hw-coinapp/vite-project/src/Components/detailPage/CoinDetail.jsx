@@ -1,6 +1,6 @@
-import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useCoin } from '../../context/Coincontext'
+import Detail from './detail'
 const CoinDetail = () => {
     const { allCoins } = useCoin()
     const { id } = useParams()
@@ -10,9 +10,9 @@ const CoinDetail = () => {
     return (
         <div>
             {
-                foundCoin && <h1>{foundCoin.name} {foundCoin.marketCap}</h1> || <p>Loading</p>
+                foundCoin && <Detail foundCoin ={foundCoin} /> || <p>Loading</p>
             }
-            CoinDetail {id}
+            
 
         </div>
     )
