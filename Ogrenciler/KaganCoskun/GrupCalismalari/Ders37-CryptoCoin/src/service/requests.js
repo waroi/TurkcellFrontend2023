@@ -1,3 +1,5 @@
+
+
 export async function getCurrencies() {
   const response = await fetch(`${import.meta.env.VITE_COINGECKO_API}/simple/supported_vs_currencies`);
   const currencies = await response.json();
@@ -15,4 +17,11 @@ export async function getCoinChart(id, currency,day) {
     const coinList = await response.json();
 
     return coinList.prices;
+}
+
+export async function getTrendings(){
+  const response = await fetch(`${import.meta.env.VITE_COINGECKO_API}/search/trending`);
+  const trendings = await response.json();
+  console.log(trendings.coins);
+  return trendings.coins;
 }
