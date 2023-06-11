@@ -73,7 +73,7 @@ const ChartCreator = () => {
 		<div>
 			<h3>{id} Price Chart</h3>
 			<p>Latest Price: ${latestPrice}</p>
-			<canvas ref={chartRef} width={90} height={90} />
+			<canvas ref={chartRef} width={800} height={400} style={{ maxHeight: "400px", maxWidth: "800px" }} />
 		</div>
 	);
 };
