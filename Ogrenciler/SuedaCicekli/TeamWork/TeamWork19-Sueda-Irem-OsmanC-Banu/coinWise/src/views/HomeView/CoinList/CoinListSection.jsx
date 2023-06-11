@@ -38,16 +38,28 @@ const CoinListSection = () => {
               </th>
               <td>{item.rank}</td>
               <td>
-                <img src={item.icon} alt=""  width="21px" height="21px" className="me-2"/>
+                <img
+                  src={item.icon}
+                  alt=""
+                  width="21px"
+                  height="21px"
+                  className="me-2"
+                />
                 {item.name}
                 <span className="ms-2">{item.symbol}</span>
               </td>
               <td>
                 ${item.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </td>
-              <td>{item.priceChange1h}%</td>
-              <td>{item.priceChange1d}%</td>
-              <td>{item.priceChange1w}%</td>
+              <td style={{ color: item.priceChange1hColor }}>
+                {item.priceChange1h}%
+              </td>
+              <td style={{ color: item.priceChange1dColor }}>
+                {item.priceChange1d}%
+              </td>
+              <td style={{ color: item.priceChange1wColor }}>
+                {item.priceChange1w}%
+              </td>
               <td>${Math.floor(item.marketCap).toLocaleString("en-US")}</td>
               <td>
                 {item.priceBtc.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}

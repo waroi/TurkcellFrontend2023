@@ -27,7 +27,13 @@ const PopularCard = ({ data }) => {
           <h6 className="mb-3 my-3">
             {data.name} <span>{data.symbol}</span>
           </h6>
-          <span className="mb-3 d-block"> {data.priceChange1h}%</span>
+          <span
+            style={{ color: data.priceChange1hColor }}
+            className="mb-3 d-block"
+          >
+            {" "}
+            {data.priceChange1h}%
+          </span>
           <h3 className="mb-3">
             $ {data.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </h3>
