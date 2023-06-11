@@ -10,10 +10,10 @@ const DetailCard = ({ currency }) => {
 								<span>
 									<img src={currency.icon} width={30} height={30} /> <span>{currency.name}</span>
 								</span>
-								<span>({currency.symbol}) </span>{" "}
+								<span>({currency.symbol}) </span>
 								<span>
 									<i className="bi bi-star"></i>
-								</span>{" "}
+								</span>
 								<span>
 									<i className="bi bi-upload"></i>
 								</span>
@@ -24,10 +24,9 @@ const DetailCard = ({ currency }) => {
 								<li>Coin</li>
 								<li>4,022,172 watch lists</li>
 							</ul>
-							<div className="d-flex gap-3">
-								<ul className="d-flex list-unstyled gap-3 mt-3">
+							<div className="">
+								<ul className="d-flex list-unstyled gap-3 mt-3 flex-wrap">
 									<li>
-										{" "}
 										<a
 											className="btn btn-secondary py-0 px-3 d-flex gap-2 align-items-center"
 											href={currency.websiteUrl}
@@ -37,42 +36,36 @@ const DetailCard = ({ currency }) => {
 									</li>
 									<li>
 										<a className="btn btn-secondary py-0 px-3 d-flex gap-2 align-items-center">
-											{" "}
 											<i className="bi bi-search"></i>Explorers
 										</a>
 									</li>
 									<li>
 										<a className="btn btn-secondary py-0 px-3 d-flex gap-2 align-items-center">
-											{" "}
 											<i className="bi bi-person"></i>Community
 										</a>
 									</li>
 									<li>
 										<a className="btn btn-secondary py-0 px-3 d-flex gap-2 align-items-center">
-											{" "}
 											<i className="bi bi-chat"></i>Chat
+										</a>
+									</li>
+
+									<li>
+										<a className="btn btn-secondary py-0 px-3">
+											<i className="bi bi-code-slash"></i> Source code
+										</a>
+									</li>
+									<li>
+										<a className="btn btn-secondary py-0 px-3">
+											<i className="bi bi-newspaper"></i> Whitepaper
 										</a>
 									</li>
 								</ul>
 							</div>
-							<ul className="d-flex list-unstyled gap-3 mt-3">
-								<li>
-									<a className="btn btn-secondary py-0 px-3">
-										{" "}
-										<i className="bi bi-code-slash"></i> Source code
-									</a>
-								</li>
-								<li>
-									<a className="btn btn-secondary py-0 px-3">
-										{" "}
-										<i className="bi bi-newspaper"></i> Whitepaper
-									</a>
-								</li>
-							</ul>
 							<h5 className="text-start">Contracts:</h5>
 							<div className="d-flex align-items-center gap-3">
 								<div className="d-flex align-items-center gap-1">
-									<img src={currency.icon} width={20} height={20} />{" "}
+									<img src={currency.icon} width={20} height={20} />
 									<p className="mt-2">BNB Smart Chain (BEP20): 0*2170</p>
 								</div>
 								<i className="bi bi-files"></i>
@@ -96,7 +89,7 @@ const DetailCard = ({ currency }) => {
 											)}
 										</div>
 										<div className="d-flex gap-2 align-items-center">
-											<p className="ps-5 ms-5">{currency.volume}</p>
+											<p className="ps-5 ms-5">14.37 ETH </p>
 											{currency.priceChange1w > 0 ? (
 												<button className="btn py-0 btn-success">{currency.priceChange1w}</button>
 											) : (
@@ -106,19 +99,82 @@ const DetailCard = ({ currency }) => {
 									</div>
 									<div className="col-6">
 										<div className="d-flex gap-2">
-											<button className="btn btn-primary">Buy</button>
-											<button className="btn btn-primary">Exchange</button>
-											<button className="btn btn-primary">Game</button>
-											<button className="btn btn-primary">Earn Crypto</button>
+											<button className="btn btn-primary">
+												Buy<i className="bi bi-caret-down-fill"></i>
+											</button>
+											<button className="btn btn-primary">
+												Exchange<i className="bi bi-caret-down-fill"></i>
+											</button>
+											<button className="btn btn-primary">
+												Game<i className="bi bi-caret-down-fill"></i>
+											</button>
+											<button className="btn btn-primary">
+												Earn Crypto<i className="bi bi-caret-down-fill"></i>
+											</button>
 										</div>
 									</div>
 								</div>
 								<div className="col">
 									<div className="row">
-										<div className="col-3">24h</div>
-										<div className="col-3">24h</div>
-										<div className="col-3">24h</div>
-										<div className="col-3">24h</div>
+										<div className="col-3">
+											<div className=" bg-transparent text-white border-0">
+												<div className="card-body text-start">
+													<h5 className="card-title fs-6">Market Cap</h5>
+													<h6 className="card-subtitle mb-2 mt-2">${currency.marketCap}</h6>
+													<p className="card-text text-danger">
+														<i className="bi bi-caret-down-fill"></i>0.21%
+													</p>
+													<p className="card-text">24h Volume / Market Cap 0.0214</p>
+												</div>
+											</div>
+										</div>
+										<div className="col-3">
+											<div className=" bg-transparent text-white border-0">
+												<div className="card-body text-start">
+													<h5 className="card-title fs-6">Fully Diluted Market Cap</h5>
+													<h6 className="card-subtitle mb-2 mt-2">${currency.marketCap + 10000}</h6>
+													<p className="card-text text-danger">
+														<i className="bi bi-caret-down-fill"></i>0.20%
+													</p>
+												</div>
+											</div>
+										</div>
+										<div className="col-3">
+											<div className=" bg-transparent text-white border-0">
+												<div className="card-body text-start">
+													<h5 className="card-title fs-6">Volume 24h</h5>
+													<h6 className="card-subtitle mb-2 mt-2">${currency.volume}</h6>
+													<p className="card-text text-danger">
+														<i className="bi bi-caret-down-fill"></i>15.45%
+													</p>
+													<p className="card-text">CEX Vol {currency.volume.toFixed(0)}</p>
+													<p className="card-text">DEX Vol {currency.availableSupply}</p>
+												</div>
+											</div>
+										</div>
+										<div className="col-3">
+											<div className=" bg-transparent text-white border-0">
+												<div className="card-body text-start">
+													<h5 className="card-title fs-6">Circulating Supply</h5>
+													<h6 className="card-subtitle mb-2 mt-2">
+														{currency.totalSupply}
+														{currency.symbol}
+													</h6>
+													<div
+														className="progress"
+														role="progressbar"
+														aria-label="Basic example"
+														aria-valuenow="75"
+														aria-valuemin="0"
+														aria-valuemax="100"
+													>
+														<div className="progress-bar" style={{ width: "92%" }}></div>
+													</div>
+													<p className="card-text">Max Supply {currency.availableSupply}</p>
+													<p className="card-text">Total Supply {currency.totalSupply}</p>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
