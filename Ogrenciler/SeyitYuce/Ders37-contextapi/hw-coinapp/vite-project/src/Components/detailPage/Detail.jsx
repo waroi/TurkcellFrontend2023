@@ -39,7 +39,7 @@ const Detail = ({ foundCoin }) => {
         <div className="col-lg-3 mt-4">
           <div className="volume">
             <h6>Volume</h6>
-            <h3>${Math.round(foundCoin.volume) / 100}</h3>
+            <h3>${new Intl.NumberFormat('tr-TR').format(Math.round(foundCoin.volume) / 100)}</h3>
           </div>
         </div>
         <div className="col-lg-3 mt-4">
