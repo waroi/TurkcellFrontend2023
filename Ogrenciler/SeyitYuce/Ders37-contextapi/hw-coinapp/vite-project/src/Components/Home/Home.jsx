@@ -42,7 +42,7 @@ const Home = () => {
                 <th>Logo</th>
                 <th>Symbol</th>
                 <th style={{ cursor: "pointer" }} onClick={sortName}>Name<i className={order ? "bi bi-sort-alpha-down ms-2" : "bi bi-sort-alpha-down-alt ms-2"}></i></th>
-                <th onClick={sortPrice}>Price</th>
+                <th>Price</th>
                 <th>1h%</th>
                 <th>1d%</th>
                 <th>1w%</th>
