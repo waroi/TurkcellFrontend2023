@@ -16,8 +16,8 @@ const Detail = ({foundCoin}) => {
                 <div>
                     <h1>#{foundCoin.rank}</h1>
                     <div>
-                        <a href={`${foundCoin.twitterUrl}`} target="_blank"><i class="bi bi-twitter fs-3"></i></a>
-                        <a href={`${foundCoin.websiteUrl}`} target="_blank"><i class="bi bi-globe fs-3"></i></a>
+                        <a href={`${foundCoin.twitterUrl}`} target="_blank"><i className="bi bi-twitter fs-3"></i></a>
+                        <a href={`${foundCoin.websiteUrl}`} target="_blank"><i className="bi bi-globe fs-3"></i></a>
                     </div>
                 </div>
             </div>
