@@ -11,7 +11,7 @@ export const CoinListProvider = ({ children }) => {
 
   const [coinList, setCoinList] = useState([]);
   useEffect(() => {
-    getCoinList(currency).then((res) => setCoinList(res.data));
+    getCoinList(currency).then((data) => setCoinList(data));
   }, [currency]);
 
   const values = {
