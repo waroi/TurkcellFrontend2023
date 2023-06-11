@@ -1,48 +1,35 @@
 import styled from "styled-components";
 
-// <tr>
-//                 <th>Name</th>
-//                 <th>Symbol</th>
-//                 <th>Price</th>
-//             </tr>
+const TableRow = styled.tr`
+display: table-row;
+  background-color: #f8fafd;
+  padding: 0%.5rem 0;
+`;
+const TableCell = styled.td`
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid #dddddd6c;
+  text-align: start;
+`;
 
-export const CoinItem = styled.tr`
+const CoinTitle = styled.div`
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    &:hover{
-        background-color: #acaaaa;
+    gap: 10px;
+    img{
+        width: 30px;
     }
-`;
+    `;
 
-export const CoinItemTh = styled.th`
-border: 1px solid black;
-    color:red
-`;
+const CoinSymbol= styled.span`
+background-color: #e9ecef;
+    color: #6c757d;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    `;
 
-// export const CoinItemName = styled.th`
-//     font-size: 18px;
-//     font-weight: 500;
-//     margin: 0;
-// `;
+const PriceChange= styled.span`
+    color: ${(props)=>props.price >= 0 ?"green":"red"};
+    `;
 
-// export const CoinItemSymbol = styled.th`
-//     font-size: 14px;
-//     font-weight: 400;
-//     color: #fff;
-//     background-color: #bebebe;
-//     padding: 5px 10px;
-// `;
-
-// export const CoinItemPrice = styled.span`
-//     font-size: 16px;
-//     font-weight: 400;
-//     color: #fff;
-//     padding: 5px 10px;
-//     border-radius: 5px;
-// `;
+export { TableCell,TableRow,CoinTitle,CoinSymbol,PriceChange };

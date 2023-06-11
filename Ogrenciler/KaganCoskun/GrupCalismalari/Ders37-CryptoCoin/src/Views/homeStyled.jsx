@@ -3,7 +3,13 @@ import styled from "styled-components";
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #ddd;
+  margin: 1rem 0;
 `;
 
-export { Table}
+const TableHeader = styled.th`
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+`;
+
+export { Table,TableHeader}

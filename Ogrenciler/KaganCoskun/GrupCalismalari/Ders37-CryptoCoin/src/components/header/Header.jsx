@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <HeaderWrapper theme={theme}>
-        <h1>Crypto Coin</h1>
+        <h1>Crypto Koyun(Koyun img)</h1>
         <select onChange={(e)=>setCurrency(e.target.value)}>
           <option value={currency}>{currency.toUpperCase()}</option>
             {currencyList?.length>0 && currencyList?.map((item)=><option key={item} value={item}>{item.toUpperCase()}</option>)}

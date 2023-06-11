@@ -1,4 +1,4 @@
-[
+export const fakeDb = [
     {
         "id": "bitcoin",
         "symbol": "btc",

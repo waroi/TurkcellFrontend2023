@@ -1,20 +1,28 @@
 import CoinListItem from "../components/Home/CoinListItem"
 import { useCoinList } from "../context/CoinContext"
-import { Table } from "./homeStyled"
+import { Table,TableHeader } from "./homeStyled"
+import { useCurrency } from "../context/CurrencyContext"
 
 const HomeView = () => {
 
     const{coinList} = useCoinList()
+    const {currency} = useCurrency()
+
 
     console.log(coinList)
+
+
 
   return (
     <Table>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Symbol</th>
-                <th>Price</th>
+                <TableHeader>Rank</TableHeader>
+                <TableHeader>Name</TableHeader>
+                <TableHeader>Price in {currency.toUpperCase()}</TableHeader>
+                <TableHeader>24h %</TableHeader>
+                <TableHeader>Market Cap</TableHeader>
+                <TableHeader>Volume(24h)</TableHeader>
             </tr>
         </thead>
         <tbody>
