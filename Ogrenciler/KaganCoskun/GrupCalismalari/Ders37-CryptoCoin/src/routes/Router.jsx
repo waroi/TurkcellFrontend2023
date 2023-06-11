@@ -6,7 +6,7 @@ const Router = () => {
 const routes = useRoutes([
 
 {path: '/', element: <HomeView />},
-{path: '/:id', element: <DetailView />},
+{path: '/coin/:id', element: <DetailView />}
 ])
 return routes;
 }
