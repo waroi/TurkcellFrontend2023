@@ -7,18 +7,23 @@ const Home = () => {
   const { allCoins } = useCoin();
   const coinSearch = useRef()
   const [searchResult, setSearchResults] = useState();
-
+  // const [sortedName, setSortedName] = useState(allCoins?.coins?.sort((a, b) => a.name.localeCompare(b.name)))
+  const [order, setOrder] = useState(true)
   if (allCoins.length === 0) {
     return <p className="news-height">Yatırım tavsiyesi değildir</p>;
   }
-
 
   const searchCoin = () => {
     const filteredCoin = allCoins.coins.filter(item => item.name.toLowerCase() == coinSearch.current.value.toLowerCase())
     setSearchResults(filteredCoin);
   }
-  const sortName = () => {
 
+  const sortName = () => {
+    // const sortedAz = sortedName.reverse();
+    // console.log(sortedAz)
+    // setSortedName(sortedAz)
+    setOrder(!order)
+    console.log(order)
   }
 
   return (
@@ -34,7 +39,7 @@ const Home = () => {
               <tr>
                 <th scope="col">Logo</th>
                 <th scope="col">Symbol</th>
-                <th scope="col" onClick={() => { sortName() }}>Name</th>
+                <th scope="col" onClick={sortName}>Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">1h%</th>
                 <th scope="col">1d%</th>
@@ -44,12 +49,20 @@ const Home = () => {
               </tr>
             </thead>
             <tbody>
+              {/* order ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name) */}
               {
                 searchResult?.length > 0 ?
                   <CoinsListItem key={searchResult.id} coin={searchResult[0]} />
                   :
-                  allCoins.coins.length > 0 ? (
-                    allCoins.coins.sort((a, b) => a.name.localeCompare(b.name)).map((coin) => (
+                  allCoins?.coins?.length > 0 ? (
+                    allCoins.coins.sort((a, b) => {
+                      if (order) {
+                        return a.name.localeCompare(b.name);
+                      }
+                      else {
+                        return b.name.localeCompare(a.name)
+                      }
+                    }).map((coin) => (
                       <CoinsListItem key={coin.id} coin={coin} searchResult={searchResult} />
                     ))
                   ) : (
