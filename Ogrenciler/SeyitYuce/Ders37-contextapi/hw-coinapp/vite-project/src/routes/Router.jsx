@@ -1,16 +1,19 @@
 import { useRoutes } from "react-router-dom";
-import Home from "../Components/home/Home";
+import Home from "../Components/Home/Home";
 import CoinDetail from "../Components/detailPage/CoinDetail";
-
-
+import News from "../Components/News/News";
 
 const Router = () => {
-    const routes = useRoutes([
-        { path: "/", element: <Home /> },
-        { path: "/detail/:id", element: <CoinDetail  /> },
-
-    ]);
-    return routes;
+  const routes = useRoutes([
+    { path: "/", element: <Home /> },
+    { path: "/detail/:id", element: <CoinDetail /> },
+    { path: "/news", element: <News /> },
+    {
+      path: "*",
+      element: <div>Not Found</div>,
+    },
+  ]);
+  return routes;
 };
 
 export default Router;
