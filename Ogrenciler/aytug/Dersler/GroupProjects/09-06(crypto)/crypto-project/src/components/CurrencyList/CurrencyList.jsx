@@ -28,36 +28,71 @@ const CurrencyList = () => {
   };
 
   const sortedCurrencies = allCurrencies?.sort((a, b) => {
-    if (sortColumn === "#") {
-      return sortOrder === "asc" ? a.rank - b.rank : b.rank - a.rank;
-    } else if (sortColumn === "Name") {
-      return sortOrder === "asc"
-        ? a.name.localeCompare(b.name)
-        : b.name.localeCompare(a.name);
-    } else {
-      return 0;
+    switch (sortColumn) {
+      case "#":
+        return sortOrder === "asc" ? a.rank - b.rank : b.rank - a.rank;
+      case "Name":
+        return sortOrder === "asc"
+          ? a.name.localeCompare(b.name)
+          : b.name.localeCompare(a.name);
+      case "Price":
+        return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
+      case "1h%":
+        return sortOrder === "asc"
+          ? a.priceChange1h - b.priceChange1h
+          : b.priceChange1h - a.priceChange1h;
+      case "24h%":
+        return sortOrder === "asc"
+          ? a.priceChange1d - b.priceChange1d
+          : b.priceChange1d - a.priceChange1d;
+      case "7d%":
+        return sortOrder === "asc"
+          ? a.priceChange1w - b.priceChange1w
+          : b.priceChange1w - a.priceChange1w;
+      case "Market_Cap":
+        return sortOrder === "asc"
+          ? a.marketCap - b.marketCap
+          : b.marketCap - a.marketCap;
+      case "Volume_24h":
+        return sortOrder === "asc" ? a.volume - b.volume : b.volume - a.volume;
+      case "Total_Supply":
+        return sortOrder === "asc"
+          ? a.totalSupply - b.totalSupply
+          : b.totalSupply - a.totalSupply;
+      default:
+        return 0;
     }
   });
+
+  const tableHeaders = [
+    { key: "", label: "" },
+    { key: "#", label: "#" },
+    { key: "Name", label: "Name", className: "text-start" },
+    { key: "Price", label: "Price" },
+    { key: "1h%", label: "1h%" },
+    { key: "24h%", label: "24h%" },
+    { key: "7d%", label: "7d%" },
+    { key: "Market_Cap", label: "Market Cap" },
+    { key: "Volume_24h", label: "Volume 24h" },
+    { key: "Total_Supply", label: "Total Supply" },
+    { key: "", label: "Last 7 days" },
+    { key: "", label: "" },
+  ];
 
   return (
     <div className="container">
       <table className="w-100 h-100" cellPadding={10}>
         <thead>
           <tr>
-            <Th onClick={() => handleSort("#")}></Th>
-            <Th onClick={() => handleSort("#")}>#</Th>
-            <Th className="text-start" onClick={() => handleSort("Name")}>
-              Name
-            </Th>
-            <Th>Price</Th>
-            <Th>1h%</Th>
-            <Th>24h%</Th>
-            <Th>7d%</Th>
-            <Th>Market Cap</Th>
-            <Th>Volume 24h</Th>
-            <Th>Total Supply</Th>
-            <Th>Last 7 days</Th>
-            <Th></Th>
+            {tableHeaders.map((header) => (
+              <Th
+                key={header.key}
+                className={header.className}
+                onClick={() => handleSort(header.key)}
+              >
+                {header.label}
+              </Th>
+            ))}
           </tr>
         </thead>
         <tbody>

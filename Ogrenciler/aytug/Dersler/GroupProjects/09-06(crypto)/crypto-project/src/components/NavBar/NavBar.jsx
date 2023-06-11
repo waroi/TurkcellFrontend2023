@@ -100,13 +100,28 @@ const NavBar = () => {
                 </a>
               </li>
             </ul>
+            <p className="me-2">
+              {" "}
+              <i className="bi bi-star"></i> WatchList
+            </p>
+            <p className="mx-2">
+              {" "}
+              <i className="bi bi-pie-chart-fill"></i> Portfolio
+            </p>
             <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
+              <div className="input-group">
+                <input
+                  className="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <div className="input-group-append">
+                  <span className="input-group-text">
+                    <i className="bi bi-search"></i>
+                  </span>
+                </div>
+              </div>
             </form>
           </div>
         </div>
