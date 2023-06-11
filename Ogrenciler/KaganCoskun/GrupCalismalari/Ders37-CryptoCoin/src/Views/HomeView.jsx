@@ -2,16 +2,26 @@ import CoinListItem from "../components/Home/CoinListItem"
 import { useCoinList } from "../context/CoinContext"
 import { Table,TableHeader } from "./Styled"
 import { useCurrency } from "../context/CurrencyContext"
+import { useEffect, useState } from "react"
+import { getTrendings } from "../service/requests"
+import Trending from "../components/Trendings/Trending"
 
 const HomeView = () => {
 
     const{coinList} = useCoinList()
     const {currency} = useCurrency()
 
-    console.log(coinList)
+    
+    const[trendings,setTrendings]= useState([]);
 
+    useEffect( ()=>{
+     getTrendings().then((data)=>setTrendings(data));
+    },[])
 
   return (
+    <div>
+      {trendings?.map((trending,index)=><Trending trendingId={trending.item.id}/>)}
+       
     <Table>
         <thead>
             <tr>
@@ -27,6 +37,7 @@ const HomeView = () => {
         {coinList?.length>0 && coinList?.map((item)=><CoinListItem key={item.id} coin={item}/>)}
         </tbody>
     </Table>
+    </div>
   )
 }
 
