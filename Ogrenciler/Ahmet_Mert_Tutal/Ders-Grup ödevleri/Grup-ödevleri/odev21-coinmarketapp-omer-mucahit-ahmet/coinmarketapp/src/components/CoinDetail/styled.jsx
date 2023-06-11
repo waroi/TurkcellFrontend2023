@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const CoinDetailContainer = styled.div`
   display: flex;
-  width: 1400px;
-  margin: 0 auto;
-  justify-content: center;
+  width: 75%;
+  align-items: center;
+  justify-content: space-between;
   font-weight: 600;
   flex-direction: row;
+  margin: 0 auto;
 `;
 
 export const CustomCoins = styled.div`
@@ -33,7 +34,9 @@ export const CustomBreadCrumb = styled.div`
   }
 `;
 
-export const CoinCard = styled.div`
+export const CoinCardContainer = styled.div`
+  width: 45%;
+  margin-right: 3rem;
   > div {
     display: flex;
     align-items: center;
@@ -41,10 +44,13 @@ export const CoinCard = styled.div`
     color: white;
     flex-direction: row;
     flex-wrap: wrap;
+    > img {
+      max-width: 32px;
+    }
 
     > h3 {
       font-size: 32px;
-      font-weight: 600;
+      font-weight: 700;
     }
     > span {
       background-color: #323546;
@@ -93,3 +99,10 @@ export const CoinCard = styled.div`
     }
   }
 `;
+
+export const CoinCard = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+export const CustomPrice = styled.div``;
