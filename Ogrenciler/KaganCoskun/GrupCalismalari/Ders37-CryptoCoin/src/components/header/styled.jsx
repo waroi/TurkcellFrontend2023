@@ -14,3 +14,19 @@ export const HeaderWrapper = styled.div`
     z-index: 999;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
     `;
+
+    export const SelectItem = styled.select`
+    padding: 5px 20px;
+    color: #e10e39;
+    border: none;
+    background-color: ${({ theme }) => theme=== "light" ? "#f1f1f1" : "#333"};
+    `
+
+    export const OptionItem = styled.option`
+    padding-bottom: 10px;
+    `
+export const Icon = styled.i`
+color:#e10e39;
+cursor:pointer;
+`
+    

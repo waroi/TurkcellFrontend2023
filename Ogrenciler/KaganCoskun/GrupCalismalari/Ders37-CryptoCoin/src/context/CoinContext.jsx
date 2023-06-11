@@ -9,8 +9,8 @@ const CoinContext = createContext();
 export const CoinListProvider = ({ children }) => {
 
   const {currency} = useCurrency();
-  const [coinList, setCoinList] = useState([]);
 
+  const [coinList, setCoinList] = useState([]);
   useEffect(() => {
     getCoinList(currency).then((data) => setCoinList(data)).catch(()=>setCoinList(fakeDb));
   }, [currency]);

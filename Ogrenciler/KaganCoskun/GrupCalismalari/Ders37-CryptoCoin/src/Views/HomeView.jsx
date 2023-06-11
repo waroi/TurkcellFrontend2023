@@ -1,6 +1,6 @@
 import CoinListItem from "../components/Home/CoinListItem"
 import { useCoinList } from "../context/CoinContext"
-import { Table,TableHeader } from "./homeStyled"
+import { Table,TableHeader } from "./Styled"
 import { useCurrency } from "../context/CurrencyContext"
 
 const HomeView = () => {
@@ -8,9 +8,7 @@ const HomeView = () => {
     const{coinList} = useCoinList()
     const {currency} = useCurrency()
 
-
     console.log(coinList)
-
 
 
   return (
