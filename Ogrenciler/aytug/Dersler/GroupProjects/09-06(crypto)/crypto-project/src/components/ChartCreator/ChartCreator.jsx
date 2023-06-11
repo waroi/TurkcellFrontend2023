@@ -22,8 +22,17 @@ const ChartCreator = () => {
 						console.log("No price data available.");
 						return;
 					}
-					const dates = data.prices.map((item) => new Date(item[0]));
+					const dates = data.prices.map((item) =>
+						new Date(item[0]).toLocaleString("tr-TR", {
+							month: "short",
+							day: "numeric",
+							hour: "numeric",
+							minute: "numeric",
+						})
+					);
 					const prices = data.prices.map((item) => item[1]);
+
+					const average = prices.reduce((sum, value) => sum + value, 0) / prices.length; // Ortalama hesaplama
 
 					const ctx = chartRef.current.getContext("2d");
 					if (chart) {
@@ -37,7 +46,7 @@ const ChartCreator = () => {
 								{
 									label: `${id} Price`,
 									data: prices,
-									borderColor: "blue",
+									borderColor: prices.map((price) => (price < average ? "red" : "green")),
 									fill: false,
 								},
 							],
