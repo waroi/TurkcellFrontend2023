@@ -4,11 +4,7 @@ import CoinsListItem from "./CoinsListItem";
 import TrendCoinItem from "./TrendCoinItem";
 import { useCoin } from "../../context/Coincontext.jsx";
 const Home = () => {
-  const { allCoins, setAllCoins } = useCoin();
-
-  useEffect(() => {
-    getAllCoins().then((data) => setAllCoins(data));
-  }, []);
+  const { allCoins } = useCoin();
 
   if (allCoins.length === 0) {
     return <p>Yatırım tavsiyesi değildir</p>;
