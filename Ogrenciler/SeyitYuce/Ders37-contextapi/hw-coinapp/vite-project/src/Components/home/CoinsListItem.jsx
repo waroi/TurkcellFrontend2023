@@ -1,9 +1,10 @@
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import  Help  from "../../helpers/Help"
+import Help from "../../helpers/Help"
 
 const CoinsListItem = ({ coin }) => {
+ 
   return (
     <tr >
       <td><img src={`${coin.icon}`} alt="" className="coin-img " /></td>

@@ -23,9 +23,11 @@ const Home = () => {
     // console.log(sortedAz)
     // setSortedName(sortedAz)
     setOrder(!order)
-    console.log(order)
   }
-
+  // const sortPrice = () => {
+  //   setOrderPrice(!orderPrice)
+  //   console.log(orderPrice)
+  // }
   return (
     <div className="container mt-5">
       <div className="row">
@@ -37,14 +39,14 @@ const Home = () => {
           <table className="table my-3">
             <thead>
               <tr>
-                <th scope="col">Logo</th>
-                <th scope="col">Symbol</th>
-                <th scope="col" onClick={sortName}>Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">1h%</th>
-                <th scope="col">1d%</th>
-                <th scope="col">1w%</th>
-                <th scope="col">MarketCap</th>
+                <th>Logo</th>
+                <th>Symbol</th>
+                <th style={{ cursor: "pointer" }} onClick={sortName}>Name<i className={order ? "bi bi-sort-alpha-down ms-2" : "bi bi-sort-alpha-down-alt ms-2"}></i></th>
+                <th onClick={sortPrice}>Price</th>
+                <th>1h%</th>
+                <th>1d%</th>
+                <th>1w%</th>
+                <th>MarketCap</th>
                 <th></th>
               </tr>
             </thead>
@@ -62,6 +64,7 @@ const Home = () => {
                       else {
                         return b.name.localeCompare(a.name)
                       }
+
                     }).map((coin) => (
                       <CoinsListItem key={coin.id} coin={coin} searchResult={searchResult} />
                     ))
