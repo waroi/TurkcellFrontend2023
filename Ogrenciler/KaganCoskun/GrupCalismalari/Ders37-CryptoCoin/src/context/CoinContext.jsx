@@ -2,16 +2,17 @@ import { createContext, useState, useEffect, useContext } from "react";
 import { PropTypes } from "prop-types";
 import { getCoinList } from "../service/requests";
 import { useCurrency } from "./CurrencyContext";
+import db from "../db.json";
 
 const CoinContext = createContext();
 
 export const CoinListProvider = ({ children }) => {
 
   const {currency} = useCurrency();
-
   const [coinList, setCoinList] = useState([]);
+
   useEffect(() => {
-    getCoinList(currency).then((res) => setCoinList(res.data));
+    getCoinList(currency).then((data) => setCoinList(data)).catch(()=>setCoinList(db));
   }, [currency]);
 
   const values = {
