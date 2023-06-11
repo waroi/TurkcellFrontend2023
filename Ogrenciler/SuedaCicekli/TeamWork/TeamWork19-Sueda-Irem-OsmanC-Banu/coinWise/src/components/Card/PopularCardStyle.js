@@ -8,10 +8,10 @@ export const CoinImage = styled.img`
     animation: rotateAnimation 2s linear infinite;
     @keyframes rotateAnimation {
       0% {
-        transform: rotate(0deg);
+        transform: rotateY(0deg);
       }
       100% {
-        transform: rotate(720deg);
+        transform: rotateY(720deg);
       }
     }
   }
