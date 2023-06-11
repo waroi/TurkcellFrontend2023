@@ -5,7 +5,6 @@ const StoreContext = createContext();
 
 export const StoreProvider = ({ children }) => {
   const [top100, setTop100] = useState([]);
-  //   const [searchResult, setSearchResult] = useState({});
   const [marketCap, setMarketCap] = useState(0);
   const [search, setSearch] = useState("");
   const [coin, setCoin] = useState({});
@@ -35,7 +34,6 @@ export const StoreProvider = ({ children }) => {
 
   const store = {
     top100,
-    // searchResult,
     setSearch,
     marketCap,
     coin,

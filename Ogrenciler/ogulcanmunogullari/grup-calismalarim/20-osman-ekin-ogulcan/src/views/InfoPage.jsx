@@ -1,33 +1,49 @@
 import { Link, useParams } from "react-router-dom";
-import { useStore } from "../context/store";
 import styled from "styled-components";
 import { useThemeStore } from "../context/themeStore";
 import { useEffect, useState } from "react";
 import Fetch from "../models/Fetch";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+} from 'chart.js';
 
 const InfoPage = () => {
+  const [coin, setCoin] = useState({});
+  const [history, setHistory] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
+  const [chartLoading, setChartLoading] = useState(true);
   const { theme } = useThemeStore();
   const { id } = useParams();
-  const { coin, history, search } = useStore();
   const navigate = useNavigate();
 
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       if (coin.id != id || coin == "404") {
-  //         navigate(`/`);
-  //       }
-  //     }, 200);
-  //   }, [coin, search]);
+  useEffect(() => {
+    Fetch.getCoin(id).then((data) => {
+      if (!data) {
+        navigate(`/`);
+      } else {
+        setCoin(data);
 
-  console.log(history);
-  console.log(coin);
-
-  if (coin.id) {
-    const regex = "/([^/]+).";
-    const match = coin.exp[0].match(regex);
-    console.log(match);
-  }
+        setTimeout(() => {
+          setDataLoading(false);
+        }, 1000);
+      }
+    });
+    Fetch.getHistory(id).then((data) => {
+      const newData = data.map((item) => item[1]);
+      setHistory(newData);
+      setTimeout(() => {
+        setChartLoading(false);
+      }, 1000);
+    });
+  }, [id, navigate]);
 
   const InfoContainer = styled.div`
     display: flex;
@@ -46,7 +62,6 @@ const InfoPage = () => {
     padding: 1rem;
     background-color: ${(props) =>
       props.theme == "light" ? "#eae7e775" : "#2a292978"};
-
     div {
       padding: 1em 0;
     }
@@ -67,16 +82,16 @@ const InfoPage = () => {
       font-size: 1.5em;
       .symbol {
         color: ${(props) =>
-          props.theme == "light" ? "#00000075" : "#ffffff78"};
+      props.theme == "light" ? "#00000075" : "#ffffff78"};
       }
     }
     a {
       color: ${(props) => (props.theme == "light" ? "black" : "white")};
       border: 1px solid;
       border-color: ${(props) =>
-        props.theme == "light" ? "#00000075" : "#ffffff78"};
+      props.theme == "light" ? "#00000075" : "#ffffff78"};
       background-color: ${(props) =>
-        props.theme == "light" ? "#817e7e75" : "#8c8a8a78"};
+      props.theme == "light" ? "#817e7e75" : "#8c8a8a78"};
       padding: 1em;
       border-radius: 10px;
     }
@@ -108,50 +123,45 @@ const InfoPage = () => {
     border-radius: 10px;
   `;
 
-  //   const config = {
-  //     type: "line",
-  //     data: data,
-  //     options: {
-  //       responsive: true,
-  //       plugins: {
-  //         legend: {
-  //           position: "top",
-  //         },
-  //         title: {
-  //           display: true,
-  //           text: "Chart.js Line Chart",
-  //         },
-  //       },
-  //     },
-  //   };
+  const Part2 = styled.div`
+   border-radius: 15px;
+    padding: 1rem;
+    background-color: ${(props) =>
+      props.theme == "light" ? "#eae7e775" : "#2a292978"};
+      display: flex;
+      align-items: center;  
+  .chart{
+    width: 100%;
+    height: 100%;
+  }
+  `
 
-  //   const test = [
-  //     [1685807280, 27213.4883, 1, 14.3078],
-  //     [1685810880, 27290.4228, 1, 14.3473],
-  //     [1685814480, 27151.0487, 1, 14.3555],
-  //     [1685818080, 27172.4792, 1, 14.3457],
-  //     [1685821680, 27160.2895, 1, 14.3637],
-  //     [1685825280, 27093.474, 1, 14.3475],
-  //     [1685828880, 26985.5411, 1, 14.285],
-  //   ];
-  //   const labels = ["", "", "", "", "", "", ""];
-  //   const data = {
-  //     labels: labels,
-  //     datasets: [
-  //       {
-  //         data: test,
-  //         borderColor:
-  //           test.first - test.last > 0
-  //             ? Utils.CHART_COLORS.red
-  //             : Utils.CHART_COLORS.green,
-  //       },
-  //     ],
-  //   };
 
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement
+  );
+
+  const data = {
+    labels: ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    datasets: [
+      {
+        label: coin.id,
+        data: history,
+        borderColor: history[0] - history[23] < 0 ? "green" : "red",
+        backgroundColor: history[0] - history[23] < 0 ? "green" : "red"
+      }
+    ]
+  };
+  const options = {
+    responsive: true,
+  };
   return (
     <InfoContainer>
       <InfoGrid>
-        {coin.id ? (
+        {!dataLoading ? (
           <Part theme={theme}>
             <div className="d-flex">
               <span className="icon">
@@ -189,20 +199,30 @@ const InfoPage = () => {
               <span className="infoSpan">Max Supply:</span> {coin.totalSupply}
             </div>
             <div className="links">
-              {coin.exp.map((url, index) => (
+              {coin.exp.slice(0, -1).map((url, index) => (
                 <Link target="_blank" key={index} to={url}>
-                  {url}
+                  {"link " + index}
                 </Link>
               ))}
             </div>
           </Part>
         ) : (
-          <div>Loading</div>
+          <div>Bilgiler Yükleniyor</div>
         )}
-        <Part theme={theme}></Part>
+        <Part2 theme={theme}>
+          {!chartLoading ? (<Line className="chart"
+            data={data} options={options}
+          />) : (<div>Grafik Yükleniyor</div>)}
+        </Part2>
       </InfoGrid>
     </InfoContainer>
   );
 };
+InfoPage.propTypes = {
+  coin: PropTypes.object,
+  theme: PropTypes.string,
+  number: PropTypes.number,
+}
+
 
 export default InfoPage;
