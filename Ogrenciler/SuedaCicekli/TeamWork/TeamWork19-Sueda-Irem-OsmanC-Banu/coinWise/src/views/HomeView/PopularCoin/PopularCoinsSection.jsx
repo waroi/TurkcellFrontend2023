@@ -1,4 +1,4 @@
-import { useData } from "../../../context/ThemeContext";
+import { useData } from "../../../context/FetchContext";
 import PopularCard from "../../../components/Card/PopularCard";
 const PopularCoinsSection = () => {
   const data = useData();

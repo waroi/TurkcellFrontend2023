@@ -11,7 +11,7 @@ const Router = () => {
     },
 
     {
-      path: "/coins/:id", element: <DetailView />
+      path: "/coins/:name", element: <DetailView />
       // children: [
       //   { index: true, element: <Navigate to="/coins" /> },
       //   {

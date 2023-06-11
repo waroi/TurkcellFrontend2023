@@ -1,6 +1,6 @@
 import { useData } from "../../../context/FetchContext";
-import StarIcon from "../../../assets/Icon.png";
-import GrayStar from "../../../assets/starIcon.png";
+import StarIcon from "../../../assets/whiteStar.png";
+import GrayStar from "../../../assets/grayStar.png";
 import twitter from "../../../assets/SocialIcons/twitter.png";
 import website from "../../../assets/SocialIcons/website.png";
 import { Table } from "./CoinListStyle";
