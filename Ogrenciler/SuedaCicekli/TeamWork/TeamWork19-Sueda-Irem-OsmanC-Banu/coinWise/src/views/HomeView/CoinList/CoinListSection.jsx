@@ -27,30 +27,35 @@ const CoinListSection = () => {
             <th scope="col">7d%</th>
             <th scope="col">Market Cap</th>
             <th scope="col">PriceBTC</th>
-            <th scope="col">Circuating Supply</th>
+            <th scope="col">Available Supply</th>
             <th scope="col">Links</th>
           </tr>
         </thead>
         <tbody>
           {data.data.slice(0, 20).map((item) => (
             <tr key={item.rank}>
-
               <th scope="row">
                 <img src={GrayStar} alt="" />
               </th>
               <td>{item.rank}</td>
-              <Link to={"/coins/" + item.name} className="text-decoration-none" > <td>
-                <img
-                  src={item.icon}
-                  alt=""
-                  width="21px"
-                  height="21px"
-                  className="me-2"
-                />
-                {item.name}
-                <span className="ms-2">{item.symbol}</span>
+
+              <td>
+                <Link
+                  to={"/coins/" + item.name}
+                  className="text-decoration-none text-dark"
+                >
+                  <img
+                    src={item.icon}
+                    alt=""
+                    width="21px"
+                    height="21px"
+                    className="me-2"
+                  />
+                  {item.name}
+                  <span className="ms-2">{item.symbol}</span>
+                </Link>
               </td>
-              </Link>
+
               <td>
                 ${item.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </td>
@@ -81,9 +86,7 @@ const CoinListSection = () => {
                   </a>
                 </div>
               </td>
-
             </tr>
-
           ))}
         </tbody>
       </Table>

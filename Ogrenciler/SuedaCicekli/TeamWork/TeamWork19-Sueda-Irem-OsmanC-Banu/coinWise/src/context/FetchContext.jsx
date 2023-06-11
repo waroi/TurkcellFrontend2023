@@ -5,32 +5,38 @@ const fetchContext = createContext();
 
 export const FetchProvider = ({ children }) => {
   const [data, setData] = useState([]);
+  const fetchData = async () => {
+    try {
+      fetch("https://api.coinstats.app/public/v1/coins?skip=0")
+        .then((respo) => respo.json())
+        .then((res) => {
+          const data = res.coins.map((coin) => ({
+            ...coin,
+            priceChange1hColor: getColor(coin.priceChange1h),
+            priceChange1dColor: getColor(coin.priceChange1d),
+            priceChange1wColor: getColor(coin.priceChange1w),
+            circulatingSupply: coin.totalSupply - coin.availableSupply,
+          }));
+          setData(data);
+        });
+    } catch (error) {
+      console.error("API isteği sırasında bir hata oluştu:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        fetch("https://api.coinstats.app/public/v1/coins?skip=0")
-          .then((respo) => respo.json())
-          .then((res) => {
-            setData(res.coins);
-            // gets(res.coins);
-          });
-      } catch (error) {
-        console.error("API isteği sırasında bir hata oluştu:", error);
-      }
-    };
+    if (data) {
+      localStorage.setItem("data", JSON.stringify(data));
+    } else {
+      localStorage.removeItem("data");
+    }
     fetchData();
-  }, []);
+  }, [data]);
   const getColor = (value) => {
     return value > 0 ? "green" : value < 0 ? "red" : "black";
   };
   const values = {
-    data: data.map((coin) => ({
-      ...coin,
-      priceChange1hColor: getColor(coin.priceChange1h),
-      priceChange1dColor: getColor(coin.priceChange1d),
-      priceChange1wColor: getColor(coin.priceChange1w),
-    })),
+    data,
     setData,
   };
 
