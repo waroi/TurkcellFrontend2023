@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 const CoinDetail = () => {
   const [coinData, setCoinData] = useState({})
+  const [loaded, setLoaded] = useState(false)
   const { id } = useParams()
   console.log(id)
   const coins = useCoin()
@@ -20,10 +21,10 @@ const CoinDetail = () => {
           datasets: [{
             label: "Coin Değeri",
             data: dataCoin.prices.map(priceTime => priceTime[1])
-
           }]
         }
       ))
+      .then(() => setLoaded(true))
   }, [coin.id])
 
 
@@ -42,7 +43,9 @@ const CoinDetail = () => {
         TotalVolume<span>{coin.total_volume}</span>
       </div>
 
-      <BarChart chartData={coinData} />
+      {
+        loaded ? <BarChart chartData={coinData} /> : <h1>Loading...</h1>
+      }
     </>
   )
 }
