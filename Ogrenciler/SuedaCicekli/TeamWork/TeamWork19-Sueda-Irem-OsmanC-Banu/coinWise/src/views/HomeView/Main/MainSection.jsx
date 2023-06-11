@@ -1,14 +1,14 @@
 import Navbar from "../../../components/Navbar/Navbar";
-import { Wrap, ExploreButton, MainTitle } from "./MainSecStyle";
-import Lines from "./backgroundLines.png";
+import { Wrap, ExploreButton, MainTitle, BackgroundWrap } from "./MainSecStyle";
+import background from "./backgroundLines.png";
 
 const MainSection = () => {
   return (
-    <div>
+    <div className="position-relative">
+      <BackgroundWrap src={background} alt="" />
       <div className="container">
         <Wrap>
           <Navbar />
-          <div>osman can</div>
           <div className="d-flex flex-column justify-content-around h-75">
             <MainTitle>Navigate the Crypto Universe</MainTitle>
             <ExploreButton>Explore</ExploreButton>

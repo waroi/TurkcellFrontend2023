@@ -6,8 +6,8 @@ const HomeView = () => {
   return (
     <div>
       <MainSection />
-      <CoinListSection />
       <PopularCoinsSection />
+      <CoinListSection />
     </div>
   );
 };
