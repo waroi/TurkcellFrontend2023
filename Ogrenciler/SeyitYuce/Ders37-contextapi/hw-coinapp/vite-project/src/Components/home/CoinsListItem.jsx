@@ -3,11 +3,11 @@ import "./Home.css"
 import { Link } from 'react-router-dom'
 const CoinsListItem = ({ coin }) => {
     return (
-        <Link to={`/detail/${coin.id}`} x={coin}>
+        <Link to={`/detail/${coin.id}`} className='text-decoration-none text-black'>
             <li className='d-flex  align-items-center border coinList'>
                 <img src={`${coin.icon}`} alt="" className='coin-img' />
                 <span className='coin-symbol '>{coin.symbol}</span>
-                <div className='coin-name'>{coin.name}</div>
+                <div className='coin-name fw-bold'>{coin.name}</div>
                 <div className='coin-price'>${Math.round(coin.price * 1000) / 1000}</div>
                 <div className='coin-changes'>
                     <div className='coin-1h'> 1h:{coin.priceChange1h}</div>

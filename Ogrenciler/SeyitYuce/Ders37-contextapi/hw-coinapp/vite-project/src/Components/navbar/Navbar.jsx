@@ -4,11 +4,12 @@ import "./navbarStyle.css"
 const Navbar = () => {
   return (
 
-    <nav className="navbar navbar-expand-lg bg-black ">
+    <nav className="navbar navbar-expand-lg bg-dark ">
       <div className="container">
-        <a className="navbar-brand" href="#">
-          <img className="img-fluid" src="https://media.discordapp.net/attachments/1089995554941063318/1117095500810825738/Ekran_Alnts.PNG"
-            alt="" />
+        <a className="navbar-brand logo" href="#">
+          {/* <img className="img-fluid" src="https://media.discordapp.net/attachments/1089995554941063318/1117095500810825738/Ekran_Alnts.PNG"
+            alt="" /> */}
+          C4 Coin Market<span className="logo-banner">Yatırım Tavsiyesi Değildir</span>
         </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
         >

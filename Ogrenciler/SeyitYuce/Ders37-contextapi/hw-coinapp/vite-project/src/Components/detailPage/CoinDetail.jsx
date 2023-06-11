@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useCoin } from '../../context/Coincontext'
-import Detail from './detail'
+import Detail from './Detail'
 const CoinDetail = () => {
     const { allCoins } = useCoin()
     const { id } = useParams()
