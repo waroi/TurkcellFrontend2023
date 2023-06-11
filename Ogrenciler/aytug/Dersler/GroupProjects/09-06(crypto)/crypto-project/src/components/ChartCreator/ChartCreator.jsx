@@ -1,36 +1,81 @@
-import { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const ChartGenerator = () => {
-	const [data, setData] = useState({ labels: [], datasets: [] });
+const ChartCreator = () => {
+	const { id } = useParams();
+
+	const chartRef = useRef(null);
+
+	const [latestPrice, setLatestPrice] = useState(0);
+	const [chart, setChart] = useState(null);
 
 	useEffect(() => {
-		fetch("https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=7")
-			.then((response) => response.json())
-			.then((result) => {
-				const { prices } = result;
-				const labels = prices.map((item) => new Date(item[0]).toLocaleDateString());
-				const datasets = [
-					{
-						label: "Bitcoin Price",
-						data: prices.map((item) => item[1]),
-						borderColor: "rgba(75,192,192,1)",
-						backgroundColor: "rgba(75,192,192,0.2)",
-					},
-				];
-				setData({ labels, datasets });
-			})
-			.catch((error) => {
-				console.error("API isteği sırasında bir hata oluştu:", error);
-			});
-	}, []);
+		let isMounted = true;
+
+		const fetchData = () => {
+			fetch(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7`)
+				.then((response) => response.json())
+				.then((data) => {
+					if (!isMounted) return;
+
+					if (!data.prices || data.prices.length === 0) {
+						console.log("No price data available.");
+						return;
+					}
+					const dates = data.prices.map((item) => new Date(item[0]));
+					const prices = data.prices.map((item) => item[1]);
+
+					const ctx = chartRef.current.getContext("2d");
+					if (chart) {
+						chart.destroy(); // Önceki grafik nesnesini yok et
+					}
+					const newChart = new window.Chart(ctx, {
+						type: "line",
+						data: {
+							labels: dates,
+							datasets: [
+								{
+									label: `${id} Price`,
+									data: prices,
+									borderColor: "blue",
+									fill: false,
+								},
+							],
+						},
+						options: {
+							responsive: true,
+							maintainAspectRatio: false,
+						},
+					});
+
+					setChart(newChart); // Yeni grafik nesnesini ayarla
+
+					const latestPrice = prices[prices.length - 1];
+					setLatestPrice(latestPrice);
+				})
+				.catch((error) => {
+					console.log("Error fetching data:", error);
+				});
+		};
+
+		fetchData();
+
+		// Komponentin unmount edildiğinde fetch işlemini iptal etmek için bir cleanup fonksiyonu
+		return () => {
+			isMounted = false;
+			if (chart) {
+				chart.destroy(); // Grafik nesnesini temizle
+			}
+		};
+	}, [id]);
 
 	return (
 		<div>
-			<h1>Bitcoin Price Chart</h1>
-			<Line data={data} />
+			<h3>{id} Price Chart</h3>
+			<p>Latest Price: ${latestPrice}</p>
+			<canvas ref={chartRef} width={90} height={90} />
 		</div>
 	);
 };
 
-export default ChartGenerator;
+export default ChartCreator;

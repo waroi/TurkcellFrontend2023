@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCryptoCurrencyBySymbol } from "../../services/api";
 import { useParams } from "react-router-dom";
-import { Line } from "react-chartjs-2";
 import ChartCreator from "../ChartCreator/ChartCreator";
 
 /* eslint-disable react/prop-types */
@@ -12,7 +11,6 @@ const CurrencyChart = ({ currency }) => {
 	const getCurrencyPriceData = async (symbol) => {
 		try {
 			const currencyData = await getCryptoCurrencyBySymbol(symbol);
-			console.log(currencyData.prices);
 			setChartData(currencyData);
 		} catch (error) {
 			console.error("Error fetching currency:", error);
