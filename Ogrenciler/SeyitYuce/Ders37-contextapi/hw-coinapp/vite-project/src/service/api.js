@@ -13,7 +13,7 @@ export const getNews = async () => {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "3e0513eb9dmsh16316a312298d1dp13f6ddjsn09adf746e588",
+      "X-RapidAPI-Key": "d7b05a9c89mshbf803db5887cef9p186790jsndefd941dc873",
       "X-RapidAPI-Host": "crypto-news11.p.rapidapi.com",
     },
   };
