@@ -73,7 +73,7 @@ const CoinDetail = () => {
             <span> <h6>Dolaşımdaki Arz</h6><p> {formatMoney(coin.circulating_supply.toString())} </p></span>
             <span> <h6>Maks. Arz</h6> <p> {formatMoney(coin.total_supply.toString())} </p></span>
             <span> <h6>Dolaşım Arzı / Maks. Arz Yüzde</h6> <p>{(coin.circulating_supply / coin.total_supply * 100).toFixed(2) + "%"}</p> </span>
-            <span> <h6>Tam seyreltilmiş Piyasa Değeri</h6> <p>{formatMoney(coin.fully_diluted_valuation.toString())} TRY</p> </span>
+            <span> <h6>Tam seyreltilmiş Piyasa Değeri</h6> <p>{formatMoney(coin.fully_diluted_valuation.toString())}</p> </span>
           </div>
           <div className="highestLowest">
             <span> <h6>En Yüksek Değer</h6> <p> {formatMoney(coin.ath.toString())} TRY</p> </span>

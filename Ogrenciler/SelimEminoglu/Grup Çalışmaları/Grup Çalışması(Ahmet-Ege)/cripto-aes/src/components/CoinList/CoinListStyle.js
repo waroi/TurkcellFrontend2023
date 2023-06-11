@@ -4,7 +4,7 @@ export const CoinListTable = styled.div`
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 100px 0;
+  padding: 25px 0 50px 0;
   table {
     width: 100%;
     height: 100%;

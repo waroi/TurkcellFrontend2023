@@ -1,8 +1,9 @@
+import { NotFoundComponent } from "./NotFoundStyle"
+
 const NotFound = () => {
   return (
-    <div>
-      NotFound Page
-    </div>
+    <NotFoundComponent>
+    </NotFoundComponent>
   )
 }
 
