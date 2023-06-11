@@ -5,19 +5,18 @@ export const HeaderComponent = styled.header`
   background: rgba(255, 250, 255, 0.3);
 
   a {
-    color: #343434;
-    /* text-shadow: #474747 3px 0px 2px; */
+    color: ${(props) => props.theme == 'light' ? '#000' : '#fff'};
   }
   .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     .logo {
-      font-size: 2.25rem;
+      font-size: 1.7rem;
     }
     .menu {
       display: flex;
-      font-size: 2rem;
+      font-size: 1.2rem;
       align-items: center;
       gap: 2rem;
     }

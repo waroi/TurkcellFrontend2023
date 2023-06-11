@@ -17,7 +17,7 @@ export const SingleNewCard = styled.a`
   padding-bottom: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  color: #000000;
+  color: ${(props) => props.theme == 'light' ? '#000' : '#fff'};
   &:hover {
     transform: translateY(-10px);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

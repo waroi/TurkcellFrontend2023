@@ -8,5 +8,3 @@ export const NotFoundComponent = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
 `;
-
-// https://blog.thomasnet.com/hubfs/shutterstock_774749455.jpg

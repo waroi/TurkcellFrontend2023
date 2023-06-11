@@ -15,8 +15,6 @@ const CoinDetail = () => {
     const parts = number.split(".");
     const part1 = parts[0];
     const part2 = parts[1];
-    console.log(part2)
-
     // Creating a new string with groups of three digits
     let newPart1 = "";
     for (let i = part1.length - 1, j = 1; i >= 0; i--, j++) {

@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 import { TableRow } from './CoinListStyle'
+import { useTheme } from '../../context/ThemeContext'
 const CoinListItem = ({ coin }) => {
+  const {theme} = useTheme()
   const navigate = useNavigate()
 
   const formatMoney = (number) => {
     const parts = number.split(".");
     const part1 = parts[0];
     const part2 = parts[1];
-    console.log(part2)
 
     // Creating a new string with groups of three digits
     let newPart1 = "";
@@ -24,7 +25,7 @@ const CoinListItem = ({ coin }) => {
     return part2 ? result : newPart1;
   }
   return (
-    <TableRow onClick={() => navigate(`/coins/${coin.id}`)}>
+    <TableRow onClick={() => navigate(`/coins/${coin.id}`)}  theme={theme}>
       <td className='nameArea'><span><img src={coin.image} alt="" /></span> <span>{coin.name}</span></td>
       <td>{formatMoney(coin.current_price.toString())}  <span className='symbol'>₺</span></td>
       <td>{formatMoney(coin.high_24h.toString())}  <span className='symbol'>₺</span></td>

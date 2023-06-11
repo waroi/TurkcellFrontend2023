@@ -1,10 +1,11 @@
 import FooterComponent from "./FooterStyle.js"
 import { Container } from "../StyledContainer.js"
-
+import {useTheme} from '../../context/ThemeContext.jsx'
 
 const Footer = () => {
+    const {theme} = useTheme()
     return (
-        <FooterComponent>
+        <FooterComponent theme={theme}>
             <Container>
                 <div className="poweredBy">
                     Powered by <a href="https://www.coingecko.com/" rel="noreferrer" target="_blank">CoinGecko</a>

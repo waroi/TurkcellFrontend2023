@@ -1,11 +1,13 @@
 import { useCoin } from "../../context/CoinContext"
 import CoinListItem from "./CoinListItem";
 import { CoinListTable } from './CoinListStyle'
+import {useTheme} from '../../context/ThemeContext'
 
 const CoinList = () => {
+  const {theme} = useTheme()
   const coins = useCoin();
   return (
-    <CoinListTable>
+    <CoinListTable theme={theme}>
       <table>
         <thead>
           <tr>

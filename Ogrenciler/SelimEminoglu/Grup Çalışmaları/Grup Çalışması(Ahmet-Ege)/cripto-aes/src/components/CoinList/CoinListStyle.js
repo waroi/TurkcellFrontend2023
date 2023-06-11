@@ -11,8 +11,10 @@ export const CoinListTable = styled.div`
     border-collapse: collapse;
     th {
       padding: 2rem;
-      background-color: #353839;
-      color: #fff;
+      background-color: ${(props) => props.theme == 'light' ? '#353839' : '#f8f8ff'};
+      color: ${(props) => props.theme == 'light' ? '#FFFFFF' : '#000000'};
+      //#100c08
+      //#333333
     }
   }
 `;
@@ -24,10 +26,10 @@ export const TableRow = styled.tr`
     padding: 25px;
   }
   &:nth-child(2n-1) {
-    background-color: #f5f5f5;
+    background-color: ${(props) => props.theme == 'light' ? '#f5f5f5' : '#100c08'};
   }
   &:nth-child(2n) {
-    background-color: #e5e4e2;
+    background-color: ${(props) => props.theme == 'light' ? '#e5e4e2' : '#333333'};
   }
   img {
     width: 25px;
