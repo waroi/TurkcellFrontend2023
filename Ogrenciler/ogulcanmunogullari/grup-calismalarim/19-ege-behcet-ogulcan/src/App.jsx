@@ -7,6 +7,12 @@ import Fetch from './models/Fetch.js';
 import MainPage from './views/MainPage';
 import { Routes, Route } from "react-router-dom";
 import NewsDetailPage from './views/NewsDetailPage';
+const langList = {
+  tr: "EBO Haberler",
+  en: "EBO News",
+  ru: "EBO Новости",
+  de: "EBO Nachricht",
+}
 
 function App() {
   const [lang, setLang] = useState("tr");
@@ -23,6 +29,7 @@ function App() {
         setNews(data);
       }
     )
+    document.title = langList[lang];
   }, [lang, page])
   return (
     <AppComponent>
