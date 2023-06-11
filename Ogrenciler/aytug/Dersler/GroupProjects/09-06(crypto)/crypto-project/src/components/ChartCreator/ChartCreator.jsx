@@ -6,6 +6,8 @@ const ChartCreator = () => {
 	const { id } = useParams();
 
 	const [chartData, setChartData] = useState([]);
+	console.log(id);
+	console.log(chartData);
 
 	useEffect(() => {
 		const fetchData = () => {
@@ -17,8 +19,13 @@ const ChartCreator = () => {
 						return;
 					}
 					const formattedData = data.prices.map((item) => ({
-						date: new Date(item[0]),
-						price: item[1],
+						date: new Date(item[0]).toLocaleString("tr-TR", {
+							month: "short",
+							day: "numeric",
+							hour: "numeric",
+							minute: "numeric",
+						}),
+						price: item[1].toFixed(1),
 					}));
 					setChartData(formattedData);
 				})
@@ -36,10 +43,10 @@ const ChartCreator = () => {
 	return (
 		<div>
 			<h3>{id} Price Chart</h3>
-			<LineChart width={800} height={400} data={chartData}>
-				<CartesianGrid strokeDasharray="3 3" />
-				<XAxis dataKey="date" />
-				<YAxis type="number" domain={[minPrice, "dataMax"]} />
+			<LineChart width={1200} height={500} data={chartData} className="mx-auto">
+				<CartesianGrid stroke="#000000" strokeWidth={1} strokeDasharray="1 1" vertical={false} />
+				<XAxis dataKey="date" angle={-45} tickMargin={30} height={100} />
+				<YAxis type="number" domain={[minPrice, "dataMax"]} width={100} />
 				<Tooltip />
 				<Legend />
 				<Line

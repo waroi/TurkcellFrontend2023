@@ -1,26 +1,7 @@
-import { useEffect, useState } from "react";
-import { getCryptoCurrencyBySymbol } from "../../services/api";
-import { useParams } from "react-router-dom";
 import ChartCreator from "../ChartCreator/ChartCreator";
 
 /* eslint-disable react/prop-types */
 const CurrencyChart = ({ currency }) => {
-	const { id } = useParams();
-	const [chartData, setChartData] = useState({ labels: [] });
-
-	const getCurrencyPriceData = async (symbol) => {
-		try {
-			const currencyData = await getCryptoCurrencyBySymbol(symbol);
-			setChartData(currencyData);
-		} catch (error) {
-			console.error("Error fetching currency:", error);
-		}
-	};
-
-	useEffect(() => {
-		getCurrencyPriceData(id);
-	}, [id]);
-
 	return (
 		<div className="mt-5">
 			{currency && (
@@ -33,7 +14,6 @@ const CurrencyChart = ({ currency }) => {
 					<li>More Info</li>
 				</ul>
 			)}
-
 			<ChartCreator />
 		</div>
 	);
