@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getCryptoCurrencyById } from "../services/api";
+import DetailCard from "../components/DetailCard/DetailCard";
 // import NotFound from "./NotFound";
 
 const CurrencyView = () => {
@@ -26,12 +27,9 @@ const CurrencyView = () => {
   }, [id]);
 
   return (
-    <>
-      <div>
-        {currency && currency.name}
-        {currency && currency.price}
-      </div>
-    </>
+    <div className="container">
+      <DetailCard currency={currency} />
+    </div>
   );
 };
 

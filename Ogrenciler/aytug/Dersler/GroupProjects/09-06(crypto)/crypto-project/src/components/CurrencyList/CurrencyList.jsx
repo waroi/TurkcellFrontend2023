@@ -14,6 +14,7 @@ const CurrencyList = () => {
   useEffect(() => {
     getCurrencies();
   }, []);
+
   console.log(allCurrencies);
   return (
     <div className="container">
