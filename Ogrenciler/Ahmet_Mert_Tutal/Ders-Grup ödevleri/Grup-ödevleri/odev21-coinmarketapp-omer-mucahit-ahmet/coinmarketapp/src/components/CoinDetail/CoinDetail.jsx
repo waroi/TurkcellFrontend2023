@@ -6,6 +6,7 @@ import {
   AiOutlineUpload,
   AiOutlineSearch,
 } from "react-icons/ai";
+import { CgDanger } from "react-icons/cg";
 import { BiLinkAlt } from "react-icons/bi";
 import {
   BsBoxArrowUpRight,
@@ -30,6 +31,7 @@ import {
   CustomCoinValue,
   PriceButton,
   CustomPriceBottom,
+  ContainerStyles,
 } from "./styled";
 
 const CoinDetail = () => {
@@ -144,44 +146,63 @@ const CoinDetail = () => {
             </CustomPriceTop>
             <CustomPriceBottom>
               <div>
-                <span
-                  className={
-                    Number(currentCoin?.priceChange1h) > 0
-                      ? "text-success"
-                      : "text-danger"
-                  }
-                >
-                  {currentCoin?.priceChange1h} %{" "}
-                </span>
-                <span
-                  className={
-                    Number(currentCoin?.priceChange1d) > 0
-                      ? "text-success"
-                      : "text-danger"
-                  }
-                >
-                  {currentCoin?.priceChange1d} %{" "}
-                </span>
-                <span
-                  className={
-                    Number(currentCoin?.priceChange1w) > 0
-                      ? "text-success"
-                      : "text-danger"
-                  }
-                >
-                  {currentCoin?.priceChange1w} %{" "}
-                </span>
+                <p>
+                  <span>Hourly:</span>
+                  <span>Daily:</span>
+                  <span>Weekly:</span>
+                </p>
+                <p>
+                  <span
+                    className={
+                      Number(currentCoin?.priceChange1h) > 0
+                        ? "text-success"
+                        : "text-danger"
+                    }
+                  >
+                    {currentCoin?.priceChange1h} %{" "}
+                  </span>
+                  <span
+                    className={
+                      Number(currentCoin?.priceChange1d) > 0
+                        ? "text-success"
+                        : "text-danger"
+                    }
+                  >
+                    {currentCoin?.priceChange1d} %{" "}
+                  </span>
+                  <span
+                    className={
+                      Number(currentCoin?.priceChange1w) > 0
+                        ? "text-success"
+                        : "text-danger"
+                    }
+                  >
+                    {currentCoin?.priceChange1w} %{" "}
+                  </span>
+                </p>
+                <p>Market Cap: ${currentCoin?.marketCap.toFixed(2)}</p>
               </div>
               <div className="fs-5 text-secondary">
-                Volume: {currentCoin?.volume.toLocaleString().slice(0, 10)} K
+                Volume: {currentCoin?.volume.toLocaleString().slice(0, 10)};
+                <p>
+                  Dex Vol
+                  <CgDanger />: <a href="">24h</a>
+                  <span>--</span>
+                </p>
+                <p>
+                  Cex Vol
+                  <CgDanger />: <a href="">24h</a>
+                  <span>--</span>
+                </p>
               </div>
-              <div className="fs-5 my-3">
+              <div>
                 Total Supply: {currentCoin?.totalSupply.toLocaleString()}{" "}
                 {currentCoin?.symbol}
-              </div>
-              <div className="fs-5 my-3">
-                Total Supply: {currentCoin?.totalSupply.toLocaleString()}{" "}
-                {currentCoin?.symbol}
+                <ContainerStyles>
+                  <div>
+                    <span></span>
+                  </div>
+                </ContainerStyles>
               </div>
             </CustomPriceBottom>
           </CustomPrice>

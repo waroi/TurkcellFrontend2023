@@ -207,11 +207,7 @@ export const PriceButton = styled.div`
   justify-content: center;
   margin-left: 6rem;
   > button {
-    background: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.08),
-      rgba(255, 255, 255, 0.08)
-    );
+    background: rgb(56, 97, 251);
     border: 0px;
     border-radius: 8px;
     display: inline-flex;
@@ -222,7 +218,7 @@ export const PriceButton = styled.div`
     font-size: 12px;
     padding: 8px 18px;
     &:hover {
-      background: rgb(56, 97, 251);
+      background: rgb(56, 140, 251);
       color: rgb(255, 255, 255);
       text-decoration: none;
     }
@@ -232,4 +228,59 @@ export const CustomPriceBottom = styled.div`
   margin: 2rem 0;
   display: flex;
   flex-direction: row;
+  border-top: 1px solid #323546;
+  border-bottom: 1px solid #323546;
+  align-items: center;
+  > div {
+    display: flex;
+
+    align-items: center;
+    padding: 0 1rem;
+    flex-direction: column;
+    padding-top: 1rem;
+    > p > span {
+      margin-right: 10px;
+    }
+  }
+  > div:nth-child(2) {
+    font-size: 22px;
+    display: flex;
+    border-inline: 1px solid #323546;
+    > p {
+      font-size: 14px;
+      margin-bottom: 0;
+      color: #7284a4;
+
+      > a {
+        background-color: #323546;
+        color: #a1a7bb;
+        border-radius: 4px;
+        padding: 2px 6px;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 18px;
+        white-space: nowrap;
+      }
+    }
+  }
+`;
+export const ContainerStyles = styled.div`
+  width: 100%;
+  height: 7px;
+  background-color: #1a1a1d;
+  border: 2px solid #323546;
+  border-radius: 8px;
+  margin-top: 10px;
+  > div {
+    height: 100%;
+    width: 90%;
+
+    background-color: #fafafa;
+    > span {
+      padding: 2px;
+      color: white;
+      font-weight: 600;
+    }
+  }
 `;
