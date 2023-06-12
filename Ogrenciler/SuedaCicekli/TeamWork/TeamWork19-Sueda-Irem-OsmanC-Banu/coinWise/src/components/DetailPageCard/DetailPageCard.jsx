@@ -1,10 +1,30 @@
 import { useParams } from "react-router-dom";
 import { DetailCard } from "./DetailPageCardStyle";
+import 'chart.js/auto';
+import { Doughnut } from 'react-chartjs-2';
+
 const DetailPageCard = () => {
   const data = JSON.parse(localStorage.getItem("data"));
 
   const params = useParams();
   const curData = data.find((item) => item.name === params.name);
+
+
+  const availableSupply = curData.availableSupply;
+  const totalSupply = curData.totalSupply;
+  const circulatingSupply = totalSupply - availableSupply;
+
+  const veri = {
+    labels: ['Circulating Supply', 'Reserved Supply'],
+    datasets: [{
+      label: 'Supply',
+      data: [circulatingSupply, availableSupply],
+      backgroundColor: ['#C389F7', '#C0FAA0'],
+      hoverBackgroundColor: ['#c489f79e', '#bffaa094'],
+      borderColor: ['#252525', '#252525'],
+      borderWidth: 1,
+    }],
+  };
 
   return (
     <div>
@@ -55,7 +75,9 @@ const DetailPageCard = () => {
               </DetailCard>
             </div>
           </div>
-          <div className="col-4"></div>
+          <div className="col-4">
+            <Doughnut data={veri} />
+          </div>
         </div>
       </div>
     </div>
