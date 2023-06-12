@@ -22,6 +22,7 @@ export const SearchInput = styled.input`
   background-color: ${(props) =>
     props.theme === "light" ? "white" : "#242124"};
   color: ${({ theme }) => (theme === "light" ? "#333" : "#f1f1f1")};
+  transition: 0.3s ease-in-out;
 `;
 
 export const HeaderWrapper = styled.div`
@@ -51,7 +52,7 @@ export const OptionItem = styled.option`
   padding-bottom: 10px;
 `;
 export const Icon = styled.i`
-  color: ${({ theme }) => (theme === "light" ? "#f1f1f1" : "#333")}
+  color: ${({ theme }) => (theme === "light" ? "#f1f1f1" : "#333")};
   cursor: pointer;
   margin-left: 20px;
   width: 30px;
