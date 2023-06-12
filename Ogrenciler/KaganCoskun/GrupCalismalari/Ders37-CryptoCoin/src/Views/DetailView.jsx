@@ -24,7 +24,6 @@ const DetailView = () => {
 
   useEffect(() => {
     getCoinChart(id,currency,chartDay).then((data)=>setCoinChart(data))
-    return () => chartDay
   },[id,currency,chartDay])
 
   return (

@@ -19,12 +19,12 @@ const CoinChart = ({data,chartDay,setChartDay}) => {
           value: data[1],
         }));
       }
+      
 
       useEffect(() => {
         if (!chart.current) {
           chart.current = createChart(chartContainerRef.current, { width: 400, height: 300 });
           lineSeries.current = chart.current.addLineSeries();
-    
           resizeObserver.current = new ResizeObserver(entries => {
             const { width, height } = entries[0].contentRect;
             chart.current.applyOptions({ width, height });

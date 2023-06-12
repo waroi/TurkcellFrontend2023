@@ -1,5 +1,5 @@
 import './App.css'
-import { Main } from './appStyled'
+import { Main } from './Styled'
 import Header from './components/header/Header'
 import { CoinListProvider } from './context/CoinContext'
 import { CurrencyProvider } from './context/CurrencyContext'
