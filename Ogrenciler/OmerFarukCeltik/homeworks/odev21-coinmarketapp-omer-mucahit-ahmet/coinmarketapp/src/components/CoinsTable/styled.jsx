@@ -33,7 +33,7 @@ export const CustomTable = styled.table`
   background-color: transparent;
 `;
 export const StyledTd = styled.td`
-  color: ${({ value }) => (value < 0 ? "#ea3943" : "#16c784")};
+   color: ${({ value }) => (value < 0 ? "#ea3943" : value > 0 ? "#16c784" : "gray")};
 `;
 
 export const CustomIcon = styled.img`
