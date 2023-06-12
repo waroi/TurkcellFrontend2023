@@ -15,7 +15,7 @@ const ToolTip = ({ todos }) => {
         todos.filter((todo) => todo.important).length +
         " önemli todo var",
 
-      placement: "right",
+      placement: "top",
       trigger: "hover",
     });
   });
@@ -23,7 +23,7 @@ const ToolTip = ({ todos }) => {
   return (
     <div className="py-2">
       <button className="btn btn-info" ref={tooltipRef}>
-        Hover for tooltip
+        Todo's info
       </button>
     </div>
   );
