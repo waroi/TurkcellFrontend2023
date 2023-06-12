@@ -49,7 +49,7 @@ const Coins = () => {
                   <CustomIcon className="table-img" src={item.icon} alt="" />
                 </td>
                 <td>
-                <Link to={`/${item.id}`}>
+                <Link  style={theme == "light" ?  {color:"black"} :  {color: "white"}} to={`/${item.id}`}>
                   {item.name}
                 </Link>
                 </td>
