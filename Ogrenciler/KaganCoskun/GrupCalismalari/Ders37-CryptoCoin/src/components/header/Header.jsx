@@ -15,6 +15,7 @@ import { useCoinList } from "../../context/CoinContext";
 import { Link } from "react-router-dom";
 import LogoDark from "/public/kriptok-dark.png"
 import LogoLight from "/public/kriptok-light.png"
+import SearchResults from "./SearchResults";
 
 const Header = () => {
   const [currencyList, setCurrencyList] = useState([]);
@@ -52,9 +53,9 @@ const Header = () => {
           onChange={handeleSearch}
           theme={theme}
           onFocus={() => setFilterFocus(true)}
-          onBlur={() => setFilterFocus(false)}
+          onBlur={() => setTimeout(() => setFilterFocus(false), 200)}
         />
-        {filterFocus && filterList?.length > 0 && (<div className="filter-list">{filterList?.slice(0,5)?.map((item=><li key={item.id}>{item.name}</li>))}</div>)}
+        {filterFocus && filterList?.length > 0 && <SearchResults filterList={filterList}/>}
 
         <div>
           <SelectItem

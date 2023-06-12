@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
   display: flex;
-
+  position: relative;
   background-color: ${({ theme }) => (theme === "light" ? "#f1f1f1" : "#333")};
   color: ${({ theme }) => (theme === "light" ? "#333" : "#f1f1f1")};
   transition: 0.3s ease-in-out;
