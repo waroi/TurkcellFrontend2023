@@ -19,6 +19,11 @@ export const DetailCard = styled.div`
   }
 `;
 
+
 export const DetailCardVh = styled.div`
-height: 70vh;
+  height: 70vh;
+
+  @media (max-width: 767px) {
+    height: 100vh;
+  }
 `;

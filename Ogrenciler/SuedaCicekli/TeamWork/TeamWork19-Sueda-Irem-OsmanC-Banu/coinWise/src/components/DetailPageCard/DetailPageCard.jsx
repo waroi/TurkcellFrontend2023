@@ -26,13 +26,13 @@ const DetailPageCard = () => {
     <div>
       <div className="container">
         <DetailCardVh className="row mt-4">
-          <div className="col-8">
+          <div className="col-md-8 col-sm-12">
             <div
               style={{ marginTop: "3em" }}
-              className="d-flex align-items-center gap-4"
+              className="d-flex align-items-center gap-4 bg-white p-3 rounded-4 w-50 cursor-pointer"
             >
               <img src={curData.icon} alt="icon" />
-              <h2 className="fw-bold">{curData.name}</h2>
+              <h2 className="fw-bold ">{curData.name}</h2>
               <h2 className="text-secondary">{curData.symbol} </h2>
             </div>
             <DetailCard className="d-flex gap-3 align-items-center">
@@ -71,7 +71,7 @@ const DetailPageCard = () => {
               </DetailCard>
             </div>
           </div>
-          <div className="col-4 d-flex align-items-center">
+          <div className="col-md-4 col-sm-12 d-flex align-items-center">
             <Doughnut data={veri} />
           </div>
         </DetailCardVh>

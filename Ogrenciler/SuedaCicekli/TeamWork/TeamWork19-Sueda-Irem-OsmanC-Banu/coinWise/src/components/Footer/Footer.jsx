@@ -10,7 +10,7 @@ const Footer = () => {
           <img src={FooterLogo} alt="Footer Logo" id="footerThemeLogo" />
         </div>
         <p className="text-light fs-6 fw-light mt-3" id="footerThemeText">
-          Designed and developed with ❤️ by <CoinWiseGreen className="text-danger">coinWise</CoinWiseGreen> team | dotminds App, 2023
+          Designed and developed with ❤️ by <CoinWiseGreen className="text-green">coinWise</CoinWiseGreen> team | dotminds App, 2023
         </p>
       </div>
     </div>

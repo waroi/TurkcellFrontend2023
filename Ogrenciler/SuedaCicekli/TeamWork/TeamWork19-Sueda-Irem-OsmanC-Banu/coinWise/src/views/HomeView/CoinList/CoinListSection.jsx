@@ -31,11 +31,11 @@ const CoinListSection = () => {
             <th scope="col">Links</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {data.data.slice(0, 20).map((item) => (
-            <tr key={item.rank}>
-              <th scope="row">
-                <img src={GrayStar} alt="" />
+            <tr key={item.rank}   >
+              <th scope="row" >
+                <img src={GrayStar} className="ms-3" alt="star" />
               </th>
               <td>{item.rank}</td>
 
@@ -78,11 +78,11 @@ const CoinListSection = () => {
               </td>
               <td>
                 <div className="d-flex">
-                  <a href="#" className="me-2">
-                    <img src={website} alt="" />
+                  <a href={item.websiteUrl} className="me-2" target="_blank" rel="noreferrer" >
+                    <img src={website} alt="website" />
                   </a>
-                  <a href="#">
-                    <img src={twitter} alt="" />
+                  <a href={item.twitterUrl} target="_blank" rel="noreferrer">
+                    <img src={twitter} alt="twitter" />
                   </a>
                 </div>
               </td>

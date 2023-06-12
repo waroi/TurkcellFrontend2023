@@ -20,7 +20,7 @@ const PopularCard = ({ data }) => {
     }
   };
   return (
-    <Card className="col-md-3 position-relative text-light">
+    <Card className="col-md-3 position-relative text-light mb-5">
       <div>{<CoinImage src={getImageName(data.id)} alt={data.name} />}</div>
       <div className="d-flex flex-column  align-items-center ">
         <div className="flex-start ps-3 py-3">
