@@ -6,33 +6,30 @@ import CurrencyChart from "../components/CurrencyChart/CurrencyChart";
 // import NotFound from "./NotFound";
 
 const CurrencyView = () => {
-	const { id } = useParams();
-	const [currency, setCurrency] = useState();
-	const navigate = useNavigate();
+  const { id } = useParams();
+  const [currency, setCurrency] = useState();
+  const navigate = useNavigate();
 
-	const getCurrency = async (id) => {
-		try {
-			const currencyData = await getCryptoCurrencyById(id);
-			if (Object.keys(currencyData).length === 0) {
-				// return <NotFound />;
-				navigate("/NotFound");
-			}
-			setCurrency(currencyData.coin);
-		} catch (error) {
-			console.error("Error fetching currency:", error);
-		}
-	};
+  const getCurrency = async (id) => {
+    try {
+      const currencyData = await getCryptoCurrencyById(id);
+      if (Object.keys(currencyData).length === 0) {
+        navigate("/NotFound");
+      }
+      setCurrency(currencyData.coin);
+    } catch (error) {}
+  };
 
-	useEffect(() => {
-		getCurrency(id);
-	}, [id]);
+  useEffect(() => {
+    getCurrency(id);
+  }, [id]);
 
-	return (
-		<div className="container">
-			<DetailCard currency={currency} />
-			<CurrencyChart currency={currency} />
-		</div>
-	);
+  return (
+    <div className="container">
+      <DetailCard currency={currency} />
+      <CurrencyChart currency={currency} />
+    </div>
+  );
 };
 
 export default CurrencyView;
