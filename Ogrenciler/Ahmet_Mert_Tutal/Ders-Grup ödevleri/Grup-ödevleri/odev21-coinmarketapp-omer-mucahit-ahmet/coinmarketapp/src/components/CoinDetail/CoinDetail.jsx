@@ -22,6 +22,13 @@ import {
   CustomBreadCrumb,
   CoinCardContainer,
   CustomPrice,
+  CustomRank,
+  CurrentCoinDetail,
+  CurrentCoinLLink,
+  CurrentCoinPos,
+  CustomPriceTop,
+  CustomCoinValue,
+  PriceButton,
 } from "./styled";
 
 const CoinDetail = () => {
@@ -45,7 +52,7 @@ const CoinDetail = () => {
         </CustomBreadCrumb>
         <CoinCard>
           <CoinCardContainer>
-            <div>
+            <CurrentCoinDetail>
               <img src={currentCoin?.icon} alt="" />{" "}
               <h3>{currentCoin?.name.split(" ")[0]}</h3>
               <span>{currentCoin?.symbol}</span>
@@ -56,13 +63,13 @@ const CoinDetail = () => {
                 <AiOutlineUpload />
               </a>
               <button>+Follow</button>
-            </div>
-            <div>
-              <span>#{currentCoin?.rank}</span>
+            </CurrentCoinDetail>
+            <CustomRank>
+              <span className="coin-rank">Rank #{currentCoin?.rank}</span>
               <span>Coin</span>
-            </div>
+            </CustomRank>
 
-            <div>
+            <CurrentCoinLLink>
               <span>
                 <BiLinkAlt />
                 <a href={currentCoin?.twitterUrl}>{currentCoin?.twitterUrl}</a>
@@ -92,78 +99,84 @@ const CoinDetail = () => {
                 Whitepaper
                 <BsBoxArrowUpRight />
               </span>
-            </div>
+            </CurrentCoinLLink>
             <p>Tags:</p>
-            <div>
+            <CurrentCoinPos>
               <span>PoS</span>
-              <span>Zero Knowledge Proofs</span>
+              <span>PoW</span>
               <span>Stakings</span>
-              <span>Coinbase Ventures Portfolio</span>
-            </div>
-            <button type="">View all</button>
+              <span>SHA-256</span>
+              <button type="">View all</button>
+            </CurrentCoinPos>
           </CoinCardContainer>
           <CustomPrice>
-            <div>
-              <div className="top">
+            <CustomPriceTop>
+              <CustomCoinValue>
+                <p>
+                  {currentCoin?.name.split(" ")[0]} Price ({currentCoin?.symbol}
+                  )
+                </p>
                 <div>
-                  <p>
-                    {currentCoin?.name.split(" ")[0]} Price (
-                    {currentCoin?.name.split(" ")[0].toUpperCase()})
-                  </p>
-                  <div>
-                    <h2>${currentCoin?.price.toString().slice(0, 7)} </h2>
-                    <span>{currentCoin.priceChange1h} %</span>
-                  </div>
-                  <h4>
-                    Available Supply:
-                    {currentCoin?.availableSupply.toLocaleString()}{" "}
-                    {currentCoin?.symbol}
-                  </h4>
-                  <div>
-                    <span
-                      className={
-                        Number(currentCoin?.priceChange1h) > 0
-                          ? "text-success"
-                          : "text-danger"
-                      }
-                    >
-                      {currentCoin?.priceChange1h} %{" "}
-                    </span>
-                    <span
-                      className={
-                        Number(currentCoin?.priceChange1d) > 0
-                          ? "text-success"
-                          : "text-danger"
-                      }
-                    >
-                      {currentCoin?.priceChange1d} %{" "}
-                    </span>
-                    <span
-                      className={
-                        Number(currentCoin?.priceChange1w) > 0
-                          ? "text-success"
-                          : "text-danger"
-                      }
-                    >
-                      {currentCoin?.priceChange1w} %{" "}
-                    </span>
-                  </div>
+                  <h2>${currentCoin?.price.toString().slice(0, 7)} </h2>
+                  <span
+                    className={
+                      Number(currentCoin?.priceChange1h) > 0
+                        ? "text-success"
+                        : "text-danger"
+                    }
+                  >
+                    {currentCoin.priceChange1h} %
+                  </span>
                 </div>
-                <div>
-                  <button type="">Buy</button>
-                  <button type="">Exchange</button>
-                  <button type="">Gaming</button>
-                  <button type="">Earn crypto</button>
-                </div>
-              </div>
-              <div className="bottom">
-                <div className="fs-5 text-secondary">
-                  Volume: {currentCoin?.volume.toLocaleString().slice(0, 10)} K
-                </div>
-                <div className="fs-5 my-3">
-                  Total Supply: {currentCoin?.totalSupply.toLocaleString()}{" "}
+                <h4>
+                  Available Supply:
+                  {currentCoin?.availableSupply.toLocaleString()}{" "}
                   {currentCoin?.symbol}
-                </div>
+                </h4>
+              </CustomCoinValue>
+              <PriceButton>
+                <button type="">Buy</button>
+                <button type="">Exchange</button>
+                <button type="">Gaming</button>
+                <button type="">Earn crypto</button>
+              </PriceButton>
+            </CustomPriceTop>
+            <div className="bottom">
+              <div>
+                <span
+                  className={
+                    Number(currentCoin?.priceChange1h) > 0
+                      ? "text-success"
+                      : "text-danger"
+                  }
+                >
+                  {currentCoin?.priceChange1h} %{" "}
+                </span>
+                <span
+                  className={
+                    Number(currentCoin?.priceChange1d) > 0
+                      ? "text-success"
+                      : "text-danger"
+                  }
+                >
+                  {currentCoin?.priceChange1d} %{" "}
+                </span>
+                <span
+                  className={
+                    Number(currentCoin?.priceChange1w) > 0
+                      ? "text-success"
+                      : "text-danger"
+                  }
+                >
+                  {currentCoin?.priceChange1w} %{" "}
+                </span>
+              </div>
+              <div className="fs-5 text-secondary">
+                Volume: {currentCoin?.volume.toLocaleString().slice(0, 10)} K
+              </div>
+              <div className="fs-5 my-3">
+                Total Supply: {currentCoin?.totalSupply.toLocaleString()}{" "}
+                {currentCoin?.symbol}
               </div>
             </div>
           </CustomPrice>
