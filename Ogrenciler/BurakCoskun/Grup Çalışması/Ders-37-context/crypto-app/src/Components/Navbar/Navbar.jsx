@@ -1,6 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Image from 'react-bootstrap/Image';
 import { useCustomContext } from "../../context/Context";
 
 const NavbarComponent = () => {
@@ -14,12 +15,11 @@ const NavbarComponent = () => {
       variant={`${theme === "dark" ? "dark" : "light"}`}
     >
       <Container>
-        <Navbar.Brand href="/">Coin</Navbar.Brand>
+        <Navbar.Brand href="/"><Image src="/logo.png" height={75}/></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="m-auto">
             <Nav.Link href="/list">List of Coins</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
           <Nav>
             <button className="border-0 bg-transparent">

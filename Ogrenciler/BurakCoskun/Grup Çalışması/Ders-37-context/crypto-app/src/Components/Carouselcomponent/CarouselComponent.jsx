@@ -6,8 +6,8 @@ function CarouselComponent() {
       <Carousel>
         <Carousel.Item>
           <img
-            className="d-block w-100"
-            src="https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            className="d-block img-fluid"
+            src="https://miro.medium.com/v2/resize:fit:2400/1*WUxVZS8b9o7Uo14kErQMCg.jpeg"
             alt="First slide"
             height={500}
           />
@@ -18,8 +18,8 @@ function CarouselComponent() {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
-            src="https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            className="d-block img-fluid"
+            src="https://www.bitcoinsistemi.com/wp-content/uploads/2022/06/ethereum-bitcoin-eth-btc.jpg"
             alt="Second slide"
             height={500}
           />
@@ -29,21 +29,7 @@ function CarouselComponent() {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="Third slide"
-            height={500}
-          />
-
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
+        
       </Carousel>
     </div>
   );
