@@ -12,6 +12,7 @@ const Detail = ({ news }) => {
     margin-top: 2rem;
     &:hover {
       box-shadow: 0 0 15px 6px rgba(43, 163, 179, 0.2);
+      transform: scale(1);
     }
   `;
 
@@ -38,6 +39,7 @@ const Detail = ({ news }) => {
   const defaultImage =
     "https://images-ext-1.discordapp.net/external/u5UvuYYVAbmjCXWLZ4Xj2IBxt0Qa71XVe9tIWpMftp4/https/i2.milimaj.com/i/milliyet/75/869x477/6474626086b24746f855f699.jpg?width=726&height=399";
   const imageUrl = selectedItem.image_url || defaultImage;
+
   return (
     <div className="container">
       <Category>{selectedItem.category}</Category>

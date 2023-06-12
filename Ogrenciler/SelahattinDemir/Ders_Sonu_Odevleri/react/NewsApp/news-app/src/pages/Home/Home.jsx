@@ -11,18 +11,22 @@ const Home = ({ news }) => {
           news.results.map((item, index) => {
             const titleClass =
               item.title.split(" ").length > 6 ? "truncate" : "";
+
             const descriptionClass =
               item.description && item.description.split(" ").length > 12
                 ? "truncate"
                 : "";
+
             const pubDate = new Date(item.pubDate).toLocaleDateString("tr-TR", {
               year: "numeric",
               month: "numeric",
               day: "numeric",
             });
+
             const defaultImage =
               "https://media.discordapp.net/attachments/1089995629633228900/1116681581734666350/pexels-photo-1809342.png";
             const imageUrl = item.image_url || defaultImage;
+
             return (
               <div key={index} className="wrapper">
                 <div className="card-top">
