@@ -1,155 +1,225 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "../../context/FetchContext";
 import NotFound from "../views/404/NotFound";
-import { AiOutlineStar, AiOutlineUpload } from "react-icons/ai";
+import {
+  AiOutlineStar,
+  AiOutlineUpload,
+  AiOutlineSearch,
+} from "react-icons/ai";
+import { CgDanger } from "react-icons/cg";
 import { BiLinkAlt } from "react-icons/bi";
-import { BsBoxArrowUpRight } from "react-icons/bs";
+import {
+  BsBoxArrowUpRight,
+  BsFillPersonFill,
+  BsFillChatFill,
+  BsCodeSlash,
+} from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
-
+import { GrDocument } from "react-icons/gr";
 import {
   CoinDetailContainer,
   CustomCoins,
   CoinCard,
   CustomBreadCrumb,
-  GraphContainer,
+  CoinCardContainer,
+  CustomPrice,
+  CustomRank,
+  CurrentCoinDetail,
+  CurrentCoinLLink,
+  CurrentCoinPos,
+  CustomPriceTop,
+  CustomCoinValue,
+  PriceButton,
+  CustomPriceBottom,
+  ContainerStyles,
 } from "./styled";
 import Graph from "../Graph/Graph";
 
 const CoinDetail = () => {
   const { datas } = useFetch();
   const { id } = useParams();
-
   const currentCoin = datas.find((item) => item.id == id);
   if (!currentCoin) {
     return <NotFound />;
   }
   return (
     <>
-    <CoinDetailContainer>
-      <CustomCoins>
-        <CustomBreadCrumb>
-          <span>
-            <a href="">Cryptocurrencies</a>
-          </span>
-          <span>
-            <a href="">Coins</a>
-          </span>
-          <span>{currentCoin?.name.split(" ")[0]}</span>
-        </CustomBreadCrumb>
-        <CoinCard>
-          <div>
-            <img src={currentCoin?.icon} alt="" />{" "}
-            <h3>{currentCoin?.name.split(" ")[0]}</h3>
-            <span>{currentCoin?.name.split(" ")[0].toUpperCase()}</span>
-            <a>
-              <AiOutlineStar />
-            </a>
-            <a>
-              <AiOutlineUpload />
-            </a>
-            <button>+Follow</button>
-          </div>
-          <div>
-            <span>#{currentCoin?.rank}</span>
-            <span>Coin</span>
-          </div>
+      <CoinDetailContainer>
+        <CustomCoins>
+          <CustomBreadCrumb>
+            <span>
+              <a href="">Cryptocurrencies</a>
+            </span>
+            <span>
+              <a href="">Coins</a>
+            </span>
+            <span>{currentCoin?.name.split(" ")[0]}</span>
+          </CustomBreadCrumb>
+          <CoinCard>
+            <CoinCardContainer>
+              <CurrentCoinDetail>
+                <img src={currentCoin?.icon} alt="" />{" "}
+                <h3>{currentCoin?.name.split(" ")[0]}</h3>
+                <span>{currentCoin?.symbol}</span>
+                <a>
+                  <AiOutlineStar />
+                </a>
+                <a>
+                  <AiOutlineUpload />
+                </a>
+                <button>+Follow</button>
+              </CurrentCoinDetail>
+              <CustomRank>
+                <span className="coin-rank">Rank #{currentCoin?.rank}</span>
+                <span>Coin</span>
+              </CustomRank>
 
-          <div>
-            <span>
-              <BiLinkAlt />
-              <a href={currentCoin?.twitterUrl}>{currentCoin?.twitterUrl}</a>
-              <BsBoxArrowUpRight />
-            </span>
-            <span>
-              Explorers
-              <IoIosArrowDown />
-            </span>
-            <span>
-              Community
-              <IoIosArrowDown />
-            </span>
-            <span>Chat</span>
-            <span>Source Code</span>
-            <span>Whitepaper</span>
-          </div>
-        </CoinCard>
-      </CustomCoins>
-      <div className="container p-5">
-        <div className="headContent d-flex align-items-center">
-          <div>
-            <img src={currentCoin?.icon} alt="" />
-          </div>
-          <div className="h2 ms-4">{currentCoin?.name}</div>
-        </div>
-        <div className="d-flex align-items-center">
-          <div className="me-3">
-            <div className="fs-5 my-3">
-              Twitter URL:{" "}
-              <a href={currentCoin?.twitterUrl}>{currentCoin?.twitterUrl}</a>
-            </div>
-            <div className="fs-5 my-3">
-              Available Supply: {currentCoin?.availableSupply.toLocaleString()}{" "}
-              {currentCoin?.symbol}
-            </div>
-            <div className="fs-5 my-3">
-              Total Supply: {currentCoin?.totalSupply.toLocaleString()}{" "}
-              {currentCoin?.symbol}
-            </div>
-          </div>
-          <div className="ms-5">
-            <div className="fs-5 my-3">
-              1 Hour Price Change:{" "}
-              <span
-                className={
-                  Number(currentCoin?.priceChange1h) > 0
-                    ? "text-success"
-                    : "text-danger"
-                }
-              >
-                {currentCoin?.priceChange1h} %{" "}
-              </span>
-            </div>
-            <div className="fs-5 my-3">
-              1 Day Price Change:{" "}
-              <span
-                className={
-                  Number(currentCoin?.priceChange1d) > 0
-                    ? "text-success"
-                    : "text-danger"
-                }
-              >
-                {currentCoin?.priceChange1d} %{" "}
-              </span>
-            </div>
-            <div className="fs-5 my-3">
-              1 Week Price Change:{" "}
-              <span
-                className={
-                  Number(currentCoin?.priceChange1w) > 0
-                    ? "text-success"
-                    : "text-danger"
-                }
-              >
-                {currentCoin?.priceChange1w} %{" "}
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="fs-5 text-secondary">
-          Volume: {currentCoin?.volume.toLocaleString().slice(0, 10)} K
-        </div>
-        <div className="fs-5">
-          Price:{" "}
-          <span className="text-success">
-            {currentCoin?.price.toString().slice(0, 7)} ${" "}
-          </span>
-        </div>
+              <CurrentCoinLLink>
+                <span>
+                  <BiLinkAlt />
+                  <a href={currentCoin?.twitterUrl}>
+                    {currentCoin?.twitterUrl}
+                  </a>
+                  <BsBoxArrowUpRight />
+                </span>
+                <span>
+                  <AiOutlineSearch />
+                  Explorers
+                  <IoIosArrowDown />
+                </span>
+                <span>
+                  <BsFillPersonFill />
+                  Community
+                  <IoIosArrowDown />
+                </span>
+                <span>
+                  <BsFillChatFill />
+                  Chat <IoIosArrowDown />
+                </span>
+                <span>
+                  <BsCodeSlash />
+                  Source Code
+                  <BsBoxArrowUpRight />
+                </span>
+                <span>
+                  <GrDocument />
+                  Whitepaper
+                  <BsBoxArrowUpRight />
+                </span>
+              </CurrentCoinLLink>
+              <p>Tags:</p>
+              <CurrentCoinPos>
+                <span>PoS</span>
+                <span>PoW</span>
+                <span>Stakings</span>
+                <span>SHA-256</span>
+                <button type="">View all</button>
+              </CurrentCoinPos>
+            </CoinCardContainer>
+            <CustomPrice>
+              <CustomPriceTop>
+                <CustomCoinValue>
+                  <p>
+                    {currentCoin?.name.split(" ")[0]} Price (
+                    {currentCoin?.symbol})
+                  </p>
+                  <div>
+                    <h2>${currentCoin?.price.toString().slice(0, 7)} </h2>
+                    <span
+                      className={
+                        Number(currentCoin?.priceChange1h) > 0
+                          ? "text-success"
+                          : "text-danger"
+                      }
+                    >
+                      {currentCoin.priceChange1h} %
+                    </span>
+                  </div>
+                  <h4>
+                    Available Supply:
+                    <span>
+                      {" "}
+                      {currentCoin?.availableSupply.toLocaleString()}{" "}
+                      {currentCoin?.symbol}
+                    </span>
+                  </h4>
+                </CustomCoinValue>
+                <PriceButton>
+                  <button type="">Buy</button>
+                  <button type="">Exchange</button>
+                  <button type="">Gaming</button>
+                  <button type="">Earn crypto</button>
+                </PriceButton>
+              </CustomPriceTop>
+              <CustomPriceBottom>
+                <div>
+                  <p>
+                    <span>Hourly:</span>
+                    <span>Daily:</span>
+                    <span>Weekly:</span>
+                  </p>
+                  <p>
+                    <span
+                      className={
+                        Number(currentCoin?.priceChange1h) > 0
+                          ? "text-success"
+                          : "text-danger"
+                      }
+                    >
+                      {currentCoin?.priceChange1h} %{" "}
+                    </span>
+                    <span
+                      className={
+                        Number(currentCoin?.priceChange1d) > 0
+                          ? "text-success"
+                          : "text-danger"
+                      }
+                    >
+                      {currentCoin?.priceChange1d} %{" "}
+                    </span>
+                    <span
+                      className={
+                        Number(currentCoin?.priceChange1w) > 0
+                          ? "text-success"
+                          : "text-danger"
+                      }
+                    >
+                      {currentCoin?.priceChange1w} %{" "}
+                    </span>
+                  </p>
+                  <p>Market Cap: ${currentCoin?.marketCap.toFixed(2)}</p>
+                </div>
+                <div className="fs-5 text-secondary">
+                  Volume: {currentCoin?.volume.toLocaleString().slice(0, 10)};
+                  <p>
+                    Dex Vol
+                    <CgDanger />: <a href="">24h</a>
+                    <span>--</span>
+                  </p>
+                  <p>
+                    Cex Vol
+                    <CgDanger />: <a href="">24h</a>
+                    <span>--</span>
+                  </p>
+                </div>
+                <div>
+                  Total Supply: {currentCoin?.totalSupply.toLocaleString()}{" "}
+                  {currentCoin?.symbol}
+                  <ContainerStyles>
+                    <div>
+                      <span></span>
+                    </div>
+                  </ContainerStyles>
+                </div>
+              </CustomPriceBottom>
+            </CustomPrice>
+          </CoinCard>
+        </CustomCoins>
+      </CoinDetailContainer>
+      <div>
+        <Graph item={id} />
       </div>
-    </CoinDetailContainer>
-    <GraphContainer>
-            <Graph item={id} />
-    </GraphContainer>
-   </>
+    </>
   );
 };
 
