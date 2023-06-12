@@ -8,7 +8,7 @@ const Home = () => {
   const coinSearch = useRef();
   const [searchResult, setSearchResults] = useState();
   const [sortColumn, setSortColumn] = useState("name");
-  const [sortOrder, setSortOrder] = useState(true);
+  const [sortNameOrder, setSortNameOrder] = useState(true);
   const [sortPriceOrder, setSortPriceOrder] = useState(true);
 
   if (allCoins.length === 0) {
@@ -20,6 +20,7 @@ const Home = () => {
       (item) =>
         item.name.toLowerCase() == coinSearch.current.value.toLowerCase()
     );
+
     setSearchResults(filteredCoin);
   };
 
@@ -28,18 +29,18 @@ const Home = () => {
       if (column === "price") {
         setSortPriceOrder(!sortPriceOrder);
       } else {
-        setSortOrder(!sortOrder);
+        setSortNameOrder(!sortNameOrder);
       }
     } else {
       setSortColumn(column);
-      // setSortOrder(true);
-      setSortPriceOrder(true);
+      // setSortNameOrder(true);
+      // setSortPriceOrder(true);
     }
   };
 
-  const sortedCoins = allCoins.coins.slice().sort((a, b) => {
+  const sortedCoins = allCoins.coins.sort((a, b) => {
     if (sortColumn === "name") {
-      return sortOrder
+      return sortNameOrder
         ? a.name.localeCompare(b.name)
         : b.name.localeCompare(a.name);
     } else if (sortColumn === "price") {
@@ -77,17 +78,15 @@ const Home = () => {
                   <i
                     className={
                       sortColumn === "name"
-                        ? sortOrder
+                        ? sortNameOrder
                           ? "bi bi-sort-alpha-down ms-2"
                           : "bi bi-sort-alpha-down-alt ms-2"
-                        : "bi bi-sort ms-2"
+                        : ""
                     }
                   ></i>
                 </th>
                 <th
-                  style={{ cursor: "pointer" }}
-                  onClick={() => handleSort("price")}
-                >
+                  style={{ cursor: "pointer" }} onClick={() => handleSort("price")}>
                   Price
                   <i
                     className={
@@ -95,7 +94,7 @@ const Home = () => {
                         ? sortPriceOrder
                           ? "bi bi-sort-numeric-down ms-2"
                           : "bi bi-sort-numeric-down-alt ms-2"
-                        : "bi bi-sort ms-2"
+                        : ""
                     }
                   ></i>
                 </th>
