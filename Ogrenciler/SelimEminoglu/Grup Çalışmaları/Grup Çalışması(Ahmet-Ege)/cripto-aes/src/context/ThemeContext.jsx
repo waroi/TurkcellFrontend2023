@@ -1,28 +1,27 @@
-import {useState, useEffect, useContext, createContext} from 'react'
-import PropTypes from 'prop-types'
+import { useState, useEffect, useContext, createContext } from "react";
+import PropTypes from "prop-types";
 
-const ThemeContext = createContext()
+const ThemeContext = createContext();
 
-export const ThemeProvider = ({children}) => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
-    localStorage.setItem('theme', theme)
-  }, [theme])
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const values = {
-    theme, setTheme
-  }
+    theme,
+    setTheme,
+  };
 
   return (
-    <ThemeContext.Provider value={values}>
-      {children}
-    </ThemeContext.Provider>
-  )
-}
+    <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
+  );
+};
 
 ThemeProvider.propTypes = {
-  children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
-export const useTheme = () => useContext(ThemeContext)
+export const useTheme = () => useContext(ThemeContext);
