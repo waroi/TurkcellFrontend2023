@@ -31,7 +31,6 @@ const PopularCard = ({ data }) => {
             style={{ color: data.priceChange1hColor }}
             className="mb-3 d-block"
           >
-            {" "}
             {data.priceChange1h}%
           </span>
           <h3 className="mb-3">

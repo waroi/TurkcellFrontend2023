@@ -32,6 +32,7 @@ export const FetchProvider = ({ children }) => {
     }
     fetchData();
   }, [data]);
+
   const getColor = (value) => {
     return value > 0 ? "green" : value < 0 ? "red" : "black";
   };
@@ -44,6 +45,7 @@ export const FetchProvider = ({ children }) => {
     <fetchContext.Provider value={values}> {children}</fetchContext.Provider>
   );
 };
+
 FetchProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
