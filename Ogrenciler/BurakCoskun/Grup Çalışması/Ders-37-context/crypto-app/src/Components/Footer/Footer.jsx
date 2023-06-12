@@ -1,125 +1,114 @@
-import React from 'react';
-import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { useTheme } from "../../context/Context";
+
 const Footer = () => {
+  const { theme } = useTheme();
   return (
-    <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
-      <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
-        <div className='me-5 d-none d-lg-block'>
+    <footer
+      className={`${
+        theme === "dark" ? "bg-dark" : "bg-white"
+      } text-center text-lg-start text-muted py-5 mt-5 px-3`}
+    >
+      <section
+        className={`container d-flex justify-content-center justify-content-lg-between p-4 border-bottom ${
+          theme === "dark" ? " text-white" : "text-dark"
+        } `}
+      >
+        <div className="me-5 d-none d-lg-block">
           <span>Get connected with us on social networks:</span>
         </div>
 
         <div>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="facebook-f" />
+          <a className="me-4 text-reset">
+            <i className="fab fa-facebook-f"></i>
           </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="twitter" />
+          <a className="me-4 text-reset">
+            <i className="fab fa-twitter"></i>
           </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="google" />
+          <a className="me-4 text-reset">
+            <i className="fab fa-google"></i>
           </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="instagram" />
+          <a className="me-4 text-reset">
+            <i className="fab fa-instagram"></i>
           </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="linkedin" />
+          <a className="me-4 text-reset">
+            <i className="fab fa-linkedin"></i>
           </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="github" />
+          <a className="me-4 text-reset">
+            <i className="fab fa-github"></i>
           </a>
         </div>
       </section>
 
-      <section className=''>
-        <MDBContainer className='text-center text-md-start mt-5'>
-          <MDBRow className='mt-3'>
-            <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>
-                <MDBIcon icon="gem" className="me-3" />
-                Company name
-              </h6>
-              <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.
-              </p>
-            </MDBCol>
+      <div
+        className={`${
+          theme === "dark" ? "text-white" : "text-dark"
+        } container text-center text-md-start mt-5`}
+      >
+        <div className="row mt-3">
+          <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 className="text-uppercase fw-bold mb-4">
+              <i className="fas fa-gem me-3"></i>
+              Coin
+            </h6>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Inventore, suscipit?
+            </p>
+          </div>
 
-            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Angular
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  React
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Vue
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Laravel
-                </a>
-              </p>
-            </MDBCol>
+          <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 className="text-uppercase fw-bold mb-4">Products</h6>
+            <p>
+              <a href="/list" className="text-reset">
+                List of Coins
+              </a>
+            </p>
+          </div>
 
-            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Pricing
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Settings
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Orders
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Help
-                </a>
-              </p>
-            </MDBCol>
+          <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
+            <p>
+              <a href="#!" className="text-reset">
+                Pricing
+              </a>
+            </p>
+            <p>
+              <a href="#!" className="text-reset">
+                Settings
+              </a>
+            </p>
+            <p>
+              <a href="#!" className="text-reset">
+                Orders
+              </a>
+            </p>
+            <p>
+              <a href="#!" className="text-reset">
+                Help
+              </a>
+            </p>
+          </div>
 
-            <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
-              <p>
-                <MDBIcon icon="home" className="me-2" />
-                New York, NY 10012, US
-              </p>
-              <p>
-                <MDBIcon icon="envelope" className="me-3" />
-                info@example.com
-              </p>
-              <p>
-                <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
-              </p>
-              <p>
-                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
-              </p>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-      </section>
-
-      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2021 Copyright:
-        <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
-        </a>
+          <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
+            <p>
+              <i className="fas fa-home me-2"></i>
+              New York, NY 10012, US
+            </p>
+            <p>
+              <i className="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p>
+              <i className="fas fa-phone me-3"></i> + 01 234 567 88
+            </p>
+            <p>
+              <i className="fas fa-print me-3"></i> + 01 234 567 89
+            </p>
+          </div>
+        </div>
       </div>
-    </MDBFooter>
+    </footer>
   );
 };
 

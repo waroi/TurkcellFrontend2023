@@ -34,21 +34,21 @@ const DetailPrice = ({ coin }) => {
                       coin.priceChange1h < 0 ? "bg-danger" : "bg-success"
                     } me-2`}
                   >
-                    1h: {coin.priceChange1h}
+                    1h: {coin.priceChange1h}%
                   </span>
                   <span
                     className={`badge ${
                       coin.priceChange1d < 0 ? "bg-danger" : "bg-success"
                     } me-2`}
                   >
-                    24h: {coin.priceChange1d}
+                    24h: {coin.priceChange1d}%
                   </span>
                   <span
                     className={`badge ${
                       coin.priceChange1w < 0 ? "bg-danger" : "bg-success"
                     } me-2`}
                   >
-                    7d: {coin.priceChange1w}
+                    7d: {coin.priceChange1w}%
                   </span>
                 </div>
 
@@ -86,7 +86,7 @@ const DetailPrice = ({ coin }) => {
 };
 
 DetailPrice.propTypes = {
-  coin: PropTypes.object.isRequired,
+  coin: PropTypes.object,
 };
 
 export default DetailPrice;

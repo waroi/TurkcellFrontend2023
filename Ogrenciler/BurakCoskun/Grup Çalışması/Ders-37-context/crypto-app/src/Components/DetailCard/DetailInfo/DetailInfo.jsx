@@ -59,7 +59,7 @@ const DetailInfo = ({ coin }) => {
 };
 
 DetailInfo.propTypes = {
-  coin: PropTypes.object.isRequired,
+  coin: PropTypes.object,
 };
 
 export default DetailInfo;

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const DetailCard = ({ coin }) => {
   return (
-    <div className="container">
+    <div className="container py-5 px-3">
       <div className="row">
         <div className="col-12">
           <DetailPrice coin={coin} />
@@ -22,7 +22,7 @@ const DetailCard = ({ coin }) => {
 };
 
 DetailCard.propTypes = {
-  coin: PropTypes.object.isRequired,
+  coin: PropTypes.object,
 };
 
 export default DetailCard;

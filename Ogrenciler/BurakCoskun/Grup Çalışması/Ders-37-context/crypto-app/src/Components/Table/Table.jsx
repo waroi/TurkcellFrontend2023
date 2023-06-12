@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../../context/Context";
 
 const Table = ({ coins }) => {
+  const { theme } = useTheme();
+  const navigate = useNavigate();
   function formatNumber(number) {
     if (number >= 1000000000) {
       return (number / 1000000000).toFixed(3) + " B";
@@ -11,11 +14,15 @@ const Table = ({ coins }) => {
       return number;
     }
   }
-  const navigate = useNavigate();
+
   return (
     coins.length > 0 && (
-      <table className="table table-primary">
-        <thead>
+      <table
+        className={`table  mt-5 table-hover table-striped ${
+          theme === "dark" ? "table-dark text-white" : "table-white "
+        }`}
+      >
+        <thead className="thead-dark">
           <tr>
             <th>Name</th>
             <th>Price</th>

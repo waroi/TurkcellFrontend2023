@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import Home from "../Views/Home/Home";
 import ListPage from "../Views/ListPage/ListPage";
 import DetailPage from "../Views/DetailPage/DetailPage";
+import NotFound from "../Views/NotFound/NotFound";
 
 const Router = () => {
   const routes = useRoutes([
@@ -16,7 +17,7 @@ const Router = () => {
     },
     {
       path: "*",
-      element: <h1>404 Not Found</h1>,
+      element: <NotFound />,
     },
   ]);
   return routes;

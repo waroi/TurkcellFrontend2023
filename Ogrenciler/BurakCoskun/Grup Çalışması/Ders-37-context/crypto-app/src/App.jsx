@@ -1,17 +1,31 @@
 import "./App.css";
+import { useEffect } from "react";
 import Footer from "./Components/Footer/Footer";
 import NavbarComponent from "./Components/Navbar/Navbar";
 import Router from "./routes/Router";
-import CarouselComponent from "./Components/Carouselcomponent/CarouselComponent";
+import {
+  CategoryScale,
+  Chart,
+  LinearScale,
+  PointElement,
+  LineElement,
+} from "chart.js";
+import { useTheme } from "./context/Context";
 
 function App() {
+  const { theme } = useTheme();
+  useEffect(() => {
+    Chart.register(CategoryScale);
+    Chart.register(LinearScale);
+    Chart.register(PointElement);
+    Chart.register(LineElement);
+  }, []);
   return (
-    <>
+    <div className={`app ${theme}`}>
       <NavbarComponent />
-      <CarouselComponent/>
       <Router />
       <Footer />
-    </>
+    </div>
   );
 }
 
