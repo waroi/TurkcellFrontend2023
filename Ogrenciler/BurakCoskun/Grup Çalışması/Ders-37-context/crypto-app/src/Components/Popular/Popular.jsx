@@ -1,9 +1,9 @@
-import { useTheme } from "../../context/Context";
+import { useCustomContext } from "../../context/Context";
 import { useNavigate } from "react-router-dom";
 import Table from "../Table/Table";
 
 const Popular = () => {
-  const { coins } = useTheme();
+  const { coins } = useCustomContext();
   const navigate = useNavigate();
   return coins ? (
     <div className="container">

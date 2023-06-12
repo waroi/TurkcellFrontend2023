@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
+import { useCustomContext } from "../../../context/Context";
 
 const DetailPrice = ({ coin }) => {
+  const { theme } = useCustomContext();
   function formatNumber(number) {
     if (number >= 1000000000) {
       return (number / 1000000000).toFixed(3) + " B";
@@ -13,7 +15,11 @@ const DetailPrice = ({ coin }) => {
 
   return (
     coin && (
-      <div className="card py-5 px-3">
+      <div
+        className={`card py-5 px-3 ${
+          theme === "dark" ? "bg-dark text-white" : "bg-white"
+        }`}
+      >
         <div className="card-body">
           <div className="row">
             <div className="col-12 col-md-4">

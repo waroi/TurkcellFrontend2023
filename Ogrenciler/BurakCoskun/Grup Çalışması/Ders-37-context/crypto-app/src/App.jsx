@@ -10,10 +10,10 @@ import {
   PointElement,
   LineElement,
 } from "chart.js";
-import { useTheme } from "./context/Context";
+import { useCustomContext } from "./context/Context";
 
 function App() {
-  const { theme } = useTheme();
+  const { theme } = useCustomContext();
   useEffect(() => {
     Chart.register(CategoryScale);
     Chart.register(LinearScale);

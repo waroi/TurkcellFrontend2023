@@ -1,14 +1,11 @@
-
 import { Line } from "react-chartjs-2";
 import PropTypes from "prop-types";
 
 const ChartComponent = ({ coin }) => {
-  
-
-
   return (
     coin && (
       <Line
+        className="py-4"
         data={{
           labels: ["1h", "1d", "1w"],
           datasets: [

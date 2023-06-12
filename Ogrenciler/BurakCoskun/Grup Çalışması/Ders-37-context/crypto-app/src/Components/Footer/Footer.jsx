@@ -1,7 +1,7 @@
-import { useTheme } from "../../context/Context";
+import { useCustomContext } from "../../context/Context";
 
 const Footer = () => {
-  const { theme } = useTheme();
+  const { theme } = useCustomContext();
   return (
     <footer
       className={`${

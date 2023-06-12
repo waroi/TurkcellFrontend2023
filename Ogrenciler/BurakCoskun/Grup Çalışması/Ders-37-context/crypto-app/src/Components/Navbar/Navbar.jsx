@@ -1,10 +1,10 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useTheme } from "../../context/Context";
+import { useCustomContext } from "../../context/Context";
 
 const NavbarComponent = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useCustomContext();
 
   return (
     <Navbar

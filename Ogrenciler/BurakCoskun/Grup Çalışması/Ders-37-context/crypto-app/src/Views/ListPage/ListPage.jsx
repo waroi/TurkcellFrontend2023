@@ -1,8 +1,8 @@
-import { useTheme } from "../../context/Context";
+import { useCustomContext } from "../../context/Context";
 import Table from "../../Components/Table/Table";
 
 const ListPage = () => {
-  const { coins, page, setPage } = useTheme();
+  const { coins, page, setPage } = useCustomContext();
 
   return coins ? (
     <div className="container py-5 px-3">

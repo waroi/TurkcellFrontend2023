@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { useTheme } from "../../context/Context";
+import { useCustomContext } from "../../context/Context";
 
 const Table = ({ coins }) => {
-  const { theme } = useTheme();
+  const { theme } = useCustomContext();
   const navigate = useNavigate();
   function formatNumber(number) {
     if (number >= 1000000000) {

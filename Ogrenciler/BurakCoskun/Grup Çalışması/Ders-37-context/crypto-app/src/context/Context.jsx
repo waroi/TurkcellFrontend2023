@@ -41,4 +41,4 @@ ContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const useTheme = () => useContext(Context);
+export const useCustomContext = () => useContext(Context);

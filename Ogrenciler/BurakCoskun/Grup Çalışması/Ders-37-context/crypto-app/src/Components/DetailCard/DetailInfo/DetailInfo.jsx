@@ -1,10 +1,16 @@
 import PropTypes from "prop-types";
+import { useCustomContext } from "../../../context/Context";
 
 const DetailInfo = ({ coin }) => {
+  const { theme } = useCustomContext();
   return (
     coin && (
       <div>
-        <div className="card py-4 px-3">
+        <div
+          className={`card py-4 px-3 ${
+            theme === "dark" ? "bg-dark text-white" : "bg-white"
+          }`}
+        >
           <div className="card-body">
             <div>
               <h5>Basic Info</h5>
@@ -13,7 +19,7 @@ const DetailInfo = ({ coin }) => {
               <h5 className="mt-3">Website</h5>
               <a
                 href={coin.websiteUrl}
-                className="card-text text-decoration-none text-muted mt-2"
+                className="card-text text-decoration-none  mt-2"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -25,7 +31,7 @@ const DetailInfo = ({ coin }) => {
               {coin.twitterUrl ? (
                 <a
                   href={coin.twitterUrl}
-                  className="card-text text-decoration-none text-muted mt-2"
+                  className="card-text text-decoration-none  mt-2"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -42,7 +48,7 @@ const DetailInfo = ({ coin }) => {
                 <a
                   key={index}
                   href={exp}
-                  className="card-text text-decoration-none text-muted mt-2 d-block"
+                  className="card-text text-decoration-none  mt-2 d-block"
                   target="_blank"
                   rel="noreferrer"
                 >
