@@ -17,7 +17,7 @@ const Graph = ({ item }) => {
         const charted = await response.json();
         const chartData = transformChartData(charted.chart);
 
-        // Remove the existing chart if it exists
+
         if (chartInstanceRef.current) {
           chartInstanceRef.current.remove();
         }
@@ -48,7 +48,7 @@ const Graph = ({ item }) => {
 
         chart.timeScale().fitContent();
 
-        // Store the chart instance in the ref
+       
         chartInstanceRef.current = chart;
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -58,11 +58,10 @@ const Graph = ({ item }) => {
     fetchData();
   }, [item, theme]);
 
-  // Function to transform the chart data format
   const transformChartData = (data) => {
     return data.map((item) => ({
-      time: new Date(item[0] * 1000).getTime() / 1000, // Convert timestamp to milliseconds
-      value: item[1], // Use the appropriate value from the data array
+      time: new Date(item[0] * 1000).getTime() / 1000, 
+      value: item[1], 
     }));
   };
 
