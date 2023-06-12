@@ -15,10 +15,43 @@ import {
 } from "./styled";
 import { AiOutlineStar } from "react-icons/ai";
 import { useTheme } from "../../context/ThemeContext";
+import { useState } from "react";
 
 const Coins = () => {
   const { datas } = useFetch();
   const {theme} = useTheme();
+  const [sortOrder, setSortOrder] = useState("asc"); 
+
+  const handleMarketCapClick = () => {
+    if (sortOrder === "asc") {
+      datas.sort((a, b) => b.marketCap - a.marketCap); 
+      setSortOrder("desc");
+    } else {
+      datas.sort((a, b) => a.marketCap - b.marketCap);
+      setSortOrder("asc");
+    }
+  };
+
+  const handleNameClick = () => {
+    if (sortOrder === "asc") {
+      datas.sort((a, b) => a.name.localeCompare(b.name));
+      setSortOrder("desc");
+    } else {
+      datas.sort((a, b) => b.name.localeCompare(a.name)); 
+      setSortOrder("asc");
+    }
+  };
+
+  const handlePriceClick = () => {
+    if (sortOrder === "asc") {
+      datas.sort((a, b) => a.price - b.price); // Sort in ascending order
+      setSortOrder("desc");
+    } else {
+      datas.sort((a, b) => b.price - a.price); // Sort in descending order
+      setSortOrder("asc");
+    }
+  };
+
   return (
     <CoinsMain  style={theme == "light" ?  {backgroundColor:"white"} :  {backgroundColor: "#1a1a1d"}} >
       <CoinsContainer >
@@ -28,12 +61,12 @@ const Coins = () => {
             <th></th>
             <th>#</th>
             <th>Logo</th>
-            <th>Name</th>
-            <th>Price</th>
+            <th onClick={handleNameClick}>Name</th>
+            <th onClick={handlePriceClick}>Price</th>
             <th>1h %</th>
             <th>1d %</th>
             <th>1w %</th>
-            <th>Market Cap</th>
+            <th onClick={handleMarketCapClick}>Market Cap</th>
             <th>Volume 24h</th>
             <th>Total Supply</th>
             </tr>
