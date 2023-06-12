@@ -1,0 +1,62 @@
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+a:visited {
+  color: inherit;
+}
+
+footer {
+  margin: 3rem 0;
+  border-top: 3px dotted #eaeaea;
+  padding: 1rem 0;
+}
+
+.footerStart-li {
+  --b: 1px;
+  --s: 0.15em; /* size of the corner */
+  --c: gold;
+
+  padding: calc(0.05em + var(--s)) calc(0.3em + var(--s));
+  color: var(--c);
+  --_p: var(--s);
+  background: conic-gradient(
+      from 90deg at var(--b) var(--b),
+      #40404082 90deg,
+      var(--c) 0
+    )
+    var(--_p) var(--_p) / calc(100% - var(--b) - 2 * var(--_p))
+    calc(100% - var(--b) - 2 * var(--_p));
+  transition: 0.2s linear;
+  outline: var(--b) solid #0000;
+  outline-offset: 0.2em;
+}
+.footerStart-li:hover,
+.footerStart-lii:focus-visible {
+  --_p: 0px;
+  outline-color: var(--c);
+  outline-offset: 0.05em;
+  box-shadow: 1px 1px 12px 4px rgba(251, 255, 157, 0.75);
+}
+
+.footerStart-li {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 0.1em;
+  margin-top: 0.5em;
+}
+
+.text-hover::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background: gold;
+  transition: width 0.3s;
+}
+.text-hover:hover::after {
+  width: 50%;
+}
