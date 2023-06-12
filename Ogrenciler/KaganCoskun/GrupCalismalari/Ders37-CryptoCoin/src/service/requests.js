@@ -22,6 +22,5 @@ export async function getCoinChart(id, currency,day) {
 export async function getTrendings(){
   const response = await fetch(`${import.meta.env.VITE_COINGECKO_API}/search/trending`);
   const trendings = await response.json();
-  console.log(trendings.coins);
   return trendings.coins;
 }

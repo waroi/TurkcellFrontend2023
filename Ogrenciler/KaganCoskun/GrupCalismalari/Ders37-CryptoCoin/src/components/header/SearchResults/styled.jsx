@@ -28,7 +28,7 @@ export const SeacrhResultWrap = styled.div`
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: all .3s ease;
+    transition: all .3s ease-in-out;
     &:hover{
         background-color: #ccc;
     }

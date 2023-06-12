@@ -5,6 +5,5 @@ export const Main=styled.div`
     color:${props=>props.theme==="light"?"#1f1f1f":"#f5f5f5"};
     transition: all 0.3s ease-in-out;
     height:100%;
-    width:100vw;
     margin:0;  
 `;

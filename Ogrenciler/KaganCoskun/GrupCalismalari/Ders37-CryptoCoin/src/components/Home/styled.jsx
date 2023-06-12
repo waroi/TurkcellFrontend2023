@@ -4,6 +4,7 @@ const TableRow = styled.tr`
 display: table-row;
   background-color: ${(props) => props.theme === "dark" ? "#333" : "#f8fafd"};
   padding: 0%.5rem 0;
+  transition: all 0.3s ease-in-out;
 `;
 const TableCell = styled.td`
   padding: 1rem 0.5rem;

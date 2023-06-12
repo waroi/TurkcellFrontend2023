@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const TrendCoins = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ export const TrendCoinImage = styled.img`
   border-radius: 50%;
 `;
 
-export const TrendCoinsItem = styled.div`
+export const TrendCoinsItem = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
