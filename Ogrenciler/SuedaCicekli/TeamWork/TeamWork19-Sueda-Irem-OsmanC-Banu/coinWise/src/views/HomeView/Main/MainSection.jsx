@@ -15,7 +15,7 @@ const MainSection = () => {
         <Wrap>
           <div className="d-flex flex-column justify-content-around h-75">
             <MainTitle>Navigate the Crypto Universe</MainTitle>
-            <ExploreButton onClick={() => handleClick(1150)}>
+            <ExploreButton onClick={() => handleClick(1000)}>
               Explore
             </ExploreButton>
           </div>
