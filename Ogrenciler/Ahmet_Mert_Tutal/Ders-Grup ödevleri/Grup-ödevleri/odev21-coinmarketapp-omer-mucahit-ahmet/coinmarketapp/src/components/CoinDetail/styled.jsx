@@ -210,8 +210,7 @@ export const PriceButton = styled.div`
     background: linear-gradient(
       0deg,
       rgba(255, 255, 255, 0.08),
-      rgba(255, 255, 255, 0.08),
-      rgb(56, 97, 251) ;
+      rgba(255, 255, 255, 0.08)
     );
     border: 0px;
     border-radius: 8px;
@@ -228,4 +227,9 @@ export const PriceButton = styled.div`
       text-decoration: none;
     }
   }
+`;
+export const CustomPriceBottom = styled.div`
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: row;
 `;

@@ -29,6 +29,7 @@ import {
   CustomPriceTop,
   CustomCoinValue,
   PriceButton,
+  CustomPriceBottom,
 } from "./styled";
 
 const CoinDetail = () => {
@@ -141,7 +142,7 @@ const CoinDetail = () => {
                 <button type="">Earn crypto</button>
               </PriceButton>
             </CustomPriceTop>
-            <div className="bottom">
+            <CustomPriceBottom>
               <div>
                 <span
                   className={
@@ -178,7 +179,11 @@ const CoinDetail = () => {
                 Total Supply: {currentCoin?.totalSupply.toLocaleString()}{" "}
                 {currentCoin?.symbol}
               </div>
-            </div>
+              <div className="fs-5 my-3">
+                Total Supply: {currentCoin?.totalSupply.toLocaleString()}{" "}
+                {currentCoin?.symbol}
+              </div>
+            </CustomPriceBottom>
           </CustomPrice>
         </CoinCard>
       </CustomCoins>
