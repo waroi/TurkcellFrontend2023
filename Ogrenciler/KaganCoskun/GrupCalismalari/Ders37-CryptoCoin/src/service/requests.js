@@ -7,7 +7,7 @@ export async function getCurrencies() {
 }
 
 export async function getCoinList(currency) {
-    const response = await fetch(`${import.meta.env.VITE_COINGECKO_API}/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=5&page=1&sparkline=false&locale=tr`);
+    const response = await fetch(`${import.meta.env.VITE_COINGECKO_API}/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=tr`);
     const coinList = await response.json();
     return coinList;
 }

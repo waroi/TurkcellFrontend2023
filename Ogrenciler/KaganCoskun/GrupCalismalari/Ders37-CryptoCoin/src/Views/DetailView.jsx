@@ -3,16 +3,30 @@ import { useCoinList } from "../context/CoinContext";
 import { Top, Bottom, SpanItem, DetailWrapper, Table, Rank,Image,Paragraph,Span,Header2} from "./detailStyled";
 import { useCurrency } from "../context/CurrencyContext";
 import { useTheme } from "../context/ThemeContext";
+import { useEffect, useState } from "react";
+import { getCoinChart } from "../service/requests";
 import TableItem from "../components/TableItem/TableItem";
+import CoinChart from "../components/Home/CoinChart";
 
 const DetailView = () => {
   const { id } = useParams();
   const { coinList } = useCoinList();
   const { currency } = useCurrency();
   const {theme} = useTheme()
-  console.log(" out detail coinList : ", coinList);
+
+
+  const [coinChart, setCoinChart] = useState()
 
   const newCoin = coinList.find((element) => element.id === id);
+
+
+
+  useEffect(() => {
+    getCoinChart(id,currency,7).then((data)=>setCoinChart(data))
+  },[id,currency])
+
+
+  console.log("in Detail =>",coinChart)
 
   return (
     <DetailWrapper>
@@ -36,15 +50,16 @@ const DetailView = () => {
           {newCoin?.price_change_percentage_24h.toFixed(1)}%
         </SpanItem>
       </Bottom>
-<Table>
-  <tbody >
-    <TableItem text="Piyasa Degeri" value={newCoin?.market_cap.toLocaleString()}/>
-    <TableItem text="Total Supply" value={newCoin?.total_supply.toLocaleString()}/>
-    <TableItem text="Total volume" value={newCoin?.total_volume.toLocaleString()}/>
-    <TableItem text="Circulating Supply" value={newCoin?.circulating_supply.toLocaleString()}/>
-    <TableItem text="Fully Diluted Valuation" value={newCoin?.fully_diluted_valuation.toLocaleString()}/>
-  </tbody>
-</Table>
+      <Table>
+        <tbody >
+          <TableItem text="Piyasa Degeri" value={newCoin?.market_cap.toLocaleString()}/>
+          <TableItem text="Total Supply" value={newCoin?.total_supply.toLocaleString()}/>
+          <TableItem text="Total volume" value={newCoin?.total_volume.toLocaleString()}/>
+          <TableItem text="Circulating Supply" value={newCoin?.circulating_supply.toLocaleString()}/>
+          <TableItem text="Fully Diluted Valuation" value={newCoin?.fully_diluted_valuation.toLocaleString()}/>
+        </tbody>
+      </Table>
+      {coinChart?.length>0&&<CoinChart data={coinChart}/>}
     </DetailWrapper>
   );
 };

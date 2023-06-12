@@ -1,7 +1,7 @@
 import { useTheme } from "../../context/ThemeContext";
 import { HeaderWrapper, OptionItem, SelectItem,Icon } from "./styled";
 import { useCurrency } from "../../context/CurrencyContext";
-import { getCurrencies } from "../../service/requests";
+import { getCoinList, getCurrencies } from "../../service/requests";
 import { useEffect, useState } from "react";
 import { useCoinList } from "../../context/CoinContext";
 
@@ -22,6 +22,11 @@ const Header = () => {
       return item.name.toLowerCase().includes(e.target.value.toLowerCase());
     });
     setCoinList(filter);
+
+    if (e.target.value === "" || e.target.value === null) {
+      getCoinList(currency).then((data) => setCoinList(data))
+    }
+
   }
 
   return (
