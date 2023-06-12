@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom'
 import {AiFillStar} from 'react-icons/ai'
 import {BsCheckCircleFill} from 'react-icons/bs'
 import logo from '../../../public/logo.svg'
-
+import { useTheme } from '../../context/ThemeContext'
 const Header = () => {
+  const {theme,setTheme} = useTheme();
   return (
     <>
-    <UpperHeader>
+    <UpperHeader props={theme}>
       <UpperContainer>
         <TextArea>
           <p>Cryptos: <span>25.636</span></p>
@@ -27,7 +28,7 @@ const Header = () => {
           <CustomSelect>
             <CustomOption defaultValue="USD">USD</CustomOption>
           </CustomSelect>
-          <BsSunFill />
+          <BsSunFill style={theme == "light" ? {color: "#0d1421"} : {color:"white"}} onClick={() => setTheme(theme == "light" ? "dark" : "light")}/>
           <span>|</span>
           <MdDiamond />
           <CustomButton>Log In</CustomButton>

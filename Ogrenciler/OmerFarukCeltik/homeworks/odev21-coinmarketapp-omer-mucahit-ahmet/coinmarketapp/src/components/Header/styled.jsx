@@ -1,12 +1,13 @@
 import styled from "styled-components";
-
+// import { useTheme } from "../../context/ThemeContext";
+// const {theme} = useTheme()
 export const UpperHeader = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  background-color: #0d1421;
+  background-color: ${theme => (theme == "light" ? `white` : `#0d1421`)};
   border-bottom: 0.5px solid rgb(50 53 70);
 `;
 

@@ -5,6 +5,7 @@ import { AiOutlineStar, AiOutlineUpload } from "react-icons/ai";
 import { BiLinkAlt } from "react-icons/bi";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
+import { useCoinChart} from "../../context/CoinChartContext";
 import {
   CoinDetailContainer,
   CustomCoins,
@@ -16,7 +17,11 @@ import Graph from "../Graph/Graph";
 
 const CoinDetail = () => {
   const { datas } = useFetch();
+  const {setChartID,chartID,chartData} = useCoinChart();
   const { id } = useParams();
+  setChartID(id);
+  console.log(chartID);
+  console.log(chartData);
   const currentCoin = datas.find((item) => item.id == id);
   if (!currentCoin) {
     return <NotFound />;
