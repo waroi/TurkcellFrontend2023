@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useFetch } from "../../context/FetchContext";
 import NotFound from "../views/404/NotFound";
 import {
@@ -49,11 +49,8 @@ const CoinDetail = () => {
       <CoinDetailContainer style={{ backgroundColor: theme.bg }}>
         <CustomCoins>
           <CustomBreadCrumb>
-            <span >
-              <a  href="">Cryptocurrencies</a>
-            </span>
             <span>
-              <a href="">Coins</a>
+             <Link to="/">Cryptocurrencies </Link>
             </span>
             <span style={theme == "light" ?  {color:"black"} :  {color: "white"}}>{currentCoin?.name.split(" ")[0]}</span>
           </CustomBreadCrumb>
