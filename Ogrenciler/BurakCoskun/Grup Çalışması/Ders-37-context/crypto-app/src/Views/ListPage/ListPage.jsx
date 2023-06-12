@@ -11,11 +11,11 @@ const ListPage = () => {
       <div className="buttons float-end">
         <button
           className="btn btn-danger me-3"
-          onClick={() => (page > 0 ? setPage(page - 25) : null)}
+          onClick={() => (page > 0 ? setPage(page - 20) : null)}
         >
           Prev
         </button>
-        <button className="btn btn-primary" onClick={() => setPage(page + 25)}>
+        <button className="btn btn-primary" onClick={() => setPage(page + 20)}>
           Next
         </button>
       </div>
