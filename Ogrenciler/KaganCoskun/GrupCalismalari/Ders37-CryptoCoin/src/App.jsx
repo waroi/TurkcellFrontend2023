@@ -1,4 +1,4 @@
-import './App.css'
+  import './App.css'
 import Header from './components/header/Header'
 import { CoinListProvider } from './context/CoinContext'
 import { CurrencyProvider } from './context/CurrencyContext'
