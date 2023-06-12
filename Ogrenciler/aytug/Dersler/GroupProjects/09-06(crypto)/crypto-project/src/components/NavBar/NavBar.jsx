@@ -69,37 +69,35 @@ const NavBar = () => {
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className={`navbar-nav me-auto mb-2 mb-lg-0 ${theme}`}>
 							<li className="nav-item">
-								<a className="nav-link text-black fw-bold" aria-current="page" href="#">
+								<a className="nav-link  fw-bold" href="/">
 									Cryptocurrencies
 								</a>
 							</li>
-							<li className="nav-item text-black fw-bold">
+							<li className="nav-item fw-bold">
 								<a className="nav-link" href="#">
 									Exchanges
 								</a>
 							</li>
-							<li className="nav-item text-black fw-bold">
+							<li className="nav-item fw-bold">
 								<a className="nav-link" href="#">
 									Community
 								</a>
 							</li>
-							<li className="nav-item text-black fw-bold">
+							<li className="nav-item fw-bold">
 								<a className="nav-link" href="#">
 									Products
 								</a>
 							</li>
-							<li className="nav-item text-black fw-bold">
+							<li className="nav-item fw-bold">
 								<a className="nav-link" href="#">
 									Learn
 								</a>
 							</li>
 						</ul>
 						<p className="me-2">
-							{" "}
 							<i className="bi bi-star"></i> WatchList
 						</p>
 						<p className="mx-2">
-							{" "}
 							<i className="bi bi-pie-chart-fill"></i> Portfolio
 						</p>
 						<form className="d-flex" role="search">

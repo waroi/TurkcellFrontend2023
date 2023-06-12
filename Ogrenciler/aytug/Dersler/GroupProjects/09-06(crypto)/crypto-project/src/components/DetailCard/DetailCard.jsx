@@ -3,7 +3,7 @@ const DetailCard = ({ currency }) => {
 	return (
 		<>
 			{currency && (
-				<div className="row">
+				<div className="row mt-5">
 					<div className="col-4">
 						<>
 							<div className="d-flex gap-3 align-items-center">
@@ -117,7 +117,7 @@ const DetailCard = ({ currency }) => {
 								<div className="col">
 									<div className="row">
 										<div className="col-3">
-											<div className=" bg-transparent text-white border-0">
+											<div className=" bg-transparent border-0">
 												<div className="card-body text-start">
 													<h5 className="card-title fs-6">Market Cap</h5>
 													<h6 className="card-subtitle mb-2 mt-2">${currency.marketCap}</h6>
@@ -129,7 +129,7 @@ const DetailCard = ({ currency }) => {
 											</div>
 										</div>
 										<div className="col-3">
-											<div className=" bg-transparent text-white border-0">
+											<div className=" bg-transparent border-0">
 												<div className="card-body text-start">
 													<h5 className="card-title fs-6">Fully Diluted Market Cap</h5>
 													<h6 className="card-subtitle mb-2 mt-2">${currency.marketCap + 10000}</h6>
@@ -140,7 +140,7 @@ const DetailCard = ({ currency }) => {
 											</div>
 										</div>
 										<div className="col-3">
-											<div className=" bg-transparent text-white border-0">
+											<div className=" bg-transparent border-0">
 												<div className="card-body text-start">
 													<h5 className="card-title fs-6">Volume 24h</h5>
 													<h6 className="card-subtitle mb-2 mt-2">${currency.volume}</h6>
@@ -153,7 +153,7 @@ const DetailCard = ({ currency }) => {
 											</div>
 										</div>
 										<div className="col-3">
-											<div className=" bg-transparent text-white border-0">
+											<div className=" bg-transparent border-0">
 												<div className="card-body text-start">
 													<h5 className="card-title fs-6">Circulating Supply</h5>
 													<h6 className="card-subtitle mb-2 mt-2">
