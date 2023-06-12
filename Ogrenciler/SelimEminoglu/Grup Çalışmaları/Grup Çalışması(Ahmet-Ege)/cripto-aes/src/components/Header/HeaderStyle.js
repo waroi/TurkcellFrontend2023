@@ -25,6 +25,7 @@ export const HeaderComponent = styled.header`
   .themeSwapButton {
     border: none;
     background: transparent;
+    cursor: pointer;
   }
 
   .themeIconSun {

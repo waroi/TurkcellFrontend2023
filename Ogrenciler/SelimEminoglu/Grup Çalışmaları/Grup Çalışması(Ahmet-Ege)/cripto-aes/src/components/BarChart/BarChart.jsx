@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { Bar } from "react-chartjs-2"
-import { Chart as ChartJS } from "chart.js/auto"
 import {useTheme} from '../../context/ThemeContext'
 
 const BarChart = ({ chartData }) => {
@@ -9,7 +8,7 @@ const BarChart = ({ chartData }) => {
         plugins: {
           legend: {
             labels: {
-              color: theme == 'light' ? '#000000' : '#FFFFFF', // Yazı rengini burada belirleyebilirsiniz
+              color: theme == 'light' ? '#000000' : '#FFFFFF',
             },
           },
         },
@@ -17,12 +16,12 @@ const BarChart = ({ chartData }) => {
           y: {
             beginAtZero: true,
             ticks: {
-              color: theme == 'light' ? '#000000' : '#FFFFFF', // Y ekseni yazı rengini burada belirleyebilirsiniz
+              color: theme == 'light' ? '#000000' : '#FFFFFF',
             },
           },
           x: {
             ticks: {
-              color: theme == 'light' ? '#000000' : '#FFFFFF', // X ekseni yazı rengini burada belirleyebilirsiniz
+              color: theme == 'light' ? '#000000' : '#FFFFFF',
             },
           },
         },
