@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { Provider } from "react-redux";
-import { pokemonStore } from "./redux/store/pokemonStore";
 import { BrowserRouter } from "react-router-dom";
+import pokemonStore from "./redux/store/pokemonStore.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
