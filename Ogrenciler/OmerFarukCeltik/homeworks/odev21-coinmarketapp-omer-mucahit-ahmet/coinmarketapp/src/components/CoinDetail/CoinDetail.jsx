@@ -218,7 +218,7 @@ const CoinDetail = () => {
           </CoinCard>
         </CustomCoins>
       </CoinDetailContainer>
-      <div>
+      <div style={{marginBottom: "100px"}}>
         <Graph item={id} />
       </div>
     </>
