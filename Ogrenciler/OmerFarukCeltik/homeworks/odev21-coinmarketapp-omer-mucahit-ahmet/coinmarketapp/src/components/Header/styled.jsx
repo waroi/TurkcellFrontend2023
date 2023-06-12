@@ -7,7 +7,7 @@ export const UpperHeader = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
-  background-color: ${theme => (theme == "light" ? `white` : `#0d1421`)};
+  background-color: ${props => props.theme == "dark" ? `white` : `#0d1421`};
   border-bottom: 0.5px solid rgb(50 53 70);
 `;
 
@@ -45,7 +45,7 @@ export const SettingsArea = styled.div`
 
 export const CustomSelect = styled.select`
   border: none;
-  background-color: #0d1421;
+  background-color:transparent;
   color: white;
   font-size: 12px;
   font-weight: 600;

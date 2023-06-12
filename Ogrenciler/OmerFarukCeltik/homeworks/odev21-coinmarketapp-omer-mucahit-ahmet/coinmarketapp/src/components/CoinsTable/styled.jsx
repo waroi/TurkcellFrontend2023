@@ -30,7 +30,7 @@ export const CustomThead = styled.thead`
 `;
 
 export const CustomTable = styled.table`
-  background-color: #1a1a1d;
+  background-color: transparent;
 `;
 export const StyledTd = styled.td`
   color: ${({ value }) => (value < 0 ? "#ea3943" : "#16c784")};

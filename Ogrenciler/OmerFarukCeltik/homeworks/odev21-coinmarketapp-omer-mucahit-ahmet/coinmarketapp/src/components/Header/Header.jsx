@@ -4,13 +4,12 @@ import {MdDiamond} from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import {AiFillStar} from 'react-icons/ai'
 import {BsCheckCircleFill} from 'react-icons/bs'
-import logo from '../../../public/logo.svg'
 import { useTheme } from '../../context/ThemeContext'
 const Header = () => {
   const {theme,setTheme} = useTheme();
   return (
     <>
-    <UpperHeader props={theme}>
+    <UpperHeader style={theme == "light" ?  {backgroundColor:"white"} :  {backgroundColor: "#0d1421"}}>
       <UpperContainer>
         <TextArea>
           <p>Cryptos: <span>25.636</span></p>
@@ -21,26 +20,26 @@ const Header = () => {
           <p>ETH Gas: <span>17 Gwei</span></p>
         </TextArea>
         <SettingsArea>
-          <CustomSelect>
+          <CustomSelect style={theme == "light" ? {color: "#0d1421"} : {color:"white"}}>
             <CustomOption defaultValue="English">English</CustomOption>
-            <CustomOption>Turkish</CustomOption>
+            <CustomOption style={theme == "light" ? {color: "#0d1421"} : {color:"white"}}>Turkish</CustomOption>
           </CustomSelect>
-          <CustomSelect>
+          <CustomSelect style={theme == "light" ? {color: "#0d1421"} : {color:"white"}}>
             <CustomOption defaultValue="USD">USD</CustomOption>
           </CustomSelect>
           <BsSunFill style={theme == "light" ? {color: "#0d1421"} : {color:"white"}} onClick={() => setTheme(theme == "light" ? "dark" : "light")}/>
-          <span>|</span>
-          <MdDiamond />
-          <CustomButton>Log In</CustomButton>
+          <span style={theme == "light" ? {color: "#0d1421"} : {color:"white"}}>|</span>
+          <MdDiamond  style={theme == "light" ? {color: "#0d1421"} : {color:"white"}}/>
+          <CustomButton  style={theme == "light" ? {color: "#0d1421"} : {color:"white"}}>Log In</CustomButton>
           <CustomButton2>Sign Up</CustomButton2>
         </SettingsArea>
       </UpperContainer>
       </UpperHeader>
-      <BottomHeader>
+      <BottomHeader style={theme == "light" ? {color: "#0d1421", backgroundColor:"white"} : {color:"white",backgroundColor:"#0d1421"}}>
       <BottomContainer>
       <LogoWrapper>
             <Link to="/">
-              <LogoImg src={logo} alt="logo" />
+              <LogoImg src={theme == "light" ? "https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_1.svg?_=7934c0e" : "https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_white_1.svg?_=7934c0e"} alt="logo" />
             </Link>
           </LogoWrapper>
         <CategoryArea>
@@ -53,7 +52,7 @@ const Header = () => {
         <SearchArea>
           <AiFillStar></AiFillStar><span>Watchlist</span>
           <BsCheckCircleFill></BsCheckCircleFill><span>Portfolio</span>
-          <input placeholder='Search'></input>
+          <input style={theme == "light" ?  {backgroundColor:"#ddd"} :  {backgroundColor: "black"}} placeholder='Search'></input>
         </SearchArea>
       </BottomContainer>
       </BottomHeader>

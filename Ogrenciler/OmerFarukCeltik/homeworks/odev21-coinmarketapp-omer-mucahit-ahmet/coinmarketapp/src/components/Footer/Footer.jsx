@@ -1,11 +1,12 @@
 import { FooterBottom, FooterBottomImg, FooterBottomLink, FooterContainer, FooterH, FooterImg, FooterImgContainer, FooterLi, FooterLink, FooterSpan, FooterTop, FooterTopRight, FooterUl, StyledFooter } from './styled';
-
+import { useTheme } from '../../context/ThemeContext';
 const Footer = () => {
+  const {theme} = useTheme();
   return (
-    <StyledFooter>
+    <StyledFooter style={theme == "light" ?  {backgroundColor:"white"} :  {backgroundColor: "#1a1a1d"}}>
       <FooterContainer>
-        <FooterTop>
-          <FooterImgContainer>
+        <FooterTop >
+          <FooterImgContainer style={theme == "light" ?  {backgroundColor:"white"} :  {backgroundColor: "#1a1a1d"}}>
             <FooterImg
               src="https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_white_1.svg?_=7934c0e"
               alt="Footer-img"

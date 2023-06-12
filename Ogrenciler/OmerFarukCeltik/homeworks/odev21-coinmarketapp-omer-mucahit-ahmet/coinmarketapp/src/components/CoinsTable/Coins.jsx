@@ -14,15 +14,18 @@ import {
   CustomSectionDiv,
 } from "./styled";
 import { AiOutlineStar } from "react-icons/ai";
+import { useTheme } from "../../context/ThemeContext";
 
 const Coins = () => {
   const { datas } = useFetch();
+  const {theme} = useTheme();
   return (
-    <CoinsMain>
-      <CoinsContainer>
-        <CustomTable>
-          <CustomThead>
-            <th></th>
+    <CoinsMain  style={theme == "light" ?  {backgroundColor:"white"} :  {backgroundColor: "#1a1a1d"}} >
+      <CoinsContainer >
+        <CustomTable style={theme == "light" ?  {color:"black"} :  {color: "white"}}>
+          <CustomThead style={theme == "light" ?  {backgroundColor:"white"} :  {backgroundColor: "#1a1a1d"}}>
+            <tr>
+            <th>dsfds</th>
             <th>#</th>
             <th>Logo</th>
             <th>Name</th>
@@ -33,6 +36,7 @@ const Coins = () => {
             <th>Market Cap</th>
             <th>Volume 24h</th>
             <th>Total Supply</th>
+            </tr>
           </CustomThead>
           <tbody>
             {datas.map((item, i) => (
@@ -44,9 +48,11 @@ const Coins = () => {
                 <td>
                   <CustomIcon className="table-img" src={item.icon} alt="" />
                 </td>
+                <td>
                 <Link to={`/${item.id}`}>
-                  <td>{item.name}</td>
+                  {item.name}
                 </Link>
+                </td>
                 <td>{item.price.toFixed(2)}$</td>
                 <StyledTd value={item.priceChange1d}>
                   {item.priceChange1d} %
