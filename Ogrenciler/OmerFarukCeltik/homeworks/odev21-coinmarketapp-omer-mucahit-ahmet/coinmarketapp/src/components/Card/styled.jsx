@@ -22,5 +22,6 @@ export const CardParent = styled.div`
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
         transition: all 0.5s ease;
         cursor: pointer;
+        ;
     }
 `
