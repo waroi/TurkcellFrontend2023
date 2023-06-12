@@ -13,13 +13,10 @@ const CoinChart = ({data,chartDay,setChartDay}) => {
     const lineSeries = useRef();
     const resizeObserver = useRef();
 
-    function transformData(prices) {
-
-        // prices.sort((a, b) => a[0] - b[0]);
-
-        return prices?.map(price => ({
-            time: price[0] / 1000,
-          value: price[1],
+    function transformData(chartData) {
+        return chartData?.map(data => ({
+            time: data[0] / 1000,
+          value: data[1],
         }));
       }
 
@@ -37,7 +34,7 @@ const CoinChart = ({data,chartDay,setChartDay}) => {
           return () => resizeObserver.current.disconnect();
         }
         
-      }, [data]);
+      }, []);
 
       useEffect(() => {
         if (chart.current && data) {
@@ -45,16 +42,6 @@ const CoinChart = ({data,chartDay,setChartDay}) => {
           lineSeries.current.setData(transformedData);
         }
       }, [data]);
-    
-
-
-      useEffect(() => {
-        if (theme === 'dark') {
-          chartContainerRef.current.classList.add('dark-chart');
-        } else {
-          chartContainerRef.current.classList.remove('dark-chart');
-        }
-      }, [theme]);
 
 
 

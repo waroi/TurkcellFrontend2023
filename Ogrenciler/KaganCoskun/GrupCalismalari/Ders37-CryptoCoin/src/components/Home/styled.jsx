@@ -3,13 +3,15 @@ import styled from "styled-components";
 const TableRow = styled.tr`
 display: table-row;
   background-color: ${(props) => props.theme === "dark" ? "#333" : "#f8fafd"};
-  padding: 0%.5rem 0;
-  transition: all 0.3s ease-in-out;
+  padding: 0 .5rem 0;
+  transition: all 0.1s ease-in-out;
 `;
 const TableCell = styled.td`
   padding: 1rem 0.5rem;
   border-bottom: 1px solid #dddddd6c;
   text-align: start;
+  transition: all 0.1s ease-in-out;
+
 `;
 
 const CoinTitle = styled.div`
