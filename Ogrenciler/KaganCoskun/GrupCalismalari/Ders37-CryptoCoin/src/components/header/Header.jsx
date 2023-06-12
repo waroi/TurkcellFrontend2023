@@ -1,5 +1,12 @@
 import { useTheme } from "../../context/ThemeContext";
-import { HeaderWrapper, OptionItem, SelectItem,Icon } from "./styled";
+import {
+  HeaderWrapper,
+  OptionItem,
+  SelectItem,
+  Icon,
+  Container,
+  SearchInput,
+} from "./styled";
 import { useCurrency } from "../../context/CurrencyContext";
 import { getCoinList, getCurrencies } from "../../service/requests";
 import { useEffect, useState } from "react";
@@ -11,7 +18,7 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
   const { currency, setCurrency } = useCurrency();
 
-  const { coinList,setCoinList}= useCoinList();
+  const { coinList, setCoinList } = useCoinList();
 
   useEffect(() => {
     getCurrencies().then((data) => setCurrencyList(data));
@@ -24,31 +31,43 @@ const Header = () => {
     setCoinList(filter);
 
     if (e.target.value === "" || e.target.value === null) {
-      getCoinList(currency).then((data) => setCoinList(data))
+      getCoinList(currency).then((data) => setCoinList(data));
     }
-
-  }
+  };
 
   return (
     <HeaderWrapper theme={theme}>
-      <h1>Crypto Koyun</h1>
-      <SelectItem theme={theme} onChange={(e) => setCurrency(e.target.value)}>
-        <option value={currency}>{currency.toUpperCase()}</option>
-        {currencyList?.length > 0 &&
-          currencyList?.map((item) => (
-            <OptionItem key={item} value={item}>
-              {item.toUpperCase()}
-            </OptionItem>      
-          ))}
-           
-      </SelectItem>
-     <input type="text" placeholder="Search" onChange={handeleSearch} />
-        <Icon
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className={
-            `${theme}` === "light" ? "fa-solid fa-moon" : "fa-solid fa-sun"
-          }
-        />  
+      <Container>
+        <h1>Crypto Koyun</h1>
+
+        <SearchInput
+          type="text"
+          placeholder="Search"
+          onChange={handeleSearch}
+          theme={theme}
+        />
+
+        <div>
+          <SelectItem
+            theme={theme}
+            onChange={(e) => setCurrency(e.target.value)}
+          >
+            <option value={currency}>{currency.toUpperCase()}</option>
+            {currencyList?.length > 0 &&
+              currencyList?.map((item) => (
+                <OptionItem key={item} value={item}>
+                  {item.toUpperCase()}
+                </OptionItem>
+              ))}
+          </SelectItem>
+          <Icon
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            className={
+              `${theme}` === "light" ? "fa-solid fa-moon" : "fa-solid fa-sun"
+            }
+          />
+        </div>
+      </Container>
     </HeaderWrapper>
   );
 };
