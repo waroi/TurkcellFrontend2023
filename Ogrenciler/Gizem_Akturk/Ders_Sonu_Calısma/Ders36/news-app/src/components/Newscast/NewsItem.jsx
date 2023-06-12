@@ -1,22 +1,46 @@
-import {Link} from 'react-router-dom'
-
-const NewsItem = ({id,name, article, title, image, content, description, publish, author}) => {
-
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { formatDate } from "../../utils/DateUtils";
+import {
+  Card,
+  CardImage,
+  CardTitle,
+  CardContent,
+  CardAction,
+  Container,
+  AuthorParagraph,
+  DateParagraph,
+} from "./NewsItemStyle";
+const NewsItem = ({
+  id,
+  title,
+  urlToImage,
+  description,
+  publishedAt,
+  author,
+}) => {
   return (
-  <div className="card">
-    <div className="card-image">
-        <img src={image} alt={title}/>
-        <span className="card-title">{title}</span>
-    </div>
-    <div className="card-content">
-        <p>{description}</p>
-    </div>
-    <div className="card-action">
-        <Link to={`/news/${id}`}>This is a link</Link>
-    </div>
-    </div>
-    
-  )
-}
+    <Container>
+      <Card>
+        <CardImage>
+          <img src={urlToImage} alt={title} />
+          <CardTitle>{title}</CardTitle>
+        </CardImage>
 
-export default NewsItem
+        <CardContent>
+          <p>{description}</p>
+          <AuthorParagraph>{author}</AuthorParagraph>
+        </CardContent>
+
+        <DateParagraph>{formatDate(publishedAt)}</DateParagraph>
+
+        <CardAction>
+          <Link to={`/news/${id}`} >Read More</Link>
+        </CardAction>
+      </Card>
+    </Container>
+  );
+};
+
+export default NewsItem;

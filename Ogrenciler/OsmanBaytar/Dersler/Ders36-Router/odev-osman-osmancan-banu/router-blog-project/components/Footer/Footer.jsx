@@ -1,10 +1,8 @@
-import { FaTwitterSquare } from "react-icons/fa";
 import { IconList, FooterTitle, FooterList, LinkTag } from "./FooterStyle";
-import { useState } from "react";
 
 const Footer = () => {
   return (
-    <footer className=" mt-4">
+    <footer style={{ margin: "100px 0 0 0" }}>
       <div style={{ height: "250px" }} className="row text-center ">
         <div
           style={{
@@ -38,7 +36,7 @@ const Footer = () => {
           </FooterList>
         </div>
         <div
-          style={{ backgroundColor: "#e9e0b7", borderRight: "2px solid white" }}
+          style={{ backgroundColor: "#F7E6C4", borderRight: "2px solid white" }}
           className="col col-md-4  py-3 "
         >
           <FooterTitle>
@@ -59,7 +57,7 @@ const Footer = () => {
           </FooterList>
         </div>
         <div
-          style={{ backgroundColor: "#e9e0b7", borderTopRightRadius: "10px" }}
+          style={{ backgroundColor: "#F7E6C4", borderTopRightRadius: "10px" }}
           className="col col-md-4  py-3"
         >
           <FooterTitle>
