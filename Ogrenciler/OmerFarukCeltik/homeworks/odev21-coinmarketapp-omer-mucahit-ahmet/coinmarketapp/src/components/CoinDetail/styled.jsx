@@ -93,3 +93,7 @@ export const CoinCard = styled.div`
     }
   }
 `;
+
+export const GraphContainer = styled.div`
+
+`

@@ -8,7 +8,7 @@ import { DataProvider } from './context/FetchContext.jsx'
 import { NewsProvider } from './context/newsContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode> 
+  <React.Fragment> 
     <DataProvider>
     <NewsProvider>
     <ThemeProvider> 
@@ -18,5 +18,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </ThemeProvider>
     </NewsProvider>
     </DataProvider>
-  </React.StrictMode>
+  </React.Fragment>
 )

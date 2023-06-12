@@ -10,7 +10,9 @@ import {
   CustomCoins,
   CoinCard,
   CustomBreadCrumb,
+  GraphContainer,
 } from "./styled";
+import Graph from "../Graph/Graph";
 
 const CoinDetail = () => {
   const { datas } = useFetch();
@@ -20,6 +22,7 @@ const CoinDetail = () => {
     return <NotFound />;
   }
   return (
+    <>
     <CoinDetailContainer>
       <CustomCoins>
         <CustomBreadCrumb>
@@ -141,6 +144,10 @@ const CoinDetail = () => {
         </div>
       </div>
     </CoinDetailContainer>
+    <GraphContainer>
+            <Graph />
+    </GraphContainer>
+   </>
   );
 };
 
