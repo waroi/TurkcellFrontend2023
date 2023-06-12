@@ -16,7 +16,6 @@ const Graph = ({ item }) => {
         );
         const charted = await response.json();
         const chartData = transformChartData(charted.chart);
-        console.log(chartData);
 
         // Remove the existing chart if it exists
         if (chartInstanceRef.current) {

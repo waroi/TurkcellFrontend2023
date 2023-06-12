@@ -64,7 +64,7 @@ export const CurrentCoinDetail = styled.div`
   }
   > span {
     background-color: #323546;
-    color: rgb(88, 102, 126);
+    color: white;
     border-radius: 4px;
     padding: 2px 6px;
     font-size: 12px;
@@ -115,7 +115,7 @@ export const CustomRank = styled.div`
   margin-bottom: 0.5rem;
   > span {
     background-color: #323546;
-    color: rgb(88, 102, 126);
+    color: white;
     border-radius: 4px;
     padding: 2px 6px;
     font-size: 12px;
@@ -152,12 +152,13 @@ export const CurrentCoinLLink = styled.div`
 export const CurrentCoinPos = styled.div`
   display: flex;
   gap: 10px;
-  align-items: center;
+  align-items: end;
   flex-wrap: wrap;
   margin-bottom: 0.5rem;
   > span {
     background-color: #323546;
-    color: rgb(88, 102, 126);
+    margin-top: 10px;
+    color: white;
     border-radius: 12px;
     padding: 2px 6px;
     font-size: 14px;

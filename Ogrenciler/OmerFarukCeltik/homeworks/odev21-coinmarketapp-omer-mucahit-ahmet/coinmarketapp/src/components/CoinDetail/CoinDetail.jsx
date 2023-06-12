@@ -49,17 +49,17 @@ const CoinDetail = () => {
       <CoinDetailContainer style={{ backgroundColor: theme.bg }}>
         <CustomCoins>
           <CustomBreadCrumb>
-            <span>
-              <a href="">Cryptocurrencies</a>
+            <span >
+              <a  href="">Cryptocurrencies</a>
             </span>
             <span>
               <a href="">Coins</a>
             </span>
-            <span>{currentCoin?.name.split(" ")[0]}</span>
+            <span style={theme == "light" ?  {color:"black"} :  {color: "white"}}>{currentCoin?.name.split(" ")[0]}</span>
           </CustomBreadCrumb>
-          <CoinCard>
-            <CoinCardContainer>
-              <CurrentCoinDetail>
+          <CoinCard style={theme == "light" ?  {color:"black"} :  {color: "white"}}>
+            <CoinCardContainer style={theme == "light" ?  {color:"black"} :  {color: "white"}}>
+              <CurrentCoinDetail style={theme == "light" ?  {color:"black"} :  {color: "white"}}>
                 <img src={currentCoin?.icon} alt="" />{" "}
                 <h3>{currentCoin?.name.split(" ")[0]}</h3>
                 <span>{currentCoin?.symbol}</span>
@@ -72,7 +72,7 @@ const CoinDetail = () => {
                 <button>+Follow</button>
               </CurrentCoinDetail>
               <CustomRank>
-                <span className="coin-rank">Rank #{currentCoin?.rank}</span>
+                <span  className="coin-rank">Rank #{currentCoin?.rank}</span>
                 <span>Coin</span>
               </CustomRank>
 
@@ -126,7 +126,7 @@ const CoinDetail = () => {
                     {currentCoin?.symbol})
                   </p>
                   <div>
-                    <h2>${currentCoin?.price.toString().slice(0, 7)} </h2>
+                    <h2 style={theme == "light" ?  {color:"black"} :  {color: "white"}}>${currentCoin?.price.toString().slice(0, 7)} </h2>
                     <span
                       className={
                         Number(currentCoin?.priceChange1h) > 0
@@ -137,9 +137,9 @@ const CoinDetail = () => {
                       {currentCoin.priceChange1h} %
                     </span>
                   </div>
-                  <h4>
+                  <h4 style={theme == "light" ?  {color:"black"} :  {color: "white"}}>
                     Available Supply:
-                    <span>
+                    <span style={theme == "light" ?  {color:"black"} :  {color: "white"}}>
                       {" "}
                       {currentCoin?.availableSupply.toLocaleString()}{" "}
                       {currentCoin?.symbol}
