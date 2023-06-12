@@ -7,6 +7,7 @@ import { CoinProvider } from "./context/Coincontext.jsx";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  //Provider ve Router sırası nasıl olmalı
   <React.StrictMode>
     <CoinProvider>
       <BrowserRouter>

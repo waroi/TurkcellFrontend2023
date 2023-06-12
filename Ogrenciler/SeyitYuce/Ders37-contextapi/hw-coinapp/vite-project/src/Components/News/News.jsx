@@ -16,7 +16,7 @@ const News = () => {
     });
   }, []);
   if (loading) {
-    return <p className="news-height">Loading...</p>;
+    return <p className="news-height">Yatırım Tavsiyesi Değildir...</p>;
   }
   console.log(news.articles.length);
   return (

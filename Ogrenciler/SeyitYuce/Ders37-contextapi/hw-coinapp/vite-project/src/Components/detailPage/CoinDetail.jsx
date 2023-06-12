@@ -5,7 +5,6 @@ const CoinDetail = () => {
     const { allCoins } = useCoin()
     const { id } = useParams()
     const foundCoin = allCoins.coins?.find(item => item.id == id)
-    // console.log(allCoins.coins?.find(item => item.id == id))
 
     return (
         <div className='detail-height'>

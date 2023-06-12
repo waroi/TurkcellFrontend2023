@@ -6,9 +6,14 @@ const Chart = ({ chartDatas }) => {
   let chart = null;
 
   useEffect(() => {
-    chart = createChart(chartContainerRef.current);
+    chart = createChart(chartContainerRef.current, {
+      layout: {
+        background: {
+          color: "transparent",
+        }
+      }
+    });
 
-    // if ( chartDatas?.length > 0) {
     const getDataTime = chartDatas.map((data) => {
       return {
         time: data[0],
@@ -16,31 +21,28 @@ const Chart = ({ chartDatas }) => {
       };
     });
 
-    console.log(getDataTime);
-
     const areaSeries = chart.addAreaSeries({
       lineColor: "#ff29fb",
       topColor: "#ff29fb",
       bottomColor: "rgba(195, 99, 242, 0.48)",
+
+
     });
     areaSeries.setData(getDataTime);
-
     chart.timeScale().fitContent();
-    // }
 
     return () => {
       chart.remove();
     };
   }, [chartDatas]);
 
-  //   if (!chartDatas || chartDatas.length === 0) {
-  //     return null;
-  //   }
+ 
   return (
-    <div>
+    <div className="chartContainer">
+      <h5 className="ms-2">Graphs</h5>
       <div
         ref={chartContainerRef}
-        style={{ width: "100%", height: "400px" }}
+        className="chart"
       ></div>
     </div>
   );

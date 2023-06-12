@@ -1,5 +1,5 @@
 const Help = (number) => {
-    const editNum = new Intl.NumberFormat('tr-TR').format((number))
+    const editNum = new Intl.NumberFormat('en-EN').format(number)
     return editNum
 }
 

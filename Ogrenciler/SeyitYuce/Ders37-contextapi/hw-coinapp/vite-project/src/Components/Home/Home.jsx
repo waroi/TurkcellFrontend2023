@@ -5,8 +5,10 @@ import { useRef, useState } from "react";
 
 const Home = () => {
   const { allCoins } = useCoin();
+  //search
   const coinSearch = useRef();
   const [searchResult, setSearchResults] = useState();
+  //sort
   const [sortColumn, setSortColumn] = useState("name");
   const [sortNameOrder, setSortNameOrder] = useState(true);
   const [sortPriceOrder, setSortPriceOrder] = useState(true);
@@ -75,28 +77,24 @@ const Home = () => {
                   onClick={() => handleSort("name")}
                 >
                   Name
-                  <i
-                    className={
+                  <i className={
                       sortColumn === "name"
                         ? sortNameOrder
                           ? "bi bi-sort-alpha-down ms-2"
                           : "bi bi-sort-alpha-down-alt ms-2"
                         : ""
-                    }
-                  ></i>
+                    }></i>
                 </th>
                 <th
                   style={{ cursor: "pointer" }} onClick={() => handleSort("price")}>
                   Price
-                  <i
-                    className={
+                  <i className={
                       sortColumn === "price"
                         ? sortPriceOrder
                           ? "bi bi-sort-numeric-down ms-2"
                           : "bi bi-sort-numeric-down-alt ms-2"
                         : ""
-                    }
-                  ></i>
+                    }></i>
                 </th>
                 <th>1h%</th>
                 <th>1d%</th>

@@ -11,6 +11,7 @@ const Detail = ({ foundCoin }) => {
   }, []);
 
   return (
+    //Her bir row component olabilir sonra bakarız
     <div className="container mt-5">
       <div className="row mt-4 ">
         <div className="col-lg-8 mt-4">
@@ -57,7 +58,7 @@ const Detail = ({ foundCoin }) => {
             <h6>Available Supply</h6>
             <h4 className="d-flex align-items-baseline justify-content-center">
               {Help(foundCoin.availableSupply)}
-              <span className="ms-2">{foundCoin.symbol}</span>
+              <span className="">{foundCoin.symbol}</span>
             </h4>
           </div>
         </div>
@@ -66,7 +67,7 @@ const Detail = ({ foundCoin }) => {
             <h6>Total Supply</h6>
             <h4 className="d-flex align-items-baseline justify-content-center">
               {Help(foundCoin.totalSupply)}
-              <span className="ms-2">{foundCoin.symbol}</span>
+              <span className="">{foundCoin.symbol}</span>
             </h4>
           </div>
         </div>
@@ -93,7 +94,6 @@ const Detail = ({ foundCoin }) => {
         <div className="col-lg-3 mt-4">
           <div className="control">
             <h6>Transaction Control</h6>
-            {/* onChange={window.location.href = this.value} */}
             <select className="form-select control-select ">
               {foundCoin.exp.map((item, index) => {
                 return (
