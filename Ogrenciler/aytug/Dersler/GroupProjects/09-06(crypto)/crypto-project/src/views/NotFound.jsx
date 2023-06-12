@@ -1,5 +1,9 @@
 const NotFound = () => {
-	return <div>404</div>;
+	return (
+		<div>
+			<img src="../assets/404.png" alt="404 not found" />
+		</div>
+	);
 };
 
 export default NotFound;
