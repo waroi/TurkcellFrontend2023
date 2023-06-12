@@ -7,7 +7,7 @@ import styled from 'styled-components';
   export const FooterContainer = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 1240px;
+    width: 75%;
     margin: 0 auto;
     padding: 48px 0;
   `;

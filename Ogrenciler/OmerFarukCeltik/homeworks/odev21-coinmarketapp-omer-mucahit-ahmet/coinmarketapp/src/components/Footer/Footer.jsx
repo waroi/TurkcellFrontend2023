@@ -8,8 +8,7 @@ const Footer = () => {
         <FooterTop >
           <FooterImgContainer style={theme == "light" ?  {backgroundColor:"white"} :  {backgroundColor: "#1a1a1d"}}>
             <FooterImg
-              src="https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_white_1.svg?_=7934c0e"
-              alt="Footer-img"
+              src={theme == "light" ? "https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_1.svg?_=7934c0e" : "https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_white_1.svg?_=7934c0e"} alt="logo" 
             ></FooterImg>
           </FooterImgContainer>
           <FooterTopRight>

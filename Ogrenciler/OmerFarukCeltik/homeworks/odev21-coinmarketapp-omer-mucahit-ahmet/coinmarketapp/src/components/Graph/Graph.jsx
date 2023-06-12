@@ -1,7 +1,13 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useRef } from 'react';
 import { createChart } from 'lightweight-charts';
-const Graph = ({item}) => {
+import { useTheme } from "../../context/ThemeContext";
+
+const Graph = ({ item }) => {
   const chartContainerRef = useRef(null);
+  const { theme } = useTheme();
+  const chartInstanceRef = useRef(null);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -10,12 +16,17 @@ const Graph = ({item}) => {
         );
         const charted = await response.json();
         const chartData = transformChartData(charted.chart);
-        console.log(chartData)
+        console.log(chartData);
+
+        // Remove the existing chart if it exists
+        if (chartInstanceRef.current) {
+          chartInstanceRef.current.remove();
+        }
 
         const chartOptions = {
           layout: {
-            textColor: 'white',
-            background: { type: 'solid', color: '#1A1A1D' },
+            textColor: theme === "light" ? "black" : "white",
+            background: { type: 'solid', color: 'transparent' },
           },
         };
 
@@ -37,22 +48,26 @@ const Graph = ({item}) => {
         baselineSeries.setData(chartData);
 
         chart.timeScale().fitContent();
+
+        // Store the chart instance in the ref
+        chartInstanceRef.current = chart;
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-  }, [item]);
+  }, [item, theme]);
 
   // Function to transform the chart data format
   const transformChartData = (data) => {
     return data.map((item) => ({
-      time: (new Date(item[0] * 1000).getTime() / 1000), // Convert timestamp to milliseconds
+      time: new Date(item[0] * 1000).getTime() / 1000, // Convert timestamp to milliseconds
       value: item[1], // Use the appropriate value from the data array
     }));
   };
-  return <div id="container" style={{ width: '1400px', height: '500px', margin: '0 auto' }}ref={chartContainerRef}></div>;
+
+  return <div id="container" style={{ width: '1400px', height: '500px', margin: '0 auto' }} ref={chartContainerRef}></div>;
 };
 
 export default Graph;

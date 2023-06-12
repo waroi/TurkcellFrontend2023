@@ -25,7 +25,7 @@ const Coins = () => {
         <CustomTable style={theme == "light" ?  {color:"black"} :  {color: "white"}}>
           <CustomThead style={theme == "light" ?  {backgroundColor:"white"} :  {backgroundColor: "#1a1a1d"}}>
             <tr>
-            <th>dsfds</th>
+            <th></th>
             <th>#</th>
             <th>Logo</th>
             <th>Name</th>
@@ -78,7 +78,7 @@ const Coins = () => {
           Find out how we work by clicking here.<span>Read More</span>
         </ReadMore>
       </CoinsContainer>
-      <CoinsSection>
+      <CoinsSection style={theme == "light" ?  {backgroundColor:"white"} :  {backgroundColor: "#1a1a1d"}}>
         <CoinsSectionContainer>
           <CustomSectionDiv>
             <h2>

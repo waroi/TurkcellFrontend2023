@@ -33,18 +33,20 @@ import {
   CustomPriceBottom,
   ContainerStyles,
 } from "./styled";
+import { useTheme } from "../../context/ThemeContext";
 import Graph from "../Graph/Graph";
 
 const CoinDetail = () => {
   const { datas } = useFetch();
   const { id } = useParams();
+  const { theme } = useTheme();
   const currentCoin = datas.find((item) => item.id == id);
   if (!currentCoin) {
     return <NotFound />;
   }
   return (
     <>
-      <CoinDetailContainer>
+      <CoinDetailContainer style={{ backgroundColor: theme.bg }}>
         <CustomCoins>
           <CustomBreadCrumb>
             <span>
