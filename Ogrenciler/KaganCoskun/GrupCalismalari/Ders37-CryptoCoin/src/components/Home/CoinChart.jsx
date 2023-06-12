@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { createChart } from 'lightweight-charts';
 
-const CoinChart = ({data}) => {
+const CoinChart = ({data,setChartDay}) => {
 
     const chartContainerRef = useRef();
     const chart = useRef();
@@ -39,9 +39,14 @@ const CoinChart = ({data}) => {
 
 
   return (
-    <div ref={chartContainerRef} style={{ width: '90%', height: '300px' }}>
-            {/* Chart will be inserted here */}
-        </div>
+    <>
+    <button onClick={()=>setChartDay(1)}>1d</button>
+    <button onClick={()=>setChartDay(7)}>7d</button>
+    <button onClick={()=>setChartDay(15)}>15d</button>
+        <div ref={chartContainerRef} style={{ width: '90%', height: '300px' }}>
+                {/* Chart will be inserted here */}
+            </div>
+    </>
   )
 }
 

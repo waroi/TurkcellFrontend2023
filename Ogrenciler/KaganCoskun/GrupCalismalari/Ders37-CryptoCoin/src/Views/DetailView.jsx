@@ -16,14 +16,16 @@ const DetailView = () => {
 
 
   const [coinChart, setCoinChart] = useState()
+  const [chartDay,setChartDay] = useState(1)
 
   const newCoin = coinList.find((element) => element.id === id);
 
 
 
   useEffect(() => {
-    getCoinChart(id,currency,7).then((data)=>setCoinChart(data))
-  },[id,currency])
+    getCoinChart(id,currency,chartDay).then((data)=>setCoinChart(data))
+    return () => chartDay
+  },[id,currency,chartDay])
 
 
   console.log("in Detail =>",coinChart)
@@ -59,7 +61,8 @@ const DetailView = () => {
           <TableItem text="Fully Diluted Valuation" value={newCoin?.fully_diluted_valuation.toLocaleString()}/>
         </tbody>
       </Table>
-      {coinChart?.length>0&&<CoinChart data={coinChart}/>}
+      {coinChart?.length>0&&chartDay &&<CoinChart data={coinChart} setChartDay={setChartDay}/>}
+      <div>asd</div>
     </DetailWrapper>
   );
 };

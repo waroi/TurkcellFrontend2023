@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const TableRow = styled.tr`
 display: table-row;
-  background-color: #f8fafd;
+  background-color: ${(props) => props.theme === "dark" ? "#333" : "#f8fafd"};
   padding: 0%.5rem 0;
 `;
 const TableCell = styled.td`
@@ -21,8 +21,8 @@ const CoinTitle = styled.div`
     `;
 
 const CoinSymbol= styled.span`
-background-color: #e9ecef;
-    color: #6c757d;
+    background-color: ${(props) => props.theme === "dark" ? "#6c757d" : "#e9ecef"};
+    color: ${(props) => props.theme === "dark" ? "#e9ecef" : "#6c757d"};
     padding: 0.2rem 0.5rem;
     font-size: 0.8rem;
     border-radius: 5px;

@@ -4,16 +4,16 @@ import Header from './components/header/Header'
 import { CoinListProvider } from './context/CoinContext'
 import { CurrencyProvider } from './context/CurrencyContext'
 import Router from './routes/Router'
-import { useTheme } from 'styled-components'
+import { useTheme } from './context/ThemeContext'
 
 function App() {
 
-  // const {theme} = useTheme()
+  const {theme} = useTheme()
 
 
 
   return (
-    // <Main theme={theme}>
+    <Main theme={theme}>
       <CurrencyProvider>
         <CoinListProvider>
         <Header/>
@@ -22,7 +22,7 @@ function App() {
             </main>
         </CoinListProvider>
       </CurrencyProvider>
-    // </Main>
+    </Main>
   )
 }
 
