@@ -1,18 +1,18 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createChart } from 'lightweight-charts';
-
-const Graph = () => {
+const Graph = ({item}) => {
   const chartContainerRef = useRef(null);
-
+  const [chartedDatas, setChartedDatas] = useState(item)
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          'https://api.coinstats.app/public/v1/charts?period=3m&coinId=bitcoin'
+          `https://api.coinstats.app/public/v1/charts?period=1m&coinId=${chartedDatas}`
         );
-        const data = await response.json();
-        const chartData = transformChartData(data.chart);
+        const charted = await response.json();
+        const chartData = transformChartData(charted.chart);
         console.log(chartData)
+
         const chartOptions = {
           layout: {
             textColor: 'white',
@@ -44,7 +44,7 @@ const Graph = () => {
     };
 
     fetchData();
-  }, []);
+  }, [chartedDatas]);
 
   // Function to transform the chart data format
   const transformChartData = (data) => {
