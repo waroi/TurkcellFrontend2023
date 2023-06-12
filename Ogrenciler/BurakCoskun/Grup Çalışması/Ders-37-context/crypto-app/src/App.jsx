@@ -14,12 +14,14 @@ import { useCustomContext } from "./context/Context";
 
 function App() {
   const { theme } = useCustomContext();
+
   useEffect(() => {
     Chart.register(CategoryScale);
     Chart.register(LinearScale);
     Chart.register(PointElement);
     Chart.register(LineElement);
   }, []);
+  
   return (
     <div className={`app ${theme}`}>
       <NavbarComponent />
