@@ -29,7 +29,8 @@ const CoinSymbol= styled.span`
     `;
 
 const PriceChange= styled.span`
-    color: ${(props)=>props.price >= 0 ?"green":"red"};
+    color: ${(props)=>props.price >= 0 ?"#2bec04":"red"};
+    font-weight: 500;
     `;
 
 export { TableCell,TableRow,CoinTitle,CoinSymbol,PriceChange };

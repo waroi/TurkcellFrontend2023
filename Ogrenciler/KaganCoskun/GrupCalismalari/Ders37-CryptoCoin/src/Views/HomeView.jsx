@@ -20,7 +20,7 @@ const HomeView = () => {
 
   return (
     <div>
-      {trendings?.map((trending,index)=><Trending key={index} trendingId={trending.item.id}/>)}
+      {trendings?.map((trending,index)=><Trending key={index} trending={trending.item}/>)}
        
     <Table>
         <thead>

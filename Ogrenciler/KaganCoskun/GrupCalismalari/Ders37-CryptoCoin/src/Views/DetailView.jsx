@@ -27,9 +27,6 @@ const DetailView = () => {
     return () => chartDay
   },[id,currency,chartDay])
 
-
-  console.log("in Detail =>",coinChart)
-
   return (
     <DetailWrapper>
       <Rank theme={theme}>Rank #{newCoin?.market_cap_rank}</Rank>
@@ -40,9 +37,8 @@ const DetailView = () => {
         />
         <Paragraph theme={theme}>
           {newCoin?.name}
-          <Span
-          >
-            {newCoin?.symbol.toUpperCase()}
+          <Span>
+             {" "}{newCoin?.symbol.toUpperCase()}
           </Span>
         </Paragraph>
       </Top>
@@ -61,8 +57,7 @@ const DetailView = () => {
           <TableItem text="Fully Diluted Valuation" value={newCoin?.fully_diluted_valuation.toLocaleString()}/>
         </tbody>
       </Table>
-      {coinChart?.length>0&&chartDay &&<CoinChart data={coinChart} setChartDay={setChartDay}/>}
-      <div>asd</div>
+      {coinChart?.length>0&&chartDay &&<CoinChart data={coinChart} chartDay={chartDay} setChartDay={setChartDay}/>}
     </DetailWrapper>
   );
 };
