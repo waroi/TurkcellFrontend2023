@@ -11,7 +11,7 @@ export const UpperHeader = styled.div`
 `;
 
 export const UpperContainer = styled.div`
-  max-width: 1240px;
+  width: 75%;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -91,8 +91,7 @@ export const BottomHeader = styled.div`
 `;
 
 export const BottomContainer = styled.div`
-  width: 100%;
-  max-width: 1240px;
+  width: 75%;
   position: relative;
   display: flex;
   flex-direction: row;
