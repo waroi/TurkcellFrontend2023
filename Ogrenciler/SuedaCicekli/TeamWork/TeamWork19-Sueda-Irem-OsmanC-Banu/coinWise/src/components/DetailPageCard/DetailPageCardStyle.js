@@ -18,3 +18,7 @@ export const DetailCard = styled.div`
     font-weight: 700;
   }
 `;
+
+export const DetailCardVh = styled.div`
+height: 70vh;
+`;

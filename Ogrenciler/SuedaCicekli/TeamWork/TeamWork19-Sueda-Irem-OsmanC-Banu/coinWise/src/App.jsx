@@ -7,8 +7,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <Router />
-      <Footer />
+      <Router style={{ flex: "1" }} />
+      <Footer style={{ flexShrink: "0" }} />
     </>
   );
 }

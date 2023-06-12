@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { DetailCard } from "./DetailPageCardStyle";
+import { DetailCard, DetailCardVh } from "./DetailPageCardStyle";
 import 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 
@@ -10,15 +10,11 @@ const DetailPageCard = () => {
   const curData = data.find((item) => item.name === params.name);
 
 
-  const availableSupply = curData.availableSupply;
-  const totalSupply = curData.totalSupply;
-  const circulatingSupply = totalSupply - availableSupply;
-
   const veri = {
     labels: ['Circulating Supply', 'Reserved Supply'],
     datasets: [{
       label: 'Supply',
-      data: [circulatingSupply, availableSupply],
+      data: [curData.circulatingSupply, curData.availableSupply],
       backgroundColor: ['#C389F7', '#C0FAA0'],
       hoverBackgroundColor: ['#c489f79e', '#bffaa094'],
       borderColor: ['#252525', '#252525'],
@@ -29,7 +25,7 @@ const DetailPageCard = () => {
   return (
     <div>
       <div className="container">
-        <div className="row mt-4">
+        <DetailCardVh className="row mt-4">
           <div className="col-8">
             <div
               style={{ marginTop: "3em" }}
@@ -75,10 +71,10 @@ const DetailPageCard = () => {
               </DetailCard>
             </div>
           </div>
-          <div className="col-4">
+          <div className="col-4 d-flex align-items-center">
             <Doughnut data={veri} />
           </div>
-        </div>
+        </DetailCardVh>
       </div>
     </div>
   );
