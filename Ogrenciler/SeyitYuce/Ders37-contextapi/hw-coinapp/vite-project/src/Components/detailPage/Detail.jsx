@@ -1,6 +1,15 @@
 import "./DetailPageStyle.css";
-import  Help  from "../../helpers/Help"
+import Help from "../../helpers/Help";
+import Chart from "./Chart";
+import { useEffect, useState } from "react";
+import { getChartData } from "../../service/api";
 const Detail = ({ foundCoin }) => {
+  const [chartDatas, setChartDatas] = useState([]);
+
+  useEffect(() => {
+    getChartData(foundCoin.id).then((data) => setChartDatas(data.prices));
+  }, []);
+
   return (
     <div className="container mt-5">
       <div className="row mt-4 ">
@@ -97,6 +106,9 @@ const Detail = ({ foundCoin }) => {
           </div>
         </div>
       </div>
+      {chartDatas.length > 0 && (
+        <Chart chartDatas={chartDatas} setChartDatas={setChartDatas} />
+      )}
     </div>
   );
 };

@@ -26,3 +26,14 @@ export const getNews = async () => {
     return console.log(err);
   }
 };
+export const getChartData = async (coinName) => {
+  try {
+    const res = await fetch(
+      `https://api.coingecko.com/api/v3/coins/${coinName}/market_chart?vs_currency=usd&days=7`
+    );
+    const chartData = await res.json();
+    return chartData;
+  } catch (err) {
+    return console.log(err);
+  }
+};
