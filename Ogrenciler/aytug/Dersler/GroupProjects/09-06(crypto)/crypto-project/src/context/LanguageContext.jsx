@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { createContext, useState, useEffect, useContext } from "react";
 
 const LanguageContext = createContext();
@@ -21,5 +20,4 @@ export const LanguageProvider = ({ children }) => {
   );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useLanguage = () => useContext(LanguageContext);

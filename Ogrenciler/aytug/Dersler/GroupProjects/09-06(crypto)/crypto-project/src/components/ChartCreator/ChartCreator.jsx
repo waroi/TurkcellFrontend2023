@@ -15,8 +15,6 @@ const ChartCreator = ({ currencyName }) => {
   const { id } = useParams();
 
   const [chartData, setChartData] = useState([]);
-  console.log(id);
-  console.log(chartData);
 
   useEffect(() => {
     const fetchData = () => {
@@ -26,7 +24,6 @@ const ChartCreator = ({ currencyName }) => {
         .then((response) => response.json())
         .then((data) => {
           if (!data.prices || data.prices.length === 0) {
-            console.log("No price data available.");
             return;
           }
           const formattedData = data.prices.map((item) => ({
@@ -40,15 +37,12 @@ const ChartCreator = ({ currencyName }) => {
           }));
           setChartData(formattedData);
         })
-        .catch((error) => {
-          console.log("Error fetching data:", error);
-        });
+        .catch((error) => {});
     };
 
     fetchData();
   }, [id]);
 
-  // Verilerdeki minimum fiyat değerini bulma
   const minPrice = chartData.reduce(
     (min, current) => (current.price < min ? current.price : min),
     Infinity
