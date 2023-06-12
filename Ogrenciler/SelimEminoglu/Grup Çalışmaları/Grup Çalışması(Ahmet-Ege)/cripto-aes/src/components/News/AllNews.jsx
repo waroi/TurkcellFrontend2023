@@ -8,7 +8,7 @@ const AllNews = ({ coinName }) => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`https://newsdata.io/api/1/news?apikey=pub_24343ad2a05f28620b3a3366de8031fbacda1&q=${coinName}&language=en`)
+    fetch(`https://newsdata.io/api/1/news?apikey=pub_24328f864eec5add806531baa15247b1a5009&q=${coinName}&language=en`)
       .then(res => res.json())
       .then(data => setAllNews(data.results))
       .then(() => setLoading(false))
