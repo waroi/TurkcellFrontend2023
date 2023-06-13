@@ -17,6 +17,7 @@ align-items: center;
 `
 export const Bottom = styled.div`
 display: flex;
+align-items: center;
 gap: 10px;
 `
 
@@ -30,7 +31,7 @@ margin: 0;
 font-size: 40px;
 `
 export const DetailWrapper = styled.div`
-margin: 100px 0;
+padding: 100px 0;
 `
 
 export const Table = styled.table`

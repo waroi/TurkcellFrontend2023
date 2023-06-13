@@ -1,0 +1,67 @@
+main {
+  padding: 2em 0;
+}
+.news {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.wrapper {
+  border: 1px solid black;
+  width: 45%;
+  min-width: 250px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.25);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 38px;
+  filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+.wrapper:hover {
+  transform: scale(1.05);
+  transition: all 0.5s ease-in-out;
+  
+}
+.card-top {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
+  overflow: hidden;
+}
+.banner-image {
+  min-width: 10px;
+  width: 50%;
+  height: 200px;
+  border-radius: 0.5em;
+}
+.card-top-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+}
+.item-link {
+  color: white;
+}
+.read-more {
+  color: gold;
+  margin-top: 1em;
+}
+.read-more:visited {
+  color: gold;
+}
+.truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

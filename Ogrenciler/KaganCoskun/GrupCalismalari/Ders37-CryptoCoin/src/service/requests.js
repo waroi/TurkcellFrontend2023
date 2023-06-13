@@ -15,12 +15,12 @@ export async function getCoinList(currency) {
 export async function getCoinChart(id, currency,day) {
     const response = await fetch(`${import.meta.env.VITE_COINGECKO_API}/coins/${id}/market_chart?vs_currency=${currency}&days=${day}`);
     const coinList = await response.json();
-    return coinList;
+
+    return coinList.prices;
 }
 
 export async function getTrendings(){
   const response = await fetch(`${import.meta.env.VITE_COINGECKO_API}/search/trending`);
   const trendings = await response.json();
-  console.log(trendings.coins);
   return trendings.coins;
 }
