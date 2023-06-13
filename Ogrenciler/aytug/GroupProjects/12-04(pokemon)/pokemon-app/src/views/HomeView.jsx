@@ -15,18 +15,32 @@ const HomeView = () => {
 		if (!pokemons) {
 			dispatch(listPokemons());
 		}
-		console.log(pokemons);
 	}, [dispatch, pokemons]);
 
 	if (isLoading) {
-		return <div>Loading...</div>; // Veriler yükleniyor ise yükleme durumu gösterin
+		return <div>Loading...</div>;
 	}
 
 	return (
 		<>
 			<div>
 				<button onClick={handleListPokemons}>Pokemonları Listele</button>
-				<ul>{pokemons && pokemons.map((pokemon) => <li key={pokemon.name}>{pokemon.name}</li>)}</ul>
+				<div className="row mt-5">
+					{pokemons &&
+						pokemons.map((pokemon) => (
+							// {{getPokemonByName(pokemon.name)}}
+							<div className="card col-3" key={pokemon.name}>
+								<img src={pokemon.name} className="card-img-top" alt={pokemon.name} />
+								<div className="card-body">
+									<h5 className="card-title">{pokemon.name}</h5>
+
+									<a href="#" className="btn btn-primary">
+										Go somewhere
+									</a>
+								</div>
+							</div>
+						))}
+				</div>
 			</div>
 		</>
 	);

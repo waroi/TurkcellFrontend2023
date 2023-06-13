@@ -10,8 +10,8 @@ export const getAllPokemons = async () => {
 	return data.results;
 };
 
-export const getPokemonById = async (id) => {
-	const response = await fetch(`${import.meta.env.VITE_URL}/pokemon/${id}`);
+export const getPokemonByName = async (name) => {
+	const response = await fetch(`${import.meta.env.VITE_URL}/pokemon/${name}`);
 	const data = await response.json();
 	return data;
 };
