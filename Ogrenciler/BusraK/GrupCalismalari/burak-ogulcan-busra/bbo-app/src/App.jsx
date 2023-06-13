@@ -18,6 +18,7 @@ function App() {
 
   const dispatch = useDispatch();
   const jokeData = useSelector((state) => state.joke);
+
   const getJoke = () => {
     setJokeState(true);
     ChuckJokes.getRandomJoke().then((res) =>
@@ -28,6 +29,7 @@ function App() {
   };
 
   const getSpecialJoke = () => {
+    dispatch(setJoke([]));
     setSpecialJoke(true);
     ChuckJokes.getCategories().then((res) => dispatch(setCategories(res)));
   };
@@ -39,6 +41,7 @@ function App() {
   };
 
   const getSearchJoke = () => {
+    dispatch(setJokes([]));
     setSearchJoke(true);
   };
 
@@ -81,15 +84,17 @@ function App() {
               </button>
             </div>
 
-            {jokeData.categories.map((category) => (
-              <button
-                className="categoryBtn"
-                key={category}
-                onClick={() => categoryJoke(category)}
-              >
-                {category}
-              </button>
-            ))}
+            <div className="categoryContainer">
+              {jokeData.categories.map((category) => (
+                <button
+                  className="categoryBtn"
+                  key={category}
+                  onClick={() => categoryJoke(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
             <p>{jokeData.joke}</p>
           </div>
         </div>
@@ -112,12 +117,14 @@ function App() {
                 {joke}
               </p>
             ))}
-            {page > 0 && (
-              <button onClick={() => setPage(page - 1)}>Prev</button>
-            )}
-            {page < Math.floor(jokeData.jokes.length / 5) && (
-              <button onClick={() => setPage(page + 1)}>Next</button>
-            )}
+            <Buttons>
+              {page > 0 && (
+                <button onClick={() => setPage(page - 1)}>Prev</button>
+              )}
+              {page < Math.floor(jokeData.jokes.length / 5) && (
+                <button onClick={() => setPage(page + 1)}>Next</button>
+              )}
+            </Buttons>
           </div>
         </div>
       )}
