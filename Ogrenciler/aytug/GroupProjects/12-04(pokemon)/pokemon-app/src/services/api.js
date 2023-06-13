@@ -5,9 +5,16 @@ export const getAllPokemonData = async () => {
 };
 
 export const getAllPokemons = async () => {
-	const response = await fetch(`${import.meta.env.VITE_URL}/pokemon`);
+	const response = await fetch(`${import.meta.env.VITE_URL}/pokemon?limit=100&offset=0`);
 	const data = await response.json();
-	return data.results;
+	const updatedPokemons = await Promise.all(
+		data.results.map(async (pokemon) => {
+			const pokemonData = await getPokemonByName(pokemon.name);
+			return { ...pokemon, ...pokemonData };
+		})
+	);
+
+	return updatedPokemons;
 };
 
 export const getPokemonByName = async (name) => {

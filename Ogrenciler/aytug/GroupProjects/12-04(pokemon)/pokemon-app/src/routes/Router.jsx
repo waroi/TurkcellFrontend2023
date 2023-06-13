@@ -10,8 +10,8 @@ const Router = ({ store, dispatch, listPokemons }) => {
 			element: <HomeView store={store} dispatch={dispatch} listPokemons={listPokemons} />,
 		},
 		{
-			path: "/pokemon/:id",
-			element: <PokemonView />,
+			path: "/pokemons/:name",
+			element: <PokemonView store={store} />,
 		},
 		{
 			path: "*",
