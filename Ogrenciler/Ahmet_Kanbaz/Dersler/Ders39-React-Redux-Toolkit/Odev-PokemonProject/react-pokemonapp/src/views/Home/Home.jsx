@@ -1,4 +1,4 @@
-import AllPokemons from "../../components/LimitPokemons/LimitAllPokemons"
+import AllPokemons from "../../components/AllPokemons/AllPokemons"
 
 const Home = () => {
   return (

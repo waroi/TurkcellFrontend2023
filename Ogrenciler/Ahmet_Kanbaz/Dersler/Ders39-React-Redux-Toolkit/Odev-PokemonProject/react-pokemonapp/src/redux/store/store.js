@@ -1,11 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import fetchLimit from "../slices/fetchLimit/fetchLimit";
-import fetchSinglePokemon from "../slices/fetchSinglePokemon/fetchSinglePokemon";
+import pokemon from "../slices/pokeSlice/pokeSlice";
 
 const store = configureStore({
   reducer: {
-    fetchLimit,
-    fetchSinglePokemon
+    pokemon,
+    
   }
 })
 
