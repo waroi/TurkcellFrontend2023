@@ -10,7 +10,6 @@ useEffect(() => {
    async function fetchData(item) {
     const url = item == 0 ? `https://pokeapi.co/api/v2/pokemon` : `https://pokeapi.co/api/v2/pokemon/?offset=${20*count}&limit=20`
     fetch(url).then((res) => res.json()).then((res) => setPokes(res.results));
-    await console.log(pokes);
     await dispatch(getPokemons([...pokes,pokes]))
   }
   fetchData(count);

@@ -11,9 +11,13 @@ export const cardSlice = createSlice({
     getPokemons: (state, action) => {
       state.pokes = action.payload;
     },
+    getPokeDetail: (state, action) => {
+      console.log(action.payload);
+      state.pokeDetail = action.payload;
+    },
   },
 });
 
-export const {getPokemons} = cardSlice.actions;
+export const {getPokemons,getPokeDetail} = cardSlice.actions;
 
 export default cardSlice.reducer;
