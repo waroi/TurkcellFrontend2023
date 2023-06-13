@@ -18,10 +18,11 @@ export const Container = styled.div`
     display: grid;
     place-items: center;
     background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
 
     div {
-      overflow-y: scroll;
       display: flex;
+      flex-direction: column;
       flex-wrap: wrap;
       margin: 0 auto;
       width: 55%;
@@ -35,9 +36,9 @@ export const Container = styled.div`
       p {
         text-shadow: 1px 1px 1px black;
       }
-
       .header {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         background-color: #fbfbfb;
@@ -69,6 +70,13 @@ export const Container = styled.div`
           color: #f25a25;
         }
       }
+      .categoryContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0;
+      }
     }
 
     form {
@@ -91,12 +99,16 @@ export const Container = styled.div`
 
   @media screen and (max-width: 768px) {
     h2 {
-      font-size: 1rem;
+      font-size: 1.5rem;
     }
     .dialog {
       div {
         width: 100%;
         gap: 0.1rem;
+        padding: 2rem 0.5rem;
+        p {
+          margin: 8px 0;
+        }
       }
     }
   }
@@ -104,11 +116,15 @@ export const Container = styled.div`
 
 export const Logo = styled.img`
   width: 50%;
-  height: 50%;
+  @media screen and (max-width: 768px) {
+    margin-left: 1.2rem;
+    width: 100%;
+  }
 `;
 
 export const Buttons = styled.div`
   display: flex;
+  flex-direction: row !important;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import ChuckJokes from "../../services/api";
 export const jokeSlice = createSlice({
   name: "joke",
   initialState: {
