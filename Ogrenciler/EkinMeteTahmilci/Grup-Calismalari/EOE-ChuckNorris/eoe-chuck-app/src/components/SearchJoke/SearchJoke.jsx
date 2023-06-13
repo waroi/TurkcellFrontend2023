@@ -6,9 +6,7 @@ const SearchJoke = () => {
 
   return (
     <div>
-      {jokes.slice(0, 20).map((item) => (
-        <div key={item.id}>{item.value} </div>
-      ))}
+      {jokes.length > 0 && jokes.slice(0, 20).map((item) => <div key={item.id}>{item.value} </div>)}
     </div>
   );
 };
