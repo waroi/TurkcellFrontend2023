@@ -6,7 +6,7 @@ const randomJokeSlice = createSlice({
   name: "randomJoke",
   initialState,
   reducers: {
-    setJoke: (state, action) => {
+    setRandomJoke: (state, action) => {
       return action.payload;
     },
   },

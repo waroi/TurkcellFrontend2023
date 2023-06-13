@@ -2,7 +2,7 @@ import RandomJoke from "../components/RandomJoke/RandomJoke"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from "../redux/slices/categorySlice";
-import { setJoke } from "../redux/slices/randomJokeSlice";
+import { setRandomJoke } from "../redux/slices/randomJokeSlice";
 const RandomView = () => {
     const categories = ["animal", "career", "celebrity", "dev", "explicit", "fashion", "food", "history", "money", "movie", "music", "political", "religion", "science", "sport", "travel"]
 
@@ -13,12 +13,12 @@ const RandomView = () => {
         if (myCategory == "All") {
             fetch("https://api.chucknorris.io/jokes/random")
                 .then(res => res.json())
-                .then(data => dispatch(setJoke(data.value)))
+                .then(data => dispatch(setRandomJoke(data.value)))
         }
         else {
             fetch(`https://api.chucknorris.io/jokes/random?category=${myCategory}`)
                 .then(res => res.json())
-                .then(data => dispatch(setJoke(data.value)))
+                .then(data => dispatch(setRandomJoke(data.value)))
         }
     }
 
