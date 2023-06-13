@@ -8,13 +8,13 @@ function İcons() {
         <İconLi hovercolor="#919191">
           <NavbarA href="#">
             <AiFillHome size={32} style={{ color: "white" }} />
-            <NavbarSpan>Home</NavbarSpan>
+            <NavbarSpan className="text-white">Home</NavbarSpan>
           </NavbarA>
         </İconLi>
         <İconLi hovercolor="#e3350d">
           <NavbarA href="#">
             <Navbarİmg src="./src/assets/icons/pikachu.png" alt="logo" />
-            <NavbarSpan>Home</NavbarSpan>
+            <NavbarSpan  >Home</NavbarSpan>
           </NavbarA>
         </İconLi>
         <İconLi hovercolor="#ee6b2f">

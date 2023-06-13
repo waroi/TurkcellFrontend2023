@@ -8,7 +8,9 @@ function Navbar() {
       <NavbarBackground className="w-100">
         <Header />
       </NavbarBackground>
-      <İcons />
+      <div className="w-100 bg-light">
+        <İcons />
+      </div>
     </>
   );
 }

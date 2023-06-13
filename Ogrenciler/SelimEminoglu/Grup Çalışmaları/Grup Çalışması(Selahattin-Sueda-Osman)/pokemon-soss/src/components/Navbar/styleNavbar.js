@@ -19,8 +19,11 @@ export const Navbarİmg = styled.img`
   max-height: 50px;
 `;
 
+
+
 export const NavbarAniİmg = styled(Navbarİmg)`
   transition: all 200ms linear;
+  width: 80px;
   &:hover {
     animation-name: gus-bounce;
     animation-duration: 475ms;
