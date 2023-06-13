@@ -1,7 +1,10 @@
 import { RandomJokeCard } from './RandomJokeStyle'
 import { useSelector } from 'react-redux'
+// import { useEffect } from 'react'
 const RandomJoke = () => {
-  const joke = useSelector((state) => state.jokes.joke);
+
+  const joke = useSelector(state => state.randomJoke)
+
 
   return (
     <div>

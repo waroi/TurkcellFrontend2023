@@ -1,24 +1,46 @@
 import RandomJoke from "../components/RandomJoke/RandomJoke"
-import { useEffect, useState } from "react"
-import { useDispatch } from 'react-redux';
-import { getJoke } from "../redux/slices/jokeSlice";
+import { useEffect } from "react"
+import { useDispatch, useSelector } from 'react-redux';
+import { setCategory } from "../redux/slices/categorySlice";
+import { setJoke } from "../redux/slices/randomJokeSlice";
 const RandomView = () => {
     const categories = ["animal", "career", "celebrity", "dev", "explicit", "fashion", "food", "history", "money", "movie", "music", "political", "religion", "science", "sport", "travel"]
-    const [category, setCategory] = useState("All");
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getJoke(category))
-    }, [category])
 
+    const dispatch = useDispatch()
+    const myCategory = useSelector((state) => state.category)
+
+    const fetchJoke = () => {
+        if (myCategory == "All") {
+            fetch("https://api.chucknorris.io/jokes/random")
+                .then(res => res.json())
+                .then(data => dispatch(setJoke(data.value)))
+        }
+        else {
+            fetch(`https://api.chucknorris.io/jokes/random?category=${myCategory}`)
+                .then(res => res.json())
+                .then(data => dispatch(setJoke(data.value)))
+        }
+    }
+
+    useEffect(() => {
+        fetchJoke()
+    }, [myCategory])
+
+
+    const handleSelectChange = (e) => {
+        dispatch(setCategory(e.target.value))
+    }
     return (
         <div>
-            <select onChange={(e) => setCategory(e.target.value)} name="jokeCat" id="jokeCat">
-                <option value="All" selected>All</option>
+            <select value={myCategory} onChange={handleSelectChange} name="jokeCat" id="jokeCat">
+                <option value="All">All</option>
                 {
                     categories.map((cat, index) => <option key={index} value={cat}>{cat}</option>)
                 }
             </select>
             <RandomJoke />
+
+            <button onClick={fetchJoke}>Get Joke</button>
         </div>
     )
 }

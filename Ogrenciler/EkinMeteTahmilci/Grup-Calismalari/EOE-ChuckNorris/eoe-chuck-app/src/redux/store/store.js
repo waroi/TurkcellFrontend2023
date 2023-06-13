@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { jokeSlice } from "../slices/jokeSlice";
+import categoryReducer from "../slices/categorySlice";
+import randomJokeReducer from "../slices/randomJokeSlice";
 
 const store = configureStore({
   reducer: {
-    jokes: jokeSlice,
+    category: categoryReducer,
+    randomJoke: randomJokeReducer,
   },
 });
 
