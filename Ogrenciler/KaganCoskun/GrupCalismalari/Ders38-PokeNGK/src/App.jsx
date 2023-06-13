@@ -7,6 +7,7 @@ function App() {
     <>
       <Main>
         <Route/>
+        
       </Main>
     </>
   )
