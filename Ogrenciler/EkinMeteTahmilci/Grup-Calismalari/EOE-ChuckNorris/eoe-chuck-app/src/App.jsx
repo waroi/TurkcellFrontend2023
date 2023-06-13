@@ -1,13 +1,13 @@
-import { useState } from 'react'
 import Header from './components/header/header'
-import RandomJoke from './components/RandomJoke/RandomJoke'
-import Router from './routes/router'
-
+import Router from './routes/Router'
+import { Container } from './ContainerStyle'
 function App() {
   return (
     <>
-      <Header/>
-      <Router/>
+      <Header />
+      <Container>
+        <Router />
+      </Container>
     </>
   )
 }

@@ -1,12 +1,13 @@
-import React from 'react'
 import { RandomJokeCard } from './RandomJokeStyle'
-
+import { useSelector } from 'react-redux'
 const RandomJoke = () => {
+  const joke = useSelector((state) => state.jokes.joke);
+
   return (
     <div>
-        <RandomJokeCard>
-
-        </RandomJokeCard>
+      <RandomJokeCard>
+        {joke}
+      </RandomJokeCard>
     </div>
   )
 }
