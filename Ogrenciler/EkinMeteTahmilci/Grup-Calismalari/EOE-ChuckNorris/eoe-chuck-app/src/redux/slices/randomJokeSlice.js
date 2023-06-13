@@ -12,5 +12,5 @@ const randomJokeSlice = createSlice({
   },
 });
 
-export const { setJoke } = randomJokeSlice.actions;
+export const { setRandomJoke } = randomJokeSlice.actions;
 export default randomJokeSlice.reducer;
