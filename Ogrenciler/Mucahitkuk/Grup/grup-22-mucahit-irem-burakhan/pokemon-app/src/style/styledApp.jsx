@@ -4,7 +4,6 @@ import televisionImage from "../assets/tv1.png";
 
 export const BgWrapper = styled.div`
   background-image: url(${backgroundImage});
-  background-size: cover;
   background-position: center;
   width: 100vw;
   height: 100vh;
@@ -54,7 +53,6 @@ export const TvWrapper = styled.div`
 `;
 
 export const InnerContent = styled.div`
-  /* Add styles for the inner content */
   color: black;
   font-size: 14px;
   z-index: 40;
@@ -68,6 +66,7 @@ export const InnerContent = styled.div`
   position: relative;
   overflow-y: scroll;
   top: 2.5rem;
+  right: -6px;
 `;
 
 export const CustomButton = styled.button`
