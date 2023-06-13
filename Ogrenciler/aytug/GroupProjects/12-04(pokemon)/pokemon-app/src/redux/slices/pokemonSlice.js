@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getAllPokemons } from "../../services/api";
 
 const initialState = {
 	pokemons: [],
@@ -8,15 +9,12 @@ export const pokemonSlice = createSlice({
 	name: "pokemon",
 	initialState,
 	reducers: {
-		addPokemon: (state, action) => {
-			state.pokemons = [...state.pokemons, action.payload];
-		},
-		deletePokemon: (state, action) => {
-			state.pokemons = state.pokemons.filter((pokemon) => pokemon.id !== action.payload);
+		listPokemons: (state) => {
+			state.pokemons = getAllPokemons();
 		},
 	},
 });
 
-export const { addPokemon, deletePokemon } = pokemonSlice.actions;
+export const { listPokemons } = pokemonSlice.actions;
 
 export default pokemonSlice.reducer;

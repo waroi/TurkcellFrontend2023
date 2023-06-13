@@ -1,6 +1,7 @@
 export const getAllPokemonData = async () => {
 	const response = await fetch(`${import.meta.env.VITE_URL}`);
 	const data = await response.json();
+	console.log(response);
 	return data;
 };
 
