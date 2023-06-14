@@ -4,7 +4,7 @@ export const SliderContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  margin: 100px auto;
+  padding-top: 3rem;
 
   .slider-image {
     width: 100%;
