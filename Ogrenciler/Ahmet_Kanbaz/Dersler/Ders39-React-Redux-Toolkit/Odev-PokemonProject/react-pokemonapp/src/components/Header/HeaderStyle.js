@@ -23,7 +23,6 @@ export const HeaderContainer = styled.div`
     .headerSection{
       flex-direction:column;
       justify-content:center;
-
     }
   }
 `;

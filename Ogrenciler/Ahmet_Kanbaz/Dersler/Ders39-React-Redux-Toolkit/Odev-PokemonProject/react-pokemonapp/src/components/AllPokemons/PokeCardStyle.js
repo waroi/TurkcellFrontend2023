@@ -4,8 +4,7 @@ export const PokeCardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding:3rem 0 100px
-}
+  padding: 3rem 0 100px;
 `;
 
 export const PokeCard = styled.div`
@@ -21,8 +20,6 @@ export const PokeCard = styled.div`
   justify-content: end;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  /* background: ${(props) => props.id};
-  background-size: 100%; */
   img {
     transition: all .3s ease-in-out;
     width: 80%;

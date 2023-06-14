@@ -35,10 +35,15 @@ export const Container = styled.div`
       &:hover {
         color: gold;
       }
-      @media screen and (max-width:768px){
-        {
-         display:flex;flex-direction:column
-        } 
+  }
+  @media screen and (max-width:768px){
+    p {
+      margin: 0 0 0.5rem;
+      width: 100%;
     }
+  }
+}
+@media screen and (max-width:768px){
+    width: 100%;
   }
 `;

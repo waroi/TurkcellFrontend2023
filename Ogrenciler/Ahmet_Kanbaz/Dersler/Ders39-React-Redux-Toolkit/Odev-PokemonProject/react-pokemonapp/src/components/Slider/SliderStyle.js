@@ -10,6 +10,7 @@ export const SliderContainer = styled.div`
     width: 100%;
     height: auto;
     cursor: pointer;
+    
     transition: all 0.3s ease-in-out;
     opacity: 0.8;
     &:hover {
