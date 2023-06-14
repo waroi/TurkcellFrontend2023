@@ -17,6 +17,10 @@ export const Container = styled.div`
         color: gold;
       }
     }
+    @media screen and (max-width:768px){
+      flex-direction:column;
+      display:flex
+    }
   }
 
   .bottomFooter {
@@ -31,6 +35,10 @@ export const Container = styled.div`
       &:hover {
         color: gold;
       }
+      @media screen and (max-width:768px){
+        {
+         display:flex;flex-direction:column
+        } 
     }
   }
 `;

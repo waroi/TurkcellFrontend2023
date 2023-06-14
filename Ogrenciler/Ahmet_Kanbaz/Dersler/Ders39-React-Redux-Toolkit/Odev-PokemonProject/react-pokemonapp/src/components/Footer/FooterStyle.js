@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const FooterContainer = styled.div`
   padding: 2rem 0;
   background-color: silver;
+  
 `;
 
 export const FirstFooter = styled.div`
@@ -25,11 +26,17 @@ export const FooterSocialsDiv = styled.div`
 `;
 
 
-export const FooterEndComtainer = styled(FirstFooter) `
+export const FooterEndComtainer = styled(FirstFooter)`
   gap: 1.2rem;
   .footerEnd {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+   
+    }
+    @media screen and (max-width:768px){
+      img{
+       width:10%
+      } 
   }
 `;
