@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterLogo src={logo} alt="logo" />
-      <h4>Tüm Hakları Saklıdır @2023</h4>
+      <h4>Çok Güzel Haberler Bunlar</h4>
     </FooterContainer>
   )
 }

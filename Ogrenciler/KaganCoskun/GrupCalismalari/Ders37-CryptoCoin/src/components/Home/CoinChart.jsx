@@ -1,51 +1,59 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef } from 'react';
 import { createChart } from 'lightweight-charts';
+import { useTheme } from '../../context/ThemeContext';
+import { Button } from './chartStyle';
 
-const CoinChart = ({data,setChartDay}) => {
+const CoinChart = ({data,chartDay,setChartDay}) => {
+
+  const {theme} = useTheme();
 
     const chartContainerRef = useRef();
     const chart = useRef();
+    const lineSeries = useRef();
     const resizeObserver = useRef();
 
-    function transformData(prices) {
-
-        // prices.sort((a, b) => a[0] - b[0]);
-
-        return prices?.map(price => ({
-            time: price[0] / 1000,
-          value: price[1],
+    function transformData(chartData) {
+        return chartData?.map(data => ({
+            time: data[0] / 1000,
+          value: data[1],
         }));
       }
+      
 
       useEffect(() => {
-        chart.current = createChart(chartContainerRef.current, { width: 400, height: 300 });
-        const lineSeries = chart.current.addLineSeries();
-        
-        const transformedData = transformData(data);
-        lineSeries.setData(transformedData);
-      
-        resizeObserver.current = new ResizeObserver(entries => {
+        if (!chart.current) {
+          chart.current = createChart(chartContainerRef.current, { width: 400, height: 300 });
+          lineSeries.current = chart.current.addLineSeries();
+          resizeObserver.current = new ResizeObserver(entries => {
             const { width, height } = entries[0].contentRect;
             chart.current.applyOptions({ width, height });
-        });
+          });
+          resizeObserver.current.observe(chartContainerRef.current);
+    
+          return () => resizeObserver.current.disconnect();
+        }
+        
+      }, []);
 
-        resizeObserver.current.observe(chartContainerRef.current);
-
-        return () => resizeObserver.current.disconnect();
-
+      useEffect(() => {
+        if (chart.current && data) {
+          const transformedData = transformData(data);
+          lineSeries.current.setData(transformedData);
+        }
       }, [data]);
 
 
 
   return (
     <>
-    <button onClick={()=>setChartDay(1)}>1d</button>
-    <button onClick={()=>setChartDay(7)}>7d</button>
-    <button onClick={()=>setChartDay(15)}>15d</button>
-        <div ref={chartContainerRef} style={{ width: '90%', height: '300px' }}>
-                {/* Chart will be inserted here */}
-            </div>
+      <Button active={chartDay===1} theme={theme} onClick={()=>setChartDay(1)}>1d</Button>
+      <Button active={chartDay===7} theme={theme} onClick={()=>setChartDay(7)}>7d</Button>
+      <Button active={chartDay===15} theme={theme} onClick={()=>setChartDay(15)}>15d</Button>
+      <Button active={chartDay===30} theme={theme} onClick={()=>setChartDay(30)}>30d</Button>
+      <div ref={chartContainerRef} style={{ width: '90%', height: '300px' }}>
+        {/* Chart will be inserted here */}
+      </div>
     </>
   )
 }

@@ -14,7 +14,7 @@ const NewsCards = ({news, link}) => {
     <>
       <Card>
         <Link to={link}>
-          <CardImage src={image} onError={() => setImage("https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/02/summer-7.jpg")} />
+          <CardImage src={image} onError={() => setImage("https://www.pumpkin.care/wp-content/uploads/2020/08/Cat-Age-Chart-Hero-Opt1.jpg")} />
           <CardBody>
             <CardUpperInfo>
             <CardCategory>{news?.source}</CardCategory>

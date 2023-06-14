@@ -3,12 +3,15 @@ import styled from "styled-components";
 const TableRow = styled.tr`
 display: table-row;
   background-color: ${(props) => props.theme === "dark" ? "#333" : "#f8fafd"};
-  padding: 0%.5rem 0;
+  padding: 0 .5rem 0;
+  transition: all 0.1s ease-in-out;
 `;
 const TableCell = styled.td`
   padding: 1rem 0.5rem;
   border-bottom: 1px solid #dddddd6c;
   text-align: start;
+  transition: all 0.1s ease-in-out;
+
 `;
 
 const CoinTitle = styled.div`
@@ -29,7 +32,8 @@ const CoinSymbol= styled.span`
     `;
 
 const PriceChange= styled.span`
-    color: ${(props)=>props.price >= 0 ?"green":"red"};
+    color: ${(props)=>props.price >= 0 ?"#2bec04":"red"};
+    font-weight: 500;
     `;
 
 export { TableCell,TableRow,CoinTitle,CoinSymbol,PriceChange };

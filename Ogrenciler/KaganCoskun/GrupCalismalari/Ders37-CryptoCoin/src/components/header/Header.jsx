@@ -6,19 +6,26 @@ import {
   Icon,
   Container,
   SearchInput,
+  Logo,
 } from "./styled";
 import { useCurrency } from "../../context/CurrencyContext";
-import { getCoinList, getCurrencies } from "../../service/requests";
+import { getCurrencies } from "../../service/requests";
 import { useEffect, useState } from "react";
 import { useCoinList } from "../../context/CoinContext";
+import { Link } from "react-router-dom";
+import LogoDark from "/public/kriptok-dark.png"
+import LogoLight from "/public/kriptok-light.png"
+import SearchResults from "./SearchResults";
 
 const Header = () => {
   const [currencyList, setCurrencyList] = useState([]);
 
   const { theme, setTheme } = useTheme();
   const { currency, setCurrency } = useCurrency();
+  const[filterList, setFilterList] = useState();
+  const[filterFocus, setFilterFocus] = useState(false);
 
-  const { coinList, setCoinList } = useCoinList();
+  const { coinList } = useCoinList();
 
   useEffect(() => {
     getCurrencies().then((data) => setCurrencyList(data));
@@ -26,26 +33,29 @@ const Header = () => {
 
   const handeleSearch = (e) => {
     let filter = [...coinList].filter((item) => {
+      if(e.target.value === "" || e.target.value === null) return [];
       return item.name.toLowerCase().includes(e.target.value.toLowerCase());
     });
-    setCoinList(filter);
 
-    if (e.target.value === "" || e.target.value === null) {
-      getCoinList(currency).then((data) => setCoinList(data));
-    }
+    setFilterList(filter);
+
+
   };
 
   return (
     <HeaderWrapper theme={theme}>
       <Container>
-        <h1>Crypto Koyun</h1>
+        <Link to={"/"}><Logo src={theme === "light" ? LogoLight : LogoDark} alt="logo" /></Link>
 
         <SearchInput
           type="text"
           placeholder="Search"
           onChange={handeleSearch}
           theme={theme}
+          onFocus={() => setFilterFocus(true)}
+          onBlur={() => setTimeout(() => setFilterFocus(false), 200)}
         />
+        {filterFocus && filterList?.length > 0 && <SearchResults filterList={filterList}/>}
 
         <div>
           <SelectItem
@@ -61,6 +71,7 @@ const Header = () => {
               ))}
           </SelectItem>
           <Icon
+            theme={theme}
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             className={
               `${theme}` === "light" ? "fa-solid fa-moon" : "fa-solid fa-sun"

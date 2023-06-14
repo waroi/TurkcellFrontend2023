@@ -1,11 +1,17 @@
-import React from "react";
-import { useCoinList } from "../../context/CoinContext";
+/* eslint-disable react/prop-types */
+import { TrendCoinImage, TrendCoinsItem } from "./trendingStyled";
 
-const Trending = ({ trendingId }) => {
-  const { coinList } = useCoinList();
-  const newTrending = coinList?.find((element) => element.id === trendingId);
-  console.log(newTrending);
-//image name price percentage
-  return <>{newTrending && <div>{newTrending?.id}</div>}</>;
+const Trending = ({ trending }) => {
+  
+  return (
+    <>
+      {
+        <TrendCoinsItem to={`/coin/${trending.id}`}>
+          <TrendCoinImage src={trending?.small} alt="small" />
+          {trending?.symbol}
+        </TrendCoinsItem>
+      }
+    </>
+  );
 };
 export default Trending;
