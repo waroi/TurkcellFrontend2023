@@ -9,7 +9,7 @@ export const StyledDiv = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 20px;
+	gap: 30px;
 `;
 
 export const StyledCard = styled.div`

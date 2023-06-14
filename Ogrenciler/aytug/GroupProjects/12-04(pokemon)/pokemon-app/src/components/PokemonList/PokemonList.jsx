@@ -6,8 +6,9 @@ const PokemonList = ({ pokemons }) => {
 		<>
 			{pokemons.length != 0 && (
 				<>
+				<h1 className="text-center my-3">POKEMONLAR</h1>
 					<S.StyledDiv className="row mt-5">
-						<h1 className="text-center">POKEMONLAR</h1>
+						
 						{pokemons.map((pokemon) => (
 							<S.StyledCard className="card col-md-2 d-flex" key={pokemon.name}>
 								<S.StyledImg
