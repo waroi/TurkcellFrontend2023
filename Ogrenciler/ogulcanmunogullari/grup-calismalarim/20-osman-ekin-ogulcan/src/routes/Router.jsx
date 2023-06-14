@@ -5,10 +5,9 @@ import InfoPage from '../views/InfoPage'
 export const Router = () => {
 
  return useRoutes([
-  {
-   path: "/", element: <MainPage />,
-  },
+  { path: "/", element: <MainPage /> },
   { path: "/:id", element: <InfoPage /> },
+  { path: "*", element: <MainPage /> },
  ]);
 
 }

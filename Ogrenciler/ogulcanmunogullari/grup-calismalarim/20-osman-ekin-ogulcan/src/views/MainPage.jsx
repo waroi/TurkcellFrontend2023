@@ -13,12 +13,11 @@ const MainPage = () => {
   document.title = "Crypto Currency";
   const navigate = useNavigate();
   const { theme } = useThemeStore();
-  const { top100, setSearch } = useStore();
+  const { top100 } = useStore();
 
   document.body.style.backgroundColor = theme == "light" ? "#fff" : "#000";
 
   const goTo = (id) => {
-    setSearch(id);
     navigate(`/${id}`);
   };
 
@@ -36,28 +35,29 @@ const MainPage = () => {
       </Grid>
       {top100.length == 0 && <Loading theme={theme}>Loading...</Loading>}
       {top100.map((coin) => {
+        const { rank, icon, name, symbol, price, priceChange1h, priceChange1d, priceChange1w, marketCap, volume } = coin;
         return (
           <Grid onClick={() => goTo(coin.id)} key={coin.rank} theme={theme}>
-            <div>{coin.rank}</div>
+            <div>{rank}</div>
             <div>
               {" "}
               <span className="icon">
-                <img src={coin.icon} />
+                <img src={icon} />
               </span>{" "}
-              {coin.name} <span className="symbol">{coin.symbol}</span>
+              {name} <span className="symbol">{symbol}</span>
             </div>
-            <div>{coin.price.toFixed(6)}</div>
-            <CalculateColor number={coin.priceChange1h}>
-              {coin.priceChange1h}
+            <div>{price.toFixed(6)}</div>
+            <CalculateColor number={priceChange1h}>
+              {priceChange1h}
             </CalculateColor>
-            <CalculateColor number={coin.priceChange1d}>
-              {coin.priceChange1d}
+            <CalculateColor number={priceChange1d}>
+              {priceChange1d}
             </CalculateColor>
-            <CalculateColor number={coin.priceChange1w}>
-              {coin.priceChange1w}
+            <CalculateColor number={priceChange1w}>
+              {priceChange1w}
             </CalculateColor>
-            <div>{coin.marketCap.toFixed(2)}</div>
-            <div>{coin.volume.toFixed(2)}</div>
+            <div>{marketCap.toFixed(2)}</div>
+            <div>{volume.toFixed(2)}</div>
           </Grid>
         );
       })}
