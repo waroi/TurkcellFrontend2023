@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
+import {TopDetailContainer} from './TopDetailStyle'
 const TopDetail = ({topValues}) => {
   const {name, id} = topValues
   return (
-    <div>
+    <TopDetailContainer>
       <h2>{name}</h2>
-      <h4><span>#</span>{id}</h4>
-    </div>
+      <span><span>#</span>{id}</span>
+    </TopDetailContainer>
   )
 }
 

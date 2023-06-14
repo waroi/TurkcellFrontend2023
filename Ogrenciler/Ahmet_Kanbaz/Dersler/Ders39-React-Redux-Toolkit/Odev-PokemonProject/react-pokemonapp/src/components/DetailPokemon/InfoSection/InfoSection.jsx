@@ -1,26 +1,24 @@
 import PropTypes from 'prop-types'
+import {DetailPokemonInfo} from '../DetailPokemonStyle'
 const InfoSection = ({ infoSectionValues }) => {
   const { height, weight, abilities, types } = infoSectionValues;
   return (
-    <div>
-      <h2>Info Section</h2>
+    <DetailPokemonInfo>
+        <span className='infoName'>Height: <span className='value'>{height}m</span></span>
+        <span className='infoName'>Weight: <span className='value'>{weight}kg</span></span>
       <div>
-        <span>Height: {height}m</span>
-        <span>Weight: {weight}kg</span>
-      </div>
-      <div>
-        <span>Abilities: </span>
+        <span className='infoName'>Abilities: </span>
         {abilities?.map((item, index) => (
-          <span key={index}>{item.ability.name}</span>
+          <span key={index} className='value'>{item.ability.name}</span>
         ))}
       </div>
       <div>
-        <span>Types: </span>
+        <span className='infoName'>Types: </span>
         {types?.map((item, index) => (
-          <span key={index}>{item.type.name}</span>
+          <span key={index} className='value'>{item.type.name}</span>
         ))}
       </div>
-    </div>
+    </DetailPokemonInfo>
   );
 };
 

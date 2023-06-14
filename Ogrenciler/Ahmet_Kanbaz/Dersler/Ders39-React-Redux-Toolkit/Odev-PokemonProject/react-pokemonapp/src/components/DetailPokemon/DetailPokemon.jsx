@@ -5,6 +5,7 @@ import TopDetail from "./TopDetailPage/TopDetail";
 import ImageSection from "./ImageSection/ImageSection";
 import InfoSection from "./InfoSection/InfoSection";
 import { DetailPokemonContainer, SectionWrapper } from "./DetailPokemonStyle";
+import { Container } from "../ContainerStyle";
 const DetailPokemon = () => {
   const [detailPoke, setDetailPoke] = useState(null);
   const { pokemonName } = useParams();
@@ -35,13 +36,15 @@ const DetailPokemon = () => {
   };
 
   return (
-    <DetailPokemonContainer>
-      <TopDetail topValues={topValues} />
-      <SectionWrapper>
-        <ImageSection imageSectionValues={imageSectionValues} />
-        <InfoSection infoSectionValues={infoSectionValues} />
-      </SectionWrapper>
-    </DetailPokemonContainer>
+    <Container>
+      <DetailPokemonContainer>
+        <TopDetail topValues={topValues} />
+        <SectionWrapper>
+          <ImageSection imageSectionValues={imageSectionValues} />
+          <InfoSection infoSectionValues={infoSectionValues} />
+        </SectionWrapper>
+      </DetailPokemonContainer>
+    </Container>
   );
 };
 

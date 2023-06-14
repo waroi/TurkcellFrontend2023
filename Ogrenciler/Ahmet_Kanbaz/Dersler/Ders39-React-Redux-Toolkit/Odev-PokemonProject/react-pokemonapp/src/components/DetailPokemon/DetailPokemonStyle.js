@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const DetailPokemonContainer = styled.div`
   display: flex;
   width: 100%;
-  background-color: #f5f5f5;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -12,27 +11,33 @@ export const DetailPokemonContainer = styled.div`
 
 export const SectionWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 20px;
-  gap: 1rem;
+  justify-content: center;
+  width: 60%;
+  margin: 2rem 0;
 `;
 
 export const DetailPokemonImage = styled.img`
-  width: 100%;
+  background-color: #f2f2f2;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
 `;
 
-export const DetailPokemonName = styled.h1`
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 20px;
-`;
-
-export const DetailPokemonTypes = styled.div`
+export const DetailPokemonInfo = styled.div`
+  width: 50%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  margin-top: 20px;
+  gap: 2rem;
+  padding: 0 2rem;
+  background-color: #30A7D7;
+  border-radius: 12px;
+  .infoName {
+    color: #FFFFFF;
+  }
+  .value {
+    color: #000000;
+  }
 `;

@@ -1,10 +1,11 @@
 import DetailPokemon from "../../components/DetailPokemon/DetailPokemon"
+import { ContainerStyle } from '../../components/ContainerStyle'
 
 const Detail = () => {
   return (
-    <div>
+    <ContainerStyle>
       <DetailPokemon />
-    </div>
+    </ContainerStyle>
   )
 }
 
