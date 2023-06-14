@@ -9,3 +9,8 @@ export const fetchPokemons = async () => {
   const response = await axios.get('https://pokeapi.co/api/v2/pokemon?offset=91&limit=21');
   return response.data.results;
 }
+
+export const pokemonDetailForDetailPage = async (name) => {
+  const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  return response.data;
+}
