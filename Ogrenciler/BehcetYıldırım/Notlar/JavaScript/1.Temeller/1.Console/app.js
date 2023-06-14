@@ -9,6 +9,6 @@
 
 //  console.log(typeof a)
 
-console.warn("bu bir uyarıdır")
-console.error("bu sayfa bulunamadı")
-console.clear()
+console.warn("bu bir uyarıdır");
+console.error("bu sayfa bulunamadı");
+console.clear();
