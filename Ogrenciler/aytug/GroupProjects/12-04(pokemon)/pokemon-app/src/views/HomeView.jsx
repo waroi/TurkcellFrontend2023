@@ -15,7 +15,6 @@ const HomeView = () => {
 		handleListPokemons();
 	}, []);
 
-	console.log(pokemons);
 	return (
 		<>
 			<div>{pokemons && <PokemonList pokemons={pokemons} />}</div>

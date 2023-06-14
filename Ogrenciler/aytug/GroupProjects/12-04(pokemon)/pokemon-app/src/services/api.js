@@ -13,7 +13,6 @@ export const getAllPokemons = async () => {
 			return { ...pokemon, ...pokemonData };
 		})
 	);
-
 	return updatedPokemons;
 };
 
