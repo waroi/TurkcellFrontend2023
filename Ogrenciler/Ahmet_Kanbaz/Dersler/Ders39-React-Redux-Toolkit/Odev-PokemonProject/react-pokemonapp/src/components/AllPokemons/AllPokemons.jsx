@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setLoading, setData, setError } from '../../redux/slices/pokeSlice/pokeSlice';
 import { fetchPokemons } from '../../class/fetchPokemons';
 import SinglePokemon from './SinglePokemon';
+import { PokeCardContainer } from './PokeCardStyle';
 
 const AllPokemons = () => {
   const dispatch = useDispatch();
@@ -31,13 +32,13 @@ const AllPokemons = () => {
   }
 
   return (
-    <div>
+    <PokeCardContainer>
       {data.length > 0 ? (
         data.map((pokemon) => <SinglePokemon key={pokemon.name} singleItem={pokemon} />)
       ) : (
         <div>No pokemons found.</div>
       )}
-    </div>
+    </PokeCardContainer>
   );
 };
 

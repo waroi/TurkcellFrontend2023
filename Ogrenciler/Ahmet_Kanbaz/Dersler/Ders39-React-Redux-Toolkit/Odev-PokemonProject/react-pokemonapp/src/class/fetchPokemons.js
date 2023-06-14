@@ -6,6 +6,6 @@ export const fetchPokemonsDetail = async (url) => {
 };
 
 export const fetchPokemons = async () => {
-  const response = await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
+  const response = await axios.get('https://pokeapi.co/api/v2/pokemon?offset=91&limit=21');
   return response.data.results;
 }
