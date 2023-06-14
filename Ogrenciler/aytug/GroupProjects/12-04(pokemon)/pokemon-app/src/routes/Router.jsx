@@ -3,15 +3,15 @@ import HomeView from "../views/HomeView";
 import PokemonView from "../views/PokemonView";
 import NotFound from "../views/NotFound";
 
-const Router = ({ store, dispatch, listPokemons }) => {
+const Router = () => {
 	const routes = useRoutes([
 		{
 			path: "/",
-			element: <HomeView store={store} dispatch={dispatch} listPokemons={listPokemons} />,
+			element: <HomeView />,
 		},
 		{
 			path: "/pokemons/:name",
-			element: <PokemonView store={store} />,
+			element: <PokemonView />,
 		},
 		{
 			path: "*",
