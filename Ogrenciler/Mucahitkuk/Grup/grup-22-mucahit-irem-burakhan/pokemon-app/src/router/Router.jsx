@@ -1,23 +1,22 @@
-import { useRoutes } from 'react-router-dom';
-import Home from '../views/Home';
-import Pokemonpage from '../views/Pokemonpage';
+import { useRoutes } from "react-router-dom";
+import Home from "../views/Home";
+import Pokemonpage from "../views/Pokemonpage";
+import PokemonDetail from "../components/PokemonDetail/PokemonDetail";
 
 const Router = () => {
   const routes = useRoutes([
     {
-      path: '/',
+      path: "/",
       element: <Home />,
     },
     {
-      path: '/Pokemonpage',
+      path: "/Pokemonpage",
       element: <Pokemonpage />,
     },
-//     {path : "/:id", 
-//     element : <PokemonDetail />
-//   },
-//   { path: '*', element: <NotFound /> },
+    { path: "/Pokemonpage/:name", element: <PokemonDetail /> },
+    //   { path: '*', element: <NotFound /> },
   ]);
   return routes;
-}
+};
 
 export default Router;
