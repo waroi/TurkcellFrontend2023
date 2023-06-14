@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   characters: [],
-  selectedCaracter: ["ab","ca"],
+  selectedCaracter: [],
   knownCharacters: []
 
 };
@@ -14,11 +14,11 @@ export const characterSlice = createSlice({
     setList: (state, action) => {
       state.characters = action.payload;
     },
-    getList: (state) => {
-      return state;
+    setSelectedCaracter: (state, action) => {
+      state.selectedCaracter = [...state.selectedCaracter,action.payload];
     },
-    setselectedCaracter: (state, action) => {
-      state.selectedCaracter = action.payload;
+    clearSelectedCaracter: (state) => {
+      state.selectedCaracter = [];
     },
     setKnownCharacters: (state, action) => {
       state.knownCharacters = action.payload;
@@ -26,6 +26,6 @@ export const characterSlice = createSlice({
   },
 });
 
-export const { getList, setList } = characterSlice.actions;
+export const { getList,clearSelectedCaracter, setList,setSelectedCaracter,setKnownCharacters } = characterSlice.actions;
 
 export default characterSlice.reducer;
