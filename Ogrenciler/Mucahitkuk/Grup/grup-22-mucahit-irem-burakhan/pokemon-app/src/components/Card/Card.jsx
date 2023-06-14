@@ -10,7 +10,6 @@ const Card = () => {
   const loading = useSelector((state) => state.pokemons.loading);
   const error = useSelector((state) => state.pokemons.error);
   const graphics = useSelector((state) => state.pokemons.graphics);
-  console.log(graphics);
 
   useEffect(() => {
     dispatch(fetchPokemons());

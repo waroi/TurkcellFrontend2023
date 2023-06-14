@@ -16,8 +16,6 @@ export const fetchPokemons = createAsyncThunk('pokemons/fetchPokemons', async ()
       };
     })
   );
-
-  console.log(pokemons)
   return pokemons;
 });
 

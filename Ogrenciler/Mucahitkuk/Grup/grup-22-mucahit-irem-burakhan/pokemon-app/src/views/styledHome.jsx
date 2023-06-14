@@ -7,3 +7,7 @@ export const CustomButton = styled.button`
   width: 100px;
   height: 50px;
 `
+
+export const CustomDiv = styled.div`
+  max-height: 540px;
+`

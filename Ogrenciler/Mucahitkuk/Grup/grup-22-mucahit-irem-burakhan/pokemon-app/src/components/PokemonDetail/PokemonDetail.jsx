@@ -1,33 +1,22 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { CardSection } from "./styled.jsx";
-import baseBg from "../../assets/image10.png"
+import {typeAssets} from "../PokemonBg/PokemonBg.jsx";
+
 import "./style.css"
 const PokemonDetail = () => {
-  let imgSrc;
   const { name } = useParams();
   const pokemons = useSelector((state) => state.pokemons.data);
   const pokemon = pokemons.find((pokemon) => pokemon.name == name);
-  console.log(pokemon);
-  console.log(name);
-  
-  const typeBackgrounds = {
-    fire: '../../assets/image7.png',
-    water: '../../assets/image5.png',
-    grass: '../../assets/image9.png',
-    electric: '../../assets/image8.png',
-    poison: '../../assets/image11.png',
-    flying: '../../assets/image6.png',
-    rock: '../../assets/image10.png',
-    steel: '../../assets/image10.png',
-  }
+  let imgSrc = typeAssets[pokemon.data.types[0].type.name];
+
+
   return (
     <CardSection>
       <div className="container">
         <div>
           <img className="wrapperImgClass"
-           src={typeBackgrounds[pokemon.data.types[0].type.name] ? typeBackgrounds[pokemon.data.types[0].type.name] : baseBg} alt="" />
+           src={imgSrc} alt="" />
           <img
             className="imgClass"
             src={

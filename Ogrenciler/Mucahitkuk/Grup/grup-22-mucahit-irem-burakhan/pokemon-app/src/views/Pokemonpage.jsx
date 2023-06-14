@@ -1,12 +1,18 @@
+
 import Card from '../components/Card/Card'
 import Search from '../components/Search/Search'
+import { CustomDiv } from './styledHome'
+
 
 const Pokemonpage = () => {
+
+
+
   return (
-    <div>
+    <CustomDiv>
       <Search />
       <Card />
-    </div>
+    </CustomDiv>
   )
 }
 
