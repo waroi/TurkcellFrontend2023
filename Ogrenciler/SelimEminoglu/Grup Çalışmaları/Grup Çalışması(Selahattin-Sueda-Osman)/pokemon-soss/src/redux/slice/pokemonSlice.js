@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchPokemon } from "../../utils/Request";
 
-export const getPokemons = createAsyncThunk("pokemon/getPokemons", async () => {
+export const getPokemons = createAsyncThunk("getPokemons", async () => {
   const response = await fetchPokemon();
-  return response.data;
+  return response.results;
 });
 
 const initialState = {

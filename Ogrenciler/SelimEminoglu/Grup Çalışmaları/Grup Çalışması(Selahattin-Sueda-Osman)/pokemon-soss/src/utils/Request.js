@@ -3,6 +3,12 @@ const url = "https://pokeapi.co/api/v2/pokemon";
 export async function fetchPokemon() {
   const result = await fetch(url);
   const data = await result.json();
+  return data;
+}
+
+export async function fetchPokemonList(url) {
+  const result = await fetch(url);
+  const data = await result.json();
 
   return data;
 }
