@@ -6,7 +6,9 @@ import { getCards } from "../Services/requests";
 
 import {GridContainer} from "./styledHomeView"
 const HomeView = () => {
-  const characters =  useSelector((state)=>state.character.characters);
+  const characters =  useSelector((state)=>state.character);
+
+  console.log(characters)
   
   const dispatch = useDispatch();
 
@@ -14,11 +16,11 @@ useEffect(()=>{
   getCards().then((data)=>dispatch(setList(data)));
   dispatch(getList());
 },[])
-   
+
   return (
     <div>
       <GridContainer>
-      {characters.map((character,index)=><Card key={index} character={character}/> )}
+      {characters?.characters?.map((character,index)=><Card key={index} character={character}/> )}
       </GridContainer>
     </div>
   )

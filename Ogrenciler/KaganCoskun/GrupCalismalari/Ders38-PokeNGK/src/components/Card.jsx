@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+import styled from "styled-components";
 import CardDetail from "./CardDetail";
 
 const CardContainer = styled.div`
@@ -42,18 +43,6 @@ const CardContent = styled.div`
   position: relative;
 `;
 
-const flipAnimation = keyframes`
-  0% {
-    transform: rotateY(0deg);
-  }
-  50% {
-    transform: rotateY(90deg);
-  }
-  100% {
-    transform: rotateY(180deg);
-  }
-`;
-
 const Card = ({character}) => {
   const [isFlipped, setFlipped] = useState(false);
 
@@ -62,7 +51,7 @@ const Card = ({character}) => {
   };
 
   return (
-    <CardContainer flip={isFlipped} onClick={handleCardClick}>
+    <CardContainer flip={isFlipped} onClick={handleCardClick} disable={true}>
       <CardFront flip={isFlipped}>
         <CardContent>
           <h2>Pokemon</h2>      

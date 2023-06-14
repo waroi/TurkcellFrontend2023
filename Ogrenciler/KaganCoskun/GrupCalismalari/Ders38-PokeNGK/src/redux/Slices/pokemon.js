@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCards } from "../../Services/requests";
 
 const initialState = {
-  characters: []
+  characters: [],
+  selectedCaracter: ["ab","ca"],
+  knownCharacters: []
+
 };
 
 export const characterSlice = createSlice({
@@ -14,6 +16,12 @@ export const characterSlice = createSlice({
     },
     getList: (state) => {
       return state;
+    },
+    setselectedCaracter: (state, action) => {
+      state.selectedCaracter = action.payload;
+    },
+    setKnownCharacters: (state, action) => {
+      state.knownCharacters = action.payload;
     }
   },
 });
