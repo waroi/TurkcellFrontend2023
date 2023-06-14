@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Splide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 import "@splidejs/splide/dist/css/splide.min.css";
@@ -11,18 +11,6 @@ const Slider = () => {
    1 + Math.floor(Math.random() * 100)
   );
 
-  useEffect(() => {
-    if (splideRef.current) {
-      new Splide(splideRef.current, {
-        perPage: 3,
-        perMove: 1,
-        rewind: true,
-        pagination: false,
-        arrows: true,
-      });
-    }
-  }, []);
-
   return (
     <SliderContainer>
       <Splide
@@ -32,6 +20,8 @@ const Slider = () => {
           rewind: true,
           pagination: false,
           arrows: true,
+          autoplay: true,
+        interval: 1500,
         }}
         ref={splideRef}
         className="splide"

@@ -9,13 +9,13 @@ const InfoSection = ({ infoSectionValues }) => {
       <div>
         <span className='infoName'>Abilities: </span>
         {abilities?.map((item, index) => (
-          <span key={index} className='value'>{item.ability.name}</span>
+          <span key={index} className='value'>{item.ability.name} </span>
         ))}
       </div>
       <div>
         <span className='infoName'>Types: </span>
         {types?.map((item, index) => (
-          <span key={index} className='value'>{item.type.name}</span>
+          <span key={index} className='value'>{item.type.name} </span>
         ))}
       </div>
     </DetailPokemonInfo>

@@ -10,6 +10,7 @@ export const FirstFooter = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 1rem;
 `;
 
 export const FirstFooterUL = styled(FirstFooter)`
@@ -26,7 +27,7 @@ export const FooterSocialsDiv = styled.div`
 `;
 
 
-export const FooterEndComtainer = styled(FirstFooter)`
+export const FooterEndContainer = styled(FirstFooter)`
   gap: 1.2rem;
   .footerEnd {
     display: flex;
@@ -36,7 +37,7 @@ export const FooterEndComtainer = styled(FirstFooter)`
     }
     @media screen and (max-width:768px){
       img{
-       width:10%
+       width:45%
       } 
   }
 `;

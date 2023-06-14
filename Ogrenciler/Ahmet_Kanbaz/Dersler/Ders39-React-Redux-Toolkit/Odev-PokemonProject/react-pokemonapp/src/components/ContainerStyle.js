@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const ContainerStyle = styled.div`
   width: 100%;
+  background: url('https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const Container = styled.div`
@@ -19,7 +23,8 @@ export const Container = styled.div`
     }
     @media screen and (max-width:768px){
       flex-direction:column;
-      display:flex
+      display:flex;
+      padding: 1rem;
     }
   }
 
@@ -40,6 +45,7 @@ export const Container = styled.div`
     p {
       margin: 0 0 0.5rem;
       width: 100%;
+      padding: 1rem;
     }
   }
 }

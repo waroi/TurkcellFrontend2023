@@ -30,10 +30,8 @@ export const DetailPokemonImage = styled.img`
   border-radius: 12px;
   width: 300px;
   height: 300px;
-  // object-fit: cover;
   @media screen and (max-width:768px){
-    padding: 0rem;
-
+    padding: 0;
     width:100%
   }
 `;
@@ -54,8 +52,7 @@ export const DetailPokemonInfo = styled.div`
     color: #000000;
   }
   @media screen and (max-width:768px){
-    padding: 1rem 0 ;
-
-    width:100%
+    padding: 1rem;
+    width:90%
   }
 `;

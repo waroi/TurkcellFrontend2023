@@ -4,7 +4,6 @@ import pokemon from "../slices/pokeSlice/pokeSlice";
 const store = configureStore({
   reducer: {
     pokemon,
-    
   }
 })
 

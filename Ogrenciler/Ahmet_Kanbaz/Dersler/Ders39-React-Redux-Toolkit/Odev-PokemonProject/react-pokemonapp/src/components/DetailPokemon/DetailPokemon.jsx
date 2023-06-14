@@ -6,6 +6,7 @@ import ImageSection from "./ImageSection/ImageSection";
 import InfoSection from "./InfoSection/InfoSection";
 import { DetailPokemonContainer, SectionWrapper } from "./DetailPokemonStyle";
 import { Container } from "../ContainerStyle";
+import PokemonChart from "./PokemonChart/PokemonChart";
 const DetailPokemon = () => {
   const [detailPoke, setDetailPoke] = useState(null);
   const { pokemonName } = useParams();
@@ -14,6 +15,7 @@ const DetailPokemon = () => {
     const response = await pokemonDetailForDetailPage(pokemonName);
     setDetailPoke(response);
   };
+
 
   useEffect(() => {
     getDetailPokemon();
@@ -35,6 +37,14 @@ const DetailPokemon = () => {
     types: detailPoke?.types,
   };
 
+  const chartValues = {
+    labels: detailPoke?.stats.map(statName => statName.stat.name),
+    datasets: [{
+      label: `${detailPoke?.name.toUpperCase()} Stats`,
+      data: detailPoke?.stats.map(statName => statName.base_stat)
+    }]
+  }
+
   return (
     <Container>
       <DetailPokemonContainer>
@@ -43,7 +53,8 @@ const DetailPokemon = () => {
           <ImageSection imageSectionValues={imageSectionValues} />
           <InfoSection infoSectionValues={infoSectionValues} />
         </SectionWrapper>
-      </DetailPokemonContainer>
+        <PokemonChart chartValues = {chartValues}/>
+      </DetailPokemonContainer >
     </Container>
   );
 };

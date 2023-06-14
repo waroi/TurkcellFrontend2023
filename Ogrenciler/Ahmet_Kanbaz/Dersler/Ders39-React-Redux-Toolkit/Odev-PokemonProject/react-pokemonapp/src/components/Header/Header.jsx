@@ -9,7 +9,7 @@ const Header = () => {
       <Container>
         <div className='headerSection'>
           <Link to={'/'}>
-            <img src='images/pokemonLogo.png' alt="" />
+            <img src='https://freepngimg.com/download/pokemon/37475-6-pikachu-transparent-image.png' alt="" />
           </Link>
           <Menu />
         </div>

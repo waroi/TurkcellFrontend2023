@@ -3,10 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   data: [],
   status: 'temp',
-  error: null,
-  dataSingle: [],
-  statusSingle: 'temp',
-  errorSingle: null,
+  error: null
 };
 
 const fetchLimitSlice = createSlice({
@@ -23,18 +20,7 @@ const fetchLimitSlice = createSlice({
     setError: (state, action) => {
       state.error = action.payload;
       state.status = 'failed';
-    },
-    setLoadingSingle: (state) => {
-      state.statusSingle = 'loading';
-    },
-    setDataSingle: (state, action) => {
-      state.dataSingle = action.payload;
-      state.statusSingle = 'succeeded';
-    },
-    setErrorSingle: (state, action) => {
-      state.errorSingle = action.payload;
-      state.statusSingle = 'failed';
-    },
+    }
   },
 });
 
@@ -42,10 +28,7 @@ const fetchLimitSlice = createSlice({
 export const {
   setLoading,
   setData,
-  setError,
-  setLoadingSingle,
-  setDataSingle,
-  setErrorSingle,
+  setError
 } = fetchLimitSlice.actions;
 
 export default fetchLimitSlice.reducer;

@@ -1,7 +1,7 @@
-import {FooterEndComtainer} from '../FooterStyle'
+import {FooterEndContainer} from '../FooterStyle'
 const FooterEndComponent = () => {
   return (
-    <FooterEndComtainer>
+    <FooterEndContainer>
       <img src="https://assets.pokemon.com/static2/_ui/img/footer/thepokemoncompanyinternational-seal-1596150491.png" alt="footerImage" />
       <div className='footerEnd'>
         <a href="#">Terms and Use</a>
@@ -9,7 +9,7 @@ const FooterEndComponent = () => {
         <a href="#">Cookie Page</a>
         <a href="#">Legal Info</a>
       </div>
-    </FooterEndComtainer>
+    </FooterEndContainer>
   )
 }
 
