@@ -1,10 +1,10 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { PropTypes } from "prop-types";
+
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
-
   useEffect(() => {
     localStorage.setItem("theme", theme);
   }, [theme]);
@@ -12,7 +12,6 @@ export const ThemeProvider = ({ children }) => {
     theme,
     setTheme,
   };
-
   return (
     <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
   );
@@ -21,3 +20,6 @@ export const ThemeProvider = ({ children }) => {
 ThemeProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useTheme = () => useContext(ThemeContext);
