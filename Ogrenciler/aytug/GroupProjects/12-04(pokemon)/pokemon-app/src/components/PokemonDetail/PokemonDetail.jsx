@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { listPokemons } from "../../redux/slices/pokemonSlice";
+import * as S from "./PokemonDetailStyle";
 
 const PokemonDetail = () => {
 	const { name } = useParams();
@@ -17,15 +18,14 @@ const PokemonDetail = () => {
 	}, []);
 
 	const pokemon = pokemons?.find((pokemon) => pokemon.name == name);
-	console.log(pokemon);
 
 	return (
 		<>
 			{pokemon && (
-				<div className="card my-5">
+				<div className="card my-5 p-2 p-md-5">
 					<div className="row g-0">
-						<div className="col-md-4">
-							<img
+						<div className="col-md-4 d-flex align-items-center justify-content-center">
+							<S.StyledImg
 								src={pokemon.sprites.other.dream_world.front_default}
 								className="img-fluid rounded-start"
 								alt={pokemon.name}
@@ -39,15 +39,15 @@ const PokemonDetail = () => {
 									content is a little bit longer.
 								</p>
 								<div className="row">
-									<div className="col-6">
-										<ul>
-											<h6>Yetenekler</h6>
+									<div className=" col-md-6">
+										<ul className="list-unstyled">
+											<h6 className="border-bottom border-3">Yetenekler</h6>
 											{pokemon.abilities.map((ability) => (
 												<li key={ability.ability.name}>{ability.ability.name}</li>
 											))}
 										</ul>
-										<ul className="mt-3">
-											<h6>Türleri</h6>
+										<ul className="list-unstyled mt-3">
+											<h6 className="border-bottom border-3">Türleri</h6>
 											{pokemon.types.map((type) => (
 												<li key={type.type.name}>{type.type.name}</li>
 											))}
@@ -55,7 +55,7 @@ const PokemonDetail = () => {
 
 										<h6>Ağırlık : {pokemon.weight} kg</h6>
 									</div>
-									<div className="col-6">
+									<div className="col-md-6 mt-3">
 										<table className="table table-info table-striped">
 											<thead>
 												<tr>

@@ -2,7 +2,7 @@ import PokemonDetail from "../components/PokemonDetail/PokemonDetail";
 
 const PokemonView = () => {
 	return (
-		<div>
+		<div className="container">
 			<PokemonDetail />
 		</div>
 	);

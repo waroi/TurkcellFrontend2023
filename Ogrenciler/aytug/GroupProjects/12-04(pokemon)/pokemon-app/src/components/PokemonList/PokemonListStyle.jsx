@@ -10,7 +10,6 @@ export const StyledDiv = styled.div`
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 20px;
-
 `;
 
 export const StyledCard = styled.div`
@@ -25,9 +24,5 @@ export const StyledCard = styled.div`
 	&:hover {
 		transform: scale(1.1);
 		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-		
 	}
-
-
-	
 `;
