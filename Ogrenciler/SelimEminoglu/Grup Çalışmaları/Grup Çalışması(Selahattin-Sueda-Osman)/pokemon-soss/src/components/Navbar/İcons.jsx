@@ -1,5 +1,6 @@
 import { Navbarİmg, İconLi, NavbarA, NavbarSpan } from "./styleNavbar";
 import { AiFillHome } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 function İcons() {
   return (
@@ -8,7 +9,9 @@ function İcons() {
         <İconLi hovercolor="#919191">
           <NavbarA href="#">
             <AiFillHome size={32} style={{ color: "white" }} />
-            <NavbarSpan className="text-white">Home</NavbarSpan>
+            <Link to={`/`}>
+              <NavbarSpan className="text-white">Home</NavbarSpan>
+            </Link>
           </NavbarA>
         </İconLi>
         <İconLi hovercolor="#e3350d">

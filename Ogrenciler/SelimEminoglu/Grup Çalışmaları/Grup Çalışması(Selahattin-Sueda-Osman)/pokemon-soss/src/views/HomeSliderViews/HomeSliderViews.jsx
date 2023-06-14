@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getPokemons } from "../../redux/slice/pokemonSlice";
 import { fetchPokemonList } from "../../utils/Request";
+import { BoxContainer, Box, İmage, İmgContainer } from "./HomeStyle.js";
 
 const HomeSliderViews = () => {
   const dispatch = useDispatch();
@@ -30,21 +32,28 @@ const HomeSliderViews = () => {
     }
   }, [pokemons]);
 
-  const img = pokemonList.map((pokemon) => pokemon.sprites.front_default);
+  console.log(pokemonList);
 
-  console.log(img);
+  const img = pokemonList.map(
+    (pokemon) => pokemon.sprites.other.dream_world.front_default
+  );
 
   return (
-    <div>
-      <h1>HomeSliderViews</h1>
+    <BoxContainer>
       {pokemons &&
         pokemons.map((pokemon, index) => (
           <div key={pokemon.id}>
-            <h1>{pokemon.name}</h1>
-            <img src={img[index]} alt="" />
+            <Box>
+              <h3 className="display-5 fw-bold p-2">{pokemon.name}</h3>
+              <Link to={`/detail/${pokemon.name}`}>
+                <İmgContainer>
+                  <İmage src={img[index]} className="img-fluid" alt="icon" />
+                </İmgContainer>
+              </Link>
+            </Box>
           </div>
         ))}
-    </div>
+    </BoxContainer>
   );
 };
 
