@@ -6,9 +6,9 @@ import NotFound from "../components/notFound/NotFound";
 const Router = () => {
   const routes = useRoutes([
     { path: "/", element: <Home /> },
+    { path: "/pokemon", element: <Home /> },
     { path: "/pokemon/:pokemonName", element: <Detail /> },
     { path: "*", element: <NotFound /> },
-    { path: "/pokemon", element: <Home /> },
 
   ]);
   return routes;

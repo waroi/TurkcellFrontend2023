@@ -34,7 +34,7 @@ const SinglePokemon = ({ singleItem }) => {
         <span>{detailPoke.weight / 10}kg</span>
       </div>
       {singleItem.name.toUpperCase()}
-      <span>{detailPoke.id}</span>
+      <span>#{detailPoke.id}</span>
     </PokeCard>
   );
 };
