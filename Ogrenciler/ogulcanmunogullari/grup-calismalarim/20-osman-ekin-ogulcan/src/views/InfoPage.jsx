@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import Fetch from "../models/Fetch";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,

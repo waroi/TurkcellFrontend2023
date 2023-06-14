@@ -9,10 +9,10 @@ const Header = () => {
   const searchRef = useRef();
   const navigate = useNavigate();
   const { setTheme, theme } = useThemeStore();
-  const { setSearch, top100, marketCap } = useStore();
+  const { top100, marketCap } = useStore();
+
   const handleForm = (e) => {
     e.preventDefault();
-    setSearch(searchRef.current.value.toLowerCase());
     navigate(`/${searchRef.current.value.toLowerCase()}`);
     searchRef.current.value = "";
   };
