@@ -1,19 +1,27 @@
 import styled from "styled-components";
 
+
+
 export const DetailPokemonContainer = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  padding-top: 50px;
 `;
 
 export const SectionWrapper = styled.div`
   display: flex;
   justify-content: center;
-  width: 60%;
+  width: 50%;
   margin: 2rem 0;
+  
+  @media screen and (max-width:768px){
+    flex-direction:column;
+    width:auto;
+    margin:0 50px
+  }
 `;
 
 export const DetailPokemonImage = styled.img`
@@ -22,11 +30,16 @@ export const DetailPokemonImage = styled.img`
   border-radius: 12px;
   width: 300px;
   height: 300px;
-  object-fit: cover;
+  // object-fit: cover;
+  @media screen and (max-width:768px){
+    padding: 0rem;
+
+    width:100%
+  }
 `;
 
 export const DetailPokemonInfo = styled.div`
-  width: 50%;
+  width:100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,5 +52,10 @@ export const DetailPokemonInfo = styled.div`
   }
   .value {
     color: #000000;
+  }
+  @media screen and (max-width:768px){
+    padding: 1rem 0 ;
+
+    width:100%
   }
 `;

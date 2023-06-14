@@ -5,7 +5,7 @@ export const HeaderContainer = styled.div`
   background-color: silver;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   .headerSection {
     display: flex;
     justify-content: space-between;
@@ -17,6 +17,13 @@ export const HeaderContainer = styled.div`
       &:hover {
         transform: translateX(1rem);
       }
+    }
+  }
+  @media screen and (max-width:768px){
+    .headerSection{
+      flex-direction:column;
+      justify-content:center;
+
     }
   }
 `;
@@ -33,4 +40,9 @@ export const MenuContainer = styled.div`
         color: gold;
       }
     }
+    @media screen and (max-width:768px){
+      a{
+        font-size:12px
+      }
+    } 
 `;

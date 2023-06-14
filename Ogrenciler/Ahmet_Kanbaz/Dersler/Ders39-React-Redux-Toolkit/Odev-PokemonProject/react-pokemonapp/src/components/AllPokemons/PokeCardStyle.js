@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
-export const PokeCardContainer = styled.div `
+export const PokeCardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding:3rem 0 100px
+}
 `;
 
-export const PokeCard = styled.div `
+export const PokeCard = styled.div`
   width: 25%;
   margin: 10px;
   padding: 10px;
@@ -34,4 +36,7 @@ export const PokeCard = styled.div `
     width: 100%;
     justify-content: space-around;
   }
+  @media screen and (max-width:768px){
+    width:100%
+    }
 `;
