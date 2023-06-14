@@ -31,6 +31,7 @@ const Card = () => {
           <CustomCard>
             <CustomTitle>{pokemon.name}</CustomTitle>
             <img
+            className="rtxImg"
               src={
                 graphics
                   ? `${pokemon.data.sprites.versions["generation-v"]["black-white"].animated.front_default}`

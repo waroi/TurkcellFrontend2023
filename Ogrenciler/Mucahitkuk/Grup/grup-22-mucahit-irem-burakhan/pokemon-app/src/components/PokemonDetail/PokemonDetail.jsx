@@ -2,20 +2,32 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { CardSection } from "./styled.jsx";
-import background from "../../assets/card.png";
+import baseBg from "../../assets/image10.png"
 import "./style.css"
 const PokemonDetail = () => {
+  let imgSrc;
   const { name } = useParams();
   const pokemons = useSelector((state) => state.pokemons.data);
   const pokemon = pokemons.find((pokemon) => pokemon.name == name);
   console.log(pokemon);
   console.log(name);
-
-
+  
+  const typeBackgrounds = {
+    fire: '../../assets/image7.png',
+    water: '../../assets/image5.png',
+    grass: '../../assets/image9.png',
+    electric: '../../assets/image8.png',
+    poison: '../../assets/image11.png',
+    flying: '../../assets/image6.png',
+    rock: '../../assets/image10.png',
+    steel: '../../assets/image10.png',
+  }
   return (
     <CardSection>
-      <div className="container" props={background}>
+      <div className="container">
         <div>
+          <img className="wrapperImgClass"
+           src={typeBackgrounds[pokemon.data.types[0].type.name] ? typeBackgrounds[pokemon.data.types[0].type.name] : baseBg} alt="" />
           <img
             className="imgClass"
             src={
@@ -44,15 +56,15 @@ const PokemonDetail = () => {
         </div>
         <div className="d-flex statArea"> <div className=" typeContent"> Types:</div>
           {
-            pokemon.data.types.map((item) => <span className="textItem">{item.type.name}</span>)
+            pokemon.data.types.map((item,i) => <span key={i} className="textItem">{item.type.name}</span>)
           }
         </div>
         <div>
          <div className="textItem statArea"> Stats:</div>
          <div className="d-flex">
           {
-            pokemon.data.stats.slice(0,3).map((item) => (
-              <div className="StatContent">
+            pokemon.data.stats.slice(0,3).map((item,i) => (
+              <div key={i} className="StatContent">
                 <span className="StatText">{item.stat.name} </span>
                 <span className="textItem">{item.base_stat} </span>
               </div>
