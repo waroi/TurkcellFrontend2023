@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { fetchPokemonDetail } from "../utils/Request";
 import DetailTopViews from "../views/DetailTopViews/DetailTopViews";
 import { HomeContainer } from "../views/HomeTopViews/HomeTopStyle";
+import DetailMidViews from "../views/DetailMidViews/DetailMidViews";
+import DetailBottomViews from "../views/DetailBottomViews/DetailBottomViews";
 
 function Detail() {
   const { name } = useParams();
@@ -22,6 +24,8 @@ function Detail() {
   return (
     <HomeContainer className="container bg-white px-5">
       {pokemon && <DetailTopViews pokemon={pokemon} />}
+      {pokemon && <DetailMidViews pokemon={pokemon} />}
+      {pokemon && <DetailBottomViews pokemon={pokemon} />}
     </HomeContainer>
   );
 }

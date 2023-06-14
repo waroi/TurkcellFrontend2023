@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { İmgContainer, İmage } from "./DetailTopStyle";
 import version1 from "../../assets/icons/superball.png";
 import version2 from "../../assets/icons/pokeballBig.png";
