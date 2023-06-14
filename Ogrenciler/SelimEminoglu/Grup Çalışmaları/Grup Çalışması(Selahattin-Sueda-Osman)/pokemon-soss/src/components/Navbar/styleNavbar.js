@@ -9,6 +9,7 @@ export const NavbarA = styled.a`
   display: flex;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 `;
 
 export const NavbarSpan = styled.span`
@@ -18,8 +19,6 @@ export const NavbarSpan = styled.span`
 export const Navbarİmg = styled.img`
   max-height: 50px;
 `;
-
-
 
 export const NavbarAniİmg = styled(Navbarİmg)`
   transition: all 200ms linear;

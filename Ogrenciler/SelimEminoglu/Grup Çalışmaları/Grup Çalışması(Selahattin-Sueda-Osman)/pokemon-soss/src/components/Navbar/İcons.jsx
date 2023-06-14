@@ -14,37 +14,37 @@ function İcons() {
         <İconLi hovercolor="#e3350d">
           <NavbarA href="#">
             <Navbarİmg src="./src/assets/icons/pikachu.png" alt="logo" />
-            <NavbarSpan  >Home</NavbarSpan>
+            <NavbarSpan>Pokedex</NavbarSpan>
           </NavbarA>
         </İconLi>
         <İconLi hovercolor="#ee6b2f">
           <NavbarA href="#">
             <Navbarİmg src="./src/assets/icons/pikachu.png" alt="logo" />
-            <NavbarSpan>Home</NavbarSpan>
+            <NavbarSpan>Video Games & Apps</NavbarSpan>
           </NavbarA>
         </İconLi>
         <İconLi hovercolor="#e6bc2f">
           <NavbarA href="#">
             <Navbarİmg src="./src/assets/icons/pikachu.png" alt="logo" />
-            <NavbarSpan>Home</NavbarSpan>
+            <NavbarSpan>Trading Card Game</NavbarSpan>
           </NavbarA>
         </İconLi>
         <İconLi hovercolor="#4dad5b">
           <NavbarA href="#">
             <Navbarİmg src="./src/assets/icons/pikachu.png" alt="logo" />
-            <NavbarSpan>Home</NavbarSpan>
+            <NavbarSpan>Pokemon TV</NavbarSpan>
           </NavbarA>
         </İconLi>
         <İconLi hovercolor="#30a7d7">
           <NavbarA href="#">
             <Navbarİmg src="./src/assets/icons/pikachu.png" alt="logo" />
-            <NavbarSpan>Home</NavbarSpan>
+            <NavbarSpan>Play! Pokemon Events</NavbarSpan>
           </NavbarA>
         </İconLi>
         <İconLi hovercolor="#1b53ba">
           <NavbarA href="#">
             <Navbarİmg src="./src/assets/icons/pikachu.png" alt="logo" />
-            <NavbarSpan>Home</NavbarSpan>
+            <NavbarSpan>News</NavbarSpan>
           </NavbarA>
         </İconLi>
       </ul>
