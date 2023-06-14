@@ -1,6 +1,7 @@
 import Header from './components/header/header'
 import Router from './routes/Router'
 import { Container } from './ContainerStyle'
+import Footer from './components/Footer/Footer'
 function App() {
   return (
     <>
@@ -8,6 +9,7 @@ function App() {
       <Container>
         <Router />
       </Container>
+      <Footer />
     </>
   )
 }

@@ -5,8 +5,7 @@ const MainView = () => {
   console.log(location)
   return (
     <div>
-      <Link to={location.pathname == "/search" ? "random" : "search"} >{location.pathname == "/search" ? "Randoma git" : "Search'e git"}</Link>
-      <br />
+      <Link className='btn btn-primary mb-3' to={location.pathname == "/search" ? "random" : "search"} >{location.pathname == "/search" ? "Randoma git" : "Search'e git"}</Link>
 
 
       <Outlet />
