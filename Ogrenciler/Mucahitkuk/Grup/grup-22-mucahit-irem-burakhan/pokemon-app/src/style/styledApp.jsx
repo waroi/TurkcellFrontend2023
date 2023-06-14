@@ -67,6 +67,8 @@ export const InnerContent = styled.div`
   overflow-y: scroll;
   top: 2.5rem;
   right: -6px;
+  overflow-x: hidden;
+
 `;
 
 export const CustomButton = styled.button`
