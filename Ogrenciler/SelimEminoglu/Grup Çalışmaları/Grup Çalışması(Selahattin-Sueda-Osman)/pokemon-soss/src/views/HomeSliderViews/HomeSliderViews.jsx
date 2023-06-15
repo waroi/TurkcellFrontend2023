@@ -14,8 +14,6 @@ const HomeSliderViews = () => {
     dispatch(getPokemons());
   }, [dispatch]);
 
-  console.log(pokemons);
-
   const fetchPokemonImages = async () => {
     const updatedPokemons = await Promise.all(
       pokemons.map(async (pokemon) => {
@@ -32,8 +30,6 @@ const HomeSliderViews = () => {
     }
   }, [pokemons]);
 
-  console.log(pokemonList);
-
   const img = pokemonList.map(
     (pokemon) => pokemon.sprites.other.dream_world.front_default
   );
@@ -42,7 +38,7 @@ const HomeSliderViews = () => {
     <BoxContainer>
       {pokemons &&
         pokemons.map((pokemon, index) => (
-          <div key={pokemon.id}>
+          <div key={index}>
             <Box>
               <h3 className="display-5 fw-bold p-2">{pokemon.name}</h3>
               <Link to={`/detail/${pokemon.name}`}>

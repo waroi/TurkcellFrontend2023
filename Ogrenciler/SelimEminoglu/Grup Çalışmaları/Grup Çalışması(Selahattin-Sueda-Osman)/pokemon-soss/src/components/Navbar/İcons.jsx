@@ -2,9 +2,9 @@ import { Navbarİmg, İconLi, NavbarA, NavbarSpan } from "./styleNavbar";
 import { AiFillHome } from "react-icons/ai";
 import { MdCatchingPokemon, MdOutlineGamepad } from "react-icons/md";
 import { RxCrumpledPaper } from "react-icons/rx";
-import { SiPokemon } from "react-icons/si"
-import { GiTrophyCup } from "react-icons/gi"
-import { BsNewspaper } from "react-icons/bs"
+import { SiPokemon } from "react-icons/si";
+import { GiTrophyCup } from "react-icons/gi";
+import { BsNewspaper } from "react-icons/bs";
 
 import { Link } from "react-router-dom";
 
@@ -13,12 +13,13 @@ function İcons() {
     <div className="container">
       <ul className="list-unstyled d-flex justify-content-center px-5">
         <İconLi hovercolor="#919191">
-          <NavbarA href="#">
+          <Link
+            to={`/`}
+            className="d-flex align-items-center flex-column text-align-center"
+          >
             <AiFillHome size={32} style={{ color: "white" }} />
-            <Link to={`/`}>
-              <NavbarSpan className="text-white">Home</NavbarSpan>
-            </Link>
-          </NavbarA>
+            <NavbarSpan className="text-white">Home</NavbarSpan>
+          </Link>
         </İconLi>
         <İconLi hovercolor="#e3350d">
           <NavbarA href="#">
