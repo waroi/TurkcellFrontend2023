@@ -2,6 +2,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import CardDetail from "./CardDetail";
+import { useDispatch, useSelector } from "react-redux";
+import { clearSelectedCaracter, getList, setSelectedCaracter} from "../redux/Slices/pokemon";
+
 
 const CardContainer = styled.div`
   width: 150px;
@@ -12,6 +15,7 @@ const CardContainer = styled.div`
   cursor: pointer;
   transition: transform 0.3s ease;
   transform: ${({ flip }) => (flip ? `rotateY(180deg)` : `rotateY(0deg)`)};
+  pointer-events: ${({ disable }) => (disable ? `none` : `auto`)};
 `;
 
 const CardFront = styled.div`
@@ -43,25 +47,41 @@ const CardContent = styled.div`
   position: relative;
 `;
 
-const Card = ({character}) => {
+const Card = ({ character }) => {
+  const pokemon = useSelector((state) => state.character);
+  const dispatch = useDispatch();
+
   const [isFlipped, setFlipped] = useState(false);
+  const [isCharSelected, setIsCharSelected] = useState(false);
 
   const handleCardClick = () => {
+    dispatch(setSelectedCaracter(character?.name));
     setFlipped(!isFlipped);
+    setIsCharSelected(true);
   };
 
+  if (isFlipped && pokemon?.selectedCaracter.length === 2) {
+    if (pokemon?.selectedCaracter[0] !== pokemon?.selectedCaracter[1]) {
+      setFlipped(false);
+      setIsCharSelected(false);
+    } else {
+      // isCharSelected(true); // Bu satırı kaldırın
+    }
+    dispatch(clearSelectedCaracter());
+
+  }
+
   return (
-    <CardContainer flip={isFlipped} onClick={handleCardClick} disable={true}>
+    <CardContainer flip={isFlipped} onClick={handleCardClick} disable={isCharSelected}>
       <CardFront flip={isFlipped}>
         <CardContent>
-          <h2>Pokemon</h2>      
-          <img style={{maxWidth:"30%"}} src="https://cdn.discordapp.com/attachments/1089995439467679856/1118261863541653564/528101.png" alt="" />   
+          <h2>Pokemon</h2>
+          <img style={{ maxWidth: "30%" }} src="https://cdn.discordapp.com/attachments/1089995439467679856/1118261863541653564/528101.png" alt="" />
         </CardContent>
       </CardFront>
       <CardBack flip={isFlipped}>
         <CardContent>
-          {/* <h3>{character.name}</h3>      */}
-          <CardDetail character={character} />   
+          <CardDetail character={character} />
         </CardContent>
       </CardBack>
     </CardContainer>
@@ -69,3 +89,4 @@ const Card = ({character}) => {
 };
 
 export default Card;
+
