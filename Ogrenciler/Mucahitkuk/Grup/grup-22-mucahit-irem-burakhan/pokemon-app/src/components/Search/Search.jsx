@@ -34,7 +34,7 @@ const Search = () => {
 
   return (
     <CustomDiv>
-      <h4 style={{color: "yellow", marginBottom:"10px"}}>Pokemon Cart Collection Ultimate</h4>
+      <h4 style={{color: "yellow", marginBottom:"10px"}}>Pokemon Card Collection Ultimate</h4>
       <form onSubmit={(e) => {
         e.preventDefault();
         setPokeName(ref.current.value);

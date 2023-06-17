@@ -14,7 +14,6 @@ const Router = () => {
       element: <Pokemonpage />,
     },
     { path: "/Pokemonpage/:name", element: <PokemonDetail /> },
-    //   { path: '*', element: <NotFound /> },
   ]);
   return routes;
 };

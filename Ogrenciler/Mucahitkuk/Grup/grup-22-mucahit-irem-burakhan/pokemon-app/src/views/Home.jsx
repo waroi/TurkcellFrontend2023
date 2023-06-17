@@ -8,6 +8,7 @@ const Home = () => {
   const handleKeyDown = () => {
     navigate('/Pokemonpage');
   };
+
     return (
     <div>
       <p style={{color: "yellow"}}>My Pokemon Collection Ultimate</p>
