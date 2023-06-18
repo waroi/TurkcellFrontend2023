@@ -1,21 +1,22 @@
+import {Link} from 'react-router-dom'
 const Menu = () => {
   return (
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link" href="#">AnaSayfa</a>
+          <Link to={'/'} className="nav-link">AnaSayfa</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Hakkımızda</a>
+          <Link to= {'/aboutus'} className="nav-link">Hakkımızda</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">İletişim</a>
+          <Link to= {'contact'} className="nav-link">İletişim</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Yardım</a>
+          <Link to= {'help'} className="nav-link">Yardım</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Sıkça Sorulan Sorular</a>
+          <Link to= {'/questions'} className="nav-link">Sıkça Sorulan Sorular</Link>
         </li>
       </ul>
     </div>
