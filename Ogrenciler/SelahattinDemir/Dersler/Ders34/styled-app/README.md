@@ -10,9 +10,8 @@
 ## Contents:
 
 - [Categories](#categories)
-  - [React Hooks](#react-hooks)
-  - [React useState Hook](#react-usestate-hook)
-  - [React useEffect Hooks](#react-useeffect-hooks)
+  - [React Styling](#react-styling)
+  - [Portals](#portals)
   - [Example Website](#example-website)
 
 ## React Styling
@@ -207,6 +206,37 @@
 &#10148; CSS frameworks are used to make the code more responsive.
 
 &#10148; CSS frameworks are used to make the code more compatible with different browsers.
+
+
+## Portals
+
+&#10149; Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+
+&#10149; A typical use case for portals is when a parent component has an ``overflow: hidden`` or ``z-index`` style, but you need the child to visually “break out” of its container.
+
+&#10149; For example, dialogs, hovercards, and tooltips.
+
+&#10149; Portals also allow you to render a child into a different DOM subtree.
+
+&#10149; For example, when you want to create a modal, you can use a portal to render a child into a ``<div>`` that exists outside the DOM hierarchy of the parent component.
+
+&#10149; The first argument (child) is any renderable React child, such as an element, string, or fragment.
+
+&#10149; The second argument (container) is a DOM element.
+
+#### Example
+
+    Here is an example of a portal:
+
+      import React from "react";
+      import ReactDOM from "react-dom";
+
+      function App() {
+        return ReactDOM.createPortal(
+          <h1>Hello World!</h1>,
+          document.getElementById("root")
+        );
+      }
 
 
 ## Example Website
