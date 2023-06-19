@@ -1,10 +1,10 @@
 import { useRoutes, Link, Navigate } from "react-router-dom";
-import HomeView from "../views/HomeView";
-import UserView from "../views/UserView";
+import HomeViews from "../views/HomeViews";
 import ParametreViews from "../views/ParametreViews";
-import Haberler from "../views/NewsView";
-import Spor from "../views/SporView";
-import Magazin from "../views/MagazinView";
+import NewViews from "../views/NewViews";
+import userRouter from "./userRouter";
+import Sport from "../views/SportViews";
+import Magazin from "../views/MagazineViews";
 
 const Router = () => {
   const routes = [
@@ -12,18 +12,11 @@ const Router = () => {
       path: "/",
       element: (
         <div>
-          <HomeView />
+          <HomeViews />
         </div>
       ),
     },
-    {
-      path: "/user",
-      element: (
-        <div>
-          <UserView />
-        </div>
-      ),
-    },
+    userRouter,
     {
       path: "/user/:id",
       element: (
@@ -35,16 +28,17 @@ const Router = () => {
       ),
     },
     {
-      path: "/haberler",
-      element: <Haberler />,
+      path: "/news",
+      element: <NewViews />,
       children: [
-        { index: true, element: <Navigate to="sport" /> },
+        { index: true, element: <Navigate to="spor" /> },
         {
-          path: "/sport",
-          element: <Spor />,
+          path: "", // "/news/spor" olarak değiştirildi
+          element: <Sport />,
+          children: [{ path: ":name", element: <Sport /> }],
         },
         {
-          path: "/magazin",
+          path: "magazin", // "/news/magazin" olarak değiştirildi
           element: <Magazin />,
         },
       ],

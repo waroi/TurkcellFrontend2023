@@ -8,7 +8,17 @@ const Navbar = () => {
           <Link to="/user">User</Link>
         </li>
         <li>
-          <Link to="/home">Home</Link>
+          <Link to="/">Ana Sayfa</Link>
+        </li>
+        <li>
+          <Link to="/news">News</Link>
+        </li>
+
+        <li>
+          <Link to="/news/spor">Spor</Link>
+        </li>
+        <li>
+          <Link to="/news/magazin">Magazin</Link>
         </li>
       </ul>
     </nav>
