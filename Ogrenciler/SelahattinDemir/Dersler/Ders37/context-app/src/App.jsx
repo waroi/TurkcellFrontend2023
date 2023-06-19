@@ -1,10 +1,14 @@
 import "./App.css";
+import { useTheme } from "./context/ThemeContext";
+import Button from "./components/Button";
 
 function App() {
+  const { theme } = useTheme();
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
+    <div className={`app ${theme}`}>
+      <h1>ContextAPI</h1>
+      <Button />
+    </div>
   );
 }
 
