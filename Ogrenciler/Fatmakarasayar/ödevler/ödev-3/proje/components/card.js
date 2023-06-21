@@ -8,7 +8,7 @@ function newCard(blog) {
     <img
       class="lazyloaded"
       src="${blog.img}"
-      alt="Kıbrıs Kedisi"
+      alt="${blog.category}"
       width="500"
       height="500"
       data-ll-status="loaded"
@@ -66,8 +66,9 @@ function newCard(blog) {
           >${blog.releaseDate + " " + blog.releaseTime}</div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-danger del-btn fw-bold">Sil</button>
+          <div class="modal-footer" >
+            <button class="btn btn-danger del-btn fw-bold"   data-bs-dismiss="modal"
+            aria-label="Close">Sil</button>
             <button
               class="btn btn-warning edit-btn fw-bold"
               data-bs-dismiss="modal"

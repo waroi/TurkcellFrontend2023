@@ -4,7 +4,7 @@ import Blog from "./classes/blog.js";
 import newOption from "./components/option.js";
 
 const cardRow = document.getElementById("cardRow");
-const blogDetail = document.getElementById("blogDetail");
+
 const blogName = document.getElementById("blogName");
 const catCategory = document.getElementById("catCategory");
 const blogDate = document.getElementById("blogDate");
@@ -98,8 +98,7 @@ function addNewBlog(e) {
     catCategory.value,
     imgUrl.value,
     blogDate.value,
-    blogClock.value,
-    blogDetail.value
+    blogClock.value
   );
 
   addBlog(newData);
@@ -135,7 +134,7 @@ function editBlog(id) {
     catCategory.value = data.category;
     blogDate.value = data.releaseDate;
     blogClock.value = data.releaseTime;
-    blogDetail.value = data.detail;
+
     imgUrl.value = data.img;
     current = data;
     editButton.addEventListener("click", (e) => {
@@ -147,7 +146,7 @@ function editBlog(id) {
         category: catCategory.value,
         releaseDate: blogDate.value,
         releaseTime: blogClock.value,
-        detail: blogDetail.value,
+
         img: imgUrl.value,
         id: current.id,
       };
