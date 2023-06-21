@@ -1,6 +1,5 @@
 class Blog {
-  constructor(author, title, text, category, img, releaseDate, releaseTime, blogDetail) {
-
+  constructor(author, title, text, category, img, releaseDate, releaseTime) {
     this.author = author;
     this.title = title;
     this.text = text;
@@ -8,9 +7,8 @@ class Blog {
     this.releaseTime = releaseTime;
     this.category = category;
     this.img = img;
-    this.detail = blogDetail;
-    this.id = `ID_${Date.now()}`;
 
+    this.id = `ID_${Date.now()}`;
   }
 }
-export default Blog
+export default Blog;

@@ -4,6 +4,7 @@
  * Copyright 2011-2023 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -11873,27 +11874,32 @@ body .body-wrapper .form {
   top: 0;
   bottom: 0;
   padding: 0 2rem;
-  border: 1px solid black;
-  background-color: #ccc;
+  border-right: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 body .body-wrapper .form #blog-form div {
   position: relative;
   margin-bottom: 25px;
 }
-body .body-wrapper .form #blog-form div input {
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
+body .body-wrapper .form #blog-form div input,
+body .body-wrapper .form #blog-form div textarea {
+  font-size: 16px;
+  padding: 4px 4px 4px 2px;
   display: block;
   width: 300px;
   border: none;
+  margin-top: 17px;
   border-bottom: 1px solid #757575;
 }
-body .body-wrapper .form #blog-form div input:focus {
+body .body-wrapper .form #blog-form div input:focus,
+body .body-wrapper .form #blog-form div textarea:focus {
   outline: none;
 }
 body .body-wrapper .form #blog-form div label {
   color: #999;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: normal;
   position: absolute;
   pointer-events: none;
@@ -11903,10 +11909,11 @@ body .body-wrapper .form #blog-form div label {
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
-body .body-wrapper .form #blog-form div input:focus ~ label, body .body-wrapper .form #blog-form div input:valid ~ label {
+body .body-wrapper .form #blog-form div input:focus ~ label,
+body .body-wrapper .form #blog-form div input:valid ~ label {
   top: -20px;
   font-size: 14px;
-  color: #5264AE;
+  color: #5264ae;
 }
 body .body-wrapper .form #blog-form div .bar {
   position: relative;
@@ -11945,7 +11952,7 @@ body .body-wrapper .form #blog-form div .highlight {
 }
 @-webkit-keyframes inputHighlighter {
   from {
-    background: #5264AE;
+    background: #5264ae;
   }
   to {
     width: 0;
@@ -11954,7 +11961,7 @@ body .body-wrapper .form #blog-form div .highlight {
 }
 @-moz-keyframes inputHighlighter {
   from {
-    background: #5264AE;
+    background: #5264ae;
   }
   to {
     width: 0;
@@ -11963,7 +11970,7 @@ body .body-wrapper .form #blog-form div .highlight {
 }
 @keyframes inputHighlighter {
   from {
-    background: #5264AE;
+    background: #5264ae;
   }
   to {
     width: 0;
@@ -11972,6 +11979,70 @@ body .body-wrapper .form #blog-form div .highlight {
 }
 body .body-wrapper .blogs-wrapper {
   margin-left: 400px;
+  padding-top: 1rem;
+}
+body .body-wrapper .blogs-wrapper .sort,
+body .body-wrapper .blogs-wrapper .search,
+body .body-wrapper .blogs-wrapper .category {
+  padding: 5px;
+  border-radius: 1rem;
+  outline: none;
+  border: 1px solid #47c9e5;
+  color: #47c9e5;
+}
+body .body-wrapper .blogs-wrapper .content_boxx {
+  position: relative;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+body .body-wrapper .blogs-wrapper .content_boxx:hover > .card-hover {
+  top: 0;
+}
+body .body-wrapper .blogs-wrapper .content_boxx img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+body .body-wrapper .blogs-wrapper .content_boxx .card-hover {
+  background-image: linear-gradient(to right top, #57cce4, #73f9dc);
+  opacity: 0.8;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s;
+  top: 100%;
+  padding: 10px;
+}
+body .body-wrapper .blogs-wrapper .content_boxx .card-hover .relativee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+}
+body .body-wrapper .blogs-wrapper .content_boxx .card-hover .relativee .box_title {
+  font-size: 18px;
+  font-family: "Montserrat";
+  color: #fff;
+  font-weight: 600;
+}
+body .body-wrapper .blogs-wrapper .content_boxx .card-hover .relativee .box-author {
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #fff;
+}
+body .body-wrapper .blogs-wrapper .content_boxx .card-hover .relativee i {
+  color: #fff;
+  font-size: 20px;
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
 }
 
 /*# sourceMappingURL=main.css.map */
