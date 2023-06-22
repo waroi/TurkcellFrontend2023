@@ -54,7 +54,7 @@
 - Proje Bootstrap ve (Scss veya styled.component) kullanılarak geliştirilmelidir.
 - Kullanıcıdan veri alınan bütün alanlar için formik kullanılmalıdır.
 - Ürünler için fakeapi kullanılabilir. Örneğin: <https://fakestoreapi.com/>
- - Dökümanları gayet açıklayıcıdır.
+ Dökümanları gayet açıklayıcıdır.
  <https://www.petfinder.com/developers/>
  <https://publicapis.dev/category/animals>
  <https://rapidapi.com/search/pets>
