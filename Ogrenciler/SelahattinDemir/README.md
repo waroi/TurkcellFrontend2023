@@ -62,11 +62,33 @@ Her dersin sonunda verilen ödevleri, ``Ders_Sonu_Odevleri`` klasörü içinde b
 | [Ders27](./Dersler/Ders27) | [Sinema Koleksiyon Prototype](./Ders_Sonu_Odevleri/js/teamworkConstructor) |
 | [Ders28](./Dersler/Ders28) | [Sinema Koleksiyon Prototype](./Ders_Sonu_Odevleri/js/teamworkConstructor) |
 | [Ders29](./Dersler/Ders29) | [Sinema Koleksiyon Class](./Ders_Sonu_Odevleri/js/teamworkClass) |
-| [Ders30](./Dersler/Ders30) | [Sinema Koleksiyon Class](./Ders_Sonu_Odevleri/js/teamworkClass) |
+| [Ders30](./Dersler/Ders30/my-app) | [Sinema Koleksiyon Class](./Ders_Sonu_Odevleri/js/teamworkClass) |
 
 </td>
 </tr>
 </table>
+
+<table align="center">
+<tr>
+<td>
+
+| Dersler | Ders_Sonu_Odevleri |
+|---------|--------------------|
+| [Ders31](./Dersler/Ders31/my-app) | [Blog App](./Ders_Sonu_Odevleri/react/reactBlog) |
+| [Ders32](./Dersler/Ders32/vite-project) | [Todo List](./Ders_Sonu_Odevleri/react/ToDoList/react-todo) |
+| [Ders33](./Dersler/Ders33/vite-react) | [GitHub](./Ders_Sonu_Odevleri/react/Github/github-pages) |
+| [Ders34](./Dersler/Ders34/styled-app) | [Weather App](./Ders_Sonu_Odevleri/react/weather-app/weather-app) |
+| [Ders35](./Dersler/Ders35/SC) | [News App](./Ders_Sonu_Odevleri/react/NewsApp/news-app) |
+| [Ders36](./Dersler/Ders36/router-app) | [News App](./Ders_Sonu_Odevleri/react/NewsApp/news-app) |
+| [Ders37](./Dersler/Ders37/context-app) | [Cripto App](./Ders_Sonu_Odevleri/react/CoinApp/crypto-project) |
+| [Ders38](./Dersler/Ders38/redux-app) | [Cripto App](./Ders_Sonu_Odevleri/react/CoinApp/crypto-project) |
+| [Ders39](./Dersler/Ders39/first-next-app) | [Pokemon App](./Ders_Sonu_Odevleri/react/PokemonApp/pokemon-soss) |
+| [Ders40](./Dersler/Ders40/formik-app) | [Pokemon App](./Ders_Sonu_Odevleri/react/PokemonApp/pokemon-soss) |
+
+</td>
+</tr>
+</table>
+
 
 ### Ödevler
 
@@ -89,6 +111,7 @@ Bireysel çalışmalarımı, `Bireysel_Calisma` klasörü içinde bulabilirsiniz
 | [Cursor Animation](./Bireysel_Calismalar/JS/Cursor-Animation) |
 | [Filter Bar](./Bireysel_Calismalar/JS/Filter-Bar) |
 | [Search Bar](./Bireysel_Calismalar/JS/Search-Bar) |
+| [Todo List](./Bireysel_Calismalar/React/ToDoList) |
 
 
 Umarım bu bilgiler işinize yarar! Başka bir sorunuz varsa sormaktan çekinmeyin :) 
