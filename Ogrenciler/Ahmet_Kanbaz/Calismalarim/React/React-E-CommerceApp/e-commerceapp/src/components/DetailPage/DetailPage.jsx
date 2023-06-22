@@ -1,15 +1,44 @@
+import {getDetailProduct4API} from '../../services/api'
+import { useSelector } from "react-redux";
+import { useEffect } from 'react';
+import {useParams} from 'react-router-dom'
+import Loading from '../../common/Loading/Loading';
+import Error from '../../common/Error/Error';
 const DetailPage = () => {
+
+  const reduxDetailProduct = useSelector((state) => state.detailProduct)
+  const {id} = useParams()
+  console.log(reduxDetailProduct)
+  
+  useEffect(() => {
+    getDetailProduct4API(id)
+  }, [id])
+  
+  const detailProductValues = reduxDetailProduct.detailProduct != '' && reduxDetailProduct.detailProduct.data;
+  const detailProductAttributes = {
+    imageUrl: detailProductValues.attributes['image-urls'][0],
+    name: detailProductValues.attributes['name'],
+    description: detailProductValues.attributes['description'],
+    brandName: detailProductValues.attributes['brand-name']
+  }
+
+  if(reduxDetailProduct.loading == true) {
+    return <Loading />
+  }
+
+  if(reduxDetailProduct.error != null) {
+    return <Error reduxValues={reduxDetailProduct} />
+  }
+
   return (
     <div className="container py-5">
       <div className="row pt-4 align-items-center">
-        <div className="col-lg-5">Product Image</div>
-        <div className="col-lg-7">
-        <h3 className="text-center pb-4">Product Name</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum
-            nulla quibusdam eligendi perspiciatis totam quasi omnis eaque
-            cumque, nisi temporibus?
-          </p>
+        <div className="col-lg-4">
+          <img src={detailProductAttributes.imageUrl} alt="" className="img-fluid w-100" />
+        </div>
+        <div className="col-lg-8">
+        <h3 className="text-center pb-4">{detailProductAttributes.name}</h3>
+          <p>{detailProductAttributes.description}</p>
           <div className="d-flex justify-content-around py-4">
             <span>Kategori</span>
             <span>Tarih</span>
@@ -20,7 +49,7 @@ const DetailPage = () => {
         </div>
       </div>
 
-      <h4 className="text-center pt-4">Markadaki Diğer Ürünler</h4>
+      <h4 className="text-center pt-4">{detailProductAttributes.brandName} Markasındaki Diğer Ürünler</h4>
       <div className="row py-4">
         <div className="col-lg-4">
           <div className="card">

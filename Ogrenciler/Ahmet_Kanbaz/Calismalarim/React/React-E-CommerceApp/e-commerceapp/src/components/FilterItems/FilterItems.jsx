@@ -1,4 +1,5 @@
 const FilterItems = () => {
+  
   return (
     <div className="container py-5">
       <div className="row justify-content-lg-around justify-content-center">
@@ -31,7 +32,7 @@ const FilterItems = () => {
       </div>
 
       <div className="col-lg-6 col-12">
-        <input type="text" className="form-control w-100 shadow-none border-black rounded-4 px-3" />
+        <input type="text" className="form-control w-100 shadow-none border-black rounded-4 px-3" id="searchInput"/>
       </div>
       </div>
     </div>
