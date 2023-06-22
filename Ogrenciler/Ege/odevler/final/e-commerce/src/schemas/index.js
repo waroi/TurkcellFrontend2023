@@ -1,5 +1,6 @@
 import * as yup from "yup";
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
+
 export const signUpSchema = yup.object().shape({
   name: yup.string().required("Please enter your name."),
   lastname: yup.string().required("Please enter your last name."),
@@ -28,4 +29,9 @@ export const signUpSchema = yup.object().shape({
     .string()
     .url("Invalid profile image URL")
     .required("Please give an image URL"),
+});
+
+export const loginSchema = yup.object().shape({
+  email: yup.string().email("Invalid email").required("Email is required"),
+  password: yup.string().required("Password is required"),
 });
