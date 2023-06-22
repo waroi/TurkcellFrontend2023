@@ -101,6 +101,7 @@
 - Ürün detay sayfası, kullanıcıların ürünlerin detaylarını görüntüleyebileceği bir sayfadır.
 - Ürün detay sayfası, kullanıcıların ürünleri görüntüleyebileceği bir sayfadırken kullanıcılar ürünleri görüntüleyebilmek için sisteme giriş yapmış olmalıdır.
 - Ürün Detay sayfası, admin kullanıcıların ürünleri görüntüleyebileceği ve düzenleyebileceği bir sayfadır.
+- Ürün detayın altındaki iki bölüm birleşerek rastgele ürünlerin listelendiği bir bölüm olacak.
 
 ### Sepet Sayfası
 
