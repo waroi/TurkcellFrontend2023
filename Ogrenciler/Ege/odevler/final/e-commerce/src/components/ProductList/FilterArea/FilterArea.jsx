@@ -12,7 +12,6 @@ const FilterArea = ({ products, checkedCategories, setCheckedCategories }) => {
         else setCheckedCategories([...checkedCategories].filter(cat => cat != e.target.value))
     }
 
-
     return (
         <div>
             <h1>Filter</h1>
