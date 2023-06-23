@@ -1,17 +1,22 @@
 import React from "react";
-import { BiSearch, BiUserCircle } from "react-icons/bi";
+import { BiSearch, BiUserCircle, BiCartAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import "./Header.css";
+import "./Navbar.css";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 
 const Header = () => {
   const user = useSelector((state) => state.user);
 
-  console.log(user);
+  // console.log(user);
+
+  const UserDiv = styled.div`
+    display: flex;
+  `;
 
   return (
-    <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <div className="bg-body-tertiary">
+      <nav className="navbar container navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <img
@@ -74,11 +79,14 @@ const Header = () => {
             </form>
             <div>
               {user ? (
-                <div>
-                  <Link className="btn" type="button" to={"/"}>
-                    Cart
-                  </Link>
-                  <li className="nav-item dropdown">
+                <UserDiv>
+                  <li>
+                    <Link className="btn" type="button" to={"/"}>
+                      <BiCartAlt />
+                      <span>1</span>
+                    </Link>
+                  </li>
+                  <li className="nav-item dropdown my-auto">
                     <a
                       className="nav-link dropdown-toggle"
                       href="#"
@@ -94,16 +102,14 @@ const Header = () => {
                         <Link
                           className="dropdown-item"
                           href="#"
-                          onClick={() => {
-                            user == null;
-                          }}
+                          onClick={() => {}}
                         >
                           Logout
                         </Link>
                       </li>
                     </ul>
                   </li>
-                </div>
+                </UserDiv>
               ) : (
                 <div>
                   <Link className="btn" type="button" to={"/login"}>
@@ -118,7 +124,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-    </>
+    </div>
   );
 };
 
