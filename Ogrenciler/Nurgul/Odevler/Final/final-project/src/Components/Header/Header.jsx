@@ -1,86 +1,111 @@
-import React from "react";
+import { useState } from "react";
+import {
+  Items,
+  Logo,
+  SearchInput,
+  Button,
+  Toggle,
+  Container,
+} from "../Style/styled-header";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle";
+import { useNavigate } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const goToSignUp = () => {
+    navigate("/signup");
+  };
+
+  const goToLogin = () => {
+    navigate("/login");
+  };
+
+  const goToHome = () => {
+    navigate("/");
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          Navbar
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+    <div className="container py-3">
+      <Container className="row">
+        <div className="col-lg-6">
+          <div className="row justify-content-center flex-row align-items-center">
+            <div className="col-lg-3">
+              <Items onClick={() => goToHome()}>
+                <Logo src="https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Hakkimizda/genel-bakis/logolarimiz/TURKCELL_DIKEY_ERKEK_LOGO.png" />
+              </Items>
+            </div>
+            <div className="col-lg-2">
+              <Items onClick={() => goToHome()}>Home</Items>
+            </div>
+            <div className="col-lg-2">
+              <Items>Category</Items>
+            </div>
+            <div className="col-lg-2">
+              <Items>About</Items>
+            </div>
+            <div className="col-lg-2">
+              <Items>Contact</Items>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-6">
+          <div className="row justify-content-center align-items-center flex-row">
+            <div className="col-lg-6">
+              <div className="d-flex flex-row">
+                <i className="fa-solid fa-magnifying-glass me-2"></i>
+                <SearchInput type="text" placeholder="Search something here!" />
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <Button onClick={() => goToLogin()}>Log In</Button>
+            </div>
+            <div className="col-lg-3">
+              <Button onClick={() => goToSignUp()}>Sign Up</Button>
+            </div>
+          </div>
+        </div>
+      </Container>
+      <div className="row d-lg-none">
+        <div className="col">
+          <Toggle onClick={() => toggleMenu()}>
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </Toggle>
+
+          <Logo src="https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Hakkimizda/genel-bakis/logolarimiz/TURKCELL_DIKEY_ERKEK_LOGO.png" />
+
+          {isMenuOpen && (
+            <div className="row">
+              <div className="col">
+                <Items onClick={() => goToHome()}>Home</Items>
+              </div>
+              <div className="col">
+                <Items>Category</Items>
+              </div>
+              <div className="col">
+                <Items>About</Items>
+              </div>
+              <div className="col">
+                <Items>Contact</Items>
+              </div>
+              <div className="col">
+                <Button onClick={() => goToLogin()}>Log In</Button>
+              </div>
+              <div className="col">
+                <Button onClick={() => goToSignUp()}>Sign Up</Button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 

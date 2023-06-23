@@ -1,6 +1,8 @@
 import { useFormik } from "formik";
 import { signUpSchema } from "../../schemas";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Container, Form } from "../Style/styled-form";
 
 const SignUp = () => {
@@ -24,33 +26,17 @@ const SignUp = () => {
       age: values.age,
       password: values.password,
       Admin: false,
-      cart: [],
     };
-    console.log(userData);
-    axios
-      .get("http://localhost:3000/users")
-      .then((response) => {
-        const users = response.data;
-        const existingUser = users.find(
-          (user) => user.email === userData.email
-        );
+    axios.get("http://localhost:3000/users").then((response) => {
+      const users = response.data;
+      const existingUser = users.find((user) => user.email === userData.email);
 
-        if (existingUser) {
-          console.log("Email already exists:", existingUser.email);
-        } else {
-          axios
-            .post("http://localhost:3000/users", userData)
-            .then((response) => {
-              console.log("Data has been successfully pushed:", response.data);
-            })
-            .catch((error) => {
-              console.error("An error occurred:", error);
-            });
-        }
-      })
-      .catch((error) => {
-        console.error("An error occurred while fetching users:", error);
-      });
+      if (existingUser) {
+        toast.error("Email already exists");
+      } else {
+        axios.post("http://localhost:3000/users", userData);
+      }
+    });
     resetForm();
   };
 

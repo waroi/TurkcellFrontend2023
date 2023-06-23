@@ -30,9 +30,10 @@ export const Form = styled.form`
 
   button {
     padding: 5px 5px;
-    background-color: #007bff;
+    background-color: #002a48;
     color: #fff;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
 
     &:hover {

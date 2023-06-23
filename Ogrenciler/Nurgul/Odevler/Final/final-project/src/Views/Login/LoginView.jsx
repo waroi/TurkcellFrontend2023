@@ -13,9 +13,7 @@ const LoginView = () => {
       try {
         const response = await axios.get("http://localhost:3000/users");
         setUserData(response.data);
-      } catch (error) {
-        console.error("An error occurred while fetching user data:", error);
-      }
+      } catch {}
     };
 
     fetchUserData();
@@ -28,7 +26,6 @@ const LoginView = () => {
 
     if (user) {
       setLoggedIn(true);
-      console.log("Login successful");
     } else {
       toast.error("Invalid email or password");
     }
