@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import LoginForm from "../../components/LoginForm/LoginForm";
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { setUser } from "../../redux/slices/userSlice";
 
 const LoginView = () => {
 
-    const [loggedIn, setLoggedIn] = useState(false);
     const [userData, setUserData] = useState(null);
+    const currentUser = useSelector((state) => state.user.user);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -26,7 +30,8 @@ const LoginView = () => {
         );
 
         if (user) {
-            setLoggedIn(true);
+            dispatch(setUser(user))
+            console.log(currentUser)
             console.log('Login successful');
         } else {
             console.log('Invalid email or password');
@@ -34,12 +39,16 @@ const LoginView = () => {
     };
 
     return (
-        <div>
-            {!loggedIn ? (
+        <div className="container">
+            {currentUser == null ? (
                 <LoginForm onLogin={handleLogin} />
             ) : (
-                <h1>Welcome to the App!</h1>
+                <div>
+                    <h1>Login successfull {currentUser.name}</h1>
+                    <Link to={"/"}>Go back to HomeView</Link>
+                </div>
             )}
+
         </div>
     )
 }
