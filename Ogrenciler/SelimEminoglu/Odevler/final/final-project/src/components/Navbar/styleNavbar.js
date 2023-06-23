@@ -6,12 +6,14 @@ export const NavbarDiv = styled.div`
   padding: 28px 130px;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  z-index: 1;
 `;
 
 export const NavList = styled.div`
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 42px;
 `;
 
 export const NavbarA = styled.a`

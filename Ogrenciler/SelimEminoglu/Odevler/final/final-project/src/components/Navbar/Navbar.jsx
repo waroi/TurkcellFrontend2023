@@ -1,6 +1,7 @@
 import { NavbarDiv, NavList, NavbarA } from "./styleNavbar";
 import NavbarSearch from "./NavbarSearch";
 import Button from "../Button/Button";
+import Register from "../Register/Register";
 
 function Navbar() {
   return (
@@ -13,6 +14,7 @@ function Navbar() {
         <NavbarA href="#">Kişiler</NavbarA>
         <NavbarSearch />
         <Button title="Giriş Yap" />
+        <Register />
       </NavList>
     </NavbarDiv>
   );

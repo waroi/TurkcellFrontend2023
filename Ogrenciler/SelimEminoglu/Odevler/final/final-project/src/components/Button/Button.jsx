@@ -1,10 +1,26 @@
 import { ButtonStyle } from "./styleButton";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function Button({ title, icon, background }) {
+function Button({
+  title,
+  path,
+  icon,
+  border,
+  background,
+  color,
+  gap,
+  display,
+}) {
   return (
-    <ButtonStyle background={background}>
-      {title}
+    <ButtonStyle
+      color={color}
+      gap={gap}
+      display={display}
+      background={background}
+    >
+      {path == "/" && title}
+      {path != "/" && <Link to={path}>{title}</Link>}
       {icon != "" && <img src={icon} alt="icon" />}
     </ButtonStyle>
   );
@@ -12,13 +28,23 @@ function Button({ title, icon, background }) {
 
 Button.propTypes = {
   title: PropTypes.string.isRequired,
+  path: PropTypes.string,
   icon: PropTypes.string,
+  border: PropTypes.string,
   background: PropTypes.string,
+  color: PropTypes.string,
+  gap: PropTypes.string,
+  display: PropTypes.string,
 };
 
 Button.defaultProps = {
+  path: "/",
   icon: "",
+  border: "",
   background: "#003459",
+  color: "white",
+  gap: "10px",
+  display: "flex",
 };
 
 export default Button;
