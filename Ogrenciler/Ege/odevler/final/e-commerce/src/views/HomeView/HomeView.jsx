@@ -7,11 +7,11 @@ const HomeView = () => {
     return (
         <div>
             <h1>HomeView</h1>
-            <Link to="/login">Login</Link>
+            {!currentUser && <Link to="/login">Login</Link>}
             <br />
-            <Link to="/signup">SignUp</Link>
+            {!currentUser && <Link to="/signup">SignUp</Link>}
             <br />
-            <Link to="/products">Products</Link>
+            {currentUser && <Link to="/products">Products</Link>}
             {
                 currentUser ? (
                     <div>

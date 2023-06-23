@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-const SortArea = ({ sortType, setSortType }) => {
+const SortArea = ({ setSortType }) => {
 
     const handleChange = (e) => {
         setSortType(e.target.value)
