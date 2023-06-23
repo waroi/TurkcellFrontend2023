@@ -18,6 +18,7 @@ function Button({
       gap={gap}
       display={display}
       background={background}
+      border={border}
     >
       {path == "/" && title}
       {path != "/" && <Link to={path}>{title}</Link>}
@@ -40,7 +41,7 @@ Button.propTypes = {
 Button.defaultProps = {
   path: "/",
   icon: "",
-  border: "",
+  border: "1px solid transparent",
   background: "#003459",
   color: "white",
   gap: "10px",

@@ -12,3 +12,51 @@ export const HeadlineDiv = styled.div`
     #ffe7ba 100%
   );
 `;
+
+export const PartDiv = styled.div`
+  padding-top: 9rem;
+  display: flex;
+`;
+
+export const FirstPart = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const HeadlineH2 = styled.h2`
+  margin: 0;
+  padding-bottom: 0.5rem;
+  color: #002a48;
+  font-size: 60px;
+  font-family: SVN-Gilroy;
+  font-weight: 800;
+  line-height: 68px;
+  text-transform: capitalize;
+`;
+
+export const HeadlineH3 = styled.h3`
+  margin: 0;
+  color: #002a48;
+  font-size: 46px;
+  font-family: SVN-Gilroy;
+  font-weight: 700;
+  line-height: 60px;
+  text-transform: capitalize;
+`;
+
+export const HeadlineP = styled.p`
+  display: flex;
+  width: 480px;
+  flex-direction: column;
+  flex-shrink: 0;
+  color: #242b33;
+  font-size: 16px;
+  font-family: SVN-Gilroy;
+  font-weight: 500;
+  line-height: 24px;
+`;
+
+export const FlexDiv = styled.div`
+  display: flex;
+  gap: 20px;
+`;

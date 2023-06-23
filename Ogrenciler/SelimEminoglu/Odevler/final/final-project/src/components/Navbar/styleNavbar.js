@@ -13,7 +13,7 @@ export const NavbarDiv = styled.div`
 export const NavList = styled.div`
   display: flex;
   align-items: center;
-  gap: 42px;
+  gap: 36px;
 `;
 
 export const NavbarA = styled.a`
