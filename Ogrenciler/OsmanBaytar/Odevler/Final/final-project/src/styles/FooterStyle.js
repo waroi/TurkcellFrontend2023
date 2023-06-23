@@ -8,19 +8,19 @@ export const FooterContainer = styled.div`
     #fceed5 75.14%,
     #ffe7ba 100%
   );
-  margin-top: 50px;
+`;
+
+export const FooterWrapper = styled.div`
+  padding-top: 72px;
 `;
 
 export const FooterTop = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 80px;
-  padding: 32px;
+  padding: 16px;
   align-items: flex-start;
   border-radius: 16px;
   background: #003459;
-  margin-left: 0.25%;
-  margin-right: 0.25%;
   @media (max-width: 992px) {
     flex-direction: column;
   }
@@ -40,7 +40,7 @@ export const FooterInputArea = styled.div`
   align-items: center;
   gap: 12px;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
   @media (max-width: 992px) {
     flex-direction: column;
   }
@@ -71,7 +71,6 @@ export const FooterButton = styled.button`
   background: #003459;
   width: 100%;
   @media (max-width: 992px) {
-    margin-top: 1em;
     width: 100%;
   }
 `;
@@ -79,6 +78,9 @@ export const FooterButton = styled.button`
 export const FooterMiddle = styled.div`
   margin-top: 32px;
   border-bottom: 1px solid #ccd1d2;
+  @media (max-width: 992px) {
+    gap: 32px;
+  }
 `;
 
 export const FooterMiddleItem = styled.div`
@@ -92,5 +94,43 @@ export const FooterMiddleItem = styled.div`
 export const FooterMiddleIcon = styled.i`
   width: 24px;
   height: 24px;
+  font-size: 24px;
+  cursor: pointer;
+`;
+
+export const FooterBottom = styled.div`
+  :nth-child(1) {
+    text-align: left;
+  }
+  :nth-child(2) {
+    text-align: center;
+  }
+  :nth-child(3) {
+    text-align: right;
+  }
+  @media (max-width: 992px) {
+    :nth-child(1) {
+      order: 3;
+      text-align: center;
+      padding-top: 16px;
+    }
+    :nth-child(2) {
+      order: 1;
+      text-align: center;
+    }
+    :nth-child(3) {
+      order: 2;
+      text-align: center;
+      padding-top: 16px;
+    }
+  }
+`;
+
+export const FooterBottomItem = styled.div`
+  color: #667479;
+  font-size: 14px;
+  font-family: SVN-Gilroy;
+  font-weight: 500;
+  line-height: 20px;
   cursor: pointer;
 `;
