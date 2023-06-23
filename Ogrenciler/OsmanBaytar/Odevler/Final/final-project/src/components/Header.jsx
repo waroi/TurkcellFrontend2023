@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   HeaderItem,
   HeaderLogo,
@@ -7,6 +7,7 @@ import {
   HeaderComputer,
   HeaderMobile,
 } from "../styles/HeaderStyle";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -22,6 +23,14 @@ const Header = () => {
     setIsMobile(false);
   };
 
+  const navigate = useNavigate();
+  const goToSignUp = () => {
+    navigate("/SignUp");
+  };
+  const goToHome = () => {
+    navigate("/");
+  };
+
   return (
     <div className="container py-3">
       <HeaderComputer>
@@ -29,12 +38,12 @@ const Header = () => {
           <div className="col-lg-6">
             <div className="row justify-content-center flex-row align-items-center">
               <div className="col-lg-3">
-                <HeaderItem>
+                <HeaderItem onClick={() => goToHome()}>
                   <HeaderLogo src="https://s.tmimgcdn.com/scr/800x500/126100/e-ticaret-logo-sablonu_126133-original.png" />
                 </HeaderItem>
               </div>
               <div className="col-lg-2">
-                <HeaderItem>Home</HeaderItem>
+                <HeaderItem onClick={() => goToHome()}>Home</HeaderItem>
               </div>
               <div className="col-lg-2">
                 <HeaderItem>Category</HeaderItem>
@@ -62,10 +71,12 @@ const Header = () => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <HeaderButton>Sign In</HeaderButton>
+                <HeaderButton>Log In</HeaderButton>
               </div>
               <div className="col-lg-3">
-                <HeaderButton>Sign Up</HeaderButton>
+                <HeaderButton onClick={() => goToSignUp()}>
+                  Sign Up
+                </HeaderButton>
               </div>
             </div>
           </div>
@@ -79,7 +90,7 @@ const Header = () => {
             </HeaderItem>
           </div>
           <div className="col-4">
-            <HeaderItem>
+            <HeaderItem onClick={() => goToHome()}>
               <HeaderLogo src="https://s.tmimgcdn.com/scr/800x500/126100/e-ticaret-logo-sablonu_126133-original.png" />
             </HeaderItem>
           </div>
@@ -95,15 +106,15 @@ const Header = () => {
 
         {isMobile && !isMobileInput && (
           <div className="row mt-3">
-            <HeaderItem>Home</HeaderItem>
+            <HeaderItem onClick={() => goToHome()}>Home</HeaderItem>
             <HeaderItem>Category</HeaderItem>
             <HeaderItem>About</HeaderItem>
             <HeaderItem>Contact</HeaderItem>
             <div className="mt-3">
-              <HeaderButton>Sign In</HeaderButton>
+              <HeaderButton>Log In</HeaderButton>
             </div>
             <div className="mt-1">
-              <HeaderButton>Sign Up</HeaderButton>
+              <HeaderButton onClick={() => goToSignUp()}>Sign Up</HeaderButton>
             </div>
           </div>
         )}

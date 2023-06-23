@@ -14,8 +14,14 @@ import {
   FooterBottomItem,
 } from "../styles/FooterStyle";
 import { HeaderLogo } from "../styles/HeaderStyle";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const goToHome = () => {
+    navigate("/");
+  };
+
   return (
     <FooterContainer className="mt-5">
       <FooterWrapper className="container">
@@ -35,7 +41,9 @@ const Footer = () => {
           <div className="col-lg-4">
             <div className="row flex-row justify-content-between">
               <div className="col-3">
-                <FooterMiddleItem>Home</FooterMiddleItem>
+                <FooterMiddleItem onClick={() => goToHome()}>
+                  Home
+                </FooterMiddleItem>
               </div>
               <div className="col-3">
                 <FooterMiddleItem>Category</FooterMiddleItem>
@@ -69,7 +77,7 @@ const Footer = () => {
           <FooterBottomItem className="col-lg-4">
             2022 Monito, All rights reserved
           </FooterBottomItem>
-          <FooterBottomItem className="col-lg-4">
+          <FooterBottomItem onClick={() => goToHome()} className="col-lg-4">
             <HeaderLogo src="https://s.tmimgcdn.com/scr/800x500/126100/e-ticaret-logo-sablonu_126133-original.png"></HeaderLogo>
           </FooterBottomItem>
           <FooterBottomItem className="col-lg-4">
