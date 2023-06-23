@@ -39,11 +39,17 @@ const SignUpForm = () => {
                     axios.post('http://localhost:3000/users', userData)
                         .then(response => {
                             console.log('Data has been successfully pushed:', response.data);
+                        })
+                        .then(() => {
+                            axios.post('http://localhost:3000/carts', { id: userData.id, cart: [] })
+                                .then(console.log("Cart has been succesfully created"))
                             navigate("/")
                         })
                         .catch(error => {
                             console.error('An error occurred:', error);
                         });
+
+
                 }
             })
             .catch(error => {
