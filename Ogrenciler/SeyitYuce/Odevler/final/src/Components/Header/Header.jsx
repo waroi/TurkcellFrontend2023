@@ -1,9 +1,14 @@
 import React from "react";
-import { BiSearch } from "react-icons/bi";
+import { BiSearch, BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const user = useSelector((state) => state.user);
+
+  console.log(user);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -68,12 +73,47 @@ const Header = () => {
               </div>
             </form>
             <div>
-              <Link className="btn " type="button" to={"/login"}>
-                Login
-              </Link>
-              <Link className="btn " type="button" to={"/signup"}>
-                Sign Up
-              </Link>
+              {user ? (
+                <div>
+                  <Link className="btn" type="button" to={"/"}>
+                    Cart
+                  </Link>
+                  <li className="nav-item dropdown">
+                    <a
+                      className="nav-link dropdown-toggle"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <BiUserCircle />
+                      {user[0].username}
+                    </a>
+                    <ul className="dropdown-menu">
+                      <li>
+                        <Link
+                          className="dropdown-item"
+                          href="#"
+                          onClick={() => {
+                            user == null;
+                          }}
+                        >
+                          Logout
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                </div>
+              ) : (
+                <div>
+                  <Link className="btn" type="button" to={"/login"}>
+                    Login
+                  </Link>
+                  <Link className="btn" type="button" to={"/signup"}>
+                    Sign Up
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>

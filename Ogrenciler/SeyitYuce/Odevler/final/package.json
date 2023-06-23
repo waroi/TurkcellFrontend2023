@@ -7,9 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "userdb-json-server": "json-server --watch ./db/usersDb.json --port 3000",
+    "productsdb-json-server": "json-server --watch ./db/productsDb.json --port 4000",
+    "start": "concurrently \"npm run dev\" \"npm run userdb-json-server\" \"npm run productsdb-json-server\""
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "concurrently": "^8.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",

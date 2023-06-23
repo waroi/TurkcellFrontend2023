@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { setUser } from "../redux/slices/userSlice.js";
 
-const SignIn = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -16,7 +19,7 @@ const SignIn = () => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, user) => {
     event.preventDefault();
     fetch(`http://localhost:3000/users?email=${email}&password=${password}`)
       .then((response) => response.json())
@@ -31,6 +34,7 @@ const SignIn = () => {
             theme: "light",
             onClose: () => {
               navigate("/");
+              dispatch(setUser(user));
             },
           });
         } else {
@@ -79,10 +83,13 @@ const SignIn = () => {
         <button type="submit" id="signinBtn">
           Sign In
         </button>
+        <p>
+          Don't have an account? <Link to="/signup">Sign Up</Link>
+        </p>
       </form>
       <ToastContainer />
     </div>
   );
 };
 
-export default SignIn;
+export default Login;
