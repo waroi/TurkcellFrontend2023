@@ -4,6 +4,7 @@ import ProductsView from "../views/ProductsView/ProductsView"
 import SignUpView from "../views/SignUpView/SignUpView"
 import LoginView from "../views/LoginView/LoginView"
 import { useSelector } from "react-redux"
+import ProductDetailView from "../views/ProductDetailView/ProductDetailView"
 const Router = () => {
 
     const currentUser = useSelector((state) => state.user.user);
@@ -12,7 +13,8 @@ const Router = () => {
         { path: "/", element: <HomeView /> },
         !currentUser && { path: "/signup", element: <SignUpView /> },
         !currentUser && { path: "/login", element: <LoginView /> },
-        { path: "/products", element: <ProductsView /> }
+        { path: "/products", element: <ProductsView /> },
+        { path: "/products/:id", element: <ProductDetailView /> }
 
     ])
 

@@ -10,6 +10,8 @@ const HomeView = () => {
             <Link to="/login">Login</Link>
             <br />
             <Link to="/signup">SignUp</Link>
+            <br />
+            <Link to="/products">Products</Link>
             {
                 currentUser ? (
                     <div>
