@@ -33,7 +33,7 @@ const ProductDetailView = () => {
                                 demand: inCart.demand + 1
                             }
                             const newCart = response.data.cart.map(cartItem => {
-                                if (newProduct.id == cartItem.id) return newProduct
+                                if (newProduct.productId == cartItem.productId) return newProduct
                                 return cartItem
 
                             })
