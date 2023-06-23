@@ -52,7 +52,11 @@ const Header = () => {
             </ul>
             <form className="d-flex searchForm" role="search">
               <div className="input-group">
-                <button className="btn searchBtn" type="button" id="button-addon1">
+                <button
+                  className="btn searchBtn"
+                  type="button"
+                  id="button-addon1"
+                >
                   <BiSearch />
                 </button>
                 <input
@@ -64,12 +68,12 @@ const Header = () => {
               </div>
             </form>
             <div>
-              <button className="btn " type="button">
-                Sing In
-              </button>
-              <button className="btn " type="button">
+              <Link className="btn " type="button" to={"/login"}>
+                Login
+              </Link>
+              <Link className="btn " type="button" to={"/signup"}>
                 Sign Up
-              </button>
+              </Link>
             </div>
           </div>
         </div>
