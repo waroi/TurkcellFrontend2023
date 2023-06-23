@@ -1,12 +1,11 @@
 import { useFormik } from "formik";
 import { basicSchema } from "../schemas";
 import "../styles/SignUpForm.css";
+import { useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addUsers } from "../redux/slices/usersSlice";
 
-console.log(basicSchema);
 const onSubmit = async (values, actions) => {
-  console.log(values);
-  console.log(actions);
-
   await new Promise((resolve) => {
     setTimeout(resolve, 1000);
   });
@@ -14,6 +13,34 @@ const onSubmit = async (values, actions) => {
 };
 
 function SignUpForm() {
+  const currentName = useRef("");
+  const currentSurname = useRef("");
+  const currentUsername = useRef("");
+  const currentEmail = useRef("");
+  const currentPassword = useRef("");
+
+  const dispatch = useDispatch();
+  const { users } = useSelector((state) => state.users);
+
+  const asyncFunction = async () => {
+    const a = await users;
+    console.log(a);
+  };
+
+  const handleAddUsers = () => {
+    dispatch(
+      addUsers({
+        id: users.length + 1,
+        name: currentName.current.name,
+        surname: currentSurname.current.surname,
+        username: currentUsername.current.username,
+        email: currentEmail.current.email,
+        password: currentPassword.current.password,
+        is_admin: false,
+      })
+    );
+  };
+
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
@@ -36,6 +63,7 @@ function SignUpForm() {
           type="text"
           value={values.name}
           onChange={handleChange}
+          ref={currentName}
           id="name"
           placeholder="Type a name"
           className={errors.name ? "input-error" : ""}
@@ -48,6 +76,7 @@ function SignUpForm() {
           type="text"
           value={values.surname}
           onChange={handleChange}
+          ref={currentSurname}
           id="surname"
           placeholder="Type a surname"
           className={errors.surname ? "input-error" : ""}
@@ -60,6 +89,7 @@ function SignUpForm() {
           type="text"
           value={values.username}
           onChange={handleChange}
+          ref={currentUsername}
           id="username"
           placeholder="Type a username"
           className={errors.username ? "input-error" : ""}
@@ -72,6 +102,7 @@ function SignUpForm() {
           type="email"
           value={values.email}
           onChange={handleChange}
+          ref={currentEmail}
           id="email"
           placeholder="Type an email"
           className={errors.email ? "input-error" : ""}
@@ -84,6 +115,7 @@ function SignUpForm() {
           type="password"
           value={values.password}
           onChange={handleChange}
+          ref={currentPassword}
           id="password"
           placeholder="Type a password"
           className={errors.password ? "input-error" : ""}
@@ -105,7 +137,7 @@ function SignUpForm() {
         )}
       </div>
 
-      <button type="submit" disabled={isSubmitting}>
+      <button type="submit" disabled={isSubmitting} onClick={handleAddUsers}>
         Sign Up
       </button>
     </form>
