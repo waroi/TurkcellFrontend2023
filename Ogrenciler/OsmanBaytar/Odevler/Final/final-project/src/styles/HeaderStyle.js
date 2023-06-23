@@ -27,7 +27,7 @@ export const HeaderInput = styled.input`
 
 export const HeaderButton = styled.button`
   padding: 4px 10px;
-  width: 115px;
+  width: 125px;
   border-radius: 57px;
   background: #003459;
   border: none;
