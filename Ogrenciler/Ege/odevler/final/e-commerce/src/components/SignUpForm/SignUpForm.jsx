@@ -1,7 +1,10 @@
 import { useFormik } from "formik"
 import { signUpSchema } from "../../schemas";
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
+
 const SignUpForm = () => {
+    const navigate = useNavigate()
 
 
     const initialValues = {
@@ -36,6 +39,7 @@ const SignUpForm = () => {
                     axios.post('http://localhost:3000/users', userData)
                         .then(response => {
                             console.log('Data has been successfully pushed:', response.data);
+                            navigate("/")
                         })
                         .catch(error => {
                             console.error('An error occurred:', error);

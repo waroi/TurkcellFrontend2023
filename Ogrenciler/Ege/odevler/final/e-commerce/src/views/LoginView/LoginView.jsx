@@ -4,12 +4,14 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { setUser } from "../../redux/slices/userSlice";
+import { useNavigate } from "react-router-dom"
 
 const LoginView = () => {
 
     const [userData, setUserData] = useState(null);
     const currentUser = useSelector((state) => state.user.user);
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -31,8 +33,10 @@ const LoginView = () => {
 
         if (user) {
             dispatch(setUser(user))
+            // localStorage.setItem("isLoggedIn", "true")
             console.log(currentUser)
             console.log('Login successful');
+            navigate("/")
         } else {
             console.log('Invalid email or password');
         }

@@ -7,6 +7,9 @@ const HomeView = () => {
     return (
         <div>
             <h1>HomeView</h1>
+            <Link to="/login">Login</Link>
+            <br />
+            <Link to="/signup">SignUp</Link>
             {
                 currentUser ? (
                     <div>
