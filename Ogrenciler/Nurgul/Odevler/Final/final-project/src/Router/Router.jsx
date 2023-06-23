@@ -1,14 +1,14 @@
 import { useRoutes } from "react-router-dom";
-import HomeView from "../views/HomeView/HomeView";
-import ProductsView from "../views/ProductsView/ProductsView";
-import SignUpView from "../views/SignUpView/SignUpView";
-import LoginView from "../views/LoginView/LoginView";
+import HomeView from "../Views/Home/HomeView";
+import ProductsView from "../Views/Products/ProductsView";
+import SignupView from "../Views/SignUp/SignupView";
+import LoginView from "../Views/Login/LoginView";
 const Router = () => {
   const routes = useRoutes([
     { path: "/", element: <HomeView /> },
+    { path: "/products", element: <ProductsView /> },
     { path: "/signup", element: <SignupView /> },
     { path: "/login", element: <LoginView /> },
-    { path: "/products", element: <ProductsView /> },
   ]);
 
   return routes;
