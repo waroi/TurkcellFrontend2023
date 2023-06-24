@@ -1,6 +1,6 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import { useFormik } from 'formik';
-import { searchSchema } from "../../schemas";
+// import { searchSchema } from "../../schemas";
 import { useSelector, useDispatch } from "react-redux"
 import { setSearchValue } from "../../redux/slices/searchSlice";
 const Navbar = () => {

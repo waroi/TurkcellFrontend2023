@@ -12,7 +12,9 @@ const CartView = () => {
             .then(response => setCart(response.data.cart))
 
     }, [user.id])
+
     useEffect(() => { updateCart() }, [])
+
     const updateCart = async () => {
         const productResponse = await axios.get('http://localhost:3000/products');
         const products = productResponse.data;
@@ -35,7 +37,17 @@ const CartView = () => {
     }
 
     const handleBuy = async () => {
-        if (cart.length > 0) {
+        const productResponse = await axios.get('http://localhost:3000/products');
+        const products = productResponse.data;
+
+        const shouldUpdate = cart.some(cartItem => products.find(product => product.id == cartItem.productId).rating.count < cartItem.demand)
+
+        if (shouldUpdate) {
+            console.log("There is an update in your cart")
+            updateCart()
+        }
+
+        else {
             for (const cartProduct of cart) {
                 const currProduct = await axios.get(`http://localhost:3000/products/${cartProduct.productId}`)
                 const newData = {
