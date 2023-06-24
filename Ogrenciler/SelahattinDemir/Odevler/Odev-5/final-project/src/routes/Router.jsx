@@ -3,12 +3,13 @@ import RegisterView from "../views/RegisterView";
 import LoginView from "../views/LoginView";
 import HomeView from "../views/HomeView";
 import DetailView from "../views/DetailView";
+import Category from "../views/CategoryView";
 import NotFound from "../views/NotFound";
 
 const Router = () => {
   const routes = useRoutes([
     {
-      path: "/",
+      path: "/register",
       element: <RegisterView />,
     },
     {
@@ -16,12 +17,16 @@ const Router = () => {
       element: <LoginView />,
     },
     {
-      path: "/home",
+      path: "/",
       element: <HomeView />,
     },
     {
-      path: "/coins/:id",
+      path: "/:id",
       element: <DetailView />,
+    },
+    {
+      path: "/category",
+      element: <Category />,
     },
     {
       path: "*",
