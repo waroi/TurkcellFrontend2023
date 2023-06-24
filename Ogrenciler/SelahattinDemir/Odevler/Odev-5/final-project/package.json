@@ -6,14 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "json-server": "json-server --watch ./api/db.json --port 3004",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "all": "concurrently \"pnpm run json-server\" \"pnpm run dev\""
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "concurrently": "^8.2.0",
     "formik": "^2.4.2",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
     "react-router-dom": "^6.13.0",
+    "styled-components": "6.0.0-rc.5",
     "yup": "^1.2.0"
   },
   "devDependencies": {
