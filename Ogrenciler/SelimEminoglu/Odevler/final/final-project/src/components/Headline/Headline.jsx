@@ -2,6 +2,7 @@ import {
   HeadlineDiv,
   PartDiv,
   FirstPart,
+  SecondPart,
   HeadlineH2,
   HeadlineH3,
   HeadlineP,
@@ -36,12 +37,7 @@ function Headline() {
               <Button title="Şimdi Keşfet" />
             </FlexDiv>
           </FirstPart>
-          <div>
-            <img
-              src=".\src\assets\images\good-humored-woman-holds-dog-laughing-pink-background-emotional-sort-haired-girl-grey-hoodie-poses-with-corgi-isolated 1@2x.svg"
-              alt="images"
-            />
-          </div>
+          <SecondPart></SecondPart>
         </PartDiv>
       </Container>
     </HeadlineDiv>

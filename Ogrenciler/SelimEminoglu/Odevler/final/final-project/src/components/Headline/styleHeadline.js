@@ -24,8 +24,12 @@ export const FirstPart = styled.div`
 `;
 
 export const SecondPart = styled.div`
-  background: url(".\src\assets\images\good-humored-woman-holds-dog-laughing-pink-background-emotional-sort-haired-girl-grey-hoodie-poses-with-corgi-isolated 1@2x.svg"),
-    lightgray -95.793px 0px / 110.172% 100% no-repeat;
+  width: 944px;
+  height: 693px;
+  flex-shrink: 0;
+  background: url("./src/assets/images/good-humored-woman-holds-dog-laughing-pink-background-emotional-sort-haired-girl-grey-hoodie-poses-with-corgi-isolated 1@2x.svg"),
+    transparent -95.793px 0px / 110.172% 100% no-repeat;
+  overflow: hidden;
 `;
 
 export const HeadlineH2 = styled.h2`
