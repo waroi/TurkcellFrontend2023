@@ -59,7 +59,7 @@ const ProductDetailView = () => {
             <h1>{user.name || "aassaass"}</h1>
             <h2>{product.title}</h2>
             <h2>Stock: {product.rating?.count} </h2>
-            <button onClick={handleCartClick} >Add to Cart</button>
+            <button className={`${product.rating?.count == 0 && "disabled"} btn btn-success`} onClick={handleCartClick} >Add to Cart</button>
         </div>
     )
 }
