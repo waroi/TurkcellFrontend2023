@@ -1,7 +1,14 @@
-import React from "react";
+import StaticOrderComponent from "../components/StaticOrderComponent";
+import StaticThreeBoxes from "../components/StaticThreeBoxes";
 
 const HomeView = () => {
-  return <div>HomeView</div>;
+  return (
+    <>
+      <StaticOrderComponent source={"../../public/human-dog.png"} order={2} />
+      <StaticOrderComponent source={"../../public/human-dog.png"} />
+      <StaticThreeBoxes />
+    </>
+  );
 };
 
 export default HomeView;

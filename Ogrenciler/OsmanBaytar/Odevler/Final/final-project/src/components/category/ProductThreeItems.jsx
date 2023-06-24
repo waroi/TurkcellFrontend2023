@@ -15,7 +15,7 @@ const ProductThreeItems = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   return (
-    <div className="row">
+    <div className="row mt-5">
       <div className="col-lg-3">
         <ProductThreeItemsH3>Filter</ProductThreeItemsH3>
       </div>

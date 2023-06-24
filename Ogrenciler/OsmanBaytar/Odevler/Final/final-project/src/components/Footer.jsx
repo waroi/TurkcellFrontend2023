@@ -21,7 +21,9 @@ const Footer = () => {
   const goToHome = () => {
     navigate("/");
   };
-
+  const goToProducts = () => {
+    navigate("/Products");
+  };
   return (
     <FooterContainer className="mt-5">
       <FooterWrapper className="container">
@@ -46,7 +48,9 @@ const Footer = () => {
                 </FooterMiddleItem>
               </div>
               <div className="col-3">
-                <FooterMiddleItem>Category</FooterMiddleItem>
+                <FooterMiddleItem onClick={() => goToProducts()}>
+                  Category
+                </FooterMiddleItem>
               </div>
               <div className="col-3">
                 <FooterMiddleItem>About</FooterMiddleItem>
