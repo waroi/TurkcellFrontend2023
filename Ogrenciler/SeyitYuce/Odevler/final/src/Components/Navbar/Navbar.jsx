@@ -9,9 +9,6 @@ const Header = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  // console.log(setUser);
-  // console.log(user);
-
   const UserDiv = styled.div`
     display: flex;
   `;
@@ -47,8 +44,8 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/category">
-                  Category
+                <Link className="nav-link" to="/products">
+                  Products
                 </Link>
               </li>
               <li className="nav-item">
@@ -106,7 +103,6 @@ const Header = () => {
                           href="#"
                           onClick={() => {
                             dispatch(setUser(null));
-                            // console.log(user);
                           }}
                         >
                           Logout
