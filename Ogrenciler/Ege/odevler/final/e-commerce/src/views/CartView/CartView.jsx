@@ -13,23 +13,26 @@ const CartView = () => {
 
     }, [user.id])
 
-    const handleBuy = () => {
-        console.log("Buy complete")
-        if (cart.length > 0) {
-            cart.map(cartItem => {
-                axios.get(`http://localhost:3000/products/${cartItem.productId}`)
-                    .then(response => {
-                        const newData = { ...response.data, rating: { rate: response.data.rating.rate, count: response.data.rating.count - cartItem.demand } }
 
-                        axios.put(`http://localhost:3000/products/${cartItem.productId}`, newData)
-                    })
-                    .then(() => {
-                        setCart([])
-                        axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: [] })
-                    })
-            })
+    const handleBuy = async () => {
+        if (cart.length > 0) {
+            for (const cartProduct of cart) {
+                const currProduct = await axios.get(`http://localhost:3000/products/${cartProduct.productId}`)
+                console.log(currProduct)
+                const newData = {
+                    ...currProduct.data,
+                    rating: {
+                        rate: currProduct.data.rating.rate,
+                        count: currProduct.data.rating.count - cartProduct.demand
+                    }
+                }
+                await axios.put(`http://localhost:3000/products/${cartProduct.productId}`, newData)
+                setCart([])
+                await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: [] })
+            }
         }
     }
+
     return (
         <div>
             {
