@@ -12,13 +12,32 @@ const CartView = () => {
             .then(response => setCart(response.data.cart))
 
     }, [user.id])
+    useEffect(() => { updateCart() }, [])
+    const updateCart = async () => {
+        const productResponse = await axios.get('http://localhost:3000/products');
+        const products = productResponse.data;
 
+        const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`);
+        const cartData = cartResponse.data.cart;
+
+        const updatedCart = cartData.map(cartItem => {
+            const product = products.find(product => product.id === cartItem.productId)
+            if (product) {
+                const updatedStock = Math.min(product.rating.count, cartItem.demand)
+                return { ...cartItem, demand: updatedStock }
+            }
+
+            return cartItem
+        })
+
+        setCart(updatedCart.filter(cartItem => cartItem.demand > 0))
+        await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: updatedCart.filter(cartItem => cartItem.demand > 0) })
+    }
 
     const handleBuy = async () => {
         if (cart.length > 0) {
             for (const cartProduct of cart) {
                 const currProduct = await axios.get(`http://localhost:3000/products/${cartProduct.productId}`)
-                console.log(currProduct)
                 const newData = {
                     ...currProduct.data,
                     rating: {

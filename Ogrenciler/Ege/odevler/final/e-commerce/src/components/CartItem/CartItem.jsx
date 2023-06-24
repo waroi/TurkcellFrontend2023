@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 const CartItem = ({ cartItem }) => {
     return (
-        <p>{cartItem.title}</p>
+        <p>{cartItem.title} - {cartItem.demand}</p>
     )
 }
 
