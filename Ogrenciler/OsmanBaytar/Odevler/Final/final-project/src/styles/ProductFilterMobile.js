@@ -1,0 +1,67 @@
+import styled from "styled-components";
+
+export const ProductFilterMobileContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-top: 20px;
+`;
+
+export const ProductFilterMobileBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ebeeef;
+`;
+
+export const ProductFilterMobileTitle = styled.div`
+  color: #00171f;
+  font-size: 16px;
+  font-family: SVN-Gilroy;
+  font-weight: 700;
+  line-height: 24px;
+`;
+
+export const ProductFilterMobileCheckbox = styled.input`
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccd1d2;
+  background: #fff;
+`;
+
+export const ProductFilterMobileLabel = styled.label`
+  color: #00171f;
+  font-size: 14px;
+  font-family: SVN-Gilroy;
+  font-weight: 500;
+  line-height: 20px;
+`;
+
+export const ProductFilterMobileNumber = styled.div`
+  display: inline-block;
+  padding: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+`;
+
+export const ProductFilterMobileInput = styled.input`
+  display: inline-block;
+  width: 115px;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-bottom: 1px solid #ccd1d2;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: #242b33;
+    font-size: 14px;
+    font-family: SVN-Gilroy;
+    font-weight: 500;
+    line-height: 20px;
+  }
+`;

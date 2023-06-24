@@ -17,8 +17,9 @@ const ProductBox = ({ product }) => {
   } else {
     title = title.substring(0, 25);
   }
-  let fullStarNumber = Math.round(rate);
-  let emptyStarNumber = 5 - fullStarNumber;
+  let fullStarNumber = Math.floor(rate);
+  let halfStarNumber = Math.ceil(rate - fullStarNumber);
+  let emptyStarNumber = 5 - fullStarNumber - halfStarNumber;
 
   return (
     <ProductMainBox>
@@ -32,6 +33,9 @@ const ProductBox = ({ product }) => {
           <ProductRate>
             {[...Array(fullStarNumber)].map((item, index) => {
               return <i className="fas fa-star" key={index}></i>;
+            })}
+            {[...Array(halfStarNumber)].map((item, index) => {
+              return <i className="fas fa-star-half-alt" key={index}></i>;
             })}
             {[...Array(emptyStarNumber)].map((item, index) => {
               return <i className="far fa-star" key={index}></i>;

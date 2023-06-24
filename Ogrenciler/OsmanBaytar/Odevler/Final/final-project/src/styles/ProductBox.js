@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductMainBox = styled.div`
   max-width: 280px;
-  display: inline-flex;
+  display: inline-block;
   padding: 8px 8px 0px 8px;
   flex-direction: column;
   align-items: flex-start;
@@ -11,12 +11,39 @@ export const ProductMainBox = styled.div`
   background: #fdfdfd;
   box-shadow: 0px 4px 28px -2px rgba(0, 0, 0, 0.08);
   margin: 10px 20px;
+  @media (max-width: 428px) {
+    max-width: 160px;
+    margin: 10px 15px;
+  }
+  @media (max-width: 404px) {
+    margin: 10px 12px;
+  }
+  @media (max-width: 392px) {
+    margin: 10px 10px;
+  }
+  @media (max-width: 383px) {
+    margin: 10px 8px;
+  }
+  @media (max-width: 376px) {
+    margin: 10px 6px;
+  }
+  @media (max-width: 367px) {
+    max-width: 100%;
+  }
 `;
 
 export const ProductImage = styled.img`
   width: 264px;
   height: 264px;
   flex-shrink: 0;
+  @media (max-width: 428px) {
+    max-width: 130px;
+    max-height: 130px;
+  }
+  @media (max-width: 367px) {
+    max-width: 100%;
+    max-height: 100%;
+  }
 `;
 
 export const ProductInfo = styled.div`
@@ -25,6 +52,7 @@ export const ProductInfo = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+  width: 100%;
 `;
 
 export const ProductTitle = styled.div`
@@ -63,4 +91,7 @@ export const ProductCount = styled.div`
 export const ProductRate = styled.div`
   display: inline-block;
   float: right;
+  @media (max-width: 420px) {
+    float: none;
+  }
 `;
