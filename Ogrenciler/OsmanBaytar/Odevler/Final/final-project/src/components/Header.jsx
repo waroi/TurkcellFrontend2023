@@ -30,6 +30,9 @@ const Header = () => {
   const goToHome = () => {
     navigate("/");
   };
+  const goToProducts = () => {
+    navigate("/Products");
+  };
 
   return (
     <div className="container py-3">
@@ -46,7 +49,7 @@ const Header = () => {
                 <HeaderItem onClick={() => goToHome()}>Home</HeaderItem>
               </div>
               <div className="col-lg-2">
-                <HeaderItem>Category</HeaderItem>
+                <HeaderItem onClick={() => goToProducts()}>Category</HeaderItem>
               </div>
               <div className="col-lg-2">
                 <HeaderItem>About</HeaderItem>
@@ -107,7 +110,7 @@ const Header = () => {
         {isMobile && !isMobileInput && (
           <div className="row mt-3">
             <HeaderItem onClick={() => goToHome()}>Home</HeaderItem>
-            <HeaderItem>Category</HeaderItem>
+            <HeaderItem onClick={() => goToProducts()}>Category</HeaderItem>
             <HeaderItem>About</HeaderItem>
             <HeaderItem>Contact</HeaderItem>
             <div className="mt-3">

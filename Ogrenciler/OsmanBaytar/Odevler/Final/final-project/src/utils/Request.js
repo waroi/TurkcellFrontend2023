@@ -52,3 +52,4 @@ class Request {
 }
 
 export const userRequest = new Request("http://localhost:3004/users");
+export const productRequest = new Request("http://localhost:3004/products");
