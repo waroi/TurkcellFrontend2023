@@ -13,9 +13,10 @@ const Navbar = () => {
 
     const onSubmit = (values) => {
         if (currentUser) {
-            dispatch(setSearchValue(values.search))
             // console.log(values.search);
             if (location.pathname != "/products") navigate("/products")
+            dispatch(setSearchValue(values.search))
+
         }
         else console.log("You need to login to use search")
     };

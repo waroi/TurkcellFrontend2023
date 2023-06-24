@@ -4,6 +4,16 @@ import axios from "axios"
 
 const CartItem = ({ cartItem, setCart }) => {
     const user = useSelector((state) => state.user.user)
+
+    const deleteCartItem = async () => {
+
+        const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
+        const cart = cartResponse.data.cart
+        const newCart = cart.filter(inCart => inCart.productId != cartItem.productId)
+        setCart(newCart)
+        axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
+    }
+
     const incrementCart = async () => {
         console.log("clicked")
         const productResponse = await axios.get(`http://localhost:3000/products/${cartItem.productId}`)
@@ -25,14 +35,12 @@ const CartItem = ({ cartItem, setCart }) => {
                 return cartItem
             })
             setCart(newCart)
-            axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
+            await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
         }
         else console.log("You have hit the stock limit")
     }
     const decrementCart = async () => {
         console.log("clicked")
-        const productResponse = await axios.get(`http://localhost:3000/products/${cartItem.productId}`)
-        const product = productResponse.data;
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
         const cart = cartResponse.data.cart
 
@@ -50,20 +58,26 @@ const CartItem = ({ cartItem, setCart }) => {
                 return cartItem
             })
             setCart(newCart)
-            axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
+            await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
         }
         else {
             const newCart = cart.filter(inCart => inCart.productId != cartItem.productId)
             setCart(newCart)
-            axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
+            await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
 
         }
     }
     return (
-        <div className="d-flex justify-content-evenly">
-            <button onClick={decrementCart} className="decrement">-</button>
-            <p>{cartItem.title} - Demand:{cartItem.demand}</p>
-            <button onClick={incrementCart} className="increment">+</button>
+        <div className="d-flex justify-content-evenly align-items-center">
+            <div className="info">
+                <p>{cartItem.title} - {cartItem.price}</p>
+            </div>
+            <div className="amount d-flex justify-content-evenly align-items-center">
+                <button onClick={decrementCart} className="decrement">-</button>
+                <p>Demand:{cartItem.demand}</p>
+                <button onClick={incrementCart} className="increment">+</button>
+            </div>
+            <button onClick={deleteCartItem} >Delete Item</button>
         </div>
     )
 }
