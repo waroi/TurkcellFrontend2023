@@ -11,6 +11,7 @@ function Button({
   color,
   gap,
   display,
+  width,
 }) {
   return (
     <ButtonStyle
@@ -19,6 +20,7 @@ function Button({
       display={display}
       background={background}
       border={border}
+      width={width}
     >
       {path == "/" && title}
       {path != "/" && <Link to={path}>{title}</Link>}
@@ -36,6 +38,7 @@ Button.propTypes = {
   color: PropTypes.string,
   gap: PropTypes.string,
   display: PropTypes.string,
+  width: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -46,6 +49,7 @@ Button.defaultProps = {
   color: "white",
   gap: "10px",
   display: "flex",
+  width: "161px",
 };
 
 export default Button;

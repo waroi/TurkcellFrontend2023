@@ -6,7 +6,7 @@ export const NavbarDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  z-index: 1;
+  z-index: 4;
 `;
 
 export const NavList = styled.div`

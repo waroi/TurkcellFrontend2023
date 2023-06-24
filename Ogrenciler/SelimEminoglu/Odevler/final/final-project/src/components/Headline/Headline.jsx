@@ -7,6 +7,14 @@ import {
   HeadlineH3,
   HeadlineP,
   FlexDiv,
+  Rectangle7,
+  Rectangle6,
+  Rectangle5,
+  Rectangle3,
+  Rectangle9,
+  Rectangle8,
+  Rectangle2,
+  Rectangle1,
 } from "./styleHeadline";
 import { Container } from "../../assets/css/style";
 import Button from "../Button/Button";
@@ -33,11 +41,20 @@ function Headline() {
                 background="white"
                 color="#003459"
                 border="1.5px solid #003459"
+                width="175px"
               />
               <Button title="Şimdi Keşfet" />
             </FlexDiv>
           </FirstPart>
           <SecondPart></SecondPart>
+          <Rectangle6></Rectangle6>
+          <Rectangle7></Rectangle7>
+          <Rectangle5></Rectangle5>
+          <Rectangle3></Rectangle3>
+          <Rectangle9></Rectangle9>
+          <Rectangle8></Rectangle8>
+          <Rectangle1></Rectangle1>
+          <Rectangle2></Rectangle2>
         </PartDiv>
       </Container>
     </HeadlineDiv>

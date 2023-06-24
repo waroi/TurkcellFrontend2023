@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ButtonStyle = styled.button`
   display: ${(props) => props.display};
   height: 44px;
-  width: 161px;
+  width: ${(props) => props.width};
   padding: 14px 28px 10px 28px;
   justify-content: center;
   align-items: center;
