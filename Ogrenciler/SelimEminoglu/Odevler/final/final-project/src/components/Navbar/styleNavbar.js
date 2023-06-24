@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const NavbarDiv = styled.div`
   display: flex;
-  width: 1440px;
   padding: 28px 130px;
   justify-content: space-between;
   align-items: center;
