@@ -2,12 +2,14 @@ import React from "react";
 import { BiSearch, BiUserCircle, BiCartAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
-
+import { setUser } from "../../redux/slices/userSlice";
 const Header = () => {
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
+  // console.log(setUser);
   // console.log(user);
 
   const UserDiv = styled.div`
@@ -102,7 +104,10 @@ const Header = () => {
                         <Link
                           className="dropdown-item"
                           href="#"
-                          onClick={() => {}}
+                          onClick={() => {
+                            dispatch(setUser(null));
+                            // console.log(user);
+                          }}
                         >
                           Logout
                         </Link>
@@ -119,6 +124,11 @@ const Header = () => {
                     Sign Up
                   </Link>
                 </div>
+              )}
+              {user && user[0].role === "admin" && (
+                <Link className="btn" type="button" to={"/admin"}>
+                  Admin Dashboard
+                </Link>
               )}
             </div>
           </div>
