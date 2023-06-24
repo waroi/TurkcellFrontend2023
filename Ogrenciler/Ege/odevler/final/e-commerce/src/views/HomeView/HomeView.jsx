@@ -16,7 +16,10 @@ const HomeView = () => {
                 currentUser ? (
                     <div>
                         <h2>You are logged in {currentUser.name}</h2>
-                        <button onClick={() => dispatch(setUser(null))}>Logout</button>
+                        <button onClick={() => {
+                            dispatch(setUser(null))
+                            localStorage.removeItem("userData")
+                        }}>Logout</button>
                     </div>
                 ) : (
                     <div>

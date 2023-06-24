@@ -33,7 +33,7 @@ const LoginView = () => {
 
         if (user) {
             dispatch(setUser(user))
-            // localStorage.setItem("isLoggedIn", "true")
+            localStorage.setItem("userData", JSON.stringify(user))
             console.log(currentUser)
             console.log('Login successful');
             navigate("/")

@@ -56,7 +56,7 @@ const CartView = () => {
         <div>
             {
                 cart.length > 0
-                    ? cart.map((el, i) => (<CartItem key={i} cartItem={el} />))
+                    ? cart.map((el, i) => (<CartItem key={i} cartItem={el} setCart={setCart} />))
                     : <h2>Cart is empty</h2>
             }
             <CartBuy disabled={cart.length == 0} handleBuy={handleBuy} />
