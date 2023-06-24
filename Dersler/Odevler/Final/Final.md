@@ -23,16 +23,20 @@
 
 ## Ürün Yönetimi
 
-- Ürünler, sisteme kayıt olabilmelidir.
-- Ürünler, sisteme kayıt olurken ürün resmi ekleyebilmelidir.
-- Ürünler, sisteme kayıt olurken ürün resmi eklemek zorunda değildir.
-- Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi ekleyebilmelidir.
-- Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklemeyebilmelidir.
-- Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklerken resmin URL'ini verebilmelidir.
-- Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklerken resmin URL'ini vermek zorunda değildir.
-- Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklerken resmin URL'ini vermek isterse resmin URL'ini verebilmelidir.
-- Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklerken resmin URL'ini vermek isterse resmin URL'ini veremeyebilmelidir.
-- Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklerken resmin URL'ini vermek isterse resmin URL'ini verirken resmin URL'ini doğru formatta vermek zorundadır.
+<!--
+* Ürünler, sisteme kayıt olabilmelidir.
+* Ürünler, sisteme kayıt olurken ürün resmi ekleyebilmelidir.
+* Ürünler, sisteme kayıt olurken ürün resmi eklemek zorunda değildir.
+* Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi ekleyebilmelidir.
+* Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklemeyebilmelidir.
+* Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklerken resmin URL'ini verebilmelidir.
+* Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklerken resmin URL'ini vermek zorunda değildir.
+* Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklerken resmin URL'ini vermek isterse resmin URL'ini verebilmelidir.
+* Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklerken resmin URL'ini vermek isterse resmin URL'ini veremeyebilmelidir.
+* Ürünler, sisteme kayıt olurken ürün resmi eklemek isterse ürün resmi eklerken resmin URL'ini vermek isterse resmin URL'ini verirken resmin URL'ini doğru formatta vermek zorundadır.
+-->
+
+- Admin ürünlerin içeriğini düzenleyebilecek (Ekleme-Silme yok).
 
 ## Sepet Yönetimi
 
@@ -54,13 +58,17 @@
 - Proje Bootstrap ve (Scss veya styled.component) kullanılarak geliştirilmelidir.
 - Kullanıcıdan veri alınan bütün alanlar için formik kullanılmalıdır.
 - Ürünler için fakeapi kullanılabilir. Örneğin: <https://fakestoreapi.com/>
- Dökümanları gayet açıklayıcıdır.
- <https://www.petfinder.com/developers/>
- <https://publicapis.dev/category/animals>
- <https://rapidapi.com/search/pets>
+  Dökümanları gayet açıklayıcıdır.
+  <https://www.petfinder.com/developers/>
+  <https://publicapis.dev/category/animals>
+  <https://rapidapi.com/search/pets>
 - Veri tabanı olarak Firebase kullanılabilir. Kuulanıcı işlemleri için de firebase kullanılabilir. Firebase kullanımı için <https://firebase.google.com/docs/web/setup> adresine bakabilirsiniz. Yada json-server kullanabilirsiniz. Karar size ait. Kullanılan yapı için readme dosyası oluşturulmalıdır (benim yapıyı anlamam ve çalıştırmam için). Bu readme dosyalarına bakılarak projeler ayağa kaldırılacaktır. Hatta package.json dosyasında scipt düzenleyebilirsiniz tek seferde çalıştırmam için bu çok daha iyi olur.
 - Ürünleri get ile json-server'dan alıp listeleyecek (ürün adı, fiyatı, görsel, kategori ve stok adedi)
-- ürün silme butonu olacak, json-server'dan delete ile silinecek.
+<!--
+
+* ürün silme butonu olacak, json-server'dan delete ile silinecek.
+  -->
+
 - ürün güncelleme butonu olacak, json-server'dan put ile güncellenecek.
 - sepet için json-server'da yeni bir data oluşturulacak.
 - sepete ekle butonu olacak, sepete eklenecek (json-server'daki).
