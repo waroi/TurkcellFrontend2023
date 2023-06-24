@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react"
 import axios from "axios"
+import CartItem from "../../components/CartItem/CartItem";
 const CartView = () => {
     const user = useSelector((state) => state.user.user)
     const [cart, setCart] = useState([])
@@ -14,7 +15,7 @@ const CartView = () => {
         <div>
             {
                 cart.length > 0
-                    ? cart?.map((el, i) => (<p key={i} >{el.title}</p>))
+                    ? cart?.map((el, i) => (<CartItem key={i} cartItem={el} />))
                     : <h2>Cart is empty</h2>
             }
         </div>

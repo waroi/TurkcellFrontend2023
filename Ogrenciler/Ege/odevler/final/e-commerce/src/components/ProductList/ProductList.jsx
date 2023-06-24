@@ -4,22 +4,30 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductCard from "./ProductCard/ProductCard";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setSearchValue } from "../../redux/slices/searchSlice";
 
 const ProductList = () => {
 
     const [products, setProducts] = useState([]);
     const [checkedCategories, setCheckedCategories] = useState([]);
     const [sortType, setSortType] = useState("priceAsc")
-
+    const searchValue = useSelector(state => state.search)
+    const tempSearch = searchValue;
+    const dispatch = useDispatch()
     useEffect(() => {
         axios.get('http://localhost:3000/products')
-            .then(response => setProducts(response.data.map(el => ({ ...el, isFiltered: true, isSearched: true })).sort(comparePrices).reverse()))
+            .then(response => {
+                setProducts(response.data.map(el => ({ ...el, isFiltered: true, isSearched: true })).sort(comparePrices).reverse())
+            })
 
             .catch(err => console.log('Error fetching product data:', err))
+        console.log("I am mounted and searchValue is:", searchValue)
 
     }, []);
 
     const handleCategories = () => {
+        console.log("I am handleCategories")
         if (checkedCategories.length > 0) {
             const edited = [...products]
             edited.map(product => checkedCategories.includes(product.category.toLowerCase()) ? product.isFiltered = true : product.isFiltered = false)
@@ -33,7 +41,7 @@ const ProductList = () => {
     }
 
     const handleSort = () => {
-
+        console.log("I am handleSort")
         if (sortType == "priceDesc") setProducts([...products].sort(comparePrices))
         else if (sortType == "nameAz") setProducts([...products].sort(compareTitles).reverse())
         else if (sortType == "nameZa") setProducts([...products].sort(compareTitles))
@@ -42,6 +50,12 @@ const ProductList = () => {
         else setProducts([...products].sort(comparePrices).reverse())
     }
 
+    const handleSearch = () => {
+        console.log("I am handle search and my value is:", searchValue)
+        const edited = [...products]
+        edited.map(product => product.title.toLowerCase().includes(searchValue.toLowerCase()) ? product.isSearched = true : product.isSearched = false)
+        setProducts(edited)
+    }
 
     const comparePrices = (a, b) => {
         if (a.price > b.price) return -1;
@@ -64,6 +78,8 @@ const ProductList = () => {
 
     useEffect(() => { handleCategories() }, [checkedCategories])
     useEffect(() => { handleSort() }, [sortType])
+    useEffect(() => { handleSearch() }, [searchValue])
+    useEffect(() => { handleSearch() }, [])
 
     return (
         <div className="container">
@@ -81,7 +97,7 @@ const ProductList = () => {
                     <div className="container">
                         <div className="row">
                             {
-                                products?.map(product => product.isFiltered && (
+                                products?.map(product => (product.isFiltered && product.isSearched) && (
                                     <Link key={product.id} className="toPageLink col-lg-4" to={`/products/${product.id}`}>
                                         <ProductCard product={product}>
 
