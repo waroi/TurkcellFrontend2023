@@ -53,6 +53,7 @@ function RegisterView() {
       if (response.status === 201) {
         toast.success("Registration successful. You are logged in.");
         actions.resetForm();
+        navigate("/");
       } else {
         toast.error("An error occurred. Please try again.");
       }
@@ -62,7 +63,6 @@ function RegisterView() {
     }
 
     actions.setSubmitting(false);
-    navigate("/");
   };
 
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
