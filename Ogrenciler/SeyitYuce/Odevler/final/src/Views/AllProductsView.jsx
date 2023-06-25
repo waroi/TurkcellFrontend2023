@@ -1,6 +1,7 @@
 import React from "react";
 import Products from "../Components/Products/Products";
 import { useSelector } from "react-redux";
+import Header from "../Components/Header/Header";
 
 const CategoryView = () => {
   const user = useSelector((state) => state.user);
@@ -11,7 +12,7 @@ const CategoryView = () => {
       <div>
         {/* <div key={user[0]?.id}> */}
         <div>
-          header sort & filters
+          <Header />
           <Products slicedNumber={20} />
         </div>
       </div>
