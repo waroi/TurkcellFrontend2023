@@ -31,6 +31,9 @@ const Header = () => {
   const goToHome = () => {
     navigate("/");
   };
+  const goToProducts = () => {
+    navigate("/products");
+  };
 
   return (
     <div className="container py-3">
@@ -46,7 +49,7 @@ const Header = () => {
               <Items onClick={() => goToHome()}>Home</Items>
             </div>
             <div className="col-lg-2">
-              <Items>Category</Items>
+              <Items onClick={() => goToProducts()}>Products</Items>
             </div>
             <div className="col-lg-2">
               <Items>About</Items>
