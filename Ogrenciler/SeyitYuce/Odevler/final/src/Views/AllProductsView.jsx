@@ -7,16 +7,18 @@ const CategoryView = () => {
 
   return (
     <div>
-      {user ? (
-        <>
-          <div key={user[0]?.id}>
-            header sort & filters
-            <Products slicedNumber={20} />
-          </div>
-        </>
-      ) : (
+      {/* {user ? ( */}
+      <div>
+        {/* <div key={user[0]?.id}> */}
+        <div>
+          header sort & filters
+          <Products slicedNumber={20} />
+        </div>
+      </div>
+      {/* ) : (
         <div> Please login first</div>
-      )}
+      )
+      } */}
     </div>
   );
 };

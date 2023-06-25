@@ -13,7 +13,7 @@ const Products = ({ slicedNumber }) => {
   // const dispatch = useDispatch();
 
   // console.log(setProducts);
-  console.log(user);
+  // console.log(user);
 
   const getProducts = () => {
     fetch("http://localhost:4000/products")
@@ -34,11 +34,12 @@ const Products = ({ slicedNumber }) => {
     <div className="row">
       {products.slice(0, slicedNumber).map((product) => {
         return (
-          <>
+          <div key={product.id}>
             <Link
-              key={product.id}
               className="col-12 col-sm-6 col-md-4 col-lg-3"
-              to={`/product/${product.id}`}
+              to={`/products/${product.category.replace(/\s+/g, "-")}/${
+                product.id
+              }`}
             >
               <img src={product.image} alt="" width="100" height="100" />
               <div>{product.title}</div>
@@ -59,7 +60,7 @@ const Products = ({ slicedNumber }) => {
             )}
             {/* <button className="edit-btn">Edit Product</button> */}
             {/* <button>Add to cart</button> */}
-          </>
+          </div>
         );
       })}
     </div>

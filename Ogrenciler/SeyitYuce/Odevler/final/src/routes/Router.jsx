@@ -29,7 +29,7 @@ const Router = () => {
       element: <SignUp />,
     },
     {
-      path: "product/:id",
+      path: "products/:category/:id",
       element: <ProductDetails />,
     },
   ]);
