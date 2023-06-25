@@ -6,7 +6,7 @@ export const StaticOrderComponentContainer = styled.div`
   background-size: cover;
   background-position: center;
   border-radius: 20px;
-  margin: 10px;
+  margin: 100px 10px;
 `;
 
 export const StaticOrderComponentHeader = styled.div`

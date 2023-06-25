@@ -11,7 +11,7 @@ export const ProductMainBox = styled.div`
   background: #fdfdfd;
   box-shadow: 0px 4px 28px -2px rgba(0, 0, 0, 0.08);
   margin: 10px 20px;
-  @media (max-width: 428px) {
+  @media (max-width: 576px) {
     max-width: 160px;
     margin: 10px 15px;
   }
@@ -36,7 +36,7 @@ export const ProductImage = styled.img`
   width: 264px;
   height: 264px;
   flex-shrink: 0;
-  @media (max-width: 428px) {
+  @media (max-width: 576px) {
     max-width: 130px;
     max-height: 130px;
   }

@@ -1,4 +1,4 @@
-import "../styles/StaticThreeBoxes.css";
+import "../../styles/StaticThreeBoxes.css";
 
 const StaticThreeBoxes = () => {
   return (

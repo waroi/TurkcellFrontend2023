@@ -1,8 +1,8 @@
 import TotalProducts from "../components/category/TotalProducts";
 import ProductFilter from "../components/category/ProductFilter";
 import ProductThreeItems from "../components/category/ProductThreeItems";
-import StaticOrderComponent from "../components/StaticOrderComponent";
-import { useEffect, useState } from "react";
+import StaticOrderComponent from "../components/home/StaticOrderComponent";
+import { useState } from "react";
 
 const ProductsView = () => {
   const [mensClothing, setMensClothing] = useState();

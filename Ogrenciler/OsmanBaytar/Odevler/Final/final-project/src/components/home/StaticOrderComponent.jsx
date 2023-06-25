@@ -6,8 +6,8 @@ import {
   StaticOrderComponentP,
   StaticOrderComponentButtonDark,
   StaticOrderComponentButtonLight,
-} from "../styles/StaticOrderComponent";
-import "../styles/StaticOrderComponent.css";
+} from "../../styles/StaticOrderComponent";
+import "../../styles/StaticOrderComponent.css";
 
 const StaticOrderComponent = ({ source, order }) => {
   return (
