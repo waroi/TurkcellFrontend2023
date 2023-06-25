@@ -1,4 +1,4 @@
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import { useField } from "formik";
 
 function CustomInput({ label, ...props }) {
@@ -6,10 +6,11 @@ function CustomInput({ label, ...props }) {
 
   return (
     <>
-      <label>{label}</label>
+      <label htmlFor={props.name}>{label}</label>
       <input
         {...field}
         {...props}
+        value={field.value || ""}
         className={meta.error ? "input-error" : ""}
       />
 
@@ -19,7 +20,8 @@ function CustomInput({ label, ...props }) {
 }
 
 CustomInput.propTypes = {
-  label: Proptypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default CustomInput;
