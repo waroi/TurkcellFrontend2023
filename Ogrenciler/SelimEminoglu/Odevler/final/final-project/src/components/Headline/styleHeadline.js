@@ -12,6 +12,7 @@ export const HeadlineDiv = styled.div`
     #ffe7ba 100%
   );
   position: relative;
+  overflow-y: hidden;
 `;
 
 export const PartDiv = styled.div`

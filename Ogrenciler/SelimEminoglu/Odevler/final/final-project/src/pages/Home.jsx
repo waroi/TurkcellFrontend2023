@@ -7,7 +7,10 @@ function Home() {
     <div>
       <Navbar />
       <Headline />
-      <ProductListView />
+      <ProductListView
+        h2Text="Yeni Gelişmeler"
+        h3Text="Güncel Gelişmeleri Takip Edin"
+      />
     </div>
   );
 }

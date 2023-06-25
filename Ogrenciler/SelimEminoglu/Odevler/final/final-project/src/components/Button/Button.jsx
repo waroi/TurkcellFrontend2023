@@ -12,10 +12,12 @@ function Button({
   gap,
   display,
   width,
+  padding,
 }) {
   return (
     <ButtonStyle
       color={color}
+      padding={padding}
       gap={gap}
       display={display}
       background={background}
@@ -39,6 +41,7 @@ Button.propTypes = {
   gap: PropTypes.string,
   display: PropTypes.string,
   width: PropTypes.string,
+  padding: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -50,6 +53,7 @@ Button.defaultProps = {
   gap: "10px",
   display: "flex",
   width: "161px",
+  padding: "14px 28px 10px 28px",
 };
 
 export default Button;

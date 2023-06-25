@@ -4,7 +4,7 @@ export const ButtonStyle = styled.button`
   display: ${(props) => props.display};
   height: 44px;
   width: ${(props) => props.width};
-  padding: 14px 28px 10px 28px;
+  padding: ${(props) => props.padding};
   justify-content: center;
   align-items: center;
   gap: ${(props) => props.gap};
