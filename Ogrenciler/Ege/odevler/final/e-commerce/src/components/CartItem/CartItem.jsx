@@ -75,14 +75,14 @@ const CartItem = ({ cartItem, setCart }) => {
         const product = productResponse.data;
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
         const cart = cartResponse.data.cart
-
+        values.demand++
         if (cartItem.demand < product.rating.count) {
             const newProduct = {
                 productId: cartItem.productId,
                 title: cartItem.title,
                 price: cartItem.price,
                 image: cartItem.image,
-                demand: values.demand + 1
+                demand: values.demand
             }
 
             const newCart = cart.map(cartItem => {
@@ -96,6 +96,7 @@ const CartItem = ({ cartItem, setCart }) => {
     }
     const decrementCart = async () => {
         console.log("clicked")
+        values.demand--
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
         const cart = cartResponse.data.cart
 
@@ -105,7 +106,7 @@ const CartItem = ({ cartItem, setCart }) => {
                 title: cartItem.title,
                 price: cartItem.price,
                 image: cartItem.image,
-                demand: values.demand - 1
+                demand: values.demand
             }
 
             const newCart = cart.map(cartItem => {

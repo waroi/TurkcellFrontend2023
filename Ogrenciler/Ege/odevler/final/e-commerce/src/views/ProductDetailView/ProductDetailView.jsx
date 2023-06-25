@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import axios from "axios"
 import { useSelector } from "react-redux"
+import UpdateProduct from '../../components/UpdateProduct/UpdateProduct';
 
 const ProductDetailView = () => {
 
@@ -56,9 +57,10 @@ const ProductDetailView = () => {
 
     return (
         <div>
-            <h1>{user.name || "aassaass"}</h1>
+            {(user.isAdmin && product) && <UpdateProduct product={product} setProduct={setProduct} />}
+            <h1>{user.name}</h1>
             <h2>{product.title}</h2>
-            <h2>Stock: {product.rating?.count} </h2>
+            <h2>Stock: {product.rating?.count} {product.rating?.rate} </h2>
             <button className={`${product.rating?.count == 0 && "disabled"} btn btn-success`} onClick={handleCartClick} >Add to Cart</button>
         </div>
     )

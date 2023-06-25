@@ -39,3 +39,15 @@ export const loginSchema = yup.object().shape({
 export const searchSchema = yup.object().shape({
   search: yup.string().required("Search term is required"),
 });
+
+export const validationSchema = yup.object().shape({
+  title: yup.string().required("Title is required"),
+  price: yup.number().required("Price is required"),
+  description: yup.string().required("Description is required"),
+  category: yup.string().required("Category is required"),
+  image: yup.string().required("Image URL is required"),
+  rating: yup.object().shape({
+    rate: yup.number().required("Rating rate is required"),
+    count: yup.number().required("Rating count is required"),
+  }),
+});
