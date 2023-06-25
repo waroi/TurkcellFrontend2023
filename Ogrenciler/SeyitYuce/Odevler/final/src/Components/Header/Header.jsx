@@ -65,7 +65,7 @@ const Header = () => {
       <div className="mx-auto">
         <HeaderImgDiv>
           <HeaderImg
-            src="https://img.freepik.com/free-vector/abstract-geometric-pattern-background_23-2148530039.jpg?w=2000"
+            src="https://img.freepik.com/free-vector/blank-screen-computer-icon-isolated-white-background_1308-49315.jpg?w=1060&t=st=1687731855~exp=1687732455~hmac=cada28ee36a966d2f0cfd9b6243d39cd1119b4fda6519f6b924762aa476d481c"
             alt=""
           />
         </HeaderImgDiv>

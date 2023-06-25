@@ -4,6 +4,7 @@ import { setProducts } from "../../redux/slices/productSlice";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Link } from "react-router-dom";
+import { capitalizeWords } from "../../helpers/capitalize";
 
 const Products = ({ slicedNumber }) => {
   const dispatch = useDispatch();
@@ -11,8 +12,24 @@ const Products = ({ slicedNumber }) => {
   const user = useSelector((state) => state.user);
   const [sortOption, setSortOption] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedStar, setSelectedStar] = useState("");
 
   const sortedProducts = [...products];
+
+  const getProducts = () => {
+    fetch("http://localhost:4000/products")
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(setProducts(data));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   switch (sortOption) {
     case "default":
@@ -38,46 +55,29 @@ const Products = ({ slicedNumber }) => {
       break;
   }
 
-  const filteredProducts = products.filter((product) => {
-    if (selectedCategory === "") {
-      // No category selected, show all products
-      return true;
-    } else {
-      // Filter by selected category
-      return product.category === selectedCategory;
-    }
-  });
-
-  filteredProducts.slice(0, slicedNumber).map((product) => {
-    // Rendering logic for filtered products...
-  });
-
-  const getProducts = () => {
-    fetch("http://localhost:4000/products")
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(setProducts(data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
   const categories = new Set(products.map((product) => product.category));
-  // console.log(categories);
 
-  const sortedAndFilteredProducts = sortedProducts.filter((product) => {
-    if (selectedCategory === "") {
-      // No category selected, show all products
-      return true;
-    } else {
-      // Filter by selected category
-      return product.category === selectedCategory;
+  // const sortedAndFilteredProducts = sortedProducts.filter((product) => {
+  //   if (selectedCategory === "") {
+  //     return true;
+  //   } else {
+  //     return product.category === selectedCategory;
+  //   }
+  // });
+
+  const filteredProducts = sortedProducts.filter((product) => {
+    if (selectedCategory !== "" && product.category !== selectedCategory) {
+      return false;
     }
+
+    if (selectedStar !== "") {
+      const selectedStarValue = Number(selectedStar);
+      if (product.rating.rate < selectedStarValue) {
+        return false;
+      }
+    }
+
+    return true;
   });
 
   return (
@@ -106,16 +106,28 @@ const Products = ({ slicedNumber }) => {
           <option value="">All Categories</option>
           {Array.from(categories).map((category) => (
             <option key={category} value={category}>
-              {category}
+              {capitalizeWords(category)}
             </option>
           ))}
         </select>
+
+        <select
+          name="star"
+          id=""
+          onChange={(e) => setSelectedStar(e.target.value)}
+        >
+          <option value="">All Stars</option>
+          <option value="1">1 Star and above</option>
+          <option value="2">2 Stars and above</option>
+          <option value="3">3 Stars and above</option>
+          <option value="4">4 Stars and above</option>
+          <option value="5">5 Stars</option>
+        </select>
       </div>
-      {sortedAndFilteredProducts.slice(0, slicedNumber).map((product) => {
+      {filteredProducts.slice(0, slicedNumber).map((product) => {
         return (
-          <div key={product.id}>
+          <div key={product.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
             <Link
-              className="col-12 col-sm-6 col-md-4 col-lg-3"
               to={`/products/${product.category.replace(/\s+/g, "-")}/${
                 product.id
               }`}
