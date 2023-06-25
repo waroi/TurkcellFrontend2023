@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import Proptypes from "prop-types";
 import { useField } from "formik";
 
 function CustomInput({ label, ...props }) {
@@ -17,5 +17,9 @@ function CustomInput({ label, ...props }) {
     </>
   );
 }
+
+CustomInput.propTypes = {
+  label: Proptypes.string.isRequired,
+};
 
 export default CustomInput;
