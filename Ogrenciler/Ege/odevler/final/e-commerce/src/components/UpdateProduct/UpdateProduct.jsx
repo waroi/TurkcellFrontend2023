@@ -2,6 +2,9 @@ import PropTypes from "prop-types"
 import { useFormik } from "formik"
 import axios from "axios"
 import { validationSchema } from "../../schemas"
+import Form from "../../styledComponents/StyledForm"
+import ButtonPrimary from "../../styledComponents/ButtonPrimary"
+import warningIcon from "../../assets/Circle_Warning.svg"
 const UpdateProduct = ({ product, setProduct }) => {
 
     const initialValues = {
@@ -40,7 +43,7 @@ const UpdateProduct = ({ product, setProduct }) => {
                             <h1 className="modal-title fs-5" id="updateModalLabel">Modal title</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form onSubmit={handleSubmit}>
+                        <Form onSubmit={handleSubmit}>
                             <div className="modal-body">
                                 <div className="previousInfo">
                                     <p>Id: {product.id}</p>
@@ -58,10 +61,9 @@ const UpdateProduct = ({ product, setProduct }) => {
                                     value={values.title}
                                     onChange={handleChange}
                                     placeholder="Title"
-                                    className={errors.title ? "error" : ""}
                                 />
                                 {errors.title && (
-                                    <div className="error-message">{errors.title}</div>
+                                    <div className="error"> <img src={warningIcon} alt="warning" /> {errors.title}</div>
                                 )}
 
                                 <input
@@ -70,10 +72,9 @@ const UpdateProduct = ({ product, setProduct }) => {
                                     value={values.price}
                                     onChange={handleChange}
                                     placeholder="Price"
-                                    className={errors.price ? "error" : ""}
                                 />
                                 {errors.price && (
-                                    <div className="error-message">{errors.price}</div>
+                                    <div className="error"> <img src={warningIcon} alt="warning" /> {errors.price}</div>
                                 )}
 
                                 <textarea
@@ -84,7 +85,7 @@ const UpdateProduct = ({ product, setProduct }) => {
                                     className={errors.description ? "error" : ""}
                                 ></textarea>
                                 {errors.description && (
-                                    <div className="error-message">{errors.description}</div>
+                                    <div className="error"> <img src={warningIcon} alt="warning" /> {errors.description}</div>
                                 )}
 
                                 <input
@@ -93,10 +94,9 @@ const UpdateProduct = ({ product, setProduct }) => {
                                     value={values.category}
                                     onChange={handleChange}
                                     placeholder="Category"
-                                    className={errors.category ? "error" : ""}
                                 />
                                 {errors.category && (
-                                    <div className="error-message">{errors.category}</div>
+                                    <div className="error"> <img src={warningIcon} alt="warning" /> {errors.category}</div>
                                 )}
 
                                 <input
@@ -105,10 +105,9 @@ const UpdateProduct = ({ product, setProduct }) => {
                                     value={values.image}
                                     onChange={handleChange}
                                     placeholder="Image URL"
-                                    className={errors.image ? "error" : ""}
                                 />
                                 {errors.image && (
-                                    <div className="error-message">{errors.image}</div>
+                                    <div className="error"> <img src={warningIcon} alt="warning" /> {errors.image}</div>
                                 )}
 
                                 <input
@@ -117,10 +116,9 @@ const UpdateProduct = ({ product, setProduct }) => {
                                     value={values.rating.rate}
                                     onChange={handleChange}
                                     placeholder="Rating"
-                                    className={errors["rating.rate"] ? "error" : ""}
                                 />
                                 {errors["rating.rate"] && (
-                                    <div className="error-message">{errors["rating.rate"]}</div>
+                                    <div className="error"> <img src={warningIcon} alt="warning" /> {errors["rating.rate"]}</div>
                                 )}
 
                                 <input
@@ -129,18 +127,17 @@ const UpdateProduct = ({ product, setProduct }) => {
                                     value={values.rating.count}
                                     onChange={handleChange}
                                     placeholder="Rating Count"
-                                    className={errors["rating.count"] ? "error" : ""}
                                 />
                                 {errors["rating.count"] && (
-                                    <div className="error-message">{errors["rating.count"]}</div>
+                                    <div className="error"> <img src={warningIcon} alt="warning" /> {errors["rating.count"]}</div>
                                 )}
 
                             </div>
                             <div className="modal-footer">
 
-                                <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                                <ButtonPrimary type="submit" className="btn btn-primary" data-bs-dismiss="modal">Save changes</ButtonPrimary>
                             </div>
-                        </form>
+                        </Form>
                     </div>
                 </div>
             </div>

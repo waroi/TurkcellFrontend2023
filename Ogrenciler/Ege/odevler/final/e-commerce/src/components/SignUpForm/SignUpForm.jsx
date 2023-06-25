@@ -2,7 +2,9 @@ import { useFormik } from "formik"
 import { signUpSchema } from "../../schemas";
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-
+import Form from "../../styledComponents/StyledForm";
+import warningIcon from "../../assets/Circle_Warning.svg"
+import ButtonPrimary from "../../styledComponents/ButtonPrimary";
 const SignUpForm = () => {
     const navigate = useNavigate()
 
@@ -65,7 +67,8 @@ const SignUpForm = () => {
 
     return (
         <div className="container">
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
+
                 <div>
                     <label htmlFor="name">Name:</label>
                     <input
@@ -75,7 +78,7 @@ const SignUpForm = () => {
                         onChange={handleChange}
                         value={values.name}
                     />
-                    {errors.name && <div className="error">{errors.name}</div>}
+                    {errors.name && <div className="error"> <img src={warningIcon}></img> {errors.name}</div>}
                 </div>
 
                 <div>
@@ -87,7 +90,7 @@ const SignUpForm = () => {
                         onChange={handleChange}
                         value={values.lastname}
                     />
-                    {errors.lastname && <div className="error">{errors.lastname}</div>}
+                    {errors.lastname && <div className="error"> <img src={warningIcon}></img> {errors.lastname}</div>}
                 </div>
 
                 <div>
@@ -99,7 +102,7 @@ const SignUpForm = () => {
                         onChange={handleChange}
                         value={values.email}
                     />
-                    {errors.email && <div className="error">{errors.email}</div>}
+                    {errors.email && <div className="error"> <img src={warningIcon}></img> {errors.email}</div>}
                 </div>
 
                 <div>
@@ -111,7 +114,7 @@ const SignUpForm = () => {
                         onChange={handleChange}
                         value={values.profileImgUrl}
                     />
-                    {errors.profileImgUrl && <div className="error">{errors.profileImgUrl}</div>}
+                    {errors.profileImgUrl && <div className="error"> <img src={warningIcon}></img> {errors.profileImgUrl}</div>}
                 </div>
 
 
@@ -124,7 +127,7 @@ const SignUpForm = () => {
                         onChange={handleChange}
                         value={values.age}
                     />
-                    {errors.age && <div className="error">{errors.age}</div>}
+                    {errors.age && <div className="error"> <img src={warningIcon}></img> {errors.age}</div>}
                 </div>
 
                 <div>
@@ -136,7 +139,7 @@ const SignUpForm = () => {
                         onChange={handleChange}
                         value={values.password}
                     />
-                    {errors.password && <div className="error">{errors.password}</div>}
+                    {errors.password && <div className="error"> <img src={warningIcon}></img> {errors.password}</div>}
                 </div>
 
                 <div>
@@ -149,13 +152,13 @@ const SignUpForm = () => {
                         value={values.repeatPassword}
                     />
                     {errors.repeatPassword && (
-                        <div className="error">{errors.repeatPassword}</div>
+                        <div className="error"> <img src={warningIcon}></img> {errors.repeatPassword}</div>
                     )}
                 </div>
 
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+                <ButtonPrimary type="submit">Submit</ButtonPrimary>
+            </Form>
+        </div >
     )
 }
 

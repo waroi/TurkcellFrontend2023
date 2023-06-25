@@ -1,7 +1,8 @@
 import { useFormik } from 'formik';
 import { loginSchema } from '../../schemas';
 import PropTypes from "prop-types"
-
+import Form from '../../styledComponents/StyledForm';
+import ButtonPrimary from '../../styledComponents/ButtonPrimary';
 const LoginForm = ({ onLogin }) => {
 
 
@@ -21,7 +22,7 @@ const LoginForm = ({ onLogin }) => {
             onSubmit
         });
     return (
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="email">Email:</label>
                 <input
@@ -46,8 +47,8 @@ const LoginForm = ({ onLogin }) => {
                 {errors.password && <div className="error">{errors.password}</div>}
             </div>
 
-            <button type="submit">Login</button>
-        </form>
+            <ButtonPrimary type="submit">Login</ButtonPrimary>
+        </Form>
     )
 }
 
