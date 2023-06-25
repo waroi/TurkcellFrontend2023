@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   ProductThreeItemsH2,
   ProductThreeItemsH3,
@@ -11,8 +11,12 @@ import {
 } from "../../styles/ProductThreeItemsStyle";
 import ProductFilterMobile from "./ProductFilterMobile";
 
-const ProductThreeItems = () => {
+const ProductThreeItems = (props) => {
   const [isMobile, setIsMobile] = useState(false);
+
+  function handleChangeSort(e) {
+    props.isSortValue(e.target.value);
+  }
 
   return (
     <div className="row mt-5">
@@ -30,7 +34,8 @@ const ProductThreeItems = () => {
             Filter
           </ProductThreeItemsH2>
         </ProductThreeItemsHeaderFilter>
-        <ProductThreeItemsSort>
+        <ProductThreeItemsSort onClick={handleChangeSort}>
+          <option value="default">Default</option>
           <option value="title-a-z">Title (a-z)</option>
           <option value="title-z-a">Title (z-a)</option>
           <option value="price-low-high">Price (low to high)</option>

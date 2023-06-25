@@ -13,6 +13,7 @@ const ProductsView = () => {
   const [maxPrice, setMaxPrice] = useState(999.99);
   const [minRate, setMinRate] = useState(0);
   const [maxRate, setMaxRate] = useState(5);
+  const [sortValue, setSortValue] = useState("default");
 
   const isMensClothing = (data) => {
     setMensClothing(data);
@@ -38,11 +39,14 @@ const ProductsView = () => {
   const isMaxRate = (data) => {
     setMaxRate(data);
   };
+  const isSortValue = (data) => {
+    setSortValue(data);
+  };
 
   return (
     <div className="container mt-5">
       <StaticOrderComponent source={"../../public/human-dog.png"} order={2} />
-      <ProductThreeItems />
+      <ProductThreeItems isSortValue={isSortValue} />
       <div className="row">
         <div className="col-lg-3">
           <ProductFilter
@@ -66,6 +70,7 @@ const ProductsView = () => {
             maxPrice={maxPrice}
             minRate={minRate}
             maxRate={maxRate}
+            sortValue={sortValue}
           />
         </div>
       </div>

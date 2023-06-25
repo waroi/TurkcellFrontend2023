@@ -18,8 +18,24 @@ const TotalProducts = (props) => {
   const [fakeMaxRateData, setFakeMaxRateData] = useState([]);
   const [fakeCombinedData, setFakeCombinedData] = useState([]);
   const [fakeIntersectedData, setFakeIntersectedData] = useState([]);
+  const [fakeSortedData, setFakeSortedData] = useState([]);
   const [fakeProductsData, setFakeProductsData] = useState([]);
+
   console.count("counter");
+
+  useEffect(() => {
+    productRequest.get().then((data) => {
+      setProductsData(data);
+      setFakeAllData(data);
+      setFakeProductsData(data);
+      setFakeCombinedData(data);
+      setFakeMinPriceData(data);
+      setFakeMaxPriceData(data);
+      setFakeMinRateData(data);
+      setFakeMaxRateData(data);
+      setFakeIntersectedData(data);
+    });
+  }, []);
 
   useEffect(() => {
     if (props.mensClothing == true) {
@@ -173,7 +189,41 @@ const TotalProducts = (props) => {
     fakeMaxRateData,
   ]);
 
-  console.log(props);
+  useEffect(() => {
+    if (props.sortValue == "default") {
+      setFakeSortedData(fakeIntersectedData);
+    } else if (props.sortValue == "title-a-z") {
+      setFakeSortedData(
+        fakeIntersectedData.sort((a, b) => a.title.localeCompare(b.title))
+      );
+    } else if (props.sortValue == "title-z-a") {
+      setFakeSortedData(
+        fakeIntersectedData.sort((a, b) => b.title.localeCompare(a.title))
+      );
+    } else if (props.sortValue == "price-low-high") {
+      setFakeSortedData(fakeIntersectedData.sort((a, b) => a.price - b.price));
+    } else if (props.sortValue == "price-high-low") {
+      setFakeSortedData(fakeIntersectedData.sort((a, b) => b.price - a.price));
+    } else if (props.sortValue == "rating-high-low") {
+      setFakeSortedData(fakeIntersectedData.sort((a, b) => b.rate - a.rate));
+    } else if (props.sortValue == "rating-low-high") {
+      setFakeSortedData(fakeIntersectedData.sort((a, b) => a.rate - b.rate));
+    }
+  }, [props.sortValue, fakeIntersectedData]);
+
+  useEffect(() => {
+    if (fakeSortedData.length > 15) {
+      setIsButton(true);
+      setButtonNumber(2);
+      setFakeProductsData(fakeSortedData.slice(0, 15));
+    } else {
+      setIsButton(false);
+      setButtonNumber(1);
+      setFakeProductsData(fakeSortedData);
+    }
+  }, [fakeSortedData]);
+
+  console.log(props.sortValue);
   console.log(fakeMensClothingData);
   console.log(props.minPrice);
   console.log(fakeCombinedData);
@@ -181,42 +231,21 @@ const TotalProducts = (props) => {
   console.log(fakeMinRateData);
   console.log(fakeMaxRateData);
   console.log(fakeIntersectedData);
-
-  useEffect(() => {
-    productRequest.get().then((data) => {
-      setProductsData(data);
-      setFakeAllData(data);
-      setFakeProductsData(data);
-      setFakeCombinedData(data);
-      setFakeMinPriceData(data);
-      setFakeMaxPriceData(data);
-      setFakeMinRateData(data);
-      setFakeMaxRateData(data);
-      setFakeIntersectedData(data);
-    });
-  }, []);
-
-  useEffect(() => {
-    if (productsData.length > 15) {
-      setIsButton(true);
-      setButtonNumber(2);
-      setFakeProductsData(productsData.slice(0, 15));
-    }
-  }, [productsData]);
+  console.log(fakeSortedData);
+  console.log(fakeSortedData.slice(0, 15));
+  console.log(fakeProductsData);
 
   function handleClickButton(e) {
-    console.log(e.target.textContent);
     if (e.target.textContent == "1") {
-      setFakeProductsData(productsData.slice(0, 15));
+      setFakeProductsData(fakeSortedData.slice(0, 15));
     } else if (e.target.textContent == "2") {
-      setFakeProductsData(productsData.slice(15, 20));
+      setFakeProductsData(fakeSortedData.slice(15, fakeSortedData.length));
     }
-    console.log(fakeProductsData);
   }
 
   return (
     <>
-      {fakeIntersectedData.map((product, index) => {
+      {fakeProductsData.map((product, index) => {
         return <ProductBox product={product} key={index} />;
       })}
       <div className="text-center mt-5">
