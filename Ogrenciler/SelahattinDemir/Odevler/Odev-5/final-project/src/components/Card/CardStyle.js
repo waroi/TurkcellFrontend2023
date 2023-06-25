@@ -32,3 +32,76 @@ export const ProductInfo = styled(Title)`
   font-size: 14px;
   line-height: 20px;
 `;
+
+export const DetailCardContainer = styled.div`
+  padding: 22px 20px;
+  border-radius: 20px;
+  border: 1px solid #ebeeef;
+  background: #fdfdfd;
+`;
+
+export const Quantity = styled(ProductInfo)`
+  font-weight: 500;
+  color: #99a2a5;
+`;
+
+export const DetailTitle = styled(Title)`
+  font-size: 24px;
+  line-height: 36px;
+`;
+
+export const DetailPrice = styled(DetailTitle)`
+  font-size: 20px;
+  line-height: 32px;
+  color: #002a48;
+`;
+
+export const ProductInfoContainer = styled.div`
+  max-width: 530px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: var(
+    --linear,
+    linear-gradient(134deg, #fceed5 6.17%, #fceed5 75.14%, #ffe7ba 100%)
+  );
+`;
+
+export const DetailImageContainer = styled(Title)`
+  max-width: 560px;
+  max-height: 476px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+`;
+
+export const SocialInfoContainer = styled.div`
+  padding: 6px 10px;
+`;
+
+export const DetailButtonContact = styled.button`
+  padding: 5px 28px 5px 28px;
+  border-radius: 57px;
+  background: #003459;
+  color: #fdfdfd;
+  font-size: 16px;
+  font-family: SVN-Gilroy;
+  font-weight: 700;
+  line-height: 24px;
+`;
+
+export const DetailButtonChat = styled(DetailButtonContact)`
+  padding: 5px 28px 5px 24px;
+  background: none;
+  border: 2px solid var(--primary-color-dark-blue-80, #002a48);
+  color: #002a48;
+`;
+
+export const TableTd = styled.td`
+  border-bottom: 1px solid #ebeeef;
+  padding: 8px 0px;
+  color: #667479;
+  font-size: 14px;
+  font-family: SVN-Gilroy;
+  font-weight: 500;
+  line-height: 20px;
+`;
