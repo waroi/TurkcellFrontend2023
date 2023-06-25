@@ -1,14 +1,43 @@
 /* eslint-disable no-unreachable */
 import { Form, Formik } from "formik";
-import CustomInput from "../components/CustomInput";
-import CustomCheckbox from "../components/CustomCheckbox";
+import CustomInput from "../components/CustomInput/CustomInput";
+import CustomCheckbox from "../components/CustomCheckbox/CustomCheckbox";
 import { loginSchema } from "../schemas";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import Request from "../utils/Request";
 
 function LoginView() {
+  const request = new Request("http://localhost:3004/users");
+
+  const navigate = useNavigate();
+
   const handleSubmit = async (values, actions) => {
-    console.log(values);
-    console.log(actions);
+    try {
+      const response = await request.get();
+
+      const existingUser = response.find(
+        (user) =>
+          user.email === values.email && user.password === values.password
+      );
+
+      if (existingUser) {
+        toast.success("Login successful.");
+        const user = {
+          ...existingUser,
+          login: true,
+        };
+        await request.put(existingUser.id, user);
+        actions.resetForm();
+        navigate("/");
+      } else {
+        toast.error("An error occurred. Please try again.");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occurred. Please try again.");
+    }
+
     await new Promise((resolve) => {
       setTimeout(resolve, 1000);
     });
@@ -23,26 +52,32 @@ function LoginView() {
         validationSchema={loginSchema}
       >
         {({ isSubmitting }) => (
-          <Form>
+          <Form className="register-form">
             <CustomInput
               label="Email"
               name="email"
               type="text"
-              placeholder="Kullanıcı Adınızı Giriniz"
+              placeholder="Enter your email"
             />
             <CustomInput
-              label="Şifre"
+              label="Password"
               name="password"
               type="password"
-              placeholder="Şifrenizi Giriniz"
+              placeholder="Enter your password"
             />
             <CustomCheckbox type="checkbox" name="isAccepted" />
-            <button disabled={isSubmitting} type="submit">
-              Giriş Yap
-            </button>
-            <Link className="formLink" to="/">
-              Kayıt Ol
-            </Link>
+            <div className="d-flex align-items-center justify-content-evenly">
+              <button
+                className="formLink"
+                disabled={isSubmitting}
+                type="submit"
+              >
+                Login
+              </button>
+              <Link className="formLink" to="/register">
+                Signup
+              </Link>
+            </div>
           </Form>
         )}
       </Formik>
