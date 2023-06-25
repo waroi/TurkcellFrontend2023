@@ -17,6 +17,8 @@ const ProductDetailView = () => {
 
     }, []);
 
+
+
     const handleCartClick = () => {
         if (product.rating?.count > 0) {
             console.log("Added to cart")

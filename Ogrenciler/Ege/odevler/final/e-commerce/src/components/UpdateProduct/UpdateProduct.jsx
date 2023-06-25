@@ -5,7 +5,6 @@ import { validationSchema } from "../../schemas"
 const UpdateProduct = ({ product, setProduct }) => {
 
     const initialValues = {
-        id: "",
         title: "",
         price: "",
         description: "",
@@ -17,12 +16,13 @@ const UpdateProduct = ({ product, setProduct }) => {
         }
     };
 
-    const { values, handleChange, handleSubmit, errors } = useFormik({
+    const { values, handleChange, handleSubmit, errors, resetForm } = useFormik({
         initialValues,
         validationSchema,
         onSubmit: async (values) => {
             await axios.put(`http://localhost:3000/products/${product.id}`, values);
-            setProduct(values)
+            setProduct({ id: product.id, ...values })
+            resetForm()
         }
     });
 
@@ -40,18 +40,18 @@ const UpdateProduct = ({ product, setProduct }) => {
                             <h1 className="modal-title fs-5" id="updateModalLabel">Modal title</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div className="modal-body">
-                            <div className="previousInfo">
-                                <p>Id: {product.id}</p>
-                                <p>Title: {product.title}</p>
-                                <p>Price: {product.price}</p>
-                                <p>Description: {product.description}</p>
-                                <p>Category: {product.category}</p>
-                                <p>Image URL: {product.image}</p>
-                                <p>Rating Rate: {product.rating?.rate}</p>
-                                <p>Rating Count: {product.rating?.count}</p>
-                            </div>
-                            <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit}>
+                            <div className="modal-body">
+                                <div className="previousInfo">
+                                    <p>Id: {product.id}</p>
+                                    <p>Title: {product.title}</p>
+                                    <p>Price: {product.price}</p>
+                                    <p>Description: {product.description}</p>
+                                    <p>Category: {product.category}</p>
+                                    <p>Image URL: {product.image}</p>
+                                    <p>Rating Rate: {product.rating?.rate}</p>
+                                    <p>Rating Count: {product.rating?.count}</p>
+                                </div>
                                 <input
                                     type="text"
                                     name="title"
@@ -135,14 +135,12 @@ const UpdateProduct = ({ product, setProduct }) => {
                                     <div className="error-message">{errors["rating.count"]}</div>
                                 )}
 
-                                <button type="submit">Submit</button>
-                            </form>
+                            </div>
+                            <div className="modal-footer">
 
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Save changes</button>
-                        </div>
+                                <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
