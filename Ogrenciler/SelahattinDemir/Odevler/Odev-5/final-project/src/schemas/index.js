@@ -2,35 +2,40 @@ import * as yup from "yup";
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
 export const loginSchema = yup.object().shape({
-  email: yup.string().email("Geçerli bir email giriniz").required(),
+  email: yup
+    .string()
+    .email("Please enter a valid email")
+    .required("Email is required"),
   password: yup
     .string()
-    .min(6, "Lütfen minumun 6 karakter giriniz")
-    .max(12)
+    .min(6, "Please enter a minimum of 6 characters")
     .matches(passwordRules, {
-      message: "Lütfen en az 1 büyük harf 1 küçük harf ve 1 sayı giriniz",
+      message:
+        "Please enter at least 1 uppercase letter, 1 lowercase letter and 1 number",
     })
-    .required(),
-  isAccepted: yup.boolean().oneOf([true], "Kullanım koşullarını kabul ediniz"),
+    .required("Password is required"),
+  isAccepted: yup.boolean().oneOf([true], "Accept the terms of use"),
 });
 
 export const registerSchema = yup.object().shape({
   username: yup
     .string("")
-    .min(3, "Kullanıcı adı minimum 3 karakter uzunluğunda olmalıdır")
-    .max(50)
-    .required(),
-  email: yup.string().email("Geçerli bir email giriniz").required(),
+    .min(3, "Username must be at least 3 characters long")
+    .required("Username is required"),
+  email: yup
+    .string()
+    .email("Please enter a valid email")
+    .required("Email is required"),
   password: yup
     .string()
-    .min(6, "Lütfen minumun 6 karakter giriniz")
-    .max(12)
+    .min(6, "Please enter a minimum of 6 characters")
     .matches(passwordRules, {
-      message: "Lütfen en az 1 büyük harf 1 küçük harf ve 1 sayı giriniz",
+      message:
+        "Please enter at least 1 uppercase letter, 1 lowercase letter and 1 number",
     })
-    .required("Şifre girmek zorunludur"),
+    .required("Password is required"),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password")], "Şifreler eşleşmiyor")
-    .required("Tekrar şifre girmek zorunludur"),
+    .oneOf([yup.ref("password")], " Passwords must match")
+    .required("Confirm Password is required"),
 });
