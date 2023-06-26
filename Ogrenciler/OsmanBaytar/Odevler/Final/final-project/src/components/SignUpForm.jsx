@@ -1,9 +1,10 @@
 import { useFormik } from "formik";
 import { basicSchema } from "../schemas";
 import "../styles/SignUpForm.css";
-import { useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 import { addUsers } from "../redux/slices/usersSlice";
+import { userRequest } from "../utils/Request";
 
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => {
@@ -19,18 +20,48 @@ function SignUpForm() {
   const currentEmail = useRef("");
   const currentPassword = useRef("");
 
-  // const dispatch = useDispatch();
-  // const { users } = useSelector((state) => state.users);
+  const [userData, setUserData] = useState([]);
+  const [isOkey, setIsOkey] = useState(false);
+
+  useEffect(() => {
+    userRequest.get().then((data) => {
+      setUserData(data);
+    });
+  }, []);
+
+  const dispatch = useDispatch();
+
+  function checkUsername() {
+    setIsOkey(true);
+    userData.map((item) => {
+      if (
+        item.username === currentUsername.current.value ||
+        item.name == "" ||
+        item.surname == "" ||
+        item.username == "" ||
+        item.email == "" ||
+        item.password == ""
+      ) {
+        setIsOkey(false);
+      }
+    });
+  }
+
+  useEffect(() => {
+    if (isOkey) {
+      handleAddUsers();
+    }
+  }, [isOkey]);
 
   const handleAddUsers = () => {
     dispatch(
       addUsers({
-        id: users.length + 1,
-        name: currentName.current.name,
-        surname: currentSurname.current.surname,
-        username: currentUsername.current.username,
-        email: currentEmail.current.email,
-        password: currentPassword.current.password,
+        id: userData.length + 1,
+        name: currentName.current.value,
+        surname: currentSurname.current.value,
+        username: currentUsername.current.value,
+        email: currentEmail.current.value,
+        password: currentPassword.current.value,
         is_admin: false,
       })
     );
@@ -132,7 +163,7 @@ function SignUpForm() {
         )}
       </div>
 
-      <button type="submit" disabled={isSubmitting} onClick={handleAddUsers}>
+      <button type="submit" disabled={!errors} onClick={checkUsername}>
         Sign Up
       </button>
     </form>

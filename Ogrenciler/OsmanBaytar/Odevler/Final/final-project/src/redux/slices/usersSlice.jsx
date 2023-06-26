@@ -2,14 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { userRequest } from "../../utils/Request";
 
 const initialState = {
-  users: [
-    userRequest
-      .get()
-      .then((data) => {
-        return data;
-      })
-      .catch((err) => console.log(err)),
-  ],
+  users: [],
 };
 
 export const usersSlice = createSlice({
@@ -17,11 +10,11 @@ export const usersSlice = createSlice({
   initialState,
   reducers: {
     addUsers: (state, action) => {
-      state.users = [...state.users, action.payload];
+      userRequest.post(action.payload);
     },
   },
 });
 
-export const { getUsers, addUsers } = usersSlice.actions;
+export const { addUsers } = usersSlice.actions;
 
 export default usersSlice.reducer;
