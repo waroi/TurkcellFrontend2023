@@ -5,6 +5,7 @@ import SignUpView from "../views/SignUpView";
 import ProductsView from "../views/ProductsView";
 import DetailView from "../views/DetailView";
 import LogInView from "../views/LogInView";
+import BasketView from "../views/BasketView";
 
 const Router = () => {
   const routes = useRoutes([
@@ -14,6 +15,7 @@ const Router = () => {
     { path: "/Products", element: <ProductsView /> },
     { path: "/Products/:id", element: <DetailView /> },
     { path: "/LogIn", element: <LogInView /> },
+    { path: "/Basket", element: <BasketView /> },
   ]);
   return routes;
 };
