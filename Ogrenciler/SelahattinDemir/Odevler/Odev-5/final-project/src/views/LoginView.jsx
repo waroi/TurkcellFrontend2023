@@ -1,4 +1,3 @@
-/* eslint-disable no-unreachable */
 import { Form, Formik } from "formik";
 import CustomInput from "../components/CustomInput/CustomInput";
 import CustomCheckbox from "../components/CustomCheckbox/CustomCheckbox";
@@ -6,16 +5,17 @@ import { loginSchema } from "../schemas";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Request from "../utils/Request";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/slice/loginSlice";
 
 function LoginView() {
   const request = new Request("http://localhost:3004/users");
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = async (values, actions) => {
     try {
       const response = await request.get();
-
       const existingUser = response.find(
         (user) =>
           user.email === values.email && user.password === values.password
@@ -29,6 +29,8 @@ function LoginView() {
         };
         await request.put(existingUser.id, user);
         actions.resetForm();
+        dispatch(login(user));
+        localStorage.setItem("user", JSON.stringify(user));
         navigate("/");
       } else {
         toast.error("An error occurred. Please try again.");
