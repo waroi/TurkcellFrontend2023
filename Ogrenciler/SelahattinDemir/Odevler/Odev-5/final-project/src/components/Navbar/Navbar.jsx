@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../redux/slice/loginSlice";
 import { Ul, NavInput, IconWrapper, NavSpan, Nav } from "./NavbarStyle.js";
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.login.loggedIn);
+  const users = localStorage.getItem("user");
+  const user = JSON.parse(users);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    localStorage.removeItem("user");
+  };
+
   return (
     <div>
       <Nav className="navbar navbar-expand-lg">
@@ -62,13 +74,54 @@ function Navbar() {
                 aria-label="Search"
               />
             </form>
-            <div>
-              <Link to="/login" className="btn-nav me-3" type="submit">
-                Login
-              </Link>
-              <Link to="/register" className="btn-nav" type="submit">
-                Signup
-              </Link>
+            <div className="d-flex gap-2">
+              {isLoggedIn ? (
+                <Link to="/carts" className="btn-nav" type="submit">
+                  <i className="bi bi-cart-check"></i>
+                </Link>
+              ) : (
+                <Link to="/login" className="btn-nav me-3" type="submit">
+                  Login
+                </Link>
+              )}
+
+              {isLoggedIn ? (
+                <div className="dropdown ">
+                  <button
+                    className="btn-nav dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i className="bi bi-person-circle"></i>
+                  </button>
+                  <ul className="dropdown-menu border-0 w-auto ">
+                    <li>
+                      <Link
+                        to="/login"
+                        className="btn-nav dropdown-item"
+                        type="submit"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/login"
+                        className="btn-nav dropdown-item mt-2"
+                        type="submit"
+                      >
+                        {user.username}
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <Link to="/register" className="btn-nav" type="submit">
+                  Signup
+                </Link>
+              )}
             </div>
           </div>
         </div>
