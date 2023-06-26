@@ -4,17 +4,34 @@ import { useFormik } from 'formik';
 import { useSelector, useDispatch } from "react-redux"
 import { setSearchValue } from "../../redux/slices/searchSlice";
 import ButtonPrimary from "../../styledComponents/ButtonPrimary";
-
-import StyledNavbar from "./StyledNavbar.js"
+import { NavbarPC, NavbarMobile, StyledNavbar } from "./StyledNavbar";
+import searchIcon from "../../assets/Search_Magnifying_Glass_Gray.svg"
+import searchIconBlack from "../../assets/Search_Magnifying_Glass_Black.svg"
+import hamburgerMenu from "../../assets/Hamburger_LG.svg"
+import { useState } from "react"
+// import StyledNavbar from "./StyledNavbar.js"
 import AccountDropdown from "./AccountDropdown/AccountDropdown";
+import Form from "../../styledComponents/StyledForm";
 
 const Navbar = () => {
 
     const currentUser = useSelector(state => state.user.user)
+    const [isOnSearch, setIsOnSearch] = useState(false)
+    const [isOnMenu, setIsOnMenu] = useState(false)
     const dispatch = useDispatch()
     const location = useLocation()
     const navigate = useNavigate()
     const initialValues = { search: '' };
+
+    const handleOnSearch = () => {
+        setIsOnSearch(!isOnSearch)
+        setIsOnMenu(false)
+    }
+
+    const handleOnMenu = () => {
+        setIsOnMenu(!isOnMenu)
+        setIsOnSearch(false)
+    }
 
     const onSubmit = (values) => {
         if (currentUser) {
@@ -34,58 +51,154 @@ const Navbar = () => {
 
 
     return (
-        <StyledNavbar>
-            <div className="container">
-                <div className="brand">
-                    <h1>EgeCommerce</h1>
-                </div>
-                <div className="navigation">
-                    <NavLink to={"/"}>Home</NavLink>
-                    <br />
-                    <NavLink to={"/products"}>Products</NavLink>
-                    <br />
-                    <NavLink to={"/"}>About</NavLink>
-                    <br />
-                    <NavLink to={"/"}>Contact</NavLink>
-                    <br />
-                </div>
-                <div className="searchBar">
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            id="search"
-                            name="search"
-                            onChange={handleChange}
-                            value={values.search}
-                            placeholder="Search something here!"
-                        />
-                        {/* <img className="searchIcon" src={searchIcon} alt="" /> */}
-                        {errors.search && <div className="error">{errors.search}</div>}
-                    </form>
-                </div>
-                <div className="accountSection">
-                    {
-                        !currentUser
-                            ? (
-                                <Link to="/login"><ButtonPrimary >Login</ButtonPrimary></Link>
-                            )
-                            : (
-                                <Link to="/cart"><ButtonPrimary >Cart</ButtonPrimary></Link>
-                            )
-                    }
-                    {
-                        !currentUser
-                            ? (
-                                <Link to="/signup"><ButtonPrimary >Sign Up</ButtonPrimary></Link>
-                            )
-                            : (<AccountDropdown />)
-                    }
+        <div className="container py-3">
+            <NavbarPC>
+                <StyledNavbar>
+                    <div className="row align-items-center">
+                        <div className="col-lg-6">
+                            <div className="row justify-content-center align-items-center">
+                                <div className="col-lg-4 navbarItem navbarLogo">
+                                    <Link to={"/"}>EgeCommerce</Link>
+                                </div>
+                                <div className="col-lg-2 navbarItem">
+                                    <Link to={"/"}>Home</Link>
+                                </div>
+                                <div className="col-lg-2 navbarItem">
+                                    <Link to={"/products"}>Products</Link>
+                                </div>
+                                <div className="col-lg-2 navbarItem">
+                                    <Link to={"/"}>About</Link>
+                                </div>
+                                <div className="col-lg-2 navbarItem">
+                                    <Link to={"/"}>Contact</Link>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div className="col-lg-6">
+                            <div className="row justify-content-center align-items-center navbar-left">
+                                <div className="col-lg-6">
+                                    <div className="d-flex searchArea">
+                                        <img src={searchIcon} alt="search" />
+                                        <form onSubmit={handleSubmit}>
+                                            <input
+                                                type="text"
+                                                id="search"
+                                                name="search"
+                                                onChange={handleChange}
+                                                value={values.search}
+                                                placeholder="Search something here!"
+                                            />
+                                            {/* <img className="searchIcon" src={searchIcon} alt="" /> */}
+                                            {errors.search && <div className="error">{errors.search}</div>}
+                                        </form>
 
-                </div>
-                {/* add activeClassName */}
-            </div>
-        </StyledNavbar>
+                                    </div>
+                                </div>
+                                <div className="col-lg-3">
+                                    {
+                                        !currentUser
+                                            ? (
+                                                <Link to="/login"><ButtonPrimary >Login</ButtonPrimary></Link>
+                                            )
+                                            : (
+                                                <Link to="/cart"><ButtonPrimary >Cart</ButtonPrimary></Link>
+                                            )
+                                    }
+
+                                </div>
+                                <div className="col-lg-3">
+                                    {
+                                        !currentUser
+                                            ? (
+                                                <Link to="/signup"><ButtonPrimary >Sign Up</ButtonPrimary></Link>
+                                            )
+                                            : (<AccountDropdown />)
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </StyledNavbar>
+            </NavbarPC>
+
+            <NavbarMobile>
+                <StyledNavbar>
+                    <div className="row justify-content-between align-items-center">
+                        <div className="col-4 navbarItem text-center">
+                            <img src={hamburgerMenu} alt="menu" onClick={handleOnMenu} />
+                        </div>
+                        <div className="col-4 navbarItem text-center ">
+                            <Link to={"/"} className="navbarLogo">EgeCommerce</Link>
+                        </div>
+                        <div className="col-4 navbarItem text-center">
+                            <img src={searchIconBlack} alt="menu" onClick={handleOnSearch} />
+
+                        </div>
+                    </div>
+
+                    {(isOnMenu && !isOnSearch) && (
+                        <div className="row mt-3">
+
+                            <div className="navbarItem ms-5">
+                                <Link to={"/"}>Home</Link>
+                            </div>
+                            <div className="navbarItem ms-5">
+                                <Link to={"/products"}>Products</Link>
+                            </div>
+                            <div className="navbarItem ms-5">
+                                <Link to={"/"}>About</Link>
+                            </div>
+                            <div className="navbarItem ms-5">
+                                <Link to={"/"}>Contact</Link>
+                            </div>
+                            <div className="col-lg-3">
+                                {
+                                    !currentUser
+                                        ? (
+                                            <Link to="/login"><ButtonPrimary >Login</ButtonPrimary></Link>
+                                        )
+                                        : (
+                                            <Link to="/cart"><ButtonPrimary >Cart</ButtonPrimary></Link>
+                                        )
+                                }
+
+                            </div>
+                            <div className="col-lg-3">
+                                {
+                                    !currentUser
+                                        ? (
+                                            <Link to="/signup"><ButtonPrimary >Sign Up</ButtonPrimary></Link>
+                                        )
+                                        : (<AccountDropdown />)
+                                }
+
+                            </div>
+                        </div>
+                    )}
+                    {(isOnSearch && !isOnMenu) && (
+                        <div className="d-flex justify-content-center searchArea">
+                            <img src={searchIcon} alt="search" />
+                            <form onSubmit={handleSubmit}>
+                                <input
+                                    type="text"
+                                    id="search"
+                                    name="search"
+                                    onChange={handleChange}
+                                    value={values.search}
+                                    placeholder="Search something here!"
+                                />
+                                {/* <img className="searchIcon" src={searchIcon} alt="" /> */}
+                                {errors.search && <div className="error">{errors.search}</div>}
+                            </form>
+
+                        </div>
+                    )}
+
+                </StyledNavbar>
+            </NavbarMobile>
+        </div>
     )
 }
 
