@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import StyledProductCard from './StyledProductCard';
-const ProductCard = ({ product }) => {
+import giftBox from "../../../assets/Gift_Box.svg"
+const ProductCard = ({ product, promotionText }) => {
     return (
 
         <StyledProductCard>
@@ -14,12 +15,21 @@ const ProductCard = ({ product }) => {
             <div className="price">
                 <h3>{product.price} $</h3>
             </div>
+            {
+                promotionText && (
+                    <div className='promotionWrap'>
+                        <img src={giftBox} alt="giftIcon" />
+                        <span className='promotion'> • {promotionText}</span>
+                    </div>
+                )
+            }
         </ StyledProductCard>
     )
 }
 
 ProductCard.propTypes = {
-    product: PropTypes.object.isRequired
+    product: PropTypes.object.isRequired,
+    promotionText: PropTypes.string
 }
 
 export default ProductCard

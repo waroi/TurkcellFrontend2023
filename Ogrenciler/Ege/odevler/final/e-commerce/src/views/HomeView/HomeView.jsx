@@ -3,6 +3,7 @@ import Sellers from "../../components/Sellers/Sellers"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import HomeProducts from "../../components/HomeProducts/HomeProducts"
+import PromotionProducts from "../../components/PromotionProducts/PromotionProducts"
 
 const HomeView = () => {
 
@@ -19,6 +20,7 @@ const HomeView = () => {
         <div>
             <h1>HomeView</h1>
             <HomeProducts products={products} />
+            <PromotionProducts products={products} />
             <Sellers />
             <KnowledgeList />
 

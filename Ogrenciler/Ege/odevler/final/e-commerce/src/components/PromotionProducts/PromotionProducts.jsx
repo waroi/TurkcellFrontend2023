@@ -1,35 +1,35 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import ProductCard from "../ProductList/ProductCard/ProductCard"
-import StyledHomeProducts from "./StyledHomeProducts"
 import StyledTitle from "../../styledComponents/StyledTitle"
-const HomeProducts = ({ products }) => {
+
+const PromotionProducts = ({ products }) => {
+
+    const promotionTexts = ["Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace"]
+
     return (
-        <StyledHomeProducts className="container">
+        <div className="container">
             <StyledTitle>
-                <h4>Whats new ?</h4>
+                <h4>Hard To Choose Right Products For Yourself ?</h4>
                 <div className="d-flex justify-content-between">
-                    <h3>Take A Look At Some Of Our Products</h3>
+                    <h3>Our Products</h3>
                     <button>View More -</button>
                 </div>
             </StyledTitle>
             <div className="row">
                 {
-                    [...products].slice(0, 8).map(product => (
+                    [...products].slice(9, 17).map((product, i) => (
                         <Link key={product.id} className="toPageLink col-lg-3" to={`/products/${product.id}`}>
-                            <ProductCard product={product} />
+                            <ProductCard product={product} promotionText={promotionTexts[i]} />
 
                         </Link>
                     ))
                 }
             </div>
-        </StyledHomeProducts>
+        </div>
     )
 }
-
-HomeProducts.propTypes = {
+PromotionProducts.propTypes = {
     products: PropTypes.array.isRequired
 }
-
-
-export default HomeProducts
+export default PromotionProducts
