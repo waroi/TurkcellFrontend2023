@@ -1,6 +1,7 @@
 import { Container } from "../../assets/css/style";
 import {
   AdsPicDiv,
+  AdsPicDivRight,
   MidAdsDiv,
   Rectangle10,
   Rectangle11,
@@ -8,10 +9,15 @@ import {
   Rectangle13,
   FlexAds,
   TextAds,
+  TextAdsRight,
   AdsH2,
+  AdsH2Right,
   AdsH3,
+  AdsH3Right,
   AdsH4,
+  AdsH4Right,
   FlexButtons,
+  FlexButtonsRight,
 } from "./styleMidAds";
 import Button from "../Button/Button";
 import PropTypes from "prop-types";
@@ -54,15 +60,15 @@ function MidAds({ istextright, backgroundcolor, image }) {
         {!istextright && (
           <>
             <FlexAds>
-              <TextAds>
-                <AdsH2>Teknolojiye Bir Adım</AdsH2>
-                <AdsH3>Daha Fazla Ürün</AdsH3>
-                <AdsH4>
+              <TextAdsRight>
+                <AdsH2Right>Teknolojiye Bir Adım</AdsH2Right>
+                <AdsH3Right>Daha Fazla Ürün</AdsH3Right>
+                <AdsH4Right>
                   Having a pet means you have more joy, a new friend, a happy
                   person who will always be with you to have fun. We have 200+
                   different pets that can meet your needs!
-                </AdsH4>
-                <FlexButtons>
+                </AdsH4Right>
+                <FlexButtonsRight>
                   <Button
                     title="İntroyu Gör"
                     gap="8px"
@@ -74,9 +80,9 @@ function MidAds({ istextright, backgroundcolor, image }) {
                     width="175px"
                   />
                   <Button title="Şimdi Keşfet" />
-                </FlexButtons>
-              </TextAds>
-              <AdsPicDiv image={image}></AdsPicDiv>
+                </FlexButtonsRight>
+              </TextAdsRight>
+              <AdsPicDivRight image={image}></AdsPicDivRight>
             </FlexAds>
             <Rectangle12 />
             <Rectangle13 />

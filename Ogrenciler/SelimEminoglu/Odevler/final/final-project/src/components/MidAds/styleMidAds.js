@@ -24,6 +24,17 @@ export const AdsPicDiv = styled.div`
   left: 20px;
 `;
 
+export const AdsPicDivRight = styled.div`
+  width: 538.527px;
+  height: 378.794px;
+  flex-shrink: 0;
+  background: ${(props) =>
+    `url(${props.image}), transparent 50% / cover no-repeat`};
+  position: relative;
+  z-index: 1;
+  top: 0px;
+`;
+
 export const Rectangle10 = styled.div`
   width: 787.54px;
   height: 787.54px;
@@ -49,7 +60,8 @@ export const Rectangle11 = styled.div`
 `;
 
 export const Rectangle12 = styled(Rectangle11)`
-  top: -128px;
+  transform: rotate(-25.23deg);
+  top: -214px;
   left: -210px;
 `;
 
@@ -61,8 +73,9 @@ export const Rectangle13 = styled(Rectangle10)`
     #fceed5 75.14%,
     #ffe7ba 100%
   );
-  top: 116px;
-  left: 669px;
+  transform: rotate(-28.251deg);
+  top: 179px;
+  left: 530px;
 `;
 
 export const FlexAds = styled.div`
@@ -76,6 +89,10 @@ export const FlexButtons = styled.div`
   gap: 2rem;
 `;
 
+export const FlexButtonsRight = styled(FlexButtons)`
+  justify-content: start;
+`;
+
 export const TextAds = styled.div`
   margin-top: 2rem;
   margin-right: 6.4rem;
@@ -84,6 +101,11 @@ export const TextAds = styled.div`
   flex-direction: column;
   position: relative;
   z-index: 1;
+`;
+
+export const TextAdsRight = styled(TextAds)`
+  margin-right: 0;
+  margin-left: 6.4rem;
 `;
 
 export const AdsH2 = styled.h2`
@@ -97,6 +119,10 @@ export const AdsH2 = styled.h2`
   text-align: right;
 `;
 
+export const AdsH2Right = styled(AdsH2)`
+  text-align: left;
+`;
+
 export const AdsH3 = styled.h3`
   color: #003459;
   font-size: 36px;
@@ -108,6 +134,10 @@ export const AdsH3 = styled.h3`
   text-align: right;
 `;
 
+export const AdsH3Right = styled(AdsH3)`
+  text-align: left;
+`;
+
 export const AdsH4 = styled.h4`
   color: #242b33;
   text-align: right;
@@ -117,4 +147,8 @@ export const AdsH4 = styled.h4`
   line-height: 18px;
   display: flex;
   flex-direction: column;
+`;
+
+export const AdsH4Right = styled(AdsH4)`
+  text-align: left;
 `;
