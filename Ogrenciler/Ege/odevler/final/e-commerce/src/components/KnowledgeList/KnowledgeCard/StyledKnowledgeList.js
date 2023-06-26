@@ -8,6 +8,7 @@ const StyledKnowledgeList = styled.div`
 
   h4 {
     font-size: 16px;
+    font-weight: 400;
   }
 `;
 
