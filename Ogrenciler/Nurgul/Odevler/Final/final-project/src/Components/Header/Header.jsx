@@ -11,8 +11,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import { useNavigate } from "react-router-dom";
 import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { setSearchValue } from "../../redux/slice/search";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -22,18 +25,25 @@ const Header = () => {
   const toggleProductSearch = () => {
     setIsProductSearchOpen(!isProductSearchOpen);
   };
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen);
-    if (isSearchOpen) {
-      navigate(`/products?search=${searchQuery}`);
+    if (!isSearchOpen) {
+      setIsSearchOpen(true);
+    } else {
+      if (searchQuery.trim() !== "") {
+        navigate(`/products?search=${searchQuery}`);
+      }
+      setIsSearchOpen(false);
     }
   };
 
   const handleSearchInput = (e) => {
-    setSearchQuery(e.target.value);
+    const query = e.target.value;
+    setSearchQuery(query);
+    dispatch(setSearchValue(query));
   };
   const goToSignUp = () => {
     navigate("/signup");
@@ -83,9 +93,15 @@ const Header = () => {
                         onChange={handleSearchInput}
                       />
                       {isProductSearchOpen ? (
-                        <FaSearch onClick={goToProducts} />
+                        <FaSearch
+                          onClick={goToProducts}
+                          className="mt-3 ms-2"
+                        />
                       ) : (
-                        <FaSearch onClick={toggleProductSearch} />
+                        <FaSearch
+                          onClick={toggleProductSearch}
+                          className="mt-3 ms-2"
+                        />
                       )}
                     </div>
                   </>
