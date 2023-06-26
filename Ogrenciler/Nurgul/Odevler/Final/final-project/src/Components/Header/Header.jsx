@@ -10,16 +10,31 @@ import {
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import { useNavigate } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
 
 const Header = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isProductSearchOpen, setIsProductSearchOpen] = useState(false);
 
+  const toggleProductSearch = () => {
+    setIsProductSearchOpen(!isProductSearchOpen);
+  };
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+    if (isSearchOpen) {
+      navigate(`/products?search=${searchQuery}`);
+    }
+  };
 
+  const handleSearchInput = (e) => {
+    setSearchQuery(e.target.value);
+  };
   const goToSignUp = () => {
     navigate("/signup");
   };
@@ -32,7 +47,7 @@ const Header = () => {
     navigate("/");
   };
   const goToProducts = () => {
-    navigate("/products");
+    navigate(`/products?title=${searchQuery}`);
   };
 
   return (
@@ -51,12 +66,6 @@ const Header = () => {
             <div className="col-lg-2">
               <Items onClick={() => goToProducts()}>Products</Items>
             </div>
-            <div className="col-lg-2">
-              <Items>About</Items>
-            </div>
-            <div className="col-lg-2">
-              <Items>Contact</Items>
-            </div>
           </div>
         </div>
         <div className="col-lg-6">
@@ -64,7 +73,25 @@ const Header = () => {
             <div className="col-lg-6">
               <div className="d-flex flex-row">
                 <i className="fa-solid fa-magnifying-glass me-2"></i>
-                <SearchInput type="text" placeholder="Search something here!" />
+                {isSearchOpen ? (
+                  <>
+                    <div className="d-flex flex-row">
+                      <SearchInput
+                        type="text"
+                        placeholder="Search something here!"
+                        value={searchQuery}
+                        onChange={handleSearchInput}
+                      />
+                      {isProductSearchOpen ? (
+                        <FaSearch onClick={goToProducts} />
+                      ) : (
+                        <FaSearch onClick={toggleProductSearch} />
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <FaSearch onClick={toggleSearch} />
+                )}
               </div>
             </div>
             <div className="col-lg-3">
@@ -90,13 +117,7 @@ const Header = () => {
                 <Items onClick={() => goToHome()}>Home</Items>
               </div>
               <div className="col">
-                <Items>Category</Items>
-              </div>
-              <div className="col">
-                <Items>About</Items>
-              </div>
-              <div className="col">
-                <Items>Contact</Items>
+                <Items onClick={() => goToProducts()}>Products</Items>
               </div>
               <div className="col">
                 <Button onClick={() => goToLogin()}>Log In</Button>
@@ -105,6 +126,20 @@ const Header = () => {
                 <Button onClick={() => goToSignUp()}>Sign Up</Button>
               </div>
             </div>
+          )}
+
+          {isSearchOpen ? (
+            <>
+              <SearchInput
+                type="text"
+                placeholder="Search something here!"
+                value={searchQuery}
+                onChange={handleSearchInput}
+              />
+              <FaSearch onClick={toggleSearch} />
+            </>
+          ) : (
+            <FaSearch onClick={toggleSearch} />
           )}
         </div>
       </div>

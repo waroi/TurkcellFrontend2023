@@ -1,61 +1,48 @@
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import "bootstrap/dist/css/bootstrap.css";
+import {
+  Container,
+  CardContainer,
+  CardImage,
+  CardInfo,
+  CardPrice,
+  CardTitle,
+  Category,
+  Rating,
+  Box,
+} from "../Style/styled-card";
 
-const CardContainer = styled.div`
-  padding: 16px;
-`;
-
-const CardImage = styled.img`
-  width: 100%;
-  height: auto;
-`;
-
-const CardTitle = styled.h3`
-  margin-top: 10px;
-  font-size: 18px;
-`;
-
-const CardInfo = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-  font-size: 14px;
-`;
-
-const Category = styled.span`
-  font-weight: bold;
-  margin-right: 5px;
-`;
-
-const Rating = styled.span`
-  margin-left: 5px;
-  font-weight: bold;
-`;
-
-const CardPrice = styled.div`
-  margin-top: 10px;
-`;
-
-const PriceText = styled.h3`
-  font-size: 24px;
-`;
-
+const truncateTitle = (title) => {
+  const words = title.split(" ");
+  if (words.length > 5) {
+    return words.slice(0, 5).join(" ") + "...";
+  }
+  return title;
+};
 const Card = ({ product }) => {
   return (
-    <CardContainer>
-      <CardImage src={product.image} alt={product.description} />
-      <CardTitle className="title">{product.title}</CardTitle>
-      <CardInfo>
-        <Category>Category:</Category>
-        <span>{product.category}</span>
-        <span>.</span>
-        <Category>Rating:</Category>
-        <Rating>{product.rating.rate}</Rating>
-      </CardInfo>
-      <CardPrice>
-        <PriceText>{product.price} $</PriceText>
-      </CardPrice>
-    </CardContainer>
+    <Container>
+      <CardContainer className="card">
+        <Box>
+          <CardImage
+            src={product.image}
+            alt={product.description}
+            className="card-img-top img-fluid"
+          />
+        </Box>
+        <CardInfo className="card-body">
+          <CardTitle className="card-title">
+            {" "}
+            {truncateTitle(product.title)}
+          </CardTitle>
+          <Category className="card-title">
+            Category:{product.category}{" "}
+          </Category>
+          <Rating className="card-title">Rating:{product.rating.rate} </Rating>
+          <CardPrice className="card-title">Price:{product.price} </CardPrice>
+        </CardInfo>
+      </CardContainer>
+    </Container>
   );
 };
 

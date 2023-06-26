@@ -5,21 +5,14 @@ import axios from "axios";
 import Card from "../Products/Card";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
-
-const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const SelectedCategories = styled.div`
-  margin-top: 20px;
-
-  p {
-    margin-bottom: 5px;
-  }
-`;
-
+import "bootstrap/dist/css/bootstrap.css";
+import {
+  Container,
+  Banner,
+  SelectedCategories,
+  Category,
+  SortDiv,
+} from "../Style/styled-products";
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [checkedCategories, setCheckedCategories] = useState([]);
@@ -115,21 +108,31 @@ const ProductList = () => {
 
   return (
     <Container className="container">
+      <div>
+        <Banner
+          src="https://img.freepik.com/free-vector/black-friday-sale-with-realistic-3d-paper-page_1361-3675.jpg?w=826&t=st=1687725177~exp=1687725777~hmac=901bb64a3c85f6934f86434f716fdb88812063571f9d7b2a296420c975795348"
+          alt=""
+        />
+      </div>
       <div className="row">
         <div className="col-lg-3">
-          <Filter
-            products={products}
-            checkedCategories={checkedCategories}
-            setCheckedCategories={setCheckedCategories}
-          />
+          <Category>
+            <Filter
+              products={products}
+              checkedCategories={checkedCategories}
+              setCheckedCategories={setCheckedCategories}
+            />
+          </Category>
           <SelectedCategories>
             {checkedCategories.map((selected, i) => (
               <p key={i}>{selected}</p>
             ))}
           </SelectedCategories>
         </div>
-        <div className="col-lg-9">
-          <Sort sortType={sortType} setSortType={setSortType} />
+        <div className="col-lg-9 mt-5">
+          <SortDiv>
+            <Sort sortType={sortType} setSortType={setSortType} />
+          </SortDiv>
           <Container className="container">
             <div className="row">
               {products?.map(
