@@ -5,6 +5,7 @@ import axios from 'axios';
 import ProductCard from "./ProductCard/ProductCard";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import StyledProductList from "./StyledProductList";
 
 const ProductList = () => {
 
@@ -76,7 +77,7 @@ const ProductList = () => {
     useEffect(() => { handleSearch() }, [searchValue])
 
     return (
-        <div className="container">
+        <StyledProductList className="container">
             <div className="row">
                 <div className="col-lg-3">
                     <FilterArea products={products} checkedCategories={checkedCategories} setCheckedCategories={setCheckedCategories} />
@@ -93,9 +94,8 @@ const ProductList = () => {
                             {
                                 products?.map(product => (product.isFiltered && product.isSearched) && (
                                     <Link key={product.id} className="toPageLink col-lg-4" to={`/products/${product.id}`}>
-                                        <ProductCard product={product}>
+                                        <ProductCard product={product} />
 
-                                        </ProductCard>
                                     </Link>
                                 ))
                             }
@@ -103,7 +103,7 @@ const ProductList = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </StyledProductList>
     )
 }
 

@@ -1,5 +1,6 @@
 import KnowledgeCard from "./KnowledgeCard/KnowledgeCard"
-import StyledKnowledgeList from "./KnowledgeCard/StyledKnowledgeList"
+import StyledKnowledgeList from "./StyledKnowledgeList"
+import StyledTitle from "../../styledComponents/StyledTitle"
 
 const KnowledgeList = () => {
 
@@ -36,11 +37,13 @@ const KnowledgeList = () => {
 
     return (
         <StyledKnowledgeList className="container">
-            <h4>Do you already know ?</h4>
-            <div className="d-flex justify-content-between">
-                <h3>Useful Product Knowledge</h3>
-                <button>View More -</button>
-            </div>
+            <StyledTitle>
+                <h4>Do you already know ?</h4>
+                <div className="d-flex justify-content-between">
+                    <h3>Useful Product Knowledge</h3>
+                    <button>View More -</button>
+                </div>
+            </StyledTitle>
 
             <div className="d-flex flex-column flex-lg-row gap-3">
                 {

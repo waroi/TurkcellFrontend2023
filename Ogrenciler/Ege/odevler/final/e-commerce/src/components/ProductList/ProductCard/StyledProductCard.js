@@ -1,0 +1,41 @@
+import styled from "styled-components";
+
+const StyledProductCard = styled.div`
+  padding: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: 0.5s all;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  img {
+    width: 100%;
+    aspect-ratio: 1;
+  }
+
+  .title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* Number of lines to display */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .info {
+    font-size: 12px;
+    text-transform: capitalize;
+    color: #667479;
+  }
+
+  .price {
+    margin-top: 10px;
+    h3 {
+      font-size: 14px;
+    }
+  }
+  &:hover {
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+  }
+`;
+
+export default StyledProductCard;
