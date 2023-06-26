@@ -9,6 +9,7 @@ import {
   ProductCount,
   ProductRate,
 } from "../../styles/ProductBox";
+import { useNavigate } from "react-router-dom";
 
 const ProductBox = ({ product }) => {
   let { title, image, category, price, count, rate } = product;
@@ -21,11 +22,16 @@ const ProductBox = ({ product }) => {
   let halfStarNumber = Math.ceil(rate - fullStarNumber);
   let emptyStarNumber = 5 - fullStarNumber - halfStarNumber;
 
+  const navigate = useNavigate();
+  function goToDetail() {
+    navigate(`/Products/${product.id}`);
+  }
+
   return (
     <ProductMainBox>
-      <ProductImage src={image} />
+      <ProductImage onClick={goToDetail} src={image} />
       <ProductInfo>
-        <ProductTitle>{title}</ProductTitle>
+        <ProductTitle onChangeCapture={goToDetail}>{title}</ProductTitle>
         <ProductCategory>{category}</ProductCategory>
         <ProductPrice>${price}</ProductPrice>
         <div className="w-100">

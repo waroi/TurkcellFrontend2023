@@ -21,3 +21,11 @@ export const basicSchema = yup.object().shape({
     .oneOf([yup.ref("password")], "Passwords must match")
     .required("Password confirm is required"),
 });
+
+export const loginSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Please enter a valid email")
+    .required("Email is required"),
+  password: yup.string().required("Password is required"),
+});

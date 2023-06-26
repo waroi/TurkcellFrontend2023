@@ -34,6 +34,10 @@ const Header = () => {
     navigate("/Products");
   };
 
+  const goToLogIn = () => {
+    navigate("/LogIn");
+  };
+
   return (
     <div className="container py-3">
       <HeaderComputer>
@@ -74,7 +78,7 @@ const Header = () => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <HeaderButton>Log In</HeaderButton>
+                <HeaderButton onClick={goToLogIn}>Log In</HeaderButton>
               </div>
               <div className="col-lg-3">
                 <HeaderButton onClick={() => goToSignUp()}>

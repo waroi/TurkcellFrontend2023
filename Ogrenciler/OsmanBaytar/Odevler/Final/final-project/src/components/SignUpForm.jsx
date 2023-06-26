@@ -19,13 +19,8 @@ function SignUpForm() {
   const currentEmail = useRef("");
   const currentPassword = useRef("");
 
-  const dispatch = useDispatch();
-  const { users } = useSelector((state) => state.users);
-
-  const asyncFunction = async () => {
-    const a = await users;
-    console.log(a);
-  };
+  // const dispatch = useDispatch();
+  // const { users } = useSelector((state) => state.users);
 
   const handleAddUsers = () => {
     dispatch(

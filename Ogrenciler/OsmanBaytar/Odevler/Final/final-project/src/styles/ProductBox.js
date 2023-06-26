@@ -36,6 +36,7 @@ export const ProductImage = styled.img`
   width: 264px;
   height: 264px;
   flex-shrink: 0;
+  cursor: pointer;
   @media (max-width: 576px) {
     max-width: 130px;
     max-height: 130px;
@@ -61,6 +62,7 @@ export const ProductTitle = styled.div`
   font-family: SVN-Gilroy;
   font-weight: 700;
   line-height: 24px;
+  cursor: pointer;
 `;
 
 export const ProductCategory = styled.div`
