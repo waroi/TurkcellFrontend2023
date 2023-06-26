@@ -2,18 +2,22 @@ import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import ProductCard from "../ProductList/ProductCard/ProductCard"
 import StyledTitle from "../../styledComponents/StyledTitle"
-
+import StyledPromotionProducts from "./StyledPromotionProducts"
+import ButtonOutline from "../../styledComponents/ButtonOutline"
+import caretRight from "../../assets/Caret_Right_Dark.svg"
 const PromotionProducts = ({ products }) => {
 
     const promotionTexts = ["Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace"]
 
     return (
-        <div className="container">
+        <StyledPromotionProducts className="container">
             <StyledTitle>
-                <h4>Hard To Choose Right Products For Yourself ?</h4>
-                <div className="d-flex justify-content-between">
-                    <h3>Our Products</h3>
-                    <button>View More -</button>
+                <div className="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4>Hard To Choose Right Products For Yourself ?</h4>
+                        <h3>Our Products</h3>
+                    </div>
+                    <ButtonOutline>View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
                 </div>
             </StyledTitle>
             <div className="row">
@@ -26,7 +30,7 @@ const PromotionProducts = ({ products }) => {
                     ))
                 }
             </div>
-        </div>
+        </StyledPromotionProducts>
     )
 }
 PromotionProducts.propTypes = {

@@ -1,6 +1,8 @@
 import KnowledgeCard from "./KnowledgeCard/KnowledgeCard"
 import StyledKnowledgeList from "./StyledKnowledgeList"
 import StyledTitle from "../../styledComponents/StyledTitle"
+import ButtonOutline from "../../styledComponents/ButtonOutline"
+import caretRight from "../../assets/Caret_Right_Dark.svg"
 
 const KnowledgeList = () => {
 
@@ -38,10 +40,12 @@ const KnowledgeList = () => {
     return (
         <StyledKnowledgeList className="container">
             <StyledTitle>
-                <h4>Do you already know ?</h4>
-                <div className="d-flex justify-content-between">
-                    <h3>Useful Product Knowledge</h3>
-                    <button>View More -</button>
+                <div className="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4>Do you already know ?</h4>
+                        <h3>Useful Product Knowledge</h3>
+                    </div>
+                    <ButtonOutline>View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
                 </div>
             </StyledTitle>
 

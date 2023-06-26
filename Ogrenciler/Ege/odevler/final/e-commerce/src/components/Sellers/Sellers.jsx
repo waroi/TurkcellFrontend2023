@@ -5,7 +5,9 @@ import sellerFour from "../../assets/Seller_4.svg"
 import sellerFive from "../../assets/Seller_5.svg"
 import sellerSix from "../../assets/Seller_6.svg"
 import sellerSeven from "../../assets/Seller_7.svg"
+import ButtonOutline from "../../styledComponents/ButtonOutline"
 import StyledSellers from "./StyledSellers"
+import caretRight from "../../assets/Caret_Right_Dark.svg"
 
 
 const Sellers = () => {
@@ -14,9 +16,9 @@ const Sellers = () => {
 
     return (
         <StyledSellers className="container">
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between align-items-center">
                 <div className="title">Proud to be part of <span className="highlight">Pet Sellers</span></div>
-                <button>View all our sellers -</button>
+                <ButtonOutline>View all our sellers <img src={caretRight} alt="caretRights" /></ButtonOutline>
             </div>
 
             <div className="d-flex justify-content-between">

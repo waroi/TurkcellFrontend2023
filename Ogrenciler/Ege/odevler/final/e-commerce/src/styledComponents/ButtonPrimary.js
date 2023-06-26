@@ -7,6 +7,7 @@ const ButtonPrimary = styled.button`
   border-radius: 20px;
   border: none;
   outline: none;
+  font-weight: 500;
 `;
 
 export default ButtonPrimary;

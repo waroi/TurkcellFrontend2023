@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 import axios from "axios"
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Form from "../../styledComponents/StyledForm"
 
 
 const CartItem = ({ cartItem, setCart }) => {
@@ -130,7 +131,7 @@ const CartItem = ({ cartItem, setCart }) => {
             </div>
             <div className="amount d-flex justify-content-evenly align-items-center">
                 <button onClick={decrementCart} className="decrement">-</button>
-                <form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit}>
                     <input
                         type="number"
                         name="demand"
@@ -139,7 +140,7 @@ const CartItem = ({ cartItem, setCart }) => {
                         onChange={handleChange}
                     />
                     {errors.demand && <div className="error">{errors.demand}</div>}
-                </form>
+                </Form>
                 <button onClick={incrementCart} className="increment">+</button>
             </div>
             <button onClick={deleteCartItem} >Delete Item</button>
