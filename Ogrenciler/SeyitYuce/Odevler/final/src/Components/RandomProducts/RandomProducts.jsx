@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "../../redux/slices/productSlice";
 import { Link, useParams } from "react-router-dom";
 
 const RandomProducts = () => {
-  //   const dispatch = useDispatch();
-  //   const products = useSelector((state) => state.products);
   const [randomProducts, setRandomProducts] = useState([]);
   const id = useParams();
 
   const shuffleArray = (array) => {
     const shuffledArray = [...array];
+    const shuffledArraywoutDisplayingProduct = shuffledArray.splice(
+      id.id - 1,
+      1
+    );
+
     for (let i = shuffledArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffledArray[i], shuffledArray[j]] = [
@@ -25,7 +26,9 @@ const RandomProducts = () => {
     fetch("http://localhost:4000/products")
       .then((res) => res.json())
       .then((data) => {
-        const randomProducts = shuffleArray(data).slice(0, 8);
+        const shuffledProducts = shuffleArray(data);
+        console.log(shuffledProducts);
+        const randomProducts = shuffledProducts.slice(0, 8);
         setRandomProducts(randomProducts);
       })
       .catch((err) => {
@@ -35,6 +38,7 @@ const RandomProducts = () => {
   useEffect(() => {
     getRandomProducts();
   }, [id]);
+
   return (
     <div className="row">
       {randomProducts.map((product) => {
@@ -42,10 +46,6 @@ const RandomProducts = () => {
           <Link
             className="card col-6"
             key={product.id}
-            href={
-              "http://localhost:4000/products/" +
-              product.category.replace(/\s+/g, "-") / +product.id
-            }
             to={`/products/${product.category.replace(/\s+/g, "-")}/${
               product.id
             }`}

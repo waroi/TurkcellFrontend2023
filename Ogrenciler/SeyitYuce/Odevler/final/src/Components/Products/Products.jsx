@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "../../redux/slices/productSlice";
+import { setProducts, updateProduct } from "../../redux/slices/productSlice";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Link } from "react-router-dom";
 import { capitalizeWords } from "../../helpers/capitalize";
+import { styled } from "styled-components";
+import { ToastContainer, toast } from "react-toastify";
 
 const Products = ({ slicedNumber }) => {
   const dispatch = useDispatch();
@@ -13,6 +15,16 @@ const Products = ({ slicedNumber }) => {
   const [sortOption, setSortOption] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedStar, setSelectedStar] = useState("");
+
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [editProduct, setEditProduct] = useState({
+    title: "",
+    price: 0,
+    category: "",
+    rating: 0,
+    description: "",
+    image: "",
+  });
 
   const sortedProducts = [...products];
 
@@ -80,6 +92,52 @@ const Products = ({ slicedNumber }) => {
     return true;
   });
 
+  const openEditModal = (product) => {
+    setEditProduct(product);
+    // setEditModalOpen(true);
+  };
+
+  const closeEditModal = () => {
+    setEditModalOpen(false);
+    setEditProduct(null);
+  };
+  const handleEditSubmit = () => {
+    fetch(`http://localhost:4000/products/${editProduct.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editProduct),
+    })
+      .then((res) => res.json())
+      .then((updatedProduct) => {
+        toast.success("Product updated successfully", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          theme: "light",
+          onClose: () => {
+            dispatch(updateProduct(updatedProduct));
+            document
+              .getElementsByClassName("modal")[0]
+              .classList.remove("show");
+            document.getElementsByClassName("modal")[0].style.display = "none";
+            document.getElementsByClassName("modal-backdrop")[0].remove();
+          },
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Failed to update product");
+      });
+  };
+
+  const ProductCardImage = styled.img`
+    height: 200px;
+    width: 100%;
+  `;
+
   return (
     <div className="row">
       <div>
@@ -126,34 +184,187 @@ const Products = ({ slicedNumber }) => {
       </div>
       {filteredProducts.slice(0, slicedNumber).map((product) => {
         return (
-          <div key={product.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
-            <Link
-              to={`/products/${product.category.replace(/\s+/g, "-")}/${
-                product.id
-              }`}
-            >
-              <img src={product.image} alt="" width="100" height="100" />
-              <div>{product.title}</div>
-              <div className="rating d-flex gap-4">
-                <span>{product.category}</span>
-                <span>
-                  <Rating
-                    style={{ maxWidth: 100 }}
-                    value={product.rating.rate}
-                    readOnly
+          <div
+            key={product.id}
+            className="col-10 col-sm-6 col-md-4 col-lg-3 gap-4 mx-auto"
+          >
+            <div className="card">
+              <Link
+                to={`/products/${product.category.replace(/\s+/g, "-")}/${
+                  product.id
+                }`}
+                className="card-link"
+              >
+                <div className="mx-auto">
+                  <ProductCardImage
+                    src={product.image}
+                    alt=""
+                    className="card-img-top w-50 mx-auto"
                   />
-                </span>
+                </div>
+                <div className="card-body">
+                  <h5 className="card-title">{product.title}</h5>
+                  <div className="card-rating d-flex gap-4">
+                    <span>{product.category}</span>
+                    <span>
+                      <Rating
+                        style={{ maxWidth: 100 }}
+                        value={product.rating.rate}
+                        readOnly
+                      />
+                    </span>
+                  </div>
+                  <p className="card-text">${product.price}</p>
+                </div>
+              </Link>
+              {user && user[0]?.role === "admin" ? (
+                <div>
+                  <button
+                    className="edit-btn btn btn-primary"
+                    onClick={() => openEditModal(product)}
+                    data-bs-toggle="modal"
+                    data-bs-target="#editModal"
+                  >
+                    Edit Product
+                  </button>
+                  <button className="delete-btn btn btn-danger">
+                    Add to cart
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <button className="btn btn-primary">Add to cart</button>
+                </>
+              )}
+            </div>
+            <div
+              className="modal fade"
+              id="editModal"
+              tabIndex="-1"
+              aria-labelledby="editModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h1 className="modal-title fs-5" id="editModalLabel">
+                      Edit Product
+                    </h1>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    <label htmlFor="title">Title</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={editProduct?.title}
+                      onChange={(e) =>
+                        setEditProduct({
+                          ...editProduct,
+                          title: e.target.value,
+                        })
+                      }
+                    />
+                    <label htmlFor="price">Price</label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      value={editProduct?.price}
+                      onChange={(e) =>
+                        setEditProduct({
+                          ...editProduct,
+                          price: e.target.value,
+                        })
+                      }
+                    />
+                    <label htmlFor="category">Category</label>
+                    <div className="w-100">
+                      <select
+                        name="category"
+                        id=""
+                        className="form-select"
+                        onChange={(e) =>
+                          setEditProduct({
+                            ...editProduct,
+                            category: e.target.value,
+                          })
+                        }
+                      >
+                        {Array.from(categories).map((category) => (
+                          <option key={category} value={category}>
+                            {capitalizeWords(category)}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <label htmlFor="rating">Rating</label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      min={0.1}
+                      max={5}
+                      step={0.1}
+                      value={editProduct?.rating.rate}
+                      onChange={(e) =>
+                        setEditProduct({
+                          ...editProduct,
+                          rating: e.target.value,
+                        })
+                      }
+                    />
+                    <label htmlFor="description">Description</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={editProduct?.description}
+                      onChange={(e) =>
+                        setEditProduct({
+                          ...editProduct,
+                          description: e.target.value,
+                        })
+                      }
+                    />
+                    <label htmlFor="image">Image</label>
+                    <input
+                      type="url"
+                      className="form-control"
+                      value={editProduct?.image}
+                      onChange={(e) =>
+                        setEditProduct({
+                          ...editProduct,
+                          image: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                  <div className="modal-footer">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      onClick={handleEditSubmit}
+                    >
+                      Save changes
+                    </button>
+                  </div>
+                </div>
               </div>
-              <p>${product.price}</p>
-            </Link>
-            {user && user[0]?.role == "admin" && (
-              <span className="edit">edit</span>
-            )}
-            {/* <button className="edit-btn">Edit Product</button> */}
-            {/* <button>Add to cart</button> */}
+            </div>
           </div>
         );
       })}
+      <ToastContainer />
     </div>
   );
 };

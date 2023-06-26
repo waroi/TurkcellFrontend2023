@@ -52,7 +52,7 @@ const HomeView = () => {
               Illum, ut.
             </p>
           </div>
-          <button className="btn border-primary rounded-pill">
+          <button className="btn border-primary rounded-pill w-100">
             View More &#62;
           </button>
         </div>

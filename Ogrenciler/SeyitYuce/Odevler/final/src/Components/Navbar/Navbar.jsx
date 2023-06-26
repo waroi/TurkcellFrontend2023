@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
-import { setUser } from "../../redux/slices/userSlice";
+import { clearUser } from "../../redux/slices/userSlice";
 const Header = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -12,6 +12,8 @@ const Header = () => {
   const UserDiv = styled.div`
     display: flex;
   `;
+
+  console.log(user);
 
   return (
     <div className="bg-body-tertiary">
@@ -102,7 +104,7 @@ const Header = () => {
                           className="dropdown-item"
                           href="#"
                           onClick={() => {
-                            dispatch(setUser(null));
+                            dispatch(clearUser());
                           }}
                         >
                           Logout

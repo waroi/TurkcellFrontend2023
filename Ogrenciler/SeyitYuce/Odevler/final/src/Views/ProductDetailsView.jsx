@@ -22,7 +22,6 @@ const ProductDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -38,118 +37,118 @@ const ProductDetails = () => {
 
   return (
     <div className="container">
-      {/* {user ? ( */}
-      <div>
-        {product && (
-          <div>
-            <Carousel
-              animationHandler="fade"
-              swipeable={true}
-              showThumbs={true}
-              showIndicators={true}
-              showStatus={true}
-              infiniteLoop={true}
-              autoPlay={true}
-            >
-              <StyledImageDiv>
-                <img
-                  src={product.image}
-                  className="h-100 object-fit-contain "
-                />
-              </StyledImageDiv>
-              <StyledImageDiv>
-                <img
-                  src="https://picsum.photos/200"
-                  className="h-100 object-fit-contain"
-                />
-              </StyledImageDiv>
-              <StyledImageDiv>
-                <img
-                  src="https://picsum.photos/200"
-                  className="h-100 object-fit-contain"
-                />
-              </StyledImageDiv>
-              <StyledImageDiv>
-                <img
-                  src="https://picsum.photos/200"
-                  className="h-100 object-fit-contain"
-                />
-              </StyledImageDiv>
-              <StyledImageDiv>
-                <img
-                  src="https://picsum.photos/200"
-                  className="h-100 object-fit-contain"
-                />
-              </StyledImageDiv>
-            </Carousel>
+      {user ? (
+        <div>
+          {product && (
             <div>
-              <nav
-                style={{ "--bs-breadcrumb-divider": "'>'" }}
-                aria-label="breadcrumb"
+              <Carousel
+                animationHandler="fade"
+                swipeable={true}
+                showThumbs={true}
+                showIndicators={true}
+                showStatus={true}
+                infiniteLoop={true}
+                autoPlay={true}
               >
-                <ol className="breadcrumb">
-                  <li className="breadcrumb-item">
-                    <Link to={"/"}>Home</Link>
-                  </li>
-                  <li className="breadcrumb-item">
-                    <Link to={"/products"}>Products</Link>
-                  </li>
-                  <li className="breadcrumb-item">
-                    <Link href="#">{capitalizeWords(product.category)}</Link>
-                  </li>
-                  <li className="breadcrumb-item active" aria-current="page">
-                    {product.title}
-                  </li>
-                </ol>
-              </nav>
+                <StyledImageDiv>
+                  <img
+                    src={product.image}
+                    className="h-100 object-fit-contain "
+                  />
+                </StyledImageDiv>
+                <StyledImageDiv>
+                  <img
+                    src="https://picsum.photos/200"
+                    className="h-100 object-fit-contain"
+                  />
+                </StyledImageDiv>
+                <StyledImageDiv>
+                  <img
+                    src="https://picsum.photos/200"
+                    className="h-100 object-fit-contain"
+                  />
+                </StyledImageDiv>
+                <StyledImageDiv>
+                  <img
+                    src="https://picsum.photos/200"
+                    className="h-100 object-fit-contain"
+                  />
+                </StyledImageDiv>
+                <StyledImageDiv>
+                  <img
+                    src="https://picsum.photos/200"
+                    className="h-100 object-fit-contain"
+                  />
+                </StyledImageDiv>
+              </Carousel>
+              <div>
+                <nav
+                  style={{ "--bs-breadcrumb-divider": "'>'" }}
+                  aria-label="breadcrumb"
+                >
+                  <ol className="breadcrumb">
+                    <li className="breadcrumb-item">
+                      <Link to={"/"}>Home</Link>
+                    </li>
+                    <li className="breadcrumb-item">
+                      <Link to={"/products"}>Products</Link>
+                    </li>
+                    <li className="breadcrumb-item">
+                      <Link href="#">{capitalizeWords(product.category)}</Link>
+                    </li>
+                    <li className="breadcrumb-item active" aria-current="page">
+                      {product.title}
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <h2>{product.title}</h2>
+              <h4>${product.price}</h4>
+              <button className="btn btn-primary">Add to cart</button>
+              <div className="border">
+                <h5>Information</h5>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Category</td>
+                      <td>{product.category}</td>
+                    </tr>
+                    <tr>
+                      <td>Rating</td>
+                      <td>
+                        <Rating
+                          style={{ maxWidth: 100 }}
+                          value={product.rating.rate}
+                          readOnly
+                        />
+                        <span>({product.rating.rate})</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Reviews</td>
+                      <td>{product.rating.count}</td>
+                    </tr>
+                    <tr>
+                      <td>Stock</td>
+                      <td>{product.stock}</td>
+                    </tr>
+                    <tr>
+                      <td>Description</td>
+                      <td>{product.description}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              Random products
             </div>
-            <h2>{product.title}</h2>
-            <h4>${product.price}</h4>
-            <button className="btn btn-primary">Add to cart</button>
-            <div className="border">
-              <h5>Information</h5>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Category</td>
-                    <td>{product.category}</td>
-                  </tr>
-                  <tr>
-                    <td>Rating</td>
-                    <td>
-                      <Rating
-                        style={{ maxWidth: 100 }}
-                        value={product.rating.rate}
-                        readOnly
-                      />
-                      <span>({product.rating.rate})</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Reviews</td>
-                    <td>{product.rating.count}</td>
-                  </tr>
-                  <tr>
-                    <td>Stock</td>
-                    <td>{product.stock}</td>
-                  </tr>
-                  <tr>
-                    <td>Description</td>
-                    <td>{product.description}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            Random products
-          </div>
-        )}
-      </div>
-      {/* ) : (
+          )}
+          <RandomProducts />
+        </div>
+      ) : (
         <div>
           Please <Link to="/login"> login </Link> first
         </div>
-      )} */}
-      <RandomProducts />
+      )}
     </div>
   );
 };

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/slices/userSlice.js";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -35,8 +36,10 @@ const Login = () => {
             onClose: () => {
               navigate("/");
               dispatch(setUser(user));
+              console.log(user);
             },
           });
+          Cookies.set("user", JSON.stringify(user), { expires: 7 }); // Expires in 7 days
         } else {
           if (email === "" || password === "") {
             toast.error("Please fill all fields", {
