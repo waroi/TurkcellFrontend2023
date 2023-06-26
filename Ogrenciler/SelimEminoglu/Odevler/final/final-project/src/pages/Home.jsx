@@ -16,6 +16,7 @@ function Home() {
       <MidAds />
       <ProductListView h2Text="Ne Tür Birşey Arıyorsun?" h3Text="Ürünlerimiz" />
       <İconList />
+      <MidAds istextright={false} backgroundcolor="#FFB775" />
     </div>
   );
 }

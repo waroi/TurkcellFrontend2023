@@ -5,7 +5,7 @@ export const MidAdsDiv = styled.div`
   height: 378px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #003459;
+  background: ${(props) => props.backgroundcolor};
   position: relative;
   overflow: hidden;
   margin: 3rem 0;
@@ -15,8 +15,9 @@ export const AdsPicDiv = styled.div`
   width: 513px;
   height: 342px;
   flex-shrink: 0;
-  background: url("./src/assets/images/ads_pic.png"),
+  background: ${(props) => `url(${props.image}),
     transparent 50% / cover no-repeat;
+  `};
   position: relative;
   z-index: 1;
   top: 36px;
@@ -45,6 +46,23 @@ export const Rectangle11 = styled.div`
   position: absolute;
   top: -268px;
   left: 527px;
+`;
+
+export const Rectangle12 = styled(Rectangle11)`
+  top: -128px;
+  left: -210px;
+`;
+
+export const Rectangle13 = styled(Rectangle10)`
+  opacity: 0.30000001192092896;
+  background: linear-gradient(
+    134deg,
+    #fceed5 6.17%,
+    #fceed5 75.14%,
+    #ffe7ba 100%
+  );
+  top: 116px;
+  left: 669px;
 `;
 
 export const FlexAds = styled.div`
