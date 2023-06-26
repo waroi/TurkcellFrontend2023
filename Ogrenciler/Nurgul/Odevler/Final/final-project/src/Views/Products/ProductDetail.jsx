@@ -1,60 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Card from "../../Components/Products/Card";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: right;
-  margin-bottom: 40px;
-`;
-
-const Image = styled.img`
-  max-width: 100%;
-  margin-right: 20px;
-`;
-
-const Title = styled.h2`
-  margin-bottom: 10px;
-`;
-
-const Stock = styled.h2`
-  margin-bottom: 10px;
-`;
-const Price = styled.h2`
-  margin-bottom: 10px;
-`;
-
-const Button = styled.button`
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: ${(props) => (props.disabled ? "#ccc" : "blue")};
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
-`;
-
-const ProductsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-const ProductCard = styled.div`
-  width: 25%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
-
-const ProductCardTitle = styled.h3`
-  margin-bottom: 10px;
-`;
+import {
+  Container,
+  Image,
+  Title,
+  Stock,
+  Price,
+  Button,
+  ProductsContainer,
+  Box,
+  Img,
+  Contents,
+} from "../../Components/Style/styled-productDetail";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -139,26 +99,29 @@ const ProductDetail = () => {
 
   return (
     <div>
-      <Container>
-        <Image src={product.image} alt="" />
-        <div>
-          <h1>{user}</h1>
-          <Title>{product.title}</Title>
-          <Stock>Stock: {product.rating?.count}</Stock>
-          <Price>Price: {product.price}</Price>
-          <Button disabled={product.rating?.count === 0} onClick={handleClick}>
-            Add to Cart
-          </Button>
-        </div>
-      </Container>
+      <Box>
+        <Container>
+          <Image>
+            <Img src={product.image} alt="" />
+          </Image>
+          <Contents>
+            <h1>{user}</h1>
+            <Title>{product.title}</Title>
+            <Stock>Stock: {product.rating?.count}</Stock>
+            <Price>Price: {product.price}</Price>
+            <Button
+              disabled={product.rating?.count === 0}
+              onClick={handleClick}
+            >
+              Add to Cart
+            </Button>
+          </Contents>
+        </Container>
+      </Box>
 
       <ProductsContainer>
         {relatedProducts.map((relatedProduct) => (
-          <ProductCard key={relatedProduct.id}>
-            <Image src={relatedProduct.image} alt="" />
-            <ProductCardTitle>{relatedProduct.title}</ProductCardTitle>
-            <Price>Price: {product.price}</Price>
-          </ProductCard>
+          <Card key={relatedProduct.id} product={relatedProduct} />
         ))}
       </ProductsContainer>
     </div>
