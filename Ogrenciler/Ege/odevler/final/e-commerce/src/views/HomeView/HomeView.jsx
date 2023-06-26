@@ -1,33 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
-import { setUser } from "../../redux/slices/userSlice";
-import { Link } from "react-router-dom";
+import KnowledgeList from "../../components/KnowledgeList/KnowledgeList"
 const HomeView = () => {
-    const currentUser = useSelector((state) => state.user.user);
-    const dispatch = useDispatch()
     return (
         <div>
             <h1>HomeView</h1>
-            {!currentUser && <Link to="/login">Login</Link>}
-            <br />
-            {!currentUser && <Link to="/signup">SignUp</Link>}
-            <br />
-            {currentUser && <Link to="/products">Products</Link>}
-            {
-                currentUser ? (
-                    <div>
-                        <h2>You are logged in {currentUser.name}</h2>
-                        <button onClick={() => {
-                            dispatch(setUser(null))
-                            localStorage.removeItem("userData")
-                        }}>Logout</button>
-                    </div>
-                ) : (
-                    <div>
-                        <h2>You are not logged in</h2>
-                        <Link to={"/login"}>Login</Link>
-                    </div>
-                )
-            }
+            <KnowledgeList />
+
         </div>
     )
 }

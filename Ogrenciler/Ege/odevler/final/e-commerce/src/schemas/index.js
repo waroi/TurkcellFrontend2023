@@ -36,10 +36,6 @@ export const loginSchema = yup.object().shape({
   password: yup.string().required("Password is required"),
 });
 
-export const searchSchema = yup.object().shape({
-  search: yup.string().required("Search term is required"),
-});
-
 export const validationSchema = yup.object().shape({
   title: yup.string().required("Title is required"),
   price: yup.number().required("Price is required"),

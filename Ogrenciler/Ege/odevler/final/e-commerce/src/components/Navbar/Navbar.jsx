@@ -1,6 +1,5 @@
-import { NavLink, Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useFormik } from 'formik';
-// import { searchSchema } from "../../schemas";
 import { useSelector, useDispatch } from "react-redux"
 import { setSearchValue } from "../../redux/slices/searchSlice";
 import ButtonPrimary from "../../styledComponents/ButtonPrimary";
@@ -9,9 +8,7 @@ import searchIcon from "../../assets/Search_Magnifying_Glass_Gray.svg"
 import searchIconBlack from "../../assets/Search_Magnifying_Glass_Black.svg"
 import hamburgerMenu from "../../assets/Hamburger_LG.svg"
 import { useState } from "react"
-// import StyledNavbar from "./StyledNavbar.js"
 import AccountDropdown from "./AccountDropdown/AccountDropdown";
-import Form from "../../styledComponents/StyledForm";
 
 const Navbar = () => {
 
