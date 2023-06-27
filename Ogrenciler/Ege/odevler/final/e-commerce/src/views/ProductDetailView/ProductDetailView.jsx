@@ -3,21 +3,29 @@ import { useEffect, useState } from 'react';
 import axios from "axios"
 import { useSelector } from "react-redux"
 import UpdateProduct from '../../components/UpdateProduct/UpdateProduct';
+import Carousel from '../../components/ProductDetail/Carousel/Carousel';
+import ProductInfo from '../../components/ProductDetail/ProductInfo/ProductInfo';
+import RandomProducts from '../../components/ProductDetail/RandomProducts/RandomProducts';
 
 const ProductDetailView = () => {
 
     const { id } = useParams()
     const [product, setProduct] = useState({});
     const user = useSelector((state) => state.user.user)
+    const [randomProducts, setRandomProducts] = useState([])
 
     useEffect(() => {
         axios.get(`http://localhost:3000/products/${id}`)
             .then(response => setProduct(response.data))
             .catch(err => console.log('Error fetching product data:', err))
-
     }, []);
 
-
+    useEffect(() => {
+        axios.get("http://localhost:3000/products")
+            .then(response => {
+                setRandomProducts(response.data.filter(responseProduct => responseProduct.id != product.id).sort(() => Math.random() - 0.5).slice(0, 8))
+            })
+    }, [])
 
     const handleCartClick = () => {
         if (product.rating?.count > 0) {
@@ -58,12 +66,21 @@ const ProductDetailView = () => {
     }
 
     return (
-        <div>
+        <div className='container'>
             {(user.isAdmin && product) && <UpdateProduct product={product} setProduct={setProduct} />}
-            <h1>{user.name}</h1>
+            <div className="row justify-content-center mt-5">
+                <div className="col-lg-6">
+                    <Carousel img={product.image} />
+                </div>
+                <div className="col-lg-6">
+                    <ProductInfo product={product} handleCartClick={handleCartClick} />
+                </div>
+            </div>
+            <RandomProducts randomProducts={randomProducts} />
+            {/* <h1>{user.name}</h1>
             <h2>{product.title}</h2>
             <h2>Stock: {product.rating?.count} {product.rating?.rate} </h2>
-            <button className={`${product.rating?.count == 0 && "disabled"} btn btn-success`} onClick={handleCartClick} >Add to Cart</button>
+            <button className={`${product.rating?.count == 0 && "disabled"} btn btn-success`} onClick={handleCartClick} >Add to Cart</button> */}
         </div>
     )
 }

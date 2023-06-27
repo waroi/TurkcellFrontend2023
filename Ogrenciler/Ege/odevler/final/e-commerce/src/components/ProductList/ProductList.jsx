@@ -18,7 +18,6 @@ const ProductList = () => {
         axios.get('http://localhost:3000/products')
             .then(response => {
                 setProducts(response.data.map(el => ({ ...el, isFiltered: true, isSearched: el.title.toLowerCase().includes(searchValue.toLowerCase()) })).sort(comparePrices).reverse())
-                console.log(searchValue)
             })
 
             .catch(err => console.log('Error fetching product data:', err))
@@ -93,7 +92,7 @@ const ProductList = () => {
                         <div className="row">
                             {
                                 products?.map(product => (product.isFiltered && product.isSearched) && (
-                                    <Link key={product.id} className="toPageLink col-lg-4" to={`/products/${product.id}`}>
+                                    <Link key={product.id} className="toPageLink col-6 col-lg-4" to={`/products/${product.id}`}>
                                         <ProductCard product={product} />
 
                                     </Link>
