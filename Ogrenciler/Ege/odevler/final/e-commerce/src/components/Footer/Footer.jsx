@@ -1,6 +1,7 @@
 import StyledFooter from "./StyledFooter"
 import ButtonPrimary from "../../styledComponents/ButtonPrimary"
 import { Link } from "react-router-dom"
+import logo from "../../assets/Logo.svg"
 
 const Footer = () => {
     return (
@@ -58,7 +59,9 @@ const Footer = () => {
                         2022 EgeCommerce, All rights reserved
                     </div>
                     <div className="col-lg-4 text-center">
-                        <Link to={"/"}>EgeCommerce</Link>
+                        <Link to={"/"}>
+                            <img src={logo} alt="logo" />
+                        </Link>
                     </div>
                     <div className="col-lg-4 text-center text-lg-end">
                         <span className="mx-3">Terms of Service</span>

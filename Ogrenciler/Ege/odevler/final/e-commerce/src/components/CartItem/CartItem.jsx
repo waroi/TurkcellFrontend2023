@@ -4,7 +4,9 @@ import axios from "axios"
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Form from "../../styledComponents/StyledForm"
-
+import ButtonPrimary from "../../styledComponents/ButtonPrimary"
+import ButtonOutline from "../../styledComponents/ButtonOutline"
+import StyledCartItem from "./StyledCartItem";
 
 const CartItem = ({ cartItem, setCart }) => {
     const user = useSelector((state) => state.user.user)
@@ -125,12 +127,13 @@ const CartItem = ({ cartItem, setCart }) => {
         }
     }
     return (
-        <div className="d-flex justify-content-evenly align-items-center">
-            <div className="info">
-                <p>{cartItem.title} - {cartItem.price}</p>
+        <StyledCartItem className="d-flex justify-content-between align-items-center container">
+            <div className="info d-flex align-items-center gap-5">
+                <img src={cartItem.image} alt="" />
+                <p>{cartItem.title} • {cartItem.price} $</p>
             </div>
-            <div className="amount d-flex justify-content-evenly align-items-center">
-                <button onClick={decrementCart} className="decrement">-</button>
+            <div className="amount d-flex gap-5 align-items-center">
+                <ButtonOutline onClick={decrementCart} className="decrement">-</ButtonOutline>
                 <Form onSubmit={handleSubmit}>
                     <input
                         type="number"
@@ -141,10 +144,10 @@ const CartItem = ({ cartItem, setCart }) => {
                     />
                     {errors.demand && <div className="error">{errors.demand}</div>}
                 </Form>
-                <button onClick={incrementCart} className="increment">+</button>
+                <ButtonOutline onClick={incrementCart} className="increment">+</ButtonOutline>
             </div>
-            <button onClick={deleteCartItem} >Delete Item</button>
-        </div>
+            <ButtonPrimary onClick={deleteCartItem} >Delete Item</ButtonPrimary>
+        </StyledCartItem>
     )
 }
 

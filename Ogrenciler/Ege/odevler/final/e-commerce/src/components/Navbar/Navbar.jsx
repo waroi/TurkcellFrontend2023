@@ -9,6 +9,7 @@ import searchIconBlack from "../../assets/Search_Magnifying_Glass_Black.svg"
 import hamburgerMenu from "../../assets/Hamburger_LG.svg"
 import { useState } from "react"
 import AccountDropdown from "./AccountDropdown/AccountDropdown";
+import logo from "../../assets/Logo.svg"
 
 const Navbar = () => {
 
@@ -55,7 +56,9 @@ const Navbar = () => {
                         <div className="col-lg-6">
                             <div className="row justify-content-center align-items-center">
                                 <div className="col-lg-4 navbarItem navbarLogo">
-                                    <Link to={"/"}>EgeCommerce</Link>
+                                    <Link to={"/"}>
+                                        <img src={logo} alt="logo" />
+                                    </Link>
                                 </div>
                                 <div className="col-lg-2 navbarItem">
                                     <Link to={"/"}>Home</Link>
