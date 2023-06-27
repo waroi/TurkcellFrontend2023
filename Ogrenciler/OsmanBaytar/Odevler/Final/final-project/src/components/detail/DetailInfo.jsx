@@ -76,6 +76,8 @@ const DetailInfo = (props) => {
     }
   }, [isOkey]);
 
+  console.log(props.data.sliderImages);
+
   function addBasket() {
     console.log("addBasket");
     basketRequest.post({
@@ -88,6 +90,7 @@ const DetailInfo = (props) => {
       image: props.data.image,
       rate: props.data.rate,
       count: props.data.count,
+      sliderImages: props.data.sliderImages,
     });
   }
 

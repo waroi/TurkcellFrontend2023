@@ -7,7 +7,7 @@ import {
   BasketItemInput,
   BasketItemSpan,
 } from "../../styles/BasketItem";
-import { deleteBasket, editBasket } from "../../redux/slices/basketSlice";
+import { deleteBasket } from "../../redux/slices/basketSlice";
 import { useDispatch } from "react-redux";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -46,7 +46,7 @@ const BasketItem = (props) => {
   }
 
   const data = props.data;
-  // console.log(data);
+  console.log(data);
   // console.log(data.id);
 
   const dispatch = useDispatch();
@@ -60,17 +60,18 @@ const BasketItem = (props) => {
   useEffect(() => {
     if (props.complete == true) {
       console.log(countInput?.current?.value);
-      dispatch(
-        editBasket({
-          id: data.id,
-          title: data.title,
-          price: data.price,
-          category: data.category,
-          image: data.image,
-          count: data.count - countInput?.current?.value,
-          username: data.username,
-        })
-      );
+      productRequest.put(productId, {
+        id: productId,
+        title: data.title,
+        price: data.price,
+        description: data.description,
+        category: data.category,
+        image: data.image,
+        rate: data.rate,
+        count: data.count - countInput?.current?.value,
+        sliderImages: data.sliderImages,
+      });
+      dispatch(deleteBasket(data.id));
     }
   }, [props.complete]);
 
