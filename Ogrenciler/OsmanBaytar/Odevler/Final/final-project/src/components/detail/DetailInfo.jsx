@@ -14,11 +14,16 @@ import { basketRequest } from "../../utils/Request";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addBasketCount } from "../../redux/slices/basketAddSlice";
 
 const DetailInfo = (props) => {
   const [basketData, setBasketData] = useState({});
   const currentUser = useSelector((state) => state.login.login);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const basketNumber = useSelector((state) => state.basketAdd.count);
+  console.log(basketNumber);
 
   const [isOkey, setIsOkey] = useState(false);
 
@@ -48,6 +53,7 @@ const DetailInfo = (props) => {
       console.log("true okeyd");
       addBasket();
       navigate("/Basket");
+      dispatch(addBasketCount(basketNumber + 1));
     }
   }, [isOkey]);
 

@@ -27,13 +27,16 @@ const Header = () => {
   const [secondButton, setSecondButton] = useState("");
   const [isDropdown, setIsDropdown] = useState(false);
   const [basketData, setBasketData] = useState([]);
+  const basketCount = useSelector((state) => state.basketAdd.count);
+  console.log(basketCount);
 
   useEffect(() => {
     basketRequest.get().then((data) => {
       setBasketData(data);
     });
-  }, [basketData]);
+  }, [basketCount]);
 
+  console.log(basketData);
   const dispatch = useDispatch();
 
   if (loginCount === 0) {

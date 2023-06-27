@@ -15,9 +15,10 @@ const BasketViewContainer = styled.div`
 
 const BasketView = () => {
   const [basketData, setBasketData] = useState([]);
+  const [removeAllCount, setRemoveAllCount] = useState(0);
   const navigate = useNavigate();
   const currentUser = useSelector((state) => state.login.login);
-  // console.log(currentUser.username);
+  console.log(currentUser.username);
 
   function goToHome() {
     navigate("/");
@@ -29,12 +30,13 @@ const BasketView = () => {
     });
   }, []);
 
-  // function removeBasket() {}
-  // basketData.map((data, index) => {
-  //   if (data.username == currentUser.username) {
-  //     basketRequest.delete(data.id);
-  //   }
-  // });
+  // useEffect(() => {
+  //   basketData.map((data, index) => {
+  //     if (data.username == currentUser.username) {
+  //       basketRequest.delete(data.id);
+  //     }
+  //   });
+  // }, [removeAllCount]);
 
   console.log(basketData);
 

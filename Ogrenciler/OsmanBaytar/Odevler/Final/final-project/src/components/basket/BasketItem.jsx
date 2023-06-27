@@ -44,6 +44,7 @@ const BasketItem = (props) => {
   // console.log(data.id);
 
   const dispatch = useDispatch();
+
   function removeBasket() {
     dispatch(deleteBasket(data.id));
     setIsView(false);
