@@ -6,7 +6,7 @@ import Register from "../Register/Register";
 import { useEffect, useState } from "react";
 
 function Navbar() {
-  const [background, setBackground] = useState("#fdfdfd");
+  const [background, setBackground] = useState("transparent");
 
   useEffect(() => {
     const handleScroll = () => {

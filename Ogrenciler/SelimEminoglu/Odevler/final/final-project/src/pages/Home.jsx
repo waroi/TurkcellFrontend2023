@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import ProductListView from "../views/ProductList/ProductListView";
 import İconList from "../components/İconList/İconList";
 import News from "../components/News/News";
+import Footer from "../components/Footer/Footer";
 
 function Home() {
   return (
@@ -26,6 +27,7 @@ function Home() {
         image="./src/assets/images/ads_pic_2.png"
       />
       <News />
+      <Footer />
     </div>
   );
 }
