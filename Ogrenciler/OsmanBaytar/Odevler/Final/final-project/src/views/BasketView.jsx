@@ -8,6 +8,7 @@ import { basketRequest } from "../utils/Request";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
+import { func } from "prop-types";
 
 const BasketViewContainer = styled.div`
   min-height: 100vh;
@@ -19,6 +20,7 @@ const BasketView = () => {
   const [basketItemsView, setBasketItemsView] = useState(true);
   const navigate = useNavigate();
   const currentUser = useSelector((state) => state.login.login);
+  const [isComplete, setIsComplete] = useState(false);
 
   function goToHome() {
     navigate("/");
@@ -29,6 +31,10 @@ const BasketView = () => {
       setBasketData(data);
     });
   }, []);
+
+  function complete() {
+    setIsComplete(true);
+  }
 
   // function removeAllBasket() {
   //   basketData.map((data, index) => {
@@ -46,12 +52,16 @@ const BasketView = () => {
       <hr />
 
       {basketItemsView &&
-        basketData.map((data, index) => <BasketItem data={data} key={index} />)}
+        basketData.map((data, index) => (
+          <BasketItem complete={isComplete} data={data} key={index} />
+        ))}
 
       {basketData.length !== 0 ? (
         <div className="row justify-content-center gap-3">
           {/* <BasketItemButtonRemove>Remove Basket</BasketItemButtonRemove> */}
-          <BasketItemButtonComplete>Complete Order</BasketItemButtonComplete>
+          <BasketItemButtonComplete onClick={complete}>
+            Complete Order
+          </BasketItemButtonComplete>
         </div>
       ) : (
         <div className="text-center mt-5">

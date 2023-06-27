@@ -14,9 +14,12 @@ export const basketSlice = createSlice({
       console.log("okey");
       console.log(action.payload);
     },
+    editBasket: (state, action) => {
+      basketRequest.put(action.payload.id, action.payload);
+    },
   },
 });
 
-export const { deleteBasket } = basketSlice.actions;
+export const { deleteBasket, editBasket } = basketSlice.actions;
 
 export default basketSlice.reducer;

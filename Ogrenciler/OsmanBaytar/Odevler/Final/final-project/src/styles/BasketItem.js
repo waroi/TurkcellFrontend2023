@@ -62,7 +62,6 @@ export const BasketItemInput = styled.input`
   border: none;
   border-radius: 5px;
   border: 1px solid #ccc;
-  color: #fff;
   text-align: center;
   font-size: 16px;
   font-weight: 600;

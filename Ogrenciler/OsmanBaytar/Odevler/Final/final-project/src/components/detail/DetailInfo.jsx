@@ -30,6 +30,7 @@ const DetailInfo = (props) => {
 
   const [isOkey, setIsOkey] = useState(false);
   const buttonDisabled = useRef();
+  const [maxId, setMaxId] = useState(0);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -44,6 +45,12 @@ const DetailInfo = (props) => {
       setBasketData(data);
     });
   }, []);
+
+  useEffect(() => {
+    if (basketData.length > 0) {
+      setMaxId(basketData[basketData.length - 1].id);
+    }
+  }, [basketData]);
 
   console.log(props.data);
   console.log(isOkey);
@@ -72,7 +79,7 @@ const DetailInfo = (props) => {
   function addBasket() {
     console.log("addBasket");
     basketRequest.post({
-      id: basketData.length + 1,
+      id: maxId + 1,
       username: currentUser.username,
       title: props.data.title,
       price: props.data.price,

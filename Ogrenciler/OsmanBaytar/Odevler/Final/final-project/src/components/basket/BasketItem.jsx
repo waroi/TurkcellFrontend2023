@@ -7,9 +7,9 @@ import {
   BasketItemInput,
   BasketItemSpan,
 } from "../../styles/BasketItem";
-import { deleteBasket } from "../../redux/slices/basketSlice";
+import { deleteBasket, editBasket } from "../../redux/slices/basketSlice";
 import { useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { productRequest } from "../../utils/Request";
 import { addBasketCount } from "../../redux/slices/basketAddSlice";
@@ -20,8 +20,10 @@ const BasketItem = (props) => {
   const [productData, setProductData] = useState([]);
   const [productId, setProductId] = useState(0);
   const navigate = useNavigate();
-
+  console.log(props.complete);
   const basketNumber = useSelector((state) => state.basketAdd.count);
+
+  const countInput = useRef();
 
   useEffect(() => {
     productRequest.get().then((data) => {
@@ -55,6 +57,23 @@ const BasketItem = (props) => {
     dispatch(addBasketCount(basketNumber + 1));
   }
 
+  useEffect(() => {
+    if (props.complete == true) {
+      console.log(countInput?.current?.value);
+      dispatch(
+        editBasket({
+          id: data.id,
+          title: data.title,
+          price: data.price,
+          category: data.category,
+          image: data.image,
+          count: data.count - countInput?.current?.value,
+          username: data.username,
+        })
+      );
+    }
+  }, [props.complete]);
+
   return (
     <>
       {isView && (
@@ -69,7 +88,12 @@ const BasketItem = (props) => {
             <BasketItemP>Stock: {data.count}</BasketItemP>
             <div>
               <BasketItemSpan className="me-3">Quantity:</BasketItemSpan>
-              <BasketItemInput type="number" min="1" max={data.count} />
+              <BasketItemInput
+                ref={countInput}
+                type="number"
+                min="1"
+                max={data.count}
+              />
             </div>
 
             <BasketItemButtonRemove onClick={removeBasket}>
