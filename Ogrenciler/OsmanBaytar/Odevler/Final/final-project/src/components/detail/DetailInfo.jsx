@@ -11,7 +11,7 @@ import {
   StaticOrderComponentButtonLight,
 } from "../../styles/StaticOrderComponent";
 import { basketRequest } from "../../utils/Request";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -25,7 +25,19 @@ const DetailInfo = (props) => {
   const basketNumber = useSelector((state) => state.basketAdd.count);
   console.log(basketNumber);
 
+  const isLoggedIn = localStorage.getItem("login") ? true : false;
+  console.log(isLoggedIn);
+
   const [isOkey, setIsOkey] = useState(false);
+  const buttonDisabled = useRef();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      buttonDisabled.current.disabled = false;
+    } else {
+      buttonDisabled.current.disabled = true;
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
     basketRequest.get().then((data) => {
@@ -96,7 +108,10 @@ const DetailInfo = (props) => {
       <DetailInfoTitle>{props.data.title}</DetailInfoTitle>
       <DetailInfoPrice>${props.data.price}</DetailInfoPrice>
       <div className="d-flex justify-content-center align-items-center gap-3">
-        <StaticOrderComponentButtonDark onClick={checkBasket}>
+        <StaticOrderComponentButtonDark
+          ref={buttonDisabled}
+          onClick={checkBasket}
+        >
           ADD TO CART
         </StaticOrderComponentButtonDark>
         {/* <StaticOrderComponentButtonLight onClick={buyNow}>

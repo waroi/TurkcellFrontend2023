@@ -12,12 +12,16 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { productRequest } from "../../utils/Request";
+import { addBasketCount } from "../../redux/slices/basketAddSlice";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 const BasketItem = (props) => {
   const [isView, setIsView] = useState(true);
   const [productData, setProductData] = useState([]);
   const [productId, setProductId] = useState(0);
   const navigate = useNavigate();
+
+  const basketNumber = useSelector((state) => state.basketAdd.count);
 
   useEffect(() => {
     productRequest.get().then((data) => {
@@ -48,6 +52,7 @@ const BasketItem = (props) => {
   function removeBasket() {
     dispatch(deleteBasket(data.id));
     setIsView(false);
+    dispatch(addBasketCount(basketNumber + 1));
   }
 
   return (
