@@ -124,7 +124,25 @@ export const Footerİcon = styled.img`
 `;
 
 export const FooterAltTagDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
   width: 1180px;
+  height: 40px;
+  flex-shrink: 0;
+`;
+
+export const FooterH4 = styled.h4`
+  color: #667479;
+  font-size: 14px;
+  font-family: SVN-Gilroy;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+`;
+
+export const FooterMainİcon = styled.img`
+  width: 115px;
   height: 40px;
   flex-shrink: 0;
 `;
