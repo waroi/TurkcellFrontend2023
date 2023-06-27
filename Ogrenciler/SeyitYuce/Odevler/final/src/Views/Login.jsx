@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../redux/slices/userSlice.js";
 import Cookies from "js-cookie";
 
@@ -11,6 +11,9 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+
+  console.log(user);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -36,7 +39,6 @@ const Login = () => {
             onClose: () => {
               navigate("/");
               dispatch(setUser(user));
-              console.log(user);
             },
           });
           Cookies.set("user", JSON.stringify(user), { expires: 7 }); // Expires in 7 days
@@ -59,7 +61,7 @@ const Login = () => {
             });
           }
         }
-        console.log(user);
+        // console.log(user);
       })
       .catch((error) => {
         console.error("Error:", error);

@@ -5,6 +5,7 @@ import "./Navbar.css";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { clearUser } from "../../redux/slices/userSlice";
+import CartDropdown from "../CartDropdown/CartDropdown";
 const Header = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -12,8 +13,6 @@ const Header = () => {
   const UserDiv = styled.div`
     display: flex;
   `;
-
-  console.log(user);
 
   return (
     <div className="bg-body-tertiary">
@@ -81,12 +80,7 @@ const Header = () => {
             <div>
               {user ? (
                 <UserDiv>
-                  <li>
-                    <Link className="btn" type="button" to={"/"}>
-                      <BiCartAlt />
-                      <span>1</span>
-                    </Link>
-                  </li>
+                  <CartDropdown />
                   <li className="nav-item dropdown my-auto">
                     <a
                       className="nav-link dropdown-toggle"

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { capitalizeWords } from "../../helpers/capitalize";
 import { styled } from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
+import AddToCartButton from "../AddToCartButton/AddToCartButton";
 
 const Products = ({ slicedNumber }) => {
   const dispatch = useDispatch();
@@ -16,14 +17,17 @@ const Products = ({ slicedNumber }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedStar, setSelectedStar] = useState("");
 
-  const [editModalOpen, setEditModalOpen] = useState(false);
   const [editProduct, setEditProduct] = useState({
+    image: "",
     title: "",
     price: 0,
     category: "",
-    rating: 0,
+    rating: {
+      rate: 0,
+      count: 0,
+    },
     description: "",
-    image: "",
+    stock: 0,
   });
 
   const sortedProducts = [...products];
@@ -92,15 +96,6 @@ const Products = ({ slicedNumber }) => {
     return true;
   });
 
-  const openEditModal = (product) => {
-    setEditProduct(product);
-    // setEditModalOpen(true);
-  };
-
-  const closeEditModal = () => {
-    setEditModalOpen(false);
-    setEditProduct(null);
-  };
   const handleEditSubmit = () => {
     fetch(`http://localhost:4000/products/${editProduct.id}`, {
       method: "PUT",
@@ -119,11 +114,12 @@ const Products = ({ slicedNumber }) => {
           theme: "light",
           onClose: () => {
             dispatch(updateProduct(updatedProduct));
-            document
-              .getElementsByClassName("modal")[0]
-              .classList.remove("show");
-            document.getElementsByClassName("modal")[0].style.display = "none";
-            document.getElementsByClassName("modal-backdrop")[0].remove();
+            const modalButton = document.querySelector(
+              '[data-bs-dismiss="modal"]'
+            );
+            if (modalButton) {
+              modalButton.click();
+            }
           },
         });
       })
@@ -137,6 +133,10 @@ const Products = ({ slicedNumber }) => {
     height: 200px;
     width: 100%;
   `;
+
+  // -----------------------------------------------
+
+  // -----------------------------------------------
 
   return (
     <div className="row">
@@ -221,19 +221,17 @@ const Products = ({ slicedNumber }) => {
                 <div>
                   <button
                     className="edit-btn btn btn-primary"
-                    onClick={() => openEditModal(product)}
+                    onClick={() => setEditProduct(product)}
                     data-bs-toggle="modal"
                     data-bs-target="#editModal"
                   >
                     Edit Product
                   </button>
-                  <button className="delete-btn btn btn-danger">
-                    Add to cart
-                  </button>
+                  <AddToCartButton product={product} />
                 </div>
               ) : (
                 <>
-                  <button className="btn btn-primary">Add to cart</button>
+                  <AddToCartButton product={product} />
                 </>
               )}
             </div>
@@ -258,6 +256,18 @@ const Products = ({ slicedNumber }) => {
                     ></button>
                   </div>
                   <div className="modal-body">
+                    <label htmlFor="image">Image</label>
+                    <input
+                      type="url"
+                      className="form-control"
+                      value={editProduct?.image}
+                      onChange={(e) =>
+                        setEditProduct({
+                          ...editProduct,
+                          image: e.target.value,
+                        })
+                      }
+                    />
                     <label htmlFor="title">Title</label>
                     <input
                       type="text"
@@ -302,7 +312,7 @@ const Products = ({ slicedNumber }) => {
                         ))}
                       </select>
                     </div>
-                    <label htmlFor="rating">Rating</label>
+                    <label htmlFor="rating-rate">Rating</label>
                     <input
                       type="number"
                       className="form-control"
@@ -313,7 +323,10 @@ const Products = ({ slicedNumber }) => {
                       onChange={(e) =>
                         setEditProduct({
                           ...editProduct,
-                          rating: e.target.value,
+                          rating: {
+                            ...editProduct.rating,
+                            rate: parseFloat(e.target.value),
+                          },
                         })
                       }
                     />
@@ -329,15 +342,30 @@ const Products = ({ slicedNumber }) => {
                         })
                       }
                     />
-                    <label htmlFor="image">Image</label>
+                    <label htmlFor="">Review Count</label>
                     <input
-                      type="url"
+                      type="number"
                       className="form-control"
-                      value={editProduct?.image}
+                      value={editProduct?.rating.count}
                       onChange={(e) =>
                         setEditProduct({
                           ...editProduct,
-                          image: e.target.value,
+                          rating: {
+                            ...editProduct.rating,
+                            count: parseFloat(e.target.value),
+                          },
+                        })
+                      }
+                    />
+                    <label htmlFor="">Stock</label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      value={editProduct?.stock}
+                      onChange={(e) =>
+                        setEditProduct({
+                          ...editProduct,
+                          stock: parseFloat(e.target.value),
                         })
                       }
                     />
