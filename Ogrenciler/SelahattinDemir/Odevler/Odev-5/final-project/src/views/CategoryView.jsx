@@ -3,18 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../redux/slice/productsSlice";
 import Filter from "../components/Filter/Filter";
 import SortFilter from "../components/Filter/SortFilter";
-import Card from "../components/Card/Card";
+import CategoryCard from "../components/Card/CategoryCard";
 import { FilterTitle, ProductsLength } from "../components/Filter/FilterStyle";
 
 function CategoryView() {
   const dispatch = useDispatch();
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [sortBy, setSortBy] = useState("default");
-
   const { products } = useSelector((state) => state.products);
-  const isLoggedIn = useSelector((state) => state.loggedIn);
-
-  console.log("isLoggedIn", isLoggedIn);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -84,7 +80,7 @@ function CategoryView() {
           </div>
           <div className="row">
             {sortedProducts.map((item) => (
-              <Card key={item.id} data={item} />
+              <CategoryCard key={item.id} data={item} />
             ))}
           </div>
         </div>
