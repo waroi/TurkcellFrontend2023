@@ -19,6 +19,7 @@ const DetailInfo = (props) => {
   const [basketData, setBasketData] = useState({});
   const currentUser = useSelector((state) => state.login.login);
   const navigate = useNavigate();
+
   const [isOkey, setIsOkey] = useState(false);
 
   useEffect(() => {
@@ -26,12 +27,13 @@ const DetailInfo = (props) => {
       setBasketData(data);
     });
   }, []);
-  console.log(currentUser);
-  console.log(basketData.length);
+
   console.log(props.data);
+  console.log(isOkey);
 
   function checkBasket() {
     setIsOkey(true);
+    console.log("checked");
     if (currentUser.length !== 0) {
       for (let i = 0; i < basketData.length; i++) {
         if (basketData[i].title == props.data.title) {
@@ -43,11 +45,14 @@ const DetailInfo = (props) => {
 
   useEffect(() => {
     if (isOkey == true) {
+      console.log("true okeyd");
       addBasket();
+      navigate("/Basket");
     }
   }, [isOkey]);
 
   function addBasket() {
+    console.log("addBasket");
     basketRequest.post({
       id: basketData.length + 1,
       username: currentUser.username,

@@ -14,6 +14,7 @@ export const BasketItemImage = styled.img`
   height: auto;
   margin-left: 25%;
   padding: 20px 0;
+  cursor: pointer;
   @media (max-width: 400px) {
     margin-left: 0;
   }
