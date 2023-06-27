@@ -1,7 +1,9 @@
 import Card from "../../Components/Products/Card";
 import { ProductsContainer } from "../../Components/Style/styled-productDetail";
+import ViewMore from "../../Components/Home/ViewMore";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import bannerImage from "../../assets/banner.png";
 
 const HomeView = () => {
   const [products, setProducts] = useState([]);
@@ -32,11 +34,20 @@ const HomeView = () => {
   return (
     //Banner//
 
-    <ProductsContainer>
-      {products.map((product) => (
-        <Card key={product.id} product={product} />
-      ))}
-    </ProductsContainer>
+    <div>
+      <img
+        src={bannerImage}
+        alt="banner"
+        style={{ width: "100%", height: "auto" }}
+      />
+
+      <ViewMore />
+      <ProductsContainer>
+        {products.map((product) => (
+          <Card key={product.id} product={product} />
+        ))}
+      </ProductsContainer>
+    </div>
 
     //ufak banner//
     //tekrar card//
