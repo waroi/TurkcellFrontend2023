@@ -1,6 +1,11 @@
 import { useFormik } from "formik";
 import { loginSchema } from "../schemas";
 import "../styles/SignUpForm.css";
+import { addLogin } from "../redux/slices/loginSlice";
+import { userRequest } from "../utils/Request";
+import { useDispatch } from "react-redux";
+import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => {
@@ -10,6 +15,37 @@ const onSubmit = async (values, actions) => {
 };
 
 function LogInForm() {
+  const currentEmail = useRef("");
+  const currentPassword = useRef("");
+  const dispatch = useDispatch();
+
+  const [userData, setUserData] = useState([]);
+  useEffect(() => {
+    userRequest.get().then((data) => {
+      setUserData(data);
+    });
+  }, []);
+
+  function checkLogin() {
+    userData.map((item) => {
+      if (
+        item.email === currentEmail.current.value &&
+        item.password === currentPassword.current.value
+      ) {
+        localStorage.setItem(
+          "login",
+          !localStorage.getItem("login")
+            ? JSON.stringify(item)
+            : localStorage.getItem("login")
+        );
+        dispatch(addLogin(item));
+      }
+    });
+  }
+
+  const login = useSelector((state) => state.login.login);
+  console.log(login);
+
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
@@ -28,6 +64,7 @@ function LogInForm() {
           type="email"
           value={values.email}
           onChange={handleChange}
+          ref={currentEmail}
           id="email"
           placeholder="Type an email"
           className={errors.email ? "input-error" : ""}
@@ -40,6 +77,7 @@ function LogInForm() {
           type="password"
           value={values.password}
           onChange={handleChange}
+          ref={currentPassword}
           id="password"
           placeholder="Type a password"
           className={errors.password ? "input-error" : ""}
@@ -47,7 +85,7 @@ function LogInForm() {
         {errors.password && <p className="error">{errors.password}</p>}
       </div>
 
-      <button type="submit" disabled={isSubmitting}>
+      <button type="submit" disabled={isSubmitting} onClick={checkLogin}>
         Log In
       </button>
     </form>

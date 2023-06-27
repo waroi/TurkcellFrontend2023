@@ -2,40 +2,20 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Router from "./routes/Router";
-// import { useSelector, useDispatch } from "react-redux";
-// import { useEffect } from "react";
-// import { userRequest } from "./utils/Request";
-// import { addUsers } from "./redux/slices/usersSlice";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useDispatch } from "react-redux";
+import { addLogin } from "./redux/slices/loginSlice";
 
 function App() {
-  // const users = useSelector((state) => state.users);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  let login = "";
+  if (localStorage.getItem("login")) {
+    login = JSON.parse(localStorage.getItem("login"));
+    dispatch(addLogin(login));
+    login = useSelector((state) => state.login.login);
+  }
 
-  // const data = [
-  //   {
-  //     id: 1,
-  //     name: "Osman",
-  //     surname: "Baytar",
-  //     username: "osmanbaytar",
-  //     email: "bosman1997@hotmail.com",
-  //     password: "123456Abc",
-  //     is_admin: true,
-  //   },
-  // ];
-
-  // userRequest.post(data).then((data) => {
-  //   console.log(data);
-  // });
-
-  // function handleAddUsers() {
-  //   dispatch(addUsers(data));
-  // }
-
-  // useEffect(() => {
-  //   handleAddUsers();
-  // }, []);
-
-  // console.log(users);
+  console.log(login);
   return (
     <>
       <Header />

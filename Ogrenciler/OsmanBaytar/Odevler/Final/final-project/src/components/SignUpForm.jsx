@@ -36,6 +36,7 @@ function SignUpForm() {
     userData.map((item) => {
       if (
         item.username === currentUsername.current.value ||
+        item.email === currentEmail.current.value ||
         item.name == "" ||
         item.surname == "" ||
         item.username == "" ||
