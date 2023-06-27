@@ -13,7 +13,6 @@ const DetailView = () => {
       .then((data) => setProduct(data));
   }, [id]);
 
-  console.log(product);
   return (
     <div className="container">
       <DetailCard data={product} />
