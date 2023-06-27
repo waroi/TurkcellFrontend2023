@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 
 export const StyledNavbar = styled.div`
+  position: relative;
+  z-index: 100;
   .navbarItem {
     a {
       color: #003459;

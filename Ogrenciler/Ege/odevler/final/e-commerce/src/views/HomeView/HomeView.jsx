@@ -4,9 +4,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import HomeProducts from "../../components/HomeProducts/HomeProducts"
 import PromotionProducts from "../../components/PromotionProducts/PromotionProducts"
-import Banner from "../../components/Banner/Banner"
-import imageOne from "../../assets/Woman_Holds_Dog.png"
-import imageTwo from "../../assets/Adoption_Banner.png"
+import HeroBanner from "../../components/HeroBanner/HeroBanner"
 const HomeView = () => {
 
     const [products, setProducts] = useState([])
@@ -29,7 +27,7 @@ const HomeView = () => {
 
     return (
         <div>
-            <h1>HomeView</h1>
+            <HeroBanner />
             <HomeProducts products={products} />
             {/* <Banner img={bannerImageOne} title={bannerTitleOne} subtitle={bannerSubTitleOne} text={bannerTextOne} imgOnLeft={true} /> */}
             <PromotionProducts products={products} />
