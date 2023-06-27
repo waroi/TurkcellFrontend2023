@@ -19,7 +19,7 @@ function ProductListView({ h2Text, h3Text }) {
             <ProductH3>{h3Text}</ProductH3>
           </FlexText>
           <Button
-            title="Daha Fazla Göster"
+            title="View More"
             display="inline-flex"
             padding="12px 28px"
             gap="8px"

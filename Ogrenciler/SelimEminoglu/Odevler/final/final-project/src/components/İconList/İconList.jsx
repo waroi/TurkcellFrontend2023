@@ -23,10 +23,11 @@ function İconList() {
     <Container>
       <TextRow>
         <İconListH2>
-          Sende <İconListTextP>Teknolojinin</İconListTextP> Bir Parçası Ol
+          Proud to be part of
+          <İconListTextP>Pet Sellers</İconListTextP>
         </İconListH2>
         <Button
-          title="Tüm Satıcıları Göster"
+          title="View all our sellers"
           padding="12px 28px"
           gap="8px"
           border="1.5px solid #003459"

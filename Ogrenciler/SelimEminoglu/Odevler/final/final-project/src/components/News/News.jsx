@@ -5,6 +5,7 @@ import {
   ProductH2,
   ProductH3,
 } from "../../views/ProductList/styleProductList";
+import NewsList from "./NewsList";
 import Button from "../Button/Button";
 
 function News() {
@@ -12,11 +13,11 @@ function News() {
     <Container>
       <FlexProductDiv>
         <FlexText>
-          <ProductH2>Zaten Biliyor Musun?</ProductH2>
-          <ProductH3>Yeni Haberleri Keşfet</ProductH3>
+          <ProductH2>You already know ?</ProductH2>
+          <ProductH3>Useful pet knowledge</ProductH3>
         </FlexText>
         <Button
-          title="Daha Fazla Göster"
+          title="View More"
           display="inline-flex"
           padding="12px 28px"
           gap="8px"
@@ -27,6 +28,7 @@ function News() {
           width="226px"
         />
       </FlexProductDiv>
+      <NewsList />
     </Container>
   );
 }

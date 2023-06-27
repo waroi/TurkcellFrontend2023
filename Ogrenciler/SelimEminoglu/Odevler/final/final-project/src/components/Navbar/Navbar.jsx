@@ -10,10 +10,10 @@ function Navbar() {
       <Container>
         <NavList>
           <img src=".\src\assets\icons\navbar_icon.svg" alt="logo" />
-          <NavbarA href="#">Anasayfa</NavbarA>
-          <NavbarA href="#">Kategoriler</NavbarA>
-          <NavbarA href="#">Hakkında</NavbarA>
-          <NavbarA href="#">Kişiler</NavbarA>
+          <NavbarA href="#">Home</NavbarA>
+          <NavbarA href="#">Category</NavbarA>
+          <NavbarA href="#">About</NavbarA>
+          <NavbarA href="#">Contact</NavbarA>
           <NavbarSearch />
           <Button title="Giriş Yap" />
           <Register />

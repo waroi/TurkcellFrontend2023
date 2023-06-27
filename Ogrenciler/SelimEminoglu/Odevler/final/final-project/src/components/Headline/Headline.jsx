@@ -25,8 +25,8 @@ function Headline() {
       <Container>
         <PartDiv>
           <FirstPart>
-            <HeadlineH2>Teknolojiye Bir Adım</HeadlineH2>
-            <HeadlineH3>Daha Fazla Ürün</HeadlineH3>
+            <HeadlineH2>One more friend</HeadlineH2>
+            <HeadlineH3>Thousands more fun!</HeadlineH3>
             <HeadlineP>
               Having a pet means you have more joy, a new friend, a happy person
               who will always be with you to have fun. We have 200+ different
@@ -34,7 +34,7 @@ function Headline() {
             </HeadlineP>
             <FlexDiv>
               <Button
-                title="İntroyu Gör"
+                title="View İntro"
                 gap="8px"
                 display="inline-flex"
                 icon=".\src\assets\icons\Play_Circle.svg"
@@ -43,7 +43,7 @@ function Headline() {
                 border="1.5px solid #003459"
                 width="175px"
               />
-              <Button title="Şimdi Keşfet" />
+              <Button title="Explore Now" />
             </FlexDiv>
           </FirstPart>
           <SecondPart></SecondPart>

@@ -11,11 +11,14 @@ function Home() {
       <Navbar />
       <Headline />
       <ProductListView
-        h2Text="Yeni Gelişmeler"
-        h3Text="Güncel Gelişmeleri Takip Edin"
+        h2Text="Whats new?"
+        h3Text="Take a look at some of our pets"
       />
       <MidAds />
-      <ProductListView h2Text="Ne Tür Birşey Arıyorsun?" h3Text="Ürünlerimiz" />
+      <ProductListView
+        h2Text="Hard to choose right products for your pets?"
+        h3Text="Our Products"
+      />
       <İconList />
       <MidAds
         istextright={false}

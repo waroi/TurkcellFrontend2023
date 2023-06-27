@@ -31,8 +31,8 @@ function MidAds({ istextright, backgroundcolor, image }) {
             <FlexAds>
               <AdsPicDiv image={image}></AdsPicDiv>
               <TextAds>
-                <AdsH2>Teknolojiye Bir Adım</AdsH2>
-                <AdsH3>Daha Fazla Ürün</AdsH3>
+                <AdsH2>One more friend</AdsH2>
+                <AdsH3>Thousands more fun!</AdsH3>
                 <AdsH4>
                   Having a pet means you have more joy, a new friend, a happy
                   person who will always be with you to have fun. We have 200+
@@ -40,7 +40,7 @@ function MidAds({ istextright, backgroundcolor, image }) {
                 </AdsH4>
                 <FlexButtons>
                   <Button
-                    title="İntroyu Gör"
+                    title="View İntro"
                     gap="8px"
                     display="inline-flex"
                     icon=".\src\assets\icons\Play_Circle.svg"
@@ -49,7 +49,7 @@ function MidAds({ istextright, backgroundcolor, image }) {
                     border="1.5px solid #003459"
                     width="175px"
                   />
-                  <Button title="Şimdi Keşfet" />
+                  <Button title="Explore Now" />
                 </FlexButtons>
               </TextAds>
             </FlexAds>
@@ -61,8 +61,10 @@ function MidAds({ istextright, backgroundcolor, image }) {
           <>
             <FlexAds>
               <TextAdsRight>
-                <AdsH2Right>Teknolojiye Bir Adım</AdsH2Right>
-                <AdsH3Right>Daha Fazla Ürün</AdsH3Right>
+                <AdsH2Right>
+                  Adoption <img src=".\src\assets\icons\Vector.svg" />
+                </AdsH2Right>
+                <AdsH3Right>We need help. so do they.</AdsH3Right>
                 <AdsH4Right>
                   Having a pet means you have more joy, a new friend, a happy
                   person who will always be with you to have fun. We have 200+
@@ -70,7 +72,7 @@ function MidAds({ istextright, backgroundcolor, image }) {
                 </AdsH4Right>
                 <FlexButtonsRight>
                   <Button
-                    title="İntroyu Gör"
+                    title="View İntro"
                     gap="8px"
                     display="inline-flex"
                     icon=".\src\assets\icons\Play_Circle.svg"
@@ -79,7 +81,7 @@ function MidAds({ istextright, backgroundcolor, image }) {
                     border="1.5px solid #003459"
                     width="175px"
                   />
-                  <Button title="Şimdi Keşfet" />
+                  <Button title="Explore Now" />
                 </FlexButtonsRight>
               </TextAdsRight>
               <AdsPicDivRight image={image}></AdsPicDivRight>
