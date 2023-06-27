@@ -31,10 +31,10 @@ const HomeView = () => {
         <div>
             <h1>HomeView</h1>
             <HomeProducts products={products} />
-            <Banner img={bannerImageOne} title={bannerTitleOne} subtitle={bannerSubTitleOne} text={bannerTextOne} imgOnLeft={true} />
+            {/* <Banner img={bannerImageOne} title={bannerTitleOne} subtitle={bannerSubTitleOne} text={bannerTextOne} imgOnLeft={true} /> */}
             <PromotionProducts products={products} />
             <Sellers />
-            <Banner img={bannerImageTwo} title={bannerTitleTwo} subtitle={bannerSubTitleTwo} text={bannerTextTwo} imgOnLeft={false} />
+            {/* <Banner img={bannerImageTwo} title={bannerTitleTwo} subtitle={bannerSubTitleTwo} text={bannerTextTwo} imgOnLeft={false} /> */}
             <KnowledgeList />
 
 

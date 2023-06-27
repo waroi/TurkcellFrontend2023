@@ -65,13 +65,16 @@ const CartView = () => {
     }
 
     return (
-        <div>
-            {
-                cart.length > 0
-                    ? cart.map((el, i) => (<CartItem key={i} cartItem={el} setCart={setCart} />))
-                    : <h2>Cart is empty</h2>
-            }
-            <CartBuy disabled={cart.length == 0} handleBuy={handleBuy} />
+        <div className="container">
+            <div className="row justify-content-center">
+
+                {
+                    cart.length > 0
+                        ? cart.map((el, i) => (<CartItem key={i} cartItem={el} setCart={setCart} />))
+                        : <h2>Cart is empty</h2>
+                }
+                <CartBuy disabled={cart.length == 0} handleBuy={handleBuy} />
+            </div>
         </div>
     )
 }

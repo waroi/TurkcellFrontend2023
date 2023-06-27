@@ -1,7 +1,8 @@
 import PropTypes from "prop-types"
+import ButtonPrimary from "../../styledComponents/ButtonPrimary"
 const CartBuy = ({ disabled, handleBuy }) => {
     return (
-        <button className={`${disabled ? "disabled" : ""} btn btn-success`} onClick={handleBuy}>CartBuy</button>
+        <ButtonPrimary className={`${disabled ? "disabled" : ""} mt-5`} onClick={handleBuy}>Purchase</ButtonPrimary>
     )
 }
 CartBuy.propTypes = {

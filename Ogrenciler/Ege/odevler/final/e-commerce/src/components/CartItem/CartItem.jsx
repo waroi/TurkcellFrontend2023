@@ -7,6 +7,9 @@ import Form from "../../styledComponents/StyledForm"
 import ButtonPrimary from "../../styledComponents/ButtonPrimary"
 import ButtonOutline from "../../styledComponents/ButtonOutline"
 import StyledCartItem from "./StyledCartItem";
+import deleteIcon from "../../assets/Close_Circle.svg"
+import plusIcon from "../../assets/Add_Plus_Circle.svg"
+import minusIcon from "../../assets/Remove_Minus_Circle.svg"
 
 const CartItem = ({ cartItem, setCart }) => {
     const user = useSelector((state) => state.user.user)
@@ -127,13 +130,18 @@ const CartItem = ({ cartItem, setCart }) => {
         }
     }
     return (
-        <StyledCartItem className="d-flex justify-content-between align-items-center container">
+        <StyledCartItem className="col-lg-6 d-flex flex-column justify-content-center p-3">
             <div className="info d-flex align-items-center gap-5">
                 <img src={cartItem.image} alt="" />
-                <p>{cartItem.title} • {cartItem.price} $</p>
+                <div className="cartItemText">
+                    <p className="title">{cartItem.title}</p>
+                    <p className="price">{cartItem.price}$</p>
+                </div>
             </div>
             <div className="amount d-flex gap-5 align-items-center">
-                <ButtonOutline onClick={decrementCart} className="decrement">-</ButtonOutline>
+                <ButtonOutline onClick={decrementCart} className="decrement">
+                    <img src={minusIcon} alt="minus" />
+                </ButtonOutline>
                 <Form onSubmit={handleSubmit}>
                     <input
                         type="number"
@@ -144,9 +152,13 @@ const CartItem = ({ cartItem, setCart }) => {
                     />
                     {errors.demand && <div className="error">{errors.demand}</div>}
                 </Form>
-                <ButtonOutline onClick={incrementCart} className="increment">+</ButtonOutline>
+                <ButtonOutline onClick={incrementCart} className="increment">
+                    <img src={plusIcon} alt="plus" />
+                </ButtonOutline>
             </div>
-            <ButtonPrimary onClick={deleteCartItem} >Delete Item</ButtonPrimary>
+            <ButtonPrimary onClick={deleteCartItem} className="delete">
+                <img src={deleteIcon} alt="delete" />
+            </ButtonPrimary>
         </StyledCartItem>
     )
 }
