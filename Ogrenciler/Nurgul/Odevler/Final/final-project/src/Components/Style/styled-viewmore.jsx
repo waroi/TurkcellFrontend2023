@@ -10,7 +10,6 @@ export const ViewMoreH4 = styled.h4`
 `;
 
 export const ViewMoreH2 = styled.h2`
-  margin-left: 20px;
   color: #003459;
   font-size: 24px;
   font-family: SVN-Gilroy;
@@ -20,7 +19,6 @@ export const ViewMoreH2 = styled.h2`
 `;
 
 export const ViewMoreButton = styled.button`
-  margin-right: 20px;
   display: inline-flex;
   padding: 12px 28px;
   justify-content: center;

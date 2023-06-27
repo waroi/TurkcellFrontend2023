@@ -3,7 +3,6 @@ import { ProductsContainer } from "../../Components/Style/styled-productDetail";
 import ViewMore from "../../Components/Home/ViewMore";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import bannerImage from "../../assets/banner.png";
 
 const HomeView = () => {
   const [products, setProducts] = useState([]);
@@ -35,12 +34,6 @@ const HomeView = () => {
     //Banner//
 
     <div>
-      <img
-        src={bannerImage}
-        alt="banner"
-        style={{ width: "100%", height: "auto" }}
-      />
-
       <ViewMore />
       <ProductsContainer>
         {products.map((product) => (
