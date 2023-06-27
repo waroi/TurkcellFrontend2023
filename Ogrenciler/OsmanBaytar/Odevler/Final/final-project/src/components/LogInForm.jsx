@@ -5,7 +5,7 @@ import { addLogin } from "../redux/slices/loginSlice";
 import { userRequest } from "../utils/Request";
 import { useDispatch } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useNavigate } from "react-router-dom";
 
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => {
@@ -18,6 +18,11 @@ function LogInForm() {
   const currentEmail = useRef("");
   const currentPassword = useRef("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  function goToHome() {
+    navigate("/");
+  }
 
   const [userData, setUserData] = useState([]);
   useEffect(() => {
@@ -39,12 +44,10 @@ function LogInForm() {
             : localStorage.getItem("login")
         );
         dispatch(addLogin(item));
+        goToHome();
       }
     });
   }
-
-  const login = useSelector((state) => state.login.login);
-  console.log(login);
 
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({

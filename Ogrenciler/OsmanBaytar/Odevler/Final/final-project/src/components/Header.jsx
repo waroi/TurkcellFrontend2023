@@ -6,12 +6,53 @@ import {
   HeaderButton,
   HeaderComputer,
   HeaderMobile,
+  HeaderSpan,
+  HeaderDropdown,
 } from "../styles/HeaderStyle";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useDispatch } from "react-redux";
+import { addLogin, deleteLogin } from "../redux/slices/loginSlice";
+import { useEffect } from "react";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileInput, setIsMobileInput] = useState(false);
+  const [loginCount, setLoginCount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("login") ? true : false
+  );
+  const [firstButton, setFirstButton] = useState("");
+  const [secondButton, setSecondButton] = useState("");
+  const [isDropdown, setIsDropdown] = useState(false);
+
+  const dispatch = useDispatch();
+
+  if (loginCount === 0) {
+    let login = "";
+    if (localStorage.getItem("login")) {
+      login = JSON.parse(localStorage.getItem("login"));
+      dispatch(addLogin(login));
+      setIsLoggedIn(true);
+    }
+    setLoginCount(1);
+  }
+  const currentUser = useSelector((state) => state.login.login);
+  useEffect(() => {
+    if (currentUser.length !== 0) {
+      setIsLoggedIn(true);
+    }
+  }, [currentUser]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      setFirstButton("Basket");
+      setSecondButton(currentUser.username);
+    } else {
+      setFirstButton("Log In");
+      setSecondButton("Sign Up");
+    }
+  }, [isLoggedIn]);
 
   const handleMobile = () => {
     setIsMobile(!isMobile);
@@ -37,6 +78,33 @@ const Header = () => {
   const goToLogIn = () => {
     navigate("/LogIn");
   };
+
+  const goToBasket = () => {
+    navigate("/Basket");
+  };
+
+  function firstButtonFunction() {
+    if (isLoggedIn) {
+      goToBasket();
+    } else {
+      goToLogIn();
+    }
+  }
+
+  function secondButtonFunction() {
+    if (isLoggedIn) {
+      setIsDropdown(!isDropdown);
+    } else {
+      goToSignUp();
+    }
+  }
+
+  function logOut() {
+    localStorage.removeItem("login");
+    dispatch(deleteLogin());
+    setIsLoggedIn(false);
+    setIsDropdown(false);
+  }
 
   return (
     <div className="container py-3">
@@ -68,7 +136,7 @@ const Header = () => {
               className="row justify-content-center align-items-center flex-row"
               style={{ height: 40 }}
             >
-              <div className="col-lg-6">
+              <div className="col-lg-5">
                 <div className="d-flex flex-row">
                   <i className="fa-solid fa-magnifying-glass me-2"></i>
                   <HeaderInput
@@ -77,13 +145,18 @@ const Header = () => {
                   />
                 </div>
               </div>
-              <div className="col-lg-3">
-                <HeaderButton onClick={goToLogIn}>Log In</HeaderButton>
+              <div className="col-lg-4">
+                <HeaderButton onClick={firstButtonFunction}>
+                  {firstButton} {isLoggedIn && <HeaderSpan>0</HeaderSpan>}
+                </HeaderButton>
               </div>
               <div className="col-lg-3">
-                <HeaderButton onClick={() => goToSignUp()}>
-                  Sign Up
+                <HeaderButton onClick={secondButtonFunction}>
+                  {secondButton}
                 </HeaderButton>
+                {isDropdown && (
+                  <HeaderDropdown onClick={logOut}>Log Out</HeaderDropdown>
+                )}
               </div>
             </div>
           </div>
@@ -118,10 +191,17 @@ const Header = () => {
             <HeaderItem>About</HeaderItem>
             <HeaderItem>Contact</HeaderItem>
             <div className="mt-3">
-              <HeaderButton>Log In</HeaderButton>
+              <HeaderButton onClick={firstButtonFunction}>
+                {firstButton} {isLoggedIn && <HeaderSpan>0</HeaderSpan>}
+              </HeaderButton>
             </div>
             <div className="mt-1">
-              <HeaderButton onClick={() => goToSignUp()}>Sign Up</HeaderButton>
+              <HeaderButton onClick={secondButtonFunction}>
+                {secondButton}
+              </HeaderButton>
+              {isDropdown && (
+                <HeaderDropdown onClick={logOut}>Log Out</HeaderDropdown>
+              )}
             </div>
           </div>
         )}

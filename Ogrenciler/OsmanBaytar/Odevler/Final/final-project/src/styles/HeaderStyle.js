@@ -27,7 +27,7 @@ export const HeaderInput = styled.input`
 
 export const HeaderButton = styled.button`
   padding: 4px 10px;
-  width: 125px;
+  width: 150px;
   border-radius: 57px;
   background: #003459;
   border: none;
@@ -44,5 +44,36 @@ export const HeaderComputer = styled.div`
 export const HeaderMobile = styled.div`
   @media (min-width: 992px) {
     display: none;
+  }
+`;
+
+export const HeaderSpan = styled.span`
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 5px;
+  color: #003459;
+  font-size: 14px;
+  font-family: SVN-Gilroy;
+  font-weight: 700;
+  line-height: 16px;
+  margin-left: 5px;
+  padding-bottom: 2px;
+`;
+
+export const HeaderDropdown = styled.div`
+  position: absolute;
+  top: 60px;
+  width: 150px;
+  background: #003459;
+  color: #ffffff;
+  border-radius: 57px;
+  padding: 4px 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  text-align: center;
+  cursor: pointer;
+  // display: ${(props) => (props.show ? "block" : "none")};
+  @media (max-width: 992px) {
+    top: 265px;
   }
 `;
