@@ -1,4 +1,4 @@
-import { BackgroundCard, HeaderImg, HomeUpContainer, PageButton, PageButtonTwo, TitleOne, TitleTwo } from "./styled"
+import { BackgroundCard, HeaderImg, HomeUpContainer, PageButton, PageButtonTwo, TitleOne, TitleTwo,Rectangle1, Rectangle2, Rectangle3, Rectangle5, Rectangle6, Rectangle7, Rectangle8, Rectangle9 } from "./styled"
 import goodHuman from "../../../assets/goodHuman.svg"
 
 const HeaderContent = () => {
@@ -23,6 +23,14 @@ const HeaderContent = () => {
           </div>
         </div>
       </HomeUpContainer>
+      <Rectangle1 />
+      <Rectangle2 />
+      <Rectangle3 />
+      <Rectangle5 />
+      <Rectangle6 />
+      <Rectangle7 />
+      <Rectangle8 />
+      <Rectangle9 />
     </BackgroundCard>
   )
 }

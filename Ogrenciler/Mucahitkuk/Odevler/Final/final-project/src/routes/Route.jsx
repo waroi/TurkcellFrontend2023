@@ -2,10 +2,10 @@ import { useRoutes } from "react-router-dom";
 import Signup from "../views/Signup/Signup";
 import Login from "../views/Login";
 import Home from "../views/Home";
-import Productdetail from "../views/Productdetail";
 import NotFound from "../views/NotFound";
 import Productpage from "../views/Productpage";
 import Cart from "../views/Cart";
+import ProductDetailPage from "../views/ProductDetailPage";
 
 const Route = () => {
   const routes = useRoutes([
@@ -24,8 +24,8 @@ const Route = () => {
     },
     { path: "/404", element: <NotFound /> },
     {
-      path: "/:id",
-      element: <Productdetail />,
+      path: "/productsdetail/:productId",
+      element: <ProductDetailPage />
     },
     {
       path: "/Cart",

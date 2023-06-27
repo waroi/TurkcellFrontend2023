@@ -13,6 +13,7 @@ const SignupForm = () => {
   const [toastMessage, setToastMessage] = useState("");
   const [processMessage, setProcessMessage] = useState("");
   const [shouldNavigate, setShouldNavigate] = useState(false);
+  const [isSignupDisabled, setIsSignupDisabled] = useState(false);
   
   const dispatch = useDispatch();
   const initialValues = {

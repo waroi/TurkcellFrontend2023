@@ -1,13 +1,13 @@
 import { PageButton, PageButtonTwo, TitleOne, TitleTwo } from "../HeaderContent/styled"
 import {  BannerImg } from "../HomeBanner/styled"
 import hand from "../../../assets/hand.png"
-import { BannerContainerTwo } from "./styled"
+import { BannerContainerTwo, HomeRectangle3, HomeRectangle4 } from "./styled"
 
 
 const HomeBannerTwo = () => {
   return (
     <BannerContainerTwo  className='mt-5'>
-    <div className='d-none d-xl-flex flex-lg-row-reverse justify-content-center align-items-center'>
+    <div className='d-none d-xl-flex z-2 flex-lg-row-reverse justify-content-center align-items-center'>
       <div className='col-md-6'>
         <BannerImg src={hand}></BannerImg>
       </div>
@@ -16,16 +16,19 @@ const HomeBannerTwo = () => {
         <TitleOne>Dont Underestimate</TitleOne>
           <TitleTwo>Helping</TitleTwo>
           <div>
-            <p >Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!
+            <p >Adopt a pet and give it a home, it will be love you back unconditionally.
+
 </p>
           </div>
-          <div className="d-flex gap-3 justify-content-center">
+          <div className="d-flex gap-3 justify-content-center flex-row-reverse">
             <PageButton >View Intro</PageButton>
             <PageButtonTwo >Explore Now</PageButtonTwo>
           </div>
         </div>
       </div>
     </div>
+    <HomeRectangle3 className="z-1" />
+    <HomeRectangle4 className="z-1" />
   </BannerContainerTwo>
   )
 }

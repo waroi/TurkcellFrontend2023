@@ -1,6 +1,12 @@
+import ProductHeader from "../components/ProductsComponents/ProductHeader/ProductHeader"
+import ProductsSection from "../components/ProductsComponents/ProductsSection/ProductsSection"
+
 const Productpage = () => {
   return (
-    <div>Productpagemain</div>
+    <div>
+      <ProductHeader />
+      <ProductsSection />
+    </div>
   )
 }
 

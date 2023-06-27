@@ -28,7 +28,7 @@ const Footer = () => {
                   className="w-75 rounded border"
                 ></input>
                 <Button className="w-25" variant="primary" size="sm">
-                  Register
+                  Subscribe Now
                 </Button>
               </div>
             </div>

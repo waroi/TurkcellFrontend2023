@@ -114,8 +114,8 @@ const NavbarComponent = () => {
           <MobileSearchDiv>
             <MobileSearch
               placeholder="Search something here!"
-              onChange={() => {
-                console.log("changed");
+              onChange={(e) => {
+                console.log(e.target.value);
               }}
               className={`${showSearch ? "visible" : "hidden"}`}
             />
