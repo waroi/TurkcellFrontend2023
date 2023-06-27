@@ -8,6 +8,7 @@ import {
   ProductH3,
 } from "./styleProductList";
 import Button from "../../components/Button/Button";
+import CardList from "../../components/CardList/CardList";
 
 function ProductListView({ h2Text, h3Text }) {
   return (
@@ -30,6 +31,7 @@ function ProductListView({ h2Text, h3Text }) {
             width="226px"
           />
         </FlexProductDiv>
+        <CardList />
       </Container>
     </ProductListDiv>
   );
