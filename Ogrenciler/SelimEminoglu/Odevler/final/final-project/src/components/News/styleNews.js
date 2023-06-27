@@ -88,7 +88,6 @@ export const NewsBodySecond = styled.div`
   display: flex;
   width: 348px;
   flex-direction: column;
-  flex: 1 0 0;
   overflow: hidden;
   color: #242b33;
   text-overflow: ellipsis;

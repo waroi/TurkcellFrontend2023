@@ -3,10 +3,25 @@ import { Container } from "../../assets/css/style";
 import NavbarSearch from "./NavbarSearch";
 import Button from "../Button/Button";
 import Register from "../Register/Register";
+import { useEffect, useState } from "react";
 
 function Navbar() {
+  const [background, setBackground] = useState("#fdfdfd");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setBackground("white");
+      } else {
+        setBackground("transparent");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+  }, [background]);
+
   return (
-    <NavbarDiv>
+    <NavbarDiv background={background}>
       <Container>
         <NavList>
           <img src=".\src\assets\icons\navbar_icon.svg" alt="logo" />

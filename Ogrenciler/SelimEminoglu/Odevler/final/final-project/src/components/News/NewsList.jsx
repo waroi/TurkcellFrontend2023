@@ -21,7 +21,7 @@ function NewsList() {
     "Dividing a dog's diet may seem simple at first, but there are some rules you should know so that your dog can easily absorb the nutrients in the diet. For those who are just starting to raise dogs, especially newborn puppies with relatively weak resistance.";
 
   const newThird =
-    "Dog bites are common during development. However, no one wants to see their furniture or important items being bitten by a dog.";
+    "Dog bites are common during development.However, no one wants to see their furniture or important items being bitten by a dog.";
 
   return (
     <Container>
@@ -49,7 +49,7 @@ function NewsList() {
             <NewsHeadline>Dog Diet You Need To Know</NewsHeadline>
             <NewsBodySecond>
               {newSecond.length > 150
-                ? newSecond.slice(0, 165) + "..."
+                ? newSecond.slice(0, 208) + "..."
                 : newSecond}
             </NewsBodySecond>
           </NewsTextDiv>

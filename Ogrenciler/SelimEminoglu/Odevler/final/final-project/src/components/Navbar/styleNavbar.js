@@ -7,6 +7,8 @@ export const NavbarDiv = styled.div`
   align-items: center;
   position: fixed;
   z-index: 4;
+  background: ${(props) => props.background};
+  transition: all 1.5s;
 `;
 
 export const NavList = styled.div`
