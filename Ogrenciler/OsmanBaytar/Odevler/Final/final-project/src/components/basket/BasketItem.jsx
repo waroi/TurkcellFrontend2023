@@ -7,11 +7,18 @@ import {
   BasketItemInput,
   BasketItemSpan,
 } from "../../styles/BasketItem";
+import { deleteBasket } from "../../redux/slices/basketSlice";
 
 const BasketItem = (props) => {
-  const data = props.data[0];
+  const data = props.data;
   console.log(data);
-  console.log(data.image);
+  console.log(data.id);
+
+  function removeBasket() {
+    deleteBasket(data.id);
+    console.log("object");
+  }
+
   return (
     <BasketItemContainer className="row p-3">
       <div className="col-lg-4">
@@ -27,7 +34,9 @@ const BasketItem = (props) => {
           <BasketItemInput type="number" min="1" max={data.count} />
         </div>
 
-        <BasketItemButtonRemove>Remove</BasketItemButtonRemove>
+        <BasketItemButtonRemove onClick={removeBasket}>
+          Remove
+        </BasketItemButtonRemove>
       </div>
     </BasketItemContainer>
   );

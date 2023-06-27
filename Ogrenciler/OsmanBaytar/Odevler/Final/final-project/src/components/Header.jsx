@@ -14,6 +14,7 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
 import { addLogin, deleteLogin } from "../redux/slices/loginSlice";
 import { useEffect } from "react";
+import { basketRequest } from "../utils/Request";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -25,6 +26,13 @@ const Header = () => {
   const [firstButton, setFirstButton] = useState("");
   const [secondButton, setSecondButton] = useState("");
   const [isDropdown, setIsDropdown] = useState(false);
+  const [basketData, setBasketData] = useState([]);
+
+  useEffect(() => {
+    basketRequest.get().then((data) => {
+      setBasketData(data);
+    });
+  }, [basketData]);
 
   const dispatch = useDispatch();
 
@@ -147,7 +155,8 @@ const Header = () => {
               </div>
               <div className="col-lg-4">
                 <HeaderButton onClick={firstButtonFunction}>
-                  {firstButton} {isLoggedIn && <HeaderSpan>0</HeaderSpan>}
+                  {firstButton}{" "}
+                  {isLoggedIn && <HeaderSpan>{basketData.length}</HeaderSpan>}
                 </HeaderButton>
               </div>
               <div className="col-lg-3">
@@ -192,7 +201,8 @@ const Header = () => {
             <HeaderItem>Contact</HeaderItem>
             <div className="mt-3">
               <HeaderButton onClick={firstButtonFunction}>
-                {firstButton} {isLoggedIn && <HeaderSpan>0</HeaderSpan>}
+                {firstButton}{" "}
+                {isLoggedIn && <HeaderSpan>{basketData.length}</HeaderSpan>}
               </HeaderButton>
             </div>
             <div className="mt-1">
