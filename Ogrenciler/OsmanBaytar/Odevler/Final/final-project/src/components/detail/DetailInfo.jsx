@@ -55,7 +55,10 @@ const DetailInfo = (props) => {
     console.log("checked");
     if (currentUser.length !== 0) {
       for (let i = 0; i < basketData.length; i++) {
-        if (basketData[i].title == props.data.title) {
+        if (
+          basketData[i].title == props.data.title &&
+          basketData[i].username == currentUser.username
+        ) {
           setIsOkey(false);
         }
       }

@@ -17,12 +17,15 @@ import {
   DetailEditTextArea,
   DetailInputLabel,
 } from "../styles/DetailEditStyle";
+import { basketRequest } from "../utils/Request";
 
 const DetailView = () => {
   const [productsData, setProductsData] = useState([]);
   const [randomProducts, setRandomProducts] = useState([]);
   const [firstFourRandomProducts, setFirstFourRandomProducts] = useState([]);
   const [secondFourRandomProducts, setSecondFourRandomProducts] = useState([]);
+  const [basketData, setBasketData] = useState([]);
+  const [intersectedData, setIntersectedData] = useState([]);
   let productID = useParams().id;
 
   const currentUser = useSelector((state) => state.login.login);
@@ -40,7 +43,31 @@ const DetailView = () => {
   const editSliderImage3 = useRef();
   const editSliderImage4 = useRef();
 
+  const [editCount, setEditCount] = useState(0);
+  const [intersectedCount, setIntersectedCount] = useState(0);
+
   console.log(productID);
+
+  useEffect(() => {
+    basketRequest.get().then((data) => {
+      setBasketData(data);
+    });
+  }, []);
+
+  console.log(basketData);
+
+  useEffect(() => {
+    if (productID > 0 && productsData.length > 0) {
+      setIntersectedCount(intersectedCount + 1);
+      if (intersectedCount == 0) {
+        basketData.map((data, index) => {
+          if (data.title == productsData[productID - 1].title) {
+            intersectedData.push(data);
+          }
+        });
+      }
+    }
+  }, [basketData]);
 
   useEffect(() => {
     if (currentUser.is_admin == true) {
@@ -123,10 +150,35 @@ const DetailView = () => {
           editSliderImage4.current.value,
         ],
       });
+      setEditCount(editCount + 1);
     } else {
       console.log("object2");
     }
   }
+
+  useEffect(() => {
+    if (editCount == 1) {
+      intersectedData.map((data, index) => {
+        basketRequest.put(data.id, {
+          id: data.id,
+          username: data.username,
+          title: editTitle.current.value,
+          price: editPrice.current.valueAsNumber,
+          description: editDescription.current.value,
+          category: editCategory.current.value,
+          image: editMainImage.current.value,
+          rate: editRating.current.valueAsNumber,
+          count: editStock.current.valueAsNumber,
+          sliderImages: [
+            editSliderImage1.current.value,
+            editSliderImage2.current.value,
+            editSliderImage3.current.value,
+            editSliderImage4.current.value,
+          ],
+        });
+      });
+    }
+  }, [editCount]);
 
   return (
     <>

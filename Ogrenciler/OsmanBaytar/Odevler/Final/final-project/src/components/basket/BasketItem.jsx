@@ -46,7 +46,7 @@ const BasketItem = (props) => {
   }
 
   const data = props.data;
-  console.log(data);
+  // console.log(data);
   // console.log(data.id);
 
   const dispatch = useDispatch();
