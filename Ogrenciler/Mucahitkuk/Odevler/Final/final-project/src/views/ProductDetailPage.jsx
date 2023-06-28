@@ -7,7 +7,6 @@ const ProductDetailPage = () => {
 
   return (
     <div>
-      <h1>Detail Page</h1>
       <ProductDetail productId={productId} />
     </div>
   );

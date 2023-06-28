@@ -1,6 +1,6 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
-import { addUser } from "../../redux/actions/actions";
+import { addUser, loginUser } from "../../redux/actions/actions";
 import { createUser, getUserByEmail, getUserByUsername } from "../../api/index";
 import { signupSchema } from "../../schema";
 import { Container, CustomForm, CustomTitle, StyledButton, StyledErrorMessage, StyledField } from "../SignUp/styled";
@@ -13,15 +13,24 @@ const SignupForm = () => {
   const [toastMessage, setToastMessage] = useState("");
   const [processMessage, setProcessMessage] = useState("");
   const [shouldNavigate, setShouldNavigate] = useState(false);
-  const [isSignupDisabled, setIsSignupDisabled] = useState(false);
-  
   const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.user.currentUser);
+
   const initialValues = {
     email: "",
     username: "",
     password: "",
     confirmPassword: "",
   };
+
+
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      dispatch(loginUser(JSON.parse(storedUser)));
+    }
+  }, [dispatch]);
 
 const handleSubmit = async (values, { setSubmitting, resetForm }) => {
   try {
@@ -93,7 +102,7 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
         onSubmit={handleSubmit}
       >
         {({ handleSubmit }) => (
-          <CustomForm onSubmit={handleSubmit}>
+          <CustomForm>
             <label>Email</label>
             <StyledField type="email" name="email" />
             <StyledErrorMessage name="email" component="div" />
@@ -106,7 +115,7 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
             <label>Confirm Password</label>
             <StyledField type="password" name="confirmPassword" />
             <StyledErrorMessage name="confirmPassword" component="div" />
-            <StyledButton  type="submit">Sign Up</StyledButton>
+            {!currentUser ? (<StyledButton onClick={handleSubmit} type="submit">Sign Up</StyledButton>) : (<p className="text-center">Already logged in</p>)}
             <h5 style={{textAlign: "center"}}>{processMessage}</h5>
           </CustomForm>
         )}

@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Container, Spinner } from "react-bootstrap";
 import { PageButton } from "../HeaderContent/styled";
 import { BrandImg, NewsGrid, ProductsGrid } from "./styled";
 import ProductCard from "../../ProductCard/ProductCard";
@@ -34,6 +34,16 @@ const MainContent = () => {
       .then((data) => setProducts(data.products))
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
+
+
+  if (products.length === 0) {
+    return (
+      <div className="d-flex justify-content-center align-items-center">
+        <Spinner animation="border" />
+      </div>
+    );
+  }
+  
 
   return (
     <>

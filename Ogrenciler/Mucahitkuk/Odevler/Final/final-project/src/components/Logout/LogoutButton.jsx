@@ -9,7 +9,7 @@ const LogoutButton = () => {
     localStorage.removeItem("loggedInUser");
     dispatch(logoutUserAction());
     console.log("Logged out successfully");
-    window.location.reload();
+    window.location.href = "/";
   };
 
   return <StyledButton style={{width: "100%"}} onClick={handleLogout}>Logout</StyledButton>;

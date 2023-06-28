@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
-import { Dropdown } from "react-bootstrap";
+import { Dropdown, Spinner } from "react-bootstrap";
 import ProductCard from "../../ProductCard/ProductCard";
 import { sortProducts } from "../../../utils/sortingUtils";
 
@@ -68,10 +68,23 @@ const ProductsSection = () => {
     setSortingOption(eventKey);
   };
 
+
   const filteredProducts = filterProducts();
   const sortedProducts = sortProducts(filteredProducts, sortingOption);
 
+  if (products.length === 0) {
+    return (
+      <div className="d-flex justify-content-center align-items-center mt-5">
+        <Spinner animation="border" />
+      </div>
+    );
+  }
+
+  console.log(products)
+
+
   return (
+    
     <Container className="mt-5">
       <div className="d-flex row">
         <div className="col-2 flex-column">

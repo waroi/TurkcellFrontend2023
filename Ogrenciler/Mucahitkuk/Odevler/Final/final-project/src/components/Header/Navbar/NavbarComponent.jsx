@@ -42,6 +42,7 @@ const NavbarComponent = () => {
           key={expand}
           expand={expand}
           className="bg-body-transparent mb-3"
+          sticky="top"
         >
           <Container fluid className="mt-3">
             <Navbar.Brand className="d-none d-sm-flex" to="#">
