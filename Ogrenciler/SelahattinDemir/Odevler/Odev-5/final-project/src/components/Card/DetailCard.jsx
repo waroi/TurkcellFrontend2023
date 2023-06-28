@@ -1,4 +1,9 @@
-import Proptypes from "prop-types";
+/* eslint-disable react/display-name */
+import React from "react";
+import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { updateProduct } from "../../redux/slice/productsSlice";
 import {
   DetailCardContainer,
   Quantity,
@@ -12,8 +17,88 @@ import {
   DetailButtonChat,
   TableTd,
 } from "./CardStyle.js";
+import EditProductModal from "../EditProductModal/EditProductModal";
+import Request from "../../utils/Request";
 
-function DetailCard({ data }) {
+const DetailCard = React.memo(({ data }) => {
+  const request = new Request("http://localhost:3004/users");
+  const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [updatedProductData, setUpdatedProductData] = useState({});
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const users = localStorage.getItem("user");
+    const parsedUser = JSON.parse(users);
+    setUser(parsedUser);
+  }, []);
+
+  const handleEdit = () => {
+    setUpdatedProductData(data);
+    setIsModalOpen(true);
+  };
+
+  const handleUpdate = (updatedProduct) => {
+    dispatch(updateProduct(updatedProduct));
+  };
+
+  const handleAddToCart = async () => {
+    const existingItem = user.carts.find((item) => item.id === data.id);
+
+    if (existingItem) {
+      const updatedCarts = user.carts.map((item) => {
+        if (item.id === data.id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+        return item;
+      });
+
+      await request.put(`/${user.id}`, {
+        ...user,
+        carts: updatedCarts,
+      });
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          ...user,
+          carts: updatedCarts,
+        })
+      );
+    } else {
+      const newItem = {
+        ...data,
+        quantity: 1,
+      };
+
+      await request.put(`/${user.id}`, {
+        ...user,
+        carts: [...user.carts, newItem],
+      });
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          ...user,
+          carts: [...user.carts, newItem],
+        })
+      );
+
+      window.location.reload();
+    }
+
+    // Güncellenmiş kullanıcıyı tekrar almak için localStorage'dan okuma yapalım
+    const updatedUser = JSON.parse(localStorage.getItem("user"));
+    setUser(updatedUser);
+  };
+
+  if (!user) {
+    return null; // Kullanıcı yüklenene kadar bileşenin render edilmemesi için null döndürüyoruz
+  }
+
   return (
     <DetailCardContainer className="row align-items-center">
       <div className="col-lg-6">
@@ -108,19 +193,30 @@ function DetailCard({ data }) {
               </tr>
             </tbody>
           </table>
-          <div className="d-flex justify-content-center">
-            <a href="#" className="btn btn-danger mt-3">
+          <div className="d-flex justify-content-center align-items-center mt-2">
+            <DetailButtonContact onClick={handleAddToCart}>
               Add to Cart
-            </a>
+            </DetailButtonContact>
+            {user?.role === "admin" && (
+              <DetailButtonChat onClick={handleEdit} className="ms-3">
+                Edit
+              </DetailButtonChat>
+            )}
           </div>
         </div>
       </div>
+      <EditProductModal
+        isOpen={isModalOpen}
+        handleClose={() => setIsModalOpen(false)}
+        handleUpdate={handleUpdate}
+        product={updatedProductData}
+      />
     </DetailCardContainer>
   );
-}
+});
 
 DetailCard.propTypes = {
-  data: Proptypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default DetailCard;
