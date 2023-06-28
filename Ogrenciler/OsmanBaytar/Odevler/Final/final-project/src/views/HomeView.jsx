@@ -1,5 +1,6 @@
 import StaticOrderComponent from "../components/home/StaticOrderComponent";
 import StaticThreeBoxes from "../components/home/StaticThreeBoxes";
+import StaticOrderComponent2 from "../components/home/StaticOrderComponent2";
 import { useEffect, useState } from "react";
 import { productRequest } from "../utils/Request";
 import FourBoxes from "../components/home/FourBoxes";
@@ -37,7 +38,7 @@ const HomeView = () => {
       <FourBoxes data={thirdFourRandomProducts} />
       <FourBoxes data={fourthFourRandomProducts} />
       <JustButton />
-      <StaticOrderComponent source={"../../public/human-dog.png"} />
+      <StaticOrderComponent2 />
       <StaticThreeBoxes />
     </>
   );

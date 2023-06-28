@@ -9,6 +9,15 @@ export const StaticOrderComponentContainer = styled.div`
   margin: 100px 10px;
 `;
 
+export const StaticOrderComponentContainer2 = styled.div`
+  background-image: url("../../public/StaticOrderComponent2.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  margin: 100px 10px;
+`;
+
 export const StaticOrderComponentHeader = styled.div`
   order: ${(props) => props.order};
   padding: 60px;
@@ -87,4 +96,10 @@ export const StaticOrderComponentButtonLight = styled.button`
   @media screen and (max-width: 480px) {
     margin: 0 auto;
   }
+`;
+
+export const StaticOrderComponentSpan = styled.span`
+  width: 42px;
+  height: 38px;
+  color: #003459;
 `;
