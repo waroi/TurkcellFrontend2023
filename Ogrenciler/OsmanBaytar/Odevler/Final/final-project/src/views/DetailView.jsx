@@ -46,15 +46,11 @@ const DetailView = () => {
   const [editCount, setEditCount] = useState(0);
   const [intersectedCount, setIntersectedCount] = useState(0);
 
-  console.log(productID);
-
   useEffect(() => {
     basketRequest.get().then((data) => {
       setBasketData(data);
     });
   }, []);
-
-  console.log(basketData);
 
   useEffect(() => {
     if (productID > 0 && productsData.length > 0) {
@@ -74,7 +70,6 @@ const DetailView = () => {
       setIsAdmin(true);
     }
   }, [currentUser]);
-  console.log(isAdmin);
 
   useEffect(() => {
     productRequest.get().then((data) => {
@@ -158,6 +153,7 @@ const DetailView = () => {
 
   useEffect(() => {
     if (editCount == 1) {
+      console.log("object3");
       intersectedData.map((data, index) => {
         basketRequest.put(data.id, {
           id: data.id,

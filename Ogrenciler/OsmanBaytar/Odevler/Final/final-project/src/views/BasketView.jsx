@@ -44,16 +44,6 @@ const BasketView = () => {
     setIsComplete(true);
   }
 
-  // function removeAllBasket() {
-  //   basketData.map((data, index) => {
-  //     if (data.username == currentUser.username) {
-  //       basketRequest.delete(data.id);
-  //     }
-  //   });
-  //   setBasketItemsView(false);
-  //   navigate("/");
-  // }
-
   return (
     <BasketViewContainer className="container mt-5">
       <h1 className="text-center">Your Basket</h1>
@@ -61,7 +51,12 @@ const BasketView = () => {
 
       {basketItemsView &&
         uniqueBasketData.map((data, index) => (
-          <BasketItem complete={isComplete} data={data} key={index} />
+          <BasketItem
+            complete={isComplete}
+            data={data}
+            key={index}
+            basket={basketData}
+          />
         ))}
 
       {uniqueBasketData.length !== 0 ? (
