@@ -6,7 +6,7 @@ const HeroBanner = () => {
     return (
         <StyledHeroBanner>
             <div className="container">
-                <div className="d-flex justify-content-center align-items-center flex-column  flex-lg-row ">
+                <div className="d-flex justify-content-center align-items-center flex-column flex-lg-row ">
                     <div className="d-flex flex-column col-lg-5 float-lg-start align-items-center">
                         <h2 className="title">One More Friend</h2>
                         <h3 className="subtitle">Thousands More Fun!</h3>

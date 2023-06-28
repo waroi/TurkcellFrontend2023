@@ -101,7 +101,6 @@ const CartItem = ({ cartItem, setCart }) => {
         else console.log("You have hit the stock limit")
     }
     const decrementCart = async () => {
-        console.log("clicked")
         values.demand--
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
         const cart = cartResponse.data.cart
