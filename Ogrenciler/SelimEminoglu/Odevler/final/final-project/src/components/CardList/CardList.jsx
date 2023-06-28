@@ -10,8 +10,9 @@ import {
   CardCategory,
   CardPrice,
 } from "./styleCardList";
+import PropTypes from "prop-types";
 
-function CardList() {
+function CardList({ isEight }) {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
   const loading = useSelector((state) => state.product.loading);
@@ -24,7 +25,7 @@ function CardList() {
 
   useEffect(() => {
     if (products.length > 0 && randomProducts.length == 0) {
-      setRandomProducts(randomEightProduct(products));
+      setRandomProducts(randomTwelveProduct(products));
     }
   }, [products, randomProducts]);
 
@@ -40,33 +41,59 @@ function CardList() {
     return Math.floor(Math.random() * (max - min) + min);
   }
 
-  function randomEightProduct(products) {
+  function randomTwelveProduct(products) {
     const newArr = [];
     let randomİtem;
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 12; i++) {
       randomİtem = products[randomNumber(0, 19)];
-      newArr.push(randomİtem);
+
+      if (!newArr.some((item) => item.id == randomİtem.id)) {
+        newArr.push(randomİtem);
+      }
     }
     return newArr;
   }
 
   return (
     <FlexCardDiv>
-      {randomProducts.map((item) => (
-        <CardDiv key={self.crypto.randomUUID()}>
-          <CardİmgDiv image={item.image}></CardİmgDiv>
+      {isEight &&
+        randomProducts.slice(0, 8).map((item) => (
+          <CardDiv key={self.crypto.randomUUID()}>
+            <CardİmgDiv image={item.image}></CardİmgDiv>
 
-          <CardTextDiv>
-            <CardTitle>{item.title}</CardTitle>
-            <CardCategory>
-              Category:{item.category}-Adet:{item.rating.count}
-            </CardCategory>
-            <CardPrice>{item.price}</CardPrice>
-          </CardTextDiv>
-        </CardDiv>
-      ))}
+            <CardTextDiv>
+              <CardTitle>{item.title}</CardTitle>
+              <CardCategory>
+                Category:{item.category}-Adet:{item.rating.count}
+              </CardCategory>
+              <CardPrice>{item.price}</CardPrice>
+            </CardTextDiv>
+          </CardDiv>
+        ))}
+      {!isEight &&
+        randomProducts.slice(0, 4).map((item) => (
+          <CardDiv key={self.crypto.randomUUID()}>
+            <CardİmgDiv image={item.image}></CardİmgDiv>
+
+            <CardTextDiv>
+              <CardTitle>{item.title}</CardTitle>
+              <CardCategory>
+                Category:{item.category}-Adet:{item.rating.count}
+              </CardCategory>
+              <CardPrice>{item.price}</CardPrice>
+            </CardTextDiv>
+          </CardDiv>
+        ))}
     </FlexCardDiv>
   );
 }
+
+CardList.proptypes = {
+  isEight: PropTypes.bool,
+};
+
+CardList.defaultProptypes = {
+  isEight: true,
+};
 
 export default CardList;

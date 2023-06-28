@@ -10,7 +10,7 @@ import {
 import Button from "../../components/Button/Button";
 import CardList from "../../components/CardList/CardList";
 
-function ProductListView({ h2Text, h3Text }) {
+function ProductListView({ h2Text, h3Text, isEight }) {
   return (
     <ProductListDiv>
       <Container>
@@ -31,7 +31,7 @@ function ProductListView({ h2Text, h3Text }) {
             width="226px"
           />
         </FlexProductDiv>
-        <CardList />
+        <CardList isEight={isEight} />
       </Container>
     </ProductListDiv>
   );
@@ -40,6 +40,7 @@ function ProductListView({ h2Text, h3Text }) {
 ProductListView.propTypes = {
   h2Text: PropTypes.string,
   h3Text: PropTypes.string,
+  isEight: PropTypes.bool,
 };
 
 export default ProductListView;

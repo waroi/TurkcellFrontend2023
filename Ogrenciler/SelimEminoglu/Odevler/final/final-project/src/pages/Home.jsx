@@ -14,11 +14,13 @@ function Home() {
       <ProductListView
         h2Text="Whats new?"
         h3Text="Take a look at some of our pets"
+        isEight={true}
       />
       <MidAds />
       <ProductListView
         h2Text="Hard to choose right products for your pets?"
         h3Text="Our Products"
+        isEight={false}
       />
       <İconList />
       <MidAds

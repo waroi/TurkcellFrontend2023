@@ -20,21 +20,24 @@ export const CardDiv = styled.div`
 `;
 
 export const CardİmgDiv = styled.div`
-  width: 264px;
+  width: 230px;
   height: 264px;
   flex-shrink: 0;
-  background: url(${(props) => props.image}), lightgray 50% / contain no-repeat;
+  background-image: url(${(props) => props.image});
+  background-size: cover;
 `;
 
 export const CardTextDiv = styled.div`
   display: flex;
-  padding: 8px 8px 20px 8px;
+  padding: 8px 0px 20px 0px;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
 `;
 
 export const CardTitle = styled.div`
+  height: 95px;
+  width: 230px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
