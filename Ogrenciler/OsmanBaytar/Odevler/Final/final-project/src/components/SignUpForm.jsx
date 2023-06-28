@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUsers } from "../redux/slices/usersSlice";
 import { userRequest } from "../utils/Request";
+import { useNavigate } from "react-router-dom";
 
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => {
@@ -54,6 +55,11 @@ function SignUpForm() {
     }
   }, [isOkey]);
 
+  const navigate = useNavigate();
+  function goToSignUpSuccessful() {
+    navigate("/SignUpSuccessful");
+  }
+
   const handleAddUsers = () => {
     dispatch(
       addUsers({
@@ -66,6 +72,7 @@ function SignUpForm() {
         is_admin: false,
       })
     );
+    goToSignUpSuccessful();
   };
 
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
