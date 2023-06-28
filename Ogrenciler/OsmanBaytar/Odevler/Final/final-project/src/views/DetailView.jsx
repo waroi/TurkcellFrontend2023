@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { productRequest } from "../utils/Request";
 import Slider from "../components/detail/Slider";
 import { useParams } from "react-router-dom";
@@ -6,6 +6,16 @@ import DetailInfo from "../components/detail/DetailInfo";
 import BasicTitle from "../components/home/BasicTitle";
 import FourBoxes from "../components/home/FourBoxes";
 import JustButton from "../components/home/JustButton";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import {
+  DetailEditContainer,
+  DetailEditTitle,
+  DetailEditInput,
+  DetailEditButton,
+  DetailEditSelect,
+  DetailEditOption,
+  DetailEditTextArea,
+} from "../styles/DetailEditStyle";
 
 const DetailView = () => {
   const [productsData, setProductsData] = useState([]);
@@ -13,6 +23,30 @@ const DetailView = () => {
   const [firstFourRandomProducts, setFirstFourRandomProducts] = useState([]);
   const [secondFourRandomProducts, setSecondFourRandomProducts] = useState([]);
   let productID = useParams().id;
+
+  const currentUser = useSelector((state) => state.login.login);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const editTitle = useRef();
+  const editPrice = useRef();
+  const editCategory = useRef();
+  const editRating = useRef();
+  const editStock = useRef();
+  const editDescription = useRef();
+  const editMainImage = useRef();
+  const editSliderImage1 = useRef();
+  const editSliderImage2 = useRef();
+  const editSliderImage3 = useRef();
+  const editSliderImage4 = useRef();
+
+  console.log(productID);
+
+  useEffect(() => {
+    if (currentUser.is_admin == true) {
+      setIsAdmin(true);
+    }
+  }, [currentUser]);
+  console.log(isAdmin);
 
   useEffect(() => {
     productRequest.get().then((data) => {
@@ -35,6 +69,33 @@ const DetailView = () => {
     setSecondFourRandomProducts(productsData.slice(4, 8));
   }, [randomProducts]);
 
+  useEffect(() => {
+    if (isAdmin && productID > 0 && productsData.length > 0) {
+      editTitle.current.value = productsData[productID - 1].title;
+      editPrice.current.value = productsData[productID - 1].price;
+      editCategory.current.value = productsData[productID - 1].category;
+      editRating.current.value = productsData[productID - 1].rate;
+      editStock.current.value = productsData[productID - 1].count;
+      editDescription.current.value = productsData[productID - 1].description;
+      editMainImage.current.value = productsData[productID - 1].image;
+      editSliderImage1.current.value =
+        productsData[productID - 1].sliderImages[0];
+      editSliderImage2.current.value =
+        productsData[productID - 1].sliderImages[1];
+      editSliderImage3.current.value =
+        productsData[productID - 1].sliderImages[2];
+      editSliderImage4.current.value =
+        productsData[productID - 1].sliderImages[3];
+      console.log("object");
+    }
+  }, [isAdmin, productsData]);
+
+  console.log(productsData);
+  console.log(productsData[productID - 1]);
+  // console.log(productsData[productID - 1].title);
+
+  console.log(editTitle.current?.value);
+
   return (
     <>
       <div className="container">
@@ -51,12 +112,82 @@ const DetailView = () => {
           </div>
         </div>
       </div>
-      <BasicTitle />
-      <FourBoxes data={firstFourRandomProducts} />
-      <JustButton />
-      <BasicTitle />
-      <FourBoxes data={secondFourRandomProducts} />
-      <JustButton />
+      {!isAdmin && (
+        <>
+          <BasicTitle />
+          <FourBoxes data={firstFourRandomProducts} />
+          <JustButton />
+          <BasicTitle />
+          <FourBoxes data={secondFourRandomProducts} />
+          <JustButton />
+        </>
+      )}
+      {isAdmin && (
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 mx-auto">
+              <DetailEditContainer>
+                <DetailEditTitle>Edit Product</DetailEditTitle>
+                <DetailEditInput
+                  ref={editTitle}
+                  type="string"
+                  placeholder="Title"
+                />
+                <DetailEditInput
+                  ref={editPrice}
+                  type="number"
+                  min={0}
+                  placeholder="Price"
+                />
+                <DetailEditSelect ref={editCategory}>
+                  <DetailEditOption>men's clothing</DetailEditOption>
+                  <DetailEditOption>jewelery</DetailEditOption>
+                  <DetailEditOption>electronics</DetailEditOption>
+                  <DetailEditOption>women's clothing</DetailEditOption>
+                </DetailEditSelect>
+                <DetailEditInput
+                  ref={editRating}
+                  type="number"
+                  min={0}
+                  max={5}
+                  placeholder="Rating"
+                />
+                <DetailEditInput ref={editStock} min={0} placeholder="Stock" />
+                <DetailEditTextArea
+                  ref={editDescription}
+                  placeholder="Description"
+                />
+                <DetailEditInput
+                  ref={editMainImage}
+                  type="url"
+                  placeholder="Main Image"
+                />
+                <DetailEditInput
+                  ref={editSliderImage1}
+                  type="url"
+                  placeholder="Slider Image 1"
+                />
+                <DetailEditInput
+                  ref={editSliderImage2}
+                  type="url"
+                  placeholder="Slider Image 2"
+                />
+                <DetailEditInput
+                  ref={editSliderImage3}
+                  type="url"
+                  placeholder="Slider Image 3"
+                />
+                <DetailEditInput
+                  ref={editSliderImage4}
+                  type="url"
+                  placeholder="Slider Image 4"
+                />
+                <DetailEditButton>Edit</DetailEditButton>
+              </DetailEditContainer>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

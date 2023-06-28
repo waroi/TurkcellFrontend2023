@@ -23,10 +23,8 @@ const DetailInfo = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const basketNumber = useSelector((state) => state.basketAdd.count);
-  console.log(basketNumber);
 
   const isLoggedIn = localStorage.getItem("login") ? true : false;
-  console.log(isLoggedIn);
 
   const [isOkey, setIsOkey] = useState(false);
   const buttonDisabled = useRef();
@@ -52,9 +50,6 @@ const DetailInfo = (props) => {
     }
   }, [basketData]);
 
-  console.log(props.data);
-  console.log(isOkey);
-
   function checkBasket() {
     setIsOkey(true);
     console.log("checked");
@@ -69,14 +64,11 @@ const DetailInfo = (props) => {
 
   useEffect(() => {
     if (isOkey == true) {
-      console.log("true okeyd");
       addBasket();
       navigate("/Basket");
       dispatch(addBasketCount(basketNumber + 1));
     }
   }, [isOkey]);
-
-  console.log(props.data.sliderImages);
 
   function addBasket() {
     console.log("addBasket");

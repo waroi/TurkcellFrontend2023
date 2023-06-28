@@ -39,7 +39,6 @@ const BasketView = () => {
       }
     });
   }, [basketData]);
-  console.log(uniqueBasketData);
 
   function complete() {
     setIsComplete(true);

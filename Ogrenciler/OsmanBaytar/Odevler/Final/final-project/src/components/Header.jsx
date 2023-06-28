@@ -30,7 +30,6 @@ const Header = () => {
   const [uniqueBasketData, setUniqueBasketData] = useState([]);
   const basketCount = useSelector((state) => state.basketAdd.count);
   const currentUser = useSelector((state) => state.login.login);
-  console.log(basketCount);
 
   useEffect(() => {
     basketRequest.get().then((data) => {
@@ -45,9 +44,7 @@ const Header = () => {
       }
     });
   }, [basketData]);
-  console.log(uniqueBasketData);
 
-  console.log(basketData);
   const dispatch = useDispatch();
 
   if (loginCount === 0) {
@@ -126,6 +123,7 @@ const Header = () => {
     dispatch(deleteLogin());
     setIsLoggedIn(false);
     setIsDropdown(false);
+    goToHome();
   }
 
   return (
