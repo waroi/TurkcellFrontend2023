@@ -134,7 +134,7 @@ const Header = () => {
             <div className="row justify-content-center flex-row align-items-center">
               <div className="col-lg-3">
                 <HeaderItem onClick={() => goToHome()}>
-                  <HeaderLogo src="https://s.tmimgcdn.com/scr/800x500/126100/e-ticaret-logo-sablonu_126133-original.png" />
+                  <HeaderLogo src="../../public/Frame.png" />
                 </HeaderItem>
               </div>
               <div className="col-lg-2">

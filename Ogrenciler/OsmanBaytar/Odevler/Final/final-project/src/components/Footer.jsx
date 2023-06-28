@@ -82,7 +82,10 @@ const Footer = () => {
             2022 Monito, All rights reserved
           </FooterBottomItem>
           <FooterBottomItem onClick={() => goToHome()} className="col-lg-4">
-            <HeaderLogo src="https://s.tmimgcdn.com/scr/800x500/126100/e-ticaret-logo-sablonu_126133-original.png"></HeaderLogo>
+            <HeaderLogo
+              src="../../public/Frame.png"
+              onClick={goToHome}
+            ></HeaderLogo>
           </FooterBottomItem>
           <FooterBottomItem className="col-lg-4">
             <span className="mx-3">Terms of Service</span>
