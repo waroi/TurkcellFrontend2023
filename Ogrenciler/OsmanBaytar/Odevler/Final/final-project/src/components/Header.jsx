@@ -27,7 +27,9 @@ const Header = () => {
   const [secondButton, setSecondButton] = useState("");
   const [isDropdown, setIsDropdown] = useState(false);
   const [basketData, setBasketData] = useState([]);
+  const [uniqueBasketData, setUniqueBasketData] = useState([]);
   const basketCount = useSelector((state) => state.basketAdd.count);
+  const currentUser = useSelector((state) => state.login.login);
   console.log(basketCount);
 
   useEffect(() => {
@@ -35,6 +37,15 @@ const Header = () => {
       setBasketData(data);
     });
   }, [basketCount]);
+
+  useEffect(() => {
+    basketData.map((data, index) => {
+      if (data.username == currentUser.username) {
+        setUniqueBasketData((prev) => [...prev, data]);
+      }
+    });
+  }, [basketData]);
+  console.log(uniqueBasketData);
 
   console.log(basketData);
   const dispatch = useDispatch();
@@ -48,7 +59,7 @@ const Header = () => {
     }
     setLoginCount(1);
   }
-  const currentUser = useSelector((state) => state.login.login);
+
   useEffect(() => {
     if (currentUser.length !== 0) {
       setIsLoggedIn(true);
@@ -159,7 +170,9 @@ const Header = () => {
               <div className="col-lg-4">
                 <HeaderButton onClick={firstButtonFunction}>
                   {firstButton}{" "}
-                  {isLoggedIn && <HeaderSpan>{basketData.length}</HeaderSpan>}
+                  {isLoggedIn && (
+                    <HeaderSpan>{uniqueBasketData.length}</HeaderSpan>
+                  )}
                 </HeaderButton>
               </div>
               <div className="col-lg-3">
@@ -205,7 +218,9 @@ const Header = () => {
             <div className="mt-3">
               <HeaderButton onClick={firstButtonFunction}>
                 {firstButton}{" "}
-                {isLoggedIn && <HeaderSpan>{basketData.length}</HeaderSpan>}
+                {isLoggedIn && (
+                  <HeaderSpan>{uniqueBasketData.length}</HeaderSpan>
+                )}
               </HeaderButton>
             </div>
             <div className="mt-1">
