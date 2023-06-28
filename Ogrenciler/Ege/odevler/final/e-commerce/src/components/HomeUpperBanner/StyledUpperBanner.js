@@ -14,6 +14,28 @@ const StyledUpperBanner = styled.div`
     }
   }
 
+  h2 {
+    color: #002a48;
+    font-weight: 800;
+    line-height: 68px;
+    text-transform: capitalize;
+    font-size: 60px;
+    @media (max-width: 768px) {
+      font-size: 46px;
+    }
+  }
+
+  h3 {
+    color: #002a48;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 60px;
+    text-transform: capitalize;
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+  }
+
   .rectangleOne {
     width: 787.54px;
     height: 787.54px;

@@ -13,7 +13,7 @@ import minusIcon from "../../assets/Remove_Minus_Circle.svg"
 
 const CartItem = ({ cartItem, setCart }) => {
     const user = useSelector((state) => state.user.user)
-
+    console.log(`I am ${cartItem.title} and I rendered`)
     const formSchema = Yup.object().shape({
         demand: Yup.number().required("Demand is required").min(1, "Demand must be at least 1"),
     });
@@ -81,14 +81,14 @@ const CartItem = ({ cartItem, setCart }) => {
         const product = productResponse.data;
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
         const cart = cartResponse.data.cart
-        values.demand++
+        setCart(cart)
         if (cartItem.demand < product.rating.count) {
             const newProduct = {
                 productId: cartItem.productId,
                 title: cartItem.title,
                 price: cartItem.price,
                 image: cartItem.image,
-                demand: values.demand
+                demand: cartItem.demand + 1
             }
 
             const newCart = cart.map(cartItem => {
@@ -101,17 +101,16 @@ const CartItem = ({ cartItem, setCart }) => {
         else console.log("You have hit the stock limit")
     }
     const decrementCart = async () => {
-        values.demand--
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
         const cart = cartResponse.data.cart
-
+        setCart(cart)
         if (cartItem.demand > 1) {
             const newProduct = {
                 productId: cartItem.productId,
                 title: cartItem.title,
                 price: cartItem.price,
                 image: cartItem.image,
-                demand: values.demand
+                demand: cartItem.demand - 1
             }
 
             const newCart = cart.map(cartItem => {
@@ -146,7 +145,7 @@ const CartItem = ({ cartItem, setCart }) => {
                         type="number"
                         name="demand"
                         id="demand"
-                        value={values.demand}
+                        value={cartItem.demand}
                         onChange={handleChange}
                     />
                     {errors.demand && <div className="error">{errors.demand}</div>}

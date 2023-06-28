@@ -17,6 +17,28 @@ const StyledHeroBanner = styled.div`
     z-index: 10;
   }
 
+  h2 {
+    color: #002a48;
+    font-weight: 800;
+    line-height: 68px;
+    text-transform: capitalize;
+    font-size: 60px;
+    @media (max-width: 768px) {
+      font-size: 46px;
+    }
+  }
+
+  h3 {
+    color: #002a48;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 60px;
+    text-transform: capitalize;
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+  }
+
   .title {
     line-height: 60px;
     color: #002a48;
