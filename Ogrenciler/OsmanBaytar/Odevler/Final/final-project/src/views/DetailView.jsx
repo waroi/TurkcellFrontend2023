@@ -107,7 +107,22 @@ const DetailView = () => {
       editSliderImage3.current.value != "" &&
       editSliderImage4.current.value != ""
     ) {
-      console.log("object");
+      productRequest.put(productID, {
+        id: productID,
+        title: editTitle.current.value,
+        price: editPrice.current.valueAsNumber,
+        description: editDescription.current.value,
+        category: editCategory.current.value,
+        image: editMainImage.current.value,
+        rate: editRating.current.valueAsNumber,
+        count: editStock.current.valueAsNumber,
+        sliderImages: [
+          editSliderImage1.current.value,
+          editSliderImage2.current.value,
+          editSliderImage3.current.value,
+          editSliderImage4.current.value,
+        ],
+      });
     } else {
       console.log("object2");
     }
