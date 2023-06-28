@@ -39,3 +39,16 @@ export const registerSchema = yup.object().shape({
     .oneOf([yup.ref("password")], " Passwords must match")
     .required("Confirm Password is required"),
 });
+
+export const editProductSchema = yup.object().shape({
+  image: yup
+    .string()
+    .url("Please enter a valid URL")
+    .required("Image URL is required"),
+  title: yup.string().required("Title is required"),
+  price: yup.number().required("Price is required"),
+  category: yup.string().required("Category is required"),
+  rate: yup.number().required("Rate is required").min(0).max(5),
+  stock: yup.number().required("Stock is required"),
+  description: yup.string().required("Description is required"),
+});
