@@ -58,7 +58,7 @@ const CartItem = ({ cartItem, setCart }) => {
         }
     }
 
-    const { values, handleChange, handleSubmit, errors } = useFormik({
+    const { handleChange, handleSubmit, errors } = useFormik({
         initialValues: {
             demand: cartItem.demand,
         },
@@ -128,35 +128,38 @@ const CartItem = ({ cartItem, setCart }) => {
         }
     }
     return (
-        <StyledCartItem className="col-lg-6 d-flex flex-column justify-content-center p-3">
-            <div className="info d-flex align-items-center gap-5">
-                <img src={cartItem.image} alt="" />
-                <div className="cartItemText">
-                    <p className="title">{cartItem.title}</p>
-                    <p className="price">{cartItem.price}$</p>
+        <StyledCartItem className="col-lg-6 ">
+            <div className="d-flex flex-column justify-content-center rounded-3 border h-100 p-3">
+
+                <div className="info d-flex align-items-center gap-5">
+                    <img src={cartItem.image} alt="" />
+                    <div className="cartItemText">
+                        <p className="title">{cartItem.title}</p>
+                        <p className="price">{cartItem.price}$</p>
+                    </div>
                 </div>
+                <div className="amount d-flex gap-5 align-items-center">
+                    <ButtonOutline onClick={decrementCart} className="decrement">
+                        <img src={minusIcon} alt="minus" />
+                    </ButtonOutline>
+                    <Form onSubmit={handleSubmit}>
+                        <input
+                            type="number"
+                            name="demand"
+                            id="demand"
+                            value={cartItem.demand}
+                            onChange={handleChange}
+                        />
+                        {errors.demand && <div className="error">{errors.demand}</div>}
+                    </Form>
+                    <ButtonOutline onClick={incrementCart} className="increment">
+                        <img src={plusIcon} alt="plus" />
+                    </ButtonOutline>
+                </div>
+                <ButtonPrimary onClick={deleteCartItem} className="delete">
+                    <img src={deleteIcon} alt="delete" />
+                </ButtonPrimary>
             </div>
-            <div className="amount d-flex gap-5 align-items-center">
-                <ButtonOutline onClick={decrementCart} className="decrement">
-                    <img src={minusIcon} alt="minus" />
-                </ButtonOutline>
-                <Form onSubmit={handleSubmit}>
-                    <input
-                        type="number"
-                        name="demand"
-                        id="demand"
-                        value={cartItem.demand}
-                        onChange={handleChange}
-                    />
-                    {errors.demand && <div className="error">{errors.demand}</div>}
-                </Form>
-                <ButtonOutline onClick={incrementCart} className="increment">
-                    <img src={plusIcon} alt="plus" />
-                </ButtonOutline>
-            </div>
-            <ButtonPrimary onClick={deleteCartItem} className="delete">
-                <img src={deleteIcon} alt="delete" />
-            </ButtonPrimary>
         </StyledCartItem>
     )
 }
