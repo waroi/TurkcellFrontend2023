@@ -15,6 +15,7 @@ import {
   DetailEditSelect,
   DetailEditOption,
   DetailEditTextArea,
+  DetailInputLabel,
 } from "../styles/DetailEditStyle";
 
 const DetailView = () => {
@@ -90,11 +91,27 @@ const DetailView = () => {
     }
   }, [isAdmin, productsData]);
 
-  console.log(productsData);
-  console.log(productsData[productID - 1]);
-  // console.log(productsData[productID - 1].title);
-
-  console.log(editTitle.current?.value);
+  function editProduct() {
+    if (
+      isAdmin &&
+      productID > 0 &&
+      productsData.length > 0 &&
+      editTitle.current.value != "" &&
+      editPrice.current.valueAsNumber > 0 &&
+      editRating.current.valueAsNumber >= 0 &&
+      editStock.current.valueAsNumber >= 0 &&
+      editDescription.current.value != "" &&
+      editMainImage.current.value != "" &&
+      editSliderImage1.current.value != "" &&
+      editSliderImage2.current.value != "" &&
+      editSliderImage3.current.value != "" &&
+      editSliderImage4.current.value != ""
+    ) {
+      console.log("object");
+    } else {
+      console.log("object2");
+    }
+  }
 
   return (
     <>
@@ -128,61 +145,79 @@ const DetailView = () => {
             <div className="col-lg-8 mx-auto">
               <DetailEditContainer>
                 <DetailEditTitle>Edit Product</DetailEditTitle>
+                <hr />
+                <DetailInputLabel>Title</DetailInputLabel>
                 <DetailEditInput
                   ref={editTitle}
                   type="string"
                   placeholder="Title"
                 />
+                <DetailInputLabel>Price</DetailInputLabel>
                 <DetailEditInput
                   ref={editPrice}
                   type="number"
                   min={0}
                   placeholder="Price"
                 />
+                <DetailInputLabel>Category</DetailInputLabel>
                 <DetailEditSelect ref={editCategory}>
                   <DetailEditOption>men's clothing</DetailEditOption>
                   <DetailEditOption>jewelery</DetailEditOption>
                   <DetailEditOption>electronics</DetailEditOption>
                   <DetailEditOption>women's clothing</DetailEditOption>
                 </DetailEditSelect>
+                <DetailInputLabel>Rating</DetailInputLabel>
                 <DetailEditInput
                   ref={editRating}
                   type="number"
                   min={0}
                   max={5}
+                  step={0.1}
                   placeholder="Rating"
                 />
-                <DetailEditInput ref={editStock} min={0} placeholder="Stock" />
+                <DetailInputLabel>Stock</DetailInputLabel>
+                <DetailEditInput
+                  ref={editStock}
+                  type="number"
+                  min={0}
+                  placeholder="Stock"
+                />
+                <DetailInputLabel>Description</DetailInputLabel>
                 <DetailEditTextArea
                   ref={editDescription}
                   placeholder="Description"
                 />
+                <DetailInputLabel>Main Image</DetailInputLabel>
                 <DetailEditInput
                   ref={editMainImage}
                   type="url"
                   placeholder="Main Image"
                 />
+                <DetailInputLabel>Slider Image 1</DetailInputLabel>
                 <DetailEditInput
                   ref={editSliderImage1}
                   type="url"
                   placeholder="Slider Image 1"
                 />
+                <DetailInputLabel>Slider Image 2</DetailInputLabel>
                 <DetailEditInput
                   ref={editSliderImage2}
                   type="url"
                   placeholder="Slider Image 2"
                 />
+                <DetailInputLabel>Slider Image 3</DetailInputLabel>
                 <DetailEditInput
                   ref={editSliderImage3}
                   type="url"
                   placeholder="Slider Image 3"
                 />
+                <DetailInputLabel>Slider Image 4</DetailInputLabel>
                 <DetailEditInput
                   ref={editSliderImage4}
                   type="url"
                   placeholder="Slider Image 4"
                 />
-                <DetailEditButton>Edit</DetailEditButton>
+                <DetailEditButton onClick={editProduct}>Edit</DetailEditButton>
               </DetailEditContainer>
             </div>
           </div>

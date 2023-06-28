@@ -22,7 +22,7 @@ export const DetailEditForm = styled.form`
 `;
 
 export const DetailEditInput = styled.input`
-  width: 300px;
+  width: 350px;
   height: 40px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -34,8 +34,14 @@ export const DetailEditInput = styled.input`
      border: 1px solid #000;
       `;
 
+export const DetailInputLabel = styled.label`
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+`;
+
 export const DetailEditButton = styled.button`
-  width: 300px;
+  width: 350px;
   height: 40px;
   border: none;
   border-radius: 5px;
@@ -46,10 +52,11 @@ export const DetailEditButton = styled.button`
   cursor: pointer;
   margin-bottom: 10px;
   transition: all 0.3s ease-in-out;
+  margin-top: 10px;
 `;
 
 export const DetailEditSelect = styled.select`
-  width: 300px;
+  width: 350px;
   height: 40px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -67,8 +74,8 @@ export const DetailEditOption = styled.option`
 `;
 
 export const DetailEditTextArea = styled.textarea`
-  width: 300px;
-  height: 100px;
+  width: 350px;
+  height: 120px;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 0 10px;
