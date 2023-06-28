@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux/slice/loginSlice";
 import { Ul, NavInput, IconWrapper, NavSpan, Nav } from "./NavbarStyle.js";
@@ -9,16 +8,8 @@ function Navbar() {
   const request = new Request("http://localhost:3004/users");
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.login.loggedIn);
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem("user")));
-  }, []);
-
-  console.log(JSON.parse(localStorage.getItem("user")));
-
-  // const users = localStorage.getItem("user");
-  // const user = JSON.parse(users);
+  const users = localStorage.getItem("user");
+  const user = JSON.parse(users);
 
   const handleLogout = () => {
     const updatedUser = {
@@ -29,11 +20,7 @@ function Navbar() {
 
     dispatch(logout());
     localStorage.removeItem("user");
-
-    setUser(updatedUser);
   };
-
-  console.log(user);
 
   return (
     <div>
