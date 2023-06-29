@@ -6,11 +6,11 @@ import ProductCard from "./ProductCard/ProductCard";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import StyledProductList from "./StyledProductList";
-
+import filterIcon from "../../assets/Filter.svg"
 const ProductList = () => {
 
     const [products, setProducts] = useState([]);
-    // const products = useSelector(state => state.products)
+    const [isOnFilter, setIsOnFilter] = useState(false)
     const [checkedCategories, setCheckedCategories] = useState([]);
     const [sortType, setSortType] = useState("priceAsc")
     const searchValue = useSelector(state => state.search)
@@ -23,6 +23,10 @@ const ProductList = () => {
             .catch(err => console.log('Error fetching product data:', err))
 
     }, []);
+
+    const handleIsOnFilter = () => {
+        setIsOnFilter(!isOnFilter)
+    }
 
     const handleCategories = () => {
         if (checkedCategories.length > 0) {
@@ -70,7 +74,6 @@ const ProductList = () => {
         return 0;
     };
 
-
     useEffect(() => { handleCategories() }, [checkedCategories])
     useEffect(() => { handleSort() }, [sortType])
     useEffect(() => { handleSearch() }, [searchValue])
@@ -79,16 +82,23 @@ const ProductList = () => {
         <StyledProductList className="container">
             <div className="row">
                 <div className="col-lg-3">
-                    <FilterArea products={products} checkedCategories={checkedCategories} setCheckedCategories={setCheckedCategories} />
-                    <div className="selectedCategories">
-                        {
-                            checkedCategories.map((selected, i) => (<p key={i}>{selected}</p>))
-                        }
+                    <div className="d-none d-lg-block my-3">
+                        <FilterArea products={products} checkedCategories={checkedCategories} setCheckedCategories={setCheckedCategories} />
                     </div>
+
                 </div>
                 <div className="col-lg-9">
-                    <SortArea sortType={sortType} setSortType={setSortType} />
+                    <div className="my-3">
+                        <div className="d-flex justify-content-between align-items-center d-lg-block">
+                            <SortArea sortType={sortType} setSortType={setSortType} />
+                            <div className="d-lg-none filter" onClick={handleIsOnFilter}> <img src={filterIcon} alt="filterIcon" /> Filter</div>
+                        </div>
+                        {isOnFilter && <FilterArea products={products} checkedCategories={checkedCategories} setCheckedCategories={setCheckedCategories} />}
+                    </div>
                     <div className="container">
+                        <div className="titleWrap d-lg-none">
+                            <span className="subtitle">Products</span> 20 products
+                        </div>
                         <div className="row">
                             {
                                 products?.map(product => (product.isFiltered && product.isSearched) && (

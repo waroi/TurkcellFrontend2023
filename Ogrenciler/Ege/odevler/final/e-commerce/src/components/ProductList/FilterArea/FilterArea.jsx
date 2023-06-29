@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import PropTypes from "prop-types"
+import StyledFilterArea from "./StyledFilterArea"
 const FilterArea = ({ products, checkedCategories, setCheckedCategories }) => {
     const [categories, setCategories] = useState([])
 
@@ -13,8 +14,8 @@ const FilterArea = ({ products, checkedCategories, setCheckedCategories }) => {
     }
 
     return (
-        <div>
-            <h1>Filter</h1>
+        <StyledFilterArea>
+            <h3>Filter</h3>
             <div className="checkboxes">
                 {
                     categories.map(category => (
@@ -26,7 +27,7 @@ const FilterArea = ({ products, checkedCategories, setCheckedCategories }) => {
                     ))
                 }
             </div>
-        </div>
+        </StyledFilterArea>
     )
 }
 
