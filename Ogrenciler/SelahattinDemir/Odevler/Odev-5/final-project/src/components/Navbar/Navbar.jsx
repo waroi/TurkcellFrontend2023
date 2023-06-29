@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux/slice/loginSlice";
 import { Ul, NavInput, IconWrapper, NavSpan, Nav } from "./NavbarStyle.js";
@@ -8,8 +9,13 @@ function Navbar() {
   const request = new Request("http://localhost:3004/users");
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.login.loggedIn);
-  const users = localStorage.getItem("user");
-  const user = JSON.parse(users);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const users = localStorage.getItem("user");
+    const parsedUser = JSON.parse(users);
+    setUser(parsedUser);
+  }, []);
 
   const handleLogout = () => {
     const updatedUser = {
@@ -85,12 +91,14 @@ function Navbar() {
             <div className="d-flex gap-2 align-items-center ">
               {isLoggedIn ? (
                 <Link
-                  to={`/carts/${user.id}`}
+                  to={`/carts/${user?.id}`}
                   className="btn-nav"
                   type="submit"
                 >
                   <i className="bi bi-cart-check fs-4"></i>
-                  <span className="badge bg-success">{user.carts.length}</span>
+                  <span className="badge bg-success">
+                    {user?.carts?.length}
+                  </span>
                 </Link>
               ) : (
                 <Link to="/login" className="btn-nav me-3" type="submit">
@@ -125,7 +133,7 @@ function Navbar() {
                         className="btn-nav dropdown-item mt-2"
                         type="submit"
                       >
-                        {user.username}
+                        {user?.username}
                       </Link>
                     </li>
                   </ul>
