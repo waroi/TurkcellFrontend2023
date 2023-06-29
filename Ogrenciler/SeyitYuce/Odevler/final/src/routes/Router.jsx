@@ -1,12 +1,15 @@
-import { useRoutes } from "react-router-dom";
+import { Link, useRoutes } from "react-router-dom";
 import HomeView from "../Views/HomeView";
 import BtnView from "../Components/Buttons/BtnView";
 import AllProductsView from "../Views/AllProductsView";
 import Login from "../Views/Login";
 import SignUp from "../Views/SingUp";
 import ProductDetails from "../Views/ProductDetailsView";
+import Cart from "../Components/Cart/Cart";
+import { useSelector } from "react-redux";
 
 const Router = () => {
+  const user = useSelector((state) => state.user);
   const routes = useRoutes([
     {
       path: "/",
@@ -22,15 +25,31 @@ const Router = () => {
     },
     {
       path: "/login",
-      element: <Login />,
+      element: user ? (
+        <div>
+          You already have an account. Return <Link to="/"> Home</Link>
+        </div>
+      ) : (
+        <Login />
+      ),
     },
     {
       path: "/signup",
-      element: <SignUp />,
+      element: user ? (
+        <div>
+          You already have an account. Return <Link to="/"> Home</Link>
+        </div>
+      ) : (
+        <SignUp />
+      ),
     },
     {
       path: "products/:category/:id",
       element: <ProductDetails />,
+    },
+    {
+      path: "/cart",
+      element: <Cart />,
     },
   ]);
   return routes;

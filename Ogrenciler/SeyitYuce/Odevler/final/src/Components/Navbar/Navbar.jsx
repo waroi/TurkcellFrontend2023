@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { clearUser } from "../../redux/slices/userSlice";
 import CartDropdown from "../CartDropdown/CartDropdown";
+import Cart from "../Cart/Cart";
 const Header = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -118,9 +119,12 @@ const Header = () => {
                 </div>
               )}
               {user && user[0].role === "admin" && (
-                <Link className="btn" type="button" to={"/admin"}>
-                  Admin Dashboard
-                </Link>
+                <div>
+                  <Link className="btn" type="button" to={"/admin"}>
+                    Admin Dashboard
+                  </Link>
+                  <Cart />
+                </div>
               )}
             </div>
           </div>

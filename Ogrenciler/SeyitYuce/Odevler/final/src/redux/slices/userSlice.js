@@ -3,10 +3,15 @@ import Cookies from "js-cookie";
 
 const userSlice = createSlice({
   name: "user",
-  initialState: null,
+  initialState: {
+    cart: [],
+  },
   reducers: {
     setUser: (state, action) => {
       return action.payload;
+    },
+    addToCart: (state, action) => {
+      state.cart.push(action.payload);
     },
     clearUser: (state) => {
       Cookies.remove("user");
@@ -15,5 +20,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUser, clearUser } = userSlice.actions;
+export const { setUser, addToCart, clearUser } = userSlice.actions;
 export default userSlice.reducer;

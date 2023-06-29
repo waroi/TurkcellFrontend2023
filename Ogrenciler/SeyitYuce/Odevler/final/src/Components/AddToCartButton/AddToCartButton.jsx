@@ -1,166 +1,93 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 
 const AddToCartButton = ({ product }) => {
   const user = useSelector((state) => state.user);
-  const userId = user[0].id;
+  const userId = user && user[0].id;
 
-  const [cartExists, setCartExists] = useState(false);
-
-  const addToCart = () => {
-    if (cartExists) {
-      addProductToExistingCart();
-    } else {
-      createCartAndAddProduct();
-    }
-  };
-
-  const addProductToExistingCart = () => {
-    fetch(`http://localhost:5000/carts?userId=${userId}`)
+  const handleAddToCart = () => {
+    fetch(`http://localhost:3000/users?id=${userId}`)
       .then((response) => response.json())
       .then((data) => {
-        let cartId;
-        let existingCartItems;
+        const user = data[0];
 
-        // Check if cart exists for the user
-        if (data.length > 0) {
-          cartId = data[0].id;
-          existingCartItems = data[0].items;
-        } else {
-          // If cart doesn't exist, create a new cart for the user
-          cartId = data.length + 1; // Assign a new cartId
-          existingCartItems = [];
-        }
-
-        const existingUserIndex = existingCartItems.findIndex(
-          (user) => user.userId === userId
-        );
-
-        if (existingUserIndex !== -1) {
-          // If the user already exists, find the user's items array
-          const existingUser = existingCartItems[existingUserIndex];
-          const existingItemIndex = existingUser.items.findIndex(
-            (item) => item.productId === product.id
-          );
-
-          if (existingItemIndex !== -1) {
-            // If the product already exists, update the quantity if it's less than the stock
-            const existingItem = existingUser.items[existingItemIndex];
-            const updatedQuantity = existingItem.quantity + 1;
-            const stock = existingItem.stock;
-
-            if (updatedQuantity <= stock) {
-              existingItem.quantity = updatedQuantity;
-            } else {
-              console.log("Cannot add more than the available stock");
-              return;
-            }
-          } else {
-            // If the product doesn't exist, add it to the user's items
-            const newItem = {
-              productId: product.id,
-              quantity: 1,
-              stock: product.stock,
-            };
-
-            existingUser.items.push(newItem);
-          }
-        } else {
-          // If the user doesn't exist, create a new user with the product as the item
-          const newUser = {
-            userId: userId,
-            items: [
-              {
-                productId: product.id,
-                quantity: 1,
-                stock: product.stock,
-              },
-            ],
-          };
-
-          existingCartItems.push(newUser);
-        }
-
-        const updatedCartData = {
-          id: cartId,
-          userId: userId,
-          items: existingCartItems,
+        const newItem = {
+          id: product.id,
+          name: product.title,
+          price: product.price,
+          image: product.image,
+          category: product.category,
+          rating: product.rating.rate,
+          stock: product.stock,
+          quantity: 1,
         };
 
-        fetch(`http://localhost:5000/carts/${cartId}`, {
+        const existingItemIndex = user.cart.findIndex(
+          (item) => item.id === newItem.id
+        );
+
+        if (existingItemIndex !== -1) {
+          const existingItem = user.cart[existingItemIndex];
+          if (existingItem.quantity < existingItem.stock) {
+            existingItem.quantity += 1;
+            toast.success("Item quantity increased", {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+            });
+          } else {
+            // console.log("Maximum stock reached for this item.");
+            toast.error("Maximum stock reached for this item", {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+            });
+            return;
+          }
+        } else {
+          newItem.quantity = 1;
+          user.cart.push(newItem);
+          toast.success("Item added to cart", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        }
+
+        fetch(`http://localhost:3000/users/${userId}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(updatedCartData),
+          body: JSON.stringify(user),
         })
-          .then((response) => {
-            if (response.ok) {
-              console.log("Product added to cart");
-              toast.success("Product added to cart", {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                theme: "light",
-              });
-            } else {
-              console.error(
-                "Error adding product to cart:",
-                response.statusText
-              );
-            }
+          .then((response) => response.json())
+          .then((updatedData) => {
+            console.log(updatedData.cart);
           })
           .catch((error) => {
-            console.error("Error adding product to cart:", error);
+            console.error("Error:", error);
           });
-      })
-      .catch((error) => {
-        console.error("Error fetching cart:", error);
-      });
-  };
-
-  const createCartAndAddProduct = () => {
-    const cartData = {
-      userId: userId,
-      items: [
-        {
-          productId: product.id,
-          quantity: 1,
-          stock: product.stock,
-        },
-      ],
-    };
-
-    fetch("http://localhost:5000/carts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(cartData),
-    })
-      .then((response) => {
-        if (response.ok) {
-          console.log("Cart created");
-          setCartExists(true);
-        } else {
-          console.error("Error creating cart:", response.statusText);
-        }
-      })
-      .catch((error) => {
-        console.error("Error creating cart:", error);
       });
   };
 
   return (
-    <>
-      <button className="btn btn-danger" onClick={addToCart}>
-        Add to cart
+    <div>
+      <h3>{product.name}</h3>
+      <button className="btn btn-danger" onClick={handleAddToCart}>
+        Add to Cart
       </button>
       <ToastContainer />
-    </>
+    </div>
   );
 };
 

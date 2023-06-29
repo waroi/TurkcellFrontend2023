@@ -128,6 +128,9 @@ const SignUp = () => {
         <button type="submit" id="signupBtn">
           Sign Up
         </button>
+        <p>
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
       </form>
       <ToastContainer />
     </div>
