@@ -9,8 +9,10 @@ import {
   CardTitle,
   CardCategory,
   CardPrice,
+  CardButtonDiv,
 } from "./styleCardList";
 import PropTypes from "prop-types";
+import Button from "../Button/Button";
 
 function CardList({ isEight }) {
   const dispatch = useDispatch();
@@ -66,8 +68,11 @@ function CardList({ isEight }) {
               <CardCategory>
                 Category:{item.category}-Adet:{item.rating.count}
               </CardCategory>
-              <CardPrice>{item.price}</CardPrice>
+              <CardPrice>{item.price} $</CardPrice>
             </CardTextDiv>
+            <CardButtonDiv>
+              <Button title="Sepete Ekle" />
+            </CardButtonDiv>
           </CardDiv>
         ))}
       {!isEight &&
@@ -80,8 +85,11 @@ function CardList({ isEight }) {
               <CardCategory>
                 Category:{item.category}-Adet:{item.rating.count}
               </CardCategory>
-              <CardPrice>{item.price}</CardPrice>
+              <CardPrice>{item.price} $</CardPrice>
             </CardTextDiv>
+            <CardButtonDiv>
+              <Button title="Sepete Ekle" />
+            </CardButtonDiv>
           </CardDiv>
         ))}
     </FlexCardDiv>

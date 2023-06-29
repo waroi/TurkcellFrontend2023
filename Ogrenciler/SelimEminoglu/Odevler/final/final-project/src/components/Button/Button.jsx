@@ -1,6 +1,7 @@
 import { ButtonStyle } from "./styleButton";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import "../../assets/css/main.css";
 
 function Button({
   title,
@@ -25,7 +26,11 @@ function Button({
       width={width}
     >
       {path == "/" && title}
-      {path != "/" && <Link to={path}>{title}</Link>}
+      {path != "/" && (
+        <Link className="link" to={path}>
+          {title}
+        </Link>
+      )}
       {icon != "" && <img src={icon} alt="icon" />}
     </ButtonStyle>
   );

@@ -27,7 +27,7 @@ export const NavbarA = styled.a`
 
 export const NavbarInput = styled.input`
   display: flex;
-  width: 280px;
+  width: 265px;
   padding: 12px 20px 12px 16px;
   align-items: center;
   gap: 12px;
@@ -48,4 +48,22 @@ export const SearchLogo = styled.img`
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
+`;
+
+export const BasketDiv = styled.div`
+  position: relative;
+  width: 32px;
+  height: 32px;
+`;
+
+export const CountDiv = styled.div`
+  position: absolute;
+  border: 1px solid red;
+  border-radius: 50%;
+  background-color: red;
+  color: #fdfdfd;
+  width: 13px;
+  height: 24px;
+  top: -10px;
+  right: 0;
 `;

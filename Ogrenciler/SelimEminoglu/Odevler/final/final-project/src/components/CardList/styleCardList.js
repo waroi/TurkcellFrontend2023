@@ -68,3 +68,10 @@ export const CardPrice = styled.div`
   font-weight: 700;
   line-height: 20px;
 `;
+
+export const CardButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  padding-left: 2.2rem;
+`;

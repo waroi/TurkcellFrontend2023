@@ -1,9 +1,16 @@
-import { NavbarDiv, NavList, NavbarA } from "./styleNavbar";
+import {
+  NavbarDiv,
+  NavList,
+  NavbarA,
+  BasketDiv,
+  CountDiv,
+} from "./styleNavbar";
 import { Container } from "../../assets/css/style";
 import NavbarSearch from "./NavbarSearch";
 import Button from "../Button/Button";
 import Register from "../Register/Register";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [background, setBackground] = useState("transparent");
@@ -30,8 +37,14 @@ function Navbar() {
           <NavbarA href="#">About</NavbarA>
           <NavbarA href="#">Contact</NavbarA>
           <NavbarSearch />
-          <Button title="Giriş Yap" />
+          <Button title="Giriş Yap" path={"/login"} />
           <Register />
+          <BasketDiv>
+            <Link to={"/carts"}>
+              <CountDiv>0</CountDiv>
+              <img src="./src/assets/icons/shopping-cart.png" alt="logo" />
+            </Link>
+          </BasketDiv>
         </NavList>
       </Container>
     </NavbarDiv>
