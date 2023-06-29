@@ -3,7 +3,11 @@ import { toast, ToastContainer } from "react-toastify";
 
 const AddToCartButton = ({ product }) => {
   const user = useSelector((state) => state.user);
-  const userId = user && user[0].id;
+  // const userId = useSelector((state) => state.user[0].id);
+  const userId = user && user[0]?.id;
+
+  // console.log(user);
+  // console.log(userId);
 
   const handleAddToCart = () => {
     fetch(`http://localhost:3000/users?id=${userId}`)
@@ -39,7 +43,6 @@ const AddToCartButton = ({ product }) => {
               draggable: true,
             });
           } else {
-            // console.log("Maximum stock reached for this item.");
             toast.error("Maximum stock reached for this item", {
               position: "top-right",
               autoClose: 2000,
@@ -82,11 +85,17 @@ const AddToCartButton = ({ product }) => {
 
   return (
     <div>
-      <h3>{product.name}</h3>
-      <button className="btn btn-danger" onClick={handleAddToCart}>
-        Add to Cart
-      </button>
-      <ToastContainer />
+      {user && userId ? (
+        <>
+          <h3>{product.name}</h3>
+          <button className="btn btn-danger" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
+          <ToastContainer />
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

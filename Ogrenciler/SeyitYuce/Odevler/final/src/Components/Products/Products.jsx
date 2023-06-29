@@ -8,6 +8,7 @@ import { capitalizeWords } from "../../helpers/capitalize";
 import { styled } from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
+import { updateCartItems } from "../../redux/slices/cartSlice";
 
 const Products = ({ slicedNumber }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,8 @@ const Products = ({ slicedNumber }) => {
   const [sortOption, setSortOption] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedStar, setSelectedStar] = useState("");
+
+  // console.log(user);
 
   const [editProduct, setEditProduct] = useState({
     image: "",
@@ -108,12 +111,20 @@ const Products = ({ slicedNumber }) => {
       .then((updatedProduct) => {
         toast.success("Product updated successfully", {
           position: "top-right",
-          autoClose: 1000,
+          autoClose: 100,
           hideProgressBar: false,
           closeOnClick: true,
           theme: "light",
           onClose: () => {
             dispatch(updateProduct(updatedProduct));
+            const updatedCart = user[0].cart.map((item) => {
+              if (item.id === updatedProduct.id) {
+                return { ...item, ...updatedProduct };
+              }
+              return item;
+            });
+            dispatch(updateCartItems(updatedCart));
+
             const modalButton = document.querySelector(
               '[data-bs-dismiss="modal"]'
             );
@@ -128,15 +139,22 @@ const Products = ({ slicedNumber }) => {
         toast.error("Failed to update product");
       });
   };
+  const updateProductsInCart = (updatedProduct) => {
+    const existingItems = user[0].cart;
+    const updatedItems = existingItems.map((item) => {
+      if (item.id === updatedProduct.id) {
+        return { ...item, ...updatedProduct };
+      }
+      return item;
+    });
+
+    dispatch(updateCartItems(updatedItems));
+  };
 
   const ProductCardImage = styled.img`
     height: 200px;
     width: 100%;
   `;
-
-  // -----------------------------------------------
-
-  // -----------------------------------------------
 
   return (
     <div className="row">

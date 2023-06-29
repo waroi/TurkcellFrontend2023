@@ -9,7 +9,7 @@ import Cart from "../Components/Cart/Cart";
 import { useSelector } from "react-redux";
 
 const Router = () => {
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
   const routes = useRoutes([
     {
       path: "/",
@@ -25,23 +25,11 @@ const Router = () => {
     },
     {
       path: "/login",
-      element: user ? (
-        <div>
-          You already have an account. Return <Link to="/"> Home</Link>
-        </div>
-      ) : (
-        <Login />
-      ),
+      element: <Login />,
     },
     {
       path: "/signup",
-      element: user ? (
-        <div>
-          You already have an account. Return <Link to="/"> Home</Link>
-        </div>
-      ) : (
-        <SignUp />
-      ),
+      element: <SignUp />,
     },
     {
       path: "products/:category/:id",

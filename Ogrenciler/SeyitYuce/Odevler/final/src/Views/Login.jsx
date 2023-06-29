@@ -13,7 +13,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
-  console.log(user);
+  // console.log(user);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -39,6 +39,7 @@ const Login = () => {
             onClose: () => {
               navigate("/");
               dispatch(setUser(user));
+              console.log(user);
             },
           });
           Cookies.set("user", JSON.stringify(user), { expires: 7 }); // Expires in 7 days

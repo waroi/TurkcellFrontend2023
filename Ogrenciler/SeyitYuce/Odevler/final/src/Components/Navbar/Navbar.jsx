@@ -1,6 +1,6 @@
 import React from "react";
 import { BiSearch, BiUserCircle, BiCartAlt } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
@@ -10,6 +10,9 @@ import Cart from "../Cart/Cart";
 const Header = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // console.log(user);
 
   const UserDiv = styled.div`
     display: flex;
@@ -79,7 +82,7 @@ const Header = () => {
               </div>
             </form>
             <div>
-              {user ? (
+              {user && user[0] ? (
                 <UserDiv>
                   <CartDropdown />
                   <li className="nav-item dropdown my-auto">
@@ -91,7 +94,7 @@ const Header = () => {
                       aria-expanded="false"
                     >
                       <BiUserCircle />
-                      {user[0].username}
+                      {user ? user[0]?.username : ""}
                     </a>
                     <ul className="dropdown-menu">
                       <li>
@@ -100,6 +103,7 @@ const Header = () => {
                           href="#"
                           onClick={() => {
                             dispatch(clearUser());
+                            navigate("/");
                           }}
                         >
                           Logout
@@ -118,13 +122,15 @@ const Header = () => {
                   </Link>
                 </div>
               )}
-              {user && user[0].role === "admin" && (
+              {user && user[0]?.role === "admin" ? (
                 <div>
-                  <Link className="btn" type="button" to={"/admin"}>
+                  {/* <Link className="btn" type="button" to={"/admin"}>
                     Admin Dashboard
-                  </Link>
-                  <Cart />
+                  </Link> */}
+                  {/* <Cart /> */}
                 </div>
+              ) : (
+                <></>
               )}
             </div>
           </div>
