@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import StyledProductList from "./StyledProductList";
 import filterIcon from "../../assets/Filter.svg"
+import Breadcrumbs from "../../styledComponents/Breadcrumbs";
 const ProductList = () => {
 
     const [products, setProducts] = useState([]);
@@ -80,6 +81,10 @@ const ProductList = () => {
 
     return (
         <StyledProductList className="container">
+            <Breadcrumbs className="d-flex gap-2">
+                <Link to={"/"}>Home</Link>/
+                <span>Products</span>
+            </Breadcrumbs>
             <div className="row">
                 <div className="col-lg-3">
                     <div className="d-none d-lg-block my-3">

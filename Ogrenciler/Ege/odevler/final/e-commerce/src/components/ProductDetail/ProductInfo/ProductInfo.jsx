@@ -6,8 +6,10 @@ import Guarantees from "../Guarantees/Guarantees"
 import StyledTextShare from "../../../styledComponents/StyledTextShare"
 import shareAndroid from "../../../assets/Share_Android.svg"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import Share from "../Share/Share"
 import UpdateProduct from "../UpdateProduct/UpdateProduct"
+import Breadcrumbs from "../../../styledComponents/Breadcrumbs"
 const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct }) => {
 
     const [isShareOn, setIsShareOn] = useState(false)
@@ -18,7 +20,11 @@ const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct }) => {
 
     return (
         <StyledProductInfo className="my-5">
-            <p>Breadcrumbs</p>
+            <Breadcrumbs className="d-flex gap-2">
+                <Link to={"/"}>Home</Link>/
+                <Link to={"/products"}>Products</Link>/
+                <span>{product.title}</span>
+            </Breadcrumbs>
             <p>ID: {product.id}</p>
             <h2>{product.title}</h2>
             <h3>{product.price}$</h3>
