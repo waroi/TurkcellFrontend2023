@@ -1,42 +1,44 @@
 import {
-  StaticOrderComponentContainer,
-  StaticOrderComponentHeader,
-  StaticOrderComponentH1,
-  StaticOrderComponentH2,
-  StaticOrderComponentP,
-  StaticOrderComponentButtonDark,
-  StaticOrderComponentButtonLight,
+  StaticOrderComponentHeaderMain,
+  StaticOrderComponentH1Main,
+  StaticOrderComponentH2Main,
+  StaticOrderComponentPMain,
+  StaticOrderComponentButtonDarkMain,
+  StaticOrderComponentButtonLightMain,
   StaticOrderMainComponentMainContainer,
-} from "../../styles/StaticOrderComponent";
-import "../../styles/StaticOrderComponent.css";
+} from "../../styles/StaticOrderComponentMain";
+import "../../styles/StaticOrderComponentMain.css";
 
 const StaticOrderComponentMain = () => {
   return (
     <StaticOrderMainComponentMainContainer>
       <div className="container">
         <div className="row">
-          <StaticOrderComponentHeader className="col-lg-6">
-            <StaticOrderComponentH1>Free Delivery</StaticOrderComponentH1>
-            <StaticOrderComponentH2>
-              Worldwide delivery on all.
-            </StaticOrderComponentH2>
-            <StaticOrderComponentP>
-              Authorit tively morph next-generation innov tion with extensive
-              models.
-            </StaticOrderComponentP>
+          <StaticOrderComponentHeaderMain className="col-lg-6">
+            <StaticOrderComponentH1Main>
+              One more friend
+            </StaticOrderComponentH1Main>
+            <StaticOrderComponentH2Main>
+              Thousands more fun!
+            </StaticOrderComponentH2Main>
+            <StaticOrderComponentPMain>
+              Having a pet means you have more joy, a new friend, a happy person
+              who will always be with you to have fun. We have 200+ different
+              pets that can meet your needs!
+            </StaticOrderComponentPMain>
             <div className="d-flex flex-row gap-3 mt-5">
-              <StaticOrderComponentButtonDark>
-                Explore Now
-              </StaticOrderComponentButtonDark>
-              <StaticOrderComponentButtonLight>
+              <StaticOrderComponentButtonLightMain>
                 View Intro
-              </StaticOrderComponentButtonLight>
+              </StaticOrderComponentButtonLightMain>
+              <StaticOrderComponentButtonDarkMain>
+                Explore Now
+              </StaticOrderComponentButtonDarkMain>
             </div>
-          </StaticOrderComponentHeader>
-          <div className="col-lg-6">
+          </StaticOrderComponentHeaderMain>
+          <div className="col-lg-6 text-center">
             <img
               src="../../../public/human-dog.png"
-              className="img-fluid static-img"
+              className="img-fluid static-img-main"
             />
           </div>
         </div>

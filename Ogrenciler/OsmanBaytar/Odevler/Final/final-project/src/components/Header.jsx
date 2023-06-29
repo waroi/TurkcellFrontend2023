@@ -127,7 +127,7 @@ const Header = () => {
   }
 
   return (
-    <div className="container py-3">
+    <div className="container-xl py-3">
       <HeaderComputer>
         <div className="row">
           <div className="col-lg-6">
@@ -156,7 +156,7 @@ const Header = () => {
               className="row justify-content-center align-items-center flex-row"
               style={{ height: 40 }}
             >
-              <div className="col-lg-5">
+              <div className="col-lg-4">
                 <div className="d-flex flex-row">
                   <i className="fa-solid fa-magnifying-glass me-2"></i>
                   <HeaderInput
@@ -167,13 +167,13 @@ const Header = () => {
               </div>
               <div className="col-lg-4">
                 <HeaderButton onClick={firstButtonFunction}>
-                  {firstButton}{" "}
+                  {firstButton}
                   {isLoggedIn && (
                     <HeaderSpan>{uniqueBasketData.length}</HeaderSpan>
                   )}
                 </HeaderButton>
               </div>
-              <div className="col-lg-3">
+              <div className="col-lg-4">
                 <HeaderButton onClick={secondButtonFunction}>
                   {secondButton}
                 </HeaderButton>

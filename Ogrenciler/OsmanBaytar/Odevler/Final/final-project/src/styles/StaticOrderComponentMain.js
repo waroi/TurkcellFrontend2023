@@ -1,46 +1,43 @@
 import styled from "styled-components";
 
-export const StaticOrderComponentMainContainer2 = styled.div`
-  @media screen and (max-width: 992px) {
-    display: none;
+export const StaticOrderMainComponentMainContainer = styled.div`
+  background-image: url("../../public/StaticOrderComponentMain.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 695px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: -1;
+  width: 100%;
+  position: relative;
+  top: -72px;
+  padding: 100px;
+  @media screen and (max-width: 991px) {
+    padding: 40px;
+
+    background-image: url("../../public/StaticOrderComponentMainMobile.jpeg");
+  }
+  //   @media screen and (max-width: 768px) {
+  //     padding: 50px;
+  //   }
+  //   @media screen and (max-width: 600px) {
+  //     padding: 30px;
+  //     padding-top: 60px;
+  //   }
+  @media screen and (max-width: 480px) {
+    padding: 20px;
+    padding-top: 60px;
+  }
+  @media screen and (max-width: 369px) {
+    padding: 10px;
+    padding-top: 60px;
   }
 `;
 
-export const StaticOrderComponentContainer = styled.div`
-  background-image: url("../../public/StaticOrderComponent1.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  margin: 100px 10px;
-  @media screen and (max-width: 992px) {
-    background-image: url("../../public/StaticOrderComponent1Mobile.jpeg");
-  }
-`;
-
-export const StaticOrderComponentCategoryContainer = styled.div`
-  background-image: url("../../public/StaticOrderComponentProducts.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  margin: 100px 10px;
-`;
-
-export const StaticOrderComponentContainer2 = styled.div`
-  background-image: url("../../public/StaticOrderComponent2.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  margin: 100px 10px;
-`;
-
-export const StaticOrderComponentHeader = styled.div`
-  order: 2;
+export const StaticOrderComponentHeaderMain = styled.div`
   padding: 60px;
   @media screen and (max-width: 992px) {
-    order: 0;
   }
   @media screen and (max-width: 768px) {
     padding: 30px;
@@ -54,7 +51,7 @@ export const StaticOrderComponentHeader = styled.div`
   }
 `;
 
-export const StaticOrderComponentH1 = styled.h1`
+export const StaticOrderComponentH1Main = styled.h1`
   color: #003459;
   font-size: 52px;
   font-family: SVN-Gilroy;
@@ -67,7 +64,7 @@ export const StaticOrderComponentH1 = styled.h1`
   }
 `;
 
-export const StaticOrderComponentH2 = styled.h2`
+export const StaticOrderComponentH2Main = styled.h2`
   color: #003459;
   font-size: 36px;
   font-family: SVN-Gilroy;
@@ -80,7 +77,7 @@ export const StaticOrderComponentH2 = styled.h2`
   }
 `;
 
-export const StaticOrderComponentP = styled.p`
+export const StaticOrderComponentPMain = styled.p`
   color: #242b33;
   font-size: 14px;
   font-family: SVN-Gilroy;
@@ -88,7 +85,7 @@ export const StaticOrderComponentP = styled.p`
   line-height: 18px;
 `;
 
-export const StaticOrderComponentButtonDark = styled.button`
+export const StaticOrderComponentButtonDarkMain = styled.button`
   display: flex;
   width: 163px;
   padding: 14px 28px 10px 28px;
@@ -105,7 +102,7 @@ export const StaticOrderComponentButtonDark = styled.button`
   }
 `;
 
-export const StaticOrderComponentButtonLight = styled.button`
+export const StaticOrderComponentButtonLightMain = styled.button`
   display: inline-flex;
   padding: 14px 28px 10px 28px;
   justify-content: center;
@@ -117,10 +114,4 @@ export const StaticOrderComponentButtonLight = styled.button`
   @media screen and (max-width: 480px) {
     margin: 0 auto;
   }
-`;
-
-export const StaticOrderComponentSpan = styled.span`
-  width: 42px;
-  height: 38px;
-  color: #003459;
 `;
