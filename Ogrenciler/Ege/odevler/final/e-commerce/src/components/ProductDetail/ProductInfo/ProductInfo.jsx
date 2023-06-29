@@ -7,7 +7,8 @@ import StyledTextShare from "../../../styledComponents/StyledTextShare"
 import shareAndroid from "../../../assets/Share_Android.svg"
 import { useState } from "react"
 import Share from "../Share/Share"
-const ProductInfo = ({ product, handleCartClick }) => {
+import UpdateProduct from "../UpdateProduct/UpdateProduct"
+const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct }) => {
 
     const [isShareOn, setIsShareOn] = useState(false)
 
@@ -24,6 +25,8 @@ const ProductInfo = ({ product, handleCartClick }) => {
             <div className="d-flex justify-content-center align-items-center gap-3 my-3">
                 <ButtonPrimary onClick={handleCartClick}>Add To Cart</ButtonPrimary>
                 <ButtonOutline> - Chat with Monito</ButtonOutline>
+                {(isAdmin && product) && <UpdateProduct product={product} setProduct={setProduct} />}
+
             </div>
 
             <div className="infoPre d-lg-none d-flex justify-content-between align-items-center">
@@ -83,7 +86,9 @@ const ProductInfo = ({ product, handleCartClick }) => {
 
 ProductInfo.propTypes = {
     product: PropTypes.object.isRequired,
-    handleCartClick: PropTypes.func.isRequired
+    handleCartClick: PropTypes.func.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
+    setProduct: PropTypes.func.isRequired
 }
 
 export default ProductInfo

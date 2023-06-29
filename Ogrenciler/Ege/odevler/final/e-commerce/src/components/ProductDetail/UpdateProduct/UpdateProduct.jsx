@@ -1,10 +1,10 @@
 import PropTypes from "prop-types"
 import { useFormik } from "formik"
 import axios from "axios"
-import { validationSchema } from "../../schemas"
-import Form from "../../styledComponents/StyledForm"
-import ButtonPrimary from "../../styledComponents/ButtonPrimary"
-import warningIcon from "../../assets/Circle_Warning.svg"
+import { validationSchema } from "../../../schemas"
+import Form from "../../../styledComponents/StyledForm"
+import ButtonPrimary from "../../../styledComponents/ButtonPrimary"
+import warningIcon from "../../../assets/Circle_Warning.svg"
 const UpdateProduct = ({ product, setProduct }) => {
 
     const initialValues = {
@@ -32,9 +32,9 @@ const UpdateProduct = ({ product, setProduct }) => {
     return (
         <div>
 
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal">
-                update product
-            </button>
+            <ButtonPrimary type="button" data-bs-toggle="modal" data-bs-target="#updateModal">
+                Update Product
+            </ButtonPrimary>
 
             <div className="modal fade" id="updateModal" tabIndex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
                 <div className="modal-dialog">

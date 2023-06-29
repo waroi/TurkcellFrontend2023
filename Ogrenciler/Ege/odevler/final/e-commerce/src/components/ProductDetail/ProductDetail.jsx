@@ -1,8 +1,6 @@
-import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useSelector } from "react-redux"
-import UpdateProduct from "../UpdateProduct/UpdateProduct"
 import Carousel from "./Carousel/Carousel"
 import ProductInfo from "./ProductInfo/ProductInfo"
 import RandomProducts from "./RandomProducts/RandomProducts"
@@ -17,14 +15,14 @@ const ProductDetail = ({ id }) => {
         axios.get(`http://localhost:3000/products/${id}`)
             .then(response => setProduct(response.data))
             .catch(err => console.log('Error fetching product data:', err))
-    }, []);
+    }, [id]);
 
     useEffect(() => {
         axios.get("http://localhost:3000/products")
             .then(response => {
                 setRandomProducts(response.data.filter(responseProduct => responseProduct.id != product.id).sort(() => Math.random() - 0.5).slice(0, 8))
             })
-    }, [])
+    }, [product.id])
 
     const handleCartClick = () => {
         if (product.rating?.count > 0) {
@@ -67,13 +65,12 @@ const ProductDetail = ({ id }) => {
 
     return (
         <div className='container'>
-            {(user.isAdmin && product) && <UpdateProduct product={product} setProduct={setProduct} />}
             <div className="row justify-content-center mt-5">
                 <div className="col-lg-6">
                     <Carousel img={product.image} />
                 </div>
                 <div className="col-lg-6">
-                    <ProductInfo product={product} handleCartClick={handleCartClick} />
+                    <ProductInfo product={product} handleCartClick={handleCartClick} isAdmin={user.isAdmin} setProduct={setProduct} />
                 </div>
             </div>
             <RandomProducts randomProducts={randomProducts} />
