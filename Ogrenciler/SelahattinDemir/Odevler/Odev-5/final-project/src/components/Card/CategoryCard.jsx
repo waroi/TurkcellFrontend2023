@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   CardContainer,
   CardImage,
@@ -7,6 +9,7 @@ import {
   Description,
   ProductInfo,
 } from "./CardStyle.js";
+import Request from "../../utils/Request";
 
 function truncateText(text, maxLength) {
   if (text.length <= maxLength) {
@@ -16,8 +19,69 @@ function truncateText(text, maxLength) {
 }
 
 function CategoryCard({ data }) {
+  const request = new Request("http://localhost:3004/users");
+  const [user, setUser] = useState(null);
   const truncatedTitle = truncateText(data.title, 35);
   const truncatedDescription = truncateText(data.description, 55);
+
+  useEffect(() => {
+    const users = localStorage.getItem("user");
+    const parsedUser = JSON.parse(users);
+    setUser(parsedUser);
+  }, []);
+
+  const handleAddToCart = async () => {
+    const requestGet = new Request(
+      "http://localhost:3004/users" + `/${user.id}`
+    );
+    const existingItem = user.carts.find((item) => item.id === data.id);
+    const availableStock = data.rating?.count || 0; // Consider 0 if stock information is not available
+
+    if (existingItem) {
+      if (existingItem.quantity >= availableStock) {
+        toast.error("Insufficient stock. You cannot add more of this item.");
+        return;
+      }
+
+      const updatedCarts = user.carts.map((item) => {
+        if (item.id === data.id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+        return item;
+      });
+
+      await request.put(`/${user.id}`, {
+        ...user,
+        carts: updatedCarts,
+      });
+
+      const updatedUser = await requestGet.get();
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+      setUser(updatedUser);
+    } else {
+      if (availableStock < 1) {
+        toast.error("This item is out of stock.");
+        return;
+      }
+
+      const newItem = {
+        ...data,
+        quantity: 1,
+      };
+
+      await request.put(`/${user.id}`, {
+        ...user,
+        carts: [...user.carts, newItem],
+      });
+
+      const updatedUser = await requestGet.get();
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+      setUser(updatedUser);
+    }
+  };
 
   return (
     <CardContainer className="col-lg-4 col-md-6">
@@ -57,9 +121,9 @@ function CategoryCard({ data }) {
             <Link to={`/${data.id}`} className="btn btn-primary">
               Read More
             </Link>
-            <a href="#" className="btn btn-danger">
+            <button onClick={handleAddToCart} className="btn btn-danger">
               Add to Cart
-            </a>
+            </button>
           </div>
         </div>
       </div>
