@@ -1,7 +1,56 @@
 import styled from "styled-components";
 
+export const StaticOrderMainComponentMainContainer = styled.div`
+  background-image: url("../../public/StaticOrderComponentMain.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 695px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 0;
+  width: 100%;
+  position: relative;
+  top: -72px;
+  z-index: -1;
+  padding: 150px;
+  @media screen and (max-width: 991px) {
+    padding: 80px;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 50px;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 30px;
+    padding-top: 60px;
+  }
+  @media screen and (max-width: 480px) {
+    padding: 20px;
+    padding-top: 60px;
+  }
+  @media screen and (max-width: 360px) {
+    padding: 10px;
+    padding-top: 60px;
+  }
+`;
+
+export const StaticOrderComponentMainContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
 export const StaticOrderComponentContainer = styled.div`
-  background-image: url("../../public/backgroundImage.jpg");
+  background-image: url("../../public/StaticOrderComponent1.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  margin: 100px 10px;
+`;
+
+export const StaticOrderComponentCategoryContainer = styled.div`
+  background-image: url("../../public/StaticOrderComponentProducts.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

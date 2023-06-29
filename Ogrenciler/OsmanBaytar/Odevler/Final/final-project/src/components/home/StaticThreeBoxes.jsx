@@ -2,26 +2,28 @@ import "../../styles/StaticThreeBoxes.css";
 
 const StaticThreeBoxes = () => {
   return (
-    <div className="container mt-5">
-      <div>
+    <div className="container mt-3">
+      {/* <div>
         <h5 className="staticThreeBoxes">You alreay know?</h5>
-        <h2 className="staticThreeBoxes">Useful Knowledges</h2>
-      </div>
+        <h2 className="staticThreeBoxes">Useful Pet Knowledge</h2>
+      </div> */}
 
       <div className="row">
         <div className="col-lg-4 mt-3">
           <div className="box">
             <img
               className="staticThreeBoxes"
-              src="https://img.freepik.com/premium-photo/word-design-written-top-colorful-geometric-3d-shapes_2227-1663.jpg"
+              src="../../../public/image1.png"
             />
             <div className="info">
-              <span className="staticThreeBoxes">Cloth Knowledge</span>
-              <h4 className="staticThreeBoxes">Knowledge of Design</h4>
+              <span className="staticThreeBoxes">Pet Knowledge</span>
+              <h4 className="staticThreeBoxes">
+                What is a Pomeranian? How to Identify Pomeranian Dogs
+              </h4>
               <p className="staticThreeBoxes">
-                While talent is not a deciding factor, you do need to make
-                things that are aesthetically pleasing; whatever that aesthetic
-                may be. So work to polish your skills in this area.
+                The Pomeranian, also known as the Pomeranian (Pom dog), is
+                always in the top of the cutest pets. Not only that, the small,
+                lovely, smart, friendly, and skillful circus dog breed.
               </p>
             </div>
           </div>
@@ -30,15 +32,17 @@ const StaticThreeBoxes = () => {
           <div className="box">
             <img
               className="staticThreeBoxes"
-              src="https://www.intandemcommunications.co.uk/wp-content/uploads/2019/08/What-is-marketing.jpg"
+              src="../../../public/image2.png"
             />
             <div className="info">
-              <span className="staticThreeBoxes">Cloth Knowledge</span>
-              <h4 className="staticThreeBoxes">Knowledge of Marketing</h4>
+              <span className="staticThreeBoxes">Pet Knowledge</span>
+              <h4 className="staticThreeBoxes">Dog Diet You Need To Know</h4>
               <p className="staticThreeBoxes">
-                There’s the need to remember that marketing is more than just
-                social media. Create a plan for how you’re going to spread the
-                word other than using Instagram and Facebook.
+                Dividing a dog's diet may seem simple at first, but there are
+                some rules you should know so that your dog can easily absorb
+                the nutrients in the diet. For those who are just starting to
+                raise dogs, especially newborn puppies with relatively weak
+                resistance.
               </p>
             </div>
           </div>
@@ -47,15 +51,17 @@ const StaticThreeBoxes = () => {
           <div className="box">
             <img
               className="staticThreeBoxes"
-              src="https://cdn.corporatefinanceinstitute.com/assets/finance-definition.jpg"
+              src="../../../public/image3.png"
             />
             <div className="info">
-              <span className="staticThreeBoxes">Cloth Knowledge</span>
-              <h4 className="staticThreeBoxes">Knowledge of Finance</h4>
+              <span className="staticThreeBoxes">Pet Knowledge</span>
+              <h4 className="staticThreeBoxes">
+                Why Dogs Bite and Destroy Furniture and How to Prevent It
+                Effectively
+              </h4>
               <p className="staticThreeBoxes">
-                There’s the need to understand the money; what’s coming in,
-                what’s going out, how to price, how to figure out costing. The
-                money situation should not be ignored.
+                Dog bites are common during development. However, no one wants
+                to see their furniture or important items being bitten by a dog.
               </p>
             </div>
           </div>

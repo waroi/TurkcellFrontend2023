@@ -7,9 +7,9 @@ import {
   StaticOrderComponentButtonDark,
   StaticOrderComponentButtonLight,
 } from "../../styles/StaticOrderComponent";
-import "../../styles/StaticOrderComponent.css";
+import "../../styles/StaticOrderComponentCategory.css";
 
-const StaticOrderComponent = ({ source, order }) => {
+const StaticOrderComponentCategory = ({ order }) => {
   return (
     <div className="container">
       <StaticOrderComponentContainer className="row">
@@ -32,7 +32,7 @@ const StaticOrderComponent = ({ source, order }) => {
         </StaticOrderComponentHeader>
         <div className="col-lg-6">
           <img
-            src="../../../public/human-dog3.png"
+            src="../../../public/dogs.png"
             className="img-fluid static-img"
           />
         </div>
@@ -41,4 +41,4 @@ const StaticOrderComponent = ({ source, order }) => {
   );
 };
 
-export default StaticOrderComponent;
+export default StaticOrderComponentCategory;

@@ -1,7 +1,7 @@
 import TotalProducts from "../components/category/TotalProducts";
 import ProductFilter from "../components/category/ProductFilter";
 import ProductThreeItems from "../components/category/ProductThreeItems";
-import StaticOrderComponent from "../components/home/StaticOrderComponent";
+import StaticOrderComponentCategory from "../components/category/StaticOrderComponentCategory";
 import { useState } from "react";
 
 const ProductsView = () => {
@@ -45,7 +45,7 @@ const ProductsView = () => {
 
   return (
     <div className="container mt-5">
-      <StaticOrderComponent source={"../../public/human-dog.png"} order={2} />
+      <StaticOrderComponentCategory order={2} />
       <ProductThreeItems isSortValue={isSortValue} />
       <div className="row">
         <div className="col-lg-3">

@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const JustButtonMobileContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
 export const JustButtonButton = styled.button`
   display: inline-flex;
   padding: 12px 28px;

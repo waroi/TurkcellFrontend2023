@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const BasicTitleMobileContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
 export const BasicTitleH4 = styled.h4`
   color: #000;
   font-size: 16px;

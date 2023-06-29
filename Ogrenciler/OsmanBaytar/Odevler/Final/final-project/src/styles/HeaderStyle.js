@@ -42,7 +42,7 @@ export const HeaderComputer = styled.div`
 `;
 
 export const HeaderMobile = styled.div`
-  @media (min-width: 992px) {
+  @media (min-width: 993px) {
     display: none;
   }
 `;

@@ -1,4 +1,5 @@
 import {
+  StaticOrderComponentMainContainer,
   StaticOrderComponentContainer2,
   StaticOrderComponentHeader,
   StaticOrderComponentH1,
@@ -12,7 +13,7 @@ import "../../styles/StaticOrderComponent.css";
 
 const StaticOrderComponent2 = () => {
   return (
-    <div className="container">
+    <StaticOrderComponentMainContainer className="container">
       <StaticOrderComponentContainer2 className="row">
         <StaticOrderComponentHeader className="col-lg-6">
           <StaticOrderComponentH1>
@@ -44,7 +45,7 @@ const StaticOrderComponent2 = () => {
           />
         </div>
       </StaticOrderComponentContainer2>
-    </div>
+    </StaticOrderComponentMainContainer>
   );
 };
 

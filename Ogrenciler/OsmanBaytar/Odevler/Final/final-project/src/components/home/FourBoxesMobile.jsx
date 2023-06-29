@@ -1,8 +1,15 @@
 import ProductBox from "../category/ProductBox";
+import styled from "styled-components";
 
-const FourBoxes = ({ data }) => {
+const FourBoxesMobileContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const FourBoxesMobile = ({ data }) => {
   return (
-    <div className="container my-3">
+    <FourBoxesMobileContainer className="container my-3">
       <div className="row">
         {data.map((product, index) => {
           return (
@@ -12,8 +19,8 @@ const FourBoxes = ({ data }) => {
           );
         })}
       </div>
-    </div>
+    </FourBoxesMobileContainer>
   );
 };
 
-export default FourBoxes;
+export default FourBoxesMobile;
