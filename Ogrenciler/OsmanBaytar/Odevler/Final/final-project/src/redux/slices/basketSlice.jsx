@@ -11,7 +11,6 @@ export const basketSlice = createSlice({
   reducers: {
     deleteBasket: (state, action) => {
       basketRequest.delete(action.payload);
-      console.log(action.payload);
     },
   },
 });

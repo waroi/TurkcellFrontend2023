@@ -34,8 +34,8 @@ export const StaticOrderMainComponentMainContainer = styled.div`
   }
 `;
 
-export const StaticOrderComponentMainContainer = styled.div`
-  @media screen and (max-width: 768px) {
+export const StaticOrderComponentMainContainer2 = styled.div`
+  @media screen and (max-width: 992px) {
     display: none;
   }
 `;
@@ -47,6 +47,9 @@ export const StaticOrderComponentContainer = styled.div`
   background-position: center;
   border-radius: 20px;
   margin: 100px 10px;
+  @media screen and (max-width: 992px) {
+    background-image: url("../../public/StaticOrderComponent1Mobile.jpeg");
+  }
 `;
 
 export const StaticOrderComponentCategoryContainer = styled.div`
@@ -68,8 +71,11 @@ export const StaticOrderComponentContainer2 = styled.div`
 `;
 
 export const StaticOrderComponentHeader = styled.div`
-  order: ${(props) => props.order};
+  order: 2;
   padding: 60px;
+  @media screen and (max-width: 992px) {
+    order: 0;
+  }
   @media screen and (max-width: 768px) {
     padding: 30px;
   }

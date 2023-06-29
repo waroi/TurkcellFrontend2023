@@ -9,11 +9,11 @@ import {
 } from "../../styles/StaticOrderComponent";
 import "../../styles/StaticOrderComponent.css";
 
-const StaticOrderComponent = ({ source, order }) => {
+const StaticOrderComponent = ({ order }) => {
   return (
     <div className="container">
       <StaticOrderComponentContainer className="row">
-        <StaticOrderComponentHeader className="col-lg-6" order={order}>
+        <StaticOrderComponentHeader className="col-lg-6">
           <StaticOrderComponentH1>One more friend</StaticOrderComponentH1>
           <StaticOrderComponentH2>Thousands more fun!</StaticOrderComponentH2>
           <StaticOrderComponentP>

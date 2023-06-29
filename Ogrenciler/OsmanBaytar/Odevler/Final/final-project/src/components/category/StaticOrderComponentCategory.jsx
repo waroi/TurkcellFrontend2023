@@ -1,43 +1,47 @@
 import {
-  StaticOrderComponentContainer,
-  StaticOrderComponentHeader,
-  StaticOrderComponentH1,
-  StaticOrderComponentH2,
-  StaticOrderComponentP,
-  StaticOrderComponentButtonDark,
-  StaticOrderComponentButtonLight,
-} from "../../styles/StaticOrderComponent";
+  StaticOrderComponentCategoryContainer,
+  StaticOrderComponentCategoryHeader,
+  StaticOrderComponentCategoryH1,
+  StaticOrderComponentCategoryH2,
+  StaticOrderComponentCategoryP,
+  StaticOrderComponentCategoryButtonDark,
+  StaticOrderComponentCategoryButtonLight,
+} from "../../styles/StaticOrderComponentCategoryStyle";
 import "../../styles/StaticOrderComponentCategory.css";
 
 const StaticOrderComponentCategory = ({ order }) => {
   return (
-    <div className="container">
-      <StaticOrderComponentContainer className="row">
-        <StaticOrderComponentHeader className="col-lg-6" order={order}>
-          <StaticOrderComponentH1>One more friend</StaticOrderComponentH1>
-          <StaticOrderComponentH2>Thousands more fun!</StaticOrderComponentH2>
-          <StaticOrderComponentP>
+    <>
+      <StaticOrderComponentCategoryContainer className="row">
+        <StaticOrderComponentCategoryHeader className="col-lg-6" order={order}>
+          <StaticOrderComponentCategoryH1>
+            One more friend
+          </StaticOrderComponentCategoryH1>
+          <StaticOrderComponentCategoryH2>
+            Thousands more fun!
+          </StaticOrderComponentCategoryH2>
+          <StaticOrderComponentCategoryP>
             Having a pet means you have more joy, a new friend, a happy person
             who will always be with you to have fun. We have 200+ different pets
             that can meet your needs!
-          </StaticOrderComponentP>
+          </StaticOrderComponentCategoryP>
           <div className="d-flex flex-row gap-3 mt-5">
-            <StaticOrderComponentButtonDark order={order}>
+            <StaticOrderComponentCategoryButtonDark order={order}>
               Explore Now
-            </StaticOrderComponentButtonDark>
-            <StaticOrderComponentButtonLight>
+            </StaticOrderComponentCategoryButtonDark>
+            <StaticOrderComponentCategoryButtonLight>
               View Intro
-            </StaticOrderComponentButtonLight>
+            </StaticOrderComponentCategoryButtonLight>
           </div>
-        </StaticOrderComponentHeader>
+        </StaticOrderComponentCategoryHeader>
         <div className="col-lg-6">
           <img
             src="../../../public/dogs.png"
-            className="img-fluid static-img"
+            className="img-fluid static-img-category"
           />
         </div>
-      </StaticOrderComponentContainer>
-    </div>
+      </StaticOrderComponentCategoryContainer>
+    </>
   );
 };
 

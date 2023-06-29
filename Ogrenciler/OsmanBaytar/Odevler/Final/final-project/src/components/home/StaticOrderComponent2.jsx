@@ -1,5 +1,5 @@
 import {
-  StaticOrderComponentMainContainer,
+  StaticOrderComponentMainContainer2,
   StaticOrderComponentContainer2,
   StaticOrderComponentHeader,
   StaticOrderComponentH1,
@@ -9,11 +9,11 @@ import {
   StaticOrderComponentButtonLight,
   StaticOrderComponentSpan,
 } from "../../styles/StaticOrderComponent";
-import "../../styles/StaticOrderComponent.css";
+import "../../styles/StaticOrderComponent2.css";
 
 const StaticOrderComponent2 = () => {
   return (
-    <StaticOrderComponentMainContainer className="container">
+    <StaticOrderComponentMainContainer2 className="container">
       <StaticOrderComponentContainer2 className="row">
         <StaticOrderComponentHeader className="col-lg-6">
           <StaticOrderComponentH1>
@@ -41,11 +41,11 @@ const StaticOrderComponent2 = () => {
         <div className="col-lg-6">
           <img
             src="../../../public/human-dog2.png"
-            className="img-fluid static-img"
+            className="img-fluid static-img2"
           />
         </div>
       </StaticOrderComponentContainer2>
-    </StaticOrderComponentMainContainer>
+    </StaticOrderComponentMainContainer2>
   );
 };
 
