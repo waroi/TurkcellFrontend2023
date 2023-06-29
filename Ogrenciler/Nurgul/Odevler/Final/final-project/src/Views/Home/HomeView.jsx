@@ -1,6 +1,11 @@
 import Card from "../../Components/Products/Card";
 import { ProductsContainer } from "../../Components/Style/styled-productDetail";
+import BannerPaw from "../../Components/Home/BannerPaw";
+import BannerWomen from "../../Components/Home/BannerWomen";
+import BannerWomenTwo from "../../Components/Home/BannerWomenTwo";
+import Sellers from "../../Components/Home/Sellers";
 import ViewMore from "../../Components/Home/ViewMore";
+import Knowledge from "../../Components/Home/Knowledge";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -34,18 +39,27 @@ const HomeView = () => {
     //Banner//
 
     <div>
+      <BannerWomen />
       <ViewMore />
       <ProductsContainer>
         {products.map((product) => (
           <Card key={product.id} product={product} />
         ))}
       </ProductsContainer>
+      <BannerWomenTwo />
+      <ProductsContainer>
+        {products.map((product) => (
+          <Card key={product.id} product={product} />
+        ))}
+      </ProductsContainer>
+
+      <Sellers />
+      <BannerPaw />
+
+      <Knowledge />
     </div>
 
-    //ufak banner//
-    //tekrar card//
     //banner//
-    //3 tane açıklamalı banner//
   );
 };
 

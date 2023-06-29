@@ -3,6 +3,7 @@ import Sort from "../Products/Sort";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../Products/Card";
+import BannerProduct from "../Products/BannerProduct";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.css";
@@ -109,10 +110,7 @@ const ProductList = () => {
   return (
     <Container className="container">
       <div>
-        <Banner
-          src="https://img.freepik.com/free-vector/black-friday-sale-with-realistic-3d-paper-page_1361-3675.jpg?w=826&t=st=1687725177~exp=1687725777~hmac=901bb64a3c85f6934f86434f716fdb88812063571f9d7b2a296420c975795348"
-          alt=""
-        />
+        <BannerProduct />
       </div>
       <div className="row">
         <div className="col-lg-3">

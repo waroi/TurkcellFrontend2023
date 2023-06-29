@@ -83,31 +83,22 @@ const Header = () => {
             <div className="col-lg-6">
               <div className="d-flex flex-row">
                 <i className="fa-solid fa-magnifying-glass me-2"></i>
-                {isSearchOpen ? (
-                  <>
-                    <div className="d-flex flex-row">
-                      <SearchInput
-                        type="text"
-                        placeholder="Search something here!"
-                        value={searchQuery}
-                        onChange={handleSearchInput}
-                      />
-                      {isProductSearchOpen ? (
-                        <FaSearch
-                          onClick={goToProducts}
-                          className="mt-3 ms-2"
-                        />
-                      ) : (
-                        <FaSearch
-                          onClick={toggleProductSearch}
-                          className="mt-3 ms-2"
-                        />
-                      )}
-                    </div>
-                  </>
-                ) : (
-                  <FaSearch onClick={toggleSearch} />
-                )}
+
+                <>
+                  <div className="d-flex flex-row">
+                    <SearchInput
+                      type="text"
+                      placeholder="Search something here!"
+                      value={searchQuery}
+                      onChange={handleSearchInput}
+                      onKeyPress={(event) => {
+                        if (event.key === "Enter") {
+                          goToProducts();
+                        }
+                      }}
+                    />
+                  </div>
+                </>
               </div>
             </div>
             <div className="col-lg-3">
@@ -151,6 +142,11 @@ const Header = () => {
                 placeholder="Search something here!"
                 value={searchQuery}
                 onChange={handleSearchInput}
+                onKeyPress={(event) => {
+                  if (event.key === "Enter") {
+                    goToProducts();
+                  }
+                }}
               />
               <FaSearch onClick={toggleSearch} />
             </>
