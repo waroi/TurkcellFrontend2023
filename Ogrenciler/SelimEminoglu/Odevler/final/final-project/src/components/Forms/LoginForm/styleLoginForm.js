@@ -10,8 +10,10 @@ export const FormDiv = styled.form`
   border: 2px solid #99a2a5;
   border-radius: 10px;
   width: 600px;
-  height: 300px;
+  height: 450px;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -57,4 +59,21 @@ export const Formİnput = styled.input`
     background-color: #fdfdfd;
     color: black;
   }
+`;
+
+export const FormButton = styled.button`
+  display: flex;
+  width: 163px;
+  padding: 14px 28px 10px 28px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 57px;
+  border: 1.5px solid #003459;
+  color: #003459;
+  background-color: #fdfdfd;
+`;
+
+export const FormH1 = styled.h1`
+  margin: 0;
 `;

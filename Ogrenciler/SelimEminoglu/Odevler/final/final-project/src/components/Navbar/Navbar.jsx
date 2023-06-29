@@ -11,6 +11,7 @@ import Button from "../Button/Button";
 import Register from "../Register/Register";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "../../assets/css/main.css";
 
 function Navbar() {
   const [background, setBackground] = useState("transparent");
@@ -33,7 +34,9 @@ function Navbar() {
         <NavList>
           <img src=".\src\assets\icons\navbar_icon.svg" alt="logo" />
           <NavbarA href="#">Home</NavbarA>
-          <NavbarA href="#">Category</NavbarA>
+          <Link className="navbarA" to={"/products"}>
+            Category
+          </Link>
           <NavbarA href="#">About</NavbarA>
           <NavbarA href="#">Contact</NavbarA>
           <NavbarSearch />
