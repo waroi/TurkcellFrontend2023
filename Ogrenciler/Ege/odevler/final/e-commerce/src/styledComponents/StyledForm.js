@@ -45,6 +45,10 @@ const Form = styled.form`
   input[type="number"] {
     -moz-appearance: textfield; /* For Firefox */
   }
+
+  .urlInfo {
+    word-break: break-all;
+  }
 `;
 
 export default Form;
