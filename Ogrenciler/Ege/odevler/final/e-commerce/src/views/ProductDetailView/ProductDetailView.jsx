@@ -77,10 +77,7 @@ const ProductDetailView = () => {
                 </div>
             </div>
             <RandomProducts randomProducts={randomProducts} />
-            {/* <h1>{user.name}</h1>
-            <h2>{product.title}</h2>
-            <h2>Stock: {product.rating?.count} {product.rating?.rate} </h2>
-            <button className={`${product.rating?.count == 0 && "disabled"} btn btn-success`} onClick={handleCartClick} >Add to Cart</button> */}
+
         </div>
     )
 }

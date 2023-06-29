@@ -1,7 +1,8 @@
 import PropTypes from "prop-types"
+import StyledCarousel from "./StyledCarousel"
 const Carousel = ({ img }) => {
     return (
-        <div id="productCarouselIndicators" className="carousel slide">
+        <StyledCarousel id="productCarouselIndicators" className="carousel slide">
             <div className="carousel-indicators">
                 <button type="button" data-bs-target="#productCarouselIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#productCarouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -26,7 +27,7 @@ const Carousel = ({ img }) => {
                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Next</span>
             </button>
-        </div >
+        </StyledCarousel >
     )
 }
 

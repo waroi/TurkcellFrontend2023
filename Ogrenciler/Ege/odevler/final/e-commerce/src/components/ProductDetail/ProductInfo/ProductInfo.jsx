@@ -4,45 +4,45 @@ import ButtonPrimary from "../../../styledComponents/ButtonPrimary"
 import ButtonOutline from "../../../styledComponents/ButtonOutline"
 const ProductInfo = ({ product, handleCartClick }) => {
     return (
-        <StyledProductInfo>
-
+        <StyledProductInfo className="my-5">
+            <p>ID: {product.id}</p>
             <h2>{product.title}</h2>
-            <h3>{product.price}</h3>
-            <div className="d-flex justify-content-center align-items-center gap-3">
+            <h3>{product.price}$</h3>
+            <div className="d-flex justify-content-center align-items-center gap-3 my-p">
                 <ButtonPrimary onClick={handleCartClick}>Add To Cart</ButtonPrimary>
                 <ButtonOutline> - Chat with Monito</ButtonOutline>
             </div>
 
             <div className="row infoWrap">
                 <div className="col-6 infoBox">
-                    <h4>Category</h4>
+                    <p>Category</p>
                 </div>
                 <div className="col-6 infoBox">
-                    <h4>{product.category}</h4>
-                </div>
-            </div>
-            <div className="row infoWrap">
-                <div className="col-6 infoBox">
-                    <h4>Rating</h4>
-                </div>
-                <div className="col-6 infoBox">
-                    <h4>{product.rating?.rate} / 5</h4>
+                    <p>: {product.category}</p>
                 </div>
             </div>
             <div className="row infoWrap">
                 <div className="col-6 infoBox">
-                    <h4>Stock</h4>
+                    <p>Rating</p>
                 </div>
                 <div className="col-6 infoBox">
-                    <h4>{product.rating?.count}</h4>
+                    <p>: {product.rating?.rate} / 5</p>
                 </div>
             </div>
             <div className="row infoWrap">
                 <div className="col-6 infoBox">
-                    <h4>Description</h4>
+                    <p>Stock</p>
                 </div>
                 <div className="col-6 infoBox">
-                    <h4>{product.description}</h4>
+                    <p>: {product.rating?.count}</p>
+                </div>
+            </div>
+            <div className="row infoWrap">
+                <div className="col-6 infoBox">
+                    <p>Description</p>
+                </div>
+                <div className="col-6 infoBox">
+                    <p>: {product.description}</p>
                 </div>
             </div>
 
