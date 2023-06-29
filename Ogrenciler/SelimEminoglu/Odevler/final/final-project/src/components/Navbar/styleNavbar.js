@@ -27,7 +27,7 @@ export const NavbarA = styled.a`
 
 export const NavbarInput = styled.input`
   display: flex;
-  width: 265px;
+  width: 280px;
   padding: 12px 20px 12px 16px;
   align-items: center;
   gap: 12px;

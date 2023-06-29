@@ -10,6 +10,10 @@ import {
   CardCategory,
   CardPrice,
   CardButtonDiv,
+  CardGiftDiv,
+  CardPointDiv,
+  CardPoint,
+  CardGiftText,
 } from "./styleCardList";
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
@@ -87,6 +91,13 @@ function CardList({ isEight }) {
               </CardCategory>
               <CardPrice>{item.price} $</CardPrice>
             </CardTextDiv>
+            <CardGiftDiv>
+              <img src="./src/assets/icons/gift_icon.svg" alt="logo" />
+              <CardPointDiv>
+                <CardPoint></CardPoint>
+              </CardPointDiv>
+              <CardGiftText>Free Toy & Free Shaker</CardGiftText>
+            </CardGiftDiv>
             <CardButtonDiv>
               <Button title="Sepete Ekle" />
             </CardButtonDiv>

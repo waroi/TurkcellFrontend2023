@@ -16,8 +16,28 @@ import {
   FooterH4,
   FooterMainİcon,
 } from "./styleFooter";
+import { useFormik } from "formik";
+import { footerSchema } from "../../schemas";
+
+const onSubmit = async (values, actions) => {
+  console.log(values);
+  console.log(actions);
+
+  await new Promise((resolve) => {
+    setTimeout(resolve, 1000);
+  });
+  actions.resetForm();
+};
 
 function Footer() {
+  const { values, errors, isSubmitting, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        email: "",
+      },
+      validationSchema: footerSchema,
+      onSubmit,
+    });
   return (
     <FooterDiv>
       <Container>
@@ -26,10 +46,20 @@ function Footer() {
             <FooterTextDiv>
               Register now so you don't miss our programs
             </FooterTextDiv>
-            <FooterİnputDiv>
-              <Footerİnput type="text" placeholder="Enter Your Email" />
-              <FooterSubmitButton>Subcribe Now</FooterSubmitButton>
-            </FooterİnputDiv>
+            <form onSubmit={handleSubmit}>
+              <FooterİnputDiv>
+                <Footerİnput
+                  type="email"
+                  id="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  placeholder="Enter Your Email"
+                />
+                <FooterSubmitButton type="submit" disabled={isSubmitting}>
+                  Subcribe Now
+                </FooterSubmitButton>
+              </FooterİnputDiv>
+            </form>
           </FooterRegisterDiv>
           <FooterSocialDiv>
             <FooterNavList>

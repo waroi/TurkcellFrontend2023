@@ -75,3 +75,37 @@ export const CardButtonDiv = styled.div`
   padding-bottom: 1rem;
   padding-left: 2.2rem;
 `;
+
+export const CardGiftDiv = styled.div`
+  display: flex;
+  padding: 6px 10px 4px 10px;
+  align-items: center;
+  gap: 2px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #fceed5;
+`;
+
+export const CardPointDiv = styled.div`
+  display: flex;
+  padding: 10px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const CardPoint = styled.div`
+  width: 4px;
+  height: 4px;
+  border-radius: 10px;
+  background: #003459;
+`;
+
+export const CardGiftText = styled.div`
+  color: #002a48;
+  font-size: 14px;
+  font-family: SVN-Gilroy;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+`;

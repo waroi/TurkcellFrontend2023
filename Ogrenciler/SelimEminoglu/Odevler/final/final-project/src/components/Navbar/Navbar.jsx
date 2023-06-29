@@ -39,12 +39,12 @@ function Navbar() {
           <NavbarSearch />
           <Button title="Giriş Yap" path={"/login"} />
           <Register />
-          <BasketDiv>
+          {/* <BasketDiv>
             <Link to={"/carts"}>
               <CountDiv>0</CountDiv>
               <img src="./src/assets/icons/shopping-cart.png" alt="logo" />
             </Link>
-          </BasketDiv>
+          </BasketDiv> */}
         </NavList>
       </Container>
     </NavbarDiv>
