@@ -3,18 +3,41 @@ import StyledProductInfo from "./StyledProductInfo"
 import ButtonPrimary from "../../../styledComponents/ButtonPrimary"
 import ButtonOutline from "../../../styledComponents/ButtonOutline"
 import Guarantees from "../Guarantees/Guarantees"
+import StyledTextShare from "../../../styledComponents/StyledTextShare"
+import shareAndroid from "../../../assets/Share_Android.svg"
+import { useState } from "react"
+import Share from "../Share/Share"
 const ProductInfo = ({ product, handleCartClick }) => {
+
+    const [isShareOn, setIsShareOn] = useState(false)
+
+    const handleShare = () => {
+        setIsShareOn(!isShareOn)
+    }
+
     return (
         <StyledProductInfo className="my-5">
             <p>Breadcrumbs</p>
             <p>ID: {product.id}</p>
             <h2>{product.title}</h2>
             <h3>{product.price}$</h3>
-            <div className="d-flex justify-content-center align-items-center gap-3 my-p">
+            <div className="d-flex justify-content-center align-items-center gap-3 my-3">
                 <ButtonPrimary onClick={handleCartClick}>Add To Cart</ButtonPrimary>
                 <ButtonOutline> - Chat with Monito</ButtonOutline>
             </div>
 
+            <div className="infoPre d-lg-none d-flex justify-content-between align-items-center">
+                <h4>Information</h4>
+                <div className="d-flex">
+                    <StyledTextShare onClick={handleShare}>
+                        <img src={shareAndroid} alt="share" />
+                        Share
+                    </StyledTextShare>
+                </div>
+            </div>
+            {
+                isShareOn && <div className="d-flex justify-content-center my-5"><Share /></div>
+            }
             <div className="infoContainer">
                 <div className="row infoWrap">
                     <div className="col-6 infoBox">

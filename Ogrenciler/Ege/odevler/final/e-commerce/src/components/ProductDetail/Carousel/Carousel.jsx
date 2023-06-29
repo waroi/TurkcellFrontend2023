@@ -1,6 +1,9 @@
 import PropTypes from "prop-types"
 import StyledCarousel from "./StyledCarousel"
 import Guarantees from "../Guarantees/Guarantees"
+import Share from "../Share/Share"
+import shareAndroid from "../../../assets/Share_Android.svg"
+import StyledTextShare from "../../../styledComponents/StyledTextShare"
 const Carousel = ({ img }) => {
     return (
         <div>
@@ -32,6 +35,13 @@ const Carousel = ({ img }) => {
             </StyledCarousel >
             <div className="d-none d-lg-block">
                 <Guarantees />
+                <div className="d-flex">
+                    <StyledTextShare>
+                        <img src={shareAndroid} alt="share" />
+                        Share:
+                    </StyledTextShare>
+                    <Share />
+                </div>
             </div>
         </div>
     )
