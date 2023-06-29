@@ -1,5 +1,6 @@
 import * as yup from "yup";
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
+const imageRules = /(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg)(\?[^\s[",><]*)?/g
 
 export const signupSchema = yup.object().shape({
   email: yup
@@ -32,3 +33,34 @@ export const loginScheme = yup.object().shape({
     .string()
     .required("Password must be submitted"),
 });
+
+
+export const productScheme = yup.object().shape({
+  title: yup
+  .string()
+  .min(3, "Username must be at least 3 characters")
+  .required("Title must be submitted"),
+  image: yup
+  .string()
+  .required("Image must be submitted")
+  .matches(imageRules, {
+    message: "Please enter a valid image url",
+  }),
+  rate: yup
+  .number()
+  .min(0, "Rating must be at least 0")
+  .max(5, "Rating must be at most 5")
+  .required("Rating must be submitted"),
+  count: yup
+  .number()
+  .min(0, "Stock must be at least 0")
+  .required("Stock must be submitted"),
+  description: yup
+  .string()
+  .min(3, "Description must be at least 3 characters")
+  .required("Description must be submitted"),
+  price: yup
+  .number()
+  .min(1, "Price must be at least 1$")
+  .required("Price must be submitted"),
+})

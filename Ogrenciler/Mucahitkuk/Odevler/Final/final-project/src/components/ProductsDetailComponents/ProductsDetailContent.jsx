@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { SliderImage } from "./styled";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { productScheme } from "../../schema/index";
+import Modal from "react-bootstrap/Modal";
 import Spinner from "react-bootstrap/Spinner";
 import detailFrame from "../../assets/detailframe.svg";
 import detailFrame2 from "../../assets/detailframe2.svg";
@@ -20,13 +23,32 @@ import { Link } from "react-router-dom";
 import {
   PageButton,
   PageButtonTwo,
+  TitleOne,
+  TitleTwo,
 } from "../HomeComponents/HeaderContent/styled";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/actions/actions";
+import CustomerComponent from "./CustomerComponent/CustomerComponent";
 
 export const ProductDetail = ({ productId }) => {
   const [product, setProduct] = useState(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [show, setShow] = useState(false);
+  const [editedProduct, setEditedProduct] = useState(null);
+
+  const productCategories = [
+    "men's clothing",
+    "jewelry",
+    "electronics",
+    "women's clothing",
+  ];
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => {
+    setShow(true);
+    setEditedProduct(product);
+  };
+
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.currentUser);
 
@@ -44,6 +66,42 @@ export const ProductDetail = ({ productId }) => {
       .catch((error) => console.error("Error fetching product:", error));
   }, [productId]);
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    if (name === "rate" || name === "count") {
+      setEditedProduct((prevProduct) => ({
+        ...prevProduct,
+        rating: {
+          ...prevProduct.rating,
+          [name]: parseFloat(value),
+        },
+      }));
+    } else {
+      setEditedProduct((prevProduct) => ({
+        ...prevProduct,
+        [name]: value,
+      }));
+    }
+  };
+
+  const handleSaveChanges = () => {
+    fetch(`http://localhost:3000/products/${editedProduct.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editedProduct),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setProduct(data);
+        setShow(false);
+      })
+      .catch((error) => {
+        console.error("Error updating product:", error);
+      });
+  };
+
   console.log(product);
 
   if (!product) {
@@ -55,6 +113,7 @@ export const ProductDetail = ({ productId }) => {
   }
 
   return (
+    <>
     <Container className="rounded-3 border p-4">
       <div className="d-flex row">
         <div className="col-md-6">
@@ -181,16 +240,18 @@ export const ProductDetail = ({ productId }) => {
                 <PageButtonTwo>Login to buy</PageButtonTwo>
               </Link>
             ) : (
-              <PageButtonTwo>Add to cart</PageButtonTwo>
+              <PageButtonTwo disabled={product.rating.count === 0}>
+                Add to cart
+              </PageButtonTwo>
             )}
             <PageButton>Chat with Monito</PageButton>
             {currentUser?.name === "admin" && (
-              <PageButtonTwo>Edit Product</PageButtonTwo>
+              <PageButtonTwo onClick={handleShow}>Edit Product</PageButtonTwo>
             )}
           </div>
           <div className="d-flex flex-row mt-4">
             <div className="d-flex col-md-6">
-              <span>ID</span>
+              <span>ID: &nbsp;</span>
             </div>
             <div className="d-flex col-md-6">
               <span>#{product.id}</span>
@@ -199,7 +260,7 @@ export const ProductDetail = ({ productId }) => {
           <hr></hr>
           <div className="d-flex flex-row">
             <div className="d-flex col-md-6">
-              <span>Category</span>
+              <span>Category: &nbsp;</span>
             </div>
             <div className="d-flex col-md-6">
               <span>{product.category}</span>
@@ -208,7 +269,7 @@ export const ProductDetail = ({ productId }) => {
           <hr></hr>
           <div className="d-flex flex-row">
             <div className="d-flex col-md-6">
-              <span>Rating</span>
+              <span>Rating: &nbsp;</span>
             </div>
             <div className="d-flex col-md-6">
               <span>{product.rating.rate}</span>
@@ -217,7 +278,7 @@ export const ProductDetail = ({ productId }) => {
           <hr></hr>
           <div className="d-flex flex-row">
             <div className="d-flex col-md-6">
-              <span>Stock Amount</span>
+              <span>Stock Amount: &nbsp;</span>
             </div>
             <div className="d-flex col-md-6">
               <span>{product.rating.count}</span>
@@ -226,7 +287,7 @@ export const ProductDetail = ({ productId }) => {
           <hr></hr>
           <div className="d-flex flex-row">
             <div className="d-flex col-md-6">
-              <span>Description</span>
+              <span>Description: &nbsp;</span>
             </div>
             <div className="d-flex col-md-6">
               <span>{product.description}</span>
@@ -234,7 +295,221 @@ export const ProductDetail = ({ productId }) => {
           </div>
         </div>
       </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Product</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {editedProduct && (
+            <Formik
+              initialValues={editedProduct}
+              validationSchema={productScheme}
+              onSubmit={handleSaveChanges}
+            >
+              {({ handleSubmit, handleChange, values, errors }) => (
+                <Form onSubmit={handleSubmit}>
+                  <div className="mb-3">
+                    <label htmlFor="id" className="form-label">
+                      Id
+                    </label>
+                    <Field
+                      type="text"
+                      className="form-control"
+                      id="id"
+                      name="id"
+                      disabled
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="image" className="form-label">
+                      Image
+                    </label>
+                    <Field
+                      type="text"
+                      className={`form-control ${
+                        errors.image ? "is-invalid" : ""
+                      }`}
+                      id="image"
+                      name="image"
+                      value={values.image}
+                      onChange={(event) => {
+                        handleChange(event);
+                        handleInputChange(event);
+                      }}
+                    />
+                    <ErrorMessage
+                      name="image"
+                      component="div"
+                      className="invalid-feedback"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="title" className="form-label">
+                      Title
+                    </label>
+                    <Field
+                      type="text"
+                      className={`form-control ${
+                        errors.title ? "is-invalid" : ""
+                      }`}
+                      id="title"
+                      name="title"
+                      value={values.title}
+                      onChange={(event) => {
+                        handleChange(event);
+                        handleInputChange(event);
+                      }}
+                    />
+                    <ErrorMessage
+                      name="title"
+                      component="div"
+                      className="invalid-feedback"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="category" className="form-label">
+                      Category
+                    </label>
+                    <Field
+                      as="select"
+                      className={`form-control ${
+                        errors.category ? "is-invalid" : ""
+                      }`}
+                      id="category"
+                      name="category"
+                      value={values.category}
+                      onChange={(event) => {
+                        handleChange(event);
+                        handleInputChange(event);
+                      }}
+                    >
+                      {productCategories.map((category, index) => (
+                        <option key={index}>{category}</option>
+                      ))}
+                    </Field>
+                    <ErrorMessage
+                      name="category"
+                      component="div"
+                      className="invalid-feedback"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="rate" className="form-label">
+                    Rating
+                    </label>
+                    <Field
+                      type="number"
+                      className={`form-control ${
+                        errors.rate  ? "is-invalid" : ""
+                      }`}
+                      id="rate"
+                      name="rate"
+                      
+                      onChange={(event) => {
+                        handleChange(event);
+                        handleInputChange(event);
+                      }}
+                    />
+                    <ErrorMessage
+                      name="rate"
+                      component="div"
+                      className="invalid-feedback"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="price" className="form-label">
+                      Set Price
+                    </label>
+                    <Field
+                      type="number"
+                      className={`form-control ${
+                        errors.price ? "is-invalid" : ""
+                      }`}
+                      id="price"
+                      name="price"
+                      onChange={(event) => {
+                        handleChange(event);
+                        handleInputChange(event);
+                      }}
+                    />
+                    <ErrorMessage
+                      name="price"
+                      component="div"
+                      className="invalid-feedback"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="count" className="form-label">
+                      Stock Amount
+                    </label>
+                    <Field
+                      type="number"
+                      className={`form-control ${
+                        errors.count ? "is-invalid" : ""
+                      }`}
+                      id="count"
+                      name="count"
+                  
+                      onChange={(event) => {
+                        handleChange(event);
+                        handleInputChange(event);
+                      }}
+                    />
+                    <ErrorMessage
+                      name="count"
+                      component="div"
+                      className="invalid-feedback"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="description" className="form-label">
+                      Description
+                    </label>
+                    <Field
+                      as="textarea"
+                      className={`form-control ${
+                        errors.description ? "is-invalid" : ""
+                      }`}
+                      id="description"
+                      name="description"
+                      value={values.description}
+                      onChange={(event) => {
+                        handleChange(event);
+                        handleInputChange(event);
+                      }}
+                    />
+                    <ErrorMessage
+                      name="description"
+                      component="div"
+                      className="invalid-feedback"
+                    />
+                  </div>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                    <Button variant="primary" type="submit">
+                      Save Changes
+                    </Button>
+                  </Modal.Footer>
+                </Form>
+              )}
+            </Formik>
+          )}
+        </Modal.Body>
+      </Modal>
     </Container>
+    <Container className="mt-5">
+      <h2>Our Lovely Customers</h2>
+      <div className="d-flex mt-3">
+      <CustomerComponent />
+      </div>
+    </Container>
+    <Container className="mt-5">
+      <p>Whats new?</p>
+      <h2 style={{fontSize: "24px", color:"#003459"}}>See More Puppies</h2>
+    </Container>
+    </>
   );
 };
 
