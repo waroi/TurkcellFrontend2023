@@ -1,7 +1,7 @@
 import {
   StaticOrderComponentMainContainer2,
   StaticOrderComponentContainer2,
-  StaticOrderComponentHeader,
+  StaticOrderComponent2Header,
   StaticOrderComponentH1,
   StaticOrderComponentH2,
   StaticOrderComponentP,
@@ -15,7 +15,7 @@ const StaticOrderComponent2 = () => {
   return (
     <StaticOrderComponentMainContainer2 className="container">
       <StaticOrderComponentContainer2 className="row">
-        <StaticOrderComponentHeader className="col-lg-6">
+        <StaticOrderComponent2Header className="col-lg-6">
           <StaticOrderComponentH1>
             Adoption
             <StaticOrderComponentSpan>
@@ -37,7 +37,7 @@ const StaticOrderComponent2 = () => {
               View Intro
             </StaticOrderComponentButtonLight>
           </div>
-        </StaticOrderComponentHeader>
+        </StaticOrderComponent2Header>
         <div className="col-lg-6">
           <img
             src="../../../public/human-dog2.png"

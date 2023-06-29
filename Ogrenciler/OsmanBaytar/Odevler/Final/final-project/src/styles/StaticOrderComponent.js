@@ -54,6 +54,21 @@ export const StaticOrderComponentHeader = styled.div`
   }
 `;
 
+export const StaticOrderComponent2Header = styled.div`
+  padding: 60px;
+
+  @media screen and (max-width: 768px) {
+    padding: 30px;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 20px;
+  }
+  @media screen and (max-width: 480px) {
+    padding: 10px;
+    text-align: center;
+  }
+`;
+
 export const StaticOrderComponentH1 = styled.h1`
   color: #003459;
   font-size: 52px;
