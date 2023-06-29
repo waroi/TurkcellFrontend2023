@@ -14,6 +14,8 @@ import { useNavigate } from "react-router-dom";
 import { basketRequest, productRequest } from "../../utils/Request";
 import { addBasketCount } from "../../redux/slices/basketAddSlice";
 import { useSelector } from "react-redux/es/hooks/useSelector";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BasketItem = (props) => {
   const [isView, setIsView] = useState(true);
@@ -69,12 +71,25 @@ const BasketItem = (props) => {
   }, [basket]);
   console.log(intersectedData);
 
+  function successToast() {
+    toast.success("Product is removed from basket", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   const dispatch = useDispatch();
 
   function removeBasket() {
     dispatch(deleteBasket(data.id));
     setIsView(false);
     dispatch(addBasketCount(basketNumber + 1));
+    successToast();
   }
 
   useEffect(() => {
@@ -157,6 +172,7 @@ const BasketItem = (props) => {
           </div>
         </BasketItemContainer>
       )}
+      <ToastContainer />
     </>
   );
 };

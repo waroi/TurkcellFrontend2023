@@ -6,6 +6,8 @@ import { userRequest } from "../utils/Request";
 import { useDispatch } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => {
@@ -19,9 +21,22 @@ function LogInForm() {
   const currentPassword = useRef("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [count, setCount] = useState(0);
 
   function goToHome() {
     navigate("/");
+  }
+
+  function errorToast() {
+    toast.error("Email or password is wrong!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 
   const [userData, setUserData] = useState([]);
@@ -45,9 +60,19 @@ function LogInForm() {
         );
         dispatch(addLogin(item));
         goToHome();
+        setCount(count + 1);
       }
     });
+    setCount(count + 1);
   }
+
+  useEffect(() => {
+    if (count === 1) {
+      errorToast();
+      setCount(0);
+    }
+  }, [count]);
+  console.log(count);
 
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({
@@ -91,6 +116,7 @@ function LogInForm() {
       <button type="submit" disabled={isSubmitting} onClick={checkLogin}>
         Log In
       </button>
+      <ToastContainer />
     </form>
   );
 }

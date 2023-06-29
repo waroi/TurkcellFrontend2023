@@ -1,6 +1,8 @@
 import { StaticOrderComponentButtonDark } from "../styles/StaticOrderComponent";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUpSuccessfulViewContainer = styled.div`
   align-items: center;
@@ -27,18 +29,37 @@ const SignUpSuccessfulView = () => {
     navigate("/");
   }
 
+  function successToast() {
+    toast.success("Sign up succesful", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  setTimeout(() => {
+    successToast();
+  }, 2000);
+
   return (
-    <SignUpSuccessfulViewContainer className="container text-center">
-      <SignUpSuccessfulViewWrapper className="container text-center">
-        <h1>Sign Up Successful</h1>
-        <StaticOrderComponentButtonDark
-          className="mx-auto mt-5"
-          onClick={goToHome}
-        >
-          Go To Home
-        </StaticOrderComponentButtonDark>
-      </SignUpSuccessfulViewWrapper>
-    </SignUpSuccessfulViewContainer>
+    <>
+      <SignUpSuccessfulViewContainer className="container text-center">
+        <SignUpSuccessfulViewWrapper className="container text-center">
+          <h1>Sign Up Successful</h1>
+          <StaticOrderComponentButtonDark
+            className="mx-auto mt-5"
+            onClick={goToHome}
+          >
+            Go To Home
+          </StaticOrderComponentButtonDark>
+        </SignUpSuccessfulViewWrapper>
+      </SignUpSuccessfulViewContainer>
+      <ToastContainer />
+    </>
   );
 };
 

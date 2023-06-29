@@ -18,6 +18,8 @@ import {
   DetailInputLabel,
 } from "../styles/DetailEditStyle";
 import { basketRequest } from "../utils/Request";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const DetailView = () => {
   const [productsData, setProductsData] = useState([]);
@@ -45,6 +47,18 @@ const DetailView = () => {
 
   const [editCount, setEditCount] = useState(0);
   const [intersectedCount, setIntersectedCount] = useState(0);
+
+  function errorToast() {
+    toast.error("Wrong or missing information", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
 
   useEffect(() => {
     basketRequest.get().then((data) => {
@@ -147,7 +161,7 @@ const DetailView = () => {
       });
       setEditCount(editCount + 1);
     } else {
-      console.log("object2");
+      errorToast();
     }
   }
 
@@ -286,6 +300,7 @@ const DetailView = () => {
           </div>
         </div>
       )}
+      <ToastContainer />
     </>
   );
 };

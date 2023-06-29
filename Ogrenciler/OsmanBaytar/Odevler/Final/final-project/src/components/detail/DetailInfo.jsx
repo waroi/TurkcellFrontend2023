@@ -6,16 +6,15 @@ import {
   DetailInfoSubDiv,
   DetailInfoSubTitle,
 } from "../../styles/DetailInfoStyle";
-import {
-  StaticOrderComponentButtonDark,
-  StaticOrderComponentButtonLight,
-} from "../../styles/StaticOrderComponent";
+import { StaticOrderComponentButtonDark } from "../../styles/StaticOrderComponent";
 import { basketRequest } from "../../utils/Request";
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addBasketCount } from "../../redux/slices/basketAddSlice";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const DetailInfo = (props) => {
   const [basketData, setBasketData] = useState({});
@@ -27,8 +26,21 @@ const DetailInfo = (props) => {
   const isLoggedIn = localStorage.getItem("login") ? true : false;
 
   const [isOkey, setIsOkey] = useState(false);
+  const [isWarning, setIsWarning] = useState(false);
   const buttonDisabled = useRef();
   const [maxId, setMaxId] = useState(0);
+
+  function warningToast() {
+    toast.warning("Product has already added to basket!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -52,6 +64,7 @@ const DetailInfo = (props) => {
 
   function checkBasket() {
     setIsOkey(true);
+    setIsWarning(false);
     console.log("checked");
     if (currentUser.length !== 0) {
       for (let i = 0; i < basketData.length; i++) {
@@ -60,6 +73,7 @@ const DetailInfo = (props) => {
           basketData[i].username == currentUser.username
         ) {
           setIsOkey(false);
+          setIsWarning(true);
         }
       }
     }
@@ -72,6 +86,12 @@ const DetailInfo = (props) => {
       dispatch(addBasketCount(basketNumber + 1));
     }
   }, [isOkey]);
+
+  useEffect(() => {
+    if (isWarning == true) {
+      warningToast();
+    }
+  }, [isWarning]);
 
   function addBasket() {
     console.log("addBasket");
@@ -89,25 +109,6 @@ const DetailInfo = (props) => {
     });
   }
 
-  // function goToBasket() {
-  //   navigate("/Basket");
-  // }
-
-  // function buyNow() {
-  //   basketRequest.post({
-  //     id: basketData.length + 1,
-  //     username: currentUser.username,
-  //     title: props.data.title,
-  //     price: props.data.price,
-  //     category: props.data.category,
-  //     description: props.data.description,
-  //     image: props.data.image,
-  //     rate: props.data.rate,
-  //     count: props.data.count,
-  //   });
-  //   goToBasket();
-  // }
-
   return (
     <DetailInfoBox className="p-5">
       <DetailInfoTitle>{props.data.title}</DetailInfoTitle>
@@ -119,9 +120,6 @@ const DetailInfo = (props) => {
         >
           ADD TO CART
         </StaticOrderComponentButtonDark>
-        {/* <StaticOrderComponentButtonLight onClick={buyNow}>
-          BUY NOW
-        </StaticOrderComponentButtonLight> */}
       </div>
 
       <DetailInfoSubBox className="row">
@@ -151,6 +149,7 @@ const DetailInfo = (props) => {
       <DetailInfoSubBox>
         <DetailInfoSubTitle>{props.data.description}</DetailInfoSubTitle>
       </DetailInfoSubBox>
+      <ToastContainer />
     </DetailInfoBox>
   );
 };

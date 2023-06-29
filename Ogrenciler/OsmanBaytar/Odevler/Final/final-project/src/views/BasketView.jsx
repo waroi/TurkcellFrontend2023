@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import BasketItem from "../components/basket/BasketItem";
-import {
-  BasketItemButtonRemove,
-  BasketItemButtonComplete,
-} from "../styles/BasketItem";
+import { BasketItemButtonComplete } from "../styles/BasketItem";
 import { basketRequest } from "../utils/Request";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BasketViewContainer = styled.div`
   min-height: 100vh;
@@ -42,6 +41,19 @@ const BasketView = () => {
 
   function complete() {
     setIsComplete(true);
+    successToast();
+  }
+
+  function successToast() {
+    toast.success("Purchase is successful", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 
   return (
@@ -61,7 +73,6 @@ const BasketView = () => {
 
       {uniqueBasketData.length !== 0 ? (
         <div className="row justify-content-center gap-3">
-          {/* <BasketItemButtonRemove>Remove Basket</BasketItemButtonRemove> */}
           <BasketItemButtonComplete onClick={complete}>
             Complete Order
           </BasketItemButtonComplete>
@@ -74,6 +85,7 @@ const BasketView = () => {
           </BasketItemButtonComplete>
         </div>
       )}
+      <ToastContainer />
     </BasketViewContainer>
   );
 };
