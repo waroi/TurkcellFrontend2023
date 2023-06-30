@@ -13,8 +13,9 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
 import { addLogin, deleteLogin } from "../redux/slices/loginSlice";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { basketRequest } from "../utils/Request";
+import { addInput } from "../redux/slices/inputSlice";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -28,6 +29,7 @@ const Header = () => {
   const [isDropdown, setIsDropdown] = useState(false);
   const [basketData, setBasketData] = useState([]);
   const [uniqueBasketData, setUniqueBasketData] = useState([]);
+  const inputArea = useRef();
   const basketCount = useSelector((state) => state.basketAdd.count);
   const currentUser = useSelector((state) => state.login.login);
 
@@ -126,6 +128,11 @@ const Header = () => {
     goToHome();
   }
 
+  function handleInput() {
+    dispatch(addInput(inputArea.current.value));
+    goToProducts();
+  }
+
   return (
     <div className="container-xl py-3">
       <HeaderComputer>
@@ -159,7 +166,10 @@ const Header = () => {
               <div className="col-lg-4">
                 <div className="d-flex flex-row">
                   <i className="fa-solid fa-magnifying-glass me-2"></i>
+
                   <HeaderInput
+                    ref={inputArea}
+                    onChange={handleInput}
                     type="text"
                     placeholder="Search something here!"
                   />

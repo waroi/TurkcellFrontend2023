@@ -17,11 +17,8 @@ const ProductThreeItems = (props) => {
   const [sortCount, setSortCount] = useState(0);
 
   function handleChangeSort(e) {
-    // props.isSortValue(e.target.value);
     setSortCount(sortCount + 1);
   }
-
-  console.log(sortCount);
 
   useEffect(() => {
     props.isSortValue(sortButton.current.value);

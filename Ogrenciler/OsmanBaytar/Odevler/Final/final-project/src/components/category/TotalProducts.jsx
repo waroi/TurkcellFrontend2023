@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { productRequest } from "../../utils/Request";
 import ProductBox from "./ProductBox";
 import { TotalProductsButton } from "../../styles/TotalProducts";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 const TotalProducts = (props) => {
   const [productsData, setProductsData] = useState([]);
@@ -21,6 +22,9 @@ const TotalProducts = (props) => {
   const [fakeSortedData, setFakeSortedData] = useState([]);
   const [fakeProductsData, setFakeProductsData] = useState([]);
   const [sortedCount, setSortedCount] = useState(0);
+  const [inputData, setInputData] = useState([]);
+  const [fakeCombinedData2, setFakeCombinedData2] = useState([]);
+  const currentInput = useSelector((state) => state.input.input);
 
   console.count("counter");
 
@@ -32,7 +36,6 @@ const TotalProducts = (props) => {
 
   useEffect(() => {
     productRequest.get().then((data) => {
-      // setProductsData(data);
       setFakeAllData(data);
       setFakeProductsData(data);
       setFakeCombinedData(data);
@@ -41,6 +44,7 @@ const TotalProducts = (props) => {
       setFakeMinRateData(data);
       setFakeMaxRateData(data);
       setFakeIntersectedData(data);
+      setInputData(data);
     });
   }, []);
 
@@ -252,10 +256,8 @@ const TotalProducts = (props) => {
     if (
       (props.minPrice == 0 || props.minPrice == "") &&
       (props.maxPrice == 999.99 || props.maxPrice == "") &&
-      (props.minRate == 0 ||
-        props.minRate == "" ||
-        props.maxRate == 5 ||
-        props.maxRate == "")
+      (props.minRate == 0 || props.minRate == "") &&
+      (props.maxRate == 5 || props.maxRate == "")
     ) {
       setFakeIntersectedData(fakeCombinedData);
     } else {
@@ -276,27 +278,47 @@ const TotalProducts = (props) => {
   ]);
 
   useEffect(() => {
+    if (currentInput != "") {
+      setInputData(
+        fakeAllData.filter((item) =>
+          item.title.toLowerCase().includes(currentInput.toLowerCase())
+        )
+      );
+    } else if (currentInput == "" || currentInput == undefined) {
+      setInputData(fakeAllData);
+    }
+  }, [currentInput]);
+
+  useEffect(() => {
+    setFakeCombinedData2(
+      fakeCombinedData
+        .filter((item) => inputData.includes(item))
+        .filter((item) => fakeIntersectedData.includes(item))
+    );
+  }, [inputData, fakeCombinedData, fakeIntersectedData]);
+
+  useEffect(() => {
     if (props.sortValue == "default") {
-      setFakeSortedData(fakeIntersectedData);
+      setFakeSortedData(fakeCombinedData2);
     } else if (props.sortValue == "title-a-z") {
       setFakeSortedData(
-        fakeIntersectedData.sort((a, b) => a.title.localeCompare(b.title))
+        fakeCombinedData2.sort((a, b) => a.title.localeCompare(b.title))
       );
     } else if (props.sortValue == "title-z-a") {
       setFakeSortedData(
-        fakeIntersectedData.sort((a, b) => b.title.localeCompare(a.title))
+        fakeCombinedData2.sort((a, b) => b.title.localeCompare(a.title))
       );
     } else if (props.sortValue == "price-low-high") {
-      setFakeSortedData(fakeIntersectedData.sort((a, b) => a.price - b.price));
+      setFakeSortedData(fakeCombinedData2.sort((a, b) => a.price - b.price));
     } else if (props.sortValue == "price-high-low") {
-      setFakeSortedData(fakeIntersectedData.sort((a, b) => b.price - a.price));
+      setFakeSortedData(fakeCombinedData2.sort((a, b) => b.price - a.price));
     } else if (props.sortValue == "rating-high-low") {
-      setFakeSortedData(fakeIntersectedData.sort((a, b) => b.rate - a.rate));
+      setFakeSortedData(fakeCombinedData2.sort((a, b) => b.rate - a.rate));
     } else if (props.sortValue == "rating-low-high") {
-      setFakeSortedData(fakeIntersectedData.sort((a, b) => a.rate - b.rate));
+      setFakeSortedData(ffakeCombinedData2.sort((a, b) => a.rate - b.rate));
     }
     setSortedCount(sortedCount + 1);
-  }, [props.sortValue, fakeIntersectedData]);
+  }, [props.sortValue, fakeCombinedData2]);
 
   useEffect(() => {
     if (fakeSortedData.length > 15) {
@@ -309,21 +331,6 @@ const TotalProducts = (props) => {
       setFakeProductsData(fakeSortedData);
     }
   }, [fakeSortedData]);
-
-  // console.log(props.sortValue);
-  // console.log(fakeMensClothingData);
-  // console.log(props.minPrice);
-  // console.log(fakeCombinedData);
-  // console.log(fakeMinPriceData);
-  // console.log(fakeMinRateData);
-  // console.log(fakeMaxRateData);
-  console.log(productsData);
-  console.log(fakeAllData);
-  console.log(fakeIntersectedData);
-  console.log(fakeSortedData);
-  console.log(props.sortValue);
-  // console.log(fakeSortedData.slice(0, 15));
-  // console.log(fakeProductsData);
 
   function handleClickButton(e) {
     if (e.target.textContent == "1") {
