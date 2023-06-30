@@ -315,7 +315,7 @@ const TotalProducts = (props) => {
     } else if (props.sortValue == "rating-high-low") {
       setFakeSortedData(fakeCombinedData2.sort((a, b) => b.rate - a.rate));
     } else if (props.sortValue == "rating-low-high") {
-      setFakeSortedData(ffakeCombinedData2.sort((a, b) => a.rate - b.rate));
+      setFakeSortedData(fakeCombinedData2.sort((a, b) => a.rate - b.rate));
     }
     setSortedCount(sortedCount + 1);
   }, [props.sortValue, fakeCombinedData2]);
