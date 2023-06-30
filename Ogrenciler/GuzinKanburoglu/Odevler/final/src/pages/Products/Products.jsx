@@ -6,18 +6,18 @@ import Card from '../../components/Card/Card';
 import { Input } from '../../components/Navbar/navbarStyle';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Products = () => {
+const Products = ({isLoggedIn}) => {
   const products = useSelector((state) => state.product.products);
   const dispatch = useDispatch();
   //const navigate = useNavigate();
-  const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+  //const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
 
   useEffect(() => {
  
       getProducts().then((data) => dispatch(setList(data)));
    
   }, [dispatch]);
-  console.log("Products page: ",isLoggedIn)
+ console.log("Products page: ",isLoggedIn)
 
 
   const handleSortalphabetically = () => {

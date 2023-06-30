@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import image from "../../images/img1.png"
 export const Nav = styled.div`
    padding: 28px 130px;
    display: flex;
@@ -76,8 +76,8 @@ export const LeftSide = styled.div`
 
 `
 export const RightSide = styled.div`
-width: 644px;
+width: 200px;
 height: 693px;
 flex-shrink: 0;
-background: url("/images/img1.png"), lightgray -95.793px 0px / 110.172% 100% no-repeat;
+background-image: url("../../images/img1.png");
 `
