@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { updateProduct } from "../../redux/slice/productsSlice";
 import {
   DetailCardContainer,
@@ -26,11 +27,20 @@ const DetailCard = React.memo(({ data }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updatedProductData, setUpdatedProductData] = useState({});
   const [user, setUser] = useState(null);
+  const availableStock = data.rating?.count || 0; // Consider 0 if stock information is not available
 
   useEffect(() => {
-    const users = localStorage.getItem("user");
-    const parsedUser = JSON.parse(users);
-    setUser(parsedUser);
+    const fetchUser = async () => {
+      try {
+        const response = await request.get();
+        const loggedInUser = response.find((user) => user.login === true);
+        setUser(loggedInUser);
+      } catch (error) {
+        toast.error("Error fetching user.");
+      }
+    };
+
+    fetchUser();
   }, []);
 
   const handleEdit = () => {
@@ -42,10 +52,15 @@ const DetailCard = React.memo(({ data }) => {
     dispatch(updateProduct(updatedProduct));
   };
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = () => {
     const existingItem = user.carts.find((item) => item.id === data.id);
 
     if (existingItem) {
+      if (existingItem.quantity >= availableStock) {
+        toast.error("Insufficient stock. You cannot add more of this item.");
+        return;
+      }
+
       const updatedCarts = user.carts.map((item) => {
         if (item.id === data.id) {
           return {
@@ -53,46 +68,38 @@ const DetailCard = React.memo(({ data }) => {
             quantity: item.quantity + 1,
           };
         }
+
         return item;
       });
 
-      await request.put(`/${user.id}`, {
+      const updatedUser = {
         ...user,
         carts: updatedCarts,
-      });
-
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          ...user,
-          carts: updatedCarts,
-        })
-      );
-    } else {
-      const newItem = {
-        ...data,
-        quantity: 1,
       };
 
-      await request.put(`/${user.id}`, {
-        ...user,
-        carts: [...user.carts, newItem],
-      });
-
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          ...user,
-          carts: [...user.carts, newItem],
-        })
-      );
-
-      window.location.reload();
+      request.put(user.id, updatedUser);
+      setUser(updatedUser);
+      toast.success("Item added to cart.");
+      return;
+    } else if (availableStock < 1) {
+      toast.error("Insufficient stock. You cannot add this item to cart.");
+      return;
     }
 
-    // Güncellenmiş kullanıcıyı tekrar almak için localStorage'dan okuma yapalım
-    const updatedUser = JSON.parse(localStorage.getItem("user"));
+    const updatedUser = {
+      ...user,
+      carts: [
+        ...user.carts,
+        {
+          ...data,
+          quantity: 1,
+        },
+      ],
+    };
+
+    request.put(user.id, updatedUser);
     setUser(updatedUser);
+    toast.success("Item added to cart.");
   };
 
   if (!user) {
