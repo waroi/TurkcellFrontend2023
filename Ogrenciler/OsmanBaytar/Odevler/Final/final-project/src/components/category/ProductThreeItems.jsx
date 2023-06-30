@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   ProductThreeItemsH2,
   ProductThreeItemsH3,
@@ -13,10 +13,19 @@ import ProductFilterMobile from "./ProductFilterMobile";
 
 const ProductThreeItems = (props) => {
   const [isMobile, setIsMobile] = useState(false);
+  const sortButton = useRef();
+  const [sortCount, setSortCount] = useState(0);
 
   function handleChangeSort(e) {
-    props.isSortValue(e.target.value);
+    // props.isSortValue(e.target.value);
+    setSortCount(sortCount + 1);
   }
+
+  console.log(sortCount);
+
+  useEffect(() => {
+    props.isSortValue(sortButton.current.value);
+  }, [sortCount]);
 
   return (
     <div className="row mt-5">
@@ -34,7 +43,7 @@ const ProductThreeItems = (props) => {
             Filter
           </ProductThreeItemsH2>
         </ProductThreeItemsHeaderFilter>
-        <ProductThreeItemsSort onClick={handleChangeSort}>
+        <ProductThreeItemsSort ref={sortButton} onClick={handleChangeSort}>
           <option value="default">Default</option>
           <option value="title-a-z">Title (a-z)</option>
           <option value="title-z-a">Title (z-a)</option>

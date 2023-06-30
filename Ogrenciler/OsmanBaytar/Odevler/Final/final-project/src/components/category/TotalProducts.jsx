@@ -20,12 +20,19 @@ const TotalProducts = (props) => {
   const [fakeIntersectedData, setFakeIntersectedData] = useState([]);
   const [fakeSortedData, setFakeSortedData] = useState([]);
   const [fakeProductsData, setFakeProductsData] = useState([]);
+  const [sortedCount, setSortedCount] = useState(0);
 
   console.count("counter");
 
   useEffect(() => {
     productRequest.get().then((data) => {
       setProductsData(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    productRequest.get().then((data) => {
+      // setProductsData(data);
       setFakeAllData(data);
       setFakeProductsData(data);
       setFakeCombinedData(data);
@@ -47,9 +54,6 @@ const TotalProducts = (props) => {
     } else if (props.mensClothing == false || props.mensClothing == undefined) {
       setFakeMensClothingData([]);
     }
-  }, [props.mensClothing]);
-
-  useEffect(() => {
     if (props.jewelery == true) {
       setFakeJeweleryData(
         fakeAllData.filter(function (item) {
@@ -59,9 +63,6 @@ const TotalProducts = (props) => {
     } else if (props.jewelery == false || props.jewelery == undefined) {
       setFakeJeweleryData([]);
     }
-  }, [props.jewelery]);
-
-  useEffect(() => {
     if (props.electronics == true) {
       setFakeElectronicsData(
         fakeAllData.filter(function (item) {
@@ -71,9 +72,6 @@ const TotalProducts = (props) => {
     } else if (props.electronics == false || props.electronics == undefined) {
       setFakeElectronicsData([]);
     }
-  }, [props.electronics]);
-
-  useEffect(() => {
     if (props.womensClothing == true) {
       setFakeWomensClothingData(
         fakeAllData.filter(function (item) {
@@ -86,9 +84,6 @@ const TotalProducts = (props) => {
     ) {
       setFakeWomensClothingData([]);
     }
-  }, [props.womensClothing]);
-
-  useEffect(() => {
     if (props.minPrice != 0) {
       setFakeMinPriceData(
         fakeAllData.filter(function (item) {
@@ -98,9 +93,6 @@ const TotalProducts = (props) => {
     } else if (props.minPrice == 0) {
       setFakeMinPriceData(fakeAllData);
     }
-  }, [props.minPrice]);
-
-  useEffect(() => {
     if (props.maxPrice != 999.99) {
       setFakeMaxPriceData(
         fakeAllData.filter(function (item) {
@@ -110,9 +102,6 @@ const TotalProducts = (props) => {
     } else if (props.maxPrice == 999.99) {
       setFakeMaxPriceData(fakeAllData);
     }
-  }, [props.maxPrice]);
-
-  useEffect(() => {
     if (Number(props.minRate)) {
       if (props.minRate != 0) {
         setFakeMinRateData(
@@ -124,9 +113,6 @@ const TotalProducts = (props) => {
     } else if (props.minRate == 0 || props.minRate == "") {
       setFakeMinRateData(fakeAllData);
     }
-  }, [props.minRate]);
-
-  useEffect(() => {
     if (Number(props.maxRate)) {
       if (props.maxRate != 5) {
         setFakeMaxRateData(
@@ -138,7 +124,107 @@ const TotalProducts = (props) => {
     } else if (props.maxRate == 5 || props.maxRate == "") {
       setFakeMaxRateData(fakeAllData);
     }
-  }, [props.maxRate]);
+  }, [
+    props.mensClothing,
+    props.jewelery,
+    props.electronics,
+    props.womensClothing,
+    props.minPrice,
+    props.maxPrice,
+    props.minRate,
+    props.maxRate,
+  ]);
+
+  // useEffect(() => {
+  //   if (props.jewelery == true) {
+  //     setFakeJeweleryData(
+  //       fakeAllData.filter(function (item) {
+  //         return item.category == "jewelery";
+  //       })
+  //     );
+  //   } else if (props.jewelery == false || props.jewelery == undefined) {
+  //     setFakeJeweleryData([]);
+  //   }
+  // }, [props.jewelery]);
+
+  // useEffect(() => {
+  //   if (props.electronics == true) {
+  //     setFakeElectronicsData(
+  //       fakeAllData.filter(function (item) {
+  //         return item.category == "electronics";
+  //       })
+  //     );
+  //   } else if (props.electronics == false || props.electronics == undefined) {
+  //     setFakeElectronicsData([]);
+  //   }
+  // }, [props.electronics]);
+
+  // useEffect(() => {
+  //   if (props.womensClothing == true) {
+  //     setFakeWomensClothingData(
+  //       fakeAllData.filter(function (item) {
+  //         return item.category == "women's clothing";
+  //       })
+  //     );
+  //   } else if (
+  //     props.womensClothing == false ||
+  //     props.womensClothing == undefined
+  //   ) {
+  //     setFakeWomensClothingData([]);
+  //   }
+  // }, [props.womensClothing]);
+
+  // useEffect(() => {
+  //   if (props.minPrice != 0) {
+  //     setFakeMinPriceData(
+  //       fakeAllData.filter(function (item) {
+  //         return item.price >= props.minPrice;
+  //       })
+  //     );
+  //   } else if (props.minPrice == 0) {
+  //     setFakeMinPriceData(fakeAllData);
+  //   }
+  // }, [props.minPrice]);
+
+  // useEffect(() => {
+  //   if (props.maxPrice != 999.99) {
+  //     setFakeMaxPriceData(
+  //       fakeAllData.filter(function (item) {
+  //         return item.price <= props.maxPrice;
+  //       })
+  //     );
+  //   } else if (props.maxPrice == 999.99) {
+  //     setFakeMaxPriceData(fakeAllData);
+  //   }
+  // }, [props.maxPrice]);
+
+  // useEffect(() => {
+  //   if (Number(props.minRate)) {
+  //     if (props.minRate != 0) {
+  //       setFakeMinRateData(
+  //         fakeAllData.filter(function (item) {
+  //           return Number(item.rate) >= Number(props.minRate);
+  //         })
+  //       );
+  //     }
+  //   } else if (props.minRate == 0 || props.minRate == "") {
+  //     setFakeMinRateData(fakeAllData);
+  //   }
+  // }, [props.minRate]);
+
+  // useEffect(() => {
+  //   if (Number(props.maxRate)) {
+  //     if (props.maxRate != 5) {
+  //       setFakeMaxRateData(
+  //         fakeAllData.filter(function (item) {
+  //           return Number(item.rate) <= Number(props.maxRate);
+  //         })
+  //       );
+  //     }
+  //   } else if (props.maxRate == 5 || props.maxRate == "") {
+  //     setFakeMaxRateData(fakeAllData);
+  //   }
+  // }, [props.maxRate]);
 
   useEffect(() => {
     if (
@@ -209,6 +295,7 @@ const TotalProducts = (props) => {
     } else if (props.sortValue == "rating-low-high") {
       setFakeSortedData(fakeIntersectedData.sort((a, b) => a.rate - b.rate));
     }
+    setSortedCount(sortedCount + 1);
   }, [props.sortValue, fakeIntersectedData]);
 
   useEffect(() => {
@@ -223,17 +310,20 @@ const TotalProducts = (props) => {
     }
   }, [fakeSortedData]);
 
-  console.log(props.sortValue);
-  console.log(fakeMensClothingData);
-  console.log(props.minPrice);
-  console.log(fakeCombinedData);
-  console.log(fakeMinPriceData);
-  console.log(fakeMinRateData);
-  console.log(fakeMaxRateData);
+  // console.log(props.sortValue);
+  // console.log(fakeMensClothingData);
+  // console.log(props.minPrice);
+  // console.log(fakeCombinedData);
+  // console.log(fakeMinPriceData);
+  // console.log(fakeMinRateData);
+  // console.log(fakeMaxRateData);
+  console.log(productsData);
+  console.log(fakeAllData);
   console.log(fakeIntersectedData);
   console.log(fakeSortedData);
-  console.log(fakeSortedData.slice(0, 15));
-  console.log(fakeProductsData);
+  console.log(props.sortValue);
+  // console.log(fakeSortedData.slice(0, 15));
+  // console.log(fakeProductsData);
 
   function handleClickButton(e) {
     if (e.target.textContent == "1") {
@@ -245,9 +335,10 @@ const TotalProducts = (props) => {
 
   return (
     <>
-      {fakeProductsData.map((product, index) => {
-        return <ProductBox product={product} key={index} />;
-      })}
+      {sortedCount > 0 &&
+        fakeSortedData.map((product, index) => {
+          return <ProductBox product={product} key={index} />;
+        })}
       <div className="text-center mt-5">
         {isButton && (
           <div>
