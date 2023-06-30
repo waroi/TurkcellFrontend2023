@@ -147,8 +147,12 @@ const Header = () => {
   }
 
   function handleInput() {
-    dispatch(addInput(inputArea.current.value));
-    goToProducts();
+    if (currentUser != "") {
+      dispatch(addInput(inputArea.current.value));
+      goToProducts();
+    } else if (currentUser.length == 0) {
+      warningToast();
+    }
   }
 
   return (
@@ -264,7 +268,11 @@ const Header = () => {
 
       {isMobileInput && !isMobile && (
         <div className="row mt-3">
-          <HeaderInput type="text" placeholder="Search something here!" />
+          <HeaderInput
+            onClick={handleInput}
+            type="text"
+            placeholder="Search something here!"
+          />
         </div>
       )}
     </div>
