@@ -45,7 +45,7 @@ const KnowledgeList = () => {
                         <h4>Do you already know ?</h4>
                         <h3>Useful Product Knowledge</h3>
                     </div>
-                    <ButtonOutline>View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
+                    <ButtonOutline className="d-none d-lg-block">View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
                 </div>
             </StyledTitle>
 
@@ -54,6 +54,7 @@ const KnowledgeList = () => {
                     knowledgeInfos.map((knowledgeInfo, i) => <KnowledgeCard key={i} info={knowledgeInfo} />)
                 }
             </div>
+            <ButtonOutline className="d-lg-none w-100">View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
         </StyledKnowledgeList>
     )
 }

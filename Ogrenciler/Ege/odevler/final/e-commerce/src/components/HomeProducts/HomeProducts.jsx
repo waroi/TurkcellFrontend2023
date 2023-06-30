@@ -15,7 +15,7 @@ const HomeProducts = ({ products }) => {
                         <h4>Whats new ?</h4>
                         <h3>Take A Look At Some Of Our Products</h3>
                     </div>
-                    <ButtonOutline>View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
+                    <ButtonOutline className="d-none d-lg-block">View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
                 </div>
             </StyledTitle>
             <div className="row">
@@ -28,6 +28,8 @@ const HomeProducts = ({ products }) => {
                     ))
                 }
             </div>
+            <ButtonOutline className="d-lg-none w-100">View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
+
         </StyledHomeProducts>
     )
 }
