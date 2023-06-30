@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { addUsers } from "../redux/slices/usersSlice";
 import { userRequest } from "../utils/Request";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => {
@@ -23,6 +25,30 @@ function SignUpForm() {
 
   const [userData, setUserData] = useState([]);
   const [isOkey, setIsOkey] = useState(false);
+
+  function warningToast() {
+    toast.warning("This username or email already taken!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function errorToast() {
+    toast.error("Invalid Informations!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
 
   useEffect(() => {
     userRequest.get().then((data) => {
@@ -45,6 +71,14 @@ function SignUpForm() {
         item.password == ""
       ) {
         setIsOkey(false);
+        warningToast();
+      } else if (
+        currentPassword.current.value !== values.confirmPassword ||
+        currentPassword.current.value == "" ||
+        currentPassword.current.value.length < 6
+      ) {
+        setIsOkey(false);
+        errorToast();
       }
     });
   }
@@ -174,6 +208,7 @@ function SignUpForm() {
       <button type="submit" disabled={!errors} onClick={checkUsername}>
         Sign Up
       </button>
+      <ToastContainer />
     </form>
   );
 }
