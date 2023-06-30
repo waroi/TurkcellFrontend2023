@@ -9,12 +9,11 @@ export const Ul = styled.ul`
 `;
 
 export const NavInput = styled.input`
-  width: 280px;
-  padding: 12px 20px 12px 16px;
+  max-width: 280px;
+  padding: 12px 25px;
   border-radius: 46px;
   border: none;
   &::placeholder {
-    padding-left: 25px;
     font-size: 14px;
     font-family: SVN-Gilroy;
     font-weight: 500;

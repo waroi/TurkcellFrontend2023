@@ -3,30 +3,54 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { logout } from "../../redux/slice/loginSlice";
+import { fetchProducts } from "../../redux/slice/productsSlice";
 import { Ul, NavInput, IconWrapper, NavSpan, Nav } from "./NavbarStyle.js";
 import Request from "../../utils/Request";
+import SearchResults from "./SearchResults";
 
 function Navbar() {
   const request = new Request("http://localhost:3004/users");
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.login.loggedIn);
+  const { products } = useSelector((state) => state.products);
   const [user, setUser] = useState(null);
+  const [searchQuery, setSearchQuery] = useState();
+  const [filterFocus, setFilterFocus] = useState(false);
 
   useEffect(() => {
-    const fetchUser = () => {
-      fetch("http://localhost:3004/users")
-        .then((res) => res.json())
-        .then((data) => {
-          const loggedInUser = data.find((user) => user.login === true);
-          setUser(loggedInUser);
-        })
-        .catch((err) => {
-          toast.error("Error fetching user." + err);
-        });
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await request.get();
+        const loggedInUser = response.find((user) => user.login === true);
+        setUser(loggedInUser);
+      } catch (error) {
+        toast.error("Error fetching user.");
+      }
     };
 
     fetchUser();
   }, [user]);
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    let filter = [...products].filter((item) => {
+      if (event.target.value === "" || event.target.value === null) return [];
+      return item.title
+        .toLowerCase()
+        .includes(event.target.value.toLowerCase());
+    });
+
+    if (filter.length === 0) {
+      toast.error("No results found.");
+      return;
+    }
+
+    setSearchQuery(filter);
+  };
 
   const handleLogout = () => {
     const updatedUser = {
@@ -93,11 +117,17 @@ function Navbar() {
                 <i className="bi bi-search"></i>
               </IconWrapper>
               <NavInput
-                className="form-control me-2"
+                className="form-control mx-2"
                 type="search"
                 placeholder="Search something here!"
                 aria-label="Search"
+                onChange={handleSearch}
+                onFocus={() => setFilterFocus(true)}
+                onBlur={() => setTimeout(() => setFilterFocus(false), 200)}
               />
+              {filterFocus && searchQuery?.length > 0 && (
+                <SearchResults searchQuery={searchQuery} />
+              )}
             </form>
             <div className="d-flex gap-2 align-items-center ">
               {isLoggedIn ? (
