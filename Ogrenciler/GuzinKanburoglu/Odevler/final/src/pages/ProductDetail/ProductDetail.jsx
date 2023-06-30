@@ -15,10 +15,10 @@ const ProductDetail = () => {
 
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
 
-  if (!isLoggedIn) {
-    navigate('/login'); // Kullanıcı oturum açmamışsa, giriş sayfasına yönlendirin.
-    return null; // Render işlemine devam etmeyin.
-  }
+//   if (!isLoggedIn) {
+//     navigate('/login'); // Kullanıcı oturum açmamışsa, giriş sayfasına yönlendirin.
+//     return null; // Render işlemine devam etmeyin.
+//   }
    
         let randomArr = [];
 

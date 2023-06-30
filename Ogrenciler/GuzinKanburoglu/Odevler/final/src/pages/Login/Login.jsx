@@ -8,8 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login,logout } from '../../redux/slices/Login';
 const Login = () => {
   const [users, setUsers] = useState([]); // State to store users data
-  const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+  //const dispatch = useDispatch();
+  //const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
 
   useEffect(() => {
    getUsers().then((data)=>setUsers(data))
@@ -33,15 +33,13 @@ const Login = () => {
       (user) => user.email === email && user.password === password
     );
 
-    if (foundUser) {
-        console.log('isLoggedIn before update:', isLoggedIn);
-      dispatch(login());
-      console.log('isLoggedIn after update:', isLoggedIn);
+    if (foundUser) {   
+      localStorage.setItem('isLoggedIn',true) 
       toast.success('Login successful!', {
         position: toast.POSITION.TOP_CENTER
       });
     } else {
-       dispatch(logout());
+      localStorage.setItem('isLoggedIn',false)
       toast.error('Invalid email or password!', {
         position: toast.POSITION.TOP_CENTER
       });
