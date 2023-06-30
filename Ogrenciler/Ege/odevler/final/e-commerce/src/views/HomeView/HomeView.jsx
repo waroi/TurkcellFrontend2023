@@ -6,6 +6,7 @@ import HomeProducts from "../../components/HomeProducts/HomeProducts"
 import PromotionProducts from "../../components/PromotionProducts/PromotionProducts"
 import HeroBanner from "../../components/HeroBanner/HeroBanner"
 import UpperBanner from "../../components/HomeUpperBanner/UpperBanner"
+import LowerBanner from "../../components/HomeLowerBanner/LowerBanner"
 const HomeView = () => {
 
     const [products, setProducts] = useState([])
@@ -24,7 +25,7 @@ const HomeView = () => {
             <UpperBanner />
             <PromotionProducts products={products} />
             <Sellers />
-
+            <LowerBanner />
             <KnowledgeList />
 
 
