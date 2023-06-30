@@ -16,7 +16,7 @@ const ProductThreeItems = (props) => {
   const sortButton = useRef();
   const [sortCount, setSortCount] = useState(0);
 
-  function handleChangeSort(e) {
+  function handleChangeSort() {
     setSortCount(sortCount + 1);
   }
 
