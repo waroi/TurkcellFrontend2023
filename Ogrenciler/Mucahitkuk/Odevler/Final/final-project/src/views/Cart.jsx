@@ -71,7 +71,13 @@ const Cart = () => {
     const updatedCartData = cartData.filter((item) => item.demand > 0);
     const productsToUpdate = updatedCartData.map((item) => ({
       id: item.id,
-      count: item.rating.count - item.demand,
+      rating: { ...item.rating, count: item.rating.count - item.demand },
+      // Copy other properties as is
+      title: item.title,
+      price: item.price,
+      description: item.description,
+      category: item.category,
+      image: item.image,
     }));
   
     Promise.all(
@@ -81,7 +87,7 @@ const Cart = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ ...product, count: product.rating.count }),
+          body: JSON.stringify(product),
         })
       )
     )
@@ -89,13 +95,26 @@ const Cart = () => {
       .then((updatedProducts) => {
         console.log('Updated product counts:', updatedProducts);
   
-        updateCartData(updatedCartData);
+        // Empty the cart by deleting the cart data from the database
+        fetch(`http://localhost:3000/carts/${userId}`, {
+          method: 'DELETE',
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log('Deleted user cart:', data);
+            // Clear the cart data from the local state
+            setCartData([]);
+          })
+          .catch((error) => {
+            console.error("Error deleting user's cart:", error);
+          });
       })
       .catch((error) => {
         console.error('Error updating product counts:', error);
       });
   };
 
+  
   return (
     <Container>
       <h1 className='text-center'>Cart</h1>
