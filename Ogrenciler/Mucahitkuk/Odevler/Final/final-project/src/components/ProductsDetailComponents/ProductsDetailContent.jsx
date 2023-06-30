@@ -42,6 +42,114 @@ export const ProductDetail = ({ productId }) => {
     "women's clothing",
   ];
 
+  const addToUserCart = (userId, productId, cart) => {
+    // Fetch the selected product from the database based on the productId
+    fetch(`http://localhost:3000/products?id=${productId}`)
+      .then((response) => response.json())
+      .then((productData) => {
+        const product = productData[0];
+  
+        // Check if the product is already in the user's cart
+        const existingProductIndex = cart.cart.findIndex(
+          (item) => item.id === Number(productId)
+        );
+  
+        if (existingProductIndex !== -1) {
+          console.log("Product already exists in the cart:", cart.cart[existingProductIndex]);
+          return;
+        }
+  
+
+      
+      const productWithDemand = {
+        ...product,
+        demand: "1", 
+      }
+ 
+        const updatedCart = {
+          ...cart,
+          cart: [...cart.cart, productWithDemand],
+        };
+  
+        fetch(`http://localhost:3000/carts/${userId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedCart),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Product added to cart:", product);
+            console.log("Updated user's cart:", data);
+          })
+          .catch((error) => {
+            console.error("Error updating user's cart:", error);
+          });
+      })
+      .catch((error) => {
+        console.error("Error fetching product:", error);
+      });
+  };
+  
+  const addToCart = () => {
+ 
+    if (!productId) {
+      console.error("No product selected");
+      return;
+    }
+  
+    
+    const loggedInUserInfo = JSON.parse(localStorage.getItem("loggedInUser"));
+    const userId = loggedInUserInfo.id;
+  
+  
+    fetch(`http://localhost:3000/carts?id=${userId}`)
+      .then((response) => response.json())
+      .then((cartData) => {
+        console.log(cartData, "cartData")
+       
+        let cart;
+        if (cartData.length === 0) {
+    
+          cart = {
+            id: userId,
+            cart: [],
+          };
+  
+          fetch(`http://localhost:3000/carts?id=${userId}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(cart),
+          })
+            .then((response) => response.json())
+            .then((createdCart) => {
+              console.log("User's cart created:", createdCart);
+              addToUserCart(userId, productId, createdCart);
+            })
+            .catch((error) => {
+              console.error("Error creating user's cart:", error);
+            });
+        } else {
+          cart = cartData[0];
+          addToUserCart(userId, productId, cart);
+        }
+  
+        console.log("User's cart:", cart);
+      })
+      .catch((error) => {
+        console.error("Error fetching user's cart:", error);
+      });
+  };
+  
+  
+  const handleAddToCart = () => {
+    addToCart();
+
+  };
+
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setShow(true);
@@ -239,7 +347,7 @@ export const ProductDetail = ({ productId }) => {
                 <PageButtonTwo>Login to buy</PageButtonTwo>
               </Link>
             ) : (
-              <PageButtonTwo disabled={product.rating.count === 0}>
+              <PageButtonTwo onClick={handleAddToCart} disabled={product.rating.count === 0}>
                 Add to cart
               </PageButtonTwo>
             )}
