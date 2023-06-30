@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
 import { Formik, useFormik } from "formik";
 import * as Yup from "yup";
@@ -11,8 +11,11 @@ import deleteIcon from "../../assets/Close_Circle.svg"
 import plusIcon from "../../assets/Add_Plus_Circle.svg"
 import minusIcon from "../../assets/Remove_Minus_Circle.svg"
 import { useEffect } from "react";
+import { setCartLength } from "../../redux/slices/cartLengthSlice"
 const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
     const user = useSelector((state) => state.user.user)
+    const cartLength = useSelector(state => state.cartLength)
+    const dispatch = useDispatch()
     console.log(`I am ${cartItem.demand} and I rendered`)
     const formSchema = Yup.object().shape({
         demand: Yup.number().required("Demand is required").min(1, "Demand must be at least 1"),
@@ -74,6 +77,8 @@ const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
         const newCart = cart.filter(inCart => inCart.productId != cartItem.productId)
         setCart(newCart)
         axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
+        dispatch(setCartLength(cartLength - 1))
+
     }
 
     const incrementCart = async () => {
@@ -127,6 +132,7 @@ const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
             const newCart = cart.filter(inCart => inCart.productId != cartItem.productId)
             setCart(newCart)
             await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
+            dispatch(setCartLength(cartLength - 1))
 
         }
     }

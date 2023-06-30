@@ -4,6 +4,7 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { setUser } from "../../redux/slices/userSlice";
+import { setCartLength } from "../../redux/slices/cartLengthSlice"
 import { useNavigate } from "react-router-dom"
 
 const LoginView = () => {
@@ -34,7 +35,8 @@ const LoginView = () => {
         if (user) {
             dispatch(setUser(user))
             localStorage.setItem("userData", JSON.stringify(user))
-            console.log(currentUser)
+            axios.get(`http://localhost:3000/carts/${user.id}`)
+                .then(response => dispatch(setCartLength(response.data.cart.length)))
             console.log('Login successful');
             navigate("/")
         } else {

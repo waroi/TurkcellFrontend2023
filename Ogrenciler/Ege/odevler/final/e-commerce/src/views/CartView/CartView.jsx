@@ -5,10 +5,12 @@ import CartItem from "../../components/CartItem/CartItem";
 import CartBuy from "../../components/CartBuy/CartBuy";
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { setCartLength } from "../../redux/slices/cartLengthSlice";
 const CartView = () => {
     const user = useSelector((state) => state.user.user)
     const [cart, setCart] = useState([])
-
+    const dispatch = useDispatch()
     useEffect(() => {
         axios.get(`http://localhost:3000/carts/${user.id}`)
             .then(response => setCart(response.data.cart))
@@ -18,13 +20,16 @@ const CartView = () => {
     useEffect(() => { updateCart() }, [])
 
 
-
     const updateCart = async () => {
         const productResponse = await axios.get('http://localhost:3000/products');
         const products = productResponse.data;
 
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`);
         const cartData = cartResponse.data.cart;
+
+        const shouldUpdate = cartData.some(cartItem => products.find(product => product.id == cartItem.productId).rating.count < cartItem.demand)
+
+        if (shouldUpdate) toast.warn("There is an update in your cart")
 
         const updatedCart = cartData.map(cartItem => {
             const product = products.find(product => product.id === cartItem.productId)
@@ -38,6 +43,7 @@ const CartView = () => {
 
         setCart(updatedCart.filter(cartItem => cartItem.demand > 0))
         await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: updatedCart.filter(cartItem => cartItem.demand > 0) })
+        dispatch(setCartLength(cart.length))
     }
 
     const handleBuy = async () => {
@@ -47,11 +53,8 @@ const CartView = () => {
         const shouldUpdate = cart.some(cartItem => products.find(product => product.id == cartItem.productId).rating.count < cartItem.demand)
 
         if (shouldUpdate) {
-            toast.warn("There is an update in your cart")
             updateCart()
-        }
-
-        else {
+        } else {
             for (const cartProduct of cart) {
                 const currProduct = await axios.get(`http://localhost:3000/products/${cartProduct.productId}`)
                 const newData = {
@@ -68,6 +71,8 @@ const CartView = () => {
         }
     }
 
+
+
     return (
         <div className="container">
             <div className="row ">
@@ -78,7 +83,7 @@ const CartView = () => {
                         : <h2>Cart is empty</h2>
                 }
             </div>
-            <CartBuy disabled={cart.length == 0} handleBuy={handleBuy} />
+            {cart.length > 0 && <CartBuy handleBuy={handleBuy} />}
             <ToastContainer />
         </div>
     )

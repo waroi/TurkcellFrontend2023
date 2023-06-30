@@ -14,6 +14,7 @@ import logo from "../../assets/Logo.svg"
 const Navbar = () => {
 
     const currentUser = useSelector(state => state.user.user)
+    const cartLength = useSelector(state => state.cartLength)
     const [isOnSearch, setIsOnSearch] = useState(false)
     const [isOnMenu, setIsOnMenu] = useState(false)
     const dispatch = useDispatch()
@@ -102,7 +103,7 @@ const Navbar = () => {
                                                 <Link to="/login"><ButtonPrimary >Login</ButtonPrimary></Link>
                                             )
                                             : (
-                                                <Link to="/cart"><ButtonPrimary >Cart</ButtonPrimary></Link>
+                                                <Link to="/cart"><ButtonPrimary >Cart {cartLength}</ButtonPrimary></Link>
                                             )
                                     }
 
@@ -155,27 +156,29 @@ const Navbar = () => {
                             <div className="navbarItem ms-5">
                                 <Link to={"/"}>Contact</Link>
                             </div>
-                            <div className="col-lg-3">
-                                {
-                                    !currentUser
-                                        ? (
-                                            <Link to="/login"><ButtonPrimary >Login</ButtonPrimary></Link>
-                                        )
-                                        : (
-                                            <Link to="/cart"><ButtonPrimary >Cart</ButtonPrimary></Link>
-                                        )
-                                }
+                            <div className="d-flex gap-3">
+                                <div >
+                                    {
+                                        !currentUser
+                                            ? (
+                                                <Link to="/login"><ButtonPrimary >Login</ButtonPrimary></Link>
+                                            )
+                                            : (
+                                                <Link to="/cart"><ButtonPrimary >Cart {cartLength}</ButtonPrimary></Link>
+                                            )
+                                    }
 
-                            </div>
-                            <div className="col-lg-3">
-                                {
-                                    !currentUser
-                                        ? (
-                                            <Link to="/signup"><ButtonPrimary >Sign Up</ButtonPrimary></Link>
-                                        )
-                                        : (<AccountDropdown />)
-                                }
+                                </div>
+                                <div >
+                                    {
+                                        !currentUser
+                                            ? (
+                                                <Link to="/signup"><ButtonPrimary >Sign Up</ButtonPrimary></Link>
+                                            )
+                                            : (<AccountDropdown />)
+                                    }
 
+                                </div>
                             </div>
                         </div>
                     )}

@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import Carousel from "./Carousel/Carousel"
 import ProductInfo from "./ProductInfo/ProductInfo"
 import RandomProducts from "./RandomProducts/RandomProducts"
 import { ToastContainer, toast } from "react-toastify"
+import { setCartLength } from "../../redux/slices/cartLengthSlice"
 
 const ProductDetail = ({ id }) => {
 
     const [product, setProduct] = useState({});
     const user = useSelector((state) => state.user.user)
+    const cartLength = useSelector(state => state.cartLength)
+    const dispatch = useDispatch()
     const [randomProducts, setRandomProducts] = useState([])
 
     useEffect(() => {
@@ -50,6 +53,7 @@ const ProductDetail = ({ id }) => {
                         else toast.error("You have hit the stock limit")
                     } else {
                         toast.success("Added to cart")
+                        dispatch(setCartLength(cartLength + 1))
                         const newProduct = {
                             productId: product.id,
                             title: product.title,
