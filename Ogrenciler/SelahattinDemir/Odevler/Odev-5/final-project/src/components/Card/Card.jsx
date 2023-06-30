@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import {
   CardContainer,
@@ -20,6 +21,8 @@ function truncateText(text, maxLength) {
 
 function Card({ data }) {
   const request = new Request("http://localhost:3004/users");
+  const isLoggedIn = useSelector((state) => state.login.loggedIn);
+
   const [user, setUser] = useState(null);
   const truncatedTitle = truncateText(data.title, 35);
   const truncatedDescription = truncateText(data.description, 55);
@@ -40,6 +43,11 @@ function Card({ data }) {
   }, []);
 
   const handleAddToCart = () => {
+    if (!isLoggedIn) {
+      toast.error("You must be logged in to add items to cart.");
+      return;
+    }
+
     const existingItem = user.carts.find((item) => item.id === data.id);
 
     if (existingItem) {
