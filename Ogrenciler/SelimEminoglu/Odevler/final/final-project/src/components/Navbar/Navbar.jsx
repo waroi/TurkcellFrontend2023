@@ -33,7 +33,9 @@ function Navbar() {
       <Container>
         <NavList>
           <img src=".\src\assets\icons\navbar_icon.svg" alt="logo" />
-          <NavbarA href="#">Home</NavbarA>
+          <Link className="navbarA" to={"/"}>
+            Home
+          </Link>
           <Link className="navbarA" to={"/products"}>
             Category
           </Link>

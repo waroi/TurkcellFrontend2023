@@ -17,6 +17,7 @@ import {
 } from "./styleCardList";
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 function CardList({ isEight }) {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ function CardList({ isEight }) {
   }, [products, randomProducts]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Yükleniyor...</div>;
   }
 
   if (error) {
@@ -64,44 +65,48 @@ function CardList({ isEight }) {
     <FlexCardDiv>
       {isEight &&
         randomProducts.slice(0, 8).map((item) => (
-          <CardDiv key={self.crypto.randomUUID()}>
-            <CardİmgDiv image={item.image}></CardİmgDiv>
+          <Link to={"/login"} key={self.crypto.randomUUID()}>
+            <CardDiv>
+              <CardİmgDiv image={item.image}></CardİmgDiv>
 
-            <CardTextDiv>
-              <CardTitle>{item.title}</CardTitle>
-              <CardCategory>
-                Category:{item.category}-Adet:{item.rating.count}
-              </CardCategory>
-              <CardPrice>{item.price} $</CardPrice>
-            </CardTextDiv>
-            <CardButtonDiv>
-              <Button title="Sepete Ekle" />
-            </CardButtonDiv>
-          </CardDiv>
+              <CardTextDiv>
+                <CardTitle>{item.title}</CardTitle>
+                <CardCategory>
+                  Category:{item.category}-Adet:{item.rating.count}
+                </CardCategory>
+                <CardPrice>{item.price} $</CardPrice>
+              </CardTextDiv>
+              <CardButtonDiv>
+                <Button title="Sepete Ekle" />
+              </CardButtonDiv>
+            </CardDiv>
+          </Link>
         ))}
       {!isEight &&
         randomProducts.slice(0, 4).map((item) => (
-          <CardDiv key={self.crypto.randomUUID()}>
-            <CardİmgDiv image={item.image}></CardİmgDiv>
+          <Link to={"/login"} key={self.crypto.randomUUID()}>
+            <CardDiv>
+              <CardİmgDiv image={item.image}></CardİmgDiv>
 
-            <CardTextDiv>
-              <CardTitle>{item.title}</CardTitle>
-              <CardCategory>
-                Category:{item.category}-Adet:{item.rating.count}
-              </CardCategory>
-              <CardPrice>{item.price} $</CardPrice>
-            </CardTextDiv>
-            <CardGiftDiv>
-              <img src="./src/assets/icons/gift_icon.svg" alt="logo" />
-              <CardPointDiv>
-                <CardPoint></CardPoint>
-              </CardPointDiv>
-              <CardGiftText>Free Toy & Free Shaker</CardGiftText>
-            </CardGiftDiv>
-            <CardButtonDiv>
-              <Button title="Sepete Ekle" />
-            </CardButtonDiv>
-          </CardDiv>
+              <CardTextDiv>
+                <CardTitle>{item.title}</CardTitle>
+                <CardCategory>
+                  Category:{item.category}-Adet:{item.rating.count}
+                </CardCategory>
+                <CardPrice>{item.price} $</CardPrice>
+              </CardTextDiv>
+              <CardGiftDiv>
+                <img src="./src/assets/icons/gift_icon.svg" alt="logo" />
+                <CardPointDiv>
+                  <CardPoint></CardPoint>
+                </CardPointDiv>
+                <CardGiftText>Free Toy & Free Shaker</CardGiftText>
+              </CardGiftDiv>
+              <CardButtonDiv>
+                <Button title="Sepete Ekle" />
+              </CardButtonDiv>
+            </CardDiv>
+          </Link>
         ))}
     </FlexCardDiv>
   );

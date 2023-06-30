@@ -1,3 +1,4 @@
+import AllList from "../views/AllList/AllList";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import ProductAds from "../components/ProductAds/ProductAds";
@@ -7,6 +8,7 @@ function Products() {
     <div>
       <Navbar />
       <ProductAds />
+      <AllList />
       <Footer />
     </div>
   );
