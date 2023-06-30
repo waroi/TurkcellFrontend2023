@@ -10,7 +10,8 @@ import { Link } from "react-router-dom"
 import Share from "../Share/Share"
 import UpdateProduct from "../UpdateProduct/UpdateProduct"
 import Breadcrumbs from "../../../styledComponents/Breadcrumbs"
-const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct }) => {
+
+const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct, toast }) => {
 
     const [isShareOn, setIsShareOn] = useState(false)
 
@@ -31,7 +32,7 @@ const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct }) => {
             <div className="d-flex justify-content-center align-items-center gap-3 my-3">
                 <ButtonPrimary onClick={handleCartClick}>Add To Cart</ButtonPrimary>
                 <ButtonOutline> - Chat with Monito</ButtonOutline>
-                {(isAdmin && product) && <UpdateProduct product={product} setProduct={setProduct} />}
+                {(isAdmin && product) && <UpdateProduct product={product} setProduct={setProduct} toast={toast} />}
 
             </div>
 
@@ -84,7 +85,6 @@ const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct }) => {
             <div className="d-lg-none">
                 <Guarantees />
             </div>
-
 
         </StyledProductInfo>
     )

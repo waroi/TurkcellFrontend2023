@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import Carousel from "./Carousel/Carousel"
 import ProductInfo from "./ProductInfo/ProductInfo"
 import RandomProducts from "./RandomProducts/RandomProducts"
+import { ToastContainer, toast } from "react-toastify"
 
 const ProductDetail = ({ id }) => {
 
@@ -26,13 +27,12 @@ const ProductDetail = ({ id }) => {
 
     const handleCartClick = () => {
         if (product.rating?.count > 0) {
-            console.log("Added to cart")
             axios.get(`http://localhost:3000/carts/${user.id}`)
                 .then((response) => {
                     const inCart = response.data.cart.find(cartItem => cartItem.productId == product.id)
                     if (inCart) {
                         if (inCart.demand < product.rating.count) {
-                            console.log("There is an item with the same id in the cart")
+                            toast.success("Added to cart again")
                             const newProduct = {
                                 productId: inCart.productId,
                                 title: inCart.title,
@@ -47,8 +47,9 @@ const ProductDetail = ({ id }) => {
                             })
                             axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
                         }
-                        else console.log("You have hit the stock limit")
+                        else toast.error("You have hit the stock limit")
                     } else {
+                        toast.success("Added to cart")
                         const newProduct = {
                             productId: product.id,
                             title: product.title,
@@ -70,11 +71,11 @@ const ProductDetail = ({ id }) => {
                     <Carousel img={product.image} />
                 </div>
                 <div className="col-lg-6">
-                    <ProductInfo product={product} handleCartClick={handleCartClick} isAdmin={user.isAdmin} setProduct={setProduct} />
+                    <ProductInfo product={product} handleCartClick={handleCartClick} isAdmin={user.isAdmin} setProduct={setProduct} toast={toast} />
                 </div>
             </div>
             <RandomProducts randomProducts={randomProducts} />
-
+            <ToastContainer />
         </div>
     )
 }

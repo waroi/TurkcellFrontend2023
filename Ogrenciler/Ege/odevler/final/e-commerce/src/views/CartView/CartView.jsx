@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import CartItem from "../../components/CartItem/CartItem";
 import CartBuy from "../../components/CartBuy/CartBuy";
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
 const CartView = () => {
     const user = useSelector((state) => state.user.user)
     const [cart, setCart] = useState([])
@@ -14,6 +16,14 @@ const CartView = () => {
     }, [user.id])
 
     useEffect(() => { updateCart() }, [])
+
+    const toastSuccess = (text) => {
+        toast.success(text)
+    }
+
+    const toastError = (text) => {
+        toast.error(text)
+    }
 
     const updateCart = async () => {
         const productResponse = await axios.get('http://localhost:3000/products');
@@ -43,7 +53,7 @@ const CartView = () => {
         const shouldUpdate = cart.some(cartItem => products.find(product => product.id == cartItem.productId).rating.count < cartItem.demand)
 
         if (shouldUpdate) {
-            console.log("There is an update in your cart")
+            toast.warn("There is an update in your cart")
             updateCart()
         }
 
@@ -70,11 +80,12 @@ const CartView = () => {
 
                 {
                     cart.length > 0
-                        ? cart.map((el, i) => (<CartItem key={i} cartItem={el} setCart={setCart} />))
+                        ? cart.map((el, i) => (<CartItem key={i} cartItem={el} setCart={setCart} toast={toast} />))
                         : <h2>Cart is empty</h2>
                 }
             </div>
             <CartBuy disabled={cart.length == 0} handleBuy={handleBuy} />
+            <ToastContainer />
         </div>
     )
 }

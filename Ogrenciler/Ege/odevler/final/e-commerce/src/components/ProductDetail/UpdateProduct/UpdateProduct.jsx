@@ -5,7 +5,7 @@ import { validationSchema } from "../../../schemas"
 import Form from "../../../styledComponents/StyledForm"
 import ButtonPrimary from "../../../styledComponents/ButtonPrimary"
 import warningIcon from "../../../assets/Circle_Warning.svg"
-const UpdateProduct = ({ product, setProduct }) => {
+const UpdateProduct = ({ product, setProduct, toast }) => {
 
     const initialValues = {
         title: "",
@@ -26,6 +26,7 @@ const UpdateProduct = ({ product, setProduct }) => {
             await axios.put(`http://localhost:3000/products/${product.id}`, values);
             setProduct({ id: product.id, ...values })
             resetForm()
+            toast.success("Product updated")
         }
     });
 

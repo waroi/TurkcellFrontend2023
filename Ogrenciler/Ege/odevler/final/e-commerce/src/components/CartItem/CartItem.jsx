@@ -11,7 +11,7 @@ import deleteIcon from "../../assets/Close_Circle.svg"
 import plusIcon from "../../assets/Add_Plus_Circle.svg"
 import minusIcon from "../../assets/Remove_Minus_Circle.svg"
 
-const CartItem = ({ cartItem, setCart }) => {
+const CartItem = ({ cartItem, setCart, toast }) => {
     const user = useSelector((state) => state.user.user)
     console.log(`I am ${cartItem.title} and I rendered`)
     const formSchema = Yup.object().shape({
@@ -51,10 +51,8 @@ const CartItem = ({ cartItem, setCart }) => {
                     cart: newCart,
                 });
             } else {
-                console.log("The demand exceeds the available stock.");
+                toast.error("Demand can't exceed stock")
             }
-        } else {
-            console.log("The demand must be at least 1.");
         }
     }
 
@@ -98,7 +96,7 @@ const CartItem = ({ cartItem, setCart }) => {
             setCart(newCart)
             await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
         }
-        else console.log("You have hit the stock limit")
+        else toast.error("You have hit the stock limit")
     }
     const decrementCart = async () => {
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
@@ -166,7 +164,8 @@ const CartItem = ({ cartItem, setCart }) => {
 
 CartItem.propTypes = {
     cartItem: PropTypes.object.isRequired,
-    setCart: PropTypes.func.isRequired
+    setCart: PropTypes.func.isRequired,
+    toast: PropTypes.func
 }
 
 export default CartItem
