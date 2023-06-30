@@ -17,13 +17,7 @@ const CartView = () => {
 
     useEffect(() => { updateCart() }, [])
 
-    const toastSuccess = (text) => {
-        toast.success(text)
-    }
 
-    const toastError = (text) => {
-        toast.error(text)
-    }
 
     const updateCart = async () => {
         const productResponse = await axios.get('http://localhost:3000/products');
@@ -80,7 +74,7 @@ const CartView = () => {
 
                 {
                     cart.length > 0
-                        ? cart.map((el, i) => (<CartItem key={i} cartItem={el} setCart={setCart} toast={toast} />))
+                        ? cart.map((el, i) => (<CartItem key={i} cartItem={el} setCart={setCart} toast={toast} cartItemDemand={el.demand} />))
                         : <h2>Cart is empty</h2>
                 }
             </div>

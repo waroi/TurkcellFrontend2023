@@ -11,7 +11,7 @@ import deleteIcon from "../../assets/Close_Circle.svg"
 import plusIcon from "../../assets/Add_Plus_Circle.svg"
 import minusIcon from "../../assets/Remove_Minus_Circle.svg"
 
-const CartItem = ({ cartItem, setCart, toast }) => {
+const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
     const user = useSelector((state) => state.user.user)
     console.log(`I am ${cartItem.title} and I rendered`)
     const formSchema = Yup.object().shape({
@@ -56,9 +56,9 @@ const CartItem = ({ cartItem, setCart, toast }) => {
         }
     }
 
-    const { handleChange, handleSubmit, errors } = useFormik({
+    const { values, handleChange, handleSubmit, errors } = useFormik({
         initialValues: {
-            demand: cartItem.demand,
+            demand: cartItemDemand,
         },
         validationSchema: formSchema,
         onSubmit
@@ -81,12 +81,13 @@ const CartItem = ({ cartItem, setCart, toast }) => {
         const cart = cartResponse.data.cart
         setCart(cart)
         if (cartItem.demand < product.rating.count) {
+            values.demand++
             const newProduct = {
                 productId: cartItem.productId,
                 title: cartItem.title,
                 price: cartItem.price,
                 image: cartItem.image,
-                demand: cartItem.demand + 1
+                demand: values.demand
             }
 
             const newCart = cart.map(cartItem => {
@@ -102,13 +103,14 @@ const CartItem = ({ cartItem, setCart, toast }) => {
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
         const cart = cartResponse.data.cart
         setCart(cart)
+        values.demand--
         if (cartItem.demand > 1) {
             const newProduct = {
                 productId: cartItem.productId,
                 title: cartItem.title,
                 price: cartItem.price,
                 image: cartItem.image,
-                demand: cartItem.demand - 1
+                demand: values.demand
             }
 
             const newCart = cart.map(cartItem => {
@@ -142,10 +144,9 @@ const CartItem = ({ cartItem, setCart, toast }) => {
                     </ButtonOutline>
                     <Form onSubmit={handleSubmit}>
                         <input
-                            type="number"
                             name="demand"
                             id="demand"
-                            value={cartItem.demand}
+                            value={values.demand}
                             onChange={handleChange}
                         />
                         {errors.demand && <div className="error">{errors.demand}</div>}
