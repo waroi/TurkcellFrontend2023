@@ -68,27 +68,33 @@ const Cart = () => {
   };
 
   const handleBuyAll = () => {
-    const productsToUpdate = cartData.map((item) => ({ id: item.id, demand: item.demand }));
+    const updatedCartData = cartData.filter((item) => item.demand > 0);
+    const productsToUpdate = updatedCartData.map((item) => ({
+      id: item.id,
+      count: item.rating.count - item.demand,
+    }));
   
-    fetch(`http://localhost:3000/products/${item.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(productsToUpdate),
-    })
-      .then((response) => response.json())
+    Promise.all(
+      productsToUpdate.map((product) =>
+        fetch(`http://localhost:3000/products/${product.id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ...product, count: product.rating.count }),
+        })
+      )
+    )
+      .then((responses) => Promise.all(responses.map((response) => response.json())))
       .then((updatedProducts) => {
         console.log('Updated product counts:', updatedProducts);
   
-        const updatedCartData = cartData.filter((item) => item.demand > 0);
         updateCartData(updatedCartData);
       })
       .catch((error) => {
-        console.error("Error updating product counts:", error);
+        console.error('Error updating product counts:', error);
       });
   };
-
 
   return (
     <Container>
