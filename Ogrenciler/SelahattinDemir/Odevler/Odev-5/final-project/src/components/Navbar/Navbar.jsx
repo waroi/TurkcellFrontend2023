@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { logout } from "../../redux/slice/loginSlice";
 import { Ul, NavInput, IconWrapper, NavSpan, Nav } from "./NavbarStyle.js";
 import Request from "../../utils/Request";
@@ -12,10 +13,20 @@ function Navbar() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const users = localStorage.getItem("user");
-    const parsedUser = JSON.parse(users);
-    setUser(parsedUser);
-  }, []);
+    const fetchUser = () => {
+      fetch("http://localhost:3004/users")
+        .then((res) => res.json())
+        .then((data) => {
+          const loggedInUser = data.find((user) => user.login === true);
+          setUser(loggedInUser);
+        })
+        .catch((err) => {
+          toast.error("Error fetching user." + err);
+        });
+    };
+
+    fetchUser();
+  }, [user]);
 
   const handleLogout = () => {
     const updatedUser = {
