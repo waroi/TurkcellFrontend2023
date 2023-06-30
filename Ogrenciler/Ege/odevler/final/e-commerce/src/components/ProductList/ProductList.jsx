@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import StyledProductList from "./StyledProductList";
 import filterIcon from "../../assets/Filter.svg"
 import Breadcrumbs from "../../styledComponents/Breadcrumbs";
+import ProductsBanner from "./ProductsBanner/ProductsBanner";
 const ProductList = () => {
 
     const [products, setProducts] = useState([]);
@@ -85,6 +86,7 @@ const ProductList = () => {
                 <Link to={"/"}>Home</Link>/
                 <span>Products</span>
             </Breadcrumbs>
+            <ProductsBanner />
             <div className="row">
                 <div className="col-lg-3">
                     <div className="d-none d-lg-block my-3">
