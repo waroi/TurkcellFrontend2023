@@ -19,7 +19,12 @@ function MoreProductsSection({ id }) {
 
     while (randomProducts.length < 8 && filteredProducts.length > 0) {
       const randomIndex = Math.floor(Math.random() * filteredProducts.length);
-      randomProducts.push(filteredProducts[randomIndex]);
+      const randomProduct = filteredProducts[randomIndex];
+
+      if (!randomProducts.includes(randomProduct)) {
+        randomProducts.push(randomProduct);
+      }
+
       filteredProducts.splice(randomIndex, 1);
     }
 

@@ -41,25 +41,22 @@ function CartsView() {
           return updatedItem;
         });
 
-        console.log(updatedProducts);
-
         // Update the stock in the database
         updatedProducts.forEach((product) => {
-          console.log(product);
           dispatch(updateProduct(product));
         });
 
         // Update the stock in localStorage
-        const user = JSON.parse(localStorage.getItem("user"));
-        user.carts.forEach((cartItem) => {
-          const productIndex = updatedProducts.findIndex(
-            (product) => product.id === cartItem.id
-          );
-          if (productIndex !== -1) {
-            cartItem.rating.count = updatedProducts[productIndex].rating?.count;
-          }
-        });
-        localStorage.setItem("user", JSON.stringify(user));
+        // const user = JSON.parse(localStorage.getItem("user"));
+        // user.carts.forEach((cartItem) => {
+        //   const productIndex = updatedProducts.findIndex(
+        //     (product) => product.id === cartItem.id
+        //   );
+        //   if (productIndex !== -1) {
+        //     cartItem.rating.count = updatedProducts[productIndex].rating?.count;
+        //   }
+        // });
+        // localStorage.setItem("user", JSON.stringify(user));
 
         // Clear the carts array
         const updatedUser = {
@@ -67,7 +64,7 @@ function CartsView() {
           carts: [],
         };
         request.put("", updatedUser);
-        localStorage.setItem("user", JSON.stringify(updatedUser));
+        // localStorage.setItem("user", JSON.stringify(updatedUser));
 
         // Update the state
         setData(updatedUser);
@@ -88,20 +85,20 @@ function CartsView() {
     request.put("", { ...data, carts: updatedCarts });
 
     // localStorage'ı güncelle
-    localStorage.setItem(
-      "user",
-      JSON.stringify({
-        ...data,
-        carts: updatedCarts,
-      })
-    );
+    // localStorage.setItem(
+    //   "user",
+    //   JSON.stringify({
+    //     ...data,
+    //     carts: updatedCarts,
+    //   })
+    // );
 
     // State'i güncelle
     setData({ ...data, carts: updatedCarts });
   };
 
   const handleQuantityChange = (itemId, newQuantity) => {
-    if (newQuantity < 1) {
+    if (newQuantity < 0) {
       handleRemove(itemId); // Call handleRemove function if quantity is less than 1
       return;
     }
@@ -117,7 +114,9 @@ function CartsView() {
     const updatedCarts = data.carts.map((item) => {
       if (item.id === itemId) {
         const updatedItem = { ...item, quantity: newQuantity };
-        updatedItem.totalPrice = updatedItem.price * updatedItem.quantity;
+        updatedItem.totalPrice = parseFloat(
+          (updatedItem.price * updatedItem.quantity).toFixed(2)
+        );
         return updatedItem;
       }
       return item;
@@ -127,13 +126,13 @@ function CartsView() {
     request.put("", { ...data, carts: updatedCarts });
 
     // Verileri localStorage'a güncelle
-    localStorage.setItem(
-      "user",
-      JSON.stringify({
-        ...data,
-        carts: updatedCarts,
-      })
-    );
+    // localStorage.setItem(
+    //   "user",
+    //   JSON.stringify({
+    //     ...data,
+    //     carts: updatedCarts,
+    //   })
+    // );
 
     // State'i güncelle
     setData({ ...data, carts: updatedCarts });
@@ -142,9 +141,11 @@ function CartsView() {
   const calculateTotalPrice = (carts) => {
     let totalPrice = 0;
     carts?.forEach((item) => {
-      totalPrice += item.totalPrice || item.price * item.quantity || 0;
+      totalPrice += parseFloat(
+        item.totalPrice || item.price * item.quantity || 0
+      );
     });
-    return totalPrice;
+    return totalPrice.toFixed(2);
   };
 
   return (
@@ -198,13 +199,13 @@ function CartsView() {
                               id="form1"
                               min="0"
                               name="quantity"
-                              value={item.quantity}
+                              value={item.quantity === 0 ? "" : item.quantity}
                               type="number"
                               className="form-control form-control-sm px-1"
                               onChange={(e) =>
                                 handleQuantityChange(
                                   item.id,
-                                  parseInt(e.target.value)
+                                  parseInt(e.target.value) || 0
                                 )
                               }
                             />
@@ -220,7 +221,10 @@ function CartsView() {
                           </div>
                           <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                             <h6 className="mb-0">
-                              € {item.totalPrice || item.price * item.quantity}
+                              €{" "}
+                              {item.totalPrice ||
+                                item.price * item.quantity ||
+                                0}
                             </h6>
                           </div>
                           <div className="col-md-1 col-lg-1 col-xl-1 text-end">
