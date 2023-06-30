@@ -23,19 +23,24 @@ function CategoryCard({ data }) {
   const [user, setUser] = useState(null);
   const truncatedTitle = truncateText(data.title, 35);
   const truncatedDescription = truncateText(data.description, 55);
+  const availableStock = data.rating?.count || 0; // Consider 0 if stock information is not available
 
   useEffect(() => {
-    const users = localStorage.getItem("user");
-    const parsedUser = JSON.parse(users);
-    setUser(parsedUser);
+    const fetchUser = async () => {
+      try {
+        const response = await request.get();
+        const loggedInUser = response.find((user) => user.login === true);
+        setUser(loggedInUser);
+      } catch (error) {
+        toast.error("Error fetching user.");
+      }
+    };
+
+    fetchUser();
   }, []);
 
-  const handleAddToCart = async () => {
-    const requestGet = new Request(
-      "http://localhost:3004/users" + `/${user.id}`
-    );
+  const handleAddToCart = () => {
     const existingItem = user.carts.find((item) => item.id === data.id);
-    const availableStock = data.rating?.count || 0; // Consider 0 if stock information is not available
 
     if (existingItem) {
       if (existingItem.quantity >= availableStock) {
@@ -50,37 +55,38 @@ function CategoryCard({ data }) {
             quantity: item.quantity + 1,
           };
         }
+
         return item;
       });
 
-      await request.put(`/${user.id}`, {
+      const updatedUser = {
         ...user,
         carts: updatedCarts,
-      });
-
-      const updatedUser = await requestGet.get();
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-      setUser(updatedUser);
-    } else {
-      if (availableStock < 1) {
-        toast.error("This item is out of stock.");
-        return;
-      }
-
-      const newItem = {
-        ...data,
-        quantity: 1,
       };
 
-      await request.put(`/${user.id}`, {
-        ...user,
-        carts: [...user.carts, newItem],
-      });
-
-      const updatedUser = await requestGet.get();
-      localStorage.setItem("user", JSON.stringify(updatedUser));
+      request.put(user.id, updatedUser);
       setUser(updatedUser);
+      toast.success("Item added to cart.");
+      return;
+    } else if (availableStock < 1) {
+      toast.error("Insufficient stock. You cannot add this item to cart.");
+      return;
     }
+
+    const updatedUser = {
+      ...user,
+      carts: [
+        ...user.carts,
+        {
+          ...data,
+          quantity: 1,
+        },
+      ],
+    };
+
+    request.put(user.id, updatedUser);
+    setUser(updatedUser);
+    toast.success("Item added to cart.");
   };
 
   return (
@@ -121,8 +127,12 @@ function CategoryCard({ data }) {
             <Link to={`/${data.id}`} className="btn btn-primary">
               Read More
             </Link>
-            <button onClick={handleAddToCart} className="btn btn-danger">
-              Add to Cart
+            <button
+              onClick={handleAddToCart}
+              className="btn btn-danger"
+              disabled={availableStock < 1}
+            >
+              {availableStock < 1 ? "Out of Stock" : "Add to Cart"}
             </button>
           </div>
         </div>
