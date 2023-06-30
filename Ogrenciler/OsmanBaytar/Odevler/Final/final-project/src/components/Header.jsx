@@ -8,6 +8,7 @@ import {
   HeaderMobile,
   HeaderSpan,
   HeaderDropdown,
+  HeaderSearch,
 } from "../styles/HeaderStyle";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
@@ -196,8 +197,8 @@ const Header = () => {
               style={{ height: 40 }}
             >
               <div className="col-lg-4">
-                <div className="d-flex flex-row">
-                  <i className="fa-solid fa-magnifying-glass me-2"></i>
+                <div className="d-flex flex-row align-items-center">
+                  <HeaderSearch className="fa-solid fa-magnifying-glass"></HeaderSearch>
 
                   <HeaderInput
                     ref={inputArea}

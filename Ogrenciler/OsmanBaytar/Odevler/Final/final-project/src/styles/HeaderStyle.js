@@ -21,8 +21,14 @@ export const HeaderInput = styled.input`
   font-weight: 500;
   line-height: 20px;
   border: none;
+  position: relative;
+  display: flex;
+  right: 10px;
+  padding: 12px 10px 12px 36px;
   width: 200px;
-  margin-left: 10px;
+  gap: 12px;
+  border-radius: 46px;
+  background: #fdfdfd;
 `;
 
 export const HeaderButton = styled.button`
@@ -76,4 +82,9 @@ export const HeaderDropdown = styled.div`
   @media (max-width: 992px) {
     top: 265px;
   }
+`;
+
+export const HeaderSearch = styled.i`
+  position: absolute;
+  z-index: 1;
 `;
