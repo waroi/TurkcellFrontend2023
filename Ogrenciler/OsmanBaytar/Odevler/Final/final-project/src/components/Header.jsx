@@ -32,6 +32,7 @@ const Header = () => {
   const [basketData, setBasketData] = useState([]);
   const [uniqueBasketData, setUniqueBasketData] = useState([]);
   const inputArea = useRef();
+  const inputMobileArea = useRef();
   const basketCount = useSelector((state) => state.basketAdd.count);
   const currentUser = useSelector((state) => state.login.login);
 
@@ -155,6 +156,15 @@ const Header = () => {
     }
   }
 
+  function handleMobileArea() {
+    if (currentUser != "") {
+      dispatch(addInput(inputMobileArea.current.value));
+      goToProducts();
+    } else if (currentUser.length == 0) {
+      warningToast();
+    }
+  }
+
   return (
     <div className="container-xl py-3">
       <HeaderComputer>
@@ -269,7 +279,8 @@ const Header = () => {
       {isMobileInput && !isMobile && (
         <div className="row mt-3">
           <HeaderInput
-            onClick={handleInput}
+            ref={inputMobileArea}
+            onChange={handleMobileArea}
             type="text"
             placeholder="Search something here!"
           />

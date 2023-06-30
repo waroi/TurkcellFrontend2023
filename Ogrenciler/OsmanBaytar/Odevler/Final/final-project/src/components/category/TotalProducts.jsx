@@ -27,6 +27,7 @@ const TotalProducts = (props) => {
   const currentInput = useSelector((state) => state.input.input);
 
   console.count("counter");
+  console.log(currentInput);
 
   useEffect(() => {
     productRequest.get().then((data) => {
