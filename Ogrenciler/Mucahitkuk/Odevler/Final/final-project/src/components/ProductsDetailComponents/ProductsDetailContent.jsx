@@ -37,7 +37,7 @@ export const ProductDetail = ({ productId }) => {
 
   const productCategories = [
     "men's clothing",
-    "jewelry",
+    "jewelery",
     "electronics",
     "women's clothing",
   ];
