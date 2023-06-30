@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import StyledKnowledgeCard from "./StyledKnowledgeCard"
 const KnowledgeCard = ({ info }) => {
     return (
-        <StyledKnowledgeCard className="p-3 col-lg-4" backgroundColor={info.tag.background}>
+        <StyledKnowledgeCard className="p-3 col-lg-4" >
             <div className="cardImage">
                 <img src={info.image} alt={info.title} />
             </div>

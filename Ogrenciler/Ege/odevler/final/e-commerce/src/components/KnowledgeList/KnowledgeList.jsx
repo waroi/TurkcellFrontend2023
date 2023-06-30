@@ -38,7 +38,7 @@ const KnowledgeList = () => {
 
 
     return (
-        <StyledKnowledgeList className="container">
+        <StyledKnowledgeList className="container my-3">
             <StyledTitle>
                 <div className="d-flex justify-content-between align-items-center">
                     <div>

@@ -5,8 +5,8 @@ import bannerImg from "../../assets/Woman_Holds_Dog_Two.png"
 
 const UpperBanner = () => {
     return (
-        <div className="container">
-            <StyledUpperBanner className="mt-5">
+        <div className="container my-5">
+            <StyledUpperBanner >
                 <div className="row flex-column-reverse flex-lg-row align-items-center z-2">
                     <div className="col-lg-6">
                         <img className="w-100" src={bannerImg} alt="bannerimage" />

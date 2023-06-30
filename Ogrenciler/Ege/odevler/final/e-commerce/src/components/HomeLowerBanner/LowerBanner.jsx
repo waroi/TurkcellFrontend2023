@@ -4,8 +4,8 @@ import StyledLowerBanner from "./StyledLowerBanner"
 import bannerImg from "../../assets/Adoption_Banner.png"
 const LowerBanner = () => {
     return (
-        <div className="container d-none d-lg-flex">
-            <StyledLowerBanner className="mt-5">
+        <div className="container d-none d-lg-flex my-5">
+            <StyledLowerBanner >
                 <div className="row align-items-center z-2">
                     <div className="col-lg-6">
                         <div className="d-flex flex-column justify-content-center align-item-center text-center h-100">

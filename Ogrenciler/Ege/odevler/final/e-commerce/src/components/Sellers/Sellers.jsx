@@ -15,7 +15,7 @@ const Sellers = () => {
     const sellerImages = [sellerOne, sellerTwo, sellerThree, sellerFour, sellerFive, sellerSix, sellerSeven]
 
     return (
-        <StyledSellers className="container">
+        <StyledSellers className="container my-5">
             <div className="d-flex justify-content-between align-items-center">
                 <div className="title">Proud to be part of <span className="highlight">Pet Sellers</span></div>
                 <ButtonOutline>View all our sellers <img src={caretRight} alt="caretRights" /></ButtonOutline>

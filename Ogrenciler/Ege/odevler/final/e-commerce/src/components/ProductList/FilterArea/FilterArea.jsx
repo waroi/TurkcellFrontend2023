@@ -19,7 +19,7 @@ const FilterArea = ({ products, checkedCategories, setCheckedCategories }) => {
             <div className="checkboxes">
                 {
                     categories.map(category => (
-                        <div key={category}>
+                        <div key={category} className="d-flex align-items-center gap-3 mb-3">
                             <input type="checkbox" id={category} name={category} value={category} onChange={handleChange}
                             />
                             <label htmlFor={category}>{category}</label><br></br>

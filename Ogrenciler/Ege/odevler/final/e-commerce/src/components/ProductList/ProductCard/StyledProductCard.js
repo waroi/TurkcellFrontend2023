@@ -6,6 +6,7 @@ const StyledProductCard = styled.div`
   transition: 0.5s all;
   margin-bottom: 1rem;
   border-radius: 12px;
+  height: 100%;
   img {
     width: 100%;
     aspect-ratio: 1;
@@ -19,18 +20,28 @@ const StyledProductCard = styled.div`
     text-overflow: ellipsis;
     font-size: 16px;
     margin-top: 10px;
+    @media (max-width: 992px) {
+      font-size: 14px;
+    }
   }
 
   .info {
     font-size: 12px;
     text-transform: capitalize;
     color: #667479;
+
+    .star {
+      width: 16px;
+    }
   }
 
   .price {
     margin-top: 10px;
     h3 {
       font-size: 14px;
+      @media (max-width: 992px) {
+        font-size: 16px;
+      }
     }
   }
 

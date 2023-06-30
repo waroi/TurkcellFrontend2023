@@ -8,7 +8,7 @@ import caretRight from "../../assets/Caret_Right_Dark.svg"
 
 const HomeProducts = ({ products }) => {
     return (
-        <StyledHomeProducts className="container">
+        <StyledHomeProducts className="container mb-5">
             <StyledTitle>
                 <div className="d-flex justify-content-between">
                     <div>

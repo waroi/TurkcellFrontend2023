@@ -14,6 +14,11 @@ const StyledHeroBanner = styled.div`
   border-radius: 0px 0px 40px 40px;
 
   .container {
+    position: relative;
+    top: 100px;
+    @media (max-width: 992px) {
+      top: 200px;
+    }
     z-index: 10;
   }
 

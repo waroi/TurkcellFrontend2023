@@ -8,7 +8,7 @@ const StyledProductsBanner = styled.div`
   display: flex;
   img {
     height: 100%;
-    @media (max-width: 520px) {
+    @media (max-width: 992px) {
       width: 300px;
     }
   }
@@ -18,9 +18,9 @@ const StyledProductsBanner = styled.div`
     font-weight: 800;
     line-height: 68px;
     text-transform: capitalize;
-    font-size: 60px;
-    @media (max-width: 768px) {
-      font-size: 46px;
+    font-size: 52px;
+    @media (max-width: 992px) {
+      font-size: 42px;
       color: #002a48;
     }
   }
@@ -28,20 +28,20 @@ const StyledProductsBanner = styled.div`
   h3 {
     color: white;
 
-    font-size: 46px;
+    font-size: 36px;
     font-weight: 700;
     line-height: 60px;
     text-transform: capitalize;
-    @media (max-width: 768px) {
-      font-size: 28px;
+    @media (max-width: 992px) {
+      font-size: 26px;
       color: #002a48;
     }
   }
 
   p {
     color: white;
-    @media (max-width: 768px) {
-      font-size: 28px;
+    font-size: 12px;
+    @media (max-width: 992px) {
       color: #002a48;
     }
   }
@@ -58,7 +58,7 @@ const StyledProductsBanner = styled.div`
     left: 550px;
 
     @media (max-width: 992px) {
-      top: 675px;
+      top: 425px;
       transform: rotate(-175.16deg);
       left: -100px;
     }

@@ -19,7 +19,7 @@ const StyledKnowledgeCard = styled.div`
     color: white;
     border-radius: 26px;
     padding: 5px;
-    background-color: ${(props) => props.backgroundColor};
+    background-color: #00a7e7;
   }
 
   .cardText {

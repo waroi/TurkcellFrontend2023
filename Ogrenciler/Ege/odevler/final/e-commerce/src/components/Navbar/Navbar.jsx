@@ -130,7 +130,9 @@ const Navbar = () => {
                             <img src={hamburgerMenu} alt="menu" onClick={handleOnMenu} />
                         </div>
                         <div className="col-4 navbarItem text-center ">
-                            <Link to={"/"} className="navbarLogo">EgeCommerce</Link>
+                            <Link to={"/"}>
+                                <img src={logo} alt="logo" />
+                            </Link>
                         </div>
                         <div className="col-4 navbarItem text-center">
                             <img src={searchIconBlack} alt="menu" onClick={handleOnSearch} />

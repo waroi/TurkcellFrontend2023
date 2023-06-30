@@ -7,6 +7,8 @@ export const StyledNavbar = styled.div`
     a {
       color: #003459;
       line-height: 24px;
+      font-size: 16px;
+      font-weight: 700;
       text-decoration: none;
     }
   }
@@ -16,6 +18,7 @@ export const StyledNavbar = styled.div`
   }
 
   .searchArea {
+    padding: 0 10px;
     input {
       color: #99a2a5;
       font-size: 14px;
