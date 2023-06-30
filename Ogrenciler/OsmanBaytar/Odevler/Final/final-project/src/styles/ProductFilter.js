@@ -6,7 +6,7 @@ export const ProductFilterContainer = styled.div`
   gap: 16px;
   width: 100%;
   @media screen and (max-width: 992px) {
-    display: none;
+    margin-top: 16px;
   }
 `;
 

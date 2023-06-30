@@ -2,7 +2,7 @@ import TotalProducts from "../components/category/TotalProducts";
 import ProductFilter from "../components/category/ProductFilter";
 import ProductThreeItems from "../components/category/ProductThreeItems";
 import StaticOrderComponentCategory from "../components/category/StaticOrderComponentCategory";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ProductsView = () => {
   const [mensClothing, setMensClothing] = useState();
@@ -14,6 +14,8 @@ const ProductsView = () => {
   const [minRate, setMinRate] = useState(0);
   const [maxRate, setMaxRate] = useState(5);
   const [sortValue, setSortValue] = useState("default");
+  const [Mobile, setMobile] = useState(false);
+  const [Filter, setFilter] = useState(false);
 
   const isMensClothing = (data) => {
     setMensClothing(data);
@@ -42,23 +44,47 @@ const ProductsView = () => {
   const isSortValue = (data) => {
     setSortValue(data);
   };
+  const isFilter = (data) => {
+    setFilter(data);
+  };
+  const isMobile = (data) => {
+    setMobile(data);
+  };
 
   return (
     <div className="container mt-5">
       <StaticOrderComponentCategory order={2} />
-      <ProductThreeItems isSortValue={isSortValue} />
+      <ProductThreeItems
+        isMobile={isMobile}
+        isFilter={isFilter}
+        isSortValue={isSortValue}
+      />
       <div className="row">
         <div className="col-lg-3">
-          <ProductFilter
-            isMensClothing={isMensClothing}
-            isJewelery={isJewelery}
-            isElectronics={isElectronics}
-            isWomensClothing={isWomensClothing}
-            isMinPrice={isMinPrice}
-            isMaxPrice={isMaxPrice}
-            isMinRate={isMinRate}
-            isMaxRate={isMaxRate}
-          />
+          {Mobile && Filter && (
+            <ProductFilter
+              isMensClothing={isMensClothing}
+              isJewelery={isJewelery}
+              isElectronics={isElectronics}
+              isWomensClothing={isWomensClothing}
+              isMinPrice={isMinPrice}
+              isMaxPrice={isMaxPrice}
+              isMinRate={isMinRate}
+              isMaxRate={isMaxRate}
+            />
+          )}
+          {!Mobile && (
+            <ProductFilter
+              isMensClothing={isMensClothing}
+              isJewelery={isJewelery}
+              isElectronics={isElectronics}
+              isWomensClothing={isWomensClothing}
+              isMinPrice={isMinPrice}
+              isMaxPrice={isMaxPrice}
+              isMinRate={isMinRate}
+              isMaxRate={isMaxRate}
+            />
+          )}
         </div>
         <div className="col-lg-9">
           <TotalProducts

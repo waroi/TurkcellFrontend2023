@@ -6,15 +6,13 @@ import {
   ProductThreeItemsSpan,
   ProductThreeItemsSort,
   ProductThreeItemsHeaderFilter,
-  ProductThreeItemsMobileH3,
-  ProductThreeItemsMobileSpan,
 } from "../../styles/ProductThreeItemsStyle";
-import ProductFilterMobile from "./ProductFilterMobile";
 
 const ProductThreeItems = (props) => {
   const [isMobile, setIsMobile] = useState(false);
   const sortButton = useRef();
   const [sortCount, setSortCount] = useState(0);
+  const [filterCount, setFilterCount] = useState(0);
 
   function handleChangeSort() {
     setSortCount(sortCount + 1);
@@ -23,6 +21,26 @@ const ProductThreeItems = (props) => {
   useEffect(() => {
     props.isSortValue(sortButton.current.value);
   }, [sortCount]);
+
+  function handleMobileCheck() {
+    setFilterCount(filterCount + 1);
+  }
+
+  useEffect(() => {
+    if (filterCount % 2 == 0) {
+      props.isFilter(false);
+    } else {
+      props.isFilter(true);
+    }
+  }, [filterCount]);
+
+  useEffect(() => {
+    if (window.innerWidth < 992) {
+      props.isMobile(true);
+    } else if (window.innerWidth > 992) {
+      props.isMobile(false);
+    }
+  }, [window.innerWidth]);
 
   return (
     <div className="row mt-5">
@@ -33,7 +51,7 @@ const ProductThreeItems = (props) => {
         <ProductThreeItemsHeaderFilter>
           <ProductThreeItemsH3>Products</ProductThreeItemsH3>
           <ProductThreeItemsSpan>20 Products</ProductThreeItemsSpan>
-          <ProductThreeItemsH2 onClick={() => setIsMobile(!isMobile)}>
+          <ProductThreeItemsH2 onClick={handleMobileCheck}>
             <span className="me-1">
               <i className="fa-solid fa-filter"></i>
             </span>
@@ -50,11 +68,6 @@ const ProductThreeItems = (props) => {
           <option value="rating-low-high">Rating (low to high)</option>
         </ProductThreeItemsSort>
       </ProductThreeItemsHeader>
-      {isMobile && <ProductFilterMobile />}
-      <div className="mt-3">
-        <ProductThreeItemsMobileH3>Products</ProductThreeItemsMobileH3>
-        <ProductThreeItemsMobileSpan>20 Products</ProductThreeItemsMobileSpan>
-      </div>
     </div>
   );
 };
