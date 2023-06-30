@@ -58,6 +58,11 @@ const StyledUpperBanner = styled.div`
     position: absolute;
     top: -235px;
     left: 640px;
+    @media (max-width: 992px) {
+      top: -265px;
+      left: -330px;
+      transform: rotate(11.23deg);
+    }
   }
 `;
 

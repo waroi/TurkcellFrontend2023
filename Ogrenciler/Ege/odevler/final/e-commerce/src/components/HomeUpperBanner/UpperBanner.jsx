@@ -7,11 +7,11 @@ const UpperBanner = () => {
     return (
         <div className="container">
             <StyledUpperBanner className="mt-5">
-                <div className="d-flex flex-column-row flex-lg-row justify-content-center align-items-center z-2">
-                    <div className="col-md-6">
-                        <img src={bannerImg} alt="bannerimage" />
+                <div className="row flex-column-reverse flex-lg-row align-items-center z-2">
+                    <div className="col-lg-6">
+                        <img className="w-100" src={bannerImg} alt="bannerimage" />
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-lg-6">
                         <div className="d-flex flex-column justify-content-center align-item-center text-center h-100">
                             <h2>One More Friend</h2>
                             <h3>Thousands More Fun!</h3>
