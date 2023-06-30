@@ -29,10 +29,17 @@ const MainContent = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    fetch("../../../../db.json")
-      .then((response) => response.json())
-      .then((data) => setProducts(data.products))
-      .catch((error) => console.error("Error fetching products:", error));
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/products");
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
   }, []);
 
 

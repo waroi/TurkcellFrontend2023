@@ -23,12 +23,11 @@ import { Link } from "react-router-dom";
 import {
   PageButton,
   PageButtonTwo,
-  TitleOne,
-  TitleTwo,
 } from "../HomeComponents/HeaderContent/styled";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/actions/actions";
 import CustomerComponent from "./CustomerComponent/CustomerComponent";
+import ProductsMore from "./ProductsMore/ProductsMore";
 
 export const ProductDetail = ({ productId }) => {
   const [product, setProduct] = useState(null);
@@ -251,46 +250,46 @@ export const ProductDetail = ({ productId }) => {
           </div>
           <div className="d-flex flex-row mt-4">
             <div className="d-flex col-md-6">
-              <span>ID: &nbsp;</span>
+              <span className="text-secondary">ID: &nbsp;</span>
             </div>
             <div className="d-flex col-md-6">
-              <span>#{product.id}</span>
-            </div>
-          </div>
-          <hr></hr>
-          <div className="d-flex flex-row">
-            <div className="d-flex col-md-6">
-              <span>Category: &nbsp;</span>
-            </div>
-            <div className="d-flex col-md-6">
-              <span>{product.category}</span>
+              <span className="text-secondary">#{product.id}</span>
             </div>
           </div>
           <hr></hr>
           <div className="d-flex flex-row">
             <div className="d-flex col-md-6">
-              <span>Rating: &nbsp;</span>
+              <span className="text-secondary">Category: &nbsp;</span>
             </div>
             <div className="d-flex col-md-6">
-              <span>{product.rating.rate}</span>
-            </div>
-          </div>
-          <hr></hr>
-          <div className="d-flex flex-row">
-            <div className="d-flex col-md-6">
-              <span>Stock Amount: &nbsp;</span>
-            </div>
-            <div className="d-flex col-md-6">
-              <span>{product.rating.count}</span>
+              <span className="text-secondary">{product.category}</span>
             </div>
           </div>
           <hr></hr>
           <div className="d-flex flex-row">
             <div className="d-flex col-md-6">
-              <span>Description: &nbsp;</span>
+              <span className="text-secondary">Rating: &nbsp;</span>
             </div>
             <div className="d-flex col-md-6">
-              <span>{product.description}</span>
+              <span className="text-secondary">{product.rating.rate}</span>
+            </div>
+          </div>
+          <hr></hr>
+          <div className="d-flex flex-row">
+            <div className="d-flex col-md-6">
+              <span className="text-secondary">Stock Amount: &nbsp;</span>
+            </div>
+            <div className="d-flex col-md-6">
+              <span className="text-secondary">{product.rating.count}</span>
+            </div>
+          </div>
+          <hr></hr>
+          <div className="d-flex flex-row">
+            <div className="d-flex col-md-6">
+              <span className="text-secondary">Description: &nbsp;</span>
+            </div>
+            <div className="d-flex col-md-6">
+              <span className="text-secondary">{product.description}</span>
             </div>
           </div>
         </div>
@@ -507,7 +506,8 @@ export const ProductDetail = ({ productId }) => {
     </Container>
     <Container className="mt-5">
       <p>Whats new?</p>
-      <h2 style={{fontSize: "24px", color:"#003459"}}>See More Puppies</h2>
+      <h2 style={{fontSize: "24px", color:"#003459"}}>See More Products</h2>
+      <ProductsMore />
     </Container>
     </>
   );
