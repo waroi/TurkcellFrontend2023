@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import { useSelector } from "react-redux"
 import axios from "axios"
-import { useFormik } from "formik";
+import { Formik, useFormik } from "formik";
 import * as Yup from "yup";
 import Form from "../../styledComponents/StyledForm"
 import ButtonPrimary from "../../styledComponents/ButtonPrimary"
@@ -10,7 +10,7 @@ import StyledCartItem from "./StyledCartItem";
 import deleteIcon from "../../assets/Close_Circle.svg"
 import plusIcon from "../../assets/Add_Plus_Circle.svg"
 import minusIcon from "../../assets/Remove_Minus_Circle.svg"
-
+import { useEffect } from "react";
 const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
     const user = useSelector((state) => state.user.user)
     console.log(`I am ${cartItem.demand} and I rendered`)
@@ -56,7 +56,7 @@ const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
         }
     }
 
-    const { values, handleChange, handleSubmit, errors } = useFormik({
+    const formik = useFormik({
         initialValues: {
             demand: cartItemDemand,
         },
@@ -64,6 +64,9 @@ const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
         onSubmit
     });
 
+    useEffect(() => {
+        formik.setFieldValue("demand", cartItem.demand)
+    }, [cartItem])
     const deleteCartItem = async () => {
 
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
@@ -81,13 +84,13 @@ const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
         const cart = cartResponse.data.cart
         setCart(cart)
         if (cartItem.demand < product.rating.count) {
-            values.demand++
+            formik.values.demand++
             const newProduct = {
                 productId: cartItem.productId,
                 title: cartItem.title,
                 price: cartItem.price,
                 image: cartItem.image,
-                demand: values.demand
+                demand: cartItem.demand + 1
             }
 
             const newCart = cart.map(cartItem => {
@@ -103,14 +106,14 @@ const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
         const cart = cartResponse.data.cart
         setCart(cart)
-        values.demand--
         if (cartItem.demand > 1) {
+            formik.values.demand--
             const newProduct = {
                 productId: cartItem.productId,
                 title: cartItem.title,
                 price: cartItem.price,
                 image: cartItem.image,
-                demand: values.demand
+                demand: cartItem.demand - 1
             }
 
             const newCart = cart.map(cartItem => {
@@ -142,13 +145,14 @@ const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
                     <ButtonOutline onClick={decrementCart} className="decrement">
                         <img src={minusIcon} alt="minus" />
                     </ButtonOutline>
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={formik.handleSubmit}>
                         <input
                             name="demand"
                             id="demand"
-                            onChange={handleChange}
+                            value={formik.values.demand}
+                            onChange={formik.handleChange}
                         />
-                        {errors.demand && <div className="error">{errors.demand}</div>}
+                        {formik.errors.demand && <div className="error">{formik.errors.demand}</div>}
                     </Form>
                     <ButtonOutline onClick={incrementCart} className="increment">
                         <img src={plusIcon} alt="plus" />
