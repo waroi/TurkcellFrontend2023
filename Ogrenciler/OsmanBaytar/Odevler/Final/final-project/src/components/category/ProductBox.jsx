@@ -10,6 +10,9 @@ import {
   ProductRate,
 } from "../../styles/ProductBox";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 const ProductBox = ({ product }) => {
   let { title, image, category, price, count, rate } = product;
@@ -22,9 +25,26 @@ const ProductBox = ({ product }) => {
   let halfStarNumber = Math.ceil(rate - fullStarNumber);
   let emptyStarNumber = 5 - fullStarNumber - halfStarNumber;
 
+  const currentUser = useSelector((state) => state.login.login);
+  function warningToast() {
+    toast.warning("Log in required", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   const navigate = useNavigate();
   function goToDetail() {
-    navigate(`/Products/${product.id}`);
+    if (currentUser != "") {
+      navigate(`/Products/${product.id}`);
+    } else if (currentUser.length == 0) {
+      warningToast();
+    }
   }
 
   return (
@@ -49,6 +69,7 @@ const ProductBox = ({ product }) => {
           </ProductRate>
         </div>
       </ProductInfo>
+      <ToastContainer />
     </ProductMainBox>
   );
 };

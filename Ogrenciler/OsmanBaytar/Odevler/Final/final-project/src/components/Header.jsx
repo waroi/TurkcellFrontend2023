@@ -16,6 +16,8 @@ import { addLogin, deleteLogin } from "../redux/slices/loginSlice";
 import { useEffect, useRef } from "react";
 import { basketRequest } from "../utils/Request";
 import { addInput } from "../redux/slices/inputSlice";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -32,6 +34,18 @@ const Header = () => {
   const inputArea = useRef();
   const basketCount = useSelector((state) => state.basketAdd.count);
   const currentUser = useSelector((state) => state.login.login);
+
+  function warningToast() {
+    toast.warning("Log in required", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
 
   useEffect(() => {
     basketRequest.get().then((data) => {
@@ -93,7 +107,11 @@ const Header = () => {
     navigate("/");
   };
   const goToProducts = () => {
-    navigate("/Products");
+    if (currentUser != "") {
+      navigate("/Products");
+    } else if (currentUser.length == 0) {
+      warningToast();
+    }
   };
 
   const goToLogIn = () => {
@@ -194,6 +212,7 @@ const Header = () => {
             </div>
           </div>
         </div>
+        <ToastContainer />
       </HeaderComputer>
       <HeaderMobile>
         <div className="row justify-content-between align-items-center">
