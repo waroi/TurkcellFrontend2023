@@ -6,12 +6,14 @@ function CustomInput({ label, ...props }) {
 
   return (
     <>
-      <label htmlFor={props.name}>{label}</label>
+      <label className="form-label" htmlFor={props.name}>
+        {label}
+      </label>
       <input
         {...field}
         {...props}
         value={field.value || ""}
-        className={meta.error ? "input-error" : ""}
+        className={(meta.error ? "input-error" : "", "form-input")}
       />
 
       {meta.error && <div className="error">{meta.error}</div>}
