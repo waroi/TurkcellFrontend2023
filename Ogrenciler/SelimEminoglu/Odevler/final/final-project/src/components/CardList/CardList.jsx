@@ -81,7 +81,7 @@ function CardList({ isEight }) {
                 <CardPrice>{item.price} $</CardPrice>
               </CardTextDiv>
               <CardButtonDiv>
-                <Button title="Sepete Ekle" path={!isActiveUser && "/login"} />
+                <Button title="Sepete Ekle" />
               </CardButtonDiv>
             </CardDiv>
           </Link>
@@ -110,7 +110,7 @@ function CardList({ isEight }) {
                 <CardGiftText>Free Toy & Free Shaker</CardGiftText>
               </CardGiftDiv>
               <CardButtonDiv>
-                <Button title="Sepete Ekle" path={!isActiveUser && "/login"} />
+                <Button title="Sepete Ekle" />
               </CardButtonDiv>
             </CardDiv>
           </Link>

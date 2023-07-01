@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { activeUserEnter, setActiveUser } from "../../../redux/slices/userList";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
@@ -53,7 +53,6 @@ function failPost(error) {
 
 function LoginForm() {
   const dispatch = useDispatch();
-  let activeUser = useSelector((state) => state.user.activeUser);
 
   const onSubmit = async (values, actions) => {
     fetchUsers(values.username, values.password);

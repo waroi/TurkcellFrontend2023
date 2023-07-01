@@ -1,3 +1,4 @@
+import Icon from "../../Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
 import {
   NavbarDiv,
@@ -56,7 +57,7 @@ function Navbar() {
     <NavbarDiv background={background}>
       <Container>
         <NavList>
-          <img src=".\src\assets\icons\navbar_icon.svg" alt="logo" />
+          <img src={Icon.Main} alt="logo" />
           <Link className="navbarA" to={"/"}>
             Home
           </Link>
@@ -70,7 +71,7 @@ function Navbar() {
             <BasketDiv>
               <Link to={"/carts"}>
                 <CountDiv>0</CountDiv>
-                <img src="./src/assets/icons/shopping-cart.png" alt="logo" />
+                <img src={Icon.Cart} alt="logo" />
               </Link>
             </BasketDiv>
           )}
@@ -87,10 +88,7 @@ function Navbar() {
               />
               <DropDownText>{activeUser.username}</DropDownText>
               <DropDownButton onClick={toogleMenu}>
-                <İconİmg
-                  src="./src/assets/icons/Caret_Down_MD.png"
-                  alt="icon"
-                />
+                <İconİmg src={Icon.Drop} alt="icon" />
               </DropDownButton>
               {isOpen && (
                 <DropDownDivOption>

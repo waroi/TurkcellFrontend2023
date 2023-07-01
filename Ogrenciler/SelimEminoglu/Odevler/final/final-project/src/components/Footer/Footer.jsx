@@ -1,3 +1,4 @@
+import Icon from "../../Icon/Icon";
 import { Container } from "../../assets/css/style";
 import {
   FooterDiv,
@@ -16,12 +17,24 @@ import {
   FooterH4,
   FooterMainİcon,
 } from "./styleFooter";
+import { ErrorDiv, ErrorText } from "../Forms/RegisterForm/styleRegisterForm";
 import { useFormik } from "formik";
 import { footerSchema } from "../../schemas";
 
+function successPost(email) {
+  toast.success(`Başarılı şekilde alındı: ${email}`, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    theme: "dark",
+  });
+}
+
 const onSubmit = async (values, actions) => {
-  console.log(values);
-  console.log(actions);
+  successPost(values.email);
 
   await new Promise((resolve) => {
     setTimeout(resolve, 1000);
@@ -55,6 +68,12 @@ function Footer() {
                   onChange={handleChange}
                   placeholder="Enter Your Email"
                 />
+                {errors.email && (
+                  <ErrorDiv>
+                    <img src={Icon.Error} alt="icon" />
+                    <ErrorText>{errors.email}</ErrorText>
+                  </ErrorDiv>
+                )}
                 <FooterSubmitButton type="submit" disabled={isSubmitting}>
                   Subcribe Now
                 </FooterSubmitButton>
@@ -69,28 +88,16 @@ function Footer() {
               <FooterH3>Contact</FooterH3>
             </FooterNavList>
             <FooterİconList>
-              <Footerİcon
-                src="./src/assets/icons/Facebook - Negative.svg"
-                alt="icon"
-              />
-              <Footerİcon
-                src="./src/assets/icons/Instagram - Negative.svg"
-                alt="icon"
-              />
-              <Footerİcon
-                src="./src/assets/icons/Twitter - Negative.svg"
-                alt="icon"
-              />
-              <Footerİcon
-                src="./src/assets/icons/Youtube - Negative.svg"
-                alt="icon"
-              />
+              <Footerİcon src={Icon.Facebook} alt="icon" />
+              <Footerİcon src={Icon.Instagram} alt="icon" />
+              <Footerİcon src={Icon.Twitter} alt="icon" />
+              <Footerİcon src={Icon.Youtube} alt="icon" />
             </FooterİconList>
           </FooterSocialDiv>
         </FooterFlexDiv>
         <FooterAltTagDiv>
           <FooterH4>© 2022 Monito. All rights reserved.</FooterH4>
-          <FooterMainİcon src="./src/assets/icons/main_icon.svg" alt="icon" />
+          <FooterMainİcon src={Icon.Main} alt="icon" />
           <FooterH4>Terms of Service Privacy Policy</FooterH4>
         </FooterAltTagDiv>
       </Container>

@@ -1,3 +1,4 @@
+import Icon from "../../Icon/Icon";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProduct } from "../../redux/slices/productList";
@@ -15,6 +16,9 @@ import {
   LabelText,
   SortDiv,
   ListSortDiv,
+  DropDownDivAllList,
+  DropDownSelect,
+  DropDownOption,
 } from "./styleAllList";
 import {
   CardDiv,
@@ -37,9 +41,12 @@ function AllList() {
   const [isCheckedMC, setCheckedMC] = useState(false);
   const [isCheckedJew, setCheckedJew] = useState(false);
   const [isCheckedElec, setCheckedElec] = useState(false);
+  const [chooseValue, setChooseValue] = useState("");
+  const [filterArr, setFilterArr] = useState([]);
 
   useEffect(() => {
     dispatch(fetchProduct());
+    setFilterArr(products);
   }, [dispatch]);
 
   if (loading) {
@@ -65,6 +72,20 @@ function AllList() {
   const handleCheckboxChangeElec = () => {
     setCheckedElec(!isCheckedElec);
   };
+
+  const handleChangeSelect = (e) => {
+    const selectValue = e.target.value;
+    setChooseValue(selectValue);
+
+    if (selectValue === "artan") {
+      setFilterArr([...products].sort((a, b) => a.price - b.price));
+    } else if (selectValue === "azalan") {
+      setFilterArr([...products].sort((a, b) => b.price - a.price));
+    } else {
+      setFilterArr(products);
+    }
+  };
+
   return (
     <Container>
       <Flex>
@@ -113,9 +134,16 @@ function AllList() {
           </FilterValueDiv>
         </FilterDiv>
         <ListSortDiv>
-          <SortDiv>Sıralama</SortDiv>
+          <SortDiv>
+            Sıralama:
+            <DropDownSelect value={chooseValue} onChange={handleChangeSelect}>
+              <DropDownOption value="">Belirtilmemiş</DropDownOption>
+              <DropDownOption value="artan">Fiyat(Artan)</DropDownOption>
+              <DropDownOption value="azalan">Fiyat(Azalan)</DropDownOption>
+            </DropDownSelect>
+          </SortDiv>
           <ListDiv>
-            {products.map((item) => {
+            {filterArr.map((item) => {
               return (
                 <Link
                   to={`/products/${item.id}`}
