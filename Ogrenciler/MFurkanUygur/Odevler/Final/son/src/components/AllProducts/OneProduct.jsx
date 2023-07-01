@@ -32,7 +32,7 @@ const OneProduct = ({ item }) => {
         if (!sessionStorage.getItem('loggedUser')) {
             toast.error("Lütfen önce giriş yapınız!", {
                 position: "bottom-right",
-                autoClose: 1000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 onClose: () => {
                     navigate("/signup");
@@ -272,7 +272,7 @@ const OneProduct = ({ item }) => {
             </ProductCard>
             <ToastContainer
                 position="bottom-right"
-                autoClose={1250}
+                autoClose={3000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick={false}

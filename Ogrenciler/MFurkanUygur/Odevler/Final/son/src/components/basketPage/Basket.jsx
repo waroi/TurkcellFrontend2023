@@ -10,9 +10,12 @@ import { CardButton } from "../buttons/buttonStyle"
 const Basket = () => {
     const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
     const [basket, setBasket] = useState([])
+    const [allProducts, setAllProducts] = useState([])
     useEffect(() => {
+        fetchAllProduct().then(data => setAllProducts(data))
         fetchPrivateCart(userIsLog.id).then(data => setBasket(data.cartItems))
     }, [])
+
 
     // const buyItems = () => {
     //     fetchAllProduct()
@@ -61,55 +64,90 @@ const Basket = () => {
     // }
     const buyItems = () => {
         //tüm ürünleri fetch ile aldım
-        fetchAllProduct()
-            .then(products => {
-                // Sepetteki ürünleri fetch ile aldım
-                fetchPrivateCart(userIsLog.id)
-                    .then(carts => {
-                        // Sepetteki ürünleri döngü ile gez
-                        carts.cartItems.forEach(basketItem => {
-                            // Ürünü bul
-                            const product = products.find(product => product.id === basketItem.id);
+        basket.forEach((item) => {
+            const product = allProducts.find((p) => p.id === item.id);
 
-                            // Ürünün sayısını güncelle
-                            if (product) {
-                                const updatedProduct = {
-                                    id: product.id,
-                                    title: product.title,
-                                    price: product.price,
-                                    description: product.description,
-                                    category: product.category,
-                                    image: product.image,
-                                    rating: {
-                                        rate: product.rating.rate,
-                                        count: product.rating.count - basketItem.count
+            if (product && item.count > product.rating.count) {
+                // Ürünün stoktan fazla olduğu durumu kontrol edin
+                // Uyarı mesajı verin veya alışverişi engelleyin
+                if (item.count > product.stock) {
+                    // Stoktan fazla ürün var, alışverişi engelleyin
+                    toast.error(`Sepetteki ${product.title} ürünü, stokta yeterli sayıda bulunmamaktadır. Dikkat ediniz.`, {
+                        position: "bottom-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                    // Diğer işlemleri yapabilirsiniz (uyarı mesajı göstermek veya işlemi durdurmak)
+                } else {
+                    // Stoktan fazla olmayan, ancak rating.count'tan fazla ürün var, uyarı mesajı verin
+                    toast.error(`Sepetteki ${product.title} ürünü, stokta yeterli sayıda bulunmamaktadır. Dikkat ediniz.`, {
+                        position: "bottom-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                    // Uyarı mesajını göstermek için gerekli işlemleri yapabilirsiniz
+                }
+            }
+            else {
+                fetchAllProduct()
+                    .then(products => {
+                        // Sepetteki ürünleri fetch ile aldım
+                        fetchPrivateCart(userIsLog.id)
+                            .then(carts => {
+                                // Sepetteki ürünleri döngü ile gez
+                                carts.cartItems.forEach(basketItem => {
+                                    // Ürünü bul
+                                    const product = products.find(product => product.id === basketItem.id);
+
+                                    // Ürünün sayısını güncelle
+                                    if (product) {
+                                        const updatedProduct = {
+                                            id: product.id,
+                                            title: product.title,
+                                            price: product.price,
+                                            description: product.description,
+                                            category: product.category,
+                                            image: product.image,
+                                            rating: {
+                                                rate: product.rating.rate,
+                                                count: product.rating.count - basketItem.count
+                                            }
+                                        };
+
+                                        // Güncellenmiş ürünü fetch ile kaydet
+                                        updateMainProduct(product.id, updatedProduct)
                                     }
+
+                                });
+
+                                // Sepeti boşaltmak için fetch işlemi yap
+                                const updatedUserCart = {
+                                    id: userIsLog.id,
+                                    name: userIsLog.name,
+                                    cartItems: []
                                 };
-
-                                // Güncellenmiş ürünü fetch ile kaydet
-                                updateMainProduct(product.id, updatedProduct)
-                            }
-
-                        });
-
-                        // Sepeti boşaltmak için fetch işlemi yap
-                        const updatedUserCart = {
-                            id: userIsLog.id,
-                            name: userIsLog.name,
-                            cartItems: []
-                        };
-                        addNewItemOnCart(userIsLog.id, updatedUserCart).then(() => setBasket([])
-                        )
+                                addNewItemOnCart(userIsLog.id, updatedUserCart).then(() => setBasket([])
+                                )
+                            })
+                            .catch(error => {
+                                toast.error(error)
+                            });
                     })
                     .catch(error => {
                         toast.error(error)
-                    });
-            })
-            .catch(error => {
-                toast.error(error)
 
-            });
-        toast.success("Ürünler satın alındı")
+                    });
+                toast.success("Ürünler satın alındı")
+            }
+        });
     }
     return (
         <div className="container  pt-5">
@@ -117,12 +155,12 @@ const Basket = () => {
                 {
                     basket?.length == 0 ? <h2 className="text-center my-5 py-5">Cart is empty...</h2> :
                         basket?.map((item) => {
-                            return <div className="col-6 col-lg-3" key={item.id}><BasketItem  item={item} basket={basket} setBasket={setBasket} /></div>
+                            return <div className="col-6 col-lg-3" key={item.id}><BasketItem item={item} basket={basket} setBasket={setBasket} /></div>
                         })
                 }
             </div>
             {
-                basket?.length > 0 ? <div className="d-flex justify-content-center"><CardButton onClick={() => { buyItems() }}>Satın al</CardButton> </div>: <div className="d-flex  justify-content-center align-item-center"><Link to="/"><CardButton >Alışverişe başla</CardButton></Link></div>
+                basket?.length > 0 ? <div className="d-flex justify-content-center"><CardButton onClick={() => { buyItems() }}>Satın al</CardButton> </div> : <div className="d-flex  justify-content-center align-item-center"><Link to="/"><CardButton >Alışverişe başla</CardButton></Link></div>
             }
 
             <ToastContainer

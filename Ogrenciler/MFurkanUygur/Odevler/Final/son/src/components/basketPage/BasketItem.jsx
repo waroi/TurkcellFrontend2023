@@ -9,14 +9,19 @@ import { CardButton, CardButtonGroup } from "../buttons/buttonStyle"
 import carrow from '../../assets/carrow.png'
 import darrow from '../../assets/darrow.png'
 import uarrow from '../../assets/uarrow.png'
+import { fetchAllProduct } from "../../request/productRequest";
 const BasketItem = ({ item, basket, setBasket }) => {
     const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
     console.log(item)
+
     // const [basket, setBasketItem] = useState()
-    const [inputValue, setInputValue] = useState()
+    const [allProducts, setAllProducts] = useState()
     const inputRef = useRef()
+    const latestStock=allProducts?.find(product => product.id == item.id)
+
     useEffect(() => {
         fetchPrivateCart(userIsLog.id).then(data => setBasket(data.cartItems))
+        fetchAllProduct().then(data => setAllProducts(data))
     }, [])
 
     const incrementItem = () => {
@@ -145,10 +150,13 @@ const BasketItem = ({ item, basket, setBasket }) => {
                     <ProductTitle className="card-title text-start">{item.title}</ProductTitle>
                     <div className="d-flex justify-content-between  ">
                         <div className="d-flex ">
-                            <ProductSpecsTitle>Adet: </ProductSpecsTitle>
+                            <ProductSpecsTitle>Anlık Adet: </ProductSpecsTitle>
                             <ProductSpecs> {item.count}</ProductSpecs>
                         </div>
-
+                        <div className="d-flex ">
+                            <ProductSpecsTitle>Stok: </ProductSpecsTitle>
+                            <ProductSpecs> {latestStock?.rating.count}</ProductSpecs>
+                        </div>
                         <ProductPrice className="text-start my-0 py-0">{item.price} $</ProductPrice>
                     </div>
                     <input type="text" className="w-100" onChange={(e) => { inputItem(e) }} value={item.count} />
