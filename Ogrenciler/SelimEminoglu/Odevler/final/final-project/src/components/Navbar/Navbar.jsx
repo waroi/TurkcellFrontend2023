@@ -21,6 +21,7 @@ import Register from "../Register/Register";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/css/main.css";
+import { activeUserExit, setActiveUser } from "../../redux/slices/userList";
 
 function Navbar() {
   const dispacth = useDispatch();
@@ -46,10 +47,14 @@ function Navbar() {
     setIsOpen(!isOpen);
   };
 
+  const userExit = () => {
+    dispacth(activeUserExit());
+    dispacth(setActiveUser({}));
+  };
+
   return (
     <NavbarDiv background={background}>
       <Container>
-        {console.log(isActiveUser, activeUser)}
         <NavList>
           <img src=".\src\assets\icons\navbar_icon.svg" alt="logo" />
           <Link className="navbarA" to={"/"}>
@@ -90,7 +95,7 @@ function Navbar() {
               {isOpen && (
                 <DropDownDivOption>
                   <DropDownUl>
-                    <DropDownLi>Çıkış</DropDownLi>
+                    <DropDownLi onClick={userExit}>Çıkış</DropDownLi>
                   </DropDownUl>
                 </DropDownDivOption>
               )}

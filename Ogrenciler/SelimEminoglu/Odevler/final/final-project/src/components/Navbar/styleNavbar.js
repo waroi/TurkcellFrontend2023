@@ -136,6 +136,7 @@ export const DropDownLi = styled.li`
   gap: 8px;
   align-self: stretch;
   border-radius: 20px;
+  cursor: pointer;
 `;
 
 export const İconİmg = styled.img`
