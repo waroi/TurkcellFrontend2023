@@ -13,6 +13,7 @@ import add from '../../assets/add.png'
 import inspect from '../../assets/inspect.png'
 import edit from '../../assets/edit.png'
 import Error from "../GeneralForm/Error"
+import { ToastContainer, toast } from "react-toastify"
 
 const RandomProduct = ({ item }) => {
     const userIsAdmin = useSelector((state) => state?.setLoggedUser?.isAdminLog)
@@ -36,10 +37,28 @@ const RandomProduct = ({ item }) => {
                 if (existingItem) {
                     if (existingItem.stock > existingItem.count) {
                         existingItem.count += 1;
-                        console.log("aynı ürün arttı");
+                        toast.warning("Ürün miktarı arttı ", {
+                            position: "bottom-right",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                         
+                            pauseOnHover: false,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                        });
                     }
                     else {
-                        alert("stcok yok")
+                        toast.error("Ürün stokta yok", {
+                            position: "bottom-right",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                         
+                            pauseOnHover: false,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                        });
                     }
                 }
                 else {
@@ -53,10 +72,19 @@ const RandomProduct = ({ item }) => {
                     }
                     if (item.rating.count > 0) {
                         allCarts.cartItems = [...allCarts.cartItems, addCartItem]
-                        console.log("yeni ürün eklendi")
+                        toast.success("Ürün sepete eklendi")
                     }
                     else {
-                        alert("ürün stokyta yok")
+                        toast.error("Ürün stokta yok", {
+                            position: "bottom-right",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                         
+                            pauseOnHover: false,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                        });
                     }
 
                 }
@@ -235,6 +263,18 @@ const RandomProduct = ({ item }) => {
 
                 </div>
             </ProductCard>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
         </div >
     )
 }

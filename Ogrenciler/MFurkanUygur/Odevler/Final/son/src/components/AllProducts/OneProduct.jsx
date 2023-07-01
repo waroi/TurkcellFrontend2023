@@ -5,8 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { EditSchema } from "../GeneralForm/schema";
-import { fetchOneProduct, updateMainProduct } from "../../request/productRequest";
-import { useState } from "react";
+import { fetchAllProduct, fetchOneProduct, updateMainProduct } from "../../request/productRequest";
+import { useEffect, useState } from "react";
 import { ProductCard, ProductImg, ProductPrice, ProductSpecs, ProductSpecsTitle, ProductTitle } from "./styledOneProduct";
 import { ToastContainer, toast } from 'react-toastify';
 import { Rating } from '@smastrom/react-rating'
@@ -23,10 +23,8 @@ const OneProduct = ({ item }) => {
     // const dispatch = useDispatch();
     const navigate = useNavigate();
     const [currentItem, setCurrentItem] = useState(item)
-    // const loggedUser = useSelector((state) => state?.setLoggedUser);
     const userIsAdmin = useSelector((state) => state?.setLoggedUser?.isAdminLog)
-
-    // const [checkAdmin, setCheckAdmin] = useState(userIsAdmin)
+  
 
     const ifUserLogged = () => {
         if (!sessionStorage.getItem('loggedUser')) {
@@ -100,7 +98,7 @@ const OneProduct = ({ item }) => {
                     <ProductTitle className="card-title text-start m-0 p-0">{currentItem.title}</ProductTitle>
                     <div className="d-flex align-items-center">
                         <ProductSpecsTitle>Rate: </ProductSpecsTitle>
-                        <Rating style={{ maxWidth: 70 }} value={currentItem.rating.rate} readOnly />
+                        <Rating style={{ maxWidth: 50 }} value={currentItem.rating.rate} readOnly />
                     </div>
                     <div className="d-flex justify-content-between ">
                         {/* <img src={dot} alt="" /> */}
@@ -192,13 +190,13 @@ const OneProduct = ({ item }) => {
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editTitle" >Title:</label>
                                                                         <Field type="text" id="editTitle" name="editTitle" className="form-control" />
-                                                                        <Error name="editTitle"  />
+                                                                        <Error name="editTitle" />
                                                                     </div>
 
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editAmount">Price:</label>
                                                                         <Field type="text" id="editAmount" name="editAmount" className="form-control" />
-                                                                        <Error name="editAmount"  />
+                                                                        <Error name="editAmount" />
                                                                     </div>
 
                                                                     <div className="text-start fw-semibold">

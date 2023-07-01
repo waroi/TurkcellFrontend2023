@@ -85,15 +85,15 @@ return (
             <div className="card-body my-0 py-0 w-100">
                 <ProductTitle className="card-title text-start m-0 p-0">{currentItem?.title}</ProductTitle>
                 <div className="d-flex justify-content-between ">
+                        <ProductSpecs> {currentItem?.category}</ProductSpecs>
+                    {/* <div className="d-flex ">
+                        <ProductSpecsTitle>Category: </ProductSpecsTitle>
+                    </div> */}
                     <div className="d-flex">
                         <ProductSpecsTitle>Rate: </ProductSpecsTitle>
-                        <Rating style={{ maxWidth: 70 }} value={currentItem?.rating?.rate} readOnly />
+                        <Rating style={{ maxWidth: 50 }} value={currentItem?.rating?.rate} readOnly />
                     </div>
                     {/* <img src={dot} alt="" /> */}
-                    <div className="d-flex ">
-                        <ProductSpecsTitle>Category: </ProductSpecsTitle>
-                        <ProductSpecs> {currentItem?.category}</ProductSpecs>
-                    </div>
                     
 
                 </div>
