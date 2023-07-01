@@ -17,7 +17,6 @@ const BasketView = () => {
   const [basketItemsView, setBasketItemsView] = useState(true);
   const navigate = useNavigate();
   const currentUser = useSelector((state) => state.login.login);
-  const [isComplete, setIsComplete] = useState(false);
 
   function goToHome() {
     navigate("/");
@@ -38,17 +37,6 @@ const BasketView = () => {
     });
   }, [basketData]);
 
-  function complete() {
-    setIsComplete(true);
-    setTimeout(() => {
-      setBasketItemsView(false);
-    }, 11000);
-  }
-
-  function completeHandler(data) {
-    setIsComplete(data);
-  }
-
   return (
     <BasketViewContainer className="container mt-5">
       <h1 className="text-center">Your Basket</h1>
@@ -56,21 +44,11 @@ const BasketView = () => {
 
       {basketItemsView &&
         uniqueBasketData.map((data, index) => (
-          <BasketItem
-            completeHandler={completeHandler}
-            complete={isComplete}
-            data={data}
-            key={index}
-            basket={basketData}
-          />
+          <BasketItem data={data} key={index} basket={basketData} />
         ))}
 
       {uniqueBasketData.length !== 0 ? (
-        <div className="row justify-content-center gap-3">
-          <BasketItemButtonComplete onClick={complete}>
-            Complete Order
-          </BasketItemButtonComplete>
-        </div>
+        <div className="row justify-content-center gap-3"></div>
       ) : (
         <div className="text-center mt-5">
           <h1>Your basket is empty</h1>

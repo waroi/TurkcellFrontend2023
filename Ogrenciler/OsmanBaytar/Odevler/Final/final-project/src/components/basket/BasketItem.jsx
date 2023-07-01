@@ -4,6 +4,7 @@ import {
   BasketItemTitle,
   BasketItemP,
   BasketItemButtonRemove,
+  BasketItemButtonComplete,
   BasketItemInput,
   BasketItemSpan,
 } from "../../styles/BasketItem";
@@ -32,8 +33,7 @@ const BasketItem = (props) => {
 
   const currentUser = useSelector((state) => state.login.login);
 
-  let random = Math.floor(Math.random() * 10000);
-  console.log(random);
+  const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
     productRequest.get().then((data) => {
@@ -128,59 +128,59 @@ const BasketItem = (props) => {
 
   useEffect(() => {
     if (
-      props.complete == true &&
+      isComplete == true &&
       countInput?.current?.value != undefined &&
       countInput?.current?.value > 0 &&
       countInput?.current?.value <= data.count
     ) {
-      setTimeout(() => {
-        console.log(countInput?.current?.value);
-        productRequest.put(productId, {
-          id: productId,
-          title: data.title,
-          price: data.price,
-          description: data.description,
-          category: data.category,
-          image: data.image,
-          rate: data.rate,
-          count: data.count - countInput?.current?.value,
-          sliderImages: data.sliderImages,
-        });
-        dispatch(deleteBasket(data.id));
-        intersectedData.map((data, index) => {
-          if (data.username != currentUser.username) {
-            basketRequest.put(data.id, {
-              id: data.id,
-              title: data.title,
-              price: data.price,
-              description: data.description,
-              category: data.category,
-              image: data.image,
-              rate: data.rate,
-              username: data.username,
-              count: data.count - countInput?.current?.value,
-              sliderImages: data.sliderImages,
-            });
-          }
-        });
-        dispatch(addBasketCount(basketNumber + 1));
-      }, random);
+      console.log(countInput?.current?.value);
+      productRequest.put(productId, {
+        id: productId,
+        title: data.title,
+        price: data.price,
+        description: data.description,
+        category: data.category,
+        image: data.image,
+        rate: data.rate,
+        count: data.count - countInput?.current?.value,
+        sliderImages: data.sliderImages,
+      });
+      dispatch(deleteBasket(data.id));
+      intersectedData.map((data, index) => {
+        if (data.username != currentUser.username) {
+          basketRequest.put(data.id, {
+            id: data.id,
+            title: data.title,
+            price: data.price,
+            description: data.description,
+            category: data.category,
+            image: data.image,
+            rate: data.rate,
+            username: data.username,
+            count: data.count - countInput?.current?.value,
+            sliderImages: data.sliderImages,
+          });
+        }
+      });
+      dispatch(addBasketCount(basketNumber + 1));
+      setIsView(false);
       successBuyToast();
-      props.completeHandler(false);
     } else if (
-      props.complete == true &&
+      isComplete == true &&
       (countInput?.current?.value == undefined ||
         countInput?.current?.value <= 0)
     ) {
       warningToast();
-      props.completeHandler(false);
     } else if (countInput?.current?.value > data.count) {
       errorToast();
-      props.completeHandler(false);
     }
-  }, [props.complete]);
+  }, [isComplete]);
 
   console.log(countInput?.current?.value);
+
+  function buyBasket() {
+    setIsComplete(true);
+  }
 
   return (
     <>
@@ -203,10 +203,14 @@ const BasketItem = (props) => {
                 max={data.count}
               />
             </div>
-
-            <BasketItemButtonRemove onClick={removeBasket}>
-              Remove
-            </BasketItemButtonRemove>
+            <div className="d-flex flex-row gap-3">
+              <BasketItemButtonRemove onClick={removeBasket}>
+                Remove
+              </BasketItemButtonRemove>
+              <BasketItemButtonComplete onClick={buyBasket}>
+                Complete Buy
+              </BasketItemButtonComplete>
+            </div>
           </div>
         </BasketItemContainer>
       )}
