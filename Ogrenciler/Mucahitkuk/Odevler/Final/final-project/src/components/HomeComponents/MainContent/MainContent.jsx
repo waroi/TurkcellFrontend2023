@@ -175,8 +175,8 @@ const MainContent = () => {
             )}
           </div>
         </div>
-      <Container>
-        <NewsGrid>
+      <Container className="px-0">
+        <NewsGrid className="gap-2" >
         <HomeNews />
         </NewsGrid>
         </Container>

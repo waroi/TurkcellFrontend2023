@@ -14,8 +14,7 @@ export const StyledCard = styled(Card)`
 
 export const StyledCardImage = styled(Card.Img)`
   border-radius: 12px;
-  border: none;
-  max-width: 240px;
+  border: none; 
   height: 225px;
   aspect-ratio: 1/1;
   margin: 0 auto;
