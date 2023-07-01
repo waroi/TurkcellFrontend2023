@@ -10,7 +10,8 @@ import { CardButton } from "../buttons/buttonStyle";
 import add from '../../assets/add.png'
 import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest";
 import { ToastContainer, toast } from "react-toastify";
-
+import MyGallery from "./MyGallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 const ProductDetail = () => {
     const { id } = useParams()
     const [item, setItem] = useState();
@@ -93,7 +94,8 @@ const ProductDetail = () => {
             <DetailContainer >
                 <div className="row">
                     <div className="col-lg-6 bg-dark">
-                        <Carousel item={item} />
+                        {/* <Carousel item={item} /> */}
+                        <MyGallery/>
                         <Advertisement>
                             <div className="row g-2">
                                 <Adver className="col-6">
