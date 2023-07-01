@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Field } from "formik";
+import { Field, ErrorMessage } from "formik";
 import Button from "react-bootstrap/Button";
 
 export const Container = styled.div`
@@ -31,6 +31,11 @@ export const StyledField = styled(Field)`
   border-radius: 6.168px;
   outline: none;
   border: 1px solid #99a2a5;
+`;
+
+export const StyledErrorMessage = styled(ErrorMessage)`
+  color: #ff564f;
+  font-size: 14px;
 `;
 
 export const StyledButton = styled(Button)`

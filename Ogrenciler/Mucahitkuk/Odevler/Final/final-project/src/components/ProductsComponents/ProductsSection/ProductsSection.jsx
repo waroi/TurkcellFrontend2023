@@ -86,7 +86,7 @@ const ProductsSection = () => {
     <Container className="mt-5">
       <div className="d-flex row">
         <div className="col-12 col-sm-2 mb-5 mb-sm-0 flex-column">
-          <h3>Filter</h3>
+          <h3 style={{color: "#003459"}}>Filter</h3>
           <p>Category</p>
           <div>
             <input
@@ -146,13 +146,13 @@ const ProductsSection = () => {
         <div className="col-sm-10 col-12">
           <div className="d-flex row">
             <div className="col-6">
-              <h3>
+              <h3 style={{color: "#003459"}}>
                 Products <span>({sortedProducts.length})</span>
               </h3>
             </div>
             <div className="col-6 d-flex justify-content-end">
               <Dropdown onSelect={handleSortingOptionChange}>
-                <Dropdown.Toggle className="bg-transparent text-secondary px-5 rounded-5" variant="success" id="dropdown-basic">
+                <Dropdown.Toggle className="bg-transparent text-secondary px-5 rounded-5" style={{borderColor: "#CCD1D2"}} id="dropdown-basic">
                   Sort By {sortingOption}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
