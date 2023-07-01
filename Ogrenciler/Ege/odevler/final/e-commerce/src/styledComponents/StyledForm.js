@@ -43,7 +43,7 @@ const Form = styled.form`
   }
 
   input[type="number"] {
-    -moz-appearance: textfield; /* For Firefox */
+    -moz-appearance: textfield;
   }
 
   .urlInfo {

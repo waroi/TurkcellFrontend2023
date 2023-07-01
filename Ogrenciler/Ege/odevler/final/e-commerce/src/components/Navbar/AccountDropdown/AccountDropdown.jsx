@@ -11,8 +11,6 @@ const AccountDropdown = () => {
 
     const handleToggle = () => {
         setIsOpen(!isOpen);
-        console.log("first")
-        console.log(isOpen)
     };
 
     const handleLogout = () => {

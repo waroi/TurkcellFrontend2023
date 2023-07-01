@@ -33,14 +33,12 @@ const SignUpForm = () => {
             isAdmin: false,
             cart: []
         }
-        console.log(userData);
         axios.get('http://localhost:3000/users')
             .then(response => {
                 const users = response.data;
                 const existingUser = users.find(user => user.email === userData.email);
 
                 if (existingUser) {
-                    console.log('Email already exists:', existingUser.email);
                     toast.error("Email already exists")
                 } else {
                     axios.post('http://localhost:3000/users', userData)
@@ -52,9 +50,7 @@ const SignUpForm = () => {
                         })
                 }
             })
-            .catch(error => {
-                console.error('An error occurred while fetching users:', error);
-            });
+
     };
 
     const { handleChange, handleSubmit, values, errors } = useFormik({

@@ -15,7 +15,7 @@ const StyledProductCard = styled.div`
   .title {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1; /* Number of lines to display */
+    -webkit-line-clamp: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 16px;

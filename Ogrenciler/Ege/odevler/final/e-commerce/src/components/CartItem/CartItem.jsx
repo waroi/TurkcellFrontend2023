@@ -1,8 +1,7 @@
 import PropTypes from "prop-types"
 import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
-import { Formik, useFormik } from "formik";
-import * as Yup from "yup";
+import { useFormik } from "formik";
 import Form from "../../styledComponents/StyledForm"
 import ButtonPrimary from "../../styledComponents/ButtonPrimary"
 import ButtonOutline from "../../styledComponents/ButtonOutline"
@@ -12,14 +11,12 @@ import plusIcon from "../../assets/Add_Plus_Circle.svg"
 import minusIcon from "../../assets/Remove_Minus_Circle.svg"
 import { useEffect } from "react";
 import { setCartLength } from "../../redux/slices/cartLengthSlice"
-const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
+import { cartItemSchema } from "../../schemas";
+const CartItem = ({ cartItem, setCart, toast }) => {
     const user = useSelector((state) => state.user.user)
     const cartLength = useSelector(state => state.cartLength)
     const dispatch = useDispatch()
-    console.log(`I am ${cartItem.demand} and I rendered`)
-    const formSchema = Yup.object().shape({
-        demand: Yup.number().required("Demand is required").min(1, "Demand must be at least 1"),
-    });
+
 
     const onSubmit = async (values) => {
         const newDemand = parseInt(values.demand, 10);
@@ -61,9 +58,9 @@ const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
 
     const formik = useFormik({
         initialValues: {
-            demand: cartItemDemand,
+            demand: cartItem.demand
         },
-        validationSchema: formSchema,
+        validationSchema: cartItemSchema,
         onSubmit
     });
 
@@ -82,7 +79,6 @@ const CartItem = ({ cartItem, setCart, toast, cartItemDemand }) => {
     }
 
     const incrementCart = async () => {
-        console.log("clicked")
         const productResponse = await axios.get(`http://localhost:3000/products/${cartItem.productId}`)
         const product = productResponse.data;
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)

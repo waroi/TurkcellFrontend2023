@@ -45,3 +45,10 @@ export const validationSchema = yup.object().shape({
   rate: yup.number().required("Rating rate is required"),
   count: yup.number().required("Rating count is required"),
 });
+
+export const cartItemSchema = yup.object().shape({
+  demand: yup
+    .number()
+    .required("Demand is required")
+    .min(1, "Demand must be at least 1"),
+});

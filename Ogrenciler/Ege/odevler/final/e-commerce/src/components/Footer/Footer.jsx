@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="container">
                 <div className="row d-flex mx-auto subscribe">
                     <div className="col-lg-4">
-                        <h4>Register Now So You Don't Miss Our Programs</h4>
+                        <h4>Register Now So You Dont Miss Our Programs</h4>
                     </div>
                     <div className="col-lg-8 ">
                         <div className="inputArea">

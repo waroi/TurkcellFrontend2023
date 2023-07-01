@@ -44,7 +44,6 @@ const CartView = () => {
         await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: updatedCart.filter(cartItem => cartItem.demand > 0) })
         const newCart = await axios.get(`http://localhost:3000/carts/${user.id}`)
         dispatch(setCartLength(newCart.data.cart.length))
-        console.table(newCart.data.cart)
     }
 
     const handleBuy = async () => {
@@ -72,14 +71,6 @@ const CartView = () => {
             }
         }
     }
-
-    // if (user)
-    //     return (
-    //         <NoPermission>
-    //             <h2>You need to login to see this page</h2>
-    //         </NoPermission>
-    //     )
-
 
     return (
         <div className="container">

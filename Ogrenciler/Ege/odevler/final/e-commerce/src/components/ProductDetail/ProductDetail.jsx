@@ -6,6 +6,7 @@ import ProductInfo from "./ProductInfo/ProductInfo"
 import RandomProducts from "./RandomProducts/RandomProducts"
 import { ToastContainer, toast } from "react-toastify"
 import { setCartLength } from "../../redux/slices/cartLengthSlice"
+import PropTypes from "prop-types"
 
 const ProductDetail = ({ id }) => {
 
@@ -18,7 +19,6 @@ const ProductDetail = ({ id }) => {
     useEffect(() => {
         axios.get(`http://localhost:3000/products/${id}`)
             .then(response => setProduct(response.data))
-            .catch(err => console.log('Error fetching product data:', err))
     }, [id]);
 
     useEffect(() => {
@@ -82,6 +82,10 @@ const ProductDetail = ({ id }) => {
             <ToastContainer />
         </div>
     )
+}
+
+ProductDetail.propTypes = {
+    id: PropTypes.number.isRequired
 }
 
 export default ProductDetail

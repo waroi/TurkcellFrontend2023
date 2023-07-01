@@ -1,5 +1,4 @@
 import KnowledgeCard from "./KnowledgeCard/KnowledgeCard"
-import StyledKnowledgeList from "./StyledKnowledgeList"
 import StyledTitle from "../../styledComponents/StyledTitle"
 import ButtonOutline from "../../styledComponents/ButtonOutline"
 import caretRight from "../../assets/Caret_Right_Dark.svg"
@@ -39,7 +38,7 @@ const KnowledgeList = () => {
 
 
     return (
-        <StyledKnowledgeList className="container my-3">
+        <div className="container my-3">
             <StyledTitle>
                 <div className="d-flex justify-content-between align-items-center">
                     <div>
@@ -60,7 +59,7 @@ const KnowledgeList = () => {
             <Link to={user ? "/products" : "/login"}>
                 <ButtonOutline className="d-lg-none w-100">View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
             </Link>
-        </StyledKnowledgeList>
+        </div>
     )
 }
 

@@ -1,7 +1,6 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import ProductCard from "../ProductList/ProductCard/ProductCard"
-import StyledHomeProducts from "./StyledHomeProducts"
 import StyledTitle from "../../styledComponents/StyledTitle"
 import ButtonOutline from "../../styledComponents/ButtonOutline"
 import caretRight from "../../assets/Caret_Right_Dark.svg"
@@ -10,7 +9,7 @@ import { useSelector } from "react-redux"
 const HomeProducts = ({ products }) => {
     const user = useSelector(state => state.user.user)
     return (
-        <StyledHomeProducts className="container mb-5">
+        <div className="container mb-5">
             <StyledTitle>
                 <div className="d-flex justify-content-between">
                     <div>
@@ -32,7 +31,7 @@ const HomeProducts = ({ products }) => {
             </div>
             <Link to={user ? "/products" : "/login"}><ButtonOutline className="d-lg-none w-100">View More <img src={caretRight} alt="caretRights" /></ButtonOutline></Link>
 
-        </StyledHomeProducts>
+        </div>
     )
 }
 

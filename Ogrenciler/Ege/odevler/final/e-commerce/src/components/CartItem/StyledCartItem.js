@@ -2,9 +2,6 @@ import { styled } from "styled-components";
 
 const StyledCartItem = styled.div`
   margin-top: 3rem;
-  /* border: 2px solid #99a2a5;
-  border-radius: 26px; */
-
   .info {
     img {
       max-width: 100px;

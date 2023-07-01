@@ -26,7 +26,7 @@ const StyledKnowledgeCard = styled.div`
     margin-top: 10px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4; /* Number of lines to display */
+    -webkit-line-clamp: 4;
     overflow: hidden;
     text-overflow: ellipsis;
   }

@@ -23,9 +23,6 @@ const ProductList = () => {
                 setProducts(response.data.map(el => ({ ...el, isFiltered: true, isSearched: el.title.toLowerCase().includes(searchValue.toLowerCase()) })).sort(comparePrices).reverse())
                 setUnsorted(response.data)
             })
-
-            .catch(err => console.log('Error fetching product data:', err))
-
     }, []);
 
     const handleIsOnFilter = () => {

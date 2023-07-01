@@ -27,6 +27,7 @@ const StyledProductInfo = styled.div`
     .infoBox {
       font-size: 14px;
       color: #667479;
+      text-transform: capitalize;
     }
   }
 `;
