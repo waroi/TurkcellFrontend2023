@@ -4,7 +4,9 @@ import axios from "axios"
 import { validationSchema } from "../../../schemas"
 import Form from "../../../styledComponents/StyledForm"
 import ButtonPrimary from "../../../styledComponents/ButtonPrimary"
+import ButtonOutline from "../../../styledComponents/ButtonOutline"
 import warningIcon from "../../../assets/Circle_Warning.svg"
+import PreUpdateInfo from "../../../styledComponents/PreUpdateInfo"
 const UpdateProduct = ({ product, setProduct, toast }) => {
 
     const initialValues = {
@@ -41,7 +43,7 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="updateModalLabel">Modal title</h1>
+                            <h1 className="modal-title fs-5" id="updateModalLabel">Update Product</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="container">
@@ -49,16 +51,16 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
                                 <div className="col-12">
                                     <Form onSubmit={handleSubmit}>
                                         <div className="modal-body">
-                                            <div className="previousInfo">
-                                                <p>Id: {product.id}</p>
-                                                <p>Title: {product.title}</p>
-                                                <p>Price: {product.price}</p>
-                                                <p>Description: {product.description}</p>
-                                                <p>Category: {product.category}</p>
-                                                <p className="urlInfo">Image URL: {product.image}</p>
-                                                <p>Rating Rate: {product.rating?.rate}</p>
-                                                <p>Rating Count: {product.rating?.count}</p>
-                                            </div>
+                                            <PreUpdateInfo>
+                                                <p> <span>Id:</span> {product.id}</p>
+                                                <p> <span>Title:</span> {product.title}</p>
+                                                <p> <span>Price:</span> {product.price}</p>
+                                                <p> <span>Description:</span> {product.description}</p>
+                                                <p> <span>Category:</span> {product.category}</p>
+                                                <p className="urlInfo"> <span>Image URL:</span> {product.image}</p>
+                                                <p> <span>Rating Rate:</span> {product.rating?.rate}</p>
+                                                <p> <span>Rating Count(Stock):</span> {product.rating?.count}</p>
+                                            </PreUpdateInfo>
                                             <input
                                                 type="text"
                                                 name="title"
@@ -138,8 +140,9 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
 
                                         </div>
                                         <div className="modal-footer">
+                                            <ButtonOutline data-bs-dismiss="modal">Close</ButtonOutline>
+                                            <ButtonPrimary type="submit" >Save changes</ButtonPrimary>
 
-                                            <ButtonPrimary type="submit" className="btn btn-primary" data-bs-dismiss="modal">Save changes</ButtonPrimary>
                                         </div>
                                     </Form>
                                 </div>
@@ -156,7 +159,8 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
 
 UpdateProduct.propTypes = {
     product: PropTypes.object.isRequired,
-    setProduct: PropTypes.func.isRequired
+    setProduct: PropTypes.func.isRequired,
+    toast: PropTypes.func.isRequired
 }
 
 export default UpdateProduct
