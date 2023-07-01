@@ -82,7 +82,7 @@ const Header = () => {
           <div className="row justify-content-center align-items-center flex-row">
             <div className="col-lg-6">
               <div className="d-flex flex-row">
-                <i className="fa-solid fa-magnifying-glass me-2"></i>
+                <FaSearch className="me-2" />
 
                 <>
                   <div className="d-flex flex-row">
@@ -104,6 +104,7 @@ const Header = () => {
             <div className="col-lg-3">
               <Button onClick={() => goToLogin()}>Log In</Button>
             </div>
+
             <div className="col-lg-3">
               <Button onClick={() => goToSignUp()}>Sign Up</Button>
             </div>

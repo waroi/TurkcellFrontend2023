@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "../../Components/Login/Login";
+import HomeView from "../Home/HomeView";
 
 const LoginView = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -32,9 +33,7 @@ const LoginView = () => {
   };
 
   return (
-    <div>
-      {!loggedIn ? <Login onLogin={handleLogin} /> : <h1>Welcome Home</h1>}
-    </div>
+    <div>{!loggedIn ? <Login onLogin={handleLogin} /> : <HomeView />}</div>
   );
 };
 
