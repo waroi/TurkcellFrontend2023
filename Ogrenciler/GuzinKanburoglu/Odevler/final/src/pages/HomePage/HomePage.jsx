@@ -4,7 +4,6 @@ import NewProductsSection from '../../components/NewProductsSection/NewProductsS
 
 const HomePage = () => {
   return (
-
     <div><Navbar/>
     <NewProductsSection/>
     </div>
