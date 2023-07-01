@@ -19,6 +19,7 @@ const StyledProductCard = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 16px;
+    font-weight: 700;
     margin-top: 10px;
     @media (max-width: 992px) {
       font-size: 14px;

@@ -56,7 +56,7 @@ const Footer = () => {
                 </div>
                 <div className="row align-items-center justify-content-between mt-3 pb-5 company">
                     <div className="col-lg-4 text-center text-lg-start">
-                        2022 EgeCommerce, All rights reserved
+                        2022 Monito, All rights reserved
                     </div>
                     <div className="col-lg-4 text-center">
                         <Link to={"/"}>

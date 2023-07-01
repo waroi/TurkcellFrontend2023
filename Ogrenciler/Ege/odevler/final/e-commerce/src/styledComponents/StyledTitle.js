@@ -4,6 +4,7 @@ const StyledTitle = styled.div`
   h3 {
     color: #003459;
     font-size: 24px;
+    font-weight: 700;
   }
 
   h4 {

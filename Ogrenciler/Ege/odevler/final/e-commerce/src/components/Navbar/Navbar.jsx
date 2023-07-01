@@ -87,7 +87,7 @@ const Navbar = () => {
                                                 name="search"
                                                 onChange={handleChange}
                                                 value={values.search}
-                                                disabled={currentUser ? true : false}
+                                                disabled={currentUser ? false : true}
                                                 placeholder={currentUser ? "Search something here!" : "You need to login."}
                                             />
 
@@ -186,6 +186,7 @@ const Navbar = () => {
                                     name="search"
                                     onChange={handleChange}
                                     value={values.search}
+                                    disabled={currentUser ? false : true}
                                     placeholder="Search something here!"
                                 />
                                 {errors.search && <div className="error">{errors.search}</div>}

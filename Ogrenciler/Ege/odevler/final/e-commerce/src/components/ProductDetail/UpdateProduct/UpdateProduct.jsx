@@ -15,18 +15,28 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
         description: "",
         category: "",
         image: "",
-        rating: {
-            rate: "",
-            count: ""
-        }
+        rate: "",
+        count: ""
     };
 
     const { values, handleChange, handleSubmit, errors, resetForm } = useFormik({
         initialValues,
         validationSchema,
         onSubmit: async (values) => {
-            await axios.put(`http://localhost:3000/products/${product.id}`, values);
-            setProduct({ id: product.id, ...values })
+            const productData = {
+                id: product.id,
+                title: values.title,
+                price: values.price,
+                description: values.description,
+                category: values.category,
+                image: values.image,
+                rating: {
+                    rate: values.rate,
+                    count: values.count
+                }
+            }
+            await axios.put(`http://localhost:3000/products/${product.id}`, productData);
+            setProduct({ id: product.id, ...productData })
             resetForm()
             toast.success("Product updated")
         }
@@ -118,8 +128,8 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
 
                                             <input
                                                 type="number"
-                                                name="rating.rate"
-                                                value={values.rating.rate}
+                                                name="rate"
+                                                value={values.rate}
                                                 onChange={handleChange}
                                                 placeholder="Rating"
                                             />
@@ -129,8 +139,8 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
 
                                             <input
                                                 type="number"
-                                                name="rating.count"
-                                                value={values.rating.count}
+                                                name="count"
+                                                value={values.count}
                                                 onChange={handleChange}
                                                 placeholder="Rating Count"
                                             />

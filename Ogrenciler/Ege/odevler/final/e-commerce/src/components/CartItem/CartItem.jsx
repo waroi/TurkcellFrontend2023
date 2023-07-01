@@ -153,6 +153,7 @@ const CartItem = ({ cartItem, setCart, toast }) => {
                             id="demand"
                             value={formik.values.demand}
                             onChange={formik.handleChange}
+                            onFocus={() => toast.warn("Press enter after changing the number to submit new amount.")}
                         />
                         {formik.errors.demand && <div className="error">{formik.errors.demand}</div>}
                     </Form>
