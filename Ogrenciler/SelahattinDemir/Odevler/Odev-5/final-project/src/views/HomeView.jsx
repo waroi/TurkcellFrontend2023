@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../redux/slice/productsSlice";
+import HerroBanner from "../components/HerroBanner/HerroBanner";
 import NewsSection from "../components/NewsSection/NewsSection";
+import BannerMiddle from "../components/BannerMiddle/BannerMiddle";
 import ProductsSection from "../components/ProductsSection/ProductsSection";
 import SellersSection from "../components/SellersSection/SellersSection";
+import BannerBottom from "../components/BannerBottom/BannerBottom";
 import KnowledgeSection from "../components/KnowledgeSection/KnowledgeSection";
 
 const HomeView = () => {
@@ -15,12 +18,17 @@ const HomeView = () => {
   }, [dispatch]);
 
   return (
-    <div className="container">
-      <NewsSection products={products} />
-      <ProductsSection products={products} />
-      <SellersSection />
-      <KnowledgeSection />
-    </div>
+    <>
+      <HerroBanner />
+      <div className="container">
+        <NewsSection products={products} />
+        <BannerMiddle />
+        <ProductsSection products={products} />
+        <SellersSection />
+        <BannerBottom />
+        <KnowledgeSection />
+      </div>
+    </>
   );
 };
 
