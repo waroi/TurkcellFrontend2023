@@ -49,6 +49,10 @@ function AllList() {
     setFilterArr(products);
   }, [dispatch]);
 
+  useEffect(() => {
+    handleFilter();
+  }, [isCheckedWC, isCheckedMC, isCheckedJew, isCheckedElec]);
+
   if (loading) {
     return <div>Yükleniyor...</div>;
   }
@@ -71,6 +75,33 @@ function AllList() {
 
   const handleCheckboxChangeElec = () => {
     setCheckedElec(!isCheckedElec);
+  };
+
+  const handleFilter = () => {
+    if (!isCheckedWC && !isCheckedMC && !isCheckedJew && !isCheckedElec) {
+      setFilterArr(products);
+    }
+    if (isCheckedWC) {
+      setFilterArr(
+        [...products].filter((item) => item.category == "women's clothing")
+      );
+    }
+
+    if (isCheckedMC) {
+      setFilterArr(
+        [...products].filter((item) => item.category == "men's clothing")
+      );
+    }
+
+    if (isCheckedJew) {
+      setFilterArr([...products].filter((item) => item.category == "jewelery"));
+    }
+
+    if (isCheckedElec) {
+      setFilterArr(
+        [...products].filter((item) => item.category == "electronics")
+      );
+    }
   };
 
   const handleChangeSelect = (e) => {
@@ -98,7 +129,7 @@ function AllList() {
                 <Checkbox
                   type="checkbox"
                   checked={isCheckedWC}
-                  onChange={handleCheckboxChangeWC}
+                  onChange={() => setCheckedWC(!isCheckedWC)}
                   value="women's clothing"
                 />
                 Women's clothing
@@ -107,7 +138,7 @@ function AllList() {
                 <Checkbox
                   type="checkbox"
                   checked={isCheckedElec}
-                  onChange={handleCheckboxChangeElec}
+                  onChange={() => setCheckedElec(!isCheckedElec)}
                   value="electronics"
                 />
                 Electronics
@@ -116,7 +147,7 @@ function AllList() {
                 <Checkbox
                   type="checkbox"
                   checked={isCheckedJew}
-                  onChange={handleCheckboxChangeJew}
+                  onChange={() => setCheckedJew(!isCheckedJew)}
                   value="jewelery"
                 />
                 Jewelery
@@ -125,7 +156,7 @@ function AllList() {
                 <Checkbox
                   type="checkbox"
                   checked={isCheckedMC}
-                  onChange={handleCheckboxChangeMC}
+                  onChange={() => setCheckedMC(!isCheckedMC)}
                   value="men's clothing"
                 />
                 Men's clothing
