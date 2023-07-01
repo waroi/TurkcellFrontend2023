@@ -5,11 +5,31 @@ import {
   BasicTitleI,
 } from "../../styles/BasicTitleStyle";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BasicTitle = () => {
+  const currentUser = useSelector((state) => state.login.login);
   const navigate = useNavigate();
+
+  function warningToast() {
+    toast.warning("Log in required", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
   const goToProducts = () => {
-    navigate("/Products");
+    if (currentUser != "") {
+      navigate("/Products");
+    } else if (currentUser.length == 0) {
+      warningToast();
+    }
   };
 
   return (
@@ -25,6 +45,7 @@ const BasicTitle = () => {
           </BasicTitleButton>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
