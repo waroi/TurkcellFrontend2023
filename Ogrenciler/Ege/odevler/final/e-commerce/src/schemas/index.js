@@ -42,8 +42,6 @@ export const validationSchema = yup.object().shape({
   description: yup.string().required("Description is required"),
   category: yup.string().required("Category is required"),
   image: yup.string().required("Image URL is required"),
-  rating: yup.object().shape({
-    rate: yup.number().required("Rating rate is required"),
-    count: yup.number().required("Rating count is required"),
-  }),
+  rate: yup.number().required("Rating rate is required"),
+  count: yup.number().required("Rating count is required"),
 });

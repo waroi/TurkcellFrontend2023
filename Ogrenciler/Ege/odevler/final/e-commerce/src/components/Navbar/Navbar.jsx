@@ -11,6 +11,7 @@ import { useState } from "react"
 import AccountDropdown from "./AccountDropdown/AccountDropdown";
 import logo from "../../assets/Logo.svg"
 import cartIcon from "../../assets/Shopping_Bag.svg"
+import { current } from "@reduxjs/toolkit";
 
 const Navbar = () => {
 
@@ -87,10 +88,10 @@ const Navbar = () => {
                                                 name="search"
                                                 onChange={handleChange}
                                                 value={values.search}
-                                                placeholder="Search something here!"
+                                                disabled={currentUser ? true : false}
+                                                placeholder={currentUser ? "Search something here!" : "You need to login."}
                                             />
-                                            {/* <img className="searchIcon" src={searchIcon} alt="" /> */}
-                                            {errors.search && <div className="error">{errors.search}</div>}
+
                                         </form>
 
                                     </div>

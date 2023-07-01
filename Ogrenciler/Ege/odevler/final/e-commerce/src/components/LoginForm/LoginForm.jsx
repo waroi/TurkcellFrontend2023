@@ -4,6 +4,8 @@ import PropTypes from "prop-types"
 import Form from '../../styledComponents/StyledForm';
 import ButtonPrimary from '../../styledComponents/ButtonPrimary';
 import { Link } from 'react-router-dom';
+import warningIcon from "../../assets/Circle_Warning.svg"
+
 const LoginForm = ({ onLogin }) => {
 
 
@@ -33,7 +35,7 @@ const LoginForm = ({ onLogin }) => {
                     onChange={handleChange}
                     value={values.email}
                 />
-                {errors.email && <div className="error">{errors.email}</div>}
+                {errors.email && <div className="error"> <img src={warningIcon}></img> {errors.email}</div>}
             </div>
 
             <div>
@@ -45,11 +47,11 @@ const LoginForm = ({ onLogin }) => {
                     onChange={handleChange}
                     value={values.password}
                 />
-                {errors.password && <div className="error">{errors.password}</div>}
+                {errors.password && <div className="error"> <img src={warningIcon}></img> {errors.password}</div>}
             </div>
 
             <ButtonPrimary type="submit">Login</ButtonPrimary>
-            <Link className="ms-3" to={"/signup"}>You don't have an account?</Link>
+            <Link className="ms-3" to={"/signup"}>You do not have an account?</Link>
         </Form>
     )
 }

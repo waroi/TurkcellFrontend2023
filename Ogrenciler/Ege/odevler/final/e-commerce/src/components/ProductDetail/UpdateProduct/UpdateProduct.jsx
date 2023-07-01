@@ -69,7 +69,7 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
                                                 placeholder="Title"
                                             />
                                             {errors.title && (
-                                                <div className="error"> <img src={warningIcon} alt="warning" /> {errors.title}</div>
+                                                <div className="error mb-3"> <img src={warningIcon} alt="warning" /> {errors.title}</div>
                                             )}
 
                                             <input
@@ -80,7 +80,7 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
                                                 placeholder="Price"
                                             />
                                             {errors.price && (
-                                                <div className="error"> <img src={warningIcon} alt="warning" /> {errors.price}</div>
+                                                <div className="error mb-3"> <img src={warningIcon} alt="warning" /> {errors.price}</div>
                                             )}
 
                                             <textarea
@@ -91,7 +91,7 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
                                                 className={errors.description ? "error" : ""}
                                             ></textarea>
                                             {errors.description && (
-                                                <div className="error"> <img src={warningIcon} alt="warning" /> {errors.description}</div>
+                                                <div className="error mb-3"> <img src={warningIcon} alt="warning" /> {errors.description}</div>
                                             )}
 
                                             <input
@@ -102,7 +102,7 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
                                                 placeholder="Category"
                                             />
                                             {errors.category && (
-                                                <div className="error"> <img src={warningIcon} alt="warning" /> {errors.category}</div>
+                                                <div className="error mb-3"> <img src={warningIcon} alt="warning" /> {errors.category}</div>
                                             )}
 
                                             <input
@@ -113,7 +113,7 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
                                                 placeholder="Image URL"
                                             />
                                             {errors.image && (
-                                                <div className="error"> <img src={warningIcon} alt="warning" /> {errors.image}</div>
+                                                <div className="error mb-3"> <img src={warningIcon} alt="warning" /> {errors.image}</div>
                                             )}
 
                                             <input
@@ -123,8 +123,8 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
                                                 onChange={handleChange}
                                                 placeholder="Rating"
                                             />
-                                            {errors["rating.rate"] && (
-                                                <div className="error"> <img src={warningIcon} alt="warning" /> {errors["rating.rate"]}</div>
+                                            {errors.rate && (
+                                                <div className="error mb-3"> <img src={warningIcon} alt="warning" /> {errors.rate}</div>
                                             )}
 
                                             <input
@@ -134,8 +134,8 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
                                                 onChange={handleChange}
                                                 placeholder="Rating Count"
                                             />
-                                            {errors["rating.count"] && (
-                                                <div className="error"> <img src={warningIcon} alt="warning" /> {errors["rating.count"]}</div>
+                                            {errors.count && (
+                                                <div className="error mb-3"> <img src={warningIcon} alt="warning" /> {errors.count}</div>
                                             )}
 
                                         </div>
