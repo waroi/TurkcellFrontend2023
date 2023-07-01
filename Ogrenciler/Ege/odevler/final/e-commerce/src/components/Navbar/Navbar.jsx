@@ -10,6 +10,8 @@ import hamburgerMenu from "../../assets/Hamburger_LG.svg"
 import { useState } from "react"
 import AccountDropdown from "./AccountDropdown/AccountDropdown";
 import logo from "../../assets/Logo.svg"
+import { toast, ToastContainer } from "react-toastify"
+import { Toast } from "bootstrap";
 
 const Navbar = () => {
 
@@ -34,12 +36,11 @@ const Navbar = () => {
 
     const onSubmit = (values) => {
         if (currentUser) {
-            // console.log(values.search);
             if (location.pathname != "/products") navigate("/products")
             dispatch(setSearchValue(values.search))
 
         }
-        else console.log("You need to login to use search")
+        else toast.error("You need to login to search")
     };
 
     const { handleChange, handleSubmit, values, errors } = useFormik({
@@ -198,6 +199,7 @@ const Navbar = () => {
 
                 </StyledNavbar>
             </NavbarMobile>
+            <ToastContainer />
         </div>
     )
 }
