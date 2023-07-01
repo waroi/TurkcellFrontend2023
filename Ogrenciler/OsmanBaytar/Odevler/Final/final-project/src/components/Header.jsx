@@ -56,8 +56,6 @@ const Header = () => {
       });
     }, 2000);
   }, [basketCount]);
-  // console.log(basketData);
-  console.log(uniqueBasketData);
 
   useEffect(() => {
     setTimeout(() => {
@@ -68,7 +66,7 @@ const Header = () => {
         }
       });
     }, 2000);
-  }, [basketData]);
+  }, [basketData, basketCount]);
 
   const dispatch = useDispatch();
 

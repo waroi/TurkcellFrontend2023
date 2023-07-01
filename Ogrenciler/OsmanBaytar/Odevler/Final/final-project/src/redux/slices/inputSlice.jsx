@@ -9,7 +9,6 @@ export const inputSlice = createSlice({
   initialState,
   reducers: {
     addInput: (state, action) => {
-      console.log("working");
       state.input = action.payload;
     },
     deleteInput: (state) => {

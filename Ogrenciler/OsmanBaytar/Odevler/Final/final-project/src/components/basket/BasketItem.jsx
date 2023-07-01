@@ -31,7 +31,9 @@ const BasketItem = (props) => {
   const [intersectedCount, setIntersectedCount] = useState(0);
 
   const currentUser = useSelector((state) => state.login.login);
-  const [timeCount, setTimeCount] = useState(500);
+
+  let random = Math.floor(Math.random() * 10000);
+  console.log(random);
 
   useEffect(() => {
     productRequest.get().then((data) => {
@@ -124,63 +126,7 @@ const BasketItem = (props) => {
     successToast();
   }
 
-  // useEffect(() => {
-  //   setTimeCount(timeCount + 500);
-
-  //   if (
-  //     props.complete == true &&
-  //     countInput?.current?.value != undefined &&
-  //     countInput?.current?.value > 0 &&
-  //     countInput?.current?.value <= data.count
-  //   ) {
-  //     console.log(countInput?.current?.value);
-  //     productRequest.put(productId, {
-  //       id: productId,
-  //       title: data.title,
-  //       price: data.price,
-  //       description: data.description,
-  //       category: data.category,
-  //       image: data.image,
-  //       rate: data.rate,
-  //       count: data.count - countInput?.current?.value,
-  //       sliderImages: data.sliderImages,
-  //     });
-  //     dispatch(deleteBasket(data.id));
-
-  //     intersectedData.map((data, index) => {
-  //       if (data.username != currentUser.username) {
-  //         basketRequest.put(data.id, {
-  //           id: data.id,
-  //           title: data.title,
-  //           price: data.price,
-  //           description: data.description,
-  //           category: data.category,
-  //           image: data.image,
-  //           rate: data.rate,
-  //           username: data.username,
-  //           count: data.count - countInput?.current?.value,
-  //           sliderImages: data.sliderImages,
-  //         });
-  //       }
-  //     });
-  //     successBuyToast();
-  //     props.completeHandler(false);
-  //     dispatch(addBasketCount(basketNumber + 1));
-  //   } else if (
-  //     props.complete == true &&
-  //     (countInput?.current?.value == undefined ||
-  //       countInput?.current?.value <= 0)
-  //   ) {
-  //     warningToast();
-  //     props.completeHandler(false);
-  //   } else if (countInput?.current?.value > data.count) {
-  //     errorToast();
-  //     props.completeHandler(false);
-  //   }
-  // }, [props.complete]);
-
   useEffect(() => {
-    setTimeCount(timeCount + 500);
     if (
       props.complete == true &&
       countInput?.current?.value != undefined &&
@@ -217,10 +163,10 @@ const BasketItem = (props) => {
             });
           }
         });
-      }, timeCount);
+        dispatch(addBasketCount(basketNumber + 1));
+      }, random);
       successBuyToast();
       props.completeHandler(false);
-      dispatch(addBasketCount(basketNumber + 1));
     } else if (
       props.complete == true &&
       (countInput?.current?.value == undefined ||

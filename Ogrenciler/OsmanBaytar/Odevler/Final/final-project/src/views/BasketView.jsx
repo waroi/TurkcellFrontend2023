@@ -42,7 +42,7 @@ const BasketView = () => {
     setIsComplete(true);
     setTimeout(() => {
       setBasketItemsView(false);
-    }, 3000);
+    }, 11000);
   }
 
   function completeHandler(data) {
