@@ -17,7 +17,7 @@ function ProductsSection({ products }) {
 
   const randomProducts = shuffle(products).slice(0, 8);
   return (
-    <div className="row">
+    <div className="row d-none d-lg-flex">
       <div className="d-flex justify-content-between align-items-center my-3">
         <div>
           <TopTitle>Hard to choose right products for your pets?</TopTitle>

@@ -3,7 +3,7 @@ import ImagesCard from "./ImagesCard";
 
 function SellersSection() {
   return (
-    <div className="row">
+    <div className="row d-none d-lg-block ">
       <div className="d-flex justify-content-between align-items-center my-3">
         <div>
           <TopTitle>

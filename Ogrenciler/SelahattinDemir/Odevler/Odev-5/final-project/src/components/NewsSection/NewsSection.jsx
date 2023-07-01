@@ -1,6 +1,6 @@
 import Proptypes from "prop-types";
 import Card from "../Card/Card";
-import { TopTitle, BottomTitle } from "./NewsSectionStyle";
+import { TopTitle, BottomTitle, Button } from "./NewsSectionStyle";
 
 function NewsSection({ products }) {
   const shuffle = (array) => {
@@ -17,12 +17,15 @@ function NewsSection({ products }) {
 
   const randomProducts = shuffle(products).slice(0, 8);
   return (
-    <div className="row">
+    <div className="row my-4">
       <TopTitle>Whats new?</TopTitle>
       <BottomTitle>Take a look at some of our pets</BottomTitle>
       {randomProducts.map((product) => (
         <Card key={product.id} data={product} />
       ))}
+      <Button className="d-block d-lg-none">
+        View more <i className="bi bi-chevron-right"></i>
+      </Button>
     </div>
   );
 }
