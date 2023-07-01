@@ -5,8 +5,10 @@ import StyledTitle from "../../styledComponents/StyledTitle"
 import StyledPromotionProducts from "./StyledPromotionProducts"
 import ButtonOutline from "../../styledComponents/ButtonOutline"
 import caretRight from "../../assets/Caret_Right_Dark.svg"
+import { useSelector } from "react-redux"
 const PromotionProducts = ({ products }) => {
 
+    const user = useSelector(state => state.user.user)
     const promotionTexts = ["Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace"]
 
     return (
@@ -17,7 +19,9 @@ const PromotionProducts = ({ products }) => {
                         <h4>Hard To Choose Right Products For Yourself ?</h4>
                         <h3>Our Products</h3>
                     </div>
-                    <ButtonOutline>View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
+                    <Link to={user ? "/products" : "/login"}>
+                        <ButtonOutline>View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
+                    </Link>
                 </div>
             </StyledTitle>
             <div className="row">

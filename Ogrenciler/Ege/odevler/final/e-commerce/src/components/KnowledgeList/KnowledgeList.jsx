@@ -3,9 +3,10 @@ import StyledKnowledgeList from "./StyledKnowledgeList"
 import StyledTitle from "../../styledComponents/StyledTitle"
 import ButtonOutline from "../../styledComponents/ButtonOutline"
 import caretRight from "../../assets/Caret_Right_Dark.svg"
-
+import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 const KnowledgeList = () => {
-
+    const user = useSelector(state => state.user.user)
     const knowledgeInfos = [
         {
             title: "What is a T-Shirt?",
@@ -45,7 +46,9 @@ const KnowledgeList = () => {
                         <h4>Do you already know ?</h4>
                         <h3>Useful Product Knowledge</h3>
                     </div>
-                    <ButtonOutline className="d-none d-lg-block">View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
+                    <Link to={user ? "/products" : "/login"} >
+                        <ButtonOutline className="d-none d-lg-block">View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
+                    </Link>
                 </div>
             </StyledTitle>
 
@@ -54,7 +57,9 @@ const KnowledgeList = () => {
                     knowledgeInfos.map((knowledgeInfo, i) => <KnowledgeCard key={i} info={knowledgeInfo} />)
                 }
             </div>
-            <ButtonOutline className="d-lg-none w-100">View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
+            <Link to={user ? "/products" : "/login"}>
+                <ButtonOutline className="d-lg-none w-100">View More <img src={caretRight} alt="caretRights" /></ButtonOutline>
+            </Link>
         </StyledKnowledgeList>
     )
 }

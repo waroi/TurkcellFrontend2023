@@ -1,13 +1,17 @@
 import { useFormik } from "formik"
 import { signUpSchema } from "../../schemas";
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import Form from "../../styledComponents/StyledForm";
 import warningIcon from "../../assets/Circle_Warning.svg"
 import ButtonPrimary from "../../styledComponents/ButtonPrimary";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/slices/userSlice";
+import { ToastContainer, toast } from "react-toastify"
+import { Toast } from "bootstrap";
 const SignUpForm = () => {
     const navigate = useNavigate()
-
+    const dispatch = useDispatch()
 
     const initialValues = {
         name: '',
@@ -24,6 +28,7 @@ const SignUpForm = () => {
             name: values.name,
             lastname: values.lastname,
             email: values.email,
+            imgURL: values.profileImgUrl,
             age: values.age,
             password: values.password,
             isAdmin: false,
@@ -37,21 +42,15 @@ const SignUpForm = () => {
 
                 if (existingUser) {
                     console.log('Email already exists:', existingUser.email);
+                    toast.error("Email already exists")
                 } else {
                     axios.post('http://localhost:3000/users', userData)
-                        .then(response => {
-                            console.log('Data has been successfully pushed:', response.data);
-                        })
                         .then(() => {
                             axios.post('http://localhost:3000/carts', { id: userData.id, cart: [] })
-                                .then(console.log("Cart has been succesfully created"))
+                            dispatch(setUser(userData))
+                            localStorage.setItem("userData", JSON.stringify(userData))
                             navigate("/")
                         })
-                        .catch(error => {
-                            console.error('An error occurred:', error);
-                        });
-
-
                 }
             })
             .catch(error => {
@@ -157,7 +156,9 @@ const SignUpForm = () => {
                 </div>
 
                 <ButtonPrimary type="submit">Submit</ButtonPrimary>
+                <Link className="ms-3 toPage" to={"/login"}>Already have an account?</Link>
             </Form>
+            <ToastContainer />
         </div >
     )
 }

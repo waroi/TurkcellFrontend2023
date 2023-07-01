@@ -3,6 +3,7 @@ import { loginSchema } from '../../schemas';
 import PropTypes from "prop-types"
 import Form from '../../styledComponents/StyledForm';
 import ButtonPrimary from '../../styledComponents/ButtonPrimary';
+import { Link } from 'react-router-dom';
 const LoginForm = ({ onLogin }) => {
 
 
@@ -48,6 +49,7 @@ const LoginForm = ({ onLogin }) => {
             </div>
 
             <ButtonPrimary type="submit">Login</ButtonPrimary>
+            <Link className="ms-3" to={"/signup"}>You don't have an account?</Link>
         </Form>
     )
 }
