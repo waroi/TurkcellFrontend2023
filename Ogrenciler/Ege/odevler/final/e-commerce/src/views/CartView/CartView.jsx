@@ -17,7 +17,7 @@ const CartView = () => {
 
     }, [user.id])
 
-    useEffect(() => { updateCart() }, [])
+    useEffect(() => { updateCart() }, [dispatch])
 
 
     const updateCart = async () => {
@@ -43,7 +43,9 @@ const CartView = () => {
 
         setCart(updatedCart.filter(cartItem => cartItem.demand > 0))
         await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: updatedCart.filter(cartItem => cartItem.demand > 0) })
-        dispatch(setCartLength(cart.length))
+        const newCart = await axios.get(`http://localhost:3000/carts/${user.id}`)
+        dispatch(setCartLength(newCart.data.cart.length))
+        console.table(newCart.data.cart)
     }
 
     const handleBuy = async () => {
@@ -67,6 +69,7 @@ const CartView = () => {
                 await axios.put(`http://localhost:3000/products/${cartProduct.productId}`, newData)
                 setCart([])
                 await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: [] })
+                dispatch(setCartLength(0))
             }
         }
     }
