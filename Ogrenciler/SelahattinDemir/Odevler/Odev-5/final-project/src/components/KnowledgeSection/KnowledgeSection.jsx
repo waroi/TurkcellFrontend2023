@@ -16,7 +16,7 @@ function KnowledgeSection() {
           <TopTitle>You already know ?</TopTitle>
           <BottomTitle>Useful pet knowledge</BottomTitle>
         </div>
-        <Button>
+        <Button className="d-none d-lg-block">
           View more <i className="bi bi-chevron-right"></i>
         </Button>
       </div>
@@ -85,6 +85,9 @@ function KnowledgeSection() {
           </div>
         </div>
       </CardContainer>
+      <Button className="d-block d-lg-none">
+        View more <i className="bi bi-chevron-right"></i>
+      </Button>
     </div>
   );
 }
