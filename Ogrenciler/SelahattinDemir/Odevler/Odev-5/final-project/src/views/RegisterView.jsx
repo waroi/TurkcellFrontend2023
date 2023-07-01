@@ -2,11 +2,13 @@ import { useFormik } from "formik";
 import { registerSchema } from "../schemas";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/slice/loginSlice";
 import Request from "../utils/Request";
 
 function RegisterView() {
   const request = new Request("http://localhost:3004/users");
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const checkExistingUser = async (email, username) => {
@@ -53,6 +55,8 @@ function RegisterView() {
       if (response.status === 201) {
         toast.success("Registration successful. You are logged in.");
         actions.resetForm();
+        dispatch(login(response));
+        localStorage.setItem("user", JSON.stringify(response));
         navigate("/");
       } else {
         toast.error("An error occurred. Please try again.");
@@ -79,52 +83,53 @@ function RegisterView() {
 
   return (
     <div>
+      <h1 className="text-center form-title">Register</h1>
       <form className="register-form" onSubmit={handleSubmit}>
         <div className="inputDiv">
-          <label>Email</label>
+          <label className="form-label">Email</label>
           <input
             type="email"
             value={values.email}
             onChange={handleChange}
             id="email"
             placeholder="Enter your email"
-            className={errors.email ? "input-error" : ""}
+            className={(errors.username ? "input-error" : "", "form-input")}
           />
           {errors.email && <p className="error">{errors.email}</p>}
         </div>
         <div className="inputDiv">
-          <label>Username</label>
+          <label className="form-label">Username</label>
           <input
             type="string"
             value={values.username}
             onChange={handleChange}
             id="username"
             placeholder="Enter your username"
-            className={errors.username ? "input-error" : ""}
+            className={(errors.username ? "input-error" : "", "form-input")}
           />
           {errors.username && <p className="error">{errors.username}</p>}
         </div>
         <div className="inputDiv">
-          <label>Password</label>
+          <label className="form-label">Password</label>
           <input
             type="password"
             value={values.password}
             onChange={handleChange}
             id="password"
             placeholder="Enter your password"
-            className={errors.password ? "input-error" : ""}
+            className={(errors.username ? "input-error" : "", "form-input")}
           />
           {errors.password && <p className="error">{errors.password}</p>}
         </div>
         <div className="inputDiv">
-          <label>Password Repeat</label>
+          <label className="form-label">Password Repeat</label>
           <input
             type="password"
             value={values.confirmPassword}
             onChange={handleChange}
             id="confirmPassword"
             placeholder="Enter your password again"
-            className={errors.confirmPassword ? "input-error" : ""}
+            className={(errors.username ? "input-error" : "", "form-input")}
           />
           {errors.confirmPassword && (
             <p className="error">{errors.confirmPassword}</p>
