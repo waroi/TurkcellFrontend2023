@@ -65,7 +65,7 @@ const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct, toast }) =
                         <p>Rating</p>
                     </div>
                     <div className="col-6 infoBox d-flex">
-                        <p className="d-flex align-items-center gap-2">:{product.rating?.rate}/5 <img src={star} alt="star" /> </p>
+                        <p>: {product.rating?.rate}/5 <img className="star" src={star} alt="star" /> </p>
                     </div>
                 </div>
                 <div className="row infoWrap">

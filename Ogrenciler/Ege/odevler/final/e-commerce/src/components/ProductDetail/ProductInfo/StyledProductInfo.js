@@ -28,6 +28,10 @@ const StyledProductInfo = styled.div`
       font-size: 14px;
       color: #667479;
       text-transform: capitalize;
+      .star {
+        width: 14px;
+        height: 14px;
+      }
     }
   }
 `;
