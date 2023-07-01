@@ -3,8 +3,12 @@ import { styled } from "styled-components";
 const StyledCartItem = styled.div`
   margin-top: 3rem;
   .info {
+    .cartItemText {
+      height: 100px;
+    }
     img {
-      max-width: 100px;
+      width: 100px;
+      height: 100px;
     }
     .cartItemText {
       .title {
