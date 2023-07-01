@@ -5,8 +5,6 @@ import { basketRequest } from "../utils/Request";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const BasketViewContainer = styled.div`
   min-height: 100vh;
@@ -15,7 +13,7 @@ const BasketViewContainer = styled.div`
 const BasketView = () => {
   const [basketData, setBasketData] = useState([]);
   const [uniqueBasketData, setUniqueBasketData] = useState([]);
-  // const [removeAllCount, setRemoveAllCount] = useState(0);
+
   const [basketItemsView, setBasketItemsView] = useState(true);
   const navigate = useNavigate();
   const currentUser = useSelector((state) => state.login.login);
@@ -41,19 +39,13 @@ const BasketView = () => {
 
   function complete() {
     setIsComplete(true);
-    successToast();
+    setTimeout(() => {
+      setBasketItemsView(false);
+    }, 1000);
   }
 
-  function successToast() {
-    toast.success("Purchase is successful", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+  function completeHandler(data) {
+    setIsComplete(data);
   }
 
   return (
@@ -64,6 +56,7 @@ const BasketView = () => {
       {basketItemsView &&
         uniqueBasketData.map((data, index) => (
           <BasketItem
+            completeHandler={completeHandler}
             complete={isComplete}
             data={data}
             key={index}
@@ -85,7 +78,6 @@ const BasketView = () => {
           </BasketItemButtonComplete>
         </div>
       )}
-      <ToastContainer />
     </BasketViewContainer>
   );
 };

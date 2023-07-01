@@ -54,10 +54,6 @@ const BasketItem = (props) => {
 
   const data = props.data;
   const basket = props.basket;
-  // console.log(data);
-  // console.log(productId);
-  // console.log(basket);
-  // console.log(data.id);
 
   useEffect(() => {
     setIntersectedCount(intersectedCount + 1);
@@ -69,10 +65,45 @@ const BasketItem = (props) => {
       });
     }
   }, [basket]);
-  console.log(intersectedData);
 
   function successToast() {
     toast.success("Product is removed from basket", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function successBuyToast() {
+    toast.success("Purchase is successful", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function warningToast() {
+    toast.warning("Quantity must can not be empty and it must be a number!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function errorToast() {
+    toast.error("There is no enough stock left!", {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -93,7 +124,12 @@ const BasketItem = (props) => {
   }
 
   useEffect(() => {
-    if (props.complete == true) {
+    if (
+      props.complete == true &&
+      countInput?.current?.value != undefined &&
+      countInput?.current?.value > 0 &&
+      countInput?.current?.value <= data.count
+    ) {
       console.log(countInput?.current?.value);
       productRequest.put(productId, {
         id: productId,
@@ -124,25 +160,20 @@ const BasketItem = (props) => {
           });
         }
       });
+      successBuyToast();
+      props.completeHandler(false);
+    } else if (
+      props.complete == true &&
+      (countInput?.current?.value == undefined ||
+        countInput?.current?.value <= 0)
+    ) {
+      warningToast();
+      props.completeHandler(false);
+    } else if (countInput?.current?.value > data.count) {
+      errorToast();
+      props.completeHandler(false);
     }
   }, [props.complete]);
-
-  // useEffect(() => {
-  //   if (props.complete == true) {
-  //     intersectedData.map((data, index) => {
-  //       basketRequest.put(data.id, {
-  //         id: data.id,
-  //         title: data.title,
-  //         price: data.price,
-  //         description: data.description,
-  //         category: data.category,
-  //         image: data.image,
-  //         username: data.username,
-  //         count: data.count - countInput?.current?.value,
-  //       });
-  //     });
-  //   }
-  // }, [props.complete]);
 
   return (
     <>
