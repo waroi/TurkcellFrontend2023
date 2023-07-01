@@ -50,6 +50,7 @@ font-size: 24px;
 font-style: normal;
 font-weight: 700;
 line-height: 36px;
+text-transform:capitalize;
 `
 export const Tthree=styled.h2`
 color:3002A48;
@@ -93,5 +94,6 @@ padding: 4px 11px 2px 11px;
 align-items: flex-start;
 gap: 10px;
 flex: 1 0 0;
+text-transform:capitalize;
 
 `

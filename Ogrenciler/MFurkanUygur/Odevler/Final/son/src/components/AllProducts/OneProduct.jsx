@@ -17,6 +17,7 @@ import { CardButton, CardButtonGroup } from "../buttons/buttonStyle";
 import add from '../../assets/add.png'
 import inspect from '../../assets/inspect.png'
 import edit from '../../assets/edit.png'
+import Error from "../GeneralForm/Error";
 
 const OneProduct = ({ item }) => {
     // const dispatch = useDispatch();
@@ -54,7 +55,7 @@ const OneProduct = ({ item }) => {
                 if (existingItem) {
                     if (existingItem.stock > existingItem.count) {
                         existingItem.count += 1;
-                        
+
                         toast.warning("Ürün sayısını artırdınız")
                     }
                     else {
@@ -118,10 +119,10 @@ const OneProduct = ({ item }) => {
                         userIsAdmin ?
                             <>
                                 <CardButtonGroup>
-                                    <CardButton type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#${currentItem.id}`}>
+                                    <CardButton type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#${typeof currentItem + currentItem.id}`}>
                                         <img src={edit} alt="" />
                                     </CardButton>
-                                    <div className="modal fade" id={`${currentItem.id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`${currentItem.id}Label`} aria-hidden="true">
+                                    <div className="modal fade" id={`${typeof currentItem + currentItem.id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`${currentItem.id}Label`} aria-hidden="true">
                                         <div className="modal-dialog modal-lg">
                                             <div className="modal-content">
                                                 <div className="modal-header">
@@ -191,19 +192,19 @@ const OneProduct = ({ item }) => {
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editTitle" >Title:</label>
                                                                         <Field type="text" id="editTitle" name="editTitle" className="form-control" />
-                                                                        <ErrorMessage name="editTitle" component="div" />
+                                                                        <Error name="editTitle"  />
                                                                     </div>
 
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editAmount">Price:</label>
                                                                         <Field type="text" id="editAmount" name="editAmount" className="form-control" />
-                                                                        <ErrorMessage name="editAmount" component="div" />
+                                                                        <Error name="editAmount"  />
                                                                     </div>
 
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editDesc">Description:</label>
                                                                         <Field as="textarea" id="editDesc" name="editDesc" className="form-control" />
-                                                                        <ErrorMessage name="editDesc" component="div" />
+                                                                        <Error name="editDesc" component="div" />
                                                                     </div>
 
                                                                     <div className="text-start fw-semibold">
@@ -220,22 +221,22 @@ const OneProduct = ({ item }) => {
                                                                                 </option>
                                                                             ))}
                                                                         </Field >
-                                                                        <ErrorMessage name="editCat" component="div" />
+                                                                        <Error name="editCat" component="div" />
                                                                     </div>
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editImg">Image:</label>
                                                                         <Field type="text" id="editImg" name="editImg" className="form-control" />
-                                                                        <ErrorMessage name="editImg" component="div" />
+                                                                        <Error name="editImg" component="div" />
                                                                     </div>
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editRate">Rate:</label>
                                                                         <Field type="text" id="editRate" name="editRate" className="form-control" />
-                                                                        <ErrorMessage name="editRate" component="div" />
+                                                                        <Error name="editRate" component="div" />
                                                                     </div>
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editCount">Count:</label>
                                                                         <Field type="text" id="editCount" name="editCount" className="form-control" />
-                                                                        <ErrorMessage name="editCount" component="div" />
+                                                                        <Error name="editCount" component="div" />
                                                                     </div>
                                                                     <div className="d-flex justify-content-around">
                                                                         <CardButton type="submit"> Update</CardButton>
@@ -246,7 +247,7 @@ const OneProduct = ({ item }) => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                               
+
                                             </div>
                                         </div>
                                     </div>
@@ -258,12 +259,12 @@ const OneProduct = ({ item }) => {
                                 </CardButtonGroup>
                             </> :
                             <>
-                              <CardButtonGroup>
+                                <CardButtonGroup>
                                     <CardButton> <Link to={`${item.id}`}><img src={inspect} alt="" /></Link></CardButton>
                                     <CardButton onClick={() => { ifUserLogged() }} disabled={currentItem.rating.count == 0 ? true : false} className="btn btn-primary">
                                         <img src={add} alt="" />
                                     </CardButton>
-                              </CardButtonGroup>
+                                </CardButtonGroup>
                             </>
                     }
 

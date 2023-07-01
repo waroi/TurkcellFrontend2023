@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom"
 import { clearLoginUser, updateIsAdmin } from "../../redux/slices/loggedUser";
 import { useEffect, useState } from "react";
-import { NavBarComp, NavUl, NavbarLogo, NavbarSquare, Navbarul, } from "./navbarStyle";
+import { NavbarLogo, Navbarul } from "./navbarStyle";
 import logo from "../../assets/logo.png"
 import { fetchPrivateCart } from "../../request/cartsRequest";
 import { ToastContainer, toast } from "react-toastify";
@@ -14,8 +14,16 @@ const Navbar = () => {
   const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
   console.log("user", userIsLog)
   const loggedUser = useSelector((state) => state.setLoggedUser?.loggedUserObject);
-
   const [isClick, setIsClick] = useState(false)
+
+  window.addEventListener('scroll', function () {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 0) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
 
   const logout = () => {
     setIsClick(!isClick)

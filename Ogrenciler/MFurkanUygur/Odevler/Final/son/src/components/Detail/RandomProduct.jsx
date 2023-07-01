@@ -12,6 +12,7 @@ import { CardButton, CardButtonGroup } from "../buttons/buttonStyle"
 import add from '../../assets/add.png'
 import inspect from '../../assets/inspect.png'
 import edit from '../../assets/edit.png'
+import Error from "../GeneralForm/Error"
 
 const RandomProduct = ({ item }) => {
     const userIsAdmin = useSelector((state) => state?.setLoggedUser?.isAdminLog)
@@ -89,10 +90,10 @@ const RandomProduct = ({ item }) => {
                         userIsAdmin ?
                             <>
                                 <CardButtonGroup>
-                                    <CardButton type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#${currrentItem.id}`}>
+                                    <CardButton type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#${typeof currrentItem + currrentItem.id}`}>
                                         <img src={edit} alt="" />
                                     </CardButton>
-                                    <div className="modal fade" id={`${currrentItem.id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`${currrentItem.id}Label`} aria-hidden="true">
+                                    <div className="modal fade" id={`${typeof currrentItem + currrentItem.id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`${currrentItem.id}Label`} aria-hidden="true">
                                         <div className="modal-dialog">
                                             <div className="modal-content">
                                                 <div className="modal-header">
@@ -157,19 +158,19 @@ const RandomProduct = ({ item }) => {
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editTitle" >Title:</label>
                                                                         <Field type="text" id="editTitle" name="editTitle" className="form-control" />
-                                                                        <ErrorMessage name="editTitle" component="div" />
+                                                                        <Error name="editTitle" />
                                                                     </div>
 
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editAmount">Price:</label>
                                                                         <Field type="text" id="editAmount" name="editAmount" className="form-control" />
-                                                                        <ErrorMessage name="editAmount" component="div" />
+                                                                        <Error name="editAmount" />
                                                                     </div>
 
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editDesc">Description:</label>
                                                                         <Field as="textarea" id="editDesc" name="editDesc" className="form-control" />
-                                                                        <ErrorMessage name="editDesc" component="div" />
+                                                                        <Error name="editDesc" />
                                                                     </div>
 
                                                                     <div className="text-start fw-semibold">
@@ -186,22 +187,22 @@ const RandomProduct = ({ item }) => {
                                                                                 </option>
                                                                             ))}
                                                                         </Field >
-                                                                        <ErrorMessage name="editCat" component="div" />
+                                                                        <Error name="editCat" />
                                                                     </div>
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editImg">Image:</label>
                                                                         <Field type="text" id="editImg" name="editImg" className="form-control" />
-                                                                        <ErrorMessage name="editImg" component="div" />
+                                                                        <Error name="editImg" />
                                                                     </div>
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editRate">Rate:</label>
                                                                         <Field type="text" id="editRate" name="editRate" className="form-control" />
-                                                                        <ErrorMessage name="editRate" component="div" />
+                                                                        <Error name="editRate" />
                                                                     </div>
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editCount">Count:</label>
                                                                         <Field type="text" id="editCount" name="editCount" className="form-control" />
-                                                                        <ErrorMessage name="editCount" component="div" />
+                                                                        <Error name="editCount" />
                                                                     </div>
                                                                     <div className="d-flex justify-content-around">
                                                                         <CardButton type="submit" > Update</CardButton>

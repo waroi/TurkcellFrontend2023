@@ -120,7 +120,6 @@ const ProductDetail = () => {
                             </CardButton>
                         </div>
 
-
                         <MMain className="d-flex">
                             <MOne>SKU</MOne>
                             <MTwo>: #1000078</MTwo>
@@ -168,10 +167,7 @@ const ProductDetail = () => {
                         </MMain>
                         <MMain className="d-flex">
                             <MOne>Additional Information</MOne>
-                            <MTwo>: Pure breed Shih Tzu.
-                                Good body structure.
-                                With MKA cert and Microchip.
-                                Father from champion lineage.</MTwo>
+                            <MTwo>: {item?.description}</MTwo>
                         </MMain>
                     </div>
                 </div>

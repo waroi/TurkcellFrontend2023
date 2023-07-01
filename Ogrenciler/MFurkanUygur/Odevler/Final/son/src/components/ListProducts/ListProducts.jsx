@@ -14,99 +14,98 @@ import inspect from '../../assets/inspect.png'
 import edit from '../../assets/edit.png'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Rating } from "@smastrom/react-rating"
+import Error from "../GeneralForm/Error"
 
 const ListProducts = ({ product }) => {
     const userIsAdmin = useSelector((state) => state?.setLoggedUser?.isAdminLog)
     const navigate = useNavigate()
     const [currentItem, setCurrentItem] = useState(product)
 
-    const ifUserLogged = () => {
-        if (!sessionStorage.getItem('loggedUser')) {
-            alert("lütfen giriş yap")
-            navigate("/signup")
-        }
-        else {
-            const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
-            console.log("giriş yapan kullsanıcı", userIsLog)
-            fetchPrivateCart(userIsLog.id).then((allCarts) => {
-                console.log("currentUserBasket", allCarts)
-                console.log("currentUserBasketItems", allCarts.cartItems)
+const ifUserLogged = () => {
+    if (!sessionStorage.getItem('loggedUser')) {
+        alert("lütfen giriş yap")
+        navigate("/signup")
+    }
+    else {
+        const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
+        console.log("giriş yapan kullsanıcı", userIsLog)
+        fetchPrivateCart(userIsLog.id).then((allCarts) => {
+            console.log("currentUserBasket", allCarts)
+            console.log("currentUserBasketItems", allCarts.cartItems)
 
-                const existingItem = allCarts.cartItems.find((eachItem) => eachItem.id === product.id);
+            const existingItem = allCarts.cartItems.find((eachItem) => eachItem.id === product.id);
 
-                if (existingItem) {
-                    if (existingItem.stock > existingItem.count) {
-                        existingItem.count += 1;
-                        toast.warning("Ürün sayısını artırdınız")
-                    }
-                    else {
-                        toast.error("Ürün stokta yok")
-
-                    }
+            if (existingItem) {
+                if (existingItem.stock > existingItem.count) {
+                    existingItem.count += 1;
+                    toast.warning("Ürün sayısını artırdınız")
                 }
                 else {
-                    const addCartItem = {
-                        id: product.id,
-                        title: product.title,
-                        price: product.price,
-                        image: product.image,
-                        stock: product.rating.count,
-                        count: 1
-                    }
-                    if (product.rating.count > 0) {
-                        allCarts.cartItems = [...allCarts.cartItems, addCartItem]
-                        toast.success("Yeni ürün eklediniz")
-
-                    }
-                    else {
-                        toast.error('Ürün stokta yok!');
-
-                    }
+                    toast.error("Ürün stokta yok")
 
                 }
-                return addNewItemOnCart(userIsLog.id, allCarts)
-            })
-        }
+            }
+            else {
+                const addCartItem = {
+                    id: product.id,
+                    title: product.title,
+                    price: product.price,
+                    image: product.image,
+                    stock: product.rating.count,
+                    count: 1
+                }
+                if (product.rating.count > 0) {
+                    allCarts.cartItems = [...allCarts.cartItems, addCartItem]
+                    toast.success("Yeni ürün eklediniz")
+
+                }
+                else {
+                    toast.error('Ürün stokta yok!');
+
+                }
+
+            }
+            return addNewItemOnCart(userIsLog.id, allCarts)
+        })
     }
+}
 
-    const categoryOptions = [
-        { value: "", label: "Choose a category..." },
-        { value: "Men's Clothing", label: "Men's Clothing" },
-        { value: "Jewelery", label: "Jewelery" },
-        { value: "Electronics", label: "Electronics" },
-        { value: "Women's Clothing", label: "Women's Clothing" },
-    ];
-    return (
-        <div >
-            <ProductCard className="card my-2">
-                <ProductImg src={`${currentItem.image}`} className="card-img-top " alt={`${currentItem.title}`} />
-                <div className="card-body my-0 py-0 w-100">
-                    <ProductTitle className="card-title text-start m-0 p-0">{currentItem.title}</ProductTitle>
-                    <div className="d-flex justify-content-between ">
-                        {/* <div className="d-flex">
+const categoryOptions = [
+    { value: "", label: "Choose a category..." },
+    { value: "Men's Clothing", label: "Men's Clothing" },
+    { value: "Jewelery", label: "Jewelery" },
+    { value: "Electronics", label: "Electronics" },
+    { value: "Women's Clothing", label: "Women's Clothing" },
+];
+return (
+    <div >
+        <ProductCard className="card my-2">
+            <ProductImg src={`${currentItem?.image}`} className="card-img-top " alt={`${currentItem?.title}`} />
+            <div className="card-body my-0 py-0 w-100">
+                <ProductTitle className="card-title text-start m-0 p-0">{currentItem?.title}</ProductTitle>
+                <div className="d-flex justify-content-between ">
+                    <div className="d-flex">
                         <ProductSpecsTitle>Rate: </ProductSpecsTitle>
-                        <ProductSpecs> {currentItem.rating.rate}</ProductSpecs>
-                    </div> */}
-                        {/* <img src={dot} alt="" /> */}
-                        <div className="d-flex ">
-                            <ProductSpecsTitle>Category: </ProductSpecsTitle>
-                            <ProductSpecs> {currentItem.category}</ProductSpecs>
-                        </div>
-                        <div className="d-flex ">
-                            <ProductSpecsTitle>Stok: </ProductSpecsTitle>
-                            <ProductSpecs> {currentItem.rating.count}</ProductSpecs>
-                        </div>
-
+                        <Rating style={{ maxWidth: 70 }} value={currentItem?.rating?.rate} readOnly />
                     </div>
-                    <ProductPrice className="text-start my-0 py-0">{currentItem.price} $</ProductPrice>
-                    {
-                        userIsAdmin ?
-                            <>
-                                <CardButtonGroup>
-                                    <CardButton type="button" data-bs-toggle="modal" data-bs-target={`#${currentItem.id}`}>
+                    {/* <img src={dot} alt="" /> */}
+                    <div className="d-flex ">
+                        <ProductSpecsTitle>Category: </ProductSpecsTitle>
+                        <ProductSpecs> {currentItem?.category}</ProductSpecs>
+                    </div>
+                    
+
+                </div>
+                <ProductPrice className="text-start my-0 py-0">{currentItem?.price} $</ProductPrice>
+                {
+                    userIsAdmin ?
+                        <>
+                            <CardButtonGroup>
+                                <CardButton type="button" data-bs-toggle="modal" data-bs-target={`#${typeof product+product.id}`}>
                                         <img src={edit} alt="" />
                                     </CardButton>
-                                    <div className="modal fade" id={`${currentItem.id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`${currentItem.id}Label`} aria-hidden="true">
+                                    <div className="modal fade" id={`${typeof product+product.id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`${currentItem.id}Label`} aria-hidden="true">
                                         <div className="modal-dialog">
                                             <div className="modal-content">
                                                 <div className="modal-header">
@@ -176,19 +175,19 @@ const ListProducts = ({ product }) => {
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editTitle" >Title:</label>
                                                                         <Field type="text" id="editTitle" name="editTitle" className="form-control" />
-                                                                        <ErrorMessage name="editTitle" component="div" />
+                                                                        <Error name="editTitle" component="div" />
                                                                     </div>
 
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editAmount">Price:</label>
                                                                         <Field type="text" id="editAmount" name="editAmount" className="form-control" />
-                                                                        <ErrorMessage name="editAmount" component="div" />
+                                                                        <Error name="editAmount" component="div" />
                                                                     </div>
 
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editDesc">Description:</label>
                                                                         <Field as="textarea" id="editDesc" name="editDesc" className="form-control" />
-                                                                        <ErrorMessage name="editDesc" component="div" />
+                                                                        <Error name="editDesc" component="div" />
                                                                     </div>
 
                                                                     <div className="text-start fw-semibold">
@@ -205,22 +204,22 @@ const ListProducts = ({ product }) => {
                                                                                 </option>
                                                                             ))}
                                                                         </Field >
-                                                                        <ErrorMessage name="editCat" component="div" />
+                                                                        <Error name="editCat" component="div" />
                                                                     </div>
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editImg">Image:</label>
                                                                         <Field type="text" id="editImg" name="editImg" className="form-control" />
-                                                                        <ErrorMessage name="editImg" component="div" />
+                                                                        <Error name="editImg" component="div" />
                                                                     </div>
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editRate">Rate:</label>
                                                                         <Field type="text" id="editRate" name="editRate" className="form-control" />
-                                                                        <ErrorMessage name="editRate" component="div" />
+                                                                        <Error name="editRate" component="div" />
                                                                     </div>
                                                                     <div className="text-start fw-semibold">
                                                                         <label htmlFor="editCount">Count:</label>
                                                                         <Field type="text" id="editCount" name="editCount" className="form-control" />
-                                                                        <ErrorMessage name="editCount" component="div" />
+                                                                        <Error name="editCount" component="div" />
                                                                     </div>
                                                                     <div className="d-flex justify-content-around">
                                                                         <CardButton type="submit" > Update</CardButton>
@@ -234,38 +233,40 @@ const ListProducts = ({ product }) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <CardButton> <Link to={`${currentItem.id}`}><img src={inspect} alt="" /></Link></CardButton>
-                                    <CardButton onClick={() => { ifUserLogged() }} disabled={currentItem.rating.count == 0 ? true : false} className="btn btn-primary">
-                                        <img src={add} alt="" />
-                                    </CardButton>
-                                </CardButtonGroup>
-                            </> :
-                            <>
-                                <CardButtonGroup>
-                                    <CardButton> <Link to={`${currentItem.id}`}><img src={inspect} alt="" /></Link></CardButton>
-                                    <CardButton onClick={() => { ifUserLogged() }} disabled={currentItem.rating.count == 0 ? true : false} className="btn btn-primary">
-                                        <img src={add} alt="" />
-                                    </CardButton>
-                                </CardButtonGroup>
-                            </>
-                    }
-                </div>
-            </ProductCard>
-            <ToastContainer
-                position="bottom-right"
-                autoClose={1250}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
-            />
 
-        </div >
-    )
+                          
+                                <CardButton> <Link to={`${currentItem.id}`}><img src={inspect} alt="" /></Link></CardButton>
+                                <CardButton onClick={() => { ifUserLogged() }} disabled={currentItem.rating.count == 0 ? true : false} className="btn btn-primary">
+                                    <img src={add} alt="" />
+                                </CardButton>
+                            </CardButtonGroup>
+                        </> :
+                        <>
+                            <CardButtonGroup>
+                                <CardButton> <Link to={`${currentItem.id}`}><img src={inspect} alt="" /></Link></CardButton>
+                                <CardButton onClick={() => { ifUserLogged() }} disabled={currentItem.rating.count == 0 ? true : false} className="btn btn-primary">
+                                    <img src={add} alt="" />
+                                </CardButton>
+                            </CardButtonGroup>
+                        </>
+                }
+            </div>
+        </ProductCard>
+        <ToastContainer
+            position="bottom-right"
+            autoClose={1250}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+        />
+
+    </div >
+)
 }
 
 export default ListProducts

@@ -112,7 +112,7 @@ const Basket = () => {
         toast.success("Ürünler satın alındı")
     }
     return (
-        <div className="container">
+        <div className="container  pt-5">
             <div className="row mt-5 mb-5">
                 {
                     basket?.length == 0 ? <h2 className="text-center my-5 py-5">Cart is empty...</h2> :
