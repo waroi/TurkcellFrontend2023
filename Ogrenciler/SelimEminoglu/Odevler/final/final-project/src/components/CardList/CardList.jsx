@@ -25,6 +25,7 @@ function CardList({ isEight }) {
   const loading = useSelector((state) => state.product.loading);
   const error = useSelector((state) => state.product.error);
   const [randomProducts, setRandomProducts] = useState([]);
+  const isActiveUser = useSelector((state) => state.user.isActiveUser);
 
   useEffect(() => {
     dispatch(fetchProduct());
@@ -65,7 +66,10 @@ function CardList({ isEight }) {
     <FlexCardDiv>
       {isEight &&
         randomProducts.slice(0, 8).map((item) => (
-          <Link to={"/login"} key={self.crypto.randomUUID()}>
+          <Link
+            to={isActiveUser ? `/products/${item.id}` : "/login"}
+            key={self.crypto.randomUUID()}
+          >
             <CardDiv>
               <CardİmgDiv image={item.image}></CardİmgDiv>
 
@@ -77,14 +81,17 @@ function CardList({ isEight }) {
                 <CardPrice>{item.price} $</CardPrice>
               </CardTextDiv>
               <CardButtonDiv>
-                <Button title="Sepete Ekle" />
+                <Button title="Sepete Ekle" path={!isActiveUser && "/login"} />
               </CardButtonDiv>
             </CardDiv>
           </Link>
         ))}
       {!isEight &&
         randomProducts.slice(0, 4).map((item) => (
-          <Link to={"/login"} key={self.crypto.randomUUID()}>
+          <Link
+            to={isActiveUser ? `/products/${item.id}` : "/login"}
+            key={self.crypto.randomUUID()}
+          >
             <CardDiv>
               <CardİmgDiv image={item.image}></CardİmgDiv>
 
@@ -103,7 +110,7 @@ function CardList({ isEight }) {
                 <CardGiftText>Free Toy & Free Shaker</CardGiftText>
               </CardGiftDiv>
               <CardButtonDiv>
-                <Button title="Sepete Ekle" />
+                <Button title="Sepete Ekle" path={!isActiveUser && "/login"} />
               </CardButtonDiv>
             </CardDiv>
           </Link>

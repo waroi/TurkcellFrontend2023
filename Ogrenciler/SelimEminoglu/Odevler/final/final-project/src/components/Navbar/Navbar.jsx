@@ -1,9 +1,18 @@
+import { useDispatch, useSelector } from "react-redux";
 import {
   NavbarDiv,
   NavList,
   NavbarA,
   BasketDiv,
   CountDiv,
+  DropDownDiv,
+  DropDownDivOption,
+  DropDownİmg,
+  DropDownText,
+  DropDownButton,
+  DropDownUl,
+  DropDownLi,
+  İconİmg,
 } from "./styleNavbar";
 import { Container } from "../../assets/css/style";
 import NavbarSearch from "./NavbarSearch";
@@ -14,7 +23,12 @@ import { Link } from "react-router-dom";
 import "../../assets/css/main.css";
 
 function Navbar() {
+  const dispacth = useDispatch();
+  const activeUser = useSelector((state) => state.user.activeUser);
+  const isActiveUser = useSelector((state) => state.user.isActiveUser);
+
   const [background, setBackground] = useState("transparent");
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,28 +42,61 @@ function Navbar() {
     window.addEventListener("scroll", handleScroll);
   }, [background]);
 
+  const toogleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <NavbarDiv background={background}>
       <Container>
+        {console.log(isActiveUser, activeUser)}
         <NavList>
           <img src=".\src\assets\icons\navbar_icon.svg" alt="logo" />
           <Link className="navbarA" to={"/"}>
             Home
           </Link>
-          <Link className="navbarA" to={"/products"}>
+          <Link className="navbarA" to={isActiveUser ? "/products" : "/login"}>
             Category
           </Link>
           <NavbarA href="#">About</NavbarA>
           <NavbarA href="#">Contact</NavbarA>
           <NavbarSearch />
-          <Button title="Giriş Yap" path={"/login"} />
-          <Register />
-          {/* <BasketDiv>
-            <Link to={"/carts"}>
-              <CountDiv>0</CountDiv>
-              <img src="./src/assets/icons/shopping-cart.png" alt="logo" />
-            </Link>
-          </BasketDiv> */}
+          {isActiveUser && (
+            <BasketDiv>
+              <Link to={"/carts"}>
+                <CountDiv>0</CountDiv>
+                <img src="./src/assets/icons/shopping-cart.png" alt="logo" />
+              </Link>
+            </BasketDiv>
+          )}
+          {!isActiveUser && <Button title="Giriş Yap" path={"/login"} />}
+          {isActiveUser && (
+            <DropDownDiv>
+              <DropDownİmg
+                src={
+                  activeUser.image == ""
+                    ? "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                    : activeUser.image
+                }
+                alt="images"
+              />
+              <DropDownText>{activeUser.username}</DropDownText>
+              <DropDownButton onClick={toogleMenu}>
+                <İconİmg
+                  src="./src/assets/icons/Caret_Down_MD.png"
+                  alt="icon"
+                />
+              </DropDownButton>
+              {isOpen && (
+                <DropDownDivOption>
+                  <DropDownUl>
+                    <DropDownLi>Çıkış</DropDownLi>
+                  </DropDownUl>
+                </DropDownDivOption>
+              )}
+            </DropDownDiv>
+          )}
+          {!isActiveUser && <Register />}
         </NavList>
       </Container>
     </NavbarDiv>

@@ -20,9 +20,9 @@ function successPost(username) {
   toast.success(`Yeni kullanıcı eklendi: ${username}`, {
     position: "top-right",
     autoClose: 2000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
-    pauseOnHover: false,
+    pauseOnHover: true,
     draggable: false,
     theme: "dark",
   });
@@ -32,9 +32,9 @@ function failPost(error) {
   toast.error(`Hata:${error}`, {
     position: "top-right",
     autoClose: 2000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
-    pauseOnHover: false,
+    pauseOnHover: true,
     draggable: false,
     theme: "dark",
   });
