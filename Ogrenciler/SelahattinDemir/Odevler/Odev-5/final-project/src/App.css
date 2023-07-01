@@ -17,7 +17,11 @@
   padding-top: 120px;
 }
 
-form label {
+.form-title {
+  color: #002a48;
+}
+
+.register-form .form-label {
   color: #242b33;
   font-size: 14px;
   font-family: SVN-Gilroy;
@@ -29,7 +33,7 @@ form label {
   margin-bottom: 10px;
 }
 
-input,
+.form-input,
 select {
   width: 100%;
   padding: 14px 28px;
@@ -39,14 +43,14 @@ select {
   margin: 5px 0px;
 }
 
-input::placeholder {
+.form-input::placeholder {
   color: #99a2a5;
   font-size: 14px;
   font-family: SVN-Gilroy;
   font-weight: 500;
   line-height: 20px;
 }
-input:focus {
+.form-input:focus {
   border-color: #002a48;
 }
 
@@ -82,4 +86,20 @@ input:focus {
 
 .checkbox input {
   width: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .register-form {
+    padding-top: 20px;
+  }
+  .form-input,
+  select {
+    width: 95%;
+    margin-left: 10px;
+  }
+  .form-label,
+  .input-error,
+  .error {
+    margin-left: 10px;
+  }
 }
