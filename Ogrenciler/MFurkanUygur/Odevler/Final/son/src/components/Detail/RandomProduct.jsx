@@ -122,7 +122,7 @@ const RandomProduct = ({ item }) => {
                                         <img src={edit} alt="" />
                                     </CardButton>
                                     <div className="modal fade" id={`${typeof currrentItem + currrentItem.id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`${currrentItem.id}Label`} aria-hidden="true">
-                                        <div className="modal-dialog">
+                                        <div className="modal-dialog modal-lg">
                                             <div className="modal-content">
                                                 <div className="modal-header">
                                                     <h1 className="modal-title fs-5" id={`${currrentItem.id}Label`}>Edit</h1>
