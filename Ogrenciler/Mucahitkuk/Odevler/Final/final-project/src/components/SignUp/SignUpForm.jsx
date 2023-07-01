@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import { addUser, loginUser } from "../../redux/actions/actions";
 import { createUser, getUserByEmail, getUserByUsername } from "../../api/index";
 import { signupSchema } from "../../schema";
-import { Container, CustomForm, CustomTitle, StyledButton, StyledErrorMessage, StyledField } from "../SignUp/styled";
+import { Container, CustomForm, CustomTitle, StyledButton, StyledField } from "../SignUp/styled";
 import { useEffect, useState } from "react";
 import Toast from 'react-bootstrap/Toast';
 import { Navigate } from "react-router-dom";
@@ -102,23 +102,48 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
         validationSchema={signupSchema}
         onSubmit={handleSubmit}
       >
-        {({ handleSubmit }) => (
+        {({ handleSubmit, errors, touched }) => (
           <CustomForm>
             <label>Email</label>
             <StyledField type="email" name="email" />
-            <StyledErrorMessage name="email" component="div" />
+            {errors.email && touched.email && (
+              <div className="error" style={{color: "#ff564f", fontSize: "14px"}}>{errors.email}</div>
+            )}
+            {!errors.email && touched.email && (
+              <div className="success" style={{color: "#1f7442",fontSize: "14px"}}>Valid email &#x2713;</div>
+            )}
             <label>Profile Image</label>
             <StyledField type="text" name="profileImage" />
-            <StyledErrorMessage name="profileImage" component="div" />
+            {errors.profileImage && touched.profileImage && (
+              <div className="error" style={{color: "#ff564f", fontSize: "14px"}}>{errors.profileImage}</div>
+            )}
+            {!errors.profileImage && touched.profileImage && (
+              <div className="success" style={{color: "#1f7442",fontSize: "14px"}}>Valid Profile Image &#x2713;</div>
+            )}
             <label>Username</label>
             <StyledField type="text" name="username" />
-            <StyledErrorMessage name="username" component="div" />
+            {errors.username && touched.username && (
+              <div className="error" style={{color: "#ff564f", fontSize: "14px"}}>{errors.username}</div>
+            )}
+            {!errors.username && touched.username && (
+              <div className="success" style={{color: "#1f7442",fontSize: "14px"}}>Username looks good &#x2713;</div>
+            )}
             <label>Password</label>
             <StyledField type="password" name="password" />
-            <StyledErrorMessage name="password" component="div" />
+            {errors.password && touched.password && (
+              <div className="error" style={{color: "#ff564f", fontSize: "14px"}}>{errors.password}</div>
+            )}
+            {!errors.password && touched.password && (
+              <div className="success" style={{color: "#1f7442",fontSize: "14px"}}>Password looks good &#x2713;</div>
+            )}
             <label>Confirm Password</label>
             <StyledField type="password" name="confirmPassword" />
-            <StyledErrorMessage name="confirmPassword" component="div" />
+            {errors.confirmPassword && touched.confirmPassword && (
+              <div className="error" style={{color: "#ff564f", fontSize: "14px"}}>{errors.confirmPassword}</div>
+            )}
+            {!errors.confirmPassword && touched.confirmPassword && (
+              <div className="success" style={{color: "#1f7442",fontSize: "14px"}}>Password matches &#x2713;</div>
+            )}
             {!currentUser ? (<StyledButton onClick={handleSubmit} type="submit">Sign Up</StyledButton>) : (<p className="text-center">Already logged in</p>)}
             <h5 style={{textAlign: "center"}}>{processMessage}</h5>
           </CustomForm>
