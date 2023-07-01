@@ -9,7 +9,7 @@ function CustomCheckbox({ ...props }) {
         <input
           {...field}
           {...props}
-          className={meta.error ? "input-error" : ""}
+          className={(meta.error ? "input-error" : "", "form-input")}
         />
         <span>I accept the terms of use</span>
       </div>
