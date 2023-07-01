@@ -65,7 +65,6 @@ const DetailInfo = (props) => {
   function checkBasket() {
     setIsOkey(true);
     setIsWarning(false);
-    console.log("checked");
     if (currentUser.length !== 0) {
       for (let i = 0; i < basketData.length; i++) {
         if (

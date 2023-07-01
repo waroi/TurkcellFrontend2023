@@ -30,6 +30,7 @@ const BasketView = () => {
   }, []);
 
   useEffect(() => {
+    setUniqueBasketData([]);
     basketData.map((data, index) => {
       if (data.username == currentUser.username) {
         setUniqueBasketData((prev) => [...prev, data]);
@@ -41,7 +42,7 @@ const BasketView = () => {
     setIsComplete(true);
     setTimeout(() => {
       setBasketItemsView(false);
-    }, 1000);
+    }, 3000);
   }
 
   function completeHandler(data) {

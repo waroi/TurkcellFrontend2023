@@ -123,7 +123,6 @@ const DetailView = () => {
         productsData[productID - 1].sliderImages[2];
       editSliderImage4.current.value =
         productsData[productID - 1].sliderImages[3];
-      console.log("object");
     }
   }, [isAdmin, productsData]);
 

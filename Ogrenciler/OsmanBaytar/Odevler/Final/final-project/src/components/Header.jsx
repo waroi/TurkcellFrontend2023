@@ -50,17 +50,24 @@ const Header = () => {
   }
 
   useEffect(() => {
-    basketRequest.get().then((data) => {
-      setBasketData(data);
-    });
+    setTimeout(() => {
+      basketRequest.get().then((data) => {
+        setBasketData(data);
+      });
+    }, 2000);
   }, [basketCount]);
+  // console.log(basketData);
+  console.log(uniqueBasketData);
 
   useEffect(() => {
-    basketData.map((data, index) => {
-      if (data.username == currentUser.username) {
-        setUniqueBasketData((prev) => [...prev, data]);
-      }
-    });
+    setTimeout(() => {
+      setUniqueBasketData([]);
+      basketData.map((data, index) => {
+        if (data.username == currentUser.username) {
+          setUniqueBasketData((prev) => [...prev, data]);
+        }
+      });
+    }, 2000);
   }, [basketData]);
 
   const dispatch = useDispatch();
