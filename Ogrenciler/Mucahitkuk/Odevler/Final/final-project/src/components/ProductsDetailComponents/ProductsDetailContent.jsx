@@ -57,7 +57,7 @@ export const ProductDetail = ({ productId }) => {
         );
   
         if (existingProductIndex !== -1) {
-          console.log("Product already exists in the cart:", cart.cart[existingProductIndex]);
+          cart.cart[existingProductIndex];
           setShowToast(true);
     setToastMessage("Product already exist in cart");
     setTimeout(() => {
@@ -86,10 +86,6 @@ export const ProductDetail = ({ productId }) => {
           body: JSON.stringify(updatedCart),
         })
           .then((response) => response.json())
-          .then((data) => {
-            console.log("Product added to cart:", product);
-            console.log("Updated user's cart:", data);
-          })
           .catch((error) => {
             console.error("Error updating user's cart:", error);
           });
@@ -114,8 +110,7 @@ export const ProductDetail = ({ productId }) => {
     fetch(`http://localhost:3000/carts?id=${userId}`)
       .then((response) => response.json())
       .then((cartData) => {
-        console.log(cartData, "cartData")
-       
+  
         let cart;
         if (cartData.length === 0) {
     
@@ -148,8 +143,6 @@ export const ProductDetail = ({ productId }) => {
     }, 3000)
           addToUserCart(userId, productId, cart);
         }
-  
-        console.log("User's cart:", cart);
       })
       .catch((error) => {
         console.error("Error fetching user's cart:", error);
@@ -220,7 +213,6 @@ export const ProductDetail = ({ productId }) => {
       });
   };
 
-  console.log(product);
 
   if (!product) {
     return (

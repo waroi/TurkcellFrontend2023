@@ -110,7 +110,6 @@ const Cart = () => {
       .then((responses) => Promise.all(responses.map((response) => response.json())))
       .then((updatedProducts) => {
         console.log('Updated product counts:', updatedProducts);
-  
         // Empty the cart by deleting the cart data from the database
         fetch(`http://localhost:3000/carts/${userId}`, {
           method: 'DELETE',
