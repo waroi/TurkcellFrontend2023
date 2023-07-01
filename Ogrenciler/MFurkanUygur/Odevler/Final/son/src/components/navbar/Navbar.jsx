@@ -107,7 +107,7 @@ const Navbar = () => {
               </li>
 
               {
-                loggedUser != "noUser" && !isClick ?
+                userIsLog || loggedUser!=="noUser" && !isClick ?
                   <>
                     <li className="nav-item">
                       <Link to="/sepet" className="nav-link">
