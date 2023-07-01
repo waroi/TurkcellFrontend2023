@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { useDeferredValue } from "react";
 
 const CartItem = ({ cartItem, setCart }) => {
   const user = useSelector((state) => state.user.user);
@@ -14,7 +15,7 @@ const CartItem = ({ cartItem, setCart }) => {
       (inCart) => inCart.productId != cartItem.productId
     );
     setCart(newCart);
-    axios.put(`http://localhost:3000/carts/${user.id}`, {
+    axios.put(`http://localhost:3000/carts/${useDeferredValue}`, {
       id: user.id,
       cart: newCart,
     });
