@@ -3,13 +3,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { validationSchema } from './schemas/loginSchema';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { login,logout } from '../../redux/slices/Login';
+
 const Login = () => {
-  const [users, setUsers] = useState([]); // State to store users data
-  //const dispatch = useDispatch();
-  //const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
    getUsers().then((data)=>setUsers(data))
@@ -45,10 +41,6 @@ const Login = () => {
       });
     }
   };
-
-//   useEffect(() => {
-//     console.log(isLoggedIn);
-//   }, [isLoggedIn]);
 
   return (
     <div>

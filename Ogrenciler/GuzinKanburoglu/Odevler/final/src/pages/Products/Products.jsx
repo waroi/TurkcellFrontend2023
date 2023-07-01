@@ -6,19 +6,13 @@ import Card from '../../components/Card/Card';
 import { Input } from '../../components/Navbar/navbarStyle';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Products = ({isLoggedIn}) => {
+const Products = () => {
   const products = useSelector((state) => state.product.products);
   const dispatch = useDispatch();
-  //const navigate = useNavigate();
-  //const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
 
   useEffect(() => {
- 
-      getProducts().then((data) => dispatch(setList(data)));
-   
+      getProducts().then((data) => dispatch(setList(data))); 
   }, [dispatch]);
- console.log("Products page: ",isLoggedIn)
-
 
   const handleSortalphabetically = () => {
     const sortedItems = [...products].sort((a, b) => a.title.localeCompare(b.title));
@@ -63,7 +57,7 @@ const Products = ({isLoggedIn}) => {
   product.title.toLowerCase().startsWith(searchTerm.toLowerCase()));
 
   const items = filteredItemsForSearch.length > 0 ? filteredItemsForSearch: filteredItems;
- // console.log(filteredItemsForSearch.length)
+  
   return (
     <div className='d-flex justify-content-between'>
       <div className='filterSide'>

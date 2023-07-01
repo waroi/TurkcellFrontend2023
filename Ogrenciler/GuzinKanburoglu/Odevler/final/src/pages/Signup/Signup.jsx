@@ -9,7 +9,8 @@ const Signup = () => {
   const initialValues = {
     username: '',
     email: '',
-    password: ''
+    password: '',
+    isAdmin:false
   };
 
   const handleSubmit = async (values) => {
@@ -24,7 +25,6 @@ const Signup = () => {
 
       if (response.ok) {
         toast.success('Sign-up successful');
-        // Perform any actions upon successful sign-up
       } else {
         throw new Error('Sign-up failed');
       }
