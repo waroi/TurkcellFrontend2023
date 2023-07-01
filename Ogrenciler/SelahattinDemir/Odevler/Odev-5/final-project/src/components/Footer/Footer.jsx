@@ -9,6 +9,7 @@ import {
   SubscribeArea,
   SubscribeInput,
   SubscribeButton,
+  FooterInfoContainer,
 } from "./FooterStyle";
 
 function Footer() {
@@ -25,14 +26,17 @@ function Footer() {
           </SubscribeArea>
         </SubscribeContainer>
 
-        <FooterLinkContainer className="d-flex justify-content-between my-4">
-          <div className="d-flex gap-5">
+        <FooterLinkContainer className="row justify-content-between my-4">
+          <div className="col-md-6 d-flex justify-content-start gap-5">
             <FooterLink href="#">Home</FooterLink>
             <FooterLink href="#">About</FooterLink>
             <FooterLink href="#">Services</FooterLink>
             <FooterLink href="#">Contact</FooterLink>
           </div>
-          <div className="d-flex gap-4">
+          <div
+            className=" col-md-6 d-flex gap-4 mt-3 mt-lg-0 justify-content-center
+          justify-content-lg-end  "
+          >
             <FooterLink href="#">
               <i className="bi bi-facebook"></i>
             </FooterLink>
@@ -48,13 +52,13 @@ function Footer() {
           </div>
         </FooterLinkContainer>
 
-        <div className="d-flex justify-content-between">
+        <FooterInfoContainer className="d-flex justify-content-between flex-wrap">
           <FooterText>© 2022 Monito. All rights reserved.</FooterText>
           <FooterLogo src="src/assets/Frame.svg" alt="logo" />
           <FooterText>
             Terms of Service <span className="ms-4">Privacy Policy</span>
           </FooterText>
-        </div>
+        </FooterInfoContainer>
       </div>
     </FooterContainer>
   );

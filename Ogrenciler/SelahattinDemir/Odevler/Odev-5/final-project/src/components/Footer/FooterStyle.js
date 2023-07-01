@@ -10,6 +10,12 @@ export const FooterContainer = styled.footer`
     #fceed5 75.14%,
     #ffe7ba 100%
   );
+
+  @media screen and (max-width: 768px) {
+    padding: 0px;
+    padding-top: 10px;
+    margin-top: 20px;
+  }
 `;
 
 export const FooterLink = styled.a`
@@ -29,6 +35,13 @@ export const SubscribeContainer = styled.div`
   padding: 32px;
   border-radius: 16px;
   background: #003459;
+
+  @media screen and (max-width: 768px) {
+    padding: 16px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
 `;
 
 export const SubscribeDescription = styled.p`
@@ -48,6 +61,7 @@ export const SubscribeArea = styled.div`
   padding: 12px;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 `;
 
 export const SubscribeInput = styled.input`
@@ -66,6 +80,10 @@ export const SubscribeInput = styled.input`
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex: 1 0 100%;
   }
 `;
 
@@ -86,6 +104,10 @@ export const SubscribeButton = styled.button`
   &:hover {
     background-color: #03131e;
   }
+
+  @media screen and (max-width: 768px) {
+    flex: 1 0 100%;
+  }
 `;
 
 export const FooterLinkContainer = styled.div`
@@ -93,13 +115,30 @@ export const FooterLinkContainer = styled.div`
   padding-bottom: 20px;
 `;
 
+export const FooterInfoContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
 export const FooterLogo = styled.img`
   width: 115px;
   height: 40px;
+
+  @media screen and (max-width: 768px) {
+    order: 0;
+    margin-bottom: 20px;
+  }
 `;
 
 export const FooterText = styled(FooterLink)`
   font-size: 14px;
   line-height: 20px;
   color: #667479;
+
+  @media screen and (max-width: 768px) {
+    padding: 10px 0px;
+    order: 1;
+  }
 `;
