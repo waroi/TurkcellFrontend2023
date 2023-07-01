@@ -12,6 +12,7 @@ import ProductsBanner from "./ProductsBanner/ProductsBanner";
 const ProductList = () => {
 
     const [products, setProducts] = useState([]);
+    const [unsorted, setUnsorted] = useState([]);
     const [isOnFilter, setIsOnFilter] = useState(false)
     const [checkedCategories, setCheckedCategories] = useState([]);
     const [sortType, setSortType] = useState("priceAsc")
@@ -20,6 +21,7 @@ const ProductList = () => {
         axios.get('http://localhost:3000/products')
             .then(response => {
                 setProducts(response.data.map(el => ({ ...el, isFiltered: true, isSearched: el.title.toLowerCase().includes(searchValue.toLowerCase()) })).sort(comparePrices).reverse())
+                setUnsorted(response.data)
             })
 
             .catch(err => console.log('Error fetching product data:', err))
@@ -90,7 +92,7 @@ const ProductList = () => {
             <div className="row">
                 <div className="col-lg-3">
                     <div className="d-none d-lg-block my-3">
-                        <FilterArea products={products} checkedCategories={checkedCategories} setCheckedCategories={setCheckedCategories} />
+                        <FilterArea products={unsorted} checkedCategories={checkedCategories} setCheckedCategories={setCheckedCategories} />
                     </div>
 
                 </div>

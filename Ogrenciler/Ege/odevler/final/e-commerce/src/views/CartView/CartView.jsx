@@ -1,11 +1,10 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react"
 import axios from "axios"
 import CartItem from "../../components/CartItem/CartItem";
 import CartBuy from "../../components/CartBuy/CartBuy";
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch } from "react-redux";
 import { setCartLength } from "../../redux/slices/cartLengthSlice";
 const CartView = () => {
     const user = useSelector((state) => state.user.user)
@@ -74,6 +73,12 @@ const CartView = () => {
         }
     }
 
+    // if (user)
+    //     return (
+    //         <NoPermission>
+    //             <h2>You need to login to see this page</h2>
+    //         </NoPermission>
+    //     )
 
 
     return (
