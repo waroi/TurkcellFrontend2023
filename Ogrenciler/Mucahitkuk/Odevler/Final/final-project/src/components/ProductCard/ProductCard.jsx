@@ -6,11 +6,17 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ product }) => {
   return (
     <StyledCard style={{ width: "20rem", padding: "10px" }}>
-      {product.rating.count == 0 ? (
-        <StyledCardImage varant="top" src={product.image} style={{filter: "grayscale(1)"}} />
-      ) : (
-        <StyledCardImage variant="top" src={product.image} />
-      )}
+      <Link className="d-flex" to={`/productsdetail/${product.id}`}>
+        {product.rating.count == 0 ? (
+          <StyledCardImage
+            varant="top"
+            src={product.image}
+            style={{ filter: "grayscale(1)" }}
+          />
+        ) : (
+          <StyledCardImage variant="top" src={product.image} />
+        )}
+      </Link>
       <Card.Body>
         <Link to={`/productsdetail/${product.id}`}>
           <Card.Title
@@ -21,7 +27,11 @@ const ProductCard = ({ product }) => {
         </Link>
         <div>
           <p className="text-secondary">Category: {product.category}</p>
-          {product.rating.count <= 0 ? (<p className="text-secondary">Stock: Out of stock</p>) : (<p className="text-secondary">Stock: {product.rating.count}</p>)}
+          {product.rating.count <= 0 ? (
+            <p className="text-secondary">Stock: Out of stock</p>
+          ) : (
+            <p className="text-secondary">Stock: {product.rating.count}</p>
+          )}
           <p className="text-primary">Price: {product.price}$</p>
         </div>
       </Card.Body>
@@ -31,6 +41,7 @@ const ProductCard = ({ product }) => {
 
 ProductCard.propTypes = {
   product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
@@ -40,6 +51,5 @@ ProductCard.propTypes = {
     price: PropTypes.number.isRequired,
   }).isRequired,
 };
-
 
 export default ProductCard;

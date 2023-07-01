@@ -1,9 +1,11 @@
-import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import {Container} from 'react-bootstrap'
+import {Container, Toast, Button} from 'react-bootstrap'
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [showRemoveToast, setShowRemoveToast] = useState(false);
 
   const cartLoggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
   const userId = cartLoggedInUser.id;
@@ -64,6 +66,13 @@ const Cart = () => {
   const handleRemoveProduct = (productId) => {
     const updatedCartData = cartData.filter((item) => item.id !== productId);
 
+    setShowRemoveToast(true);
+    setToastMessage("Succesfully deleted item from cart");
+
+    setTimeout(() => {
+      setShowRemoveToast(false);
+    }, 3000);
+
     updateCartData(updatedCartData);
   };
 
@@ -80,6 +89,13 @@ const Cart = () => {
       image: item.image,
     }));
   
+    setShowToast(true);
+    setToastMessage("Succesfully bought all products in the cart!");
+
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
+
     Promise.all(
       productsToUpdate.map((product) =>
         fetch(`http://localhost:3000/products/${product.id}`, {
@@ -114,8 +130,9 @@ const Cart = () => {
       });
   };
 
-  
+
   return (
+    <>
     <Container>
       <h1 className='text-center'>Cart</h1>
       <h2>Product Amount: {cartData.length}</h2>
@@ -152,6 +169,23 @@ const Cart = () => {
         <p>No items in the cart</p>
       )}
     </Container>
+    <div className='d-flex justify-content-center'>
+    <Toast className='bg-success' show={showToast} onClose={() => setShowToast(false)}>
+          <Toast.Header>
+            <strong className="me-auto">Notice</strong>
+          </Toast.Header>
+          <Toast.Body className='text-white'>{toastMessage}</Toast.Body>
+        </Toast>
+        </div>
+        <div className='d-flex justify-content-center  mt-5'>
+        <Toast className='bg-danger' show={showRemoveToast} onClose={() => setShowRemoveToast(false)}>
+          <Toast.Header>
+            <strong className="me-auto">Notice</strong>
+          </Toast.Header>
+          <Toast.Body className='text-white'>{toastMessage}</Toast.Body>
+        </Toast>
+        </div>
+    </>
   );
 };
 

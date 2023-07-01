@@ -9,9 +9,9 @@ import Frame from "../../../assets/Frame.png";
 import { loginUser, logoutUser  } from "../../../redux/actions/actions";
 import { Link } from "react-router-dom";
 import { CustomSearch, MobileSearch, MobileSearchDiv, MobileSearchImage } from "./styled";
-import { StyledButton } from "../../SignUp/styled";
 import mobileSearch from "../../../assets/mobileSearch.svg";
 import LogoutButton from "../../Logout/LogoutButton";
+import { PageButton, PageButtonTwo } from "../../HomeComponents/HeaderContent/styled";
 
 const NavbarComponent = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -32,8 +32,6 @@ const NavbarComponent = () => {
   const handleSearchClick = () => {
     setShowSearch((prevState) => !prevState);
   };
-
-  console.log(currentUser);
 
   return (
     <>
@@ -85,19 +83,22 @@ const NavbarComponent = () => {
                 />
                {!currentUser ? (
                  <div className="d-flex justify-content-center align-items-center gap-2">
-                 <StyledButton>
+                 <PageButtonTwo>
                    <Link to="/signup">Join the community</Link>
-                 </StyledButton>
-                 <StyledButton>
+                 </PageButtonTwo>
+                 <PageButtonTwo>
                    <Link to="/login">Already have an account</Link>
-                 </StyledButton>
+                 </PageButtonTwo>
                </div>
            
           ) : (
             <div className="d-flex flex-xl-row flex-column  justify-content-center align-items-center gap-2">
-            <StyledButton>
+            <PageButton>
               <Link to="/Cart">Check Cart</Link>
-            </StyledButton>
+            </PageButton>
+            <div>
+            <img src={currentUser.profileImage} style={{width: "50px", borderRadius: "50%"}}></img>
+            </div>
             <NavDropdown
             className="d-flex align-items-center border-white"
             src={Frame}

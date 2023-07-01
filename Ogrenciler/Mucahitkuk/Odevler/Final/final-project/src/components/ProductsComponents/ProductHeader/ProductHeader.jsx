@@ -9,8 +9,8 @@ const ProductHeader = () => {
     <>
     <Container>
       <div className='d-flex'>
-        <Link className="text-secondary" to="">Home &nbsp;</Link><span className='text-secondary'>&gt;</span> 
-        <Link className="text-secondary" to="">&nbsp; Products</Link>
+        <Link className="text-secondary" to="/">Home &nbsp;</Link><span className='text-secondary'>&gt;</span> 
+        <Link className="text-secondary" to="/Product">&nbsp; Products</Link>
       </div>
     </Container>
     <BannerContainer className="mt-3">

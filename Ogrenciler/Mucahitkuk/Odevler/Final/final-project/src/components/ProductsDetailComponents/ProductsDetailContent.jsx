@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, Toast } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { SliderImage } from "./styled";
@@ -34,6 +34,8 @@ export const ProductDetail = ({ productId }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [show, setShow] = useState(false);
   const [editedProduct, setEditedProduct] = useState(null);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
   const productCategories = [
     "men's clothing",
@@ -56,6 +58,11 @@ export const ProductDetail = ({ productId }) => {
   
         if (existingProductIndex !== -1) {
           console.log("Product already exists in the cart:", cart.cart[existingProductIndex]);
+          setShowToast(true);
+    setToastMessage("Product already exist in cart");
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000)
           return;
         }
   
@@ -134,6 +141,11 @@ export const ProductDetail = ({ productId }) => {
             });
         } else {
           cart = cartData[0];
+          setShowToast(true);
+    setToastMessage("Product added to cart");
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000)
           addToUserCart(userId, productId, cart);
         }
   
@@ -147,7 +159,6 @@ export const ProductDetail = ({ productId }) => {
   
   const handleAddToCart = () => {
     addToCart();
-
   };
 
   const handleClose = () => setShow(false);
@@ -356,7 +367,16 @@ export const ProductDetail = ({ productId }) => {
               <PageButtonTwo onClick={handleShow}>Edit Product</PageButtonTwo>
             )}
           </div>
+          <div className="d-flex mt-3 justify-content-center">
+          <Toast className='bg-success' show={showToast} onClose={() => setShowToast(false)}>
+          <Toast.Header>
+            <strong className="me-auto">Notice</strong>
+          </Toast.Header>
+          <Toast.Body className='text-white'>{toastMessage}</Toast.Body>
+        </Toast>
+        </div>
           <div className="d-flex flex-row mt-4">
+            
             <div className="d-flex col-md-6">
               <span className="text-secondary">ID: &nbsp;</span>
             </div>

@@ -18,6 +18,7 @@ const SignupForm = () => {
 
   const initialValues = {
     email: "",
+    profileImage: "",
     username: "",
     password: "",
     confirmPassword: "",
@@ -106,6 +107,9 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
             <label>Email</label>
             <StyledField type="email" name="email" />
             <StyledErrorMessage name="email" component="div" />
+            <label>Profile Image</label>
+            <StyledField type="text" name="profileImage" />
+            <StyledErrorMessage name="profileImage" component="div" />
             <label>Username</label>
             <StyledField type="text" name="username" />
             <StyledErrorMessage name="username" component="div" />

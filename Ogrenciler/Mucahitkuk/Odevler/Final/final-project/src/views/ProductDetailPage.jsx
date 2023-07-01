@@ -3,7 +3,6 @@ import { ProductDetail } from "../components/ProductsDetailComponents/ProductsDe
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
-  console.log(productId)
 
   return (
     <div>

@@ -1,14 +1,14 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header';
-import Route from './routes/Route';
 import Footer from './components/Footer/Footer';
+import RouteConfig from './routes/Route';
 function App() {
 
   return (
     <>
     <Header />
-    <Route/>
+    <RouteConfig/>
     <Footer />
     </>
   )

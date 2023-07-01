@@ -7,6 +7,10 @@ export const signupSchema = yup.object().shape({
     .string()
     .email("Please enter a valid email")
     .required("Email must be submitted"),
+    profileImage: yup
+    .string()
+    .required("Profile image must be submitted")
+    .matches(imageRules, {message: "Please enter a valid image url"}),
   username: yup
     .string()
     .min(3, "Username must be at least 3 characters")

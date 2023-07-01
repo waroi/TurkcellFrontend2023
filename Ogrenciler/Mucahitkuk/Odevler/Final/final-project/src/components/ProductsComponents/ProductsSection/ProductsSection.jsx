@@ -80,14 +80,12 @@ const ProductsSection = () => {
     );
   }
 
-  console.log(products)
 
 
   return (
-    
     <Container className="mt-5">
       <div className="d-flex row">
-        <div className="col-2 flex-column">
+        <div className="col-12 col-sm-2 mb-5 mb-sm-0 flex-column">
           <h3>Filter</h3>
           <p>Category</p>
           <div>
@@ -145,7 +143,7 @@ const ProductsSection = () => {
             />
           </div>
         </div>
-        <div className="col-10">
+        <div className="col-sm-10 col-12">
           <div className="d-flex row">
             <div className="col-6">
               <h3>
