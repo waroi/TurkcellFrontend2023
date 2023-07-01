@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { setUser } from "../../redux/slices/userSlice";
 import { setCartLength } from "../../redux/slices/cartLengthSlice"
 import { useNavigate } from "react-router-dom"
+import { ToastContainer, toast } from "react-toastify";
 
 const LoginView = () => {
 
@@ -16,12 +17,9 @@ const LoginView = () => {
 
     useEffect(() => {
         const fetchUserData = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/users');
-                setUserData(response.data);
-            } catch (error) {
-                console.error('An error occurred while fetching user data:', error);
-            }
+            const response = await axios.get('http://localhost:3000/users');
+            setUserData(response.data);
+
         };
 
         fetchUserData();
@@ -37,10 +35,10 @@ const LoginView = () => {
             localStorage.setItem("userData", JSON.stringify(user))
             axios.get(`http://localhost:3000/carts/${user.id}`)
                 .then(response => dispatch(setCartLength(response.data.cart.length)))
-            console.log('Login successful');
+
             navigate("/")
         } else {
-            console.log('Invalid email or password');
+            toast.error("Invalid email or password")
         }
     };
 
@@ -54,7 +52,7 @@ const LoginView = () => {
                     <Link to={"/"}>Go back to HomeView</Link>
                 </div>
             )}
-
+            <ToastContainer />
         </div>
     )
 }

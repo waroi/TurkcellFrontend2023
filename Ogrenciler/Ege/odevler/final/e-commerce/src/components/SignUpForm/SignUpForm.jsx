@@ -8,7 +8,6 @@ import ButtonPrimary from "../../styledComponents/ButtonPrimary";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slices/userSlice";
 import { ToastContainer, toast } from "react-toastify"
-import { Toast } from "bootstrap";
 const SignUpForm = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()

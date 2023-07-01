@@ -11,7 +11,6 @@ import { useState } from "react"
 import AccountDropdown from "./AccountDropdown/AccountDropdown";
 import logo from "../../assets/Logo.svg"
 import cartIcon from "../../assets/Shopping_Bag.svg"
-import { toast, ToastContainer } from "react-toastify"
 
 const Navbar = () => {
 
@@ -40,7 +39,7 @@ const Navbar = () => {
             dispatch(setSearchValue(values.search))
 
         }
-        else toast.error("You need to login to search")
+
     };
 
     const { handleChange, handleSubmit, values, errors } = useFormik({
@@ -198,7 +197,6 @@ const Navbar = () => {
 
                 </StyledNavbar>
             </NavbarMobile>
-            <ToastContainer />
         </div>
     )
 }

@@ -26,9 +26,9 @@ const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct, toast }) =
                 <Link to={"/products"}>Products</Link>/
                 <span>{product.title}</span>
             </Breadcrumbs>
-            <p>ID: {product.id}</p>
-            <h2>{product.title}</h2>
-            <h3>{product.price}$</h3>
+            <h4 className="productId">ID: {product.id}</h4>
+            <h2 className="productTitle">{product.title}</h2>
+            <h3 className="productPrice">{product.price}$</h3>
             <div className="d-flex justify-content-center align-items-center gap-3 my-3">
                 <ButtonPrimary onClick={handleCartClick}>Add To Cart</ButtonPrimary>
                 <ButtonOutline> - Chat with Monito</ButtonOutline>
@@ -94,7 +94,8 @@ ProductInfo.propTypes = {
     product: PropTypes.object.isRequired,
     handleCartClick: PropTypes.func.isRequired,
     isAdmin: PropTypes.bool.isRequired,
-    setProduct: PropTypes.func.isRequired
+    setProduct: PropTypes.func.isRequired,
+    toast: PropTypes.func.isRequired
 }
 
 export default ProductInfo
