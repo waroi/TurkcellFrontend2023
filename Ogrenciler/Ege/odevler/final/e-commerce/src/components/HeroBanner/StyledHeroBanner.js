@@ -60,7 +60,7 @@ const StyledHeroBanner = styled.div`
     font-size: 46px;
   }
 
-  img {
+  .bannerImg {
     width: 900px;
     height: 700px;
     flex-shrink: 0;
@@ -168,7 +168,7 @@ const StyledHeroBanner = styled.div`
     .subTitle {
       font-size: 28px;
     }
-    img {
+    .bannerImg {
       width: 600px;
       height: 470px;
     }

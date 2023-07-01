@@ -6,7 +6,7 @@ const StyledProductsBanner = styled.div`
   position: relative;
   overflow: hidden;
   display: flex;
-  img {
+  .bannerImg {
     height: 100%;
     @media (max-width: 992px) {
       width: 300px;

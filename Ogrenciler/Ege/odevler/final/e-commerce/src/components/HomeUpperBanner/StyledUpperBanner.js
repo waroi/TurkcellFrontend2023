@@ -7,7 +7,7 @@ const StyledUpperBanner = styled.div`
   overflow: hidden;
   display: flex;
 
-  img {
+  .bannerImg {
     height: 100%;
     @media (max-width: 520px) {
       width: 300px;

@@ -2,6 +2,7 @@ import ButtonOutline from "../../styledComponents/ButtonOutline"
 import ButtonPrimary from "../../styledComponents/ButtonPrimary"
 import StyledLowerBanner from "./StyledLowerBanner"
 import bannerImg from "../../assets/Adoption_Banner.png"
+import playButton from "../../assets/Play_Circle_Dark.png"
 const LowerBanner = () => {
     return (
         <div className="container d-none d-lg-flex my-5">
@@ -15,13 +16,13 @@ const LowerBanner = () => {
                                 <p>Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!</p>
                             </div>
                             <div className="d-flex justify-content-center gap-3">
-                                <ButtonOutline>View Intro</ButtonOutline>
+                                <ButtonOutline>View Intro <img src={playButton} alt="play" /></ButtonOutline>
                                 <ButtonPrimary>Explore Now</ButtonPrimary>
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-6">
-                        <img className="w-100" src={bannerImg} alt="bannerimage" />
+                        <img className="w-100 bannerImg" src={bannerImg} alt="bannerimage" />
                     </div>
                 </div>
 

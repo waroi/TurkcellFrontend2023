@@ -10,6 +10,7 @@ import { Link } from "react-router-dom"
 import Share from "../Share/Share"
 import UpdateProduct from "../UpdateProduct/UpdateProduct"
 import Breadcrumbs from "../../../styledComponents/Breadcrumbs"
+import chatDots from "../../../assets/Chat_Dots.png"
 
 const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct, toast }) => {
 
@@ -31,7 +32,7 @@ const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct, toast }) =
             <h3 className="productPrice">{product.price}$</h3>
             <div className="d-flex justify-content-center align-items-center gap-3 my-3">
                 <ButtonPrimary onClick={handleCartClick}>Add To Cart</ButtonPrimary>
-                <ButtonOutline> - Chat with Monito</ButtonOutline>
+                <ButtonOutline> <img src={chatDots} alt="chat" /> Chat with Monito</ButtonOutline>
                 {(isAdmin && product) && <UpdateProduct product={product} setProduct={setProduct} toast={toast} />}
 
             </div>

@@ -2,6 +2,7 @@ import StyledHeroBanner from "./StyledHeroBanner"
 import ButtonPrimary from "../../styledComponents/ButtonPrimary"
 import ButtonOutline from "../../styledComponents/ButtonOutline"
 import womanWithDog from "../../assets/Woman_Holds_Dog.png"
+import playButton from "../../assets/Play_Circle_Dark.png"
 const HeroBanner = () => {
     return (
         <StyledHeroBanner>
@@ -16,12 +17,12 @@ const HeroBanner = () => {
                             </p>
                         </div>
                         <div className="d-flex gap-3">
-                            <ButtonOutline>View Intro</ButtonOutline>
+                            <ButtonOutline>View Intro <img src={playButton} alt="play" /></ButtonOutline>
                             <ButtonPrimary>Explore Now</ButtonPrimary>
                         </div>
                     </div>
                     <div className="col-lg-7">
-                        <img src={womanWithDog} alt="womanwithdog" />
+                        <img className="bannerImg" src={womanWithDog} alt="womanwithdog" />
                     </div>
                 </div>
             </div>
