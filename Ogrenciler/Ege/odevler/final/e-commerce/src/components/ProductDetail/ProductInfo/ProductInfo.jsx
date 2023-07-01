@@ -11,10 +11,12 @@ import Share from "../Share/Share"
 import UpdateProduct from "../UpdateProduct/UpdateProduct"
 import Breadcrumbs from "../../../styledComponents/Breadcrumbs"
 import chatDots from "../../../assets/Chat_Dots.png"
+import star from "../../../assets/Star.svg"
 
 const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct, toast }) => {
 
     const [isShareOn, setIsShareOn] = useState(false)
+
 
     const handleShare = () => {
         setIsShareOn(!isShareOn)
@@ -62,8 +64,8 @@ const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct, toast }) =
                     <div className="col-6 infoBox">
                         <p>Rating</p>
                     </div>
-                    <div className="col-6 infoBox">
-                        <p>: {product.rating?.rate} / 5</p>
+                    <div className="col-6 infoBox d-flex">
+                        <p className="d-flex align-items-center gap-2">:{product.rating?.rate}/5 <img src={star} alt="star" /> </p>
                     </div>
                 </div>
                 <div className="row infoWrap">
