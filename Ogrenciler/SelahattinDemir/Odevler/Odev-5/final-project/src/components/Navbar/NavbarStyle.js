@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
   padding: 28px 130px;
+
+  @media screen and (max-width: 768px) {
+    padding: 10px 0;
+  }
 `;
 
 export const Ul = styled.ul`
