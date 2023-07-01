@@ -61,45 +61,33 @@ function AllList() {
     return <div>Error: {error}</div>;
   }
 
-  const handleCheckboxChangeWC = () => {
-    setCheckedWC(!isCheckedWC);
-  };
-
-  const handleCheckboxChangeMC = () => {
-    setCheckedMC(!isCheckedMC);
-  };
-
-  const handleCheckboxChangeJew = () => {
-    setCheckedJew(!isCheckedJew);
-  };
-
-  const handleCheckboxChangeElec = () => {
-    setCheckedElec(!isCheckedElec);
-  };
-
   const handleFilter = () => {
+    let selectedCategories = [];
+
     if (!isCheckedWC && !isCheckedMC && !isCheckedJew && !isCheckedElec) {
       setFilterArr(products);
     }
     if (isCheckedWC) {
-      setFilterArr(
-        [...products].filter((item) => item.category == "women's clothing")
-      );
+      selectedCategories.push("women's clothing");
     }
 
     if (isCheckedMC) {
-      setFilterArr(
-        [...products].filter((item) => item.category == "men's clothing")
-      );
+      selectedCategories.push("men's clothing");
     }
 
     if (isCheckedJew) {
-      setFilterArr([...products].filter((item) => item.category == "jewelery"));
+      selectedCategories.push("jewelery");
     }
 
     if (isCheckedElec) {
+      selectedCategories.push("electronics");
+    }
+
+    if (selectedCategories.length > 0) {
       setFilterArr(
-        [...products].filter((item) => item.category == "electronics")
+        [...products].filter((item) =>
+          selectedCategories.includes(item.category)
+        )
       );
     }
   };
@@ -112,6 +100,22 @@ function AllList() {
       setFilterArr([...products].sort((a, b) => a.price - b.price));
     } else if (selectValue === "azalan") {
       setFilterArr([...products].sort((a, b) => b.price - a.price));
+    } else if (selectValue === "kategori(a-z)") {
+      setFilterArr(
+        [...products].sort((a, b) => a.category.localeCompare(b.category))
+      );
+    } else if (selectValue === "kategori(z-a)") {
+      setFilterArr(
+        [...products].sort((a, b) => b.category.localeCompare(a.category))
+      );
+    } else if (selectValue === "başlık(a-z)") {
+      setFilterArr(
+        [...products].sort((a, b) => a.title.localeCompare(b.title))
+      );
+    } else if (selectValue === "başlık(z-a)") {
+      setFilterArr(
+        [...products].sort((a, b) => b.title.localeCompare(a.title))
+      );
     } else {
       setFilterArr(products);
     }
@@ -171,6 +175,14 @@ function AllList() {
               <DropDownOption value="">Belirtilmemiş</DropDownOption>
               <DropDownOption value="artan">Fiyat(Artan)</DropDownOption>
               <DropDownOption value="azalan">Fiyat(Azalan)</DropDownOption>
+              <DropDownOption value="kategori(a-z)">
+                Kategori(A-Z)
+              </DropDownOption>
+              <DropDownOption value="kategori(z-a)">
+                Kategori(Z-A)
+              </DropDownOption>
+              <DropDownOption value="başlık(a-z)">Başlık(A-Z)</DropDownOption>
+              <DropDownOption value="başlık(z-a)">Başlık(Z-A)</DropDownOption>
             </DropDownSelect>
           </SortDiv>
           <ListDiv>
