@@ -1,7 +1,5 @@
 import OneProduct from "./OneProduct"
 import { useSelector } from "react-redux"
-
-
 import PetSeller from './PetSeller'
 import BannerTwo from "./BannerTwo"
 import BannerOne from "./BannerOne"
