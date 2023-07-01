@@ -4,6 +4,7 @@ export const FlexCardDiv = styled.div`
   padding: 2rem 0;
   display: flex;
   gap: 2rem;
+  justify-content: center;
   flex-wrap: wrap;
 `;
 
