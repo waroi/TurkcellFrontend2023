@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledFooter = styled.footer`
   border-radius: 40px 40px 0px 0px;
   background: #fceed5;
-
+  margin-top: auto;
   .container {
     padding-top: 72px;
 
