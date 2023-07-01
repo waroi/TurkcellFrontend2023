@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../redux/slice/productsSlice";
+import CategoryBanner from "../components/CategoryBanner/CategoryBanner";
 import Filter from "../components/Filter/Filter";
 import SortFilter from "../components/Filter/SortFilter";
 import CategoryCard from "../components/Card/CategoryCard";
@@ -61,13 +62,20 @@ function CategoryView() {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-md-3">
-          <FilterTitle>Filter</FilterTitle>
-          <Filter
-            data={products}
-            onCategoryFilterChange={handleCategoryFilter}
-            selectedCategories={selectedCategories}
+      <CategoryBanner />
+      <div className="row my-3">
+        <div className="d-flex justify-content-between align-items-center flex-row-reverse flex-lg-row">
+          <div className="col-md-3 d-flex d-lg-block align-items-center gap-2 flex-row-reverse flex-lg-row justify-content-start">
+            <FilterTitle className="mt-2 mt-lg-0">Filter</FilterTitle>
+            <Filter
+              data={products}
+              onCategoryFilterChange={handleCategoryFilter}
+              selectedCategories={selectedCategories}
+            />
+          </div>
+          <SortFilter
+            className="d-block d-lg-none"
+            handleSortChange={handleSortChange}
           />
         </div>
         <div className="col-md-9">
@@ -76,7 +84,10 @@ function CategoryView() {
               <FilterTitle>Products</FilterTitle>
               <ProductsLength>{sortedProducts.length} products</ProductsLength>
             </div>
-            <SortFilter handleSortChange={handleSortChange} />
+            <SortFilter
+              className="d-none d-lg-block"
+              handleSortChange={handleSortChange}
+            />
           </div>
           <div className="row">
             {sortedProducts.map((item) => (
