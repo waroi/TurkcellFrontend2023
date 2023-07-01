@@ -1,0 +1,271 @@
+/* eslint-disable react/prop-types */
+
+import { Link, useNavigate } from "react-router-dom"
+import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
+import { useSelector } from "react-redux"
+import { ErrorMessage, Field, Form, Formik } from "formik"
+import { fetchOneProduct, updateMainProduct } from "../../request/productRequest"
+import { EditSchema } from "../GeneralForm/schema"
+import { useState } from "react"
+import { ProductCard, ProductImg, ProductPrice, ProductSpecs, ProductSpecsTitle, ProductTitle } from "../AllProducts/styledOneProduct"
+import { CardButton, CardButtonGroup } from "../buttons/buttonStyle"
+import add from '../../assets/add.png'
+import inspect from '../../assets/inspect.png'
+import edit from '../../assets/edit.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const ListProducts = ({ product }) => {
+    const userIsAdmin = useSelector((state) => state?.setLoggedUser?.isAdminLog)
+    const navigate = useNavigate()
+    const [currentItem, setCurrentItem] = useState(product)
+
+    const ifUserLogged = () => {
+        if (!sessionStorage.getItem('loggedUser')) {
+            alert("lütfen giriş yap")
+            navigate("/signup")
+        }
+        else {
+            const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
+            console.log("giriş yapan kullsanıcı", userIsLog)
+            fetchPrivateCart(userIsLog.id).then((allCarts) => {
+                console.log("currentUserBasket", allCarts)
+                console.log("currentUserBasketItems", allCarts.cartItems)
+
+                const existingItem = allCarts.cartItems.find((eachItem) => eachItem.id === product.id);
+
+                if (existingItem) {
+                    if (existingItem.stock > existingItem.count) {
+                        existingItem.count += 1;
+                        toast.warning("Ürün sayısını artırdınız")
+                    }
+                    else {
+                        toast.error("Ürün stokta yok")
+
+                    }
+                }
+                else {
+                    const addCartItem = {
+                        id: product.id,
+                        title: product.title,
+                        price: product.price,
+                        image: product.image,
+                        stock: product.rating.count,
+                        count: 1
+                    }
+                    if (product.rating.count > 0) {
+                        allCarts.cartItems = [...allCarts.cartItems, addCartItem]
+                        toast.success("Yeni ürün eklediniz")
+
+                    }
+                    else {
+                        toast.error('Ürün stokta yok!');
+
+                    }
+
+                }
+                return addNewItemOnCart(userIsLog.id, allCarts)
+            })
+        }
+    }
+
+    const categoryOptions = [
+        { value: "", label: "Choose a category..." },
+        { value: "Men's Clothing", label: "Men's Clothing" },
+        { value: "Jewelery", label: "Jewelery" },
+        { value: "Electronics", label: "Electronics" },
+        { value: "Women's Clothing", label: "Women's Clothing" },
+    ];
+    return (
+        <div >
+            <ProductCard className="card my-2">
+                <ProductImg src={`${currentItem.image}`} className="card-img-top " alt={`${currentItem.title}`} />
+                <div className="card-body my-0 py-0 w-100">
+                    <ProductTitle className="card-title text-start m-0 p-0">{currentItem.title}</ProductTitle>
+                    <div className="d-flex justify-content-between ">
+                        {/* <div className="d-flex">
+                        <ProductSpecsTitle>Rate: </ProductSpecsTitle>
+                        <ProductSpecs> {currentItem.rating.rate}</ProductSpecs>
+                    </div> */}
+                        {/* <img src={dot} alt="" /> */}
+                        <div className="d-flex ">
+                            <ProductSpecsTitle>Category: </ProductSpecsTitle>
+                            <ProductSpecs> {currentItem.category}</ProductSpecs>
+                        </div>
+                        <div className="d-flex ">
+                            <ProductSpecsTitle>Stok: </ProductSpecsTitle>
+                            <ProductSpecs> {currentItem.rating.count}</ProductSpecs>
+                        </div>
+
+                    </div>
+                    <ProductPrice className="text-start my-0 py-0">{currentItem.price} $</ProductPrice>
+                    {
+                        userIsAdmin ?
+                            <>
+                                <CardButtonGroup>
+                                    <CardButton type="button" data-bs-toggle="modal" data-bs-target={`#${currentItem.id}`}>
+                                        <img src={edit} alt="" />
+                                    </CardButton>
+                                    <div className="modal fade" id={`${currentItem.id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`${currentItem.id}Label`} aria-hidden="true">
+                                        <div className="modal-dialog">
+                                            <div className="modal-content">
+                                                <div className="modal-header">
+                                                    <h1 className="modal-title fs-5" id={`${currentItem.id}Label`}>Edit</h1>
+                                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div className="modal-body">
+                                                    <div className="row">
+                                                        <div className="col-lg-6">
+                                                            <h5>Varsayılan bilgiler</h5>
+                                                            <div className="d-flex flex-column">
+                                                                <label htmlFor="title" className="text-start fw-semibold">Title</label>
+                                                                <input className="form-control" type="text" value={currentItem.title} name="title" disabled />
+                                                                <label htmlFor="price" className="text-start fw-semibold">Price</label>
+                                                                <input className="form-control" type="text" value={currentItem.price} name="price" disabled />
+                                                                <label htmlFor="desc" className="text-start fw-semibold" >Description</label>
+                                                                <textarea type="text" value={currentItem.description} name="desc" disabled />
+                                                                <label htmlFor="category" className="text-start fw-semibold">Category</label>
+                                                                <input className="form-control" type="text" value={currentItem.category} name="category" disabled />
+                                                                <label htmlFor="img" className="text-start fw-semibold">Image</label>
+                                                                <input className="form-control" type="text" value={currentItem.image} name="img" disabled />
+                                                                <label htmlFor="rate" className="text-start fw-semibold">Rate</label>
+                                                                <input className="form-control" type="text" value={currentItem.rating?.rate} name="rate" disabled />
+                                                                <label htmlFor="count" className="text-start fw-semibold">Count</label>
+                                                                <input className="form-control" type="text" value={currentItem.rating?.count} name="count" disabled />
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-lg-6">
+                                                            <h5>Güncellenecek bilgiler</h5>
+                                                            <Formik
+                                                                initialValues={{
+                                                                    editTitle: "",
+                                                                    editAmount: "",
+                                                                    editDesc: "",
+                                                                    editCat: "",
+                                                                    editImg: "",
+                                                                    editRate: "",
+                                                                    editCount: ""
+                                                                }}
+
+                                                                validationSchema={EditSchema}
+                                                                onSubmit={(values, { resetForm }) => {
+                                                                    console.log(values)
+                                                                    const formData = {
+                                                                        id: product.id,
+                                                                        title: values.editTitle,
+                                                                        price: values.editAmount,
+                                                                        description: values.editDesc,
+                                                                        category: values.editCat,
+                                                                        image: values.editImg,
+                                                                        rating: {
+                                                                            rate: values.editRate,
+                                                                            count: values.editCount,
+                                                                        }
+
+                                                                    };
+                                                                    updateMainProduct(product.id, formData)
+                                                                        .then(() => {
+                                                                            fetchOneProduct(product.id).then(data => setCurrentItem(data))
+                                                                            toast.success("Ürün güncellendi")
+                                                                        })
+                                                                    resetForm();
+
+                                                                }}
+                                                            >
+                                                                <Form>
+                                                                    <div className="text-start fw-semibold">
+                                                                        <label htmlFor="editTitle" >Title:</label>
+                                                                        <Field type="text" id="editTitle" name="editTitle" className="form-control" />
+                                                                        <ErrorMessage name="editTitle" component="div" />
+                                                                    </div>
+
+                                                                    <div className="text-start fw-semibold">
+                                                                        <label htmlFor="editAmount">Price:</label>
+                                                                        <Field type="text" id="editAmount" name="editAmount" className="form-control" />
+                                                                        <ErrorMessage name="editAmount" component="div" />
+                                                                    </div>
+
+                                                                    <div className="text-start fw-semibold">
+                                                                        <label htmlFor="editDesc">Description:</label>
+                                                                        <Field as="textarea" id="editDesc" name="editDesc" className="form-control" />
+                                                                        <ErrorMessage name="editDesc" component="div" />
+                                                                    </div>
+
+                                                                    <div className="text-start fw-semibold">
+                                                                        <label htmlFor="editCat">Category:</label>
+                                                                        <Field
+                                                                            as="select"
+                                                                            id="editCat"
+                                                                            name="editCat"
+                                                                            className="form-select"
+                                                                        >
+                                                                            {categoryOptions.map((option) => (
+                                                                                <option key={option.value} value={option.value}>
+                                                                                    {option.label}
+                                                                                </option>
+                                                                            ))}
+                                                                        </Field >
+                                                                        <ErrorMessage name="editCat" component="div" />
+                                                                    </div>
+                                                                    <div className="text-start fw-semibold">
+                                                                        <label htmlFor="editImg">Image:</label>
+                                                                        <Field type="text" id="editImg" name="editImg" className="form-control" />
+                                                                        <ErrorMessage name="editImg" component="div" />
+                                                                    </div>
+                                                                    <div className="text-start fw-semibold">
+                                                                        <label htmlFor="editRate">Rate:</label>
+                                                                        <Field type="text" id="editRate" name="editRate" className="form-control" />
+                                                                        <ErrorMessage name="editRate" component="div" />
+                                                                    </div>
+                                                                    <div className="text-start fw-semibold">
+                                                                        <label htmlFor="editCount">Count:</label>
+                                                                        <Field type="text" id="editCount" name="editCount" className="form-control" />
+                                                                        <ErrorMessage name="editCount" component="div" />
+                                                                    </div>
+                                                                    <div className="d-flex justify-content-around">
+                                                                        <CardButton type="submit" > Update</CardButton>
+                                                                        <CardButton type="button" data-bs-dismiss="modal">Close</CardButton>
+                                                                    </div>
+                                                                </Form>
+                                                            </Formik>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <CardButton> <Link to={`${currentItem.id}`}><img src={inspect} alt="" /></Link></CardButton>
+                                    <CardButton onClick={() => { ifUserLogged() }} disabled={currentItem.rating.count == 0 ? true : false} className="btn btn-primary">
+                                        <img src={add} alt="" />
+                                    </CardButton>
+                                </CardButtonGroup>
+                            </> :
+                            <>
+                                <CardButtonGroup>
+                                    <CardButton> <Link to={`${currentItem.id}`}><img src={inspect} alt="" /></Link></CardButton>
+                                    <CardButton onClick={() => { ifUserLogged() }} disabled={currentItem.rating.count == 0 ? true : false} className="btn btn-primary">
+                                        <img src={add} alt="" />
+                                    </CardButton>
+                                </CardButtonGroup>
+                            </>
+                    }
+                </div>
+            </ProductCard>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={1250}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
+
+        </div >
+    )
+}
+
+export default ListProducts

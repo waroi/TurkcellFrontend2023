@@ -1,0 +1,116 @@
+import styled from 'styled-components'
+
+export const FooterSection = styled.section`
+
+display: flex;
+border-radius: 40px 40px 0px 0px;
+background: linear-gradient(134deg, #FCEED5 6.17%, #FCEED5 75.14%, #FFE7BA 100%);
+padding: 80px 130px 40px 130px;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-start;
+gap: 40px;
+flex-shrink: 0;
+`
+
+export const FooterContainer = styled.div`
+    margin-top:80px
+`
+export const FooterBar = styled.div`
+border-radius: 16px;
+background:  #003459;
+display: flex;
+padding: 32px;
+margin:0 ;
+align-items: flex-start;
+gap: 20px;
+
+`
+
+export const FooterTitle = styled.p`
+display: flex;
+width: 389px;
+flex-direction: column;
+color:  #FDFDFD;
+font-size: 23px;
+text-align:left;
+font-weight: 700;
+line-height: 36px;
+text-transform: capitalize;
+`
+
+export const FooterSearch = styled.div`
+display: flex;
+width:100%;
+padding: 12px;
+align-items: center;
+gap: 12px;
+border-radius: 14px;
+background: #FFF;
+
+`
+
+export const FooterSearchBar = styled.input`
+    display: flex;
+    padding: 14px 28px;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 8px;
+    border: 1px solid #99A2A5;
+    background: #FFF;
+`
+export const FooterLink = styled.div`
+    gap:40px;
+    justify-content:start;
+    @media screen and (max-width:992px){
+        justify-content:center;
+        margin-bottom:2 0px
+    }
+`
+export const FooterIconCont = styled.div`
+    display: flex;
+    align-items: flex-start;
+    gap: 35px;
+    justify-content:end;
+    @media screen and (max-width:992px){
+        justify-content:center;
+
+    }
+`
+export const FooterIcon = styled.img`
+    width: 24px;
+    height: 24px;
+    position:absolute
+`
+export const FooterNav = styled.ul`
+    margin:40px 0;
+    color:  #00171F;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    
+`
+
+export const FooterFooter = styled.ul`
+position:relative;
+    margin:40px 0;
+    padding:0;
+display:flex;
+justify-content:between;
+align-items:center;
+    color: #667479;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    // @media screen and (max-width:992px){
+    //     justify-content:center;
+    //     .footer-reserve{
+    //         position:relative;
+    //         margin-top:20px;
+    //         display:flex;
+    //         flex-direction: column-reverse;
+    //     }
+    // }
+`
