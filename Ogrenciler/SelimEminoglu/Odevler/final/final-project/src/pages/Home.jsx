@@ -20,7 +20,8 @@ function Home() {
       <ProductListView
         h2Text="Hard to choose right products for your pets?"
         h3Text="Our Products"
-        isEight={false}
+        isEight={true}
+        isGift={true}
       />
       <İconList />
       <MidAds

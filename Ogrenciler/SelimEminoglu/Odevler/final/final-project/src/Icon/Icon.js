@@ -6,6 +6,7 @@ import FacebookIcon from "../assets/icons/Facebook - Negative.svg";
 import InstagramIcon from "../assets/icons/Instagram - Negative.svg";
 import TwitterIcon from "../assets/icons/Twitter - Negative.svg";
 import YoutubeIcon from "../assets/icons/Youtube - Negative.svg";
+import SearchIcon from "../assets/icons/u_search.svg";
 
 const Icon = {
   Main: mainLogo,
@@ -16,6 +17,7 @@ const Icon = {
   Instagram: InstagramIcon,
   Twitter: TwitterIcon,
   Youtube: YoutubeIcon,
+  Search: SearchIcon,
 };
 
 export default Icon;

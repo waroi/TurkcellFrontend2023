@@ -19,7 +19,7 @@ import PropTypes from "prop-types";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 
-function CardList({ isEight }) {
+function CardList({ isEight, isGift }) {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
   const loading = useSelector((state) => state.product.loading);
@@ -80,6 +80,15 @@ function CardList({ isEight }) {
                 </CardCategory>
                 <CardPrice>{item.price} $</CardPrice>
               </CardTextDiv>
+              {isGift && (
+                <CardGiftDiv>
+                  <img src="./src/assets/icons/gift_icon.svg" alt="logo" />
+                  <CardPointDiv>
+                    <CardPoint></CardPoint>
+                  </CardPointDiv>
+                  <CardGiftText>Free Toy & Free Shaker</CardGiftText>
+                </CardGiftDiv>
+              )}
               <CardButtonDiv>
                 <Button title="Sepete Ekle" />
               </CardButtonDiv>
@@ -102,13 +111,6 @@ function CardList({ isEight }) {
                 </CardCategory>
                 <CardPrice>{item.price} $</CardPrice>
               </CardTextDiv>
-              <CardGiftDiv>
-                <img src="./src/assets/icons/gift_icon.svg" alt="logo" />
-                <CardPointDiv>
-                  <CardPoint></CardPoint>
-                </CardPointDiv>
-                <CardGiftText>Free Toy & Free Shaker</CardGiftText>
-              </CardGiftDiv>
               <CardButtonDiv>
                 <Button title="Sepete Ekle" />
               </CardButtonDiv>
@@ -121,10 +123,12 @@ function CardList({ isEight }) {
 
 CardList.proptypes = {
   isEight: PropTypes.bool,
+  isGift: PropTypes.bool,
 };
 
 CardList.defaultProptypes = {
   isEight: true,
+  isGift: false,
 };
 
 export default CardList;

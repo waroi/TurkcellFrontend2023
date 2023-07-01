@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SearchDiv, SearchLogo, NavbarInput } from "./styleNavbar";
+import Icon from "../../Icon/Icon";
 
 function NavbarSearch() {
   const [NavInput, setNavInput] = useState("");
@@ -10,7 +11,7 @@ function NavbarSearch() {
 
   return (
     <SearchDiv>
-      <SearchLogo src=".\src\assets\icons\u_search.svg" alt="logo" />
+      <SearchLogo src={Icon.Search} alt="logo" />
       <NavbarInput
         type="text"
         value={NavInput}

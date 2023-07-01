@@ -20,6 +20,7 @@ import {
 import { ErrorDiv, ErrorText } from "../Forms/RegisterForm/styleRegisterForm";
 import { useFormik } from "formik";
 import { footerSchema } from "../../schemas";
+import PropTypes from "prop-types";
 
 function successPost(email) {
   toast.success(`Başarılı şekilde alındı: ${email}`, {
@@ -42,7 +43,7 @@ const onSubmit = async (values, actions) => {
   actions.resetForm();
 };
 
-function Footer() {
+function Footer({ isBottomLine }) {
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
@@ -95,14 +96,24 @@ function Footer() {
             </FooterİconList>
           </FooterSocialDiv>
         </FooterFlexDiv>
-        <FooterAltTagDiv>
-          <FooterH4>© 2022 Monito. All rights reserved.</FooterH4>
-          <FooterMainİcon src={Icon.Main} alt="icon" />
-          <FooterH4>Terms of Service Privacy Policy</FooterH4>
-        </FooterAltTagDiv>
+        {isBottomLine && (
+          <FooterAltTagDiv>
+            <FooterH4>© 2022 Monito. All rights reserved.</FooterH4>
+            <FooterMainİcon src={Icon.Main} alt="icon" />
+            <FooterH4>Terms of Service Privacy Policy</FooterH4>
+          </FooterAltTagDiv>
+        )}
       </Container>
     </FooterDiv>
   );
 }
+
+Footer.propTypes = {
+  isBottomLine: PropTypes.bool,
+};
+
+Footer.defaultProps = {
+  isBottomLine: true,
+};
 
 export default Footer;
