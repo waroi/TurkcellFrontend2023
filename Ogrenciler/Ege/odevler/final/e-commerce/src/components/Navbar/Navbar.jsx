@@ -142,21 +142,16 @@ const Navbar = () => {
                     </div>
 
                     {(isOnMenu && !isOnSearch) && (
-                        <div className="row mt-3">
+                        <div>
 
-                            <div className="navbarItem ms-5">
-                                <Link to={"/"}>Home</Link>
+                            <div className="d-flex justify-content-between">
+                                <Link className="navbarItem" to={"/"}>Home</Link>
+                                <Link className="navbarItem" to={"/products"}>Products</Link>
+                                <Link className="navbarItem" to={"/"}>About</Link>
+                                <Link className="navbarItem" to={"/"}>Contact</Link>
                             </div>
-                            <div className="navbarItem ms-5">
-                                <Link to={"/products"}>Products</Link>
-                            </div>
-                            <div className="navbarItem ms-5">
-                                <Link to={"/"}>About</Link>
-                            </div>
-                            <div className="navbarItem ms-5">
-                                <Link to={"/"}>Contact</Link>
-                            </div>
-                            <div className="d-flex gap-3">
+
+                            <div className="d-flex mt-3 justify-content-center gap-3">
                                 <div >
                                     {
                                         !currentUser

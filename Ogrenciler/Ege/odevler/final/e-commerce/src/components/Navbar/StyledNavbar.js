@@ -40,6 +40,13 @@ export const NavbarPC = styled.nav`
   }
 `;
 export const NavbarMobile = styled.nav`
+  .navbarItem {
+    color: #003459;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+  }
   @media (min-width: 992px) {
     display: none;
   }
