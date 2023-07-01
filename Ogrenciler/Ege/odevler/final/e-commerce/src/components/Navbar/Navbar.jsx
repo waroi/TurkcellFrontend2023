@@ -10,8 +10,8 @@ import hamburgerMenu from "../../assets/Hamburger_LG.svg"
 import { useState } from "react"
 import AccountDropdown from "./AccountDropdown/AccountDropdown";
 import logo from "../../assets/Logo.svg"
+import cartIcon from "../../assets/Shopping_Bag.svg"
 import { toast, ToastContainer } from "react-toastify"
-import { Toast } from "bootstrap";
 
 const Navbar = () => {
 
@@ -45,7 +45,6 @@ const Navbar = () => {
 
     const { handleChange, handleSubmit, values, errors } = useFormik({
         initialValues,
-        // validationSchema: searchSchema,
         onSubmit
     });
 
@@ -104,7 +103,7 @@ const Navbar = () => {
                                                 <Link to="/login"><ButtonPrimary >Login</ButtonPrimary></Link>
                                             )
                                             : (
-                                                <Link to="/cart"><ButtonPrimary >Cart {cartLength}</ButtonPrimary></Link>
+                                                <Link to="/cart"><ButtonPrimary className="d-flex" ><img src={cartIcon} alt="cart" /> {cartLength}</ButtonPrimary></Link>
                                             )
                                     }
 
@@ -160,7 +159,7 @@ const Navbar = () => {
                                                 <Link to="/login"><ButtonPrimary >Login</ButtonPrimary></Link>
                                             )
                                             : (
-                                                <Link to="/cart"><ButtonPrimary >Cart {cartLength}</ButtonPrimary></Link>
+                                                <Link to="/cart"><ButtonPrimary className="d-flex" ><img src={cartIcon} alt="cart" /> {cartLength}</ButtonPrimary></Link>
                                             )
                                     }
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledAccountDropdown = styled.div`
   cursor: pointer;
-
+  user-select: none;
   .dropdownButton {
     .profileImage {
       width: 50px;
