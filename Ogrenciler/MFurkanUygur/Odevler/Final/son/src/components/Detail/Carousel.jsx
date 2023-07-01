@@ -1,32 +1,51 @@
 /* eslint-disable react/prop-types */
+import ImageGallery from "react-image-gallery";
 
-const Carousel = ({ item }) => {
+const Carousel = ({item}) => {
+    const images = [
+        {
+            original: `${item?.image}`,
+            thumbnail:`${item?.image}`,
+            originalHeight: "500px",
+            originalWidth: "500px",
+            thumbnailHeight: "100px",
+            thumbnailWidth: "100px"
+        },
+        {
+            original: "https://picsum.photos/id/238/200/300",
+            thumbnail: "https://picsum.photos/id/238/200/300",
+            originalHeight: "500px",
+            originalWidth: "500px",
+            thumbnailHeight: "100px",
+            thumbnailWidth: "100px"
+        }, {
+            original: "https://picsum.photos/200/300",
+            thumbnail: "https://picsum.photos/200/300",
+            originalHeight: "500px",
+            originalWidth: "500px",
+            thumbnailHeight: "100px",
+            thumbnailWidth: "100px"
+        },
+        {
+            original: "https://picsum.photos/id/235/200/300",
+            thumbnail: "https://picsum.photos/id/235/200/300",
+            originalHeight: "500px",
+            originalWidth: "500px",
+            thumbnailHeight: "100px",
+            thumbnailWidth: "100px"
+        }
+    ];
+    const galleryOptions = {
+        showThumbnails: true,
+        showFullscreenButton: false,
+        showPlayButton: false,
+        autoPlay: false,
+    };
     return (
         <div>
-            <div id="carouselExample" className="carousel slide">
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img src={`${item?.image}`} className="d-block w-50" alt="..." />
-                    </div>
-                    <div className="carousel-item">
-                        <img src="https://picsum.photos/seed/picsum/400/400" className="d-block w-75" alt="..." />
-                    </div>
-                    <div className="carousel-item">
-                        <img src="https://picsum.photos/seed/picsum/400/400" className="d-block w-75" alt="..." />
-                    </div>
-                </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
-            </div>
-
+            <ImageGallery items={images} {...galleryOptions} />
         </div>
-    )
-}
+    );
+};
 
-export default Carousel
+export default Carousel;

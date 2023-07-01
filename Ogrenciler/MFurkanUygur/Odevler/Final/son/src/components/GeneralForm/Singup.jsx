@@ -30,6 +30,7 @@ const UserForm = () => {
                     id: self.crypto.randomUUID(),
                     username: "",
                     surname: "",
+                    profile: "",
                     password: "",
                     confirmPassword: "",
                     isAdmin: false,
@@ -69,26 +70,30 @@ const UserForm = () => {
                     resetForm();
                 }}
             >
-              <div className="d-flex justify-content-center align-items-center ">
+                <div className="d-flex justify-content-center align-items-center ">
                     <Form className="border border-2 p-4 px-5 rounded-2">
                         <div className="d-flex flex-column">
                             <label htmlFor="username">Kullanıcı Adı:</label>
-                            <Field type="text" id="username" name="username" className="form-control"/>
+                            <Field type="text" id="username" name="username" className="form-control" />
                             <Error name="username" />
                         </div>
-    
+
                         <div className="d-flex flex-column">
                             <label htmlFor="surname">Soyadı:</label>
-                            <Field type="text" id="surname" name="surname" className="form-control"/>
+                            <Field type="text" id="surname" name="surname" className="form-control" />
                             <Error name="surname" />
                         </div>
-    
+                        <div className="d-flex flex-column">
+                            <label htmlFor="profile">Resim:</label>
+                            <Field type="text" id="profile" name="profile" className="form-control" />
+                            <Error name="profile" />
+                        </div>
                         <div className="d-flex flex-column">
                             <label htmlFor="password">Parola:</label>
-                            <Field type="password" id="password" name="password" className="form-control"/>
+                            <Field type="password" id="password" name="password" className="form-control" />
                             <Error name="password" />
                         </div>
-    
+
                         <div className="d-flex flex-column">
                             <label htmlFor="confirmPassword">Parola Doğrulama:</label>
                             <Field
@@ -99,10 +104,10 @@ const UserForm = () => {
                             />
                             <Error name="confirmPassword" />
                         </div>
-    
+
                         <button type="submit">Gönder</button>
                     </Form>
-              </div>
+                </div>
             </Formik>
             <ToastContainer
                 position="bottom-right"

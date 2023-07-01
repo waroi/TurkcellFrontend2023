@@ -1,5 +1,5 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { SignupSchema } from "./schema";
+import { LoginSchema, SignupSchema } from "./schema";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/slices/usersData";
 import { useEffect } from "react";
@@ -37,7 +37,7 @@ const Login = () => {
                     isLogin: true
                 }}
 
-                validationSchema={SignupSchema}
+                validationSchema={LoginSchema}
                 onSubmit={(values, { resetForm }) => {
                     const findUser = getUsers.find((user) =>
                         user.username.toLowerCase() == values.username.toLowerCase() &&
@@ -55,6 +55,7 @@ const Login = () => {
 
                         navigate("/")
                     } else {
+                        console.log("hata")
                         toast.error("Bilgilerinizi kontrol edin!")
                     }
                     resetForm();

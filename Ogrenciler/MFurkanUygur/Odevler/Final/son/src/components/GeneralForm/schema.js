@@ -35,6 +35,9 @@ export const SignupSchema = yup.object().shape({
   surname: yup.string()
     .min(2, "Soyadı en az 2 karakter olmalıdır.")
     .required("Soyadı zorunludur."),
+  profile: yup.string()
+    .required("resim girmek zorunludur.")
+    .matches(/^http/, "resim http ile başlamalıdır."),
   password: yup.string()
     .min(2, "Parola en az 2 karakter olmalıdır.")
     .required("Parola zorunludur."),
@@ -43,7 +46,21 @@ export const SignupSchema = yup.object().shape({
     .required("Parola doğrulaması zorunludur."),
 });
 
+export const LoginSchema = yup.object().shape({
+  username: yup.string()
+    .min(2, "Kullanıcı adı en az 2 karakter olmalıdır.")
+    .required("Kullanıcı adı zorunludur."),
+  surname: yup.string()
+    .min(2, "Soyadı en az 2 karakter olmalıdır.")
+    .required("Soyadı zorunludur."),
 
+  password: yup.string()
+    .min(2, "Parola en az 2 karakter olmalıdır.")
+    .required("Parola zorunludur."),
+  confirmPassword: yup.string()
+    .oneOf([yup.ref("password")], "Parolalar eşleşmiyor.")
+    .required("Parola doğrulaması zorunludur."),
+});
 
 export const EditSchema = yup.object().shape({
   editTitle: yup.string()

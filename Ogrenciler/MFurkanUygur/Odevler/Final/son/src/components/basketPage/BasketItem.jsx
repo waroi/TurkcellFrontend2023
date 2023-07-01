@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
 import { ProductCard, ProductImg, ProductPrice, ProductSpecs, ProductSpecsTitle, ProductTitle } from "../AllProducts/styledOneProduct"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { CardButton, CardButtonGroup } from "../buttons/buttonStyle"
+import { CardButton } from "../buttons/buttonStyle"
 import carrow from '../../assets/carrow.png'
 import darrow from '../../assets/darrow.png'
 import uarrow from '../../assets/uarrow.png'
@@ -16,8 +16,8 @@ const BasketItem = ({ item, basket, setBasket }) => {
 
     // const [basket, setBasketItem] = useState()
     const [allProducts, setAllProducts] = useState()
-    const inputRef = useRef()
-    const latestStock=allProducts?.find(product => product.id == item.id)
+
+    const latestStock = allProducts?.find(product => product.id == item.id)
 
     useEffect(() => {
         fetchPrivateCart(userIsLog.id).then(data => setBasket(data.cartItems))

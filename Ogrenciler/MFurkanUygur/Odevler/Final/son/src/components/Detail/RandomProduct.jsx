@@ -3,7 +3,7 @@
 import { useSelector } from "react-redux"
 import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
 import { Link, useNavigate } from "react-router-dom"
-import { ErrorMessage, Field, Form, Formik } from "formik"
+import { Field, Form, Formik } from "formik"
 import { fetchOneProduct, updateMainProduct } from "../../request/productRequest"
 import { EditSchema } from "../GeneralForm/schema"
 import { useState } from "react"

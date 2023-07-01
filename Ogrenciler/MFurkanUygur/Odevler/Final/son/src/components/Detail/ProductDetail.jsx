@@ -50,7 +50,7 @@ const ProductDetail = () => {
                 console.log("currentUserBasket", allCarts)
                 console.log("currentUserBasketItems", allCarts.cartItems)
 
-                const existingItem = allCarts.cartItems.find((eachItem) => eachItem.id === item.id);
+                const existingItem = allCarts?.cartItems?.find((eachItem) => eachItem.id === item.id);
 
                 if (existingItem) {
                     if (existingItem.stock > existingItem.count) {
@@ -93,9 +93,9 @@ const ProductDetail = () => {
         <div className="container mt-5 py-5">
             <DetailContainer >
                 <div className="row">
-                    <div className="col-lg-6 bg-dark">
-                        {/* <Carousel item={item} /> */}
-                        <MyGallery/>
+                    <div className="col-lg-6">
+                        <Carousel item={item} />
+
                         <Advertisement>
                             <div className="row g-2">
                                 <Adver className="col-6">

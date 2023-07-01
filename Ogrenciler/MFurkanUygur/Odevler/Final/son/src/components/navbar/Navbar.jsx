@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom"
 import { clearLoginUser, updateIsAdmin } from "../../redux/slices/loggedUser";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavbarLogo, Navbarul } from "./navbarStyle";
 import logo from "../../assets/logo.png"
-import { fetchPrivateCart } from "../../request/cartsRequest";
+
 import { ToastContainer, toast } from "react-toastify";
 
 
@@ -43,7 +43,7 @@ const Navbar = () => {
     else {
       toast.error("Lütfen önce giriş yapınız!", {
         position: "bottom-right",
-        autoClose: 1000,
+        autoClose: 2000,
         hideProgressBar: false,
         onClose: () => {
           navigate("/signup");
@@ -107,7 +107,7 @@ const Navbar = () => {
               </li>
 
               {
-                userIsLog || loggedUser!=="noUser" && !isClick ?
+                userIsLog || loggedUser !== "noUser" && !isClick ?
                   <>
                     <li className="nav-item">
                       <Link to="/sepet" className="nav-link">
@@ -119,7 +119,7 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item dropdown">
                       <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Profil
+                        {/* <img src={userIsLog.profile} alt="" /> */}
                       </a>
                       <ul className="dropdown-menu">
                         <li>

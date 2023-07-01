@@ -3,10 +3,10 @@
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import { EditSchema } from "../GeneralForm/schema";
-import { fetchAllProduct, fetchOneProduct, updateMainProduct } from "../../request/productRequest";
-import { useEffect, useState } from "react";
+import { fetchOneProduct, updateMainProduct } from "../../request/productRequest";
+import { useState } from "react";
 import { ProductCard, ProductImg, ProductPrice, ProductSpecs, ProductSpecsTitle, ProductTitle } from "./styledOneProduct";
 import { ToastContainer, toast } from 'react-toastify';
 import { Rating } from '@smastrom/react-rating'
@@ -24,7 +24,7 @@ const OneProduct = ({ item }) => {
     const navigate = useNavigate();
     const [currentItem, setCurrentItem] = useState(item)
     const userIsAdmin = useSelector((state) => state?.setLoggedUser?.isAdminLog)
-  
+
 
     const ifUserLogged = () => {
         if (!sessionStorage.getItem('loggedUser')) {
