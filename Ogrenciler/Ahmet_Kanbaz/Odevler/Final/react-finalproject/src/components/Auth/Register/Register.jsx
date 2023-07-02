@@ -5,7 +5,7 @@ import logoMonito from "../../../assets/logoMonito.svg";
 import { useFormik } from "formik";
 import registerSchema from "../../../schemas/registerSchema";
 import { Logo, InputDiv, RegisterBg } from "../AuthStyle";
-import { MdError } from "react-icons/md";
+import FormError from "../../../common/FormError/FormError";
 import Button from "../../../common/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { postNewUser } from "../../../utils/posts";
@@ -100,9 +100,7 @@ const Register = () => {
                     disabled={isSubmitting}
                   />
                   {touched.registerFirstName && errors.registerFirstName && (
-                    <div className="text-danger errorMessage position-absolute top-100 start-0">
-                      <MdError /> {errors.registerFirstName}
-                    </div>
+                    <FormError message={errors.registerFirstName} />
                   )}
                 </InputDiv>
               </div>
@@ -121,9 +119,7 @@ const Register = () => {
                     disabled={isSubmitting}
                   />
                   {touched.registerLastName && errors.registerLastName && (
-                    <div className="text-danger errorMessage position-absolute top-100 start-0">
-                      <MdError /> {errors.registerLastName}
-                    </div>
+                    <FormError message={errors.registerLastName} />
                   )}
                 </InputDiv>
               </div>
@@ -142,9 +138,7 @@ const Register = () => {
                 disabled={isSubmitting}
               />
               {touched.registerEmail && errors.registerEmail && (
-                <div className="text-danger errorMessage position-absolute top-100 start-0">
-                  <MdError /> {errors.registerEmail}
-                </div>
+                <FormError message={errors.registerEmail} />
               )}
             </InputDiv>
             <InputDiv className="position-relative">
@@ -161,9 +155,7 @@ const Register = () => {
                 disabled={isSubmitting}
               />
               {touched.registerPassword && errors.registerPassword && (
-                <div className="text-danger errorMessage position-absolute top-100 start-0">
-                  <MdError /> {errors.registerPassword}
-                </div>
+                <FormError message={errors.registerPassword} />
               )}
             </InputDiv>
             <InputDiv className="position-relative my-3">
@@ -181,9 +173,7 @@ const Register = () => {
               />
               {touched.confirmRegisterPassword &&
                 errors.confirmRegisterPassword && (
-                  <div className="text-danger errorMessage position-absolute top-100 start-0">
-                    <MdError /> {errors.confirmRegisterPassword}
-                  </div>
+                  <FormError message={errors.confirmRegisterPassword} />
                 )}
             </InputDiv>
             <div>
