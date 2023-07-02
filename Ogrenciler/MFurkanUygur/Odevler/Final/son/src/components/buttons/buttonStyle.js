@@ -57,7 +57,27 @@ border-radius: 57px;
 background:  #003459;
 
 `
+export const DarkButtonNavbar = styled.button`
+color:  #FDFDFD;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px;
+border: none;
+display: flex;
+width: 170px;
+height:40px;
+padding: 14px 28px 10px 28px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 57px;
+background:  #003459;
+&:hover{
+    color:white;
+}
 
+`
 export const WhiteButton = styled.button`
 display: flex;
 border:none;

@@ -30,7 +30,7 @@ const OneProduct = ({ item }) => {
         if (!sessionStorage.getItem('loggedUser')) {
             toast.error("Lütfen önce giriş yapınız!", {
                 position: "bottom-right",
-                autoClose: 3000,
+                autoClose: 1000,
                 hideProgressBar: false,
                 onClose: () => {
                     navigate("/signup");

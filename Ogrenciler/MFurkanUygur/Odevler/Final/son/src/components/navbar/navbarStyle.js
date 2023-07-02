@@ -62,6 +62,6 @@ export const NavUl = styled.ul`
 export const NavImg = styled.img`
     width:30px;
     height:30px;
-    margin:0 10px;
+    margin:0px;
     border-radius:50%;
 `

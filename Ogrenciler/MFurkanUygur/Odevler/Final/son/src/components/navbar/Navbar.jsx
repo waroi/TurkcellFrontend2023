@@ -1,12 +1,15 @@
 import { NavImg, NavbarForDesktop, NavbarForMobile, NavbarLogo, Navbarul } from "./navbarStyle";
 import { clearLoginUser, updateIsAdmin } from "../../redux/slices/loggedUser";
+import { DarkButtonNavbar } from "../buttons/buttonStyle";
 import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import inspectBlack from "../../assets/inspectBlack.png"
 import hamburger from "../../assets/hamburger.png"
 import logo from "../../assets/logo.png"
+import { fetchPrivateCart } from "../../request/cartsRequest";
+import { updateCount } from "../../redux/slices/countBasket";
 
 const Navbar = () => {
   const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
@@ -14,11 +17,14 @@ const Navbar = () => {
   const countBasket = useSelector((state) => state?.setCountBasketName?.count)
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  
+
   const [isClick, setIsClick] = useState(false)
   const [isOnSearch, setIsOnSearch] = useState(false)
   const [isOnMenu, setIsOnMenu] = useState(false)
 
+  useEffect(() => {
+    fetchPrivateCart(userIsLog?.id).then(data =>dispatch(updateCount(data?.cartItems?.length)))
+  }, [])
 
   window.addEventListener('scroll', function () {
     var navbar = document.querySelector('.navbar');
@@ -134,16 +140,18 @@ const Navbar = () => {
                       <li className="nav-item">
                         <Link to="/sepet" className="nav-link">
                           <div className="d-flex">
-                            <i className="fa-solid fa-basket-shopping"></i>
-                            {countBasket}
+                            <DarkButtonNavbar className="px-0 py-2 ">
+                              <i className="fa-solid fa-basket-shopping py-1"></i>
+                              {countBasket}
+                            </DarkButtonNavbar>
                           </div>
                         </Link>
                       </li>
                       <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <DarkButtonNavbar className="nav-link dropdown-toggle px-0 py-1 " role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           <NavImg src={userIsLog?.profile} alt="" />
                           Profile
-                        </a>
+                        </DarkButtonNavbar>
                         <ul className="dropdown-menu">
                           <li>
                             <Link to="/" onClick={logout} className="nav-link">
@@ -157,14 +165,18 @@ const Navbar = () => {
                     <>
                       <li className="nav-item">
                         <Link to="/signup" className="nav-link">
-                          <i className="fa-solid fa-user-plus"></i>
-                          SignUp
+                          <DarkButtonNavbar>
+                            <i className="fa-solid fa-user-plus"></i>
+                            SignUp
+                          </DarkButtonNavbar>
                         </Link>
                       </li>
                       <li className="nav-item">
                         <Link to="/login" className="nav-link">
-                          <i className="fa-solid fa-right-to-bracket"></i>
-                          Login
+                          <DarkButtonNavbar>
+                            <i className="fa-solid fa-right-to-bracket"></i>
+                            Login
+                          </DarkButtonNavbar>
                         </Link>
                       </li>
                     </>
@@ -178,7 +190,7 @@ const Navbar = () => {
       </NavbarForDesktop>
 
       <NavbarForMobile >
-        <div className="mobile fixed-top py-3 "> 
+        <div className="mobile fixed-top py-3 ">
           <div className="row justify-content-between align-items-center">
             <div className="col-4  text-center">
               <img src={hamburger} alt="menu" onClick={handleOnMenu} />
@@ -207,22 +219,29 @@ const Navbar = () => {
                       <li className="nav-item ">
                         <Link to="/sepet" className="nav-link ">
                           <div className="d-flex  justify-content-center">
-                            <i className="fa-solid fa-basket-shopping"></i>
-                            {countBasket}
+                            <DarkButtonNavbar>
+                              <i className="fa-solid fa-basket-shopping"></i>
+                              {countBasket}
+                            </DarkButtonNavbar>
                           </div>
                         </Link>
                       </li>
                       <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <NavImg src={userIsLog.profile} alt="" />
-                          Profile
+
+                          <DarkButtonNavbar>
+                            <NavImg src={userIsLog.profile} alt="" />
+
+                          </DarkButtonNavbar>
+
                         </a>
                         <ul className="dropdown-menu">
                           <li>
                             <Link to="/" onClick={logout} className="nav-link">
                               <i className="fa-solid fa-right-from-bracket"></i>
                               Çıkış
-                            </Link></li>
+                            </Link>
+                          </li>
                         </ul>
                       </li>
                     </>
@@ -230,14 +249,18 @@ const Navbar = () => {
                     <>
                       <li className="nav-item">
                         <Link to="/signup" className="nav-link">
-                          <i className="fa-solid fa-user-plus"></i>
-                          SignUp
+                          <DarkButtonNavbar>
+                            <i className="fa-solid fa-user-plus"></i>
+                            SignUp
+                          </DarkButtonNavbar>
                         </Link>
                       </li>
                       <li className="nav-item">
                         <Link to="/login" className="nav-link">
-                          <i className="fa-solid fa-right-to-bracket"></i>
-                          Login
+                          <DarkButtonNavbar>
+                            <i className="fa-solid fa-right-to-bracket"></i>
+                            Login
+                          </DarkButtonNavbar>
                         </Link>
                       </li>
                     </>
