@@ -25,7 +25,7 @@ Projenin kurulumunu ve başlatılmasını aşağıdaki adımlarla gerçekleştir
 
 1. Proje dosyalarını indirin
 2. Terminalde `npm i --force` komutunu çalıştırın (Bu komut gerekli bağımlılıkları yükler, "react-magnifier" kütüphanesinin sorunsuz çalışabilmesi için `--force` gerekmektedir.)
-3. .env.example dosyasının ".example" kısmını silerek yeniden adlandırın.(global variablelara ulaşabilmek için gerekli)
+3. ".env.example" dosyasının ".example" kısmını silerek yeniden adlandırın.(global variablelara ulaşabilmek için gerekli)
 4. `npm run start` komutunu çalıştırın. Bu komut projeyi ve json-server'ı aynı anda başlatır.
 
 ## Kullanılan Teknolojiler ve Kütüphaneler
