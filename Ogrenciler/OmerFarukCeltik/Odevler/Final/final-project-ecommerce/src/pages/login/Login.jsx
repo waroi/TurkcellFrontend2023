@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { CustomInput } from './styled';
 import { useFormik } from 'formik';
 import { LoginSchema } from '../../schemas';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, json, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { ToastContainer, toast } from "react-toastify";
 import { loginUser } from '../../redux/slices/usersSlice'
@@ -28,6 +28,7 @@ const Login = () => {
     fetchData();
   }, [])
   async function sendUsers(values) {
+    localStorage.setItem("users", JSON.stringify(values))
     await dispatch(loginUser(values));
     await toast.success("Logged in.", {
       autoClose: 2000,
