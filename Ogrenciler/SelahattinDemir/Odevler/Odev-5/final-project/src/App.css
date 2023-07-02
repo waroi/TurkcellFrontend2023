@@ -102,4 +102,44 @@ select {
   .error {
     margin-left: 10px;
   }
+  .shopping-input {
+    width: 50%;
+  }
+
+  .nav-input {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.2s ease;
+  }
+
+  .open .nav-input {
+    width: 200px;
+    transition: width 0.2s ease;
+  }
+
+  .open .nav-input:focus {
+    width: 200px;
+  }
+
+  .open .icon-wrapper {
+    transform: translateX(-100%);
+  }
+
+  .nav-input.open {
+    width: 200px;
+    transform: translateX(-100%);
+  }
+
+  .icon-wrapper.open {
+    transform: translateX(-100%);
+  }
+}
+
+.bg-grey {
+  background: linear-gradient(
+    134deg,
+    #fceed5 6.17%,
+    #fceed5 75.14%,
+    #ffe7ba 100%
+  );
 }
