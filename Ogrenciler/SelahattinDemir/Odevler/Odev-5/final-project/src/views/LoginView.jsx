@@ -36,7 +36,6 @@ function LoginView() {
         toast.error("An error occurred. Please try again.");
       }
     } catch (error) {
-      console.log(error);
       toast.error("An error occurred. Please try again.");
     }
 
@@ -48,6 +47,7 @@ function LoginView() {
 
   return (
     <>
+      <h1 className="text-center form-title">Login</h1>
       <Formik
         initialValues={{ username: "", password: "", isAccepted: false }}
         onSubmit={handleSubmit}
