@@ -42,11 +42,9 @@ export const LoginSchema = yup.object().shape({
 export const EditSchema = yup.object().shape({
   editTitle: yup.string()
     .min(2, "Minimum 2 karakter gerekli.")
-    .required("Ürün ismi girmek zorunludur.")
-    .matches(/^[A-Za-z]+$/, "Yalnızca harf girmeniz gerekmektedir."),
-  editAmount: yup.string()
-    .required("Fiyat bilgisi girmek zorunlu")
-    .matches(/^[0-9]+$/, "Sayı girmeniz gerekli."),
+    .required("Ürün ismi girmek zorunludur."),
+  editAmount: yup.number("Bir fiyat giriniz")
+    .required("Fiyat bilgisi girmek zorunlu"),
 
   editDesc: yup.string()
     .min(2, "Karakter sayısı az")
@@ -56,9 +54,10 @@ export const EditSchema = yup.object().shape({
   editImg: yup.string()
     .required("URL girmek zorunludur.")
     .matches(/^http/, "URL http ile başlamalıdır."),
-  editRate: yup.string()
-    .required("Puan giriniz")
-    .matches(/^[0-9]+$/, "Sayı girmeniz gerekli."),
+  editRate: yup.number()
+  .min(0, "Rating rate must be greater than or equal to 0")
+  .max(5, "Rating rate must be less than or equal to 5")
+  .required("Puan giriniz"),
   editCount: yup.string()
     .required("Stok girmek zorunlu")
     .matches(/^[0-9]+$/, "Sayı girmeniz gerekli."),

@@ -28,7 +28,6 @@ const BasketItem = ({ item, basket, setBasket }) => {
 
         if (existingItem && item.stock > existingItem.count) {
             existingItem.count++;
-            console.log(existingItem.count);
 
             const updatedCart = {
                 id: userIsLog.id,
@@ -54,7 +53,6 @@ const BasketItem = ({ item, basket, setBasket }) => {
 
         if (existingItem && existingItem.count > 0) {
             existingItem.count--;
-            console.log(existingItem.count);
 
             const updatedCart = {
                 id: userIsLog.id,
@@ -70,10 +68,9 @@ const BasketItem = ({ item, basket, setBasket }) => {
             addNewItemOnCart(userIsLog.id, updatedCart)
                 .then(() => {
                     fetchPrivateCart(userIsLog.id).then(data => setBasket(data.cartItems))
-                    toast.success("Ürün miktarı azaldı")
+                    toast.warning("Ürün miktarı azaldı")
 
                     if (existingItem.count === 0) {
-                        console.log("Ürün silindi");
                         fetchPrivateCart(userIsLog.id).then(data => {
                             setBasket(data.cartItems)
                             dispatch(updateCount(data?.cartItems?.length))
@@ -84,7 +81,7 @@ const BasketItem = ({ item, basket, setBasket }) => {
                     toast.warning(error)
                 });
         } else {
-            toast.warning("Yetersiz Stok")
+            toast.error("Yetersiz Stok")
         }
     };
 
