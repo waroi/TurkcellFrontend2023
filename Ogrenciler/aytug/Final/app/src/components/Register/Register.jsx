@@ -4,6 +4,7 @@ import { createNewUser } from "../../services/userService";
 import { useFormik } from "formik";
 import { basicSchema } from "../../schemas";
 import { FormikError } from "../styles";
+import { toast } from "react-toastify";
 
 const Register = () => {
 	const formik = useFormik({
@@ -24,9 +25,10 @@ const Register = () => {
 					throw new Error("Your passwords don't match.");
 				}
 				await createNewUser({ username, name: { firstname, lastname }, email, password });
+				toast.success("Successfully registered!");
 				formik.resetForm();
 			} catch (error) {
-				console.error(error);
+				toast.error(error.message);
 			}
 		},
 	});
