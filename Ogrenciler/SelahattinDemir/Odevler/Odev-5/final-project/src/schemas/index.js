@@ -48,7 +48,7 @@ export const editProductSchema = yup.object().shape({
   title: yup.string().required("Title is required"),
   price: yup.number().required("Price is required"),
   category: yup.string().required("Category is required"),
-  rate: yup.number().required("Rate is required").min(0).max(5),
-  stock: yup.number().required("Stock is required"),
+  rate: yup.number().min(0).max(5),
+  stock: yup.number(),
   description: yup.string().required("Description is required"),
 });
