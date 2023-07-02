@@ -7,11 +7,13 @@ import {
   ProductThreeItemsSort,
   ProductThreeItemsHeaderFilter,
 } from "../../styles/ProductThreeItemsStyle";
+import useWindowSize from "./useWindowSize";
 
 const ProductThreeItems = (props) => {
   const sortButton = useRef();
   const [sortCount, setSortCount] = useState(0);
   const [filterCount, setFilterCount] = useState(0);
+  const [windowWidth, windowHeight] = useWindowSize();
 
   function handleChangeSort() {
     setSortCount(sortCount + 1);
@@ -34,12 +36,12 @@ const ProductThreeItems = (props) => {
   }, [filterCount]);
 
   useEffect(() => {
-    if (window.innerWidth < 992) {
+    if (windowWidth < 992) {
       props.isMobile(true);
-    } else if (window.innerWidth > 992) {
+    } else if (windowWidth > 992) {
       props.isMobile(false);
     }
-  }, [window.innerWidth]);
+  }, [windowWidth]);
 
   return (
     <div className="row mt-5">
