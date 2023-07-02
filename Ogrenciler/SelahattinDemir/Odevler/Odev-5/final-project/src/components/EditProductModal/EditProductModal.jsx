@@ -1,5 +1,6 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import { editProductSchema } from "../../schemas";
 
@@ -18,7 +19,7 @@ function EditProductModal({ isOpen, handleClose, handleUpdate, product }) {
         return {
           ...prevState,
           rating: {
-            ...prevState.rating,
+            ...prevState?.rating,
             rate: value,
           },
         };
@@ -27,7 +28,7 @@ function EditProductModal({ isOpen, handleClose, handleUpdate, product }) {
         return {
           ...prevState,
           rating: {
-            ...prevState.rating,
+            ...prevState?.rating,
             count: value,
           },
         };
@@ -45,9 +46,10 @@ function EditProductModal({ isOpen, handleClose, handleUpdate, product }) {
     try {
       await editProductSchema.validate(updatedProduct, { abortEarly: false });
       await handleUpdate(updatedProduct);
-      setUpdatedProduct(product);
+      setUpdatedProduct(updatedProduct);
       handleClose();
       window.location.reload();
+      toast.success("Product updated successfully.");
     } catch (error) {
       if (error.name === "ValidationError") {
         const newErrors = {};
@@ -56,6 +58,8 @@ function EditProductModal({ isOpen, handleClose, handleUpdate, product }) {
         });
         setErrors(newErrors);
       }
+      toast.error("Error updating product.", error);
+      console.log(error);
     }
   };
 
@@ -134,7 +138,7 @@ function EditProductModal({ isOpen, handleClose, handleUpdate, product }) {
               max="5"
               min="0"
               step="0.01"
-              value={parseFloat(updatedProduct.rating?.rate).toString() || ""}
+              value={updatedProduct.rating?.rate || ""}
               onChange={handleChange}
               isInvalid={!!errors.rate}
             />
