@@ -34,7 +34,7 @@ function MoreProductsSection({ id }) {
   const randomProducts = getRandomProducts();
 
   return (
-    <div className="row">
+    <div className="row my-5">
       <TopTitle>Whats new?</TopTitle>
       <BottomTitle>See more products</BottomTitle>
       {randomProducts.map((product) => (

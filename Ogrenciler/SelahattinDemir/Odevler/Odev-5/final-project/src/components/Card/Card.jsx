@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
@@ -9,6 +8,8 @@ import {
   Title,
   Description,
   ProductInfo,
+  ButtonBorder,
+  ButtonBg,
 } from "./CardStyle.js";
 import Request from "../../utils/Request";
 
@@ -24,8 +25,8 @@ function Card({ data }) {
   const isLoggedIn = useSelector((state) => state.login.loggedIn);
 
   const [user, setUser] = useState(null);
-  const truncatedTitle = truncateText(data.title, 35);
-  const truncatedDescription = truncateText(data.description, 55);
+  const truncatedTitle = truncateText(data.title, 27);
+  const truncatedDescription = truncateText(data.description, 50);
   const availableStock = data.rating?.count || 0;
 
   useEffect(() => {
@@ -98,7 +99,7 @@ function Card({ data }) {
   };
 
   return (
-    <CardContainer className="col-lg-3 col-md-4">
+    <CardContainer className="col-6 col-lg-3 col-md-4">
       <div className="card overflow-hidden border-0">
         <CardImage className="d-flex m-auto ">
           <img src={data.image} className="card-img-top" alt="Card Image" />
@@ -108,15 +109,15 @@ function Card({ data }) {
           <Description className="card-text">
             {truncatedDescription}
           </Description>
-          <div className="d-flex justify-content-between">
-            <ProductInfo className="card-text">
+          <div className="d-block d-lg-flex justify-content-between">
+            <ProductInfo className="card-text mt-4 mt-lg-0">
               {data.price} <i className="bi bi-currency-dollar"></i>
             </ProductInfo>
             <ProductInfo className="card-text">
               {data.rating.count} <i className="bi bi-card-list"></i>
             </ProductInfo>
           </div>
-          <ul className="d-flex gap-2">
+          <ul className="d-flex gap-2 justify-content-start ps-2 ps-lg-0 justify-content-lg-center">
             {data.rating &&
               Array.from({ length: data.rating.rate }).map((_, index) => (
                 <li key={`star-${index}`}>
@@ -131,17 +132,15 @@ function Card({ data }) {
               ))}
           </ul>
 
-          <div className="d-flex justify-content-between">
-            <Link to={`/${data.id}`} className="btn btn-primary">
-              Read More
-            </Link>
-            <button
+          <div className="d-flex justify-content-center justify-content-lg-between mt-3 flex-wrap align-items-center">
+            <ButtonBg to={`/${data.id}`}>Read More</ButtonBg>
+            <ButtonBorder
+              className="mt-2 mt-lg-0 px-3 px-lg-4"
               onClick={handleAddToCart}
-              className="btn btn-danger"
               disabled={availableStock < 1}
             >
               {availableStock < 1 ? "Out of Stock" : "Add to Cart"}
-            </button>
+            </ButtonBorder>
           </div>
         </div>
       </div>

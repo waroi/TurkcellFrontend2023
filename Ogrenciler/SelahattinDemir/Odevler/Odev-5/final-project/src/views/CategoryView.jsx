@@ -64,8 +64,8 @@ function CategoryView() {
     <div className="container">
       <CategoryBanner />
       <div className="row my-3">
-        <div className="d-flex justify-content-between align-items-center flex-row-reverse flex-lg-row">
-          <div className="col-md-3 d-flex d-lg-block align-items-center gap-2 flex-row-reverse flex-lg-row justify-content-start">
+        <div className="col-md-3 d-flex justify-content-between align-items-center align-items-lg-start flex-row-reverse flex-lg-row">
+          <div className="d-flex d-lg-block align-items-center gap-2 flex-row-reverse flex-lg-row justify-content-start">
             <FilterTitle className="mt-2 mt-lg-0">Filter</FilterTitle>
             <Filter
               data={products}

@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
@@ -10,16 +10,16 @@ import {
   Quantity,
   DetailTitle,
   DetailPrice,
-  DetailImageContainer,
+  ButtonBg,
+  ButtonBorder,
+  Title,
   ProductInfo,
   ProductInfoContainer,
-  SocialInfoContainer,
-  DetailButtonContact,
-  DetailButtonChat,
-  TableTd,
 } from "./CardStyle.js";
 import EditProductModal from "../EditProductModal/EditProductModal";
 import Request from "../../utils/Request";
+import DetailTablo from "./DetailTablo";
+import DetailImage from "./DetailImage";
 
 const DetailCard = React.memo(({ data }) => {
   const request = new Request("http://localhost:3004/users");
@@ -27,7 +27,7 @@ const DetailCard = React.memo(({ data }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updatedProductData, setUpdatedProductData] = useState({});
   const [user, setUser] = useState(null);
-  const availableStock = data.rating?.count || 0; // Consider 0 if stock information is not available
+  const availableStock = data.rating?.count || 0;
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -103,115 +103,90 @@ const DetailCard = React.memo(({ data }) => {
   };
 
   if (!user) {
-    return null; // Kullanıcı yüklenene kadar bileşenin render edilmemesi için null döndürüyoruz
+    return null; // We return null so that the component is not rendered until the user loads
   }
-
   return (
     <DetailCardContainer className="row align-items-center">
       <div className="col-lg-6">
-        <DetailImageContainer>
-          <img src={data.image} alt="Detail Image" className="img-fluid" />
-        </DetailImageContainer>
-        <ProductInfoContainer className="d-flex justify-content-between my-3 ms-sm-0 ms-lg-4">
-          <div className="d-flex gap-2 align-items-center">
-            <i className="bi bi-gender-ambiguous"></i>
-            <ProductInfo className="mb-0">
-              100% health guarantee for pet
-            </ProductInfo>
-          </div>
-          <div className="d-flex gap-2 align-items-center">
-            <i className="bi bi-person-hearts "></i>
-            <ProductInfo className="mb-0">
-              100% guarantee of pet identification
-            </ProductInfo>
-          </div>
-        </ProductInfoContainer>
-        <SocialInfoContainer className="d-flex gap-3 ms-sm-0 ms-lg-4 ">
-          <div className="d-flex gap-2 align-items-center">
-            <i className="bi bi-share-fill"></i>
-            <ProductInfo className="mb-0">Share:</ProductInfo>
-          </div>
-          <div className="d-flex gap-2">
-            <i className="bi bi-facebook"></i>
-            <i className="bi bi-twitter"></i>
-            <i className="bi bi-instagram"></i>
-            <i className="bi bi-youtube"></i>
-          </div>
-        </SocialInfoContainer>
+        <DetailImage data={data} />
       </div>
-      <div className="col-lg-6">
+      <div className="col-lg-6 mt-3 mt-lg-0">
         <div className="detail-info">
-          <Quantity className="text-muted">
+          <Quantity className="text-muted d-none d-lg-block">
             Quantity {data?.rating?.count}
           </Quantity>
           <DetailTitle>{data.title}</DetailTitle>
-          <DetailPrice>{data.price}</DetailPrice>
+          <DetailPrice className="mt-5 mt-lg-0">$ {data.price}</DetailPrice>
           <div className="d-flex gap-2 align-items-center">
-            <DetailButtonContact>Contact us</DetailButtonContact>
-            <DetailButtonChat>
+            <ButtonBg>Contact us</ButtonBg>
+            <ButtonBorder>
               <i className="bi bi-chat-left-dots me-3 mt-1"></i>
               Chat with Monito
-            </DetailButtonChat>
+            </ButtonBorder>
           </div>
-          <table className="mt-3">
-            <tbody>
-              <tr>
-                <TableTd className="pb-1">Quantity:</TableTd>
-                <TableTd className="pb-1 ps-3">{data?.rating?.count}</TableTd>
-              </tr>
-              <tr>
-                <TableTd className="pb-1">Name:</TableTd>
-                <TableTd className="pb-1 ps-3">{data.title}</TableTd>
-              </tr>
-              <tr>
-                <TableTd className="pb-1">Price:</TableTd>
-                <TableTd className="pb-1 ps-3">{data.price}</TableTd>
-              </tr>
-              <tr>
-                <TableTd className="pb-1">Category:</TableTd>
-                <TableTd className="pb-1 ps-3">{data.category}</TableTd>
-              </tr>
-              <tr>
-                <TableTd className="pb-1">Description:</TableTd>
-                <TableTd className="pb-1 ps-3">{data.description}</TableTd>
-              </tr>
-              <tr>
-                <TableTd>Rating:</TableTd>
-                <TableTd className="ps-3">
-                  <ul className="d-inline-flex gap-2 p-0 m-0">
-                    {data.rating &&
-                      Array.from({ length: data.rating.rate }).map(
-                        (_, index) => (
-                          <li key={`star-${index}`}>
-                            <i className="bi bi-star-fill text-warning"></i>
-                          </li>
-                        )
-                      )}
-                    {data.rating &&
-                      Array.from({ length: 6 - data.rating.rate }).map(
-                        (_, index) => (
-                          <li key={`empty-star-${index}`}>
-                            <i className="bi bi-star"></i>
-                          </li>
-                        )
-                      )}
-                  </ul>
-                </TableTd>
-              </tr>
-            </tbody>
-          </table>
+          <div className="d-flex d-lg-none justify-content-between align-items-center mt-3">
+            <Title className="mt-2">Information</Title>
+            <div className="dropdown mb-1">
+              <button
+                className="border-0 bg-transparent dropdown-toggle d-flex align-items-center "
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i className="bi bi-share"></i>
+                <ProductInfo className="d-inline ms-3 mb-0">Share</ProductInfo>
+              </button>
+              <ul className="dropdown-menu ">
+                <li>
+                  <a className="dropdown-item" href="#">
+                    <i className="bi bi-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    <i className="bi bi-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    <i className="bi bi-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    <i className="bi bi-youtube"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <DetailTablo data={data} />
           <div className="d-flex justify-content-center align-items-center mt-2">
-            <DetailButtonContact onClick={handleAddToCart}>
-              Add to Cart
-            </DetailButtonContact>
+            <ButtonBg onClick={handleAddToCart} disabled={availableStock < 1}>
+              {availableStock < 1 ? "Out of Stock" : "Add to Cart"}
+            </ButtonBg>
             {user?.role === "admin" && (
-              <DetailButtonChat onClick={handleEdit} className="ms-3">
+              <ButtonBorder onClick={handleEdit} className="ms-3">
                 Edit
-              </DetailButtonChat>
+              </ButtonBorder>
             )}
           </div>
         </div>
       </div>
+      <ProductInfoContainer className="d-block justify-content-between my-3 ms-0 ms-lg-4 d-lg-none ">
+        <div className="d-flex gap-2 align-items-center">
+          <i className="bi bi-gender-ambiguous"></i>
+          <ProductInfo className="mb-0">
+            100% health guarantee for pet
+          </ProductInfo>
+        </div>
+        <div className="d-flex gap-2 align-items-center mt-2">
+          <i className="bi bi-person-hearts "></i>
+          <ProductInfo className="mb-0">
+            100% guarantee of pet identification
+          </ProductInfo>
+        </div>
+      </ProductInfoContainer>
       <EditProductModal
         isOpen={isModalOpen}
         handleClose={() => setIsModalOpen(false)}

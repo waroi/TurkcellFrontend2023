@@ -1,13 +1,13 @@
 import Proptypes from "prop-types";
-import { SeacrhResultWrap, SearchResultItem } from "./styled";
+import { SeacrhResultWrap, SearchResultItem, Title } from "./styled";
 
 const SearchResults = ({ searchQuery }) => {
   return (
     <SeacrhResultWrap>
       {searchQuery?.slice(0, 5)?.map((item) => (
-        <SearchResultItem key={item.id} to={`/${item.id}`}>
-          <h6>{item.title}</h6>
-          <h6>#{item.category}</h6>
+        <SearchResultItem key={item.id} to={`/${item.id}`} className="row">
+          <Title>{item.title}</Title>
+          <Title>#{item.category}</Title>
         </SearchResultItem>
       ))}
     </SeacrhResultWrap>
