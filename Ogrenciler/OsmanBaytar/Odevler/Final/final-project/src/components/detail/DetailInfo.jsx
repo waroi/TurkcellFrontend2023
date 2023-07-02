@@ -93,7 +93,6 @@ const DetailInfo = (props) => {
   }, [isWarning]);
 
   function addBasket() {
-    console.log("addBasket");
     basketRequest.post({
       id: maxId + 1,
       username: currentUser.username,

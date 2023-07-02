@@ -78,7 +78,6 @@ export const HeaderDropdown = styled.div`
   z-index: 1;
   text-align: center;
   cursor: pointer;
-  // display: ${(props) => (props.show ? "block" : "none")};
   @media (max-width: 992px) {
     top: 265px;
   }

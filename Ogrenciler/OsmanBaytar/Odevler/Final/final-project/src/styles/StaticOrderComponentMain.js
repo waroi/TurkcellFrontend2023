@@ -18,13 +18,7 @@ export const StaticOrderMainComponentMainContainer = styled.div`
 
     background-image: url("../../public/StaticOrderComponentMainMobile.jpeg");
   }
-  //   @media screen and (max-width: 768px) {
-  //     padding: 50px;
-  //   }
-  //   @media screen and (max-width: 600px) {
-  //     padding: 30px;
-  //     padding-top: 60px;
-  //   }
+
   @media screen and (max-width: 480px) {
     padding: 20px;
     padding-top: 60px;

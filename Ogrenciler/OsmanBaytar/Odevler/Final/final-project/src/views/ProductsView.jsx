@@ -2,7 +2,7 @@ import TotalProducts from "../components/category/TotalProducts";
 import ProductFilter from "../components/category/ProductFilter";
 import ProductThreeItems from "../components/category/ProductThreeItems";
 import StaticOrderComponentCategory from "../components/category/StaticOrderComponentCategory";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const ProductsView = () => {
   const [mensClothing, setMensClothing] = useState();

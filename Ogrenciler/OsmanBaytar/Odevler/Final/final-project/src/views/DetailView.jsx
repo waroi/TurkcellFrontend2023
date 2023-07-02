@@ -166,7 +166,6 @@ const DetailView = () => {
 
   useEffect(() => {
     if (editCount == 1) {
-      console.log("object3");
       intersectedData.map((data, index) => {
         basketRequest.put(data.id, {
           id: data.id,

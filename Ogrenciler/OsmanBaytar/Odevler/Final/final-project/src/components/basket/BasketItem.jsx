@@ -133,7 +133,6 @@ const BasketItem = (props) => {
       countInput?.current?.value > 0 &&
       countInput?.current?.value <= data.count
     ) {
-      console.log(countInput?.current?.value);
       productRequest.put(productId, {
         id: productId,
         title: data.title,
@@ -179,8 +178,6 @@ const BasketItem = (props) => {
       setIsComplete(false);
     }
   }, [isComplete]);
-
-  console.log(countInput?.current?.value);
 
   function buyBasket() {
     setIsComplete(true);

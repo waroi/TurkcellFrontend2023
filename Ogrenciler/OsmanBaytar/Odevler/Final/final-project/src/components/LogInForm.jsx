@@ -72,7 +72,6 @@ function LogInForm() {
       setCount(0);
     }
   }, [count]);
-  console.log(count);
 
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({

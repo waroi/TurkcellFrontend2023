@@ -9,7 +9,6 @@ import {
 } from "../../styles/ProductThreeItemsStyle";
 
 const ProductThreeItems = (props) => {
-  const [isMobile, setIsMobile] = useState(false);
   const sortButton = useRef();
   const [sortCount, setSortCount] = useState(0);
   const [filterCount, setFilterCount] = useState(0);
