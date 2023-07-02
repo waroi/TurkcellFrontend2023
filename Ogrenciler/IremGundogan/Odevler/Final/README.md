@@ -1,6 +1,9 @@
 # Final Projesi - e-Commerce Web Sitesi
 
+-Projeyi ayağa kaldırırken package.json'dan terminali açın.
 -npm start yaparak projeyi ayağa kaldırabilirsiniz.
+
+
 admin: 
 "email": "irme@admin.com",
 "password": "Irme1035",
