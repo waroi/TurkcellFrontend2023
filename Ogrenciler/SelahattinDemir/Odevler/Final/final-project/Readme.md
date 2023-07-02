@@ -34,11 +34,12 @@
 - Tüm sayfalar olmadığı için var olan linkler # ile işaretlenmiş olup diğer linkler için NotFound sayfası hazırlanmıştır.
 - Pc ve mobil uyumluluğu sağlanmıştır.
 
-#### Font
+### Giriş İşlemleri
 
-- Bootstrap Standart
+- Giriş yapmak için kullanıcı adı ve şifre gerekmektedir.
 
-#### İkonlar
+#### Admin Girişi
+- Email: `admin@admin.com`
+- Şifre: `123456Aa`
 
-- Bootstrap İkonları
 
