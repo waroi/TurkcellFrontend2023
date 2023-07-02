@@ -165,7 +165,7 @@ const Navbar = () => {
             </div>
 
             <div className={`${data ? "d-flex" : "d-none"}`}>
-              <div>
+              <div className="d-flex align-items-center">
                 <div className="dropdown">
                   <button
                     className="btn btn-transparent dropdown-toggle"
@@ -191,15 +191,17 @@ const Navbar = () => {
                     </li>
                     <li>
                       <Link
-                        className={`dropdown-item btn ${
-                          data?.isAdmin ? "d-block" : "d-none"
-                        }`}
+                        className={`dropdown-item btn ${data?.isAdmin ? "d-block" : "d-none"
+                          }`}
                         to="/addproduct"
                       >
                         Add Product
                       </Link>
                     </li>
                   </ul>
+                </div>
+                <div className={styles.imgContent}>
+                  <img src={data?.image ? data.image : ""} className="img-fluid" alt="" />
                 </div>
               </div>
               <Link to="/card" className="btn">

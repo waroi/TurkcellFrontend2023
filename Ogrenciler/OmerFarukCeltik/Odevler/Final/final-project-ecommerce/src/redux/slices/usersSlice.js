@@ -21,6 +21,7 @@ export const usersSlice = createSlice({
         "isAdmin": state.localStorageLog.isAdmin,
         "isLoggedIn": true,
         "username":state.localStorageLog.username,
+        "image": state.localStorageLog.image
         
         
       }
