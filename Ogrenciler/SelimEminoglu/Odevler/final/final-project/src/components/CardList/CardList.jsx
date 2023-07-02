@@ -14,6 +14,7 @@ import {
   CardPointDiv,
   CardPoint,
   CardGiftText,
+  UpdateButton,
 } from "./styleCardList";
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
@@ -26,6 +27,7 @@ function CardList({ isEight, isGift }) {
   const error = useSelector((state) => state.product.error);
   const [randomProducts, setRandomProducts] = useState([]);
   const isActiveUser = useSelector((state) => state.user.isActiveUser);
+  const activeUser = useSelector((state) => state.user.activeUser);
 
   useEffect(() => {
     dispatch(fetchProduct());
@@ -92,6 +94,11 @@ function CardList({ isEight, isGift }) {
               <CardButtonDiv>
                 <Button title="Sepete Ekle" />
               </CardButtonDiv>
+              {activeUser.isAdmin && (
+                <CardButtonDiv>
+                  <UpdateButton>Güncelle</UpdateButton>
+                </CardButtonDiv>
+              )}
             </CardDiv>
           </Link>
         ))}
@@ -114,6 +121,11 @@ function CardList({ isEight, isGift }) {
               <CardButtonDiv>
                 <Button title="Sepete Ekle" />
               </CardButtonDiv>
+              {activeUser.isAdmin && (
+                <CardButtonDiv>
+                  <UpdateButton>Güncelle</UpdateButton>
+                </CardButtonDiv>
+              )}
             </CardDiv>
           </Link>
         ))}

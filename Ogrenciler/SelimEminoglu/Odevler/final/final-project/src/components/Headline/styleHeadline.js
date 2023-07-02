@@ -1,7 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const customMediaQuery = (size, styles) => {
+  return css`
+    @media (max-width: ${size}px) {
+      ${styles}
+    }
+  `;
+};
 
 export const HeadlineDiv = styled.div`
-  width: 1440px;
   height: 789px;
   flex-shrink: 0;
   border-radius: 0px 0px 40px 40px;
@@ -13,6 +20,7 @@ export const HeadlineDiv = styled.div`
   );
   position: relative;
   overflow-y: hidden;
+  ${customMediaQuery(1180, `width:100%;`)}
 `;
 
 export const PartDiv = styled.div`

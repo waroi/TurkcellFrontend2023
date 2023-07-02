@@ -14,6 +14,10 @@ import {
   DropDownUl,
   DropDownLi,
   İconİmg,
+  HamburgerButton,
+  HamburgerIcon,
+  HamburgerMenu,
+  HamburgerMenuItem,
 } from "./styleNavbar";
 import { Container } from "../../assets/css/style";
 import NavbarSearch from "./NavbarSearch";
@@ -31,6 +35,7 @@ function Navbar() {
 
   const [background, setBackground] = useState("transparent");
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +48,10 @@ function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
   }, [background]);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const toogleMenu = () => {
     setIsOpen(!isOpen);
@@ -57,6 +66,10 @@ function Navbar() {
     <NavbarDiv background={background}>
       <Container>
         <NavList>
+          <HamburgerButton onClick={handleMenuToggle}>
+            <HamburgerIcon src={Icon.HamburgerIcon} alt="hamburger" />
+          </HamburgerButton>
+
           <img src={Icon.Main} alt="logo" />
           <Link className="navbarA" to={"/"}>
             Home
@@ -100,6 +113,69 @@ function Navbar() {
             </DropDownDiv>
           )}
           {!isActiveUser && <Register />}
+
+          {isMenuOpen && (
+            <HamburgerMenu>
+              <HamburgerMenuItem>
+                <Link className="navbarA" to={"/"}>
+                  Home
+                </Link>
+              </HamburgerMenuItem>
+              <HamburgerMenuItem>
+                <Link
+                  className="navbarA"
+                  to={isActiveUser ? "/products" : "/login"}
+                >
+                  Category
+                </Link>
+              </HamburgerMenuItem>
+              <HamburgerMenuItem>
+                <NavbarA href="#">About</NavbarA>
+              </HamburgerMenuItem>
+              <HamburgerMenuItem>
+                <NavbarA href="#">Contact</NavbarA>
+              </HamburgerMenuItem>
+              <HamburgerMenuItem>
+                {isActiveUser && (
+                  <BasketDiv>
+                    <Link to={"/carts"}>
+                      <CountDiv>0</CountDiv>
+                      <img src={Icon.Cart} alt="logo" />
+                    </Link>
+                  </BasketDiv>
+                )}
+                {!isActiveUser && <Button title="Giriş Yap" path={"/login"} />}
+              </HamburgerMenuItem>
+              <HamburgerMenuItem>
+                {isActiveUser && (
+                  <DropDownDiv>
+                    <DropDownİmg
+                      src={
+                        activeUser.image == ""
+                          ? "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                          : activeUser.image
+                      }
+                      alt="images"
+                    />
+                    <DropDownText>{activeUser.username}</DropDownText>
+                    <DropDownButton onClick={toogleMenu}>
+                      <İconİmg src={Icon.Drop} alt="icon" />
+                    </DropDownButton>
+                    {isOpen && (
+                      <DropDownDivOption>
+                        <DropDownUl>
+                          <DropDownLi onClick={userExit}>Çıkış</DropDownLi>
+                        </DropDownUl>
+                      </DropDownDivOption>
+                    )}
+                  </DropDownDiv>
+                )}
+              </HamburgerMenuItem>
+              <HamburgerMenuItem>
+                {!isActiveUser && <Register />}
+              </HamburgerMenuItem>
+            </HamburgerMenu>
+          )}
         </NavList>
       </Container>
     </NavbarDiv>

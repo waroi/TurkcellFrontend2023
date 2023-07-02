@@ -1,4 +1,12 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const customMediaQuery = (size, styles) => {
+  return css`
+    @media (max-width: ${size}px) {
+      ${styles}
+    }
+  `;
+};
 
 export const NavbarDiv = styled.div`
   display: flex;
@@ -7,14 +15,17 @@ export const NavbarDiv = styled.div`
   align-items: center;
   position: fixed;
   z-index: 4;
+
   background: ${(props) => props.background};
   transition: all 1.5s;
 `;
 
 export const NavList = styled.div`
   display: flex;
+
   align-items: center;
   gap: 36px;
+  ${customMediaQuery(992, `justify-content:space-between;`)}
 `;
 
 export const NavbarA = styled.a`
@@ -23,6 +34,7 @@ export const NavbarA = styled.a`
   font-family: SVN-Gilroy;
   font-weight: 700;
   line-height: 24px;
+  ${customMediaQuery(992, `display:none;`)}
 `;
 
 export const NavbarInput = styled.input`
@@ -37,6 +49,7 @@ export const NavbarInput = styled.input`
   &::placeholder {
     padding-left: 1rem;
   }
+  ${customMediaQuery(992, `display:none;`)}
 `;
 
 export const SearchDiv = styled.div`
@@ -54,6 +67,7 @@ export const BasketDiv = styled.div`
   position: relative;
   width: 32px;
   height: 32px;
+  ${customMediaQuery(992, `display:none;`)}
 `;
 
 export const CountDiv = styled.div`
@@ -77,6 +91,7 @@ export const DropDownDiv = styled.div`
   gap: 8px;
   border-radius: 20px;
   border: 1px solid #ccd1d2;
+  ${customMediaQuery(992, `display:none;`)}
 `;
 
 export const DropDownDivOption = styled.div`
@@ -143,4 +158,29 @@ export const İconİmg = styled.img`
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+`;
+
+export const HamburgerButton = styled.button`
+  background-color: transparent;
+  border: none;
+  position: relative;
+  display: none;
+  ${customMediaQuery(992, `display:block;`)}
+`;
+
+export const HamburgerIcon = styled.img`
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+`;
+
+export const HamburgerMenu = styled.div`
+  position: absolute;
+  top: 6rem;
+  background: #fdfdfd;
+`;
+
+export const HamburgerMenuItem = styled.div`
+  width: 15rem;
+  height: 3rem;
 `;

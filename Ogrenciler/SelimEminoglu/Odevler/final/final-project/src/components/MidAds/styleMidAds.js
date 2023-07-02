@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MidAdsDiv = styled.div`
-  width: 1180px;
+  width: 100%;
   height: 378px;
   flex-shrink: 0;
   border-radius: 20px;

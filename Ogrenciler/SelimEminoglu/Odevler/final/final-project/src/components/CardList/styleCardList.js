@@ -110,3 +110,17 @@ export const CardGiftText = styled.div`
   font-weight: 700;
   line-height: 20px;
 `;
+
+export const UpdateButton = styled.button`
+  display: flex;
+  border: 1px solid #003459;
+  color: #003459;
+  background: #fdfdfd;
+  gap: 10px;
+  width: 161px;
+  padding: 14px 28px 10px 28px;
+  border-radius: 57px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+`;

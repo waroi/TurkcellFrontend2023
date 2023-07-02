@@ -23,6 +23,7 @@ import TwitterSocialIcon from "../assets/icons/Twitter - Negative (2).svg";
 import InstagramSocialIcon from "../assets/icons/Instagram - Negative (2).svg";
 import YoutubeSocialIcon from "../assets/icons/Youtube - Negative (2).svg";
 import PathIcon from "../assets/icons/path_icon.png";
+import HamburgerIcon from "../assets/icons/Hamburger_MD.png";
 
 const Icon = {
   Main: mainLogo,
@@ -50,6 +51,7 @@ const Icon = {
   InstagramSocialIcon: InstagramSocialIcon,
   YoutubeSocialIcon: YoutubeSocialIcon,
   PathIcon: PathIcon,
+  HamburgerIcon: HamburgerIcon,
 };
 
 export default Icon;
