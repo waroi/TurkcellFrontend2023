@@ -12,21 +12,18 @@ function RegisterView() {
   const navigate = useNavigate();
 
   const checkExistingUser = async (email, username) => {
-    // Mevcut kullanıcıları almak için bir istek gönderin veya veritabanına sorgu yapın
-    // Örnek olarak, mevcut kullanıcıları almak için bir API çağrısı yapabilirsiniz
     const response = await request.get();
 
-    // Email ve kullanıcı adı kontrolü yapın
+    // Check email and username
     const existingUser = response.find(
       (user) => user.email === email || user.username === username
     );
-
     return existingUser;
   };
 
   const onSubmit = async (values, actions) => {
     try {
-      // Mevcut kullanıcıları kontrol edin
+      // Check existing users
       const existingUser = await checkExistingUser(
         values.email,
         values.username
@@ -41,7 +38,6 @@ function RegisterView() {
         return;
       }
 
-      // Kayıt işlemini gerçekleştirin
       const response = await request.post({
         ...values,
         login: true,
@@ -49,8 +45,6 @@ function RegisterView() {
         status: 201,
         carts: [],
       });
-
-      console.log(response);
 
       if (response.status === 201) {
         toast.success("Registration successful. You are logged in.");
@@ -62,7 +56,6 @@ function RegisterView() {
         toast.error("An error occurred. Please try again.");
       }
     } catch (error) {
-      console.log(error);
       toast.error("An error occurred. Please try again.");
     }
 
