@@ -40,6 +40,7 @@ const StyledProductCard = styled.div`
     margin-top: 10px;
     h3 {
       font-size: 14px;
+      font-weight: 700;
       @media (max-width: 992px) {
         font-size: 16px;
       }

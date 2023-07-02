@@ -28,7 +28,7 @@ const StyledHeroBanner = styled.div`
     line-height: 68px;
     text-transform: capitalize;
     font-size: 60px;
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       font-size: 46px;
     }
   }
@@ -39,7 +39,7 @@ const StyledHeroBanner = styled.div`
     font-weight: 700;
     line-height: 60px;
     text-transform: capitalize;
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       font-size: 28px;
     }
   }
@@ -201,7 +201,7 @@ const StyledHeroBanner = styled.div`
 
   @media (min-width: 1400px) {
     .rectangleOne {
-      left: 900px;
+      left: 953px;
     }
 
     .rectangleTwo {

@@ -67,6 +67,7 @@ const CartItem = ({ cartItem, setCart, toast }) => {
     useEffect(() => {
         formik.setFieldValue("demand", cartItem.demand)
     }, [cartItem])
+
     const deleteCartItem = async () => {
 
         const cartResponse = await axios.get(`http://localhost:3000/carts/${user.id}`)
@@ -75,6 +76,7 @@ const CartItem = ({ cartItem, setCart, toast }) => {
         setCart(newCart)
         axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
         dispatch(setCartLength(cartLength - 1))
+        toast.success("Product removed.")
 
     }
 
@@ -129,6 +131,7 @@ const CartItem = ({ cartItem, setCart, toast }) => {
             setCart(newCart)
             await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: newCart })
             dispatch(setCartLength(cartLength - 1))
+            toast.success("Product removed.")
 
         }
     }
@@ -153,7 +156,7 @@ const CartItem = ({ cartItem, setCart, toast }) => {
                             id="demand"
                             value={formik.values.demand}
                             onChange={formik.handleChange}
-                            onFocus={() => toast.warn("Press enter after changing the number to submit new amount.")}
+                            onFocus={() => toast.warn("Press 'Enter' after changing the number to submit new amount.")}
                         />
                         {formik.errors.demand && <div className="error">{formik.errors.demand}</div>}
                     </Form>

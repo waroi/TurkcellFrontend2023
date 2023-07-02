@@ -9,7 +9,7 @@ import { useSelector } from "react-redux"
 const PromotionProducts = ({ products }) => {
 
     const user = useSelector(state => state.user.user)
-    const promotionTexts = ["Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace", "Free Necklace"]
+    const promotionTexts = ["Free Toy & Free Shaker", "Free Toy & Free Shaker", "Free Cat Food", "Free Cat Food", "Free Toy & Free Shaker", "Free Toy & Free Shaker", "Free Cat Food", "Free Food & Shaker"]
 
     return (
         <StyledPromotionProducts className="container">

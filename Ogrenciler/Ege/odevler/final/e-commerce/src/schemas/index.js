@@ -42,7 +42,11 @@ export const validationSchema = yup.object().shape({
   description: yup.string().required("Description is required"),
   category: yup.string().required("Category is required"),
   image: yup.string().required("Image URL is required"),
-  rate: yup.number().required("Rating rate is required"),
+  rate: yup
+    .number()
+    .min(0, "Rating rate must be greater than or equal to 0")
+    .max(5, "Rating rate must be less than or equal to 5")
+    .required("Rating rate is required"),
   count: yup.number().required("Rating count is required"),
 });
 

@@ -7,8 +7,8 @@ import paw from "../../assets/Paw.svg"
 const LowerBanner = () => {
     return (
         <div className="container d-none d-lg-flex my-5">
-            <StyledLowerBanner >
-                <div className="row align-items-center z-2">
+            <StyledLowerBanner className="w-100" >
+                <div className="row w-100 align-items-center z-2">
                     <div className="col-lg-6">
                         <div className="d-flex flex-column justify-content-center align-item-center text-center h-100">
                             <h2>Adoption <img src={paw} alt="paw" /></h2>

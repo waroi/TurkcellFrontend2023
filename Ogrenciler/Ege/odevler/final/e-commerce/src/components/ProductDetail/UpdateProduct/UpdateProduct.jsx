@@ -28,7 +28,7 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
                 title: values.title,
                 price: values.price,
                 description: values.description,
-                category: values.category,
+                category: values.category.toLowerCase(),
                 image: values.image,
                 rating: {
                     rate: values.rate,
@@ -45,7 +45,7 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
     return (
         <div>
 
-            <ButtonPrimary type="button" data-bs-toggle="modal" data-bs-target="#updateModal">
+            <ButtonPrimary className="fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#updateModal">
                 Update Product
             </ButtonPrimary>
 

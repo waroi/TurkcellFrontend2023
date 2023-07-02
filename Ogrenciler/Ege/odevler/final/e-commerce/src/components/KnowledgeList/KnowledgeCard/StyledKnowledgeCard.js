@@ -29,6 +29,10 @@ const StyledKnowledgeCard = styled.div`
     -webkit-line-clamp: 4;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    h5 {
+      font-weight: 700;
+    }
   }
 
   &:hover {

@@ -4,35 +4,29 @@ import ButtonOutline from "../../styledComponents/ButtonOutline"
 import caretRight from "../../assets/Caret_Right_Dark.svg"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import knowledgeImgOne from "../../assets/Knowledge_One.png"
+import knowledgeImgTwo from "../../assets/Knowledge_Two.png"
+import knowledgeImgThree from "../../assets/Knowledge_Three.png"
 const KnowledgeList = () => {
     const user = useSelector(state => state.user.user)
     const knowledgeInfos = [
         {
-            title: "What is a T-Shirt?",
+            title: "What is a Pomeranian? How to Identify Pomeranian Dogs",
             info: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae expedita delectus velit, dicta itaque voluptate sunt sit molestiae, veniam ut laboriosam reiciendis eveniet eligendi veritatis animi ex et sequi eaque odit, quae recusandae pariatur est corrupti. Totam molestias enim consequatur. Laudantium impedit corrupti aliquid tenetur alias. Vel, nulla? Inventore, sint?",
-            image: "https://picsum.photos/id/27/200/300",
-            tag: {
-                text: "Wardrobe Knowledge",
-                background: "red"
-            }
+            image: knowledgeImgOne,
+            tag: "Pet Knowledge"
         },
         {
-            title: "What is a Necklace?",
+            title: "Dog Diet You Need To Know",
             info: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae expedita delectus velit, dicta itaque voluptate sunt sit molestiae, veniam ut laboriosam reiciendis eveniet eligendi veritatis animi ex et sequi eaque odit, quae recusandae pariatur est corrupti. Totam molestias enim consequatur. Laudantium impedit corrupti aliquid tenetur alias. Vel, nulla? Inventore, sint?",
-            image: "https://picsum.photos/id/27/200/300",
-            tag: {
-                text: "Jewelery Knowledge",
-                background: "green"
-            }
+            image: knowledgeImgTwo,
+            tag: "Pet Knowledge"
         },
         {
-            title: "Do you know about SSD",
+            title: "Why Dogs bite and Destroy Furniture and How to Prevent It Effectively",
             info: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae expedita delectus velit, dicta itaque voluptate sunt sit molestiae, veniam ut laboriosam reiciendis eveniet eligendi veritatis animi ex et sequi eaque odit, quae recusandae pariatur est corrupti. Totam molestias enim consequatur. Laudantium impedit corrupti aliquid tenetur alias. Vel, nulla? Inventore, sint?",
-            image: "https://picsum.photos/id/27/200/300",
-            tag: {
-                text: "Electronics Knowledge",
-                background: "blue"
-            }
+            image: knowledgeImgThree,
+            tag: "Pet Knowledge"
         },
     ]
 

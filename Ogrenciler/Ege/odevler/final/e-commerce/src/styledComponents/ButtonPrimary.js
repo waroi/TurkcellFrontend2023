@@ -5,10 +5,12 @@ const ButtonPrimary = styled.button`
   background-color: #103559;
   padding: 14px;
   border: 2px solid #103559;
-  border-radius: 20px;
+  border-radius: 57px;
   border: none;
   outline: none;
-  font-weight: 500;
+  &.disabled {
+    background-color: #7f9eb2;
+  }
 `;
 
 export default ButtonPrimary;

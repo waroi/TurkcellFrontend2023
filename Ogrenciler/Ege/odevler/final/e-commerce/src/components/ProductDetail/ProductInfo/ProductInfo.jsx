@@ -33,8 +33,8 @@ const ProductInfo = ({ product, handleCartClick, isAdmin, setProduct, toast }) =
             <h2 className="productTitle">{product.title}</h2>
             <h3 className="productPrice">{product.price}$</h3>
             <div className="d-flex justify-content-center align-items-center gap-3 my-3">
-                <ButtonPrimary onClick={handleCartClick}>Add To Cart</ButtonPrimary>
-                <ButtonOutline> <img src={chatDots} alt="chat" /> Chat with Monito</ButtonOutline>
+                <ButtonPrimary disabled={product.rating?.count <= 0} onClick={handleCartClick} className={`fw-bold ${product.rating?.count <= 0 ? "disabled" : ""}`}>Add To Cart</ButtonPrimary>
+                <ButtonOutline className="fw-bold"> <img src={chatDots} alt="chat" /> Chat with Monito</ButtonOutline>
                 {(isAdmin && product) && <UpdateProduct product={product} setProduct={setProduct} toast={toast} />}
 
             </div>

@@ -99,10 +99,10 @@ const Navbar = () => {
                                     {
                                         !currentUser
                                             ? (
-                                                <Link to="/login"><ButtonPrimary >Login</ButtonPrimary></Link>
+                                                <Link to="/login"><ButtonPrimary className="fw-bold" >Login</ButtonPrimary></Link>
                                             )
                                             : (
-                                                <Link to="/cart"><ButtonPrimary className="d-flex" ><img src={cartIcon} alt="cart" /> {cartLength}</ButtonPrimary></Link>
+                                                <Link to="/cart"><ButtonPrimary className="d-flex fw-bold" ><img src={cartIcon} alt="cart" /> {cartLength}</ButtonPrimary></Link>
                                             )
                                     }
 
@@ -111,7 +111,7 @@ const Navbar = () => {
                                     {
                                         !currentUser
                                             ? (
-                                                <Link to="/signup"><ButtonPrimary >Sign Up</ButtonPrimary></Link>
+                                                <Link to="/signup"><ButtonPrimary className="fw-bold" >Sign Up</ButtonPrimary></Link>
                                             )
                                             : (<AccountDropdown />)
                                     }

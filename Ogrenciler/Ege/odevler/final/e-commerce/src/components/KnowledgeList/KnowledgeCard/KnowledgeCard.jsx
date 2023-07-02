@@ -6,7 +6,7 @@ const KnowledgeCard = ({ info }) => {
             <div className="cardImage">
                 <img src={info.image} alt={info.title} />
             </div>
-            <span className="tag">{info.tag.text}</span>
+            <span className="tag">{info.tag}</span>
             <div className="cardText">
                 <h5>{info.title}</h5>
                 <p>{info.info}</p>
