@@ -40,7 +40,7 @@ const Login = () => {
                     const findUser = getUsers.find((user) =>
                         user.username.toLowerCase() == values.username.toLowerCase() &&
                         user.surname.toLowerCase() == values.surname.toLowerCase() &&
-                        user.password.toLowerCase() == values.password.toLowerCase()
+                        user.password == values.password
                     )
                     if (findUser) {
                         updateUser(findUser?.id, findUser)

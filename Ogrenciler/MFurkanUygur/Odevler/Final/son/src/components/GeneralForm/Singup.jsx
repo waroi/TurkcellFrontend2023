@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { getUser } from "../../redux/slices/usersData";
 import { DarkButton } from "../buttons/buttonStyle";
 import { useNavigate } from "react-router-dom";
-import { Formik, Field, Form} from "formik";
+import { Formik, Field, Form } from "formik";
 import { SignupSchema } from "./schema";
 import { useEffect } from "react";
 import Error from "./Error";
@@ -41,7 +41,7 @@ const UserForm = () => {
                     const findUser = getUsers.find((user) =>
                         user.username.toLowerCase() == values.username.toLowerCase() &&
                         user.surname.toLowerCase() == values.surname.toLowerCase() &&
-                        user.password.toLowerCase() == values.password.toLowerCase()
+                        user.password == values.password
                     )
                     if (findUser) {
                         toast.error("Bu isimde kullanıcı var!", {
@@ -108,7 +108,7 @@ const UserForm = () => {
                     </Form>
                 </div>
             </Formik>
-      
+
         </div>
     );
 };
