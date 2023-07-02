@@ -1,0 +1,53 @@
+.PetsArea {
+    color: $primary;
+    padding: 100px 0;
+
+    .PetsInfo {
+        .PetsInfoButton {
+            padding: 10px 25px;
+            border-radius: 20px;
+            width: 100%;
+            background: none;
+            border: 1px solid $primary;
+            color: $primary;
+            font-weight: 500;
+        }
+    }
+
+    .PetsCards {
+        padding: 20px 0;
+
+    }
+}
+
+.overhidden {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.projectcard {
+    margin: 10px;
+}
+
+.InfoCard {
+    background-color: $primary;
+    align-items: center;
+    border-radius: 25px;
+    padding: 10px 25px 0px 0px;
+    margin: 25px 0;
+
+    .InfoCardRight {
+        text-align: right;
+        @include InfoExplore($secondary, $primary);
+
+    }
+
+    .InfoCardLeft {
+        img {
+            width: 100%;
+        }
+    }
+}
