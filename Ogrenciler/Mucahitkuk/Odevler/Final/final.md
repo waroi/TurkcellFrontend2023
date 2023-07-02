@@ -4,9 +4,9 @@
 
 1- final-project dosyasına sağ tıklayıp farklı bir terminalde çalıştırın.
 2- Açılan terminalde npm install yazarak dependenciesleri yükleyin.
-3- Dependenciesler yüklendikten sonra npm run start yazarak json server ile vite'ı çalıştırabilirsiniz.
+3- Dependenciesler yüklendikten sonra "npm run startapp" yazarak json server ile vite'ı çalıştırabilirsiniz.
 
-(Eğer npm run start çalışmazsa 2 ayrı terminalde "npm run dev" ile "npm run server" ile de projeyi çalıştırabilirsiniz.)
+(Fakat "npm run startapp" çalışmazsa 2 ayrı terminalde "npm run dev" ile "npm run server" ile de projeyi çalıştırabilirsiniz.)
 
 ## Kullanılan Teknolojiler
 
@@ -43,6 +43,7 @@
 "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "formik": "^2.4.2",
     "json-server": "^0.17.3",
