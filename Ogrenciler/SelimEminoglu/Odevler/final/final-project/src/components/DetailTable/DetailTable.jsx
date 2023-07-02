@@ -13,7 +13,27 @@ import {
   ThumbnailSliderİmg,
   SliderButtonPre,
   SliderButtonNex,
+  DetailGiftDiv,
+  DetailRedIcon,
+  DetailYellowIcon,
+  DetailGiftText,
+  DetailSocialDiv,
+  DetailShareIcon,
+  DetailShareText,
+  DetailSocialIcon,
+  FlexDiv,
+  DetailPathDiv,
+  DetailPathIcon,
+  DetailTitleDiv,
+  DetailTitle,
+  DetailTitleİd,
+  DetailPrice,
+  DetailButtonDiv,
+  DetailİnfoDiv,
+  DetailİnfoLeft,
+  DetailİnfoRight,
 } from "./styleDetailTable";
+import Button from "../Button/Button";
 import PropTypes from "prop-types";
 
 function DetailTable({ id }) {
@@ -22,12 +42,32 @@ function DetailTable({ id }) {
   const loading = useSelector((state) => state.product.loading);
   const error = useSelector((state) => state.product.error);
   const [product, setProduct] = useState({});
+  const [mainImage, setMainImage] = useState("");
+  const [mainİd, setMainİd] = useState(0);
+  const [mainTitle, setMainTitle] = useState("");
+  const [mainPrice, setMainPrice] = useState(0);
+  const [mainCategory, setMainCategory] = useState("");
+  const [mainDescription, setMainDescription] = useState("");
+  const [mainRate, setMainRate] = useState(0);
+
   const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
     dispatch(fetchProduct());
-    setProduct(products.filter((item) => item.id == id));
   }, [dispatch]);
+
+  useEffect(() => {
+    if (products.length > 0) {
+      setProduct(products.filter((item) => item.id == id));
+      setMainImage(products[0].image);
+      setMainİd(products[0].id);
+      setMainTitle(products[0].title);
+      setMainPrice(products[0].price);
+      setMainDescription(products[0].description);
+      setMainCategory(products[0].category);
+      setMainRate(products[0].rating.rate);
+    }
+  }, [products, id]);
 
   if (loading) {
     return <div>Yükleniyor...</div>;
@@ -38,7 +78,7 @@ function DetailTable({ id }) {
   }
 
   const images = [
-    product[0].image,
+    mainImage,
     Icon.Slider3,
     Icon.Slider4,
     Icon.Slider5,
@@ -88,8 +128,59 @@ function DetailTable({ id }) {
               />
             ))}
           </ThumbnailSlider>
+          <DetailGiftDiv>
+            <DetailRedIcon src={Icon.RedIcon} alt="icon" />
+            <DetailGiftText>100% health guarantee for pets</DetailGiftText>
+            <DetailYellowIcon src={Icon.YellowIcon} alt="icon" />
+            <DetailGiftText>
+              100% guarantee of pet identification
+            </DetailGiftText>
+          </DetailGiftDiv>
+          <DetailSocialDiv>
+            <FlexDiv>
+              <DetailShareIcon src={Icon.ShareIcon} alt="icon" />
+              <DetailShareText>Share:</DetailShareText>
+            </FlexDiv>
+            <DetailSocialIcon src={Icon.FacebookSocialIcon} alt="icon" />
+            <DetailSocialIcon src={Icon.TwitterSocialIcon} alt="icon" />
+            <DetailSocialIcon src={Icon.InstagramSocialIcon} alt="icon" />
+            <DetailSocialIcon src={Icon.YoutubeSocialIcon} alt="icon" />
+          </DetailSocialDiv>
         </DetailİmageDiv>
-        <DetailTextDiv></DetailTextDiv>
+        <DetailTextDiv>
+          <FlexDiv>
+            <DetailPathDiv>Home</DetailPathDiv>
+            <DetailPathIcon src={Icon.PathIcon} alt="icon" />
+            <DetailPathDiv>Dog</DetailPathDiv>
+            <DetailPathIcon src={Icon.PathIcon} alt="icon" />
+            <DetailPathDiv>Large Dog</DetailPathDiv>
+            <DetailPathIcon src={Icon.PathIcon} alt="icon" />
+            <DetailPathDiv>Shiba Inu Sepia</DetailPathDiv>
+          </FlexDiv>
+          <DetailTitleDiv>
+            {console.log(product)}
+            <DetailTitleİd>{mainİd}</DetailTitleİd>
+            <DetailTitle>{mainTitle}</DetailTitle>
+            <DetailPrice>{mainPrice} $</DetailPrice>
+          </DetailTitleDiv>
+          <DetailButtonDiv>
+            <Button title="Sepete Ekle" />
+          </DetailButtonDiv>
+          <div>
+            <DetailİnfoDiv>
+              <DetailİnfoLeft>Kategori:</DetailİnfoLeft>
+              <DetailİnfoRight>{mainCategory}</DetailİnfoRight>
+            </DetailİnfoDiv>
+            <DetailİnfoDiv>
+              <DetailİnfoLeft>Tanım:</DetailİnfoLeft>
+              <DetailİnfoRight>{mainDescription}</DetailİnfoRight>
+            </DetailİnfoDiv>
+            <DetailİnfoDiv>
+              <DetailİnfoLeft>Derece:</DetailİnfoLeft>
+              <DetailİnfoRight>{mainRate}</DetailİnfoRight>
+            </DetailİnfoDiv>
+          </div>
+        </DetailTextDiv>
       </DetailTableDiv>
     </Container>
   );

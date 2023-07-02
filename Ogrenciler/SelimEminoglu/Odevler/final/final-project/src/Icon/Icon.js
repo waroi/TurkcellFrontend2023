@@ -15,6 +15,14 @@ import Slider7 from "../assets/images/slider 7.png";
 import Slider8 from "../assets/images/slider 8.png";
 import PreIcon from "../assets/icons/Caret_Left_SM.png";
 import NextIcon from "../assets/icons/Caret_Right_slider_SM.png";
+import RedIcon from "../assets/icons/red_icon.svg";
+import YellowIcon from "../assets/icons/yellow_icon.svg";
+import ShareIcon from "../assets/icons/Share_Android.png";
+import FacebookSocialIcon from "../assets/icons/Facebook - Negative (2).svg";
+import TwitterSocialIcon from "../assets/icons/Twitter - Negative (2).svg";
+import InstagramSocialIcon from "../assets/icons/Instagram - Negative (2).svg";
+import YoutubeSocialIcon from "../assets/icons/Youtube - Negative (2).svg";
+import PathIcon from "../assets/icons/path_icon.png";
 
 const Icon = {
   Main: mainLogo,
@@ -34,6 +42,14 @@ const Icon = {
   Slider8: Slider8,
   NextIcon: NextIcon,
   PreIcon: PreIcon,
+  RedIcon: RedIcon,
+  YellowIcon: YellowIcon,
+  ShareIcon: ShareIcon,
+  FacebookSocialIcon: FacebookSocialIcon,
+  TwitterSocialIcon: TwitterSocialIcon,
+  InstagramSocialIcon: InstagramSocialIcon,
+  YoutubeSocialIcon: YoutubeSocialIcon,
+  PathIcon: PathIcon,
 };
 
 export default Icon;
