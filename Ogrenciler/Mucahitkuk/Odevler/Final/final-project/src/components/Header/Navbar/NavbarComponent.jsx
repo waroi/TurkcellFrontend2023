@@ -1,4 +1,4 @@
-import { useNavigate,Link} from 'react-router-dom';
+import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
@@ -7,12 +7,20 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Frame from "../../../assets/Frame.png";
-import { loginUser, logoutUser  } from "../../../redux/actions/actions";
-import { CustomSearch, MobileSearch, MobileSearchDiv, MobileSearchImage } from "./styled";
+import { loginUser, logoutUser } from "../../../redux/actions/actions";
+import {
+  CustomSearch,
+  MobileSearch,
+  MobileSearchDiv,
+  MobileSearchImage,
+} from "./styled";
 import mobileSearch from "../../../assets/mobileSearch.svg";
 import LogoutButton from "../../Logout/LogoutButton";
-import { PageButton, PageButtonTwo } from "../../HomeComponents/HeaderContent/styled";
-import { Toast } from 'react-bootstrap';
+import {
+  PageButton,
+  PageButtonTwo,
+} from "../../HomeComponents/HeaderContent/styled";
+import { Toast } from "react-bootstrap";
 
 const NavbarComponent = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -40,20 +48,20 @@ const NavbarComponent = () => {
   const submitSearch = (e) => {
     e.preventDefault();
     const searchTerm = e.target.value.trim();
-  
+
     if (currentUser) {
-      if (searchTerm !== '') {
-        navigate('/Product', { state: { search: searchTerm } });
+      if (searchTerm !== "") {
+        navigate("/Product", { state: { search: searchTerm } });
       } else {
-        navigate('/Product', { state: { search: null } });
+        navigate("/Product", { state: { search: null } });
       }
     } else {
       setShowSearchToast(true);
       setToastMessage("Must log in to use search");
       setTimeout(() => {
         setShowSearchToast(false);
-        navigate('/login');
-      }, 2000)
+        navigate("/login");
+      }, 2000);
     }
   };
 
@@ -107,41 +115,46 @@ const NavbarComponent = () => {
                   aria-label="Search"
                   onChange={submitSearch}
                 />
-               {!currentUser ? (
-                 <div className="d-flex justify-content-center align-items-center gap-2">
-                 <PageButtonTwo>
-                   <Link to="/signup">Join the community</Link>
-                 </PageButtonTwo>
-                 <PageButtonTwo>
-                   <Link to="/login">Already have an account</Link>
-                 </PageButtonTwo>
-               </div>
-           
-          ) : (
-            <div className="d-flex flex-xl-row flex-column  justify-content-center align-items-center gap-2">
-            <PageButton>
-              <Link to="/Cart">Check Cart</Link>
-            </PageButton>
-            <div>
-            <img src={currentUser.profileImage} style={{width: "50px", borderRadius: "50%"}}></img>
-            </div>
-            <NavDropdown
-            className="d-flex align-items-center border-white"
-            src={Frame}
-            id={`offcanvasNavbarDropdown-expand-${expand}`}
-            title={currentUser.username}
-          >
-              <LogoutButton style={{width: "100% !important"}}  onClick={handleLogout} />
-          </NavDropdown>
-          </div>
-          )}
+                {!currentUser ? (
+                  <div className="d-flex justify-content-center align-items-center gap-2">
+                    <Link to="/signup">
+                      <PageButtonTwo>Join the community</PageButtonTwo>
+                    </Link>
+                    <Link to="/login">
+                      <PageButtonTwo>Already have an account</PageButtonTwo>
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="d-flex flex-xl-row flex-column  justify-content-center align-items-center gap-2">
+                    <Link to="/Cart">
+                      <PageButton>Check Cart</PageButton>
+                    </Link>
+                    <div>
+                      <img
+                        src={currentUser.profileImage}
+                        style={{ width: "50px", borderRadius: "50%" }}
+                      ></img>
+                    </div>
+                    <NavDropdown
+                      className="d-flex align-items-center border-white"
+                      src={Frame}
+                      id={`offcanvasNavbarDropdown-expand-${expand}`}
+                      title={currentUser.username}
+                    >
+                      <LogoutButton
+                        style={{ width: "100% !important" }}
+                        onClick={handleLogout}
+                      />
+                    </NavDropdown>
+                  </div>
+                )}
               </Offcanvas.Body>
             </Navbar.Offcanvas>
             <MobileSearchImage onClick={handleSearchClick} src={mobileSearch} />
           </Container>
           <MobileSearchDiv>
             <MobileSearch
-              type='search'
+              type="search"
               placeholder="Search something here!"
               onChange={submitSearch}
               className={`${showSearch ? "visible" : "hidden"}`}
@@ -149,14 +162,18 @@ const NavbarComponent = () => {
           </MobileSearchDiv>
         </Navbar>
       ))}
-          <div className='d-flex m-auto position-absolute justify-content-center mt-3 w-100'>
-      <Toast className='bg-danger m-auto' show={showSearchToast} onClose={() => setShowSearchToast(false)}>
+      <div className="d-flex m-auto position-absolute justify-content-center mt-3 w-100">
+        <Toast
+          className="bg-danger m-auto"
+          show={showSearchToast}
+          onClose={() => setShowSearchToast(false)}
+        >
           <Toast.Header>
             <strong className="me-auto">Notice</strong>
           </Toast.Header>
-          <Toast.Body className='text-white'>{searchToastMessage}</Toast.Body>
+          <Toast.Body className="text-white">{searchToastMessage}</Toast.Body>
         </Toast>
-        </div>
+      </div>
     </>
   );
 };

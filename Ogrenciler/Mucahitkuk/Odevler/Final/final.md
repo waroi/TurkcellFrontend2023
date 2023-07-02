@@ -24,6 +24,7 @@
 - swiper: 9.4.1
 - react-redux: 8.1.1
 - yup: 1.2.0
+- axios: 1.4.0
 
 ## Proje Tasarımı
 
