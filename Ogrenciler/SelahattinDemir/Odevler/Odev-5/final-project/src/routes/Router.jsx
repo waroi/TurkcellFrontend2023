@@ -41,7 +41,7 @@ const Router = () => {
       element: isLoggedIn ? <CategoryView /> : <UnauthorizedAccess />,
     },
     {
-      path: "/carts",
+      path: "/carts/:id",
       element: isLoggedIn ? <CartsView /> : <UnauthorizedAccess />,
     },
     {
