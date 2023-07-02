@@ -2,7 +2,7 @@
 
 import { Link, useNavigate } from "react-router-dom"
 import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Field, Form, Formik } from "formik"
 import { fetchOneProduct, updateMainProduct } from "../../request/productRequest"
 import { EditSchema } from "../GeneralForm/schema"
@@ -16,10 +16,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Rating } from "@smastrom/react-rating"
 import Error from "../GeneralForm/Error"
+import { updateCount } from "../../redux/slices/countBasket"
 
 const ListProducts = ({ product }) => {
     const userIsAdmin = useSelector((state) => state?.setLoggedUser?.isAdminLog)
     const navigate = useNavigate()
+    const dispatch=useDispatch()
     const [currentItem, setCurrentItem] = useState(product)
 
 const ifUserLogged = () => {
@@ -57,6 +59,7 @@ const ifUserLogged = () => {
                 }
                 if (product.rating.count > 0) {
                     allCarts.cartItems = [...allCarts.cartItems, addCartItem]
+                    dispatch(updateCount(allCarts?.cartItems?.length))
                     toast.success("Yeni ürün eklediniz")
 
                 }

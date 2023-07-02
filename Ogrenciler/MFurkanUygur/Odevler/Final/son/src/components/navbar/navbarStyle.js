@@ -41,3 +41,10 @@ export const NavUl = styled.ul`
     padding:0;
 
 `
+
+export const NavImg=styled.img`
+    width:30px;
+    height:30px;
+    margin:0 10px;
+    border-radius:50%;
+`

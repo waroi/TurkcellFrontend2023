@@ -10,11 +10,13 @@ import carrow from '../../assets/carrow.png'
 import darrow from '../../assets/darrow.png'
 import uarrow from '../../assets/uarrow.png'
 import { fetchAllProduct } from "../../request/productRequest";
+import { updateCount } from "../../redux/slices/countBasket";
+import { useDispatch } from "react-redux";
 const BasketItem = ({ item, basket, setBasket }) => {
     const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
     console.log(item)
 
-    // const [basket, setBasketItem] = useState()
+    const dispatch = useDispatch()
     const [allProducts, setAllProducts] = useState()
 
     const latestStock = allProducts?.find(product => product.id == item.id)
@@ -75,7 +77,10 @@ const BasketItem = ({ item, basket, setBasket }) => {
 
                     if (existingItem.count === 0) {
                         console.log("Ürün silindi");
-                        fetchPrivateCart(userIsLog.id).then(data => setBasket(data.cartItems))
+                        fetchPrivateCart(userIsLog.id).then(data => {
+                            setBasket(data.cartItems)
+                            dispatch(updateCount(data?.cartItems?.length))
+                        })
                     }
                 })
                 .catch((error) => {
@@ -133,7 +138,12 @@ const BasketItem = ({ item, basket, setBasket }) => {
 
         addNewItemOnCart(userIsLog.id, updatedCart)
             .then(() => {
-                fetchPrivateCart(userIsLog.id).then(data => setBasket(data.cartItems))
+                fetchPrivateCart(userIsLog.id).then(data => {
+                    setBasket(data.cartItems)
+                    dispatch(updateCount(data?.cartItems?.length))
+
+                })
+
                 toast.error("Ürün sepetten çıkarıldı")
                 item.count = 0; // item.count değerini sıfırla
             })

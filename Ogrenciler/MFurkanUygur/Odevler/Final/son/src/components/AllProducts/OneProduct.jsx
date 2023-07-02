@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest";
 import { Field, Form, Formik } from "formik";
@@ -18,9 +18,10 @@ import add from '../../assets/add.png'
 import inspect from '../../assets/inspect.png'
 import edit from '../../assets/edit.png'
 import Error from "../GeneralForm/Error";
+import { updateCount } from "../../redux/slices/countBasket";
 
 const OneProduct = ({ item }) => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [currentItem, setCurrentItem] = useState(item)
     const userIsAdmin = useSelector((state) => state?.setLoggedUser?.isAdminLog)
@@ -71,6 +72,7 @@ const OneProduct = ({ item }) => {
                     }
                     if (item.rating.count > 0) {
                         allCarts.cartItems = [...allCarts.cartItems, addCartItem]
+                        dispatch(updateCount(allCarts?.cartItems?.length))
                         toast.success("Yeni ürün eklediniz")
                     }
                     else {

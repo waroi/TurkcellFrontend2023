@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom"
 import { clearLoginUser, updateIsAdmin } from "../../redux/slices/loggedUser";
-import { useState } from "react";
-import { NavbarLogo, Navbarul } from "./navbarStyle";
+import { useEffect, useState } from "react";
+import { NavImg, NavbarLogo, Navbarul } from "./navbarStyle";
 import logo from "../../assets/logo.png"
 
 import { ToastContainer, toast } from "react-toastify";
@@ -11,10 +11,10 @@ import { ToastContainer, toast } from "react-toastify";
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
-  console.log("user", userIsLog)
-  const loggedUser = useSelector((state) => state.setLoggedUser?.loggedUserObject);
   const [isClick, setIsClick] = useState(false)
+  const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
+  const loggedUser = useSelector((state) => state.setLoggedUser?.loggedUserObject);
+  const countBasket = useSelector((state) => state?.setCountBasketName?.count)
 
   window.addEventListener('scroll', function () {
     var navbar = document.querySelector('.navbar');
@@ -113,13 +113,14 @@ const Navbar = () => {
                       <Link to="/sepet" className="nav-link">
                         <div className="d-flex">
                           <i className="fa-solid fa-basket-shopping"></i>
-                          Sepet
+                          {countBasket}
                         </div>
                       </Link>
                     </li>
                     <li className="nav-item dropdown">
                       <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {/* <img src={userIsLog.profile} alt="" /> */}
+                        <NavImg src={userIsLog.profile} alt="" />
+                        Profile
                       </a>
                       <ul className="dropdown-menu">
                         <li>

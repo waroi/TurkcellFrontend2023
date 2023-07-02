@@ -6,11 +6,14 @@ import { Link } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { CardButton } from "../buttons/buttonStyle"
+import { useDispatch } from "react-redux"
+import { updateCount } from "../../redux/slices/countBasket"
 
 const Basket = () => {
     const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
     const [basket, setBasket] = useState([])
     const [allProducts, setAllProducts] = useState([])
+    const dispatch=useDispatch()
     useEffect(() => {
         fetchAllProduct().then(data => setAllProducts(data))
         fetchPrivateCart(userIsLog.id).then(data => setBasket(data.cartItems))
@@ -63,15 +66,11 @@ const Basket = () => {
     //         });
     // }
     const buyItems = () => {
-        //tüm ürünleri fetch ile aldım
         basket.forEach((item) => {
             const product = allProducts.find((p) => p.id === item.id);
 
             if (product && item.count > product.rating.count) {
-                // Ürünün stoktan fazla olduğu durumu kontrol edin
-                // Uyarı mesajı verin veya alışverişi engelleyin
                 if (item.count > product.stock) {
-                    // Stoktan fazla ürün var, alışverişi engelleyin
                     toast.error(`Sepetteki ${product.title} ürünü, stokta yeterli sayıda bulunmamaktadır. Dikkat ediniz.`, {
                         position: "bottom-right",
                         autoClose: 1000,
@@ -81,9 +80,8 @@ const Basket = () => {
                         progress: undefined,
                         theme: "colored",
                     });
-                    // Diğer işlemleri yapabilirsiniz (uyarı mesajı göstermek veya işlemi durdurmak)
+                   
                 } else {
-                    // Stoktan fazla olmayan, ancak rating.count'tan fazla ürün var, uyarı mesajı verin
                     toast.error(`Sepetteki ${product.title} ürünü, stokta yeterli sayıda bulunmamaktadır. Dikkat ediniz.`, {
                         position: "bottom-right",
                         autoClose: 1000,
@@ -93,21 +91,17 @@ const Basket = () => {
                         progress: undefined,
                         theme: "colored",
                     });
-                    // Uyarı mesajını göstermek için gerekli işlemleri yapabilirsiniz
                 }
             }
             else {
+                
                 fetchAllProduct()
                     .then(products => {
-                        // Sepetteki ürünleri fetch ile aldım
                         fetchPrivateCart(userIsLog.id)
                             .then(carts => {
-                                // Sepetteki ürünleri döngü ile gez
                                 carts.cartItems.forEach(basketItem => {
-                                    // Ürünü bul
                                     const product = products.find(product => product.id === basketItem.id);
 
-                                    // Ürünün sayısını güncelle
                                     if (product) {
                                         const updatedProduct = {
                                             id: product.id,
@@ -122,7 +116,6 @@ const Basket = () => {
                                             }
                                         };
 
-                                        // Güncellenmiş ürünü fetch ile kaydet
                                         updateMainProduct(product.id, updatedProduct)
                                     }
 
@@ -134,8 +127,10 @@ const Basket = () => {
                                     name: userIsLog.name,
                                     cartItems: []
                                 };
-                                addNewItemOnCart(userIsLog.id, updatedUserCart).then(() => setBasket([])
-                                )
+                                addNewItemOnCart(userIsLog.id, updatedUserCart).then(() => {
+                                    setBasket([])
+                                    dispatch(updateCount(updatedUserCart?.cartItems?.length))
+                                })
                             })
                             .catch(error => {
                                 toast.error(error)

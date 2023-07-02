@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
 import { Link, useNavigate } from "react-router-dom"
 import { Field, Form, Formik } from "formik"
@@ -14,10 +14,12 @@ import inspect from '../../assets/inspect.png'
 import edit from '../../assets/edit.png'
 import Error from "../GeneralForm/Error"
 import { ToastContainer, toast } from "react-toastify"
+import { updateCount } from "../../redux/slices/countBasket"
 
 const RandomProduct = ({ item }) => {
     const userIsAdmin = useSelector((state) => state?.setLoggedUser?.isAdminLog)
     const navigate = useNavigate()
+    const dispatch= useDispatch()
     const [currrentItem, setCurrentItem] = useState(item)
 
     const ifUserLogged = () => {
@@ -72,6 +74,7 @@ const RandomProduct = ({ item }) => {
                     }
                     if (item.rating.count > 0) {
                         allCarts.cartItems = [...allCarts.cartItems, addCartItem]
+                        dispatch(updateCount(allCarts?.cartItems?.length))
                         toast.success("Ürün sepete eklendi")
                     }
                     else {

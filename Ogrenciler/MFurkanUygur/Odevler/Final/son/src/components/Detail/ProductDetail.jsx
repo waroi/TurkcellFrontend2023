@@ -12,11 +12,15 @@ import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest";
 import { ToastContainer, toast } from "react-toastify";
 import MyGallery from "./MyGallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import { updateCount } from "../../redux/slices/countBasket";
+import { useDispatch } from "react-redux";
 const ProductDetail = () => {
     const { id } = useParams()
     const [item, setItem] = useState();
     const [allData, setAllData] = useState()
     const navigate = useNavigate()
+    const dispatch = useDispatch();
+
     const fetchProductDetail = async () => {
         const response = await fetch(`http://localhost:3000/products/${id}`);
         const res = await response.json()
@@ -73,6 +77,7 @@ const ProductDetail = () => {
                     }
                     if (item.rating.count > 0) {
                         allCarts.cartItems = [...allCarts.cartItems, addCartItem]
+                        dispatch(updateCount(allCarts?.cartItems?.length))
                         toast.success("Yeni ürün eklediniz")
                     }
                     else {
