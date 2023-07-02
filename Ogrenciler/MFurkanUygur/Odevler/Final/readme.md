@@ -1,3 +1,8 @@
+# Turkcell React E-Commerce Uygulaması Final
+
+Proje [Final.md](https://github.com/waroi/TurkcellFrontend2023/blob/main/Dersler/Odevler/Final/Final.md) üzerinden oluşturulmuştur.
+Tasarım [Figma tasarımı](<https://www.figma.com/file/huLzYoVQ8i78IzsLyYuuhZ/%5BFREE-TEMPLATE%5D-eCommerce-Website---Monito-Pets-for-Best-(Community)-(Community)-(Copy)?type=design&node-id=8%3A32&mode=design&t=6h1r2xwtRwA1tGAd-1>) olarak kullanılmıştır
+
 ## Github
 
 Github hesabıma ulaşmak için: [M.Furkan UYGUR](https://github.com/mfurkanuygur)
@@ -36,3 +41,5 @@ Parola: Admin1;
 12. React Image Gallery
 13. Concurrently
 14. React Rating
+
+Eğer mobile geçince ya da mobil cihazlar arasında geçiş yapıldığında kayma yaşanıyorsa lütfen mobil görünümü kapatıp tekrar açınız.
