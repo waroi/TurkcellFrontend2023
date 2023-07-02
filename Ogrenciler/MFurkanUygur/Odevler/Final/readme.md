@@ -35,3 +35,4 @@ Parola: Admin1;
 11. Yup
 12. React Image Gallery
 13. Concurrently
+14. React Rating

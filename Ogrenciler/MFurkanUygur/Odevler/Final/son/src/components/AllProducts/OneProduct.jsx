@@ -43,9 +43,9 @@ const OneProduct = ({ item }) => {
         }
         else {
             const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
-           
+
             fetchPrivateCart(userIsLog.id).then((allCarts) => {
-             
+
                 const existingItem = allCarts.cartItems.find((eachItem) => eachItem.id === item.id);
 
                 if (existingItem) {
@@ -95,20 +95,17 @@ const OneProduct = ({ item }) => {
                 <ProductImg src={`${currentItem.image}`} className="card-img-top img-fluid" alt={`${currentItem.title}`} />
                 <div className="card-body my-0 py-0 w-100">
                     <ProductTitle className="card-title text-start m-0 p-0">{currentItem.title}</ProductTitle>
-                    <div className="d-flex align-items-center">
-                        <ProductSpecsTitle>Rate: </ProductSpecsTitle>
-                        <Rating style={{ maxWidth: 50 }} value={currentItem.rating.rate} readOnly />
-                    </div>
                     <div className="d-flex justify-content-between ">
-                        {/* <img src={dot} alt="" /> */}
+
+                        <div className="d-flex align-items-center">
+                            <ProductSpecsTitle>Rate: </ProductSpecsTitle>
+                            <Rating style={{ maxWidth: 50 }} value={currentItem.rating.rate} readOnly />
+                        </div>
                         <div className="d-flex ">
                             <ProductSpecsTitle>Category: </ProductSpecsTitle>
                             <ProductSpecs> {currentItem.category}</ProductSpecs>
                         </div>
-                        <div className="d-flex ">
-                            <ProductSpecsTitle>Stok: </ProductSpecsTitle>
-                            <ProductSpecs> {currentItem.rating.count}</ProductSpecs>
-                        </div>
+
 
                     </div>
                     <ProductPrice className="text-start my-0 py-0">{currentItem.price} $</ProductPrice>
