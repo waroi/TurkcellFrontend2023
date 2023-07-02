@@ -7,7 +7,6 @@ import {
   setSortOption,
   setFilteredProducts,
 } from "../../redux/slices/filterSlice/filterSlice";
-import { fetchAllProducts } from "../../utils/request";
 import DropDownFilter from "./DropDownFilter/DropDownFilter";
 
 const FilterProducts = () => {
@@ -39,9 +38,6 @@ const FilterProducts = () => {
       )
     );
   };
-  useEffect(() => {
-    dispatch(fetchAllProducts());
-  }, []);
 
   useEffect(() => {
     let tempFilteredProducts = [...allProducts];

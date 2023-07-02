@@ -43,7 +43,7 @@ const Navbar = () => {
       if (Object.keys(loginUser).length === 0) {
         Toast({
           message:
-            "Girmiş olduğunuz ifadeye göre ürün araması yapabilmek için lütfen giriş yapınız.",
+          "Girmiş olduğunuz ifadeye göre ürün araması yapabilmek için lütfen giriş yapınız.",
           type: "warning",
         });
         setTimeout(() => {
