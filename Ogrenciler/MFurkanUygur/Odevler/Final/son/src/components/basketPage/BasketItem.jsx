@@ -1,3 +1,4 @@
+
 import { ProductCard, ProductImg, ProductPrice, ProductSpecs, ProductSpecsTitle, ProductTitle } from "../AllProducts/styledOneProduct"
 import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
 import { fetchAllProduct } from "../../request/productRequest";
@@ -26,7 +27,7 @@ const BasketItem = ({ item, basket, setBasket }) => {
     const incrementItem = () => {
         const existingItem = basket.find((temp) => temp.id === item.id);
 
-        if (existingItem && item.stock > existingItem.count) {
+        if (existingItem && latestStock && item.stock > existingItem.count && latestStock.rating.count > existingItem.count) {
             existingItem.count++;
 
             const updatedCart = {
@@ -48,6 +49,7 @@ const BasketItem = ({ item, basket, setBasket }) => {
             toast.warning("Yetersiz Stok")
         }
     }
+
     const decrementItem = () => {
         const existingItem = basket.find((temp) => temp.id === item.id);
 
@@ -89,8 +91,8 @@ const BasketItem = ({ item, basket, setBasket }) => {
     const inputItem = (e) => {
         const newCount = parseInt(e.target.value);
 
-        if (isNaN(newCount) || newCount < 0 || newCount > item.stock) {
-            toast.error("Stoktan fazla ürün giremezsiniz")
+        if (isNaN(newCount) || newCount < 0 || newCount > item.stock || (latestStock && newCount > latestStock.rating.count)) {
+            toast.error("Geçersiz ürün miktarı")
             return;
         }
 
@@ -139,7 +141,7 @@ const BasketItem = ({ item, basket, setBasket }) => {
                 })
 
                 toast.error("Ürün sepetten çıkarıldı")
-                item.count = 0; 
+                item.count = 0;
             })
             .catch((error) => {
                 toast.error("Hata:", error);
@@ -147,7 +149,7 @@ const BasketItem = ({ item, basket, setBasket }) => {
     };
 
     return (
-        <div >
+        <div>
             <ProductCard className="card">
                 <ProductImg src={`${item.image}`} className="card-img-top img-fluid" alt={`${item.title}`} />
                 <div className="card-body w-100">
@@ -185,7 +187,6 @@ export default BasketItem
 
 BasketItem.propTypes = {
     item: PropTypes.object,
-    basket:PropTypes.array,
-    setBasket:PropTypes.func
-
+    basket: PropTypes.array,
+    setBasket: PropTypes.func
 }

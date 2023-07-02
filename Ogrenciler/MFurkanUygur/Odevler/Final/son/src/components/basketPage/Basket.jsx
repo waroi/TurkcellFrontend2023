@@ -20,6 +20,7 @@ const Basket = () => {
     }, [])
 
 
+
     const buyItems = () => {
         basket.forEach((item) => {
             const product = allProducts.find((p) => p.id === item.id);
@@ -109,7 +110,7 @@ const Basket = () => {
                 }
             </div>
             {
-                basket?.length > 0 ? <div className="d-flex justify-content-center"><CardButton className="px-4 py-2" onClick={() => { buyItems() }}>Satın al</CardButton> </div> : <div className="d-flex  justify-content-center align-item-center"><Link to="/"><CardButton  className="px-4 py-2" >Alışverişe başla</CardButton></Link></div>
+                basket?.length > 0 ? <div className="d-flex justify-content-center"><CardButton className="px-4 py-2" onClick={() => { buyItems() }}>Satın al</CardButton> </div> : <div className="d-flex  justify-content-center align-item-center"><Link to="/"><CardButton className="px-4 py-2" >Alışverişe başla</CardButton></Link></div>
             }
         </div>
     )
