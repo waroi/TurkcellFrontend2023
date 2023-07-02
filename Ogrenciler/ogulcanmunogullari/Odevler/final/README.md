@@ -8,6 +8,7 @@
 - `cd frontend` komutunu çalıştırın.
 - `npm install` komutunu çalıştırın.
 - `npm start` komutunu çalıştırın.
+- `http://localhost:3035/` adresinden projeyi görüntüleyebilirsiniz.
 
 - Proje çalışmazsa ya da eksik çalışırsa `node_modules` klasörünün `frontend` klasörü içerisinde yüklü olduğundan emin olun, eğer başka bir yerde yüklü ise silip en baştan adımları eksiksiz tamamlayın.
 - Ürünler gelmez ise `db.json` dosyasını kontrol edin, eğer içerisinde ürünler yok ise projeyi tekrar indirin.
