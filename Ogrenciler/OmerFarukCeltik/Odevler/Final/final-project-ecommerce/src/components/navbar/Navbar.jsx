@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./NavbarStyle.module.css";
 import { useFormik } from "formik";
@@ -6,9 +6,18 @@ import { SearchSchema } from "../../schemas";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
-import { logOutUser } from "../../redux/slices/usersSlice";
+import {
+  currentlyLoggedInSet,
+  getUsers,
+  localStorageDataSet,
+  logOutUser,
+} from "../../redux/slices/usersSlice";
 import { handleSearch } from "../../redux/slices/productSlice";
+import { getUserData } from "../../redux/helpers";
 const Navbar = () => {
+  const [userState, setUserState] = useState();
+  const localStorageUser = JSON.parse(localStorage.getItem("users"));
+  const loggedInData = useSelector((state) => state.users).loggedInUsers;
   const data = useSelector((state) => state.users).currentlyLoggedIn;
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -16,11 +25,24 @@ const Navbar = () => {
     toast.error(formik.errors.search, {
       autoClose: 2000,
     });
+  const currentUserData = loggedInData.find((item) => item.id == userState?.id);
+  useEffect(() => {
+    setUserState(localStorageUser);
+  }, []);
+  useEffect(() => {
+    async function fetchData() {
+      await dispatch(localStorageDataSet(userState));
+      const users = await getUserData();
+      await dispatch(getUsers(users));
+      await dispatch(currentlyLoggedInSet(currentUserData));
+    }
+    fetchData();
+  }, [userState, dispatch]);
   const onSubmit = async (values, actions) => {
     toast.warn("Searching...", {
       autoClose: 1000,
     });
-    await dispatch(handleSearch(values))
+    await dispatch(handleSearch(values));
     await new Promise((resolve) => {
       setTimeout(resolve, 1000);
     });
@@ -34,11 +56,10 @@ const Navbar = () => {
     validationSchema: SearchSchema,
     onSubmit,
   });
-  async function handleClick() {
+  async function handleLogOutClick() {
     dispatch(logOutUser(data));
     window.location.reload(true);
-
-
+    localStorage.clear("users");
   }
   return (
     <div className={styles.upperContainer}>
@@ -60,7 +81,9 @@ const Navbar = () => {
             <img src="../../../images/Frame.svg" alt="" />
           </Link>
           <div className="collapse navbar-collapse" id="navbarArea">
-            <div className={`d-flex justify-content-between w-100 ${styles.navbarCollapseArea}`}>
+            <div
+              className={`d-flex justify-content-between w-100 ${styles.navbarCollapseArea}`}
+            >
               <ul className="navbar-nav ms-xl-5 ms-lg-3 d-flex flex-start gap-lg-3  gap-xxl-5 me-xl-5 mb-2 mb-lg-0">
                 <li className="nav-item">
                   <Link
@@ -129,27 +152,53 @@ const Navbar = () => {
             <div className={data ? "d-none" : "d-flex"}>
               <Link
                 to="/login"
-                className={`btn btn-primary ms-lg-14 rounded-pill px-175 py-2`}>
+                className={`btn btn-primary ms-lg-14 rounded-pill px-175 py-2`}
+              >
                 Login
               </Link>
               <Link
                 to="/signup"
-                className="btn btn-primary d-none d-lg-block display-10 ms-14 rounded-pill px-175  py-2">
+                className="btn btn-primary d-none d-lg-block display-10 ms-14 rounded-pill px-175  py-2"
+              >
                 SingUp
               </Link>
             </div>
 
-
             <div className={`${data ? "d-flex" : "d-none"}`}>
               <div>
                 <div className="dropdown">
-                  <button className="btn btn-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button
+                    className="btn btn-transparent dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
                     {data?.username}
                   </button>
                   <ul className="dropdown-menu">
-                    <li><div onClick={() => handleClick()} className="dropdown-item btn">Log Out</div></li>
-                    <li><Link className="dropdown-item btn" to="/card">Cart</Link></li>
-                    <li><Link className={`dropdown-item btn ${data?.isAdmin ? "d-block" : "d-none"}`} to="/addproduct">Add Product</Link></li>
+                    <li>
+                      <div
+                        onClick={() => handleLogOutClick()}
+                        className="dropdown-item btn"
+                      >
+                        Log Out
+                      </div>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item btn" to="/card">
+                        Cart
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className={`dropdown-item btn ${
+                          data?.isAdmin ? "d-block" : "d-none"
+                        }`}
+                        to="/addproduct"
+                      >
+                        Add Product
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>
