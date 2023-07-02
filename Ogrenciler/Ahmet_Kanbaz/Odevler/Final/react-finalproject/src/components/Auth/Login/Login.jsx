@@ -4,7 +4,6 @@ import { FcGoogle } from "react-icons/fc";
 import logoMonito from "../../../assets/logoMonito.svg";
 import loginSchema from "../../../schemas/loginSchema";
 import { useFormik } from "formik";
-import { MdError } from "react-icons/md";
 import { Logo, InputDiv } from "../AuthStyle";
 import Button from "../../../common/Button/Button";
 import Toast from "../../../common/Toast/Toast";
@@ -12,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../../redux/slices/usersSlice/userSlice";
 import { setCart } from "../../../redux/slices/cartSlice/cartSlice";
 import { fetchLoginUser } from "../../../utils/request";
+import FormError from "../../../common/FormError/FormError";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -91,9 +91,7 @@ const Login = () => {
                   disabled={isSubmitting}
                 />
                 {touched.loginEmail && errors.loginEmail && (
-                  <div className="text-danger errorMessage position-absolute top-100 start-0">
-                    <MdError /> {errors.loginEmail}
-                  </div>
+                  <FormError message={errors.loginEmail} />
                 )}
               </InputDiv>
 
@@ -111,14 +109,12 @@ const Login = () => {
                   disabled={isSubmitting}
                 />
                 {touched.loginPassword && errors.loginPassword && (
-                  <div className="text-danger errorMessage position-absolute start-0 top-100">
-                    <MdError /> {errors.loginPassword}
-                  </div>
+                  <FormError message={errors.loginPassword} />
                 )}
               </InputDiv>
               <div className="d-flex justify-content-end align-items-center mt-4 mb-2">
                 <Link
-                  to="/forgot-password"
+                  to="#"
                   className="text-decoration-none text-black fst-bold"
                 >
                   Şifremi Unuttum

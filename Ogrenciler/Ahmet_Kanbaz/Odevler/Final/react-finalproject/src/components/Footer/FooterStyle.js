@@ -23,7 +23,7 @@ export const FooterContainer = styled.footer`
       }
       .formWrapper {
         border-radius: 14px;
-        padding: 0.75rem;
+        padding: 1.35rem .75rem;
         gap: 0.75rem;
         input {
           border-radius: 8px;
@@ -38,6 +38,14 @@ export const FooterContainer = styled.footer`
           justify-content: center;
           align-items: center;
           width: 100%;
+          font-size: 1rem;
+          @media screen and (max-width: 1400px){
+            font-size: 0.875rem;
+          }
+          @media screen and (max-width: 1200px){
+            font-size: 0.65rem;
+            padding: 1.1rem;
+          }
         }
       }
     }
