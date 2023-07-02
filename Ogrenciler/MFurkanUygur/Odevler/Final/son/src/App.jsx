@@ -11,7 +11,7 @@ function App() {
     <>
       <Navbar />
       <Router />
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }
