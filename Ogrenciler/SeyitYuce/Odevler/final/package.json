@@ -1,0 +1,43 @@
+{
+  "name": "final",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "userdb-json-server": "json-server --watch ./db/usersDb.json --port 3000",
+    "productsdb-json-server": "json-server --watch ./db/productsDb.json --port 4000",
+    "start": "concurrently \"npm run dev\" \"npm run userdb-json-server\" \"npm run productsdb-json-server\""
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "@smastrom/react-rating": "^1.3.1",
+    "bootstrap": "^5.3.0",
+    "concurrently": "^8.2.0",
+    "formik": "^2.4.2",
+    "js-cookie": "^3.0.5",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.8.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "react-redux": "^8.1.1",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.13.0",
+    "react-toastify": "^9.1.3",
+    "styled-components": "^6.0.0-rc.6",
+    "yup": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "vite": "^4.3.9"
+  }
+}

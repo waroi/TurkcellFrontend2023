@@ -1,0 +1,63 @@
+//dark button component
+
+@mixin customDarkButton($borderRadius, $buttonHeight) {
+  background: #003459;
+  color: #fdfdfd;
+  border-radius: $borderRadius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  height: $buttonHeight;
+}
+
+.darkButton {
+  @include customDarkButton(57px, 44px);
+  padding: 0 30px;
+  min-width: 130px;
+}
+
+.border-button {
+  @include customDarkButton(57px, 44px);
+  border: 1px solid #003459;
+  color: #003459;
+  background-color: #fceed5;
+}
+
+.border-button-bgw {
+  @extend .border-button;
+  background-color: white;
+  padding: 0 30px 0 30px;
+
+  .arrow-right {
+    width: 17px;
+    margin-left: 5px;
+  }
+}
+
+.subscribe-button {
+  height: 48px;
+  padding: 14px 28px 10px 28px;
+  border-radius: 8px;
+  gap: 10px;
+}
+
+.subscribe-input {
+  height: 48px;
+  padding: 14px 28px 14px 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(204, 209, 210, 1);
+  gap: 10px;
+}
+
+.newsButton {
+  align-items: center;
+  height: 30px;
+  width: 119px;
+  padding: 5px 5px 5px 5px;
+  border-radius: 28px;
+  gap: 10px;
+  color: #fdfdfd;
+  font-size: 12px;
+}
