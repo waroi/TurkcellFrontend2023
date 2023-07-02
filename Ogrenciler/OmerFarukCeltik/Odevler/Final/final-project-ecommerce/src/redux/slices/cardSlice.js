@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { completeBuyActions, getCardData, postProductToCard, refreshProductToCard } from "../helpers";
-// import { deleteProductHelper,editProductData, postNewProduct } from "../helpers";
+import { completeBuyActions, postProductToCard, refreshProductToCard } from "../helpers";
 
 export const cardSlice = createSlice({
   name: "card",
@@ -12,7 +11,7 @@ export const cardSlice = createSlice({
       state.items = action.payload;
     },
     completeBuy: (state, action) => {
-    // completeBuyActions(action.payload);
+    completeBuyActions(action.payload);
     },
     
     deleteAllCard: (state, action) => {

@@ -1,4 +1,4 @@
-import { useNavigate, useRoutes } from "react-router-dom";
+import {  useRoutes } from "react-router-dom";
 import Login from "../pages/login/Login";
 import Singup from "../pages/signup/Singup";
 import HomePage from "../pages/HomePage/HomePage";
@@ -7,11 +7,9 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import ProductDetail from "../pages/ProductDetail/ProductDetail";
 import { useSelector } from "react-redux";
 import UserBasket from "../pages/UserBasket/UserBasket";
-import App from "../App";
 import NotFound from "../pages/NotFound/NotFound";
-// import NotFound from "../components/views/404/NotFound";
 const Router = () => {
-  const navigate = useNavigate();
+
   const data = useSelector((state) => state.users).currentlyLoggedIn;
   const routes = useRoutes([
     {

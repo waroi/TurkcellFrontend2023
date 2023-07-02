@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { CustomInput } from './styled';
 import { useFormik } from 'formik';
 import { LoginSchema } from '../../schemas';
@@ -24,8 +24,6 @@ const Login = () => {
     async function fetchData() {
       const usersData = await getUserData(); 
       await dispatch(getUsers(usersData));
-
-      // setState(data)
     }
     fetchData();
   }, [])
