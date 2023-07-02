@@ -11,7 +11,6 @@ const Cart = () => {
   const userId = cartLoggedInUser.id;
 
   useEffect(() => {
-    // Fetch the user's cart data based on the logged-in user's ID
     fetch(`http://localhost:3000/carts?id=${userId}`)
       .then((response) => response.json())
       .then((cartData) => {
@@ -36,9 +35,6 @@ const Cart = () => {
       body: JSON.stringify({ cart: filteredCartData }),
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log('Updated user cart:', data);
-      })
       .catch((error) => {
         console.error("Error updating user's cart:", error);
       });
@@ -81,7 +77,6 @@ const Cart = () => {
     const productsToUpdate = updatedCartData.map((item) => ({
       id: item.id,
       rating: { ...item.rating, count: item.rating.count - item.demand },
-      // Copy other properties as is
       title: item.title,
       price: item.price,
       description: item.description,
@@ -110,14 +105,11 @@ const Cart = () => {
       .then((responses) => Promise.all(responses.map((response) => response.json())))
       .then((updatedProducts) => {
         console.log('Updated product counts:', updatedProducts);
-        // Empty the cart by deleting the cart data from the database
         fetch(`http://localhost:3000/carts/${userId}`, {
           method: 'DELETE',
         })
           .then((response) => response.json())
-          .then((data) => {
-            console.log('Deleted user cart:', data);
-            // Clear the cart data from the local state
+          .then(() => {
             setCartData([]);
           })
           .catch((error) => {
@@ -168,7 +160,7 @@ const Cart = () => {
         <p>No items in the cart</p>
       )}
     </Container>
-    <div className='d-flex justify-content-center'>
+    <div className='d-flex justify-content-center mt-5'>
     <Toast className='bg-success' show={showToast} onClose={() => setShowToast(false)}>
           <Toast.Header>
             <strong className="me-auto">Notice</strong>
@@ -176,7 +168,7 @@ const Cart = () => {
           <Toast.Body className='text-white'>{toastMessage}</Toast.Body>
         </Toast>
         </div>
-        <div className='d-flex justify-content-center  mt-5'>
+        <div className='d-flex justify-content-center mt-5'>
         <Toast className='bg-danger' show={showRemoveToast} onClose={() => setShowRemoveToast(false)}>
           <Toast.Header>
             <strong className="me-auto">Notice</strong>

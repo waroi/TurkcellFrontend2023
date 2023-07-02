@@ -8,7 +8,6 @@ const LogoutButton = () => {
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
     dispatch(logoutUserAction());
-    console.log("Logged out successfully");
     window.location.href = "/";
   };
 

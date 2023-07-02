@@ -1,5 +1,3 @@
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper";
 import customer1 from "../../../assets/customer1.png";

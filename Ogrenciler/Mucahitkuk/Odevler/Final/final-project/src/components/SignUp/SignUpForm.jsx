@@ -41,7 +41,6 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     }, 5000)
     const existingUser = await checkUserExists(values.username, values.email);
     if (existingUser) {
-      console.log("User already exists");
       setShowToast(true);
       setToastMessage("Email or Username already exists");
       setTimeout(() => {

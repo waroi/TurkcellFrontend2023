@@ -45,7 +45,7 @@ const NavbarComponent = () => {
       if (searchTerm !== '') {
         navigate('/Product', { state: { search: searchTerm } });
       } else {
-        navigate('/Product', { state: { search: null } }); // Pass null as the search term to indicate rendering all products
+        navigate('/Product', { state: { search: null } });
       }
     } else {
       setShowSearchToast(true);
