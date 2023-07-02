@@ -2,7 +2,10 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Card from "../../Components/Products/Card";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/store/index";
+import { useNavigate } from "react-router-dom";
+
 import {
   Container,
   Image,
@@ -20,7 +23,12 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
-  const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const goToCart = () => {
+    navigate("/cart");
+  };
 
   useEffect(() => {
     axios
@@ -51,47 +59,8 @@ const ProductDetail = () => {
     return indexes;
   };
 
-  const handleClick = () => {
-    if (user && user.id && product.rating?.count > 0) {
-      console.log("Added to cart");
-      axios.get(`http://localhost:3000/carts/${user.id}`).then((response) => {
-        const inCart = response.data.cart.find(
-          (cartItem) => cartItem.productId === product.id
-        );
-        if (inCart) {
-          if (inCart.demand < product.rating.count) {
-            console.log("There is an item with the same id in the cart");
-            const newProduct = {
-              productId: inCart.productId,
-              title: inCart.title,
-              price: inCart.price,
-              image: inCart.image,
-              demand: inCart.demand + 1,
-            };
-            const newCart = response.data.cart.map((cartItem) => {
-              if (newProduct.productId == cartItem.productId) return newProduct;
-              return cartItem;
-            });
-            axios.put(`http://localhost:3000/carts/${user.id}`, {
-              id: user.id,
-              cart: newCart,
-            });
-          } else console.log("You have hit the stock limit");
-        } else {
-          const newProduct = {
-            productId: product.id,
-            title: product.title,
-            price: product.price,
-            image: product.image,
-            demand: 1,
-          };
-          axios.put(`http://localhost:3000/carts/${user.id}`, {
-            id: user.id,
-            cart: [...response.data.cart, newProduct],
-          });
-        }
-      });
-    }
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
   };
 
   return (
@@ -107,7 +76,7 @@ const ProductDetail = () => {
             <Price>Price: {product.price}</Price>
             <Button
               disabled={product.rating?.count === 0}
-              onClick={handleClick}
+              onClick={() => handleAddToCart(product)}
             >
               Add to Cart
             </Button>
