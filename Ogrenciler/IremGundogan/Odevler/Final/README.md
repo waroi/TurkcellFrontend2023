@@ -2,7 +2,7 @@
 
 -Projeyi ayağa kaldırırken package.json'dan terminali açın.
 -npm start yaparak projeyi ayağa kaldırabilirsiniz.
--Eğer footer görünümünde sorun yaşıyorsanız lütfen f5 atınız.
+
 
 admin: 
 "email": "irme@admin.com",
