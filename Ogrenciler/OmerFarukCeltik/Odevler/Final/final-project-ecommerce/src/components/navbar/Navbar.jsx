@@ -60,7 +60,7 @@ const Navbar = () => {
             <img src="../../../images/Frame.svg" alt="" />
           </Link>
           <div className="collapse navbar-collapse" id="navbarArea">
-            <div className="d-flex justify-content-between w-100">
+            <div className={`d-flex justify-content-between w-100 ${styles.navbarCollapseArea}`}>
               <ul className="navbar-nav ms-xl-5 ms-lg-3 d-flex flex-start gap-lg-3  gap-xxl-5 me-xl-5 mb-2 mb-lg-0">
                 <li className="nav-item">
                   <Link
