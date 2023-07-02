@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateProduct } from "../redux/slice/productsSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Request from "../utils/Request";
+import ShoppingCart from "../components/ShoppingCart/ShoppingCart";
+import SummaryCart from "../components/SummaryCart/SummaryCart";
 
 function CartsView() {
   const { id } = useParams();
@@ -41,39 +43,19 @@ function CartsView() {
           return updatedItem;
         });
 
-        // Update the stock in the database
         updatedProducts.forEach((product) => {
           dispatch(updateProduct(product));
         });
 
-        // Update the stock in localStorage
-        // const user = JSON.parse(localStorage.getItem("user"));
-        // user.carts.forEach((cartItem) => {
-        //   const productIndex = updatedProducts.findIndex(
-        //     (product) => product.id === cartItem.id
-        //   );
-        //   if (productIndex !== -1) {
-        //     cartItem.rating.count = updatedProducts[productIndex].rating?.count;
-        //   }
-        // });
-        // localStorage.setItem("user", JSON.stringify(user));
-
-        // Clear the carts array
         const updatedUser = {
           ...data,
           carts: [],
         };
         request.put("", updatedUser);
-        // localStorage.setItem("user", JSON.stringify(updatedUser));
-
-        // Update the state
         setData(updatedUser);
-
-        // Display success message
         toast.success("Items purchased successfully.");
       }
     } else {
-      // Display error message for empty cart
       toast.error("Your cart is empty. Add some items.");
     }
   };
@@ -81,19 +63,7 @@ function CartsView() {
   const handleRemove = (itemId) => {
     const updatedCarts = data.carts.filter((item) => item.id !== itemId);
 
-    // API'yi güncelle
     request.put("", { ...data, carts: updatedCarts });
-
-    // localStorage'ı güncelle
-    // localStorage.setItem(
-    //   "user",
-    //   JSON.stringify({
-    //     ...data,
-    //     carts: updatedCarts,
-    //   })
-    // );
-
-    // State'i güncelle
     setData({ ...data, carts: updatedCarts });
   };
 
@@ -122,19 +92,7 @@ function CartsView() {
       return item;
     });
 
-    // Verileri API'ye güncelle
     request.put("", { ...data, carts: updatedCarts });
-
-    // Verileri localStorage'a güncelle
-    // localStorage.setItem(
-    //   "user",
-    //   JSON.stringify({
-    //     ...data,
-    //     carts: updatedCarts,
-    //   })
-    // );
-
-    // State'i güncelle
     setData({ ...data, carts: updatedCarts });
   };
 
@@ -158,156 +116,16 @@ function CartsView() {
           >
             <div className="card-body p-0">
               <div className="row g-0">
-                <div className="col-lg-8">
-                  <div className="p-5">
-                    <div className="d-flex justify-content-between align-items-center mb-5">
-                      <h1 className="fw-bold mb-0 text-black">Shopping Cart</h1>
-                      <h6 className="mb-0 text-muted">
-                        {data.carts?.length} items
-                      </h6>
-                    </div>
-                    <hr className="my-4" />
-
-                    {data.carts && data.carts.length > 0 ? (
-                      data.carts.map((item) => (
-                        <div
-                          key={item.id}
-                          className="row mb-4 d-flex justify-content-between align-items-center"
-                        >
-                          <div className="col-md-2 col-lg-2 col-xl-2">
-                            <img
-                              src={item.image}
-                              className="img-fluid rounded-3"
-                              alt="Cotton T-shirt"
-                            />
-                          </div>
-                          <div className="col-md-3 col-lg-3 col-xl-3">
-                            <h6 className="text-muted">{item.category}</h6>
-                            <h6 className="text-black mb-0">{item.title}</h6>
-                          </div>
-                          <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                            <button
-                              className="btn btn-link px-2"
-                              onClick={() =>
-                                handleQuantityChange(item.id, item.quantity - 1)
-                              }
-                            >
-                              <i className="bi bi-dash"></i>
-                            </button>
-
-                            <input
-                              id="form1"
-                              min="0"
-                              name="quantity"
-                              value={item.quantity === 0 ? "" : item.quantity}
-                              type="number"
-                              className="form-control form-control-sm px-1"
-                              onChange={(e) =>
-                                handleQuantityChange(
-                                  item.id,
-                                  parseInt(e.target.value) || 0
-                                )
-                              }
-                            />
-
-                            <button
-                              className="btn btn-link px-2"
-                              onClick={() =>
-                                handleQuantityChange(item.id, item.quantity + 1)
-                              }
-                            >
-                              <i className="bi bi-plus"></i>
-                            </button>
-                          </div>
-                          <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                            <h6 className="mb-0">
-                              €{" "}
-                              {item.totalPrice ||
-                                item.price * item.quantity ||
-                                0}
-                            </h6>
-                          </div>
-                          <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                            <button
-                              className="text-muted bg-transparent border-0"
-                              onClick={() => handleRemove(item.id)}
-                            >
-                              <i className="bi bi-x fs-3"></i>
-                            </button>
-                          </div>
-                        </div>
-                      ))
-                    ) : (
-                      <div className="text-center">Sepetiniz boş.</div>
-                    )}
-
-                    <hr className="my-4" />
-
-                    <div className="pt-5">
-                      <h6 className="mb-0">
-                        <Link to="/" className="text-body">
-                          <i className="bi bi-arrow-left me-2"></i>
-                          Back to shop
-                        </Link>
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 bg-grey">
-                  <div className="p-5">
-                    <h3 className="fw-bold mb-5 mt-2 pt-1">Summary</h3>
-                    <hr className="my-4" />
-
-                    <div className="d-flex justify-content-between mb-4">
-                      <h5 className="text-uppercase">
-                        items {data.carts?.length}
-                      </h5>
-                      <h5>€ {calculateTotalPrice(data.carts)}</h5>
-                    </div>
-
-                    <h5 className="text-uppercase mb-3">Shipping</h5>
-
-                    <div className="mb-4 pb-2">
-                      <select className="select">
-                        <option value="1">Standard-Delivery- €5.00</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                      </select>
-                    </div>
-
-                    <h5 className="text-uppercase mb-3">Give code</h5>
-
-                    <div className="mb-5">
-                      <div className="form-outline">
-                        <input
-                          type="text"
-                          id="form3Examplea2"
-                          className="form-control form-control-lg"
-                          placeholder="Enter a discount code"
-                        />
-                      </div>
-                    </div>
-
-                    <hr className="my-4" />
-
-                    <div className="d-flex justify-content-between mb-5">
-                      <h5 className="text-uppercase">Total price</h5>
-                      <h5>€ {calculateTotalPrice(data.carts)}</h5>
-                    </div>
-
-                    <div className="d-flex justify-content-center">
-                      <button
-                        type="button"
-                        className="btn-nav "
-                        data-mdb-ripple-color="dark"
-                        onClick={handleBuy}
-                      >
-                        Buy
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <ShoppingCart
+                  data={data}
+                  handleRemove={handleRemove}
+                  handleQuantityChange={handleQuantityChange}
+                />
+                <SummaryCart
+                  data={data}
+                  calculateTotalPrice={calculateTotalPrice}
+                  handleBuy={handleBuy}
+                />
               </div>
             </div>
           </div>
