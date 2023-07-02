@@ -1,0 +1,71 @@
+.bannerArea {
+  border-radius: 20px;
+  background-color: var(--banner-background-orange);
+}
+.textArea::before {
+  flex-shrink: 0;
+  content: "";
+  border-radius: 99px;
+  background: #fceed5;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.imgArea::before {
+  flex-shrink: 0;
+  border-radius: 99px;
+  content: "";
+  z-index: 1;
+  position: absolute;
+  top: 80%;
+  left: -40%;
+  background:linear-gradient(134deg, #FCEED5 , #FCEED5 , #FFE7BA);
+  opacity: 0.3000000;
+}
+.textContent {
+  z-index: 100;
+  position: relative;
+}
+.imgArea img {
+  z-index: 100;
+}
+
+@media screen and (min-width: 992px) {
+  .textArea::before {
+    width: 782.292px;
+    height: 635px;
+    transform: rotate(-25.23deg);
+    top: -65%;
+    left: -55%;
+  }
+  .imgArea::before {
+    width: 787.54px;
+    height: 787.54px;
+    transform: rotate(-28.251deg);
+    top: 55%;
+    left: 40%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .textArea::before {
+    top: -65%;
+    left: -30%;
+  }
+  .imgArea::before {
+    top: 50%;
+    left: 50%;
+  }
+  }
+
+@media screen and (min-width: 1400px) {
+  .textArea::before {
+    top: -65%;
+    left: -15%;
+  }
+  .imgArea::before {
+    top: 45%;
+    left: 53%;
+  }
+}
