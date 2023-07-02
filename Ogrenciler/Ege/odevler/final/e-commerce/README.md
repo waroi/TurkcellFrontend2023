@@ -4,28 +4,34 @@ Github hesabıma ulaşmak için: [Ege Kara](https://github.com/Egebyte)
 
 ## Projeyi Ayağa Kaldırmak İçin Kullanılacak Scriptler:
 
-Projede kullandığım verileri kendi json serverımdan çekiyorum. Test ederken sorun yaşamamak adına lütfen serverı aşağıdaki kod ile ayağa kaldırınız:
+Projede kullandığım verileri kendi json-serverımdan çekiyorum. Test ederken sorun yaşamamak adına lütfen serverı aşağıdaki scriptler ile ayağa kaldırınız:
 
-### `npm start json:server`
+### `npm install`
 
-React tarafını ayağa kaldırmak için ise aşağıdaki kodu kullanabilirsiniz.
+Gerekli paketleri yüklemek için bu script ile çalıştırabilirsiniz.
 
-### `npm start`
+### `npm run start`
 
-Bu şekilde yaptığınızda projemiz [http://localhost:3000](http://localhost:3000) portunda açılacaktır.
+Paketler yüklendikten sonra bu script ile json-server ve React projesini tek seferde ayağa kaldırabilirsiniz.
+
+## Admin Kullanıcı Bilgileri
+
+email: admin@admin.com
+password: aA123
 
 ## Kullandığım Teknolojiler
 
 1. HTML
-2. SCSS
-3. Javascript
+2. Styled Components
+3. JavaScript
 4. React
 5. Bootstrap
 6. React Router
-7. Redux
-8. Redux Thunk
-9. Formik
-10. Yup
-
-Readme.md dosyasını oluşturan kıymetli arkadaşlarıma
-çok teşekkür ederim 😇
+7. Redux Toolkit
+8. React Redux
+9. React Toastify
+10. Formik
+11. Yup
+12. React Image Gallery
+13. Axios
+14. Concurrently
