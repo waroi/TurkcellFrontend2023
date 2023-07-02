@@ -1,3 +1,4 @@
+import { useNavigate,Link} from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
@@ -7,15 +8,18 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Frame from "../../../assets/Frame.png";
 import { loginUser, logoutUser  } from "../../../redux/actions/actions";
-import { Link } from "react-router-dom";
 import { CustomSearch, MobileSearch, MobileSearchDiv, MobileSearchImage } from "./styled";
 import mobileSearch from "../../../assets/mobileSearch.svg";
 import LogoutButton from "../../Logout/LogoutButton";
 import { PageButton, PageButtonTwo } from "../../HomeComponents/HeaderContent/styled";
+import { Toast } from 'react-bootstrap';
 
 const NavbarComponent = () => {
   const [showSearch, setShowSearch] = useState(false);
+  const [showSearchToast, setShowSearchToast] = useState(false);
+  const [searchToastMessage, setToastMessage] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const currentUser = useSelector((state) => state.user.currentUser);
 
   useEffect(() => {
@@ -31,6 +35,26 @@ const NavbarComponent = () => {
 
   const handleSearchClick = () => {
     setShowSearch((prevState) => !prevState);
+  };
+
+  const submitSearch = (e) => {
+    e.preventDefault();
+    const searchTerm = e.target.value.trim();
+  
+    if (currentUser) {
+      if (searchTerm !== '') {
+        navigate('/Product', { state: { search: searchTerm } });
+      } else {
+        navigate('/Product', { state: { search: null } }); // Pass null as the search term to indicate rendering all products
+      }
+    } else {
+      setShowSearchToast(true);
+      setToastMessage("Must log in to use search");
+      setTimeout(() => {
+        setShowSearchToast(false);
+        navigate('/login');
+      }, 2000)
+    }
   };
 
   return (
@@ -77,9 +101,11 @@ const NavbarComponent = () => {
                 </Nav>
                 <CustomSearch
                   type="search"
+                  id="search-input"
                   placeholder="Search something here!"
                   className="me-2"
                   aria-label="Search"
+                  onChange={submitSearch}
                 />
                {!currentUser ? (
                  <div className="d-flex justify-content-center align-items-center gap-2">
@@ -115,15 +141,22 @@ const NavbarComponent = () => {
           </Container>
           <MobileSearchDiv>
             <MobileSearch
+              type='search'
               placeholder="Search something here!"
-              onChange={(e) => {
-                console.log(e.target.value);
-              }}
+              onChange={submitSearch}
               className={`${showSearch ? "visible" : "hidden"}`}
             />
           </MobileSearchDiv>
         </Navbar>
       ))}
+          <div className='d-flex m-auto position-absolute justify-content-center mt-3 w-100'>
+      <Toast className='bg-danger m-auto' show={showSearchToast} onClose={() => setShowSearchToast(false)}>
+          <Toast.Header>
+            <strong className="me-auto">Notice</strong>
+          </Toast.Header>
+          <Toast.Body className='text-white'>{searchToastMessage}</Toast.Body>
+        </Toast>
+        </div>
     </>
   );
 };

@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import { Dropdown, Spinner } from "react-bootstrap";
 import ProductCard from "../../ProductCard/ProductCard";
 import { sortProducts } from "../../../utils/sortingUtils";
+import { useLocation } from "react-router-dom";
 
 const ProductsSection = () => {
   const [products, setProducts] = useState([]);
@@ -10,6 +11,10 @@ const ProductsSection = () => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [sortingOption, setSortingOption] = useState("");
+
+  const location = useLocation();
+  const searchTerm = location.state && location.state.search;
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -42,6 +47,12 @@ const ProductsSection = () => {
     if (selectedCategories.length > 0) {
       filteredProducts = filteredProducts.filter((product) =>
         selectedCategories.includes(product.category)
+      );
+    }
+
+    if (searchTerm !== null) {
+      filteredProducts = filteredProducts.filter((product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
