@@ -3,22 +3,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProducts, updateProduct } from "../../redux/slices/productSlice";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { Link } from "react-router-dom";
-import { capitalizeWords } from "../../helpers/capitalize";
+import { Link, useLocation } from "react-router-dom";
 import { styled } from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import { updateCartItems } from "../../redux/slices/cartSlice";
+import ProductFilterSort from "../FilterSort/FilterSort";
+import { AiOutlineEdit } from "react-icons/ai";
+import Buttons from "../Buttons/Buttons";
+import { BiChevronRightCircle } from "react-icons/bi";
+import EditModal from "../EditModal/EditModal";
+import {
+  ProductCardImage,
+  ProductTitle,
+  ProductPrice,
+  ProductAttributeCat,
+  ProductAttributeRating,
+  ProductAttributesRes,
+  ProductEditBtn,
+} from "./StyledComponents";
 
 const Products = ({ slicedNumber }) => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
   const user = useSelector((state) => state.user);
-  const [sortOption, setSortOption] = useState("");
+  const [sortOption, setSortOption] = useState("default");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedStar, setSelectedStar] = useState("");
+  const location = useLocation();
 
-  // console.log(user);
+  const isProductsPage = location.pathname === "/products";
 
   const [editProduct, setEditProduct] = useState({
     image: "",
@@ -36,7 +50,7 @@ const Products = ({ slicedNumber }) => {
   const sortedProducts = [...products];
 
   const getProducts = () => {
-    fetch("http://localhost:4000/products")
+    fetch(`http://localhost:4000/products`)
       .then((res) => res.json())
       .then((data) => {
         dispatch(setProducts(data));
@@ -76,14 +90,6 @@ const Products = ({ slicedNumber }) => {
 
   const categories = new Set(products.map((product) => product.category));
 
-  // const sortedAndFilteredProducts = sortedProducts.filter((product) => {
-  //   if (selectedCategory === "") {
-  //     return true;
-  //   } else {
-  //     return product.category === selectedCategory;
-  //   }
-  // });
-
   const filteredProducts = sortedProducts.filter((product) => {
     if (selectedCategory !== "" && product.category !== selectedCategory) {
       return false;
@@ -99,6 +105,9 @@ const Products = ({ slicedNumber }) => {
     return true;
   });
 
+  const handleEditProduct = (product) => {
+    setEditProduct(product);
+  };
   const handleEditSubmit = () => {
     fetch(`http://localhost:4000/products/${editProduct.id}`, {
       method: "PUT",
@@ -117,13 +126,7 @@ const Products = ({ slicedNumber }) => {
           theme: "light",
           onClose: () => {
             dispatch(updateProduct(updatedProduct));
-            const updatedCart = user[0].cart.map((item) => {
-              if (item.id === updatedProduct.id) {
-                return { ...item, ...updatedProduct };
-              }
-              return item;
-            });
-            dispatch(updateCartItems(updatedCart));
+            updateProductsInCart(updatedProduct);
 
             const modalButton = document.querySelector(
               '[data-bs-dismiss="modal"]'
@@ -139,6 +142,7 @@ const Products = ({ slicedNumber }) => {
         toast.error("Failed to update product");
       });
   };
+
   const updateProductsInCart = (updatedProduct) => {
     const existingItems = user[0].cart;
     const updatedItems = existingItems.map((item) => {
@@ -151,265 +155,112 @@ const Products = ({ slicedNumber }) => {
     dispatch(updateCartItems(updatedItems));
   };
 
-  const ProductCardImage = styled.img`
-    height: 200px;
-    width: 100%;
+  const ProductCard = styled.div`
+    display: inline-flex;
+    padding: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   `;
 
+  const showFilters = window.location.pathname.endsWith("/products");
+
   return (
-    <div className="row">
-      <div>
-        <select
-          name="sort"
-          id=""
-          className="col-3"
-          onChange={(e) => setSortOption(e.target.value)}
-        >
-          <option value="default">Default</option>
-          <option value="cheap">Cheap first</option>
-          <option value="expensive">Expensive first</option>
-          <option value="titleatoz">Title (a-z)</option>
-          <option value="titleztoa">Title (z-a)</option>
-          <option value="categoryatoz">Category (a-z)</option>
-          <option value="categoryztoa">Category (z-a)</option>
-        </select>
-
-        <select
-          name="category"
-          id=""
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          <option value="">All Categories</option>
-          {Array.from(categories).map((category) => (
-            <option key={category} value={category}>
-              {capitalizeWords(category)}
-            </option>
-          ))}
-        </select>
-
-        <select
-          name="star"
-          id=""
-          onChange={(e) => setSelectedStar(e.target.value)}
-        >
-          <option value="">All Stars</option>
-          <option value="1">1 Star and above</option>
-          <option value="2">2 Stars and above</option>
-          <option value="3">3 Stars and above</option>
-          <option value="4">4 Stars and above</option>
-          <option value="5">5 Stars</option>
-        </select>
-      </div>
-      {filteredProducts.slice(0, slicedNumber).map((product) => {
-        return (
-          <div
-            key={product.id}
-            className="col-10 col-sm-6 col-md-4 col-lg-3 gap-4 mx-auto"
-          >
-            <div className="card">
-              <Link
-                to={`/products/${product.category.replace(/\s+/g, "-")}/${
-                  product.id
-                }`}
-                className="card-link"
-              >
-                <div className="mx-auto">
-                  <ProductCardImage
-                    src={product.image}
-                    alt=""
-                    className="card-img-top w-50 mx-auto"
-                  />
-                </div>
-                <div className="card-body">
-                  <h5 className="card-title">{product.title}</h5>
-                  <div className="card-rating d-flex gap-4">
-                    <span>{product.category}</span>
-                    <span>
-                      <Rating
-                        style={{ maxWidth: 100 }}
-                        value={product.rating.rate}
-                        readOnly
-                      />
-                    </span>
-                  </div>
-                  <p className="card-text">${product.price}</p>
-                </div>
-              </Link>
-              {user && user[0]?.role === "admin" ? (
-                <div>
-                  <button
-                    className="edit-btn btn btn-primary"
-                    onClick={() => setEditProduct(product)}
-                    data-bs-toggle="modal"
-                    data-bs-target="#editModal"
-                  >
-                    Edit Product
-                  </button>
-                  <AddToCartButton product={product} />
-                </div>
-              ) : (
-                <>
-                  <AddToCartButton product={product} />
-                </>
-              )}
-            </div>
+    <div className="d-flex flex-column flex-md-row container">
+      {showFilters && (
+        <div className="col-12 col-md-3 g-2 mt-3">
+          <ProductFilterSort
+            categories={Array.from(categories)}
+            setSortOption={setSortOption}
+            setSelectedCategory={setSelectedCategory}
+            setSelectedStar={setSelectedStar}
+          />
+        </div>
+      )}
+      <div className={`col-${isProductsPage ? 9 : 12} row flex-wrap`}>
+        {filteredProducts.slice(0, slicedNumber).map((product) => {
+          return (
             <div
-              className="modal fade"
-              id="editModal"
-              tabIndex="-1"
-              aria-labelledby="editModalLabel"
-              aria-hidden="true"
+              key={product.id}
+              className="col-6 col-md-6 col-lg-3 my-3 justify-content-between"
             >
-              <div className="modal-dialog">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h1 className="modal-title fs-5" id="editModalLabel">
-                      Edit Product
-                    </h1>
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
+              <ProductCard className="card w-100">
+                <Link
+                  to={`/products/${product.category.replace(/\s+/g, "-")}/${
+                    product.id
+                  }`}
+                  className="card-link text-decoration-none mb-3"
+                >
+                  <div className="mx-auto col-12 text-center">
+                    <ProductCardImage
+                      src={product.image}
+                      alt=""
+                      product={product}
+                    />
                   </div>
-                  <div className="modal-body">
-                    <label htmlFor="image">Image</label>
-                    <input
-                      type="url"
-                      className="form-control"
-                      value={editProduct?.image}
-                      onChange={(e) =>
-                        setEditProduct({
-                          ...editProduct,
-                          image: e.target.value,
-                        })
-                      }
-                    />
-                    <label htmlFor="title">Title</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={editProduct?.title}
-                      onChange={(e) =>
-                        setEditProduct({
-                          ...editProduct,
-                          title: e.target.value,
-                        })
-                      }
-                    />
-                    <label htmlFor="price">Price</label>
-                    <input
-                      type="number"
-                      className="form-control"
-                      value={editProduct?.price}
-                      onChange={(e) =>
-                        setEditProduct({
-                          ...editProduct,
-                          price: e.target.value,
-                        })
-                      }
-                    />
-                    <label htmlFor="category">Category</label>
-                    <div className="w-100">
-                      <select
-                        name="category"
-                        id=""
-                        className="form-select"
-                        onChange={(e) =>
-                          setEditProduct({
-                            ...editProduct,
-                            category: e.target.value,
-                          })
-                        }
-                      >
-                        {Array.from(categories).map((category) => (
-                          <option key={category} value={category}>
-                            {capitalizeWords(category)}
-                          </option>
-                        ))}
-                      </select>
+                  <div className="card-body ">
+                    <ProductTitle className="card-title " product={product}>
+                      {product.title}
+                    </ProductTitle>
+                    <div className="card-rating">
+                      <div className="d-flex gap-1 mb-1">
+                        <ProductAttributeCat>Category:</ProductAttributeCat>
+                        <ProductAttributesRes product={product}>
+                          {product.category}
+                        </ProductAttributesRes>
+                      </div>
+                      <div className="d-flex gap-1 mb-2">
+                        <ProductAttributeRating>Rating:</ProductAttributeRating>
+                        <Rating
+                          style={{ maxWidth: 50 }}
+                          value={product.rating.rate}
+                          readOnly
+                        />
+                      </div>
+                      <ProductPrice className="card-text" product={product}>
+                        {product.price}
+                      </ProductPrice>
                     </div>
-                    <label htmlFor="rating-rate">Rating</label>
-                    <input
-                      type="number"
-                      className="form-control"
-                      min={0.1}
-                      max={5}
-                      step={0.1}
-                      value={editProduct?.rating.rate}
-                      onChange={(e) =>
-                        setEditProduct({
-                          ...editProduct,
-                          rating: {
-                            ...editProduct.rating,
-                            rate: parseFloat(e.target.value),
-                          },
-                        })
-                      }
-                    />
-                    <label htmlFor="description">Description</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={editProduct?.description}
-                      onChange={(e) =>
-                        setEditProduct({
-                          ...editProduct,
-                          description: e.target.value,
-                        })
-                      }
-                    />
-                    <label htmlFor="">Review Count</label>
-                    <input
-                      type="number"
-                      className="form-control"
-                      value={editProduct?.rating.count}
-                      onChange={(e) =>
-                        setEditProduct({
-                          ...editProduct,
-                          rating: {
-                            ...editProduct.rating,
-                            count: parseFloat(e.target.value),
-                          },
-                        })
-                      }
-                    />
-                    <label htmlFor="">Stock</label>
-                    <input
-                      type="number"
-                      className="form-control"
-                      value={editProduct?.stock}
-                      onChange={(e) =>
-                        setEditProduct({
-                          ...editProduct,
-                          stock: parseFloat(e.target.value),
-                        })
-                      }
-                    />
                   </div>
-                  <div className="modal-footer">
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      data-bs-dismiss="modal"
+                </Link>
+                {user && user[0]?.role === "admin" ? (
+                  <div className="w-100">
+                    <ProductEditBtn
+                      product={product}
+                      setEditProduct={setEditProduct}
                     >
-                      Close
-                    </button>
-                    <button
-                      type="submit"
-                      className="btn btn-primary"
-                      onClick={handleEditSubmit}
+                      <AiOutlineEdit className="ms-3 me-2 " />
+                      Edit Product
+                    </ProductEditBtn>
+                    <Buttons
+                      variation="textIconLeft btnLarge btn6 w-100 lh-5"
+                      icon={<BiChevronRightCircle />}
                     >
-                      Save changes
-                    </button>
+                      <AddToCartButton product={product} />
+                    </Buttons>
                   </div>
-                </div>
-              </div>
+                ) : (
+                  <>
+                    <Buttons
+                      variation="textIconLeft btnLarge btn6 w-100 lh-5"
+                      icon={<BiChevronRightCircle />}
+                    >
+                      <AddToCartButton product={product} />
+                    </Buttons>
+                  </>
+                )}
+              </ProductCard>
+              <EditModal
+                editProduct={editProduct}
+                setEditProduct={setEditProduct}
+                handleEditSubmit={handleEditSubmit}
+                categories={categories}
+              />
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
+
       <ToastContainer />
     </div>
   );

@@ -1,4 +1,7 @@
+import Button from "react-bootstrap/esm/Button";
 import styled from "styled-components";
+import Buttons from "../Buttons/Buttons";
+import { BsPlayCircle } from "react-icons/bs";
 
 const Header = () => {
   const HeaderDiv = styled.div`
@@ -13,61 +16,69 @@ const Header = () => {
   `;
   const HeaderImgDiv = styled.div`
     width: 250px;
+    margin: auto;
+    margin-top: 20px;
   `;
-
-  // const HeaderBgDiv1 = styled.div``;
-  // const HeaderBgDiv2 = styled.div``;
   const HeaderImg = styled.img`
     width: 100%;
     z-index: 2;
-    position: relative;
-    &:before {
-      width: 528.983px;
-      height: 528.983px;
-      transform: rotate(5.367deg);
-      flex-shrink: 0;
-      border-radius: 48px;
-      border: 1px solid #000;
-      background: var(--primary-color-dark-blue, #003459);
-      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-      position: absolute;
-      z-index: 0;
     }
-    &:after {
+  `;
+  const HeaderTitle = styled.h2`
+    color: var(--primary-color-dark-blue-80, #002a48);
+    font-size: 46px;
+    font-family: SVN-Gilroy;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 60px;
+    text-transform: capitalize;
+  `;
+
+  const HeaderSubtitle = styled.h5`
+    color: var(--primary-color-dark-blue-80, #002a48);
+    font-size: 28px;
+    font-family: SVN-Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 38px;
+    text-transform: capitalize;
+    &::after {
+      display: inline-block;
       content: "";
-      width: 528.983px;
-      height: 528.983px;
-      transform: rotate(25.23deg);
+      width: 12.437px;
+      height: 12.437px;
+      transform: rotate(-30.589deg);
       flex-shrink: 0;
-      border-radius: 48px;
-      background: var(--secondary-color-mon-yellow, #f7dba7);
-      position: absolute;
-      z-index: 1;
+      border-radius: 4px;
+      background: #002a48;
+      margin-left: 11px;
     }
   `;
 
   return (
-    <HeaderDiv className="bg-primary">
+    <HeaderDiv className="bg-primary headerCon">
       <div className=" container">
-        <h2>Lorem, ipsum dolor.</h2>
-        <h5>Thousands more fun!</h5>
+        <HeaderTitle>Lorem, ipsum dolor.</HeaderTitle>
+        <HeaderSubtitle>Thousands more fun!</HeaderSubtitle>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
           obcaecati facilis dicta dolorem nostrum facere. Nisi quisquam
           repellendus ut sint quos dolorem rem necessitatibus atque libero
           vitae, nihil velit minus.
         </p>
-        <div>
-          <button>View Intro</button>
-          <button>Explore Now</button>
+        <div className="mx-auto text-center">
+          <Buttons
+            variation="textIconRight btnLarge btn6"
+            icon={<BsPlayCircle />}
+          >
+            View Intro
+          </Buttons>
+          <Buttons variation="textOnly btnLarge btn1">Explore Now</Buttons>
         </div>
       </div>
       <div className="mx-auto">
         <HeaderImgDiv>
-          <HeaderImg
-            src="https://img.freepik.com/free-vector/blank-screen-computer-icon-isolated-white-background_1308-49315.jpg?w=1060&t=st=1687731855~exp=1687732455~hmac=cada28ee36a966d2f0cfd9b6243d39cd1119b4fda6519f6b924762aa476d481c"
-            alt=""
-          />
+          <HeaderImg src="https://picsum.photos/50/70" alt="" />
         </HeaderImgDiv>
       </div>
     </HeaderDiv>

@@ -204,7 +204,7 @@ const BtnView = () => {
           />
         </div>
         <div>
-          <Buttons variation="textOnly btnMed btn2" onClick={handleButtonClick}>
+          <Buttons className={"knowledgebtn"} variation="textOnly btnMed btn2" onClick={handleButtonClick}>
             Click here
           </Buttons>
           <Buttons

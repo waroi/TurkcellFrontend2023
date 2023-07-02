@@ -1,12 +1,12 @@
 import React from "react";
 import "./Buttons.css";
 
-const Buttons = ({ variation, onClick, children, icon }) => {
+const Buttons = ({ variation, onClick, children, icon, className }) => {
   const handleClick = () => {
     onClick(variation);
   };
 
-  const classNames = `button ${variation}`;
+  const classNames = `button ${variation} ${className}`;
 
   return (
     <button className={classNames} onClick={handleClick}>

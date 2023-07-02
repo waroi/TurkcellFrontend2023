@@ -21,7 +21,14 @@ const Router = () => {
     },
     {
       path: "/products",
-      element: <AllProductsView />,
+      element:
+        user && user[0]?.id ? (
+          <AllProductsView />
+        ) : (
+          <div>
+            Please <Link href="/login"> login </Link> first
+          </div>
+        ),
     },
     {
       path: "/login",
@@ -41,11 +48,25 @@ const Router = () => {
     },
     {
       path: "products/:category/:id",
-      element: <ProductDetails />,
+      element:
+        user && user[0]?.id ? (
+          <ProductDetails />
+        ) : (
+          <div>
+            Please <Link href="/login"> login </Link> first
+          </div>
+        ),
     },
     {
       path: "/cart",
-      element: <Cart />,
+      element:
+        user && user[0]?.id ? (
+          <Cart />
+        ) : (
+          <div>
+            Please <Link href="/login"> login </Link> first
+          </div>
+        ),
     },
   ]);
   return routes;

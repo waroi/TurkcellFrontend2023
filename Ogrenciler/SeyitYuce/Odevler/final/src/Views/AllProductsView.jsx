@@ -16,7 +16,6 @@ const CategoryView = () => {
         </div>
       ) : (
         <div>
-          {" "}
           Please <Link to="/login"> login </Link> first
         </div>
       )}

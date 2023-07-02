@@ -1,37 +1,45 @@
-import React from "react";
-import { BiSearch, BiUserCircle, BiCartAlt } from "react-icons/bi";
+import { BiSearch, BiUserCircle } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { clearUser } from "../../redux/slices/userSlice";
 import CartDropdown from "../CartDropdown/CartDropdown";
-import Cart from "../Cart/Cart";
+import Buttons from "../Buttons/Buttons";
 const Header = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // console.log(user);
-
   const UserDiv = styled.div`
     display: flex;
   `;
 
+  const StyledNavbarLinks = styled.li`
+    color: #003459;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+  `;
+
   return (
-    <div className="bg-body-tertiary">
-      <nav className="navbar container navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
-            <img
-              src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg"
-              alt=""
-              width={"115"}
-              height={"40"}
-            />
-          </Link>
+    <div className="navbarCon">
+      <nav className="navbar container navbar-expand-lg">
+        <div className="container-fluid d-flex flex-row flex-wrap-nowrap">
+          <div className="navbar-brand order-2 order-lg-1">
+            <Link className="navbar-brand-logo" to="/">
+              <img
+                src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg"
+                alt=""
+                width={"115"}
+                height={"40"}
+              />
+            </Link>
+            <div></div>
+          </div>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler order-1"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -41,30 +49,33 @@ const Header = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div
+            className="collapse navbar-collapse order-4 order-lg-2"
+            id="navbarSupportedContent"
+          >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              <StyledNavbarLinks className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home
                 </Link>
-              </li>
-              <li className="nav-item">
+              </StyledNavbarLinks>
+              <StyledNavbarLinks className="nav-item">
                 <Link className="nav-link" to="/products">
                   Products
                 </Link>
-              </li>
-              <li className="nav-item">
+              </StyledNavbarLinks>
+              <StyledNavbarLinks className="nav-item">
                 <Link className="nav-link" to="/about">
                   About
                 </Link>
-              </li>
-              <li className="nav-item">
+              </StyledNavbarLinks>
+              <StyledNavbarLinks className="nav-item">
                 <Link className="nav-link" to="/buttons">
                   Contact
                 </Link>
-              </li>
+              </StyledNavbarLinks>
             </ul>
-            <form className="d-flex searchForm" role="search">
+            <form className="d-flex searchForm order-3 order-lg-3 d-none d-lg-block">
               <div className="input-group">
                 <button
                   className="btn searchBtn"
@@ -81,7 +92,7 @@ const Header = () => {
                 />
               </div>
             </form>
-            <div>
+            <div className=" order-4 order-lg-4">
               {user && user[0] ? (
                 <UserDiv>
                   <CartDropdown />
@@ -113,27 +124,38 @@ const Header = () => {
                   </li>
                 </UserDiv>
               ) : (
-                <div>
-                  <Link className="btn" type="button" to={"/login"}>
-                    Login
+                <div className="d-flex flex-column flex-lg-row col-3 col-lg-12">
+                  <Link to={"/login"}>
+                    <Buttons variation="textOnly btnLarge btn1 w-100">
+                      Login
+                    </Buttons>
                   </Link>
-                  <Link className="btn" type="button" to={"/signup"}>
-                    Sign Up
+                  <Link to={"/signup"}>
+                    <Buttons variation="textOnly btnLarge btn1 w-100">
+                      Sign Up
+                    </Buttons>
                   </Link>
                 </div>
-              )}
-              {user && user[0]?.role === "admin" ? (
-                <div>
-                  {/* <Link className="btn" type="button" to={"/admin"}>
-                    Admin Dashboard
-                  </Link> */}
-                  {/* <Cart /> */}
-                </div>
-              ) : (
-                <></>
               )}
             </div>
           </div>
+          <form className="d-flex searchForm order-3 order-lg-3 d-block d-lg-none">
+            <div className="input-group">
+              <button
+                className="btn searchBtn"
+                type="button"
+                id="button-addon1"
+              >
+                <BiSearch />
+              </button>
+              <input
+                className="form-control searchInput"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+            </div>
+          </form>
         </div>
       </nav>
     </div>

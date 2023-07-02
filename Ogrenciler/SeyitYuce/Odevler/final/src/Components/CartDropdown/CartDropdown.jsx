@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 const CartSidebar = () => {
   const user = useSelector((state) => state.user);
   const userId = user && user[0]?.id;
-  // console.log(user, userId);
   const dispatch = useDispatch();
   const userCart = useSelector((state) => state.cart);
   const handleClose = () => setShow(false);
@@ -83,6 +82,25 @@ const CartSidebar = () => {
   };
 
   const updateCartItemQuantity = (itemId, newQuantity) => {
+    if (newQuantity < 1) {
+      return;
+    }
+    const item = userCart.find((item) => item.id === itemId);
+
+    if (item.stock && newQuantity > item.stock) {
+      toast.error(
+        `Cannot add more than available stock, stock available:${item.stock}`,
+        {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        }
+      );
+      return;
+    }
     const updatedCart = userCart.map((item) => {
       if (item.id === itemId) {
         return { ...item, quantity: newQuantity };
@@ -116,7 +134,24 @@ const CartSidebar = () => {
 
   const decreaseQuantity = (itemId) => {
     const item = userCart.find((item) => item.id === itemId);
-    if (item.quantity > 1) {
+    if (item.quantity === 1) {
+      const confirmed = window.confirm(
+        "Are you sure you want to delete the item from the cart?"
+      );
+      if (confirmed) {
+        deleteCartItem(itemId);
+      } else {
+        toast.error("Item deletion cancelled", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        return;
+      }
+    } else if (item.quantity > 1) {
       const newQuantity = item.quantity - 1;
       updateCartItemQuantity(itemId, newQuantity);
     }
@@ -130,7 +165,7 @@ const CartSidebar = () => {
 
   useEffect(() => {
     getCartItems();
-  }, [userCart]);
+  }, []);
 
   return (
     <>
@@ -146,19 +181,36 @@ const CartSidebar = () => {
           </Offcanvas.Header>
           <Offcanvas.Body>
             {userCart.map((item) => (
-              <div className="card mb-3" key={item.id}>
-                <img src={item.image} alt="" className="w-25 px-auto" />
-                <p>{item.name}</p>
-                <div className="d-flex justify-content-between container">
+              <div
+                className="mb-3 row border border-dark rounded"
+                key={item.id}
+              >
+                <div className="col-5 my-auto">
+                  <img src={item.image} alt="" className="w-100 " />
+                </div>
+                <div className="col-7">
+                  <p>{item.name}</p>
                   <p>${item.price}</p>
-                  <div className="d-flex">
+                  <div className="d-flex gap-1 mb-3">
                     <button
                       className="btn-quantity"
                       onClick={() => decreaseQuantity(item.id)}
                     >
                       -
                     </button>
-                    <p>{item.quantity}</p>
+                    <input
+                      className="w-75"
+                      type="number"
+                      value={item.quantity}
+                      onChange={(e) =>
+                        updateCartItemQuantity(
+                          item.id,
+                          parseInt(e.target.value)
+                        )
+                      }
+                      min={1}
+                    />
+
                     <button
                       className="btn-quantity"
                       onClick={() => increaseQuantity(item.id)}
@@ -176,17 +228,27 @@ const CartSidebar = () => {
               </div>
             ))}
             <div className="d-flex justify-content-between">
-              <Link to={"/cart"} className="btn btn-primary">
-                Proceed to Checkout
-              </Link>
               {userCart.length > 0 ? (
-                <button className="btn btn-danger" onClick={deleteCart}>
-                  Delete Cart
-                </button>
+                <>
+                  <Link to={"/cart"} className="btn btn-primary">
+                    Proceed to Checkout
+                  </Link>
+                  <button className="btn btn-danger" onClick={deleteCart}>
+                    Delete Cart
+                  </button>
+                </>
               ) : (
-                <button className="btn btn-danger" disabled>
-                  Delete Cart
-                </button>
+                <div>
+                  <div>Cart is empty</div>
+                  <div>
+                    <button className="btn btn-primary" disabled>
+                      Proceed to Checkout{" "}
+                    </button>
+                    <button className="btn btn-danger" disabled>
+                      Delete Cart
+                    </button>
+                  </div>
+                </div>
               )}
             </div>
           </Offcanvas.Body>
