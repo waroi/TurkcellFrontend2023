@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const FooterSection = styled.section`
 
+
 display: flex;
 border-radius: 40px 40px 0px 0px;
 background: linear-gradient(134deg, #FCEED5 6.17%, #FCEED5 75.14%, #FFE7BA 100%);
@@ -13,52 +14,91 @@ gap: 40px;
 flex-shrink: 0;
 `
 
-export const FooterContainer = styled.div`
-    margin-top:80px
-`
-export const FooterBar = styled.div`
+
+
+export const FooterBar=styled.div`
+flex-direction: row;
+display:flex;
 border-radius: 16px;
-background:  #003459;
+background: var(--primary-color-dark-blue, #003459);
 display: flex;
 padding: 32px;
-margin:0 ;
 align-items: flex-start;
 gap: 20px;
-
 `
-
-export const FooterTitle = styled.p`
-display: flex;
-width: 389px;
-flex-direction: column;
-color:  #FDFDFD;
-font-size: 23px;
-text-align:left;
+export const FooterTitle=styled.p`
+color: var(--neutral-color-00, #FDFDFD);
+font-size: 24px;
+font-style: normal;
 font-weight: 700;
 line-height: 36px;
 text-transform: capitalize;
+display: flex;
+
+flex-direction: column;
 `
+
+// export const FooterBar = styled.div`
+// border-radius: 16px;
+// background:  #003459;
+// display: flex;
+// padding: 32px;
+// width:100%;
+// margin:0 ;
+// align-items: flex-start;
+// // gap: 20px;
+
+// `
+
+// export const FooterTitle = styled.p`
+// display: flex;
+// width: 389px;
+// flex-direction: column;
+// color:  #FDFDFD;
+// font-size: 23px;
+// text-align:left;
+// font-weight: 700;
+// line-height: 36px;
+// text-transform: capitalize;
+// `
 
 export const FooterSearch = styled.div`
 display: flex;
-width:100%;
+width: 707px;
 padding: 12px;
 align-items: center;
 gap: 12px;
 border-radius: 14px;
 background: #FFF;
+width:100%
+
+// display: flex;
+// padding: 12px;
+// align-items: center;
+// gap: 12px;
+// border-radius: 14px;
+// background: #FFF;
 
 `
 
 export const FooterSearchBar = styled.input`
-    display: flex;
-    padding: 14px 28px;
-    align-items: center;
-    gap: 10px;
-    flex: 1 0 0;
-    border-radius: 8px;
-    border: 1px solid #99A2A5;
-    background: #FFF;
+display: flex;
+padding: 14px 28px;
+align-items: center;
+gap: 10px;
+flex: 1 0 0;
+border-radius: 8px;
+border: 1px solid var(--neutral-color-40, #99A2A5);
+background: #FFF;
+width:100%;
+//     display: flex;
+//     padding: 14px 28px;
+//     align-items: center;
+//     gap: 10px;
+//     flex: 1 0 0;
+//     border-radius: 8px;
+//     border: 1px solid #99A2A5;
+//     background: #FFF;
 `
 export const FooterLink = styled.div`
     gap:40px;

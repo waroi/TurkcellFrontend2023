@@ -1,5 +1,22 @@
 import styled from 'styled-components'
 
+
+export const NavbarForDesktop = styled.div`
+    display:block;
+    @media screen and (max-width:992px){
+        display:none
+    }
+
+`
+
+export const NavbarForMobile=styled.nav`
+position:relative;
+
+    display:none;
+    @media screen and (max-width:992px){
+        display:block
+    }
+`
 export const NavBarComp = styled.nav`
     position:relative;
     overflow:hidden;
@@ -42,7 +59,7 @@ export const NavUl = styled.ul`
 
 `
 
-export const NavImg=styled.img`
+export const NavImg = styled.img`
     width:30px;
     height:30px;
     margin:0 10px;

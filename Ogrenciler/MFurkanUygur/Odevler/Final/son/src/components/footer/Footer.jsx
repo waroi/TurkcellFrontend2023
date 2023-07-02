@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { FooterBar, FooterContainer, FooterFooter, FooterIcon, FooterIconCont, FooterLink, FooterNav, FooterSearch, FooterSearchBar, FooterSection, FooterTitle } from "./footerStyle"
+import { FooterBar, FooterFooter, FooterIcon, FooterIconCont, FooterLink, FooterNav, FooterSearch, FooterSearchBar, FooterSection, FooterTitle } from "./footerStyle"
 import face from '../../assets/face.png'
 import twit from '../../assets/twit.png'
 import insta from '../../assets/insta.png'
@@ -7,17 +7,31 @@ import ytube from '../../assets/ytube.png'
 import logo from '../../assets/logo.png'
 const Footer = () => {
     return (
-        <FooterSection className="p-0 m-0" >
-            <FooterContainer className="container ">
-                <FooterBar className="row">
-                    <FooterTitle className="col-lg-6">Register now so you don't miss our programs</FooterTitle>
+        <FooterSection className=" mt-5" >
+            <div className="container ">
+                {/* <FooterBar className="row ">
+                    <FooterTitle className="col-lg-6">
+                        Register now so you don`t miss our programs
+                    </FooterTitle>
+                    <FooterSearch className="col-lg-6">
+                        <FooterSearchBar type="text" className="form-control" id="footerSearch" />
+                        <button className="btn btn-primary ">Subscribe Now</button>
+                    </FooterSearch>
+
+                </FooterBar> */}
+
+                <FooterBar >
                     <div className="col-lg-6">
-                        <FooterSearch>
-                            <FooterSearchBar type="text" className="form-control" id="footerSearch" />
-                            <button className="btn btn-primary ">Subscribe Now</button>
-                        </FooterSearch>
+                        <FooterTitle>Register now so you don`t miss our programs</FooterTitle>
+                    </div>
+                    <div className="col-lg-6">
+                    <FooterSearch className="col-lg-6">
+                        <FooterSearchBar type="text" className="form-control" id="footerSearch" />
+                        <button className="btn btn-primary ">Subscribe Now</button>
+                    </FooterSearch>
 
                     </div>
+
                 </FooterBar>
                 <FooterNav className="navbar-nav">
                     <div className="row d-flex justify-content-between align-items-center">
@@ -46,7 +60,7 @@ const Footer = () => {
                     </div >
                     {/* yorum satırı footerStyle içinde mobil için olanı */}
                 </FooterFooter>
-            </FooterContainer>
+            </div>
         </FooterSection>
     )
 }
