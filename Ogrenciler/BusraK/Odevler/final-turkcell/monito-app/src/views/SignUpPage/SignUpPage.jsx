@@ -31,6 +31,7 @@ const SignUpPage = () => {
 
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [imageUrlError, setImageUrlError] = useState("");
   const [registrationError, setRegistrationError] = useState("");
 
   const emailSchema = yup
@@ -46,6 +47,11 @@ const SignUpPage = () => {
       "Password must contain uppercase, lowercase, and numbers"
     )
     .required("Password is required");
+
+  const imageSchema = yup
+    .string()
+    .url("Geçerli bir resim URL'si girin")
+    .required("Resim URL'si gereklidir");
 
   const handleEmailBlur = () => {
     emailSchema
@@ -71,6 +77,18 @@ const SignUpPage = () => {
       });
   };
 
+  const handleImageUrlBlur = () => {
+    imageSchema
+      .validate(imageUrl)
+      .then(() => {
+        setImageUrlError("");
+      })
+      .catch((error) => {
+        setImageUrlError(error.message);
+        toast.error(error.message);
+      });
+  };
+
   const handleSignup = async (e) => {
     e.preventDefault();
 
@@ -86,6 +104,11 @@ const SignUpPage = () => {
 
     if (passwordError) {
       toast.error("Meet password requirements.");
+      return;
+    }
+
+    if (imageUrlError) {
+      toast.error("Enter a valid image url.");
       return;
     }
 
@@ -219,15 +242,25 @@ const SignUpPage = () => {
         </FormGroup>
 
         <FormGroup>
-          <Label htmlFor="imageUrl">Image URL</Label>
+          <Label htmlFor="imageUrl">Resim URL'si</Label>
           <Input
             type="text"
             id="imageUrl"
             name="imageUrl"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
-            placeholder="Enter Image URL"
+            onBlur={handleImageUrlBlur}
+            className={imageUrlError ? "error-input" : ""}
+            placeholder="Resim URL'sini Girin"
           />
+          {imageUrlError && (
+            <ErrorMessage>
+              <ErrorIcon>
+                <img src="../../src/assets/Icon/error-circle.png" alt="Hata" />
+              </ErrorIcon>
+              {imageUrlError}
+            </ErrorMessage>
+          )}
         </FormGroup>
 
         {registrationError && <ErrorMessage>{registrationError}</ErrorMessage>}

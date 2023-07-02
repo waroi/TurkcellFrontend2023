@@ -27,7 +27,7 @@ export const ProductsNewWrapper = styled.div`
 export const ProductsNewContainer = styled.div`
   display: flex;
   max-width: 27rem;
-  padding: 0.5rem 0rem 0rem 1rem;
+  padding: 0.5rem 0rem 2rem 1rem;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -41,8 +41,9 @@ export const ProductsNewContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    margin-bottom: 2rem;
+    justify-content: flex-end;
+    margin-bottom: 2%;
+    height: 28rem;
 
     @media (max-width: 992px) {
       margin-bottom: 0;
@@ -60,6 +61,31 @@ export const ProductsNewContainer = styled.div`
     margin-right: 1.5rem;
     padding-left: 1rem;
     gap: 0 !important;
+  }
+`;
+
+export const Div = styled.div`
+  align-items: center;
+  width: 100%;
+  display: inline-flex;
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.5rem;
+  background: var(--secondary-color-mon-yellow-40, #fceed5);
+  div {
+    display: flex;
+    padding: 0.375rem 0.625rem 0.25rem 0.625rem;
+    align-items: center;
+    gap: 0.125rem;
+    align-self: stretch;
+  }
+  .gift {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .dot {
+    width: 0.25rem;
+    height: 0.25rem;
   }
 `;
 
@@ -142,20 +168,11 @@ export const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1rem;
   margin-right: 0.1rem;
-  align-self: stretch;
-
   @media (max-width: 992px) {
     flex-direction: column;
-    width: 10rem;
-
     gap: 0.5rem;
     margin: 0 auto;
     margin-left: -2rem;
-
-    button {
-      width: 90%;
-    }
   }
 `;

@@ -43,6 +43,7 @@ export const ContainerBanner = styled.div`
       font-weight: 800;
       line-height: 4.25rem;
       text-transform: capitalize;
+      margin-left: -1.5rem;
     }
 
     h2 {
@@ -52,6 +53,7 @@ export const ContainerBanner = styled.div`
       font-weight: 700;
       line-height: 3.375rem;
       text-transform: capitalize;
+      margin-left: 1.5rem;
     }
 
     p {
@@ -64,6 +66,13 @@ export const ContainerBanner = styled.div`
       font-style: normal;
       font-weight: 500;
       line-height: 1.125rem;
+    }
+
+    .buttons {
+      margin-left: 1.4rem;
+      @media (max-width: 992px) {
+        margin-left: -1.2rem;
+      }
     }
   }
 
@@ -102,6 +111,7 @@ export const ContainerBanner = styled.div`
       flex-direction: column;
       margin-top: 5%;
       text-align: left;
+      margin-left: 1.2rem;
     }
 
     h1 {
@@ -120,10 +130,11 @@ export const ContainerBanner = styled.div`
       font-weight: 700;
       line-height: 2.375rem;
       text-transform: capitalize;
+      margin-left: 0 !important;
     }
 
     .text-banner {
-      width: 21.625rem !important;
+      width: 20.625rem !important;
       color: var(--neutral-color-80, #242b33) !important;
       text-align: left !important;
       font-size: 0.75rem !important;
@@ -134,10 +145,8 @@ export const ContainerBanner = styled.div`
 
     .buttons {
       margin-top: 1.5rem;
-
-      @media (max-width: 992px) {
-        gap: 1rem !important;
-      }
+      gap: 1rem !important;
+      margin-left: -1.2rem;
     }
   }
 `;

@@ -27,6 +27,13 @@ export const HeroBannerLeft = styled.div`
   padding-left: 10%;
   text-align: left;
 
+  .buttons {
+    gap: 2rem !important;
+    @media (max-width: 992px) {
+      gap: 0.1rem !important;
+    }
+  }
+
   @media (max-width: 992px) {
     display: flex;
     flex-wrap: wrap;
@@ -140,7 +147,7 @@ export const Rectangle2 = styled.img`
   position: absolute;
   z-index: 2;
   left: 72%;
-  top: 68%;
+  top: 69%;
   transform: translate(-50%, -50%);
   max-width: 47%;
 

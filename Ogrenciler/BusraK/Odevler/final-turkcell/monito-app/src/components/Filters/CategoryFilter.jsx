@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+
 import { useSelector } from "react-redux";
 import { Rating } from "@smastrom/react-rating";
 import { ToastContainer, toast } from "react-toastify";
@@ -91,9 +91,11 @@ const CategoryFilter = ({
   if (isLoading) {
     return (
       <div className="text-center">
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <div className="d-flex justify-content-center align-items-center">
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
       </div>
     );
   }

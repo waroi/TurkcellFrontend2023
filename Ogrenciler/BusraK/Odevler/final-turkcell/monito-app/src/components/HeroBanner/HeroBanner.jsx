@@ -27,7 +27,7 @@ const HeroBanner = () => {
           will always be with you to have fun. We have 200+ different pets that
           can meet your needs!
         </Paragraph>
-        <div className="d-flex gap-1 pt-4  ">
+        <div className="d-flex gap-1 pt-4 buttons ">
           <StButton
             text="View Intro"
             type="no-color-icon"

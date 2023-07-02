@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { setUsername, setLoginStatus } from "../../redux/slices/mainSlice";
 import { addToCart, updateCart } from "../../redux/slices/cartSlice";
-import { Spinner } from "react-bootstrap";
+
 import CategoryFilter from "../../components/Filters/CategoryFilter";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -231,9 +231,11 @@ const ProductDetailPage = () => {
   if (isLoading) {
     return (
       <div className="text-center">
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <div className="d-flex justify-content-center align-items-center">
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
       </div>
     );
   }

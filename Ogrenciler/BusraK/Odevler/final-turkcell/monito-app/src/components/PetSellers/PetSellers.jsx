@@ -116,11 +116,11 @@ const PetSellers = () => {
           />
         </div>
       </div>
-      <div className="row row-cols-1 row-cols-md-3 d-flex flex-wrap blogs  ">
+      <div className="row row-cols-1 row-cols-md-3 d-flex flex-wrap blogs ">
         <div className="col">
           <div className="card">
             <img
-              src="https://picsum.photos/id/1/200/300"
+              src="../../src/assets/PetSellers/image3.png"
               className="card-img-top"
               alt="..."
             />
@@ -140,7 +140,7 @@ const PetSellers = () => {
         <div className="col">
           <div className="card">
             <img
-              src="https://picsum.photos/id/1/200/300"
+              src="../../src/assets/PetSellers/image2.png"
               className="card-img-top"
               alt="..."
             />
@@ -160,7 +160,7 @@ const PetSellers = () => {
         <div className="col">
           <div className="card">
             <img
-              src="https://picsum.photos/id/1/200/300"
+              src="../../src/assets/PetSellers/image1.png"
               className="card-img-top"
               alt="..."
             />

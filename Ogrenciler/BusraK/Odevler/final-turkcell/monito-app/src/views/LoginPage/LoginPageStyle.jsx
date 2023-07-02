@@ -26,7 +26,8 @@ export const FormContainerSignUp = styled.div`
   color: var(--primary-color-dark-blue-80, #002a48);
   display: flex;
   justify-content: left;
-  padding-left: 12%;
+  padding-left: 8%;
+  padding-right: 8%;
   align-items: center;
   height: 100vh;
   background-image: url("https://img.freepik.com/free-vector/online-shopping-store-with-mobile-shopping-cart-mail-clouds-realistic-style-vector-illustration_548887-136.jpg?w=1800&t=st=1688051943~exp=1688052543~hmac=7ca2abc7ac406442e16592348a825ca9b5bd967a12bfe6de488278b8dcdc239c");
@@ -44,7 +45,7 @@ export const Form = styled.form`
   font-family: "svngilroy-bold", sans-serif;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   @media (max-width: 992px) {
-    width: 76vw;
+    width: 96vw;
   }
 `;
 

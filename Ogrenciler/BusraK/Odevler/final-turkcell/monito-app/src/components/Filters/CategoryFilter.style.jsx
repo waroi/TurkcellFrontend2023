@@ -26,7 +26,7 @@ export const ProductsNewWrapper = styled.div`
 
 export const ProductsNewContainer = styled.div`
   display: flex;
-  max-width: 28rem;
+  max-width: 27rem;
 
   padding: 0.5rem 0.1rem 0rem 0.4rem;
   flex-direction: column;
@@ -60,14 +60,15 @@ export const ProductsNewContainer = styled.div`
 export const Image = styled.img`
   width: 50%;
   margin-top: 4rem !important;
-  height: auto !important;
-  max-height: 25% !important;
+  height: 10rem !important;
+  max-height: 30% !important;
   margin: 0 auto;
   border-radius: 6px;
 
   @media (max-width: 992px) {
     width: 10rem;
     height: 4rem !important;
+    object-fit: contain;
   }
 `;
 
@@ -133,7 +134,6 @@ export const Price = styled.h3`
 `;
 
 export const Buttons = styled.div`
-  margin-left: 2rem;
   @media (max-width: 992px) {
     flex-direction: column;
     gap: 0.5rem;

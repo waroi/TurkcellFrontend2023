@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
-import { NavDropdown } from "react-bootstrap";
+
 import {
   logout,
   setUsername,
@@ -222,28 +222,30 @@ const Navbar = () => {
                       image="../../src/assets/Icon/bag-heart.svg"
                       text={`(${cartItemsCount})`}
                     />
-                    <NavDropdown
-                      title={
-                        <img
-                          src={userImage || userImg}
-                          alt="Profile"
-                          className="rounded-circle  "
-                          style={{ width: "50px", height: "50px" }}
-                        />
-                      }
-                      id="basic-nav-dropdown"
-                    >
-                      <NavDropdown.Item
-                        onClick={() => handleLogout()}
-                        className="bg-transparent"
+
+                    <div className="dropdown">
+                      <img
+                        src={userImage || userImg}
+                        alt="Profile"
+                        className="rounded-circle  "
+                        style={{ width: "50px", height: "50px" }}
+                        id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      />
+                      <ul
+                        className="dropdown-menu  bg-transparent "
+                        aria-labelledby="dropdownMenuButton1"
                       >
-                        <StButton
-                          onClick={() => handleLogout()}
-                          type="dark-blue"
-                          text="logout"
-                        />
-                      </NavDropdown.Item>
-                    </NavDropdown>
+                        <li className="mx-3">
+                          <StButton
+                            onClick={() => handleLogout()}
+                            type="dark-blue"
+                            text="logout"
+                          />
+                        </li>
+                      </ul>
+                    </div>
                   </>
                 ) : (
                   <>

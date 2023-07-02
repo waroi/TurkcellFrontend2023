@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import CategoryFilter from "../../components/Filters/CategoryFilter";
-import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUsername, setLoginStatus } from "../../redux/slices/mainSlice";
@@ -14,7 +13,7 @@ import {
   MainDiv,
   MobileFilter,
 } from "./ProductsPageStyle";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import ProductsBanner from "../../components/ProductsBanner/ProductsBanner";
 const ProductsPage = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -100,7 +99,7 @@ const ProductsPage = () => {
           if (!updateResponse.ok) {
             throw new Error("Failed to update cart on the server.");
           }
-
+          toast.success("Item added to cart");
           dispatch(updateCart({ userId: username, items: updatedItems }));
         } else {
           const updatedItems = [...existingCart.items, cartItem];
@@ -308,24 +307,27 @@ const ProductsPage = () => {
 
   return (
     <div className="container pt-3 ">
+      <ToastContainer />
       <ProductsBanner />
-      <Breadcrumb className="px-5 pt-5">
-        {path.map((item, index) => (
-          <Breadcrumb.Item
-            key={index}
-            href={item.url}
-            active={index === path.length - 1}
-          >
-            {item.title}
-          </Breadcrumb.Item>
-        ))}
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb px-5 pt-5">
+          {path.map((item, index) => (
+            <li className="breadcrumb-item" key={index}>
+              {index === path.length - 1 ? (
+                <span>{item.title}</span>
+              ) : (
+                <a href={item.url}>{item.title}</a>
+              )}
+            </li>
+          ))}
 
-        {filters.map((filter, index) => (
-          <Breadcrumb.Item key={index} active>
-            {filter.title}: {filter.value}
-          </Breadcrumb.Item>
-        ))}
-      </Breadcrumb>
+          {filters.map((filter, index) => (
+            <li className="breadcrumb-item active" key={index}>
+              {filter.title}: {filter.value}
+            </li>
+          ))}
+        </ol>
+      </nav>
 
       <MainDiv className="d-flex col-md-11 gap-0 ">
         <ProductLeft className="col-2">
@@ -399,7 +401,7 @@ const ProductsPage = () => {
           </div>
         </ProductLeft>
 
-        <div className="d-flex col-12 row">
+        <div className="d-flex col-12 row mx-auto ">
           <ProductTop className="d-flex justify-content-between px-5">
             <div className="d-flex">
               <h1>Products </h1>

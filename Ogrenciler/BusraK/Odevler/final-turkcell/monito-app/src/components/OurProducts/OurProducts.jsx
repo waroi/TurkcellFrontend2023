@@ -1,7 +1,7 @@
 import React from "react";
 import StButton from "../Button/Button";
 import { H1, H2, OurProductsWrapper } from "./OurProducts.style";
-import ProductsNew from "../ProductsNew/ProductsNew";
+import OurCards from "../OurCards/OurCards";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 const OurProducts = () => {
@@ -32,7 +32,7 @@ const OurProducts = () => {
         </div>
       </div>
       <div className="d-md-block d-none">
-        <ProductsNew limit={8} />
+        <OurCards limit={8} />
       </div>
     </OurProductsWrapper>
   );

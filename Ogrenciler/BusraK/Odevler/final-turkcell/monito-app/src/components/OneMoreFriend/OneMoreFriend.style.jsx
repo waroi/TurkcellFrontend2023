@@ -12,7 +12,7 @@ export const OneMoreFriendContainer = styled.div`
 
   @media (max-width: 992px) {
     min-height: 40rem;
-    width: 22.875rem !important;
+    max-width: 22.875rem !important;
   }
 `;
 
@@ -49,7 +49,7 @@ export const OneMoreRight = styled.div`
   padding: 1rem 1rem 0 1rem;
 
   .buttons {
-    margin-left: 11rem;
+    margin-left: 17rem;
 
     @media (max-width: 992px) {
       margin-left: 1rem;
@@ -70,7 +70,7 @@ export const OneMoreRight = styled.div`
     text-align: right;
 
     @media (max-width: 992px) {
-      left: -6rem;
+      left: -4.7rem;
       padding: 0 3rem 6rem 3rem;
       min-width: 30rem;
     }
@@ -82,7 +82,7 @@ export const OneMoreRight = styled.div`
     font-weight: 800;
     line-height: 4.25rem;
     text-transform: capitalize;
-
+    padding: 1.5rem 1rem 0 1rem;
     @media (max-width: 992px) {
       color: var(--primary-color-dark-blue-80, #002a48);
       text-align: center;
@@ -100,7 +100,7 @@ export const OneMoreRight = styled.div`
     font-weight: 700;
     line-height: 3.375rem;
     text-transform: capitalize;
-
+    padding: 0rem 1.5rem 0 0rem;
     @media (max-width: 992px) {
       text-align: center;
       font-size: 1.5rem;
@@ -113,7 +113,7 @@ export const OneMoreRight = styled.div`
     color: var(--neutral-color-80, #242b33);
     text-align: right;
     font-size: 0.75rem;
-    margin-left: 13rem;
+    margin-left: 12rem;
     font-weight: 500;
     line-height: 1.125rem;
     display: flex;

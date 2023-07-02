@@ -103,7 +103,7 @@ export const ProductTop = styled.div`
 
   @media (max-width: 992px) {
     flex-direction: column-reverse;
-
+    margin: 0 -2rem;
     .filter-sorter {
       display: flex;
       justify-content: space-between;

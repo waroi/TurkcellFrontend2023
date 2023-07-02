@@ -29,7 +29,7 @@ const OneMoreFriend = () => {
               who will always be with you to have fun. We have 200+ different
               pets that can meet your needs!
             </h3>
-            <div className="d-flex   mt-3 gap-5 buttons ">
+            <div className="d-flex   mt-3 gap-3 buttons ">
               <StButton
                 text="View Intro"
                 type="no-color-icon"
