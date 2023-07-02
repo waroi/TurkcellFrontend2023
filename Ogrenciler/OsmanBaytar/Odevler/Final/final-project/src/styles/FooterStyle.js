@@ -69,7 +69,7 @@ export const FooterButton = styled.button`
   line-height: 24px;
   border-radius: 8px;
   background: #003459;
-  width: 100%;
+  width: 50%;
   @media (max-width: 992px) {
     width: 100%;
   }
