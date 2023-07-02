@@ -7,6 +7,14 @@ import InstagramIcon from "../assets/icons/Instagram - Negative.svg";
 import TwitterIcon from "../assets/icons/Twitter - Negative.svg";
 import YoutubeIcon from "../assets/icons/Youtube - Negative.svg";
 import SearchIcon from "../assets/icons/u_search.svg";
+import Slider3 from "../assets/images/slider 3.png";
+import Slider4 from "../assets/images/slider 4.png";
+import Slider5 from "../assets/images/slider 5.png";
+import Slider6 from "../assets/images/slider 6.png";
+import Slider7 from "../assets/images/slider 7.png";
+import Slider8 from "../assets/images/slider 8.png";
+import PreIcon from "../assets/icons/Caret_Left_SM.png";
+import NextIcon from "../assets/icons/Caret_Right_slider_SM.png";
 
 const Icon = {
   Main: mainLogo,
@@ -18,6 +26,14 @@ const Icon = {
   Twitter: TwitterIcon,
   Youtube: YoutubeIcon,
   Search: SearchIcon,
+  Slider3: Slider3,
+  Slider4: Slider4,
+  Slider5: Slider5,
+  Slider6: Slider6,
+  Slider7: Slider7,
+  Slider8: Slider8,
+  NextIcon: NextIcon,
+  PreIcon: PreIcon,
 };
 
 export default Icon;
