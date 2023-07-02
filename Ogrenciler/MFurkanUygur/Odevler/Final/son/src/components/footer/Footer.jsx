@@ -39,19 +39,19 @@ const Footer = () => {
                 </FooterBar>
                 
                 <FooterNav className="navbar-nav">
-                    <div className="row ">
-                        <FooterLink className=" col-lg-6 d-flex align-items-center ">
+                    <div className="row w-100 ">
+                        <FooterLink className=" col-lg-6 d-flex  ">
                             <li className="nav-item" ><Link to="/" className="nav-link">Home</Link></li>
                             <li className="nav-item mx-2"><Link to="/products" className="nav-link"> Products</Link></li>
                             <li className="nav-item nav-link mx-2">About</li>
                             <li className="nav-item nav-link mx-2">Contact</li>
                         </FooterLink>
 
-                        <FooterIconCont className="col-lg-6   ">
+                        <FooterIconCont className="col-lg-6  ">
                             <li className="nav-item" ><FooterIcon src={face} alt="" /></li>
-                            <li className="nav-item mx-2"><FooterIcon src={twit} alt="" /></li>
-                            <li className="nav-item mx-2"><FooterIcon src={insta} alt="" /></li>
-                            <li className="nav-item mx-2"><FooterIcon src={ytube} alt="" /></li>
+                            <li className="nav-item "><FooterIcon src={twit} alt="" /></li>
+                            <li className="nav-item "><FooterIcon src={insta} alt="" /></li>
+                            <li className="nav-item "><FooterIcon src={ytube} alt="" /></li>
 
                         </FooterIconCont>
                     </div>

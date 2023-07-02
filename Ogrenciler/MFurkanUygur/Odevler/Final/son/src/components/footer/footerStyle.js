@@ -6,7 +6,7 @@ export const FooterSection = styled.section`
 display: flex;
 border-radius: 40px 40px 0px 0px;
 background: linear-gradient(134deg, #FCEED5 6.17%, #FCEED5 75.14%, #FFE7BA 100%);
-padding: 80px 130px 40px 130px;
+padding: 80px 0 40px 0;
 flex-direction: column;
 justify-content: flex-end;
 align-items: flex-start;
@@ -111,7 +111,7 @@ export const FooterIconCont = styled.div`
     justify-content:end;
     @media screen and (max-width:992px){
         justify-content:center;
-
+        margin-top:20px;
     }
 `
 export const FooterIcon = styled.img`
@@ -120,11 +120,16 @@ export const FooterIcon = styled.img`
     position:absolute
 `
 export const FooterNav = styled.ul`
-    margin:40px 0;
+
+    margin:30px 0;
     color:  #00171F;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
+    
+    @media screen and (max-width:992px){
+        margin:40px 0;
+    }
     
 `
 
