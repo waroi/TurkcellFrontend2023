@@ -100,6 +100,7 @@ Her dersin sonunda verilen ödevleri, ``Ders_Sonu_Odevleri`` klasörü içinde b
 | [Odev2](./Odevler/Odev-2) |
 | [Odev3](./Odevler/Odev-3) |
 | [Odev4](./Odevler/Odev-4/) |
+| [Final](./Odevler/Final/final-project/) |
 
 ### Bireysel Çalışmalarım
 
