@@ -124,3 +124,17 @@ export const UpdateButton = styled.button`
   justify-content: center;
   align-items: center;
 `;
+
+export const AddCartButton = styled.button`
+  display: flex;
+  height: 44px;
+  width: 161px;
+  padding: 14px 28px 10px 28px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 57px;
+  background: #003459;
+  color: white;
+  border: 1px solid transparent;
+`;

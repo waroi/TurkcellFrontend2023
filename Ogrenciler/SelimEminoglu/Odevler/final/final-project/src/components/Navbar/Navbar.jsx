@@ -106,7 +106,9 @@ function Navbar() {
               {isOpen && (
                 <DropDownDivOption>
                   <DropDownUl>
-                    <DropDownLi onClick={userExit}>Çıkış</DropDownLi>
+                    <DropDownLi onClick={userExit}>
+                      <Link to={"/"}>Çıkış</Link>
+                    </DropDownLi>
                   </DropDownUl>
                 </DropDownDivOption>
               )}

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProduct } from "../../redux/slices/productList";
+import { fetchCart } from "../../redux/slices/cartsList";
+import { toast } from "react-toastify";
 import {
   CardDiv,
   FlexCardDiv,
@@ -15,22 +17,64 @@ import {
   CardPoint,
   CardGiftText,
   UpdateButton,
+  AddCartButton,
 } from "./styleCardList";
 import PropTypes from "prop-types";
-import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+
+function successPost() {
+  toast.success(`Sepete Eklendi`, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    theme: "dark",
+  });
+}
+
+function failPost(error) {
+  toast.error(`Hata:${error}`, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    theme: "dark",
+  });
+}
+
+function warningPost() {
+  toast.warning(`Giriş Yapınız!!`, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    theme: "dark",
+  });
+}
 
 function CardList({ isEight, isGift }) {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
   const loading = useSelector((state) => state.product.loading);
   const error = useSelector((state) => state.product.error);
+
+  const carts = useSelector((state) => state.cart.carts);
+  const loadingCart = useSelector((state) => state.cart.loading);
+  const errorCart = useSelector((state) => state.cart.error);
+
   const [randomProducts, setRandomProducts] = useState([]);
   const isActiveUser = useSelector((state) => state.user.isActiveUser);
   const activeUser = useSelector((state) => state.user.activeUser);
 
   useEffect(() => {
     dispatch(fetchProduct());
+    dispatch(fetchCart());
   }, [dispatch]);
 
   useEffect(() => {
@@ -45,6 +89,45 @@ function CardList({ isEight, isGift }) {
 
   if (error) {
     return <div>Error: {error}</div>;
+  }
+
+  if (loadingCart) {
+    return <div>Yükleniyor...</div>;
+  }
+
+  if (errorCart) {
+    return <div>Error: {error}</div>;
+  }
+
+  function sendProduct(product) {
+    carts.map((item) => {
+      console.log(item);
+    });
+
+    products.map((item) => {
+      if (item.id === product.id) {
+        if (item.rating.count > 1) {
+          let sendBody = {
+            userId: activeUser.id,
+            products: { ...item, rating: { ...item.rating, count: 1 } },
+          };
+
+          fetch("http://localhost:3001/carts", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(sendBody),
+          })
+            .then(() => {
+              successPost();
+            })
+            .catch((err) => {
+              failPost(err);
+            });
+        }
+      }
+    });
   }
 
   function randomNumber(min, max) {
@@ -68,66 +151,70 @@ function CardList({ isEight, isGift }) {
     <FlexCardDiv>
       {isEight &&
         randomProducts.slice(0, 8).map((item) => (
-          <Link
-            to={isActiveUser ? `/products/${item.id}` : "/login"}
-            key={self.crypto.randomUUID()}
-          >
-            <CardDiv>
+          <CardDiv key={self.crypto.randomUUID()}>
+            <Link to={isActiveUser ? `/products/${item.id}` : "/login"}>
               <CardİmgDiv image={item.image}></CardİmgDiv>
-
-              <CardTextDiv>
-                <CardTitle>{item.title}</CardTitle>
-                <CardCategory>
-                  Category:{item.category}-Adet:{item.rating.count}
-                </CardCategory>
-                <CardPrice>{item.price} $</CardPrice>
-              </CardTextDiv>
-              {isGift && (
-                <CardGiftDiv>
-                  <img src="./src/assets/icons/gift_icon.svg" alt="logo" />
-                  <CardPointDiv>
-                    <CardPoint></CardPoint>
-                  </CardPointDiv>
-                  <CardGiftText>Free Toy & Free Shaker</CardGiftText>
-                </CardGiftDiv>
-              )}
+            </Link>
+            <CardTextDiv>
+              <CardTitle>{item.title}</CardTitle>
+              <CardCategory>
+                Category:{item.category}-Adet:{item.rating.count}
+              </CardCategory>
+              <CardPrice>{item.price} $</CardPrice>
+            </CardTextDiv>
+            {isGift && (
+              <CardGiftDiv>
+                <img src="./src/assets/icons/gift_icon.svg" alt="logo" />
+                <CardPointDiv>
+                  <CardPoint></CardPoint>
+                </CardPointDiv>
+                <CardGiftText>Free Toy & Free Shaker</CardGiftText>
+              </CardGiftDiv>
+            )}
+            <CardButtonDiv>
+              <AddCartButton
+                onClick={
+                  isActiveUser ? () => sendProduct(item) : () => warningPost()
+                }
+              >
+                Sepete Ekle
+              </AddCartButton>
+            </CardButtonDiv>
+            {activeUser.isAdmin && (
               <CardButtonDiv>
-                <Button title="Sepete Ekle" />
+                <UpdateButton>Güncelle</UpdateButton>
               </CardButtonDiv>
-              {activeUser.isAdmin && (
-                <CardButtonDiv>
-                  <UpdateButton>Güncelle</UpdateButton>
-                </CardButtonDiv>
-              )}
-            </CardDiv>
-          </Link>
+            )}
+          </CardDiv>
         ))}
       {!isEight &&
         randomProducts.slice(0, 4).map((item) => (
-          <Link
-            to={isActiveUser ? `/products/${item.id}` : "/login"}
-            key={self.crypto.randomUUID()}
-          >
-            <CardDiv>
+          <CardDiv key={self.crypto.randomUUID()}>
+            <Link to={isActiveUser ? `/products/${item.id}` : "/login"}>
               <CardİmgDiv image={item.image}></CardİmgDiv>
-
-              <CardTextDiv>
-                <CardTitle>{item.title}</CardTitle>
-                <CardCategory>
-                  Category:{item.category}-Adet:{item.rating.count}
-                </CardCategory>
-                <CardPrice>{item.price} $</CardPrice>
-              </CardTextDiv>
+            </Link>
+            <CardTextDiv>
+              <CardTitle>{item.title}</CardTitle>
+              <CardCategory>
+                Category:{item.category}-Adet:{item.rating.count}
+              </CardCategory>
+              <CardPrice>{item.price} $</CardPrice>
+            </CardTextDiv>
+            <CardButtonDiv>
+              <AddCartButton
+                onClick={
+                  isActiveUser ? () => sendProduct(item) : () => warningPost()
+                }
+              >
+                Sepete Ekle
+              </AddCartButton>
+            </CardButtonDiv>
+            {activeUser.isAdmin && (
               <CardButtonDiv>
-                <Button title="Sepete Ekle" />
+                <UpdateButton>Güncelle</UpdateButton>
               </CardButtonDiv>
-              {activeUser.isAdmin && (
-                <CardButtonDiv>
-                  <UpdateButton>Güncelle</UpdateButton>
-                </CardButtonDiv>
-              )}
-            </CardDiv>
-          </Link>
+            )}
+          </CardDiv>
         ))}
     </FlexCardDiv>
   );

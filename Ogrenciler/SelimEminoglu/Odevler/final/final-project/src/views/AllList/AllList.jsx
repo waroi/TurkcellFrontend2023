@@ -1,7 +1,8 @@
-import Icon from "../../Icon/Icon";
+import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProduct } from "../../redux/slices/productList";
+import { fetchCart } from "../../redux/slices/cartsList";
 import { Container } from "../../assets/css/style";
 import { Link } from "react-router-dom";
 import {
@@ -28,14 +29,57 @@ import {
   CardCategory,
   CardPrice,
   CardButtonDiv,
+  UpdateButton,
+  AddCartButton,
 } from "../../components/CardList/styleCardList";
-import Button from "../../components/Button/Button";
+
+function successPost() {
+  toast.success(`Sepete Eklendi`, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    theme: "dark",
+  });
+}
+
+function failPost(error) {
+  toast.error(`Hata:${error}`, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    theme: "dark",
+  });
+}
+
+function warningPost() {
+  toast.warning(`Giriş Yapınız!!`, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    theme: "dark",
+  });
+}
 
 function AllList() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
   const loading = useSelector((state) => state.product.loading);
   const error = useSelector((state) => state.product.error);
+  const activeUser = useSelector((state) => state.user.activeUser);
+  const isActiveUser = useSelector((state) => state.user.isActiveUser);
+
+  const carts = useSelector((state) => state.cart.carts);
+  const loadingCart = useSelector((state) => state.cart.loading);
+  const errorCart = useSelector((state) => state.cart.error);
 
   const [isCheckedWC, setCheckedWC] = useState(false);
   const [isCheckedMC, setCheckedMC] = useState(false);
@@ -47,6 +91,7 @@ function AllList() {
   useEffect(() => {
     dispatch(fetchProduct());
     setFilterArr(products);
+    dispatch(fetchCart());
   }, [dispatch]);
 
   useEffect(() => {
@@ -121,6 +166,37 @@ function AllList() {
     }
   };
 
+  function sendProduct(product) {
+    carts.map((item) => {
+      console.log(item);
+    });
+
+    products.map((item) => {
+      if (item.id === product.id) {
+        if (item.rating.count > 1) {
+          let sendBody = {
+            userId: activeUser.id,
+            products: { ...item, rating: { ...item.rating, count: 1 } },
+          };
+
+          fetch("http://localhost:3001/carts", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(sendBody),
+          })
+            .then(() => {
+              successPost();
+            })
+            .catch((err) => {
+              failPost(err);
+            });
+        }
+      }
+    });
+  }
+
   return (
     <Container>
       <Flex>
@@ -188,25 +264,34 @@ function AllList() {
           <ListDiv>
             {filterArr.map((item) => {
               return (
-                <Link
-                  to={`/products/${item.id}`}
-                  key={self.crypto.randomUUID()}
-                >
-                  <CardDiv>
+                <CardDiv key={self.crypto.randomUUID()}>
+                  <Link to={`/products/${item.id}`}>
                     <CardİmgDiv image={item.image}></CardİmgDiv>
-
-                    <CardTextDiv>
-                      <CardTitle>{item.title}</CardTitle>
-                      <CardCategory>
-                        Category:{item.category}-Adet:{item.rating.count}
-                      </CardCategory>
-                      <CardPrice>{item.price} $</CardPrice>
-                    </CardTextDiv>
+                  </Link>
+                  <CardTextDiv>
+                    <CardTitle>{item.title}</CardTitle>
+                    <CardCategory>
+                      Category:{item.category}-Adet:{item.rating.count}
+                    </CardCategory>
+                    <CardPrice>{item.price} $</CardPrice>
+                  </CardTextDiv>
+                  <CardButtonDiv>
+                    <AddCartButton
+                      onClick={
+                        isActiveUser
+                          ? () => sendProduct(item)
+                          : () => warningPost()
+                      }
+                    >
+                      Sepete Ekle
+                    </AddCartButton>
+                  </CardButtonDiv>
+                  {activeUser.isAdmin && (
                     <CardButtonDiv>
-                      <Button title="Sepete Ekle" />
+                      <UpdateButton>Güncelle</UpdateButton>
                     </CardButtonDiv>
-                  </CardDiv>
-                </Link>
+                  )}
+                </CardDiv>
               );
             })}
           </ListDiv>
