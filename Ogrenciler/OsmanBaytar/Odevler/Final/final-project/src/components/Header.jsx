@@ -6,6 +6,8 @@ import {
   HeaderButton,
   HeaderComputer,
   HeaderMobile,
+  HeaderMobileArea,
+  HeaderMobileAreaInput,
   HeaderSpan,
   HeaderDropdown,
   HeaderSearch,
@@ -257,7 +259,7 @@ const Header = () => {
         </div>
 
         {isMobile && !isMobileInput && (
-          <div className="row mt-3">
+          <HeaderMobileArea className="row mt-3">
             <HeaderItem onClick={() => goToHome()}>Home</HeaderItem>
             <HeaderItem onClick={() => goToProducts()}>Category</HeaderItem>
             <HeaderItem>About</HeaderItem>
@@ -278,19 +280,19 @@ const Header = () => {
                 <HeaderDropdown onClick={logOut}>Log Out</HeaderDropdown>
               )}
             </div>
-          </div>
+          </HeaderMobileArea>
         )}
       </HeaderMobile>
 
       {isMobileInput && !isMobile && (
-        <div className="row mt-3">
+        <HeaderMobileAreaInput className="row mt-3">
           <HeaderInput
             ref={inputMobileArea}
             onChange={handleMobileArea}
             type="text"
             placeholder="Search something here!"
           />
-        </div>
+        </HeaderMobileAreaInput>
       )}
     </div>
   );

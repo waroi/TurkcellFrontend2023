@@ -32,6 +32,7 @@ export const addNewUserWithSignUp = async (data) => {
         confirmPassword: data.confirmpassword,
         isLoggedIn: data.isLoggedIn,
         isAdmin: data.isAdmin,
+        image: data.image,
       }),
       headers: {
         Accept: "application/json",
@@ -56,6 +57,8 @@ export const userIsLoggedInStatus = async (data) => {
         confirmPassword: data.confirmpassword,
         isLoggedIn: data.isLoggedIn,
         isAdmin: data.isAdmin,
+        image: data.image,
+
       }),
       headers: {
         Accept: "application/json",

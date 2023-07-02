@@ -22,6 +22,8 @@ export const SignupSchema = yup.object().shape({
     .string()
     .oneOf([yup.ref("password")], "Password did not confirmed!")
     .required("Password Confirm is Required."),
+  image: yup
+    .string()
 });
 
 export const LoginSchema = yup.object().shape({

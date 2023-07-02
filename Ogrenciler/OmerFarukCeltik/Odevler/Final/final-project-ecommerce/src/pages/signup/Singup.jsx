@@ -38,6 +38,7 @@ const Singup = () => {
       email: "",
       password: "",
       confirmPassword: "",
+      image:"../../../images/avatar.png",
       id:Date.now(),
       isAdmin: false,
       isLoggedIn:true
@@ -97,7 +98,17 @@ const Singup = () => {
                 placeholder='Confirm Your Password'
                 className={`${formik.errors.confirmPassword ? "border-1 border-danger" : ""} w-100 rounded-pill mt-2 shadow-sm`}
                 />
-                {formik.errors.confirmPassword && <div className='text-danger error'>{formik.errors.confirmPassword}</div>}
+                <label className='mt-4' htmlFor="confirmPassword">Avatar Url:</label>
+              <CustomInput
+                id="image"
+                name="image"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.image}
+                placeholder='Confirm Your Password'
+                className={` : ""} w-100 rounded-pill mt-2 shadow-sm`}
+                />
+                <div className='font-italic text-muted fs-6 w-100 mt-2'>If you didn't add avatar, system automaticly add base avatar.</div>
                 <p className='mt-4'>Have you an account? You can <Link to="/login" className='text-primary'>Login</Link> from this link.</p>
 
                 <button disabled={formik.isSubmitting} className='mt-4 btn btn-primary rounded-pill py-2 px-175' type="submit"> 
