@@ -1,70 +1,25 @@
-import { useEffect, useState } from "react"
-import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
-import BasketItem from "./BasketItem"
 import { fetchAllProduct, updateMainProduct } from "../../request/productRequest"
-import { Link } from "react-router-dom"
-import { ToastContainer, toast } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css';
-import { CardButton } from "../buttons/buttonStyle"
-import { useDispatch } from "react-redux"
+import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
 import { updateCount } from "../../redux/slices/countBasket"
+import { toast } from "react-toastify"
+import { CardButton } from "../buttons/buttonStyle"
+import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
+import BasketItem from "./BasketItem"
+import 'react-toastify/dist/ReactToastify.css';
 
 const Basket = () => {
     const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
     const [basket, setBasket] = useState([])
     const [allProducts, setAllProducts] = useState([])
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
     useEffect(() => {
         fetchAllProduct().then(data => setAllProducts(data))
         fetchPrivateCart(userIsLog.id).then(data => setBasket(data.cartItems))
     }, [])
 
 
-    // const buyItems = () => {
-    //     fetchAllProduct()
-    //         .then(products => {
-
-    //             products.map(product => {
-    //                 console.log(basket.filter(basketItem => basketItem.id = product.id))
-    //             })
-
-    //             // const updatedCartItems = products.map(product => {
-    //             //     const existingItem = products.find(item => item.id === product.id);
-    //             //     console.log(existingItem)
-    //             //     // if (existingItem) {
-    //             //     //     const purchasedAmount = existingItem.count;
-    //             //     //     const updatedCount = product.count - purchasedAmount;
-    //             //     //     return {
-    //             //     //         ...product,
-    //             //     //         count: updatedCount >= 0 ? updatedCount : 0
-    //             //     //     };
-    //             //     // }
-
-    //             //     return product;
-    //             // });
-
-    //             // const updatedCart = {
-    //             //     id: userIsLog.id,
-    //             //     name: userIsLog.name,
-    //             //     cartItems: updatedCartItems
-    //             // };
-    //             // console.log(first)
-    //             // return fetch(`http://localhost:3000/products/${userIsLog.id}`, {
-    //             //     method: 'PUT',
-    //             //     headers: {
-    //             //         'Content-Type': 'application/json'
-    //             //     },
-    //             //     body: JSON.stringify(updatedCart)
-    //             // });
-    //         })
-    //         .then(() => {
-    //             console.log("Ürünler satın alındı");
-    //             setBasket([]);
-    //         })
-    //         .catch(error => {
-    //             console.error('Hata:', error);
-    //         });
-    // }
     const buyItems = () => {
         basket.forEach((item) => {
             const product = allProducts.find((p) => p.id === item.id);
@@ -80,7 +35,7 @@ const Basket = () => {
                         progress: undefined,
                         theme: "colored",
                     });
-                   
+
                 } else {
                     toast.error(`Sepetteki ${product.title} ürünü, stokta yeterli sayıda bulunmamaktadır. Dikkat ediniz.`, {
                         position: "bottom-right",
@@ -94,7 +49,7 @@ const Basket = () => {
                 }
             }
             else {
-                
+
                 fetchAllProduct()
                     .then(products => {
                         fetchPrivateCart(userIsLog.id)
@@ -121,7 +76,6 @@ const Basket = () => {
 
                                 });
 
-                                // Sepeti boşaltmak için fetch işlemi yap
                                 const updatedUserCart = {
                                     id: userIsLog.id,
                                     name: userIsLog.name,
@@ -157,18 +111,6 @@ const Basket = () => {
             {
                 basket?.length > 0 ? <div className="d-flex justify-content-center"><CardButton onClick={() => { buyItems() }}>Satın al</CardButton> </div> : <div className="d-flex  justify-content-center align-item-center"><Link to="/"><CardButton >Alışverişe başla</CardButton></Link></div>
             }
-
-            <ToastContainer
-                position="bottom-right"
-                autoClose={1050}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored" />
         </div>
     )
 }

@@ -20,22 +20,28 @@ import { updateCount } from "../../redux/slices/countBasket"
 
 const ListProducts = ({ product }) => {
     const userIsAdmin = useSelector((state) => state?.setLoggedUser?.isAdminLog)
+    const [currentItem, setCurrentItem] = useState(product)
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [currentItem, setCurrentItem] = useState(product)
 
     const ifUserLogged = () => {
         if (!sessionStorage.getItem('loggedUser')) {
-            alert("lütfen giriş yap")
-            navigate("/signup")
+            toast.error("Lütfen önce giriş yapınız!", {
+                position: "bottom-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                onClose: () => {
+                    navigate("/signup");
+                },
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
         }
         else {
             const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
-            console.log("giriş yapan kullsanıcı", userIsLog)
             fetchPrivateCart(userIsLog.id).then((allCarts) => {
-                console.log("currentUserBasket", allCarts)
-                console.log("currentUserBasketItems", allCarts.cartItems)
-
                 const existingItem = allCarts.cartItems.find((eachItem) => eachItem.id === product.id);
 
                 if (existingItem) {
@@ -250,8 +256,6 @@ const ListProducts = ({ product }) => {
                     }
                 </div>
             </ProductCard>
-
-
         </div >
     )
 }

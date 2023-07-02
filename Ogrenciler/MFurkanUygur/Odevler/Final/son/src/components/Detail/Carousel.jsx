@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import ImageGallery from "react-image-gallery";
+import PropTypes from 'prop-types'
 
 const Carousel = ({item}) => {
     const images = [
@@ -49,3 +49,7 @@ const Carousel = ({item}) => {
 };
 
 export default Carousel;
+
+Carousel.propTypes = {
+    item: PropTypes.object
+}

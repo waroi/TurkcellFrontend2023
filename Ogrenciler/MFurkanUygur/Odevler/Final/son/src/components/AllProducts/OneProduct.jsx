@@ -1,24 +1,23 @@
-/* eslint-disable react/prop-types */
-// import { useDispatch } from "react-redux"
+import { ProductCard, ProductImg, ProductPrice, ProductSpecs, ProductSpecsTitle, ProductTitle } from "./styledOneProduct";
+import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest";
+import { fetchOneProduct, updateMainProduct } from "../../request/productRequest";
+import { CardButton, CardButtonGroup } from "../buttons/buttonStyle";
+import { updateCount } from "../../redux/slices/countBasket";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest";
-import { Field, Form, Formik } from "formik";
 import { EditSchema } from "../GeneralForm/schema";
-import { fetchOneProduct, updateMainProduct } from "../../request/productRequest";
-import { useState } from "react";
-import { ProductCard, ProductImg, ProductPrice, ProductSpecs, ProductSpecsTitle, ProductTitle } from "./styledOneProduct";
-import { ToastContainer, toast } from 'react-toastify';
 import { Rating } from '@smastrom/react-rating'
-
-import '@smastrom/react-rating/style.css'
-import 'react-toastify/dist/ReactToastify.css';
-import { CardButton, CardButtonGroup } from "../buttons/buttonStyle";
-import add from '../../assets/add.png'
-import inspect from '../../assets/inspect.png'
-import edit from '../../assets/edit.png'
+import { Field, Form, Formik } from "formik";
+import { toast } from 'react-toastify';
+import { useState } from "react";
+import PropTypes from 'prop-types'
 import Error from "../GeneralForm/Error";
-import { updateCount } from "../../redux/slices/countBasket";
+import inspect from '../../assets/inspect.png'
+import add from '../../assets/add.png'
+import edit from '../../assets/edit.png'
+import 'react-toastify/dist/ReactToastify.css';
+import '@smastrom/react-rating/style.css'
+
 
 const OneProduct = ({ item }) => {
     const dispatch = useDispatch();
@@ -267,25 +266,14 @@ const OneProduct = ({ item }) => {
                                 </CardButtonGroup>
                             </>
                     }
-
                 </div>
             </ProductCard>
-            <ToastContainer
-                position="bottom-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
-            />
-
-
         </div >
     )
 }
 
 export default OneProduct
+
+OneProduct.propTypes = {
+    item: PropTypes.object
+}

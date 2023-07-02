@@ -1,22 +1,21 @@
+import { NavImg, NavbarForDesktop, NavbarForMobile, NavbarLogo, Navbarul } from "./navbarStyle";
+import { clearLoginUser, updateIsAdmin } from "../../redux/slices/loggedUser";
+import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom"
-import { clearLoginUser, updateIsAdmin } from "../../redux/slices/loggedUser";
-import { useEffect, useState } from "react";
-import { NavImg, NavbarForDesktop, NavbarForMobile, NavbarLogo, Navbarul } from "./navbarStyle";
-import logo from "../../assets/logo.png"
-import hamburger from "../../assets/hamburger.png"
+import { useState } from "react";
 import inspectBlack from "../../assets/inspectBlack.png"
-
-import { ToastContainer, toast } from "react-toastify";
-
+import hamburger from "../../assets/hamburger.png"
+import logo from "../../assets/logo.png"
 
 const Navbar = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate()
-  const [isClick, setIsClick] = useState(false)
   const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
   const loggedUser = useSelector((state) => state.setLoggedUser?.loggedUserObject);
   const countBasket = useSelector((state) => state?.setCountBasketName?.count)
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+  
+  const [isClick, setIsClick] = useState(false)
   const [isOnSearch, setIsOnSearch] = useState(false)
   const [isOnMenu, setIsOnMenu] = useState(false)
 
@@ -41,6 +40,7 @@ const Navbar = () => {
     setIsClick(!isClick)
     dispatch(updateIsAdmin())
     dispatch(clearLoginUser())
+    toast.success("Çıkış başarılı!")
   }
 
   const submitSearch = (e) => {
@@ -84,7 +84,6 @@ const Navbar = () => {
     }
     else {
       navigate("/products")
-
 
     }
   }
@@ -142,7 +141,7 @@ const Navbar = () => {
                       </li>
                       <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <NavImg src={userIsLog.profile} alt="" />
+                          <NavImg src={userIsLog?.profile} alt="" />
                           Profile
                         </a>
                         <ul className="dropdown-menu">

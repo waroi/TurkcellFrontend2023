@@ -1,41 +1,46 @@
-/* eslint-disable react/prop-types */
-
-import { useDispatch, useSelector } from "react-redux"
-import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
-import { Link, useNavigate } from "react-router-dom"
-import { Field, Form, Formik } from "formik"
-import { fetchOneProduct, updateMainProduct } from "../../request/productRequest"
-import { EditSchema } from "../GeneralForm/schema"
-import { useState } from "react"
 import { ProductCard, ProductImg, ProductPrice, ProductSpecs, ProductSpecsTitle, ProductTitle } from "../AllProducts/styledOneProduct"
+import { fetchOneProduct, updateMainProduct } from "../../request/productRequest"
+import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
 import { CardButton, CardButtonGroup } from "../buttons/buttonStyle"
-import add from '../../assets/add.png'
+import { updateCount } from "../../redux/slices/countBasket"
+import { toast } from "react-toastify"
+import { useDispatch, useSelector } from "react-redux"
+import { Link, useNavigate } from "react-router-dom"
+import { EditSchema } from "../GeneralForm/schema"
+import { Field, Form, Formik } from "formik"
+import { useState } from "react"
 import inspect from '../../assets/inspect.png'
+import add from '../../assets/add.png'
 import edit from '../../assets/edit.png'
 import Error from "../GeneralForm/Error"
-import { ToastContainer, toast } from "react-toastify"
-import { updateCount } from "../../redux/slices/countBasket"
+import PropTypes from 'prop-types'
+
 
 const RandomProduct = ({ item }) => {
     const userIsAdmin = useSelector((state) => state?.setLoggedUser?.isAdminLog)
     const navigate = useNavigate()
-    const dispatch= useDispatch()
+    const dispatch = useDispatch()
     const [currrentItem, setCurrentItem] = useState(item)
 
     const ifUserLogged = () => {
         if (!sessionStorage.getItem('loggedUser')) {
-            alert("lütfen giriş yap")
-            navigate("/signup")
+            toast.error("Lütfen önce giriş yapınız!", {
+                position: "bottom-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                onClose: () => {
+                    navigate("/signup");
+                },
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
         }
         else {
             const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
-            console.log("giriş yapan kullsanıcı", userIsLog)
             fetchPrivateCart(userIsLog.id).then((allCarts) => {
-                console.log("currentUserBasket", allCarts)
-                console.log("currentUserBasketItems", allCarts.cartItems)
-
                 const existingItem = allCarts.cartItems.find((eachItem) => eachItem.id === item.id);
-
                 if (existingItem) {
                     if (existingItem.stock > existingItem.count) {
                         existingItem.count += 1;
@@ -43,7 +48,7 @@ const RandomProduct = ({ item }) => {
                             position: "bottom-right",
                             autoClose: 2000,
                             hideProgressBar: false,
-                         
+
                             pauseOnHover: false,
                             draggable: true,
                             progress: undefined,
@@ -55,7 +60,7 @@ const RandomProduct = ({ item }) => {
                             position: "bottom-right",
                             autoClose: 2000,
                             hideProgressBar: false,
-                         
+
                             pauseOnHover: false,
                             draggable: true,
                             progress: undefined,
@@ -82,14 +87,12 @@ const RandomProduct = ({ item }) => {
                             position: "bottom-right",
                             autoClose: 2000,
                             hideProgressBar: false,
-                         
                             pauseOnHover: false,
                             draggable: true,
                             progress: undefined,
                             theme: "colored",
                         });
                     }
-
                 }
                 return addNewItemOnCart(userIsLog.id, allCarts)
             })
@@ -263,23 +266,14 @@ const RandomProduct = ({ item }) => {
                                 </CardButtonGroup>
                             </>
                     }
-
                 </div>
             </ProductCard>
-            <ToastContainer
-                position="bottom-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
-            />
         </div >
     )
 }
 
 export default RandomProduct
+
+RandomProduct.propTypes = {
+    item: PropTypes.object
+}

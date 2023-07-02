@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export const fetchAllUsers = async () => {
   const response = await fetch("http://localhost:3000/users");
   const res = await response.json();
@@ -19,15 +21,17 @@ export const postNewUser = async (values) => {
       }
       return response.json();
     })
-  // .catch((error) => {
-  //   console.error(error);
-  // });
+    .catch((error) => {
+      toast.error(error);
+      throw new Error("Hata",error);
+
+    });
 };
 
 export const updateUser = async (userId, values) => {
   const updatedData = { ...values, isLogin: true };
   return await fetch(`http://localhost:3000/users/${userId}`, {
-    method: 'PUT', // veya 'PATCH' kullanabilirsiniz
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -39,13 +43,9 @@ export const updateUser = async (userId, values) => {
       }
       return response.json();
     })
-    .then(data => {
-      console.log('Kullanıcı güncellendi:', data);
-      // Gerekli işlemleri yapabilirsiniz
-    })
     .catch(error => {
-      console.error(error);
-      // Hata durumunda yapılacak işlemler
+      toast.error(error);
+      throw new Error("Hata",error);
     });
 };
 

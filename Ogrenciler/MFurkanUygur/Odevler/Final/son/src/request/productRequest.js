@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export const fetchAllProduct = async () => {
     const response = await fetch("http://localhost:3000/products");
     const res = await response.json();
@@ -13,11 +15,8 @@ export const updateMainProduct = async (id, updateProduct) => {
         body: JSON.stringify(updateProduct)
     })
         .then(response => response.json())
-        .then(updatedProduct => {
-            console.log('Ürün güncellendi:', updatedProduct);
-        })
         .catch(error => {
-            console.error('Hata:', error);
+            toast.error('Hata:', error);
         });
 }
 export const fetchOneProduct = async (id) => {

@@ -1,28 +1,27 @@
 import { Adver, Advertisement, DetailContainer, AdverText, MMain, MOne, MTwo, Tone, Tthree, Ttwo } from "./detailStyle";
-import { CardButton, ChatMonito, ContactUs, DarkBorderButton, WhiteBorderButton } from "../buttons/buttonStyle";
-import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest";
 import { fetchAllProduct, fetchOneProduct, updateMainProduct } from "../../request/productRequest";
+import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest";
+import { CardButton, ChatMonito, ContactUs } from "../buttons/buttonStyle";
 import { updateCount } from "../../redux/slices/countBasket";
 import { useNavigate, useParams } from "react-router-dom"
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
+import { EditSchema } from "../GeneralForm/schema";
+import { Field, Form, Formik } from "formik";
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux";
-import { Field, Form, Formik } from "formik";
-import Error from "../GeneralForm/Error";
 import RandomProduct from "./RandomProduct";
-import Carousel from "./Carousel";
-import heal from '../../assets/heal.png'
 import garanti from '../../assets/garanti.png'
+import Error from "../GeneralForm/Error";
+import heal from '../../assets/heal.png'
 import edit from '../../assets/edit.png'
 import chat from '../../assets/chat.png'
 import add from '../../assets/add.png'
+import Carousel from "./Carousel";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { EditSchema } from "../GeneralForm/schema";
 
 const ProductDetail = () => {
     const { id } = useParams()
     const [item, setItem] = useState();
-    console.log("item", item)
     const [allData, setAllData] = useState()
     const navigate = useNavigate()
     const dispatch = useDispatch();
@@ -39,7 +38,7 @@ const ProductDetail = () => {
 
 
     const ifUserLogged = () => {
-        if (!sessionStorage.getItem('loggedUser')) {
+        if (!sessionStorage?.getItem('loggedUser')) {
             toast.error("Lütfen önce giriş yapınız!", {
                 position: "bottom-right",
                 autoClose: 1000,
@@ -55,17 +54,11 @@ const ProductDetail = () => {
         }
         else {
             const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
-            console.log("giriş yapan kullsanıcı", userIsLog)
             fetchPrivateCart(userIsLog.id).then((allCarts) => {
-                console.log("currentUserBasket", allCarts)
-                console.log("currentUserBasketItems", allCarts.cartItems)
-
                 const existingItem = allCarts?.cartItems?.find((eachItem) => eachItem.id === item.id);
-
                 if (existingItem) {
                     if (existingItem.stock > existingItem.count) {
                         existingItem.count += 1;
-
                         toast.warning("Ürün sayısını artırdınız")
                     }
                     else {
@@ -89,7 +82,6 @@ const ProductDetail = () => {
                     else {
                         toast.error('Ürün stokta yok!');
                     }
-
                 }
                 return addNewItemOnCart(userIsLog.id, allCarts)
             })
@@ -106,13 +98,11 @@ const ProductDetail = () => {
         { value: "Women's Clothing", label: "Women's Clothing" },
     ];
     return (
-
         <div className="container mt-5 py-5">
             <DetailContainer >
                 <div className="row">
                     <div className="col-lg-6">
                         <Carousel item={item} />
-
                         <Advertisement>
                             <div className="row g-2">
                                 <Adver className="col-6">
@@ -152,7 +142,7 @@ const ProductDetail = () => {
                                         <div className="modal-body">
                                             <div className="row">
                                                 <div className="col-lg-6">
-                                                    <h5>Varsayılan bilgiler</h5>
+                                                    <h5>Default Info</h5>
                                                     <div className="d-flex flex-column">
                                                         <label htmlFor="title" className="text-start fw-semibold">Title</label>
                                                         <input className="form-control" type="text" value={item?.title} name="title" disabled />
@@ -171,7 +161,7 @@ const ProductDetail = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6">
-                                                    <h5>Güncellenecek bilgiler</h5>
+                                                    <h5>Update Info</h5>
                                                     <Formik
                                                         initialValues={{
                                                             editTitle: "",
@@ -259,19 +249,17 @@ const ProductDetail = () => {
                                                                 <Error name="editCount" component="div" />
                                                             </div>
                                                             <div className="d-flex justify-content-around">
-                                                                <CardButton type="submit"> Update</CardButton>
-                                                                <CardButton type="button" data-bs-dismiss="modal">Close</CardButton>
+                                                                <CardButton type="submit" className="px-3"> Update</CardButton>
+                                                                <CardButton type="button" data-bs-dismiss="modal" className="px-3">Close</CardButton>
                                                             </div>
                                                         </Form>
                                                     </Formik>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                         <MMain className="d-flex">
@@ -306,7 +294,6 @@ const ProductDetail = () => {
                             <MOne>Cert</MOne>
                             <MTwo>: Yes(MKA)</MTwo>
                         </MMain>
-
                         <MMain className="d-flex">
                             <MOne>Microchip</MOne>
                             <MTwo>: Yes</MTwo>
@@ -335,20 +322,7 @@ const ProductDetail = () => {
                     })
                 }
             </div>
-            <ToastContainer
-                position="bottom-right"
-                autoClose={1250}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
-            />
         </div>
-
     )
 }
 

@@ -1,24 +1,21 @@
-/* eslint-disable react/prop-types */
-
-import { useEffect, useState } from "react"
-import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
 import { ProductCard, ProductImg, ProductPrice, ProductSpecs, ProductSpecsTitle, ProductTitle } from "../AllProducts/styledOneProduct"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest"
+import { fetchAllProduct } from "../../request/productRequest";
+import { updateCount } from "../../redux/slices/countBasket";
+import { toast } from 'react-toastify';
 import { CardButton } from "../buttons/buttonStyle"
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import carrow from '../../assets/carrow.png'
 import darrow from '../../assets/darrow.png'
 import uarrow from '../../assets/uarrow.png'
-import { fetchAllProduct } from "../../request/productRequest";
-import { updateCount } from "../../redux/slices/countBasket";
-import { useDispatch } from "react-redux";
+import PropTypes from 'prop-types'
+import 'react-toastify/dist/ReactToastify.css';
+
 const BasketItem = ({ item, basket, setBasket }) => {
     const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
-    console.log(item)
-
     const dispatch = useDispatch()
     const [allProducts, setAllProducts] = useState()
-
     const latestStock = allProducts?.find(product => product.id == item.id)
 
     useEffect(() => {
@@ -123,7 +120,7 @@ const BasketItem = ({ item, basket, setBasket }) => {
                 toast.success("Ürün miktarı değiştirildi")
             })
             .catch((error) => {
-                console.error("Hata:", error);
+                toast.error("Hata:", error);
             });
     };
 
@@ -145,10 +142,10 @@ const BasketItem = ({ item, basket, setBasket }) => {
                 })
 
                 toast.error("Ürün sepetten çıkarıldı")
-                item.count = 0; // item.count değerini sıfırla
+                item.count = 0; 
             })
             .catch((error) => {
-                console.error("Hata:", error);
+                toast.error("Hata:", error);
             });
     };
 
@@ -181,23 +178,17 @@ const BasketItem = ({ item, basket, setBasket }) => {
                             <img src={uarrow} alt="" />
                         </CardButton>
                     </div>
-
                 </div>
             </ProductCard>
-            <ToastContainer
-                position="bottom-right"
-                autoClose={1050}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
-            />
         </div>
     )
 }
 
 export default BasketItem
+
+BasketItem.propTypes = {
+    item: PropTypes.object,
+    basket:PropTypes.array,
+    setBasket:PropTypes.func
+
+}

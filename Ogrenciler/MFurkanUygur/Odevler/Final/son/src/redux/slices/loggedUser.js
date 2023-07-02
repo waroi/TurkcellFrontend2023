@@ -27,19 +27,3 @@ export const { setLoginUser, clearLoginUser, updateIsAdmin } = loggedUser.action
 
 export default loggedUser.reducer
 
-
-// export const loggedUser = createSlice({
-//     name: "loginUser",
-//     initialState,
-//     reducers: {
-//         setLoginUser: (state, action) => {
-//             localStorage.setItem('loggedUser', JSON.stringify(action.payload));
-//             // state.loggedUserObject = action.payload;
-//             return action.payload
-//         },
-//         clearLoginUser: () => {
-//             localStorage.clear();
-//             return null;
-//         }
-//     }
-// })
