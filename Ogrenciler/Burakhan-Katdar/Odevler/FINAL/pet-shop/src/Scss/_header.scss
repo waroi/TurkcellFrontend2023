@@ -1,0 +1,60 @@
+@mixin InfoExplore($color, $color2) {
+    padding: 10px;
+    color: $color;
+
+    h1 {
+        font-size: 60px;
+        font-weight: 800;
+        line-height: 68px;
+        text-transform: capitalize;
+    }
+
+    h2 {
+        font-size: 46px;
+        font-weight: 700;
+        line-height: 60px;
+        text-transform: capitalize;
+    }
+
+    p {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+
+    .buttonsDiv {
+        .buttons {
+            padding: 10px 25px;
+            border-radius: 25px;
+
+        }
+
+        #viewIntro {
+            background: transparent;
+            border: 1px solid $color ;
+            color: $color;
+        }
+
+        #exploreNow {
+            color: $color2;
+            background-color: $color;
+        }
+    }
+}
+
+.header {
+    background-color: $secondary;
+    color: $primary;
+    padding-top: 100px;
+
+    .leftHeader {
+        @include InfoExplore($primary, $secondary);
+    }
+
+    .rightHeader {
+        .HeaderImage {
+            width: 100%;
+        }
+    }
+
+}

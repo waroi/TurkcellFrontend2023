@@ -1,0 +1,104 @@
+.banner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 378px;
+  background: #003459;
+  border-radius: 20px;
+  margin: 20px 0;
+}
+
+.rectangle {
+  position: absolute;
+  width: 787px;
+  height: 787px;
+  border-radius: 99px;
+}
+
+.rec1 {
+  background: #002a48;
+  transform: rotate(28deg);
+  top: 80%;
+  left: -20%;
+}
+
+.rec2 {
+  background: #fceed5;
+  transform: rotate(28deg);
+  top: -80%;
+  left: 50%;
+}
+
+.content {
+  height: inherit;
+}
+
+.img-container {
+  height: 100%;
+}
+
+.image {
+  object-fit: contain;
+  height: 100%;
+}
+
+.title1 {
+  color: #002a48;
+  font-size: 52px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  line-height: 68px;
+  text-transform: capitalize;
+}
+
+.title2 {
+  color: #002a48;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 60px;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 992px) {
+  .banner {
+    height: 640px;
+  }
+
+  .title1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .title2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .img-container {
+    height: 50% !important;
+  }
+
+  .cover {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+  }
+
+  .rec2 {
+    top: -30%;
+    left: 10%;
+  }
+}

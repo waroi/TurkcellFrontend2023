@@ -1,0 +1,35 @@
+@mixin widHeight($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+.navbar-logo {
+  width: 130px;
+}
+
+.search-input {
+  background-image: url("../../assets/icon/searchIcon.png");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  padding-left: 40px;
+  border-radius: 46px;
+  @include widHeight(280px, 44px);
+}
+
+.nav-item {
+  .nav-link {
+    color: #103559;
+    font-weight: 600;
+  }
+}
+
+.navbar-nav .nav-item {
+  .nav-link {
+    cursor: pointer;
+  }
+}
+
+.active {
+  background-color: #fff;
+  margin-top: 0;
+}

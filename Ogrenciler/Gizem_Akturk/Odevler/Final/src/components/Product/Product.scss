@@ -1,0 +1,38 @@
+.product-card {
+    align-items: flex-start;
+    background-color: #fcfcfc;
+    border-radius: 12px;
+    box-shadow: 0px 4px 28px -2px #00000014;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+    position: relative;
+    width: fit-content;
+}
+
+.product-card .frame {
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 264px;
+    min-width: 264px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card .frame img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .product-card  {
+       width: 100%;
+    }
+    .product-card .frame {
+        width: 100%;
+        height: auto;
+    }
+    
+}
