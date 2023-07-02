@@ -53,6 +53,27 @@ export const HeaderMobile = styled.div`
   }
 `;
 
+export const HeaderMobileArea = styled.div`
+  position: absolute;
+  z-index: 1;
+  border: 1px solid #003459;
+  border-radius: 7px;
+  background: #ffffff;
+  padding: 10px;
+  width: 90%;
+  margin: auto;
+`;
+
+export const HeaderMobileAreaInput = styled.div`
+  position: absolute;
+  z-index: 1;
+  border: 1px solid #003459;
+  border-radius: 7px;
+  background: #ffffff;
+  padding: 10px;
+  margin-left: 10px;
+`;
+
 export const HeaderSpan = styled.span`
   background: #ffffff;
   border-radius: 50%;
@@ -79,7 +100,8 @@ export const HeaderDropdown = styled.div`
   text-align: center;
   cursor: pointer;
   @media (max-width: 992px) {
-    top: 265px;
+    top: 158px;
+    left: 180px;
   }
 `;
 
