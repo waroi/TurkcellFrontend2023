@@ -1,0 +1,77 @@
+.pe-auto {
+  cursor: pointer;
+  color: #00171F;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  /* Örneğin, kartların sabit yüksekliğini 200px olarak ayarladım */
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Resmi orantılı olarak kapsayacak şekilde ayarlar */
+}
+
+.cartButton {
+  background: #34C759 !important;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.editButton {
+  background-color: #FF912C !important;
+  position: absolute;
+  top: 55px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-container:hover .cartButton {
+  opacity: 1;
+}
+
+.image-container:hover .editButton {
+  opacity: 1;
+}
+
+.modal-backdrop {
+  opacity: 0.5;
+  /* Daha düşük bir opaklık değeri belirleyebilirsiniz */
+}
+
+.closeButtonModal {
+  background-color: white;
+  border: none;
+  color: #00171F;
+}
+
+.cancelButton {
+  background-color: #FF564F !important;
+  border: none;
+  color: white !important;
+}
+
+.saveButton {
+  border: 1px solid #FF564F !important;
+  color: #FF564F !important;
+}
+
+.cartButton:disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+  background-color: gray !important;
+}
