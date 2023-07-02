@@ -1,22 +1,28 @@
-import { useEffect, useState } from "react"
+import { Adver, Advertisement, DetailContainer, AdverText, MMain, MOne, MTwo, Tone, Tthree, Ttwo } from "./detailStyle";
+import { CardButton, ChatMonito, ContactUs, DarkBorderButton, WhiteBorderButton } from "../buttons/buttonStyle";
+import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest";
+import { fetchAllProduct, fetchOneProduct, updateMainProduct } from "../../request/productRequest";
+import { updateCount } from "../../redux/slices/countBasket";
 import { useNavigate, useParams } from "react-router-dom"
-import { fetchAllProduct } from "../../request/productRequest";
+import { ToastContainer, toast } from "react-toastify";
+import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux";
+import { Field, Form, Formik } from "formik";
+import Error from "../GeneralForm/Error";
 import RandomProduct from "./RandomProduct";
 import Carousel from "./Carousel";
-import { Adver, Advertisement, DetailContainer, AdverText, MMain, MOne, MTwo, Tone, Tthree, Ttwo } from "./detailStyle";
 import heal from '../../assets/heal.png'
 import garanti from '../../assets/garanti.png'
-import { CardButton } from "../buttons/buttonStyle";
+import edit from '../../assets/edit.png'
+import chat from '../../assets/chat.png'
 import add from '../../assets/add.png'
-import { addNewItemOnCart, fetchPrivateCart } from "../../request/cartsRequest";
-import { ToastContainer, toast } from "react-toastify";
-import MyGallery from "./MyGallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { updateCount } from "../../redux/slices/countBasket";
-import { useDispatch } from "react-redux";
+import { EditSchema } from "../GeneralForm/schema";
+
 const ProductDetail = () => {
     const { id } = useParams()
     const [item, setItem] = useState();
+    console.log("item", item)
     const [allData, setAllData] = useState()
     const navigate = useNavigate()
     const dispatch = useDispatch();
@@ -92,7 +98,13 @@ const ProductDetail = () => {
 
     const filteredArray = allData?.filter((data) => data.id != id);
     const randomFilteredArray = filteredArray?.sort(() => 0.5 - Math.random())
-    // console.log(filteredArray)
+    const categoryOptions = [
+        { value: "", label: "Choose a category..." },
+        { value: "Men's Clothing", label: "Men's Clothing" },
+        { value: "Jewelery", label: "Jewelery" },
+        { value: "Electronics", label: "Electronics" },
+        { value: "Women's Clothing", label: "Women's Clothing" },
+    ];
     return (
 
         <div className="container mt-5 py-5">
@@ -119,12 +131,147 @@ const ProductDetail = () => {
                         <Tone>SKU #1000078</Tone>
                         <Ttwo>{item?.title}</Ttwo>
                         <Tthree>{item?.price}$</Tthree>
-                        <div className="d-flex">
-                            <button>btn1</button>
-                            <button>btn2</button>
-                            <CardButton onClick={() => { ifUserLogged() }} disabled={item?.rating?.count == 0 ? true : false} className="btn btn-primary">
+                        <div className="d-flex align-items-center">
+                            <ContactUs>Contact Us</ContactUs>
+                            <ChatMonito className="mx-1">
+                                <img src={chat} alt="" />
+                                Chat With Monito</ChatMonito>
+                            <CardButton onClick={() => { ifUserLogged() }} disabled={item?.rating?.count == 0 ? true : false} className="mx-1 p-2">
                                 <img src={add} alt="" />
                             </CardButton>
+                            <CardButton className=" mx-1 p-2"  type="button" data-bs-toggle="modal" data-bs-target={`#${typeof item + item?.id}`}>
+                                <img src={edit} alt="" />
+                            </CardButton>
+                            <div className="modal fade" id={`${typeof item + item?.id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`${item?.id}Label`} aria-hidden="true">
+                                <div className="modal-dialog modal-lg">
+                                    <div className="modal-content">
+                                        <div className="modal-header">
+                                            <h1 className="modal-title fs-5" id={`${item?.id}Label`}>Edit</h1>
+                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div className="modal-body">
+                                            <div className="row">
+                                                <div className="col-lg-6">
+                                                    <h5>Varsayılan bilgiler</h5>
+                                                    <div className="d-flex flex-column">
+                                                        <label htmlFor="title" className="text-start fw-semibold">Title</label>
+                                                        <input className="form-control" type="text" value={item?.title} name="title" disabled />
+                                                        <label htmlFor="price" className="text-start fw-semibold">Price</label>
+                                                        <input className="form-control" type="text" value={item?.price} name="price" disabled />
+                                                        <label htmlFor="desc" className="text-start fw-semibold" >Description</label>
+                                                        <textarea type="text" value={item?.description} name="desc" disabled />
+                                                        <label htmlFor="category" className="text-start fw-semibold">Category</label>
+                                                        <input className="form-control" type="text" value={item?.category} name="category" disabled />
+                                                        <label htmlFor="img" className="text-start fw-semibold">Image</label>
+                                                        <input className="form-control" type="text" value={item?.image} name="img" disabled />
+                                                        <label htmlFor="rate" className="text-start fw-semibold">Rate</label>
+                                                        <input className="form-control" type="text" value={item?.rating?.rate} name="rate" disabled />
+                                                        <label htmlFor="count" className="text-start fw-semibold">Count</label>
+                                                        <input className="form-control" type="text" value={item?.rating?.count} name="count" disabled />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-6">
+                                                    <h5>Güncellenecek bilgiler</h5>
+                                                    <Formik
+                                                        initialValues={{
+                                                            editTitle: "",
+                                                            editAmount: "",
+                                                            editDesc: "",
+                                                            editCat: "",
+                                                            editImg: "",
+                                                            editRate: "",
+                                                            editCount: ""
+                                                        }}
+
+                                                        validationSchema={EditSchema}
+                                                        onSubmit={(values, { resetForm }) => {
+                                                            console.log(values)
+                                                            const formData = {
+                                                                id: item.id,
+                                                                title: values.editTitle,
+                                                                price: values.editAmount,
+                                                                description: values.editDesc,
+                                                                category: values.editCat,
+                                                                image: values.editImg,
+                                                                rating: {
+                                                                    rate: values.editRate,
+                                                                    count: values.editCount,
+                                                                }
+
+                                                            };
+                                                            updateMainProduct(item.id, formData)
+                                                                .then(() => {
+                                                                    fetchOneProduct(item.id).then(data => setItem(data))
+                                                                    toast.success("Ürün güncellendi")
+                                                                })
+                                                            resetForm();
+
+                                                        }}
+                                                    >
+                                                        <Form>
+                                                            <div className="text-start fw-semibold">
+                                                                <label htmlFor="editTitle" >Title:</label>
+                                                                <Field type="text" id="editTitle" name="editTitle" className="form-control" />
+                                                                <Error name="editTitle" />
+                                                            </div>
+
+                                                            <div className="text-start fw-semibold">
+                                                                <label htmlFor="editAmount">Price:</label>
+                                                                <Field type="text" id="editAmount" name="editAmount" className="form-control" />
+                                                                <Error name="editAmount" />
+                                                            </div>
+
+                                                            <div className="text-start fw-semibold">
+                                                                <label htmlFor="editDesc">Description:</label>
+                                                                <Field as="textarea" id="editDesc" name="editDesc" className="form-control" />
+                                                                <Error name="editDesc" component="div" />
+                                                            </div>
+
+                                                            <div className="text-start fw-semibold">
+                                                                <label htmlFor="editCat">Category:</label>
+                                                                <Field
+                                                                    as="select"
+                                                                    id="editCat"
+                                                                    name="editCat"
+                                                                    className="form-select"
+                                                                >
+                                                                    {categoryOptions.map((option) => (
+                                                                        <option key={option.value} value={option.value}>
+                                                                            {option.label}
+                                                                        </option>
+                                                                    ))}
+                                                                </Field >
+                                                                <Error name="editCat" component="div" />
+                                                            </div>
+                                                            <div className="text-start fw-semibold">
+                                                                <label htmlFor="editImg">Image:</label>
+                                                                <Field type="text" id="editImg" name="editImg" className="form-control" />
+                                                                <Error name="editImg" component="div" />
+                                                            </div>
+                                                            <div className="text-start fw-semibold">
+                                                                <label htmlFor="editRate">Rate:</label>
+                                                                <Field type="text" id="editRate" name="editRate" className="form-control" />
+                                                                <Error name="editRate" component="div" />
+                                                            </div>
+                                                            <div className="text-start fw-semibold">
+                                                                <label htmlFor="editCount">Count:</label>
+                                                                <Field type="text" id="editCount" name="editCount" className="form-control" />
+                                                                <Error name="editCount" component="div" />
+                                                            </div>
+                                                            <div className="d-flex justify-content-around">
+                                                                <CardButton type="submit"> Update</CardButton>
+                                                                <CardButton type="button" data-bs-dismiss="modal">Close</CardButton>
+                                                            </div>
+                                                        </Form>
+                                                    </Formik>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                         <MMain className="d-flex">

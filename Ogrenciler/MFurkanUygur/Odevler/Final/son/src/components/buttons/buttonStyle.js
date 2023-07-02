@@ -26,13 +26,12 @@ export const WhiteBorderButton = styled.button`
 width: 163px;
 color: #003459;
 background-color:transparent;
-
 font-size: 16px;
 font-style: normal;
 font-weight: 500;
 line-height: 24px;
 border-radius: 57px;
-border: 1.5px solid  #003459;
+border: 2px solid  #003459;
 display: inline-flex;
 padding: 14px 28px 10px 28px;
 justify-content: center;
@@ -96,4 +95,27 @@ export const CardButton = styled.button`
 
 export const InspectButton = styled.button`
 
+`
+
+export const ContactUs=styled.button`
+display: flex;
+height: 40px;
+color:#FDFDFD;
+padding: 14px 28px 10px 28px;
+justify-content: center;
+align-items: center;
+border:none;
+gap: 10px;
+border-radius: 57px;
+background: var(--primary-color-dark-blue, #003459);
+`
+export const ChatMonito=styled.div`
+display: flex;
+height: 40px;
+padding: 14px 28px 10px 24px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 57px;
+border: 2px solid var(--primary-color-dark-blue-80, #002A48);
 `

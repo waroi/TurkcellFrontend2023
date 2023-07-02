@@ -1,9 +1,11 @@
 # Final Projesi - e-Commerce Web Sitesi
 # kalanlar
-- sepetteki ürün adedi ürün çeşiti kadar olacak. (ürün çeşidi 3 ise sepetteki ürün adedi 3 olacak) (3 elma, 2 armut, 1 portakal)
+
 
 - bir kullanıcı sepete mesela 5 ürün ekledi ama satın almadı, diğer kullanıcı bu ürünlerden bazılarını satın alarak sotoğu tüketti. ilk kullanıcı tekrar sepete girdiğinde ürünlerin stok adedi güncellenecek ve kullanıcıya uyarı verecek. Kullanıcı sayfayı kapatmadıysa satın al butonunda bu kontrol yapılacak.
-- buttonlar
+
+- navbar footer butonlar
+
 
 # buglar
 - arama
