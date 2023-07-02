@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   FooterContainer,
   FooterLinkContainer,
@@ -20,18 +21,18 @@ function Footer() {
           <SubscribeDescription className="col-lg-4">
             Register now so you dont miss our programs
           </SubscribeDescription>
-          <SubscribeArea className="d-flex col-lg-8">
+          <SubscribeArea className="d-flex col-lg-8 flex-wrap">
             <SubscribeInput type="email" placeholder="Enter your Email" />
             <SubscribeButton>Subscribe Now</SubscribeButton>
           </SubscribeArea>
         </SubscribeContainer>
 
         <FooterLinkContainer className="row justify-content-between my-4">
-          <div className="col-md-6 d-flex justify-content-start gap-5">
-            <FooterLink href="#">Home</FooterLink>
-            <FooterLink href="#">About</FooterLink>
-            <FooterLink href="#">Services</FooterLink>
-            <FooterLink href="#">Contact</FooterLink>
+          <div className="col-md-6 d-flex justify-content-start gap-5 flex-wrap">
+            <FooterLink to="/">Home</FooterLink>
+            <FooterLink to="/category">Category</FooterLink>
+            <FooterLink to="/">About</FooterLink>
+            <FooterLink to="/">Contact</FooterLink>
           </div>
           <div
             className=" col-md-6 d-flex gap-4 mt-3 mt-lg-0 justify-content-center
@@ -54,7 +55,9 @@ function Footer() {
 
         <FooterInfoContainer className="d-flex justify-content-between flex-wrap">
           <FooterText>© 2022 Monito. All rights reserved.</FooterText>
-          <FooterLogo src="src/assets/Frame.svg" alt="logo" />
+          <Link to="/">
+            <FooterLogo src="src/assets/Frame.svg" alt="logo" />
+          </Link>
           <FooterText>
             Terms of Service <span className="ms-4">Privacy Policy</span>
           </FooterText>

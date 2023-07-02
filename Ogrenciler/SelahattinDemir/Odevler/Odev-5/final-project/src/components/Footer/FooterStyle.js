@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const FooterContainer = styled.footer`
   background-color: #f8f8f8;
@@ -18,7 +19,7 @@ export const FooterContainer = styled.footer`
   }
 `;
 
-export const FooterLink = styled.a`
+export const FooterLink = styled(Link)`
   color: #00171f;
   font-size: 16px;
   font-family: SVN-Gilroy;
