@@ -1,5 +1,5 @@
-import { WhiteBorderButton } from "../buttons/buttonStyle"
-import { AllProductBlueTitle, AllProductShadowTitle, PetImg, PetKnow, PetText, PetTitle, ProductCard} from "./styledOneProduct"
+import { WhiteBorderButton, WhiteBorderButtonForMobile } from "../buttons/buttonStyle"
+import { AllProductBlueTitle, AllProductShadowTitle, PetImg, PetKnow, PetText, PetTitle, ProductCard } from "./styledOneProduct"
 import rarrow from '../../assets/rarrow.png'
 import kopke1 from '../../assets/kopke1.png'
 import kopke2 from '../../assets/kopke2.png'
@@ -58,6 +58,12 @@ const PetKnowledge = () => {
             </div>
           </ProductCard>
         </div>
+        <WhiteBorderButtonForMobile className="w-100">
+          <div>
+            View Intro
+            <img src={rarrow} alt="" />
+          </div>
+        </WhiteBorderButtonForMobile>
       </div>
     </div>
   )

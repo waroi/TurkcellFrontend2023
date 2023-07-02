@@ -482,74 +482,7 @@ export const BannerTwoButtonGroup = styled.div`
 display:flex;
 justify-content:start;
 `
-// // bridge Banner
-// export const MainBanner = styled.div`
-//     border-radius: 20px;
-//     background: #003459;
-//     width:100%
-//     flex-shrink: 0;
-//     overflow:hidden;
-//     position:relative
-// `
-// export const MainBannerFirstSquare = styled.div`
-//     width: 787.54px;
-//     height: 787.54px;
-//     transform: rotate(28.251deg);
-//     flex-shrink: 0;
-//     border-radius: 99px;
-//     // background: #002A48;
-//     background:red;
-//     position:absolute;
-//     left:-11rem;
-//     bottom:-37rem
-//     @media (max-width: 992px) {
 
-//     }
-
-// `
-// export const MainBannerSecondSquare = styled.div`
-//   width: 782.292px;
-//   height: 635px;
-//   transform: rotate(25.23deg);
-//   flex-shrink: 0;
-//   border-radius: 99px;
-//   background: #FCEED5;
-//   position: absolute;
-//   top: -16rem;
-//   right: -15rem;
-
-// `;
-
-// export const MainBannerImg = styled.div`
-// position:relative;
-// padding: 36px  647px 0 20px
-// `
-// export const MainBannerHOne = styled.h1`
-// color:#003459;
-// font-size: 52px;
-// font-weight: 800;
-// line-height: 68px;
-// text-transform: capitalize;
-// `
-// export const MainBannerHTwo = styled.h2`
-// color: #003459;
-// font-size: 36px;
-// font-weight: 700;
-// line-height: 54px;
-// text-transform: capitalize;
-// `
-// export const MainBannerP = styled.p`
-// color: #242B33;
-// font-size: 12px;
-// font-weight: 500;
-// line-height: 18px;
-// max-width:400px;
-// `
-
-// export const MainBannerTitle = styled.div`
-//     text-align:right;
-//     margin: 50px 50px 0 0
-// `
 //Petseller
 export const PetSellerContainer = styled.div`
     padding:40px 0;

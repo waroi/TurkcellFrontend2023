@@ -121,15 +121,16 @@ const ProductDetail = () => {
                         <Tone>SKU #1000078</Tone>
                         <Ttwo>{item?.title}</Ttwo>
                         <Tthree>{item?.price}$</Tthree>
-                        <div className="d-flex align-items-center">
+                        <div className="d-flex align-items-center flex-wrap justify-content-evenly">
                             <ContactUs>Contact Us</ContactUs>
                             <ChatMonito className="mx-1">
                                 <img src={chat} alt="" />
-                                Chat With Monito</ChatMonito>
+                                Chat With Monito
+                            </ChatMonito>
                             <CardButton onClick={() => { ifUserLogged() }} disabled={item?.rating?.count == 0 ? true : false} className="mx-1 p-2">
                                 <img src={add} alt="" />
                             </CardButton>
-                            <CardButton className=" mx-1 p-2"  type="button" data-bs-toggle="modal" data-bs-target={`#${typeof item + item?.id}`}>
+                            <CardButton className=" mx-1 p-2" type="button" data-bs-toggle="modal" data-bs-target={`#${typeof item + item?.id}`}>
                                 <img src={edit} alt="" />
                             </CardButton>
                             <div className="modal fade" id={`${typeof item + item?.id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`${item?.id}Label`} aria-hidden="true">

@@ -1,6 +1,7 @@
 import { PBannerLeft, PBannerRight, PBannerRightSquare, PBannerRightSubtitle, PBannerRightText, PBannerRightTitle, PBannerRow, PBannerSection, PbannerImg } from "./producsStyle";
-import { DarkBorderButton, WhiteButton } from "../buttons/buttonStyle";
+import { DarkBorderButton, DarkButtonForMobile, WhiteBorderButtonForMobile, WhiteButton } from "../buttons/buttonStyle";
 import playwhite from "../../assets/playwhite.png";
+import playDark from "../../assets/playDark.png";
 import group from "../../assets/group.png";
 
 const ProductBanner = () => {
@@ -20,10 +21,18 @@ const ProductBanner = () => {
                                 View Intro
                                 <img src={playwhite} alt="" />
                             </DarkBorderButton>
+                            <WhiteBorderButtonForMobile>
+                                View Intro
+                                <img src={playDark} alt="" />
 
+                            </WhiteBorderButtonForMobile>
                             <WhiteButton>
                                 Explore Now
                             </WhiteButton>
+                            <DarkButtonForMobile>
+                            Explore Now
+
+                            </DarkButtonForMobile>
                         </div>
                         <PBannerRightSquare></PBannerRightSquare>
                     </PBannerRight>

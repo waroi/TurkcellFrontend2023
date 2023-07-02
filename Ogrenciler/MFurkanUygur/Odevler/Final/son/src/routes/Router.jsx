@@ -17,12 +17,6 @@ const Router = () => {
         { path: "/products", element: <Products /> },
         { path: "/products/:id", element: <ProductDetail /> },
         { path: "/:id", element: <ProductDetail /> },
-        {
-            path: "*",
-            element: <div>Not Found</div>,
-        },
-
-
     ])
     return routes
 }

@@ -43,11 +43,9 @@ const OneProduct = ({ item }) => {
         }
         else {
             const userIsLog = JSON.parse(sessionStorage.getItem('loggedUser'))
-            console.log("giriş yapan kullsanıcı", userIsLog)
+           
             fetchPrivateCart(userIsLog.id).then((allCarts) => {
-                console.log("currentUserBasket", allCarts)
-                console.log("currentUserBasketItems", allCarts.cartItems)
-
+             
                 const existingItem = allCarts.cartItems.find((eachItem) => eachItem.id === item.id);
 
                 if (existingItem) {
