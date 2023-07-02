@@ -24,7 +24,7 @@ Bu E-Commerce uygulamasında aşağıdaki özellikler bulunmaktadır:
 Projenin kurulumunu ve başlatılmasını aşağıdaki adımlarla gerçekleştirebilirsiniz:
 
 1. Proje dosyalarını indirin
-2. Terminalde `npm i --force` komutunu çalıştırın (Bu komut, "react-magnifier" kütüphanesinin sorunsuz çalışabilmesi için gerekli olan bağımlılıkları yükler)
+2. Terminalde `npm i --force` komutunu çalıştırın (Bu komut gerekli bağımlılıkları yükler, "react-magnifier" kütüphanesinin sorunsuz çalışabilmesi için `--force` gerekmektedir.)
 3. `npm run start` komutunu çalıştırın. Bu komut projeyi ve json-server'ı aynı anda başlatır.
 
 ## Kullanılan Teknolojiler ve Kütüphaneler
