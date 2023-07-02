@@ -3,11 +3,6 @@ import "../../styles/StaticThreeBoxes.css";
 const StaticThreeBoxes = () => {
   return (
     <div className="container mt-3">
-      {/* <div>
-        <h5 className="staticThreeBoxes">You alreay know?</h5>
-        <h2 className="staticThreeBoxes">Useful Pet Knowledge</h2>
-      </div> */}
-
       <div className="row">
         <div className="col-lg-4 mt-3">
           <div className="box">

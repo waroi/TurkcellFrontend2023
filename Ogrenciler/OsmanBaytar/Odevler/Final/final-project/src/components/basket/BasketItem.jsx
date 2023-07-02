@@ -165,14 +165,18 @@ const BasketItem = (props) => {
       dispatch(addBasketCount(basketNumber + 1));
       setIsView(false);
       successBuyToast();
+      setIsComplete(false);
     } else if (
       isComplete == true &&
       (countInput?.current?.value == undefined ||
-        countInput?.current?.value <= 0)
+        countInput?.current?.value <= 0 ||
+        isNaN(countInput?.current?.value))
     ) {
       warningToast();
+      setIsComplete(false);
     } else if (countInput?.current?.value > data.count) {
       errorToast();
+      setIsComplete(false);
     }
   }, [isComplete]);
 

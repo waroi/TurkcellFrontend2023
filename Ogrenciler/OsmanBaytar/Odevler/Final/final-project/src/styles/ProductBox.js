@@ -14,6 +14,7 @@ export const ProductMainBox = styled.div`
   @media (max-width: 576px) {
     max-width: 160px;
     margin: 10px 15px;
+    min-height: 375px;
   }
   @media (max-width: 404px) {
     margin: 10px 12px;
@@ -63,6 +64,9 @@ export const ProductTitle = styled.div`
   font-weight: 700;
   line-height: 24px;
   cursor: pointer;
+  @media (max-width: 576px) {
+    min-height: 72px;
+  }
 `;
 
 export const ProductCategory = styled.div`
@@ -93,7 +97,7 @@ export const ProductCount = styled.div`
 export const ProductRate = styled.div`
   display: inline-block;
   float: right;
-  @media (max-width: 420px) {
+  @media (max-width: 576px) {
     float: none;
   }
 `;
