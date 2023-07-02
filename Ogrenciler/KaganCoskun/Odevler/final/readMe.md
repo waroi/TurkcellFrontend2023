@@ -6,7 +6,8 @@ Bu proje, Turkcell Geleceği Yazanlar Frontend Bootcamp final projesi olarak ger
 
 Bu E-Commerce uygulamasında aşağıdaki özellikler bulunmaktadır:
 
-- Kullanıcı kaydı ve girişi yapılabilmektedir. 
+- Kullanıcı kaydı ve girişi yapılabilmektedir.
+- Kullanıcı kaydı ve girişi yapılırken validasyon uygulanmaktadır.
 - Kullanıcı kayıt ve giriş yaptıktan sonra, bilgileri bir token'a aktarılır ve cookieler vasıtasıyla saklanır. 
 - Bir kullanıcının token süresi 7 gündür. 7 gün sonra token süresi sona erer ve kullanıcıdan tekrar giriş yapması istenir. 
 - Kullanıcılar, kayıt olmadan anasayfaya erişebilir ancak kategorilere, ürün detaylarına ve sepete erişemezler. 
@@ -18,6 +19,7 @@ Bu E-Commerce uygulamasında aşağıdaki özellikler bulunmaktadır:
 - Sepette, kullanıcı ürün adetini stoklar dahilinde artırabilir, ürünlerin toplam tutarını görebilir ve istenilen ürünleri sepetten kaldırabilir. 
 - Eğer kullanıcı admin ise, ürün detay sayfasında ürün detaylarını düzenleyebilir.
 - Kullanıcı bilgisi, arama kutusu içeriği ve sepet bilgisi, global bir state olarak Redux üzerinde saklanır.
+- Admin mail : admin@gmail.com şifre:Admin123
 
 ## Kurulum
 
