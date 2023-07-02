@@ -1,0 +1,42 @@
+{
+  "name": "final-project-ecommerce",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "sass": "sass -w sass:css",
+    "startserver": "json-server --watch ../db/productsDb.json --port 3005",
+    "startusers": "json-server --watch ../db/usersDb.json --port 3006",
+    "startcard": "json-server --watch ../db/cardDb.json --port 3007",
+    "startapp" :"start npm run dev & start npm run startserver & start npm run startusers & start npm run startcard"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.5",
+    "formik": "^2.4.2",
+    "json-server": "^0.17.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
+    "react-router-dom": "^6.13.0",
+    "react-toastify": "^9.1.3",
+    "sass": "^1.63.6",
+    "styled-components": "^6.0.0-rc.3",
+    "yup": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "vite": "^4.3.9"
+  }
+}
