@@ -15,7 +15,15 @@ export const usersSlice = createSlice({
       state.localStorageLog = action.payload
      },
     currentlyLoggedInSet: (state,action) => {
-      state.currentlyLoggedIn = state.localStorageLog
+      state.currentlyLoggedIn = {
+        "email": state.localStorageLog.email,
+        "id": state.localStorageLog.id,
+        "isAdmin": state.localStorageLog.isAdmin,
+        "isLoggedIn": true,
+        "username":state.localStorageLog.username,
+        
+        
+      }
      },
     getUsers: (state, action) => {
       state.items = action.payload;

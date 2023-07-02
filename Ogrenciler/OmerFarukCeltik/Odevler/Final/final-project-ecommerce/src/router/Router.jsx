@@ -11,6 +11,7 @@ import NotFound from "../pages/NotFound/NotFound";
 const Router = () => {
 
   const data = useSelector((state) => state.users).currentlyLoggedIn;
+  console.log(data);
   const routes = useRoutes([
     {
       path: `/`,
