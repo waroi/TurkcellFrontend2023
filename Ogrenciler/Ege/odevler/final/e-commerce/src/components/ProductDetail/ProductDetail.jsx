@@ -64,8 +64,6 @@ const ProductDetail = ({ id }) => {
                         axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: [...response.data.cart, newProduct] })
                     }
                 })
-        } else {
-            toast.error("This item is out of stock")
         }
     }
 

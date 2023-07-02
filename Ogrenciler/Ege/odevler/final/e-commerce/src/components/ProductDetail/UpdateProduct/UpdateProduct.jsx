@@ -4,7 +4,6 @@ import axios from "axios"
 import { validationSchema } from "../../../schemas"
 import Form from "../../../styledComponents/StyledForm"
 import ButtonPrimary from "../../../styledComponents/ButtonPrimary"
-import ButtonOutline from "../../../styledComponents/ButtonOutline"
 import warningIcon from "../../../assets/Circle_Warning.svg"
 import PreUpdateInfo from "../../../styledComponents/PreUpdateInfo"
 const UpdateProduct = ({ product, setProduct, toast }) => {
@@ -150,9 +149,7 @@ const UpdateProduct = ({ product, setProduct, toast }) => {
 
                                         </div>
                                         <div className="modal-footer">
-                                            <ButtonOutline data-bs-dismiss="modal">Close</ButtonOutline>
                                             <ButtonPrimary type="submit" >Save changes</ButtonPrimary>
-
                                         </div>
                                     </Form>
                                 </div>

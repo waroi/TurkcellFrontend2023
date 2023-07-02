@@ -48,41 +48,6 @@
 
 ## Teknik Şartlar
 
-- Proje React kütüphanesi kullanılarak geliştirilmelidir.
-- Proje React Router kullanılarak geliştirilmelidir.
-- Proje React Hooks kullanılarak geliştirilmelidir.
-- Proje React Redux Toolkit kullanılarak geliştirilmelidir.
-- Proje React Formik kullanılarak geliştirilmelidir.
-- Proje React Yup kullanılarak geliştirilmelidir.
-- Proje React Toastify yada bootstrap kullanılarak geliştirilmelidir.
-- Proje Bootstrap ve (Scss veya styled.component) kullanılarak geliştirilmelidir.
-- Kullanıcıdan veri alınan bütün alanlar için formik kullanılmalıdır.
-- Ürünler için fakeapi kullanılabilir. Örneğin: <https://fakestoreapi.com/>
-  Dökümanları gayet açıklayıcıdır.
-  <https://www.petfinder.com/developers/>
-  <https://publicapis.dev/category/animals>
-  <https://rapidapi.com/search/pets>
-- Veri tabanı olarak Firebase kullanılabilir. Kuulanıcı işlemleri için de firebase kullanılabilir. Firebase kullanımı için <https://firebase.google.com/docs/web/setup> adresine bakabilirsiniz. Yada json-server kullanabilirsiniz. Karar size ait. Kullanılan yapı için readme dosyası oluşturulmalıdır (benim yapıyı anlamam ve çalıştırmam için). Bu readme dosyalarına bakılarak projeler ayağa kaldırılacaktır. Hatta package.json dosyasında scipt düzenleyebilirsiniz tek seferde çalıştırmam için bu çok daha iyi olur.
-- Ürünleri get ile json-server'dan alıp listeleyecek (ürün adı, fiyatı, görsel, kategori ve stok adedi)
-<!--
-
-* ürün silme butonu olacak, json-server'dan delete ile silinecek.
-  -->
-
-- ürün güncelleme butonu olacak, json-server'dan put ile güncellenecek.
-- sepet için json-server'da yeni bir data oluşturulacak.
-- sepete ekle butonu olacak, sepete eklenecek (json-server'daki).
-- satın al dendiği zaman sepet boşaltılacak. (json-server'daki), satın alınan ürünlerin adetleri stoktan düşülecek stokta kalmadıysa sepete ekle butonu ürünlerde disable olacak. (stok yok)
-- kategoriye göre filtreleme yapılabilecek
-- sıralama yapabilecek (fiyat, başlık, kategori, a-z, z-a)
-- arama (ürün adı) inputu olacak, listede filtreleme yapacak
-- ürünü sepete eklerken bir kontrol olacak stoktan fazla eklenemez.
-- sepet bölümü olacak, sepete eklenen ürünler listelenecek, ürün adedi arttırılıp azaltılacak, ürün silinecek.
-- sepetteki ürün adedi ürün çeşiti kadar olacak. (ürün çeşidi 3 ise sepetteki ürün adedi 3 olacak) (3 elma, 2 armut, 1 portakal)
-- sepette ürün adedi artmalı azalmalı, manuel olarak girilebilmeli.
-- bir kullanıcı sepete mesela 5 ürün ekledi ama satın almadı, diğer kullanıcı bu ürünlerden bazılarını satın alarak sotoğu tüketti. ilk kullanıcı tekrar sepete girdiğinde ürünlerin stok adedi güncellenecek ve kullanıcıya uyarı verecek. Kullanıcı sayfayı kapatmadıysa satın al butonunda bu kontrol yapılacak.
-- kullanıcı ile etkileşime girilen her yerde toast mesajı olacak. (başarılı, hata, uyarı)
-
 ## Proje Bölümleri
 
 - Anasayfa

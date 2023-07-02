@@ -69,6 +69,7 @@ const CartView = () => {
                 await axios.put(`http://localhost:3000/carts/${user.id}`, { id: user.id, cart: [] })
                 dispatch(setCartLength(0))
             }
+            toast.success("Purchase completed")
         }
     }
 

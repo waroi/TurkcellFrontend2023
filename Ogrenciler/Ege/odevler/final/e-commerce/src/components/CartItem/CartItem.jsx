@@ -50,8 +50,9 @@ const CartItem = ({ cartItem, setCart, toast }) => {
                     id: user.id,
                     cart: newCart,
                 });
+                toast.success("Demand updated.")
             } else {
-                toast.error("Demand can't exceed stock")
+                toast.error("Demand can't exceed stock, number did not update.")
             }
         }
     }

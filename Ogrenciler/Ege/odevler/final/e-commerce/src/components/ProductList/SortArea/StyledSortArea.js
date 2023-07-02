@@ -22,6 +22,7 @@ const StyledSortArea = styled.div`
     font-weight: 500;
     line-height: 20px;
     text-transform: capitalize;
+    background-color: white;
   }
 `;
 

@@ -30,8 +30,7 @@ const SignUpForm = () => {
             imgURL: values.profileImgUrl,
             age: values.age,
             password: values.password,
-            isAdmin: false,
-            cart: []
+            isAdmin: false
         }
         axios.get('http://localhost:3000/users')
             .then(response => {
