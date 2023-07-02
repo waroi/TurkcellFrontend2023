@@ -1,3 +1,5 @@
+Terminals should be opened in final-project folder
+
 For the installation
 npm i
 
