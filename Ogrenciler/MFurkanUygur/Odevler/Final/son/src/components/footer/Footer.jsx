@@ -37,6 +37,7 @@ const Footer = () => {
                     </div>
 
                 </FooterBar>
+                
                 <FooterNav className="navbar-nav">
                     <div className="row ">
                         <FooterLink className=" col-lg-6 d-flex align-items-center ">
