@@ -120,7 +120,6 @@ const CartItem = ({ cartItem, setCart, toast }) => {
         cart: newCart,
       });
 
-      dispatch(setCartLength(cartLength + 1));
     } else toast.error("You have hit the stock limit");
   };
 
@@ -157,7 +156,6 @@ const CartItem = ({ cartItem, setCart, toast }) => {
         cart: newCart,
       });
       
-      dispatch(setCartLength(cartLength - 1));
     }
   };
 

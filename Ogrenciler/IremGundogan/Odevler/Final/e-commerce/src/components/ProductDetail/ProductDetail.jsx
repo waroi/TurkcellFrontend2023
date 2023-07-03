@@ -93,7 +93,7 @@ const ProductDetail = ({ id }) => {
       <ProductDetailStyle>
         <div className="row justify-content-center mt-5 frame">
           <div className="col-lg-6 position-relative">
-            <Slider img={product.image} />
+            <Slider img={product?.image} />
             {product.rating?.count === 0 ? (
               <div className="out-of-stock">OUT OF STOCK</div>
             ) : (

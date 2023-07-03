@@ -42,7 +42,7 @@ const MobileNavbar = () => {
 
   return (
     <MobileNavbarStyle>
-      <div className="row justify-content-between align-items-center">
+      <div className="row justify-content-between align-items-center w-100">
         <div className="col-2 navbarItem text-center">
           <img
             src={hamburgerMenu}

@@ -1,8 +1,5 @@
 import PropTypes from "prop-types";
 import SliderStyle from "./SliderStyle";
-// import Share from "../Share/Share";
-// import shareAndroid from "../../../assets/Share_Android.svg";
-// import StyledTextShare from "../../../styledComponents/StyledTextShare";
 import FikriyeEmocan from "../../../assets/fikriye-emocan.png";
 
 const Slider = ({ img }) => {
@@ -76,7 +73,7 @@ const Slider = ({ img }) => {
 };
 
 Slider.propTypes = {
-  img: PropTypes.string.isRequired,
+  img: PropTypes.string,
 };
 
 export default Slider;
