@@ -17,4 +17,8 @@ const Search = ({ setTodos }) => {
   );
 };
 
+Search.propTypes = {
+  setTodos: PropTypes.func.isRequired,
+};
+
 export default Search;

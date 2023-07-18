@@ -97,7 +97,15 @@ const TodoItem = ({ todo }) => {
           </div>
         </div>
       </div>
-      <div className={status ? "card p-3 bg-success " : isOutdated ? "card bg-danger p-3": "card p-3 "}>
+      <div
+        className={
+          status
+            ? "card p-3 bg-success "
+            : isOutdated
+            ? "card bg-danger p-3"
+            : "card p-3 "
+        }
+      >
         <h3>{todoName}</h3>
         <input
           type="checkbox"
@@ -120,6 +128,15 @@ const TodoItem = ({ todo }) => {
       </div>
     </div>
   );
+};
+
+TodoItem.propTypes = {
+  todo: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    status: PropTypes.bool.isRequired,
+  }),
 };
 
 export default TodoItem;

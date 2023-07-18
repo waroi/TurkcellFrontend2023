@@ -85,21 +85,13 @@ const AddTodo = ({ todos, setTodos }) => {
           Add todo
         </button>
       </div>
-      {/* //<form>
-  //   <label>
-  //     Name:
-  //     <input type="text" name="name" onChange={(e)=>setName(e.target.value)} />
-  //   </label>
-  //   <br />
-  //   <label>
-  //       End date:
-  //       <input type="date" name="date" onChange={(e)=>setDate(e.target.value)}/>
-  //       </label>
-  //   <input type="submit" value="add" onClick={handleSubmit} />
-
-  // </form> */}
     </>
   );
+};
+
+AddTodo.propTypes = {
+  todos: PropTypes.array.isRequired,
+  setTodos: PropTypes.func.isRequired,
 };
 
 export default AddTodo;

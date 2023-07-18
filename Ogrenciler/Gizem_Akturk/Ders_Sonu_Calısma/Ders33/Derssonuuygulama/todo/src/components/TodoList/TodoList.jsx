@@ -14,4 +14,19 @@ const TodoList = ({ todos }) => {
   );
 };
 
+TodoList.defaultProps = {
+  todos: [],
+};
+
+TodoList.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      status: PropTypes.bool.isRequired,
+    })
+  ),
+};
+
 export default TodoList;
